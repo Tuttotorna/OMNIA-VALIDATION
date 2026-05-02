@@ -1,0 +1,585 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+CLONE STDOUT:
+(empty)
+CLONE STDERR:
+Cloning into '/content/OMNIA-VALIDATION'...
+
+CLONE RETURN CODE:
+0
+
+================================================================================
+CHECKING FILES
+================================================================================
+Found resilience v2 script: /content/OMNIA-VALIDATION/examples/structural_boundary_resilience_v2.py
+Found dataset:              /content/OMNIA-VALIDATION/data/structural_benchmark_dataset_v0.jsonl
+
+================================================================================
+CLEANING SCRIPT IF NEEDED
+================================================================================
+Script cleaned.
+
+Last 8 lines of script:
+        f"Result saved to: {RESULTS_PATH}"
+    )
+
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+RUNNING STRUCTURAL BOUNDARY RESILIENCE V2
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION — Structural Boundary Resilience v2
+================================================================================
+Status: FAIL
+Claim level: Level 1 — Boundary-Aware Resilience
+
+Summary:
+  Record count:                 32
+  Success count:                19
+  Success rate:                 0.59375
+  Boundary failure count:       12
+
+Pair-type summary:
+  FALSE_MERGE_TRAP                 count=4 success_rate=0.0 alias=0.3 baseline=0.0 resilient=0.0
+  FALSE_SPLIT_TRAP                 count=4 success_rate=0.0 alias=0.1375 baseline=0.7265625 resilient=0.7265625
+  PARTIAL_DRIFT                    count=6 success_rate=0.333333333333 alias=0.986534916667 baseline=0.17328042328 resilient=0.148125881297
+  STRUCTURAL_DIFFERENT             count=6 success_rate=0.833333333333 alias=0.354166666667 baseline=0.550471230158 resilient=0.54439484127
+  STRUCTURAL_EQUIVALENT            count=6 success_rate=1.0 alias=0.3 baseline=0.0 resilient=0.0
+  STRUCTURAL_NEAR_EQUIVALENT       count=6 success_rate=1.0 alias=0.81448657381 baseline=0.046651785714 resilient=0.042528118298
+
+Pass condition:
+  success_rate >= 0.65 and STRUCTURAL_DIFFERENT success_rate >= 0.80
+
+Result saved to: results/structural_boundary_resilience_v2.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE:
+0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+{
+  "experiment_name": "structural_boundary_resilience_v2",
+  "version": "0.2.0",
+  "date_utc": "2026-05-02T16:09:54.982832+00:00",
+  "domain": "projection_boundary_resilience",
+  "purpose": "Evaluate selective alias-aware resilience without global distance compression.",
+  "core_boundary": "measurement != inference != decision",
+  "claim_level": "Level 1 — Boundary-Aware Resilience",
+  "dataset_path": "data/structural_benchmark_dataset_v0.jsonl",
+  "results": [
+    {
+      "case_id": "eq_001_binary_alternation",
+      "family": "binary_alternation",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "expected_relation": "merge",
+      "observed_relation": "merge",
+      "success": true,
+      "alias_evidence": 0.3,
+      "baseline_distance": 0.0,
+      "resilient_distance": 0.0,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "eq_002_four_cycle",
+      "family": "four_cycle",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "expected_relation": "merge",
+      "observed_relation": "merge",
+      "success": true,
+      "alias_evidence": 0.3,
+      "baseline_distance": 0.0,
+      "resilient_distance": 0.0,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "eq_003_triple_cycle",
+      "family": "triple_cycle",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "expected_relation": "merge",
+      "observed_relation": "merge",
+      "success": true,
+      "alias_evidence": 0.3,
+      "baseline_distance": 0.0,
+      "resilient_distance": 0.0,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "eq_004_nested_blocks",
+      "family": "nested_blocks",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "expected_relation": "merge",
+      "observed_relation": "merge",
+      "success": true,
+      "alias_evidence": 0.3,
+      "baseline_distance": 0.0,
+      "resilient_distance": 0.0,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "eq_005_run_length_gradient",
+      "family": "run_length_gradient",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "expected_relation": "merge",
+      "observed_relation": "merge",
+      "success": true,
+      "alias_evidence": 0.3,
+      "baseline_distance": 0.0,
+      "resilient_distance": 0.0,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "eq_006_mirror_sequence",
+      "family": "mirror_sequence",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "expected_relation": "merge",
+      "observed_relation": "merge",
+      "success": true,
+      "alias_evidence": 0.3,
+      "baseline_distance": 0.0,
+      "resilient_distance": 0.0,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "near_001_binary_alternation",
+      "family": "binary_alternation",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "expected_relation": "merge",
+      "observed_relation": "merge",
+      "success": true,
+      "alias_evidence": 0.7871875,
+      "baseline_distance": 0.046875,
+      "resilient_distance": 0.043168945312,
+      "distance_delta": -0.003706054688
+    },
+    {
+      "case_id": "near_002_four_cycle",
+      "family": "four_cycle",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "expected_relation": "merge",
+      "observed_relation": "merge",
+      "success": true,
+      "alias_evidence": 0.838616071429,
+      "baseline_distance": 0.046875,
+      "resilient_distance": 0.042365373884,
+      "distance_delta": -0.004509626116
+    },
+    {
+      "case_id": "near_003_triple_cycle",
+      "family": "triple_cycle",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "expected_relation": "merge",
+      "observed_relation": "merge",
+      "success": true,
+      "alias_evidence": 0.816666,
+      "baseline_distance": 0.047619047619,
+      "resilient_distance": 0.043386253968,
+      "distance_delta": -0.004232793651
+    },
+    {
+      "case_id": "near_004_nested_blocks",
+      "family": "nested_blocks",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "expected_relation": "merge",
+      "observed_relation": "merge",
+      "success": true,
+      "alias_evidence": 0.8171875,
+      "baseline_distance": 0.046875,
+      "resilient_distance": 0.042700195312,
+      "distance_delta": -0.004174804688
+    },
+    {
+      "case_id": "near_005_run_length_gradient",
+      "family": "run_length_gradient",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "expected_relation": "merge",
+      "observed_relation": "merge",
+      "success": true,
+      "alias_evidence": 0.7908331,
+      "baseline_distance": 0.041666666667,
+      "resilient_distance": 0.0383217625,
+      "distance_delta": -0.003344904167
+    },
+    {
+      "case_id": "near_006_mirror_sequence",
+      "family": "mirror_sequence",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "expected_relation": "merge",
+      "observed_relation": "merge",
+      "success": true,
+      "alias_evidence": 0.836429271429,
+      "baseline_distance": 0.05,
+      "resilient_distance": 0.04522617881,
+      "distance_delta": -0.00477382119
+    },
+    {
+      "case_id": "diff_001_binary_alternation_vs_four_cycle",
+      "family": "binary_alternation_vs_four_cycle",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "expected_relation": "split",
+      "observed_relation": "split",
+      "success": true,
+      "alias_evidence": 0.5,
+      "baseline_distance": 0.5,
+      "resilient_distance": 0.5,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "diff_002_binary_alternation_vs_nested_blocks",
+      "family": "binary_alternation_vs_nested_blocks",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "expected_relation": "split",
+      "observed_relation": "split",
+      "success": true,
+      "alias_evidence": 0.2,
+      "baseline_distance": 0.625,
+      "resilient_distance": 0.625,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "diff_003_four_cycle_vs_run_length_gradient",
+      "family": "four_cycle_vs_run_length_gradient",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "expected_relation": "split",
+      "observed_relation": "split",
+      "success": true,
+      "alias_evidence": 0.15,
+      "baseline_distance": 0.694444444444,
+      "resilient_distance": 0.694444444444,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "diff_004_triple_cycle_vs_mirror_sequence",
+      "family": "triple_cycle_vs_mirror_sequence",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "expected_relation": "split",
+      "observed_relation": "split",
+      "success": true,
+      "alias_evidence": 0.225,
+      "baseline_distance": 0.492063492063,
+      "resilient_distance": 0.492063492063,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "diff_005_nested_blocks_vs_mirror_sequence",
+      "family": "nested_blocks_vs_mirror_sequence",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "expected_relation": "split",
+      "observed_relation": "split",
+      "success": true,
+      "alias_evidence": 0.75,
+      "baseline_distance": 0.546875,
+      "resilient_distance": 0.510416666667,
+      "distance_delta": -0.036458333333
+    },
+    {
+      "case_id": "diff_006_run_length_gradient_vs_binary_alternation",
+      "family": "run_length_gradient_vs_binary_alternation",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "expected_relation": "split",
+      "observed_relation": "partial",
+      "success": false,
+      "alias_evidence": 0.3,
+      "baseline_distance": 0.444444444444,
+      "resilient_distance": 0.444444444444,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "fm_001_temperature_vs_finance",
+      "family": "binary_alternation_domain_collision",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "expected_relation": "split",
+      "observed_relation": "merge",
+      "success": false,
+      "alias_evidence": 0.3,
+      "baseline_distance": 0.0,
+      "resilient_distance": 0.0,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "fm_002_periodicity_spoofing",
+      "family": "periodicity_collision",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "expected_relation": "split",
+      "observed_relation": "merge",
+      "success": false,
+      "alias_evidence": 0.3,
+      "baseline_distance": 0.0,
+      "resilient_distance": 0.0,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "fm_003_json_field_erasure",
+      "family": "metadata_erasure_collision",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "expected_relation": "split",
+      "observed_relation": "merge",
+      "success": false,
+      "alias_evidence": 0.3,
+      "baseline_distance": 0.0,
+      "resilient_distance": 0.0,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "fm_004_low_high_vs_zero_extreme",
+      "family": "magnitude_semantics_collision",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "expected_relation": "split",
+      "observed_relation": "merge",
+      "success": false,
+      "alias_evidence": 0.3,
+      "baseline_distance": 0.0,
+      "resilient_distance": 0.0,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "fs_001_alias_inflation_binary",
+      "family": "binary_alternation",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "expected_relation": "merge",
+      "observed_relation": "split",
+      "success": false,
+      "alias_evidence": 0.1,
+      "baseline_distance": 0.65625,
+      "resilient_distance": 0.65625,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "fs_002_cardinality_inflation_cycle",
+      "family": "four_cycle",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "expected_relation": "merge",
+      "observed_relation": "split",
+      "success": false,
+      "alias_evidence": 0.15,
+      "baseline_distance": 0.5,
+      "resilient_distance": 0.5,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "fs_003_separator_attack",
+      "family": "word_pair_alternation",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "expected_relation": "merge",
+      "observed_relation": "split",
+      "success": false,
+      "alias_evidence": 0.15,
+      "baseline_distance": 0.984375,
+      "resilient_distance": 0.984375,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "fs_004_nested_alias_split",
+      "family": "nested_blocks",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "expected_relation": "merge",
+      "observed_relation": "split",
+      "success": false,
+      "alias_evidence": 0.15,
+      "baseline_distance": 0.765625,
+      "resilient_distance": 0.765625,
+      "distance_delta": 0.0
+    },
+    {
+      "case_id": "drift_001_binary_alternation",
+      "family": "binary_alternation",
+      "pair_type": "PARTIAL_DRIFT",
+      "expected_relation": "partial",
+      "observed_relation": "merge",
+      "success": false,
+      "alias_evidence": 0.9887097,
+      "baseline_distance": 0.0625,
+      "resilient_distance": 0.053360214583,
+      "distance_delta": -0.009139785417
+    },
+    {
+      "case_id": "drift_002_four_cycle",
+      "family": "four_cycle",
+      "pair_type": "PARTIAL_DRIFT",
+      "expected_relation": "partial",
+      "observed_relation": "merge",
+      "success": false,
+      "alias_evidence": 0.9830642,
+      "baseline_distance": 0.078125,
+      "resilient_distance": 0.066847286458,
+      "distance_delta": -0.011277713542
+    },
+    {
+      "case_id": "drift_003_triple_cycle",
+      "family": "triple_cycle",
+      "pair_type": "PARTIAL_DRIFT",
+      "expected_relation": "partial",
+      "observed_relation": "merge",
+      "success": false,
+      "alias_evidence": 0.9766662,
+      "baseline_distance": 0.095238095238,
+      "resilient_distance": 0.081693136508,
+      "distance_delta": -0.01354495873
+    },
+    {
+      "case_id": "drift_004_nested_blocks",
+      "family": "nested_blocks",
+      "pair_type": "PARTIAL_DRIFT",
+      "expected_relation": "partial",
+      "observed_relation": "merge",
+      "success": false,
+      "alias_evidence": 0.9942628,
+      "baseline_distance": 0.109375,
+      "resilient_distance": 0.09317791875,
+      "distance_delta": -0.01619708125
+    },
+    {
+      "case_id": "drift_005_run_length_gradient",
+      "family": "run_length_gradient",
+      "pair_type": "PARTIAL_DRIFT",
+      "expected_relation": "partial",
+      "observed_relation": "partial",
+      "success": true,
+      "alias_evidence": 0.9949278,
+      "baseline_distance": 0.194444444444,
+      "resilient_distance": 0.165606531481,
+      "distance_delta": -0.028837912963
+    },
+    {
+      "case_id": "drift_006_mirror_sequence",
+      "family": "mirror_sequence",
+      "pair_type": "PARTIAL_DRIFT",
+      "expected_relation": "partial",
+      "observed_relation": "partial",
+      "success": true,
+      "alias_evidence": 0.9815788,
+      "baseline_distance": 0.5,
+      "resilient_distance": 0.4280702,
+      "distance_delta": -0.0719298
+    }
+  ],
+  "summary": {
+    "record_count": 32,
+    "success_count": 19,
+    "success_rate": 0.59375,
+    "resilient_boundary_failure_count": 12,
+    "pair_type_summary": {
+      "FALSE_MERGE_TRAP": {
+        "count": 4,
+        "success_rate": 0.0,
+        "avg_alias_evidence": 0.3,
+        "avg_baseline_distance": 0.0,
+        "avg_resilient_distance": 0.0
+      },
+      "FALSE_SPLIT_TRAP": {
+        "count": 4,
+        "success_rate": 0.0,
+        "avg_alias_evidence": 0.1375,
+        "avg_baseline_distance": 0.7265625,
+        "avg_resilient_distance": 0.7265625
+      },
+      "PARTIAL_DRIFT": {
+        "count": 6,
+        "success_rate": 0.333333333333,
+        "avg_alias_evidence": 0.986534916667,
+        "avg_baseline_distance": 0.17328042328,
+        "avg_resilient_distance": 0.148125881297
+      },
+      "STRUCTURAL_DIFFERENT": {
+        "count": 6,
+        "success_rate": 0.833333333333,
+        "avg_alias_evidence": 0.354166666667,
+        "avg_baseline_distance": 0.550471230158,
+        "avg_resilient_distance": 0.54439484127
+      },
+      "STRUCTURAL_EQUIVALENT": {
+        "count": 6,
+        "success_rate": 1.0,
+        "avg_alias_evidence": 0.3,
+        "avg_baseline_distance": 0.0,
+        "avg_resilient_distance": 0.0
+      },
+      "STRUCTURAL_NEAR_EQUIVALENT": {
+        "count": 6,
+        "success_rate": 1.0,
+        "avg_alias_evidence": 0.81448657381,
+        "avg_baseline_distance": 0.046651785714,
+        "avg_resilient_distance": 0.042528118298
+      }
+    }
+  },
+  "pass_condition": "success_rate >= 0.65 and STRUCTURAL_DIFFERENT success_rate >= 0.80",
+  "status": "FAIL",
+  "main_insight": "Selective compression may preserve true structural separation better than global compression.",
+  "limitations": [
+    "This is not the full OMNIA engine.",
+    "This is a toy resilience layer.",
+    "Alias evidence is heuristic.",
+    "No semantic truth is evaluated.",
+    "False merges may remain unresolved.",
+    "No universal robustness claim is made."
+  ],
+  "reproduction_command": "python examples/structural_boundary_resilience_v2.py"
+}
+
+================================================================================
+VALIDATION SUMMARY
+================================================================================
+Status:                    FAIL
+Claim level:               Level 1 — Boundary-Aware Resilience
+Record count:              32
+Success count:             19
+Success rate:              0.59375
+Boundary failure count:    12
+
+Pair-type summary:
+  FALSE_MERGE_TRAP                 count=4 success_rate=0.0 alias=0.3 baseline=0.0 resilient=0.0
+  FALSE_SPLIT_TRAP                 count=4 success_rate=0.0 alias=0.1375 baseline=0.7265625 resilient=0.7265625
+  PARTIAL_DRIFT                    count=6 success_rate=0.333333333333 alias=0.986534916667 baseline=0.17328042328 resilient=0.148125881297
+  STRUCTURAL_DIFFERENT             count=6 success_rate=0.833333333333 alias=0.354166666667 baseline=0.550471230158 resilient=0.54439484127
+  STRUCTURAL_EQUIVALENT            count=6 success_rate=1.0 alias=0.3 baseline=0.0 resilient=0.0
+  STRUCTURAL_NEAR_EQUIVALENT       count=6 success_rate=1.0 alias=0.81448657381 baseline=0.046651785714 resilient=0.042528118298
+
+Failed cases:
+  diff_006_run_length_gradient_vs_binary_alternation type=STRUCTURAL_DIFFERENT         expected=split    observed=partial  alias=0.3 baseline=0.444444444444 resilient=0.444444444444 delta=0.0
+  fm_001_temperature_vs_finance              type=FALSE_MERGE_TRAP             expected=split    observed=merge    alias=0.3 baseline=0.0 resilient=0.0 delta=0.0
+  fm_002_periodicity_spoofing                type=FALSE_MERGE_TRAP             expected=split    observed=merge    alias=0.3 baseline=0.0 resilient=0.0 delta=0.0
+  fm_003_json_field_erasure                  type=FALSE_MERGE_TRAP             expected=split    observed=merge    alias=0.3 baseline=0.0 resilient=0.0 delta=0.0
+  fm_004_low_high_vs_zero_extreme            type=FALSE_MERGE_TRAP             expected=split    observed=merge    alias=0.3 baseline=0.0 resilient=0.0 delta=0.0
+  fs_001_alias_inflation_binary              type=FALSE_SPLIT_TRAP             expected=merge    observed=split    alias=0.1 baseline=0.65625 resilient=0.65625 delta=0.0
+  fs_002_cardinality_inflation_cycle         type=FALSE_SPLIT_TRAP             expected=merge    observed=split    alias=0.15 baseline=0.5 resilient=0.5 delta=0.0
+  fs_003_separator_attack                    type=FALSE_SPLIT_TRAP             expected=merge    observed=split    alias=0.15 baseline=0.984375 resilient=0.984375 delta=0.0
+  fs_004_nested_alias_split                  type=FALSE_SPLIT_TRAP             expected=merge    observed=split    alias=0.15 baseline=0.765625 resilient=0.765625 delta=0.0
+  drift_001_binary_alternation               type=PARTIAL_DRIFT                expected=partial  observed=merge    alias=0.9887097 baseline=0.0625 resilient=0.053360214583 delta=-0.009139785417
+  drift_002_four_cycle                       type=PARTIAL_DRIFT                expected=partial  observed=merge    alias=0.9830642 baseline=0.078125 resilient=0.066847286458 delta=-0.011277713542
+  drift_003_triple_cycle                     type=PARTIAL_DRIFT                expected=partial  observed=merge    alias=0.9766662 baseline=0.095238095238 resilient=0.081693136508 delta=-0.01354495873
+  drift_004_nested_blocks                    type=PARTIAL_DRIFT                expected=partial  observed=merge    alias=0.9942628 baseline=0.109375 resilient=0.09317791875 delta=-0.01619708125
+
+Boundary-relevant cases:
+  fm_001_temperature_vs_finance              type=FALSE_MERGE_TRAP     success=False observed=merge    alias=0.3 baseline=0.0 resilient=0.0
+  fm_002_periodicity_spoofing                type=FALSE_MERGE_TRAP     success=False observed=merge    alias=0.3 baseline=0.0 resilient=0.0
+  fm_003_json_field_erasure                  type=FALSE_MERGE_TRAP     success=False observed=merge    alias=0.3 baseline=0.0 resilient=0.0
+  fm_004_low_high_vs_zero_extreme            type=FALSE_MERGE_TRAP     success=False observed=merge    alias=0.3 baseline=0.0 resilient=0.0
+  fs_001_alias_inflation_binary              type=FALSE_SPLIT_TRAP     success=False observed=split    alias=0.1 baseline=0.65625 resilient=0.65625
+  fs_002_cardinality_inflation_cycle         type=FALSE_SPLIT_TRAP     success=False observed=split    alias=0.15 baseline=0.5 resilient=0.5
+  fs_003_separator_attack                    type=FALSE_SPLIT_TRAP     success=False observed=split    alias=0.15 baseline=0.984375 resilient=0.984375
+  fs_004_nested_alias_split                  type=FALSE_SPLIT_TRAP     success=False observed=split    alias=0.15 baseline=0.765625 resilient=0.765625
+  drift_001_binary_alternation               type=PARTIAL_DRIFT        success=False observed=merge    alias=0.9887097 baseline=0.0625 resilient=0.053360214583
+  drift_002_four_cycle                       type=PARTIAL_DRIFT        success=False observed=merge    alias=0.9830642 baseline=0.078125 resilient=0.066847286458
+  drift_003_triple_cycle                     type=PARTIAL_DRIFT        success=False observed=merge    alias=0.9766662 baseline=0.095238095238 resilient=0.081693136508
+  drift_004_nested_blocks                    type=PARTIAL_DRIFT        success=False observed=merge    alias=0.9942628 baseline=0.109375 resilient=0.09317791875
+  drift_005_run_length_gradient              type=PARTIAL_DRIFT        success=True observed=partial  alias=0.9949278 baseline=0.194444444444 resilient=0.165606531481
+  drift_006_mirror_sequence                  type=PARTIAL_DRIFT        success=True observed=partial  alias=0.9815788 baseline=0.5 resilient=0.4280702
+
+================================================================================
+FINAL CHECK
+================================================================================
+FAIL — structural boundary resilience v2 did not satisfy pass condition.
