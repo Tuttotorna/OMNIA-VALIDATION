@@ -1,0 +1,502 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+CLONE STDOUT:
+(empty)
+CLONE STDERR:
+Cloning into '/content/OMNIA-VALIDATION'...
+
+CLONE RETURN CODE:
+0
+
+================================================================================
+CHECKING FILES
+================================================================================
+Found alias detector: /content/OMNIA-VALIDATION/examples/structural_alias_detector_v3.py
+Found dataset:        /content/OMNIA-VALIDATION/data/structural_benchmark_dataset_v0.jsonl
+
+================================================================================
+CLEANING SCRIPT IF NEEDED
+================================================================================
+Script cleaned.
+
+Last 8 lines of script:
+
+    print()
+    print(f"Result saved to: {RESULTS_PATH}")
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+RUNNING STRUCTURAL ALIAS DETECTOR V3
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION — Structural Alias Detector v3
+================================================================================
+Status: FAIL
+
+Summary:
+  Record count:   32
+  Success count:  12
+  Success rate:   0.375
+
+Pair-type summary:
+  FALSE_MERGE_TRAP               count=4 success_rate=0.0
+  FALSE_SPLIT_TRAP               count=4 success_rate=0.0
+  PARTIAL_DRIFT                  count=6 success_rate=0.0
+  STRUCTURAL_DIFFERENT           count=6 success_rate=1.0
+  STRUCTURAL_EQUIVALENT          count=6 success_rate=1.0
+  STRUCTURAL_NEAR_EQUIVALENT     count=6 success_rate=0.0
+
+Result saved to: results/structural_alias_detector_v3.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE:
+0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+{
+  "experiment_name": "structural_alias_detector_v3",
+  "version": "0.3.0",
+  "domain": "structural_alias_detection",
+  "purpose": "Measure alias similarity using transition topology instead of token overlap.",
+  "core_boundary": "measurement != inference != decision",
+  "dataset_path": "data/structural_benchmark_dataset_v0.jsonl",
+  "record_count": 32,
+  "success_count": 12,
+  "success_rate": 0.375,
+  "pair_type_summary": {
+    "FALSE_MERGE_TRAP": {
+      "count": 4,
+      "success_count": 0,
+      "success_rate": 0.0
+    },
+    "FALSE_SPLIT_TRAP": {
+      "count": 4,
+      "success_count": 0,
+      "success_rate": 0.0
+    },
+    "PARTIAL_DRIFT": {
+      "count": 6,
+      "success_count": 0,
+      "success_rate": 0.0
+    },
+    "STRUCTURAL_DIFFERENT": {
+      "count": 6,
+      "success_count": 6,
+      "success_rate": 1.0
+    },
+    "STRUCTURAL_EQUIVALENT": {
+      "count": 6,
+      "success_count": 6,
+      "success_rate": 1.0
+    },
+    "STRUCTURAL_NEAR_EQUIVALENT": {
+      "count": 6,
+      "success_count": 0,
+      "success_rate": 0.0
+    }
+  },
+  "status": "FAIL",
+  "results": [
+    {
+      "case_id": "eq_001_binary_alternation",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "family": "binary_alternation",
+      "alias_evidence": 0.95,
+      "transition_score": 1.0,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.25,
+      "success": true
+    },
+    {
+      "case_id": "eq_002_four_cycle",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "family": "four_cycle",
+      "alias_evidence": 0.95,
+      "transition_score": 1.0,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.25,
+      "success": true
+    },
+    {
+      "case_id": "eq_003_triple_cycle",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "family": "triple_cycle",
+      "alias_evidence": 0.95,
+      "transition_score": 1.0,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.25,
+      "success": true
+    },
+    {
+      "case_id": "eq_004_nested_blocks",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "family": "nested_blocks",
+      "alias_evidence": 0.95,
+      "transition_score": 1.0,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.25,
+      "success": true
+    },
+    {
+      "case_id": "eq_005_run_length_gradient",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "family": "run_length_gradient",
+      "alias_evidence": 0.95,
+      "transition_score": 1.0,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.25,
+      "success": true
+    },
+    {
+      "case_id": "eq_006_mirror_sequence",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "family": "mirror_sequence",
+      "alias_evidence": 0.95,
+      "transition_score": 1.0,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.25,
+      "success": true
+    },
+    {
+      "case_id": "near_001_binary_alternation",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "family": "binary_alternation",
+      "alias_evidence": 0.091044776119,
+      "transition_score": 0.0,
+      "lexical_score": 0.910447761194,
+      "structural_bonus": 0.0,
+      "success": false
+    },
+    {
+      "case_id": "near_002_four_cycle",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "family": "four_cycle",
+      "alias_evidence": 0.161044776119,
+      "transition_score": 0.1,
+      "lexical_score": 0.910447761194,
+      "structural_bonus": 0.0,
+      "success": false
+    },
+    {
+      "case_id": "near_003_triple_cycle",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "family": "triple_cycle",
+      "alias_evidence": 0.090909090909,
+      "transition_score": 0.0,
+      "lexical_score": 0.909090909091,
+      "structural_bonus": 0.0,
+      "success": false
+    },
+    {
+      "case_id": "near_004_nested_blocks",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "family": "nested_blocks",
+      "alias_evidence": 0.091044776119,
+      "transition_score": 0.0,
+      "lexical_score": 0.910447761194,
+      "structural_bonus": 0.0,
+      "success": false
+    },
+    {
+      "case_id": "near_005_run_length_gradient",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "family": "run_length_gradient",
+      "alias_evidence": 0.092,
+      "transition_score": 0.0,
+      "lexical_score": 0.92,
+      "structural_bonus": 0.0,
+      "success": false
+    },
+    {
+      "case_id": "near_006_mirror_sequence",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "family": "mirror_sequence",
+      "alias_evidence": 0.090476190476,
+      "transition_score": 0.0,
+      "lexical_score": 0.904761904762,
+      "structural_bonus": 0.0,
+      "success": false
+    },
+    {
+      "case_id": "diff_001_binary_alternation_vs_four_cycle",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "family": "binary_alternation_vs_four_cycle",
+      "alias_evidence": 0.173333333333,
+      "transition_score": 0.2,
+      "lexical_score": 0.333333333333,
+      "structural_bonus": 0.0,
+      "success": true
+    },
+    {
+      "case_id": "diff_002_binary_alternation_vs_nested_blocks",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "family": "binary_alternation_vs_nested_blocks",
+      "alias_evidence": 0.0,
+      "transition_score": 0.0,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.0,
+      "success": true
+    },
+    {
+      "case_id": "diff_003_four_cycle_vs_run_length_gradient",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "family": "four_cycle_vs_run_length_gradient",
+      "alias_evidence": 0.0,
+      "transition_score": 0.0,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.0,
+      "success": true
+    },
+    {
+      "case_id": "diff_004_triple_cycle_vs_mirror_sequence",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "family": "triple_cycle_vs_mirror_sequence",
+      "alias_evidence": 0.116666666667,
+      "transition_score": 0.166666666667,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.0,
+      "success": true
+    },
+    {
+      "case_id": "diff_005_nested_blocks_vs_mirror_sequence",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "family": "nested_blocks_vs_mirror_sequence",
+      "alias_evidence": 0.058974358974,
+      "transition_score": 0.0,
+      "lexical_score": 0.589743589744,
+      "structural_bonus": 0.0,
+      "success": true
+    },
+    {
+      "case_id": "diff_006_run_length_gradient_vs_binary_alternation",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "family": "run_length_gradient_vs_binary_alternation",
+      "alias_evidence": 0.0,
+      "transition_score": 0.0,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.0,
+      "success": true
+    },
+    {
+      "case_id": "fm_001_temperature_vs_finance",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "family": "binary_alternation_domain_collision",
+      "alias_evidence": 0.95,
+      "transition_score": 1.0,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.25,
+      "success": false
+    },
+    {
+      "case_id": "fm_002_periodicity_spoofing",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "family": "periodicity_collision",
+      "alias_evidence": 0.95,
+      "transition_score": 1.0,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.25,
+      "success": false
+    },
+    {
+      "case_id": "fm_003_json_field_erasure",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "family": "metadata_erasure_collision",
+      "alias_evidence": 0.95,
+      "transition_score": 1.0,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.25,
+      "success": false
+    },
+    {
+      "case_id": "fm_004_low_high_vs_zero_extreme",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "family": "magnitude_semantics_collision",
+      "alias_evidence": 0.95,
+      "transition_score": 1.0,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.25,
+      "success": false
+    },
+    {
+      "case_id": "fs_001_alias_inflation_binary",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "family": "binary_alternation",
+      "alias_evidence": 0.1,
+      "transition_score": 0.142857142857,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.0,
+      "success": false
+    },
+    {
+      "case_id": "fs_002_cardinality_inflation_cycle",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "family": "four_cycle",
+      "alias_evidence": 0.233333333333,
+      "transition_score": 0.333333333333,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.0,
+      "success": false
+    },
+    {
+      "case_id": "fs_003_separator_attack",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "family": "word_pair_alternation",
+      "alias_evidence": 0.0,
+      "transition_score": 0.0,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.0,
+      "success": false
+    },
+    {
+      "case_id": "fs_004_nested_alias_split",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "family": "nested_blocks",
+      "alias_evidence": 0.0,
+      "transition_score": 0.0,
+      "lexical_score": 0.0,
+      "structural_bonus": 0.0,
+      "success": false
+    },
+    {
+      "case_id": "drift_001_binary_alternation",
+      "pair_type": "PARTIAL_DRIFT",
+      "family": "binary_alternation",
+      "alias_evidence": 0.096875,
+      "transition_score": 0.0,
+      "lexical_score": 0.96875,
+      "structural_bonus": 0.0,
+      "success": false
+    },
+    {
+      "case_id": "drift_002_four_cycle",
+      "pair_type": "PARTIAL_DRIFT",
+      "family": "four_cycle",
+      "alias_evidence": 0.196875,
+      "transition_score": 0.142857142857,
+      "lexical_score": 0.96875,
+      "structural_bonus": 0.0,
+      "success": false
+    },
+    {
+      "case_id": "drift_003_triple_cycle",
+      "pair_type": "PARTIAL_DRIFT",
+      "family": "triple_cycle",
+      "alias_evidence": 0.095238095238,
+      "transition_score": 0.0,
+      "lexical_score": 0.952380952381,
+      "structural_bonus": 0.0,
+      "success": false
+    },
+    {
+      "case_id": "drift_004_nested_blocks",
+      "pair_type": "PARTIAL_DRIFT",
+      "family": "nested_blocks",
+      "alias_evidence": 0.0953125,
+      "transition_score": 0.0,
+      "lexical_score": 0.953125,
+      "structural_bonus": 0.0,
+      "success": false
+    },
+    {
+      "case_id": "drift_005_run_length_gradient",
+      "pair_type": "PARTIAL_DRIFT",
+      "family": "run_length_gradient",
+      "alias_evidence": 0.095833333333,
+      "transition_score": 0.0,
+      "lexical_score": 0.958333333333,
+      "structural_bonus": 0.0,
+      "success": false
+    },
+    {
+      "case_id": "drift_006_mirror_sequence",
+      "pair_type": "PARTIAL_DRIFT",
+      "family": "mirror_sequence",
+      "alias_evidence": 0.095,
+      "transition_score": 0.0,
+      "lexical_score": 0.95,
+      "structural_bonus": 0.0,
+      "success": false
+    }
+  ],
+  "main_insight": "Transition topology preserves structural equivalence better than lexical overlap.",
+  "limitations": [
+    "This is not the full OMNIA engine.",
+    "This is a toy alias detector.",
+    "No semantic truth is evaluated.",
+    "Graph signatures remain simplified.",
+    "No universal robustness claim is made."
+  ],
+  "reproduction_command": "python examples/structural_alias_detector_v3.py"
+}
+
+================================================================================
+VALIDATION SUMMARY
+================================================================================
+Status:          FAIL
+Record count:    32
+Success count:   12
+Success rate:    0.375
+
+Pair-type summary:
+  FALSE_MERGE_TRAP               count=4 success_count=0 success_rate=0.0
+  FALSE_SPLIT_TRAP               count=4 success_count=0 success_rate=0.0
+  PARTIAL_DRIFT                  count=6 success_count=0 success_rate=0.0
+  STRUCTURAL_DIFFERENT           count=6 success_count=6 success_rate=1.0
+  STRUCTURAL_EQUIVALENT          count=6 success_count=6 success_rate=1.0
+  STRUCTURAL_NEAR_EQUIVALENT     count=6 success_count=0 success_rate=0.0
+
+Failed cases:
+  near_001_binary_alternation                type=STRUCTURAL_NEAR_EQUIVALENT   alias=0.091044776119 transition=0.0 lexical=0.910447761194 bonus=0.0
+  near_002_four_cycle                        type=STRUCTURAL_NEAR_EQUIVALENT   alias=0.161044776119 transition=0.1 lexical=0.910447761194 bonus=0.0
+  near_003_triple_cycle                      type=STRUCTURAL_NEAR_EQUIVALENT   alias=0.090909090909 transition=0.0 lexical=0.909090909091 bonus=0.0
+  near_004_nested_blocks                     type=STRUCTURAL_NEAR_EQUIVALENT   alias=0.091044776119 transition=0.0 lexical=0.910447761194 bonus=0.0
+  near_005_run_length_gradient               type=STRUCTURAL_NEAR_EQUIVALENT   alias=0.092 transition=0.0 lexical=0.92 bonus=0.0
+  near_006_mirror_sequence                   type=STRUCTURAL_NEAR_EQUIVALENT   alias=0.090476190476 transition=0.0 lexical=0.904761904762 bonus=0.0
+  fm_001_temperature_vs_finance              type=FALSE_MERGE_TRAP             alias=0.95 transition=1.0 lexical=0.0 bonus=0.25
+  fm_002_periodicity_spoofing                type=FALSE_MERGE_TRAP             alias=0.95 transition=1.0 lexical=0.0 bonus=0.25
+  fm_003_json_field_erasure                  type=FALSE_MERGE_TRAP             alias=0.95 transition=1.0 lexical=0.0 bonus=0.25
+  fm_004_low_high_vs_zero_extreme            type=FALSE_MERGE_TRAP             alias=0.95 transition=1.0 lexical=0.0 bonus=0.25
+  fs_001_alias_inflation_binary              type=FALSE_SPLIT_TRAP             alias=0.1 transition=0.142857142857 lexical=0.0 bonus=0.0
+  fs_002_cardinality_inflation_cycle         type=FALSE_SPLIT_TRAP             alias=0.233333333333 transition=0.333333333333 lexical=0.0 bonus=0.0
+  fs_003_separator_attack                    type=FALSE_SPLIT_TRAP             alias=0.0 transition=0.0 lexical=0.0 bonus=0.0
+  fs_004_nested_alias_split                  type=FALSE_SPLIT_TRAP             alias=0.0 transition=0.0 lexical=0.0 bonus=0.0
+  drift_001_binary_alternation               type=PARTIAL_DRIFT                alias=0.096875 transition=0.0 lexical=0.96875 bonus=0.0
+  drift_002_four_cycle                       type=PARTIAL_DRIFT                alias=0.196875 transition=0.142857142857 lexical=0.96875 bonus=0.0
+  drift_003_triple_cycle                     type=PARTIAL_DRIFT                alias=0.095238095238 transition=0.0 lexical=0.952380952381 bonus=0.0
+  drift_004_nested_blocks                    type=PARTIAL_DRIFT                alias=0.0953125 transition=0.0 lexical=0.953125 bonus=0.0
+  drift_005_run_length_gradient              type=PARTIAL_DRIFT                alias=0.095833333333 transition=0.0 lexical=0.958333333333 bonus=0.0
+  drift_006_mirror_sequence                  type=PARTIAL_DRIFT                alias=0.095 transition=0.0 lexical=0.95 bonus=0.0
+
+Alias evidence by boundary-relevant cases:
+  fm_001_temperature_vs_finance              type=FALSE_MERGE_TRAP     success=False alias=0.95 transition=1.0 lexical=0.0
+  fm_002_periodicity_spoofing                type=FALSE_MERGE_TRAP     success=False alias=0.95 transition=1.0 lexical=0.0
+  fm_003_json_field_erasure                  type=FALSE_MERGE_TRAP     success=False alias=0.95 transition=1.0 lexical=0.0
+  fm_004_low_high_vs_zero_extreme            type=FALSE_MERGE_TRAP     success=False alias=0.95 transition=1.0 lexical=0.0
+  fs_001_alias_inflation_binary              type=FALSE_SPLIT_TRAP     success=False alias=0.1 transition=0.142857142857 lexical=0.0
+  fs_002_cardinality_inflation_cycle         type=FALSE_SPLIT_TRAP     success=False alias=0.233333333333 transition=0.333333333333 lexical=0.0
+  fs_003_separator_attack                    type=FALSE_SPLIT_TRAP     success=False alias=0.0 transition=0.0 lexical=0.0
+  fs_004_nested_alias_split                  type=FALSE_SPLIT_TRAP     success=False alias=0.0 transition=0.0 lexical=0.0
+  drift_001_binary_alternation               type=PARTIAL_DRIFT        success=False alias=0.096875 transition=0.0 lexical=0.96875
+  drift_002_four_cycle                       type=PARTIAL_DRIFT        success=False alias=0.196875 transition=0.142857142857 lexical=0.96875
+  drift_003_triple_cycle                     type=PARTIAL_DRIFT        success=False alias=0.095238095238 transition=0.0 lexical=0.952380952381
+  drift_004_nested_blocks                    type=PARTIAL_DRIFT        success=False alias=0.0953125 transition=0.0 lexical=0.953125
+  drift_005_run_length_gradient              type=PARTIAL_DRIFT        success=False alias=0.095833333333 transition=0.0 lexical=0.958333333333
+  drift_006_mirror_sequence                  type=PARTIAL_DRIFT        success=False alias=0.095 transition=0.0 lexical=0.95
+
+================================================================================
+FINAL CHECK
+================================================================================
+FAIL — structural alias detector v3 did not satisfy pass condition.
