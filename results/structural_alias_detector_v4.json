@@ -1,0 +1,687 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+CLONE STDOUT:
+(empty)
+CLONE STDERR:
+Cloning into '/content/OMNIA-VALIDATION'...
+
+CLONE RETURN CODE:
+0
+
+================================================================================
+CHECKING FILES
+================================================================================
+Found alias detector v4: /content/OMNIA-VALIDATION/examples/structural_alias_detector_v4.py
+Found dataset:           /content/OMNIA-VALIDATION/data/structural_benchmark_dataset_v0.jsonl
+
+================================================================================
+CLEANING SCRIPT IF NEEDED
+================================================================================
+Script cleaned.
+
+Last 8 lines of script:
+
+    print()
+    print(f"Result saved to: {RESULTS_PATH}")
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+RUNNING STRUCTURAL ALIAS DETECTOR V4
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION — Structural Alias Detector v4
+================================================================================
+Status: FAIL
+Version: 0.4.0
+
+Summary:
+  Record count:   32
+  Success count:  15
+  Success rate:   0.46875
+
+Pair-type summary:
+  FALSE_MERGE_TRAP               count=4 success_rate=0.0 avg_similarity=1.0 transition=1.0 motif3=1.0
+  FALSE_SPLIT_TRAP               count=4 success_rate=0.0 avg_similarity=0.306381490303 transition=0.202380952381 motif3=0.064516129032
+  PARTIAL_DRIFT                  count=6 success_rate=0.166666666667 avg_similarity=0.880146650131 transition=0.873275070194 motif3=0.777960141246
+  STRUCTURAL_DIFFERENT           count=6 success_rate=0.333333333333 avg_similarity=0.398812986671 transition=0.274508949491 motif3=0.033990147783
+  STRUCTURAL_EQUIVALENT          count=6 success_rate=1.0 avg_similarity=1.0 transition=1.0 motif3=1.0
+  STRUCTURAL_NEAR_EQUIVALENT     count=6 success_rate=1.0 avg_similarity=0.875887796375 transition=0.905218260538 motif3=0.85553855051
+
+Pass condition:
+  success_rate >= 0.55 and STRUCTURAL_DIFFERENT success_rate >= 0.80 and STRUCTURAL_NEAR_EQUIVALENT success_rate >= 0.50 and PARTIAL_DRIFT success_rate > 0.0
+
+Result saved to: results/structural_alias_detector_v4.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE:
+0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+{
+  "experiment_name": "structural_alias_detector_v4",
+  "version": "0.4.0",
+  "date_utc": "2026-05-02T16:53:06.298406+00:00",
+  "domain": "fuzzy_structural_alias_detection",
+  "purpose": "Measure fuzzy transition-topology similarity instead of exact graph-signature identity.",
+  "core_boundary": "measurement != inference != decision",
+  "dataset_path": "data/structural_benchmark_dataset_v0.jsonl",
+  "summary": {
+    "record_count": 32,
+    "success_count": 15,
+    "success_rate": 0.46875,
+    "pair_type_summary": {
+      "FALSE_MERGE_TRAP": {
+        "count": 4,
+        "success_count": 0,
+        "success_rate": 0.0,
+        "avg_fuzzy_similarity": 1.0,
+        "avg_transition_overlap": 1.0,
+        "avg_motif3_overlap": 1.0
+      },
+      "FALSE_SPLIT_TRAP": {
+        "count": 4,
+        "success_count": 0,
+        "success_rate": 0.0,
+        "avg_fuzzy_similarity": 0.306381490303,
+        "avg_transition_overlap": 0.202380952381,
+        "avg_motif3_overlap": 0.064516129032
+      },
+      "PARTIAL_DRIFT": {
+        "count": 6,
+        "success_count": 1,
+        "success_rate": 0.166666666667,
+        "avg_fuzzy_similarity": 0.880146650131,
+        "avg_transition_overlap": 0.873275070194,
+        "avg_motif3_overlap": 0.777960141246
+      },
+      "STRUCTURAL_DIFFERENT": {
+        "count": 6,
+        "success_count": 2,
+        "success_rate": 0.333333333333,
+        "avg_fuzzy_similarity": 0.398812986671,
+        "avg_transition_overlap": 0.274508949491,
+        "avg_motif3_overlap": 0.033990147783
+      },
+      "STRUCTURAL_EQUIVALENT": {
+        "count": 6,
+        "success_count": 6,
+        "success_rate": 1.0,
+        "avg_fuzzy_similarity": 1.0,
+        "avg_transition_overlap": 1.0,
+        "avg_motif3_overlap": 1.0
+      },
+      "STRUCTURAL_NEAR_EQUIVALENT": {
+        "count": 6,
+        "success_count": 6,
+        "success_rate": 1.0,
+        "avg_fuzzy_similarity": 0.875887796375,
+        "avg_transition_overlap": 0.905218260538,
+        "avg_motif3_overlap": 0.85553855051
+      }
+    }
+  },
+  "status": "FAIL",
+  "pass_condition": "success_rate >= 0.55 and STRUCTURAL_DIFFERENT success_rate >= 0.80 and STRUCTURAL_NEAR_EQUIVALENT success_rate >= 0.50 and PARTIAL_DRIFT success_rate > 0.0",
+  "results": [
+    {
+      "case_id": "eq_001_binary_alternation",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "family": "binary_alternation",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "high_similarity",
+      "success": true,
+      "fuzzy_similarity": 1.0,
+      "transition_overlap": 1.0,
+      "motif2_overlap": 1.0,
+      "motif3_overlap": 1.0,
+      "length_score": 1.0,
+      "cardinality_score": 1.0,
+      "entropy_score": 1.0
+    },
+    {
+      "case_id": "eq_002_four_cycle",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "family": "four_cycle",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "high_similarity",
+      "success": true,
+      "fuzzy_similarity": 1.0,
+      "transition_overlap": 1.0,
+      "motif2_overlap": 1.0,
+      "motif3_overlap": 1.0,
+      "length_score": 1.0,
+      "cardinality_score": 1.0,
+      "entropy_score": 1.0
+    },
+    {
+      "case_id": "eq_003_triple_cycle",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "family": "triple_cycle",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "high_similarity",
+      "success": true,
+      "fuzzy_similarity": 1.0,
+      "transition_overlap": 1.0,
+      "motif2_overlap": 1.0,
+      "motif3_overlap": 1.0,
+      "length_score": 1.0,
+      "cardinality_score": 1.0,
+      "entropy_score": 1.0
+    },
+    {
+      "case_id": "eq_004_nested_blocks",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "family": "nested_blocks",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "high_similarity",
+      "success": true,
+      "fuzzy_similarity": 1.0,
+      "transition_overlap": 1.0,
+      "motif2_overlap": 1.0,
+      "motif3_overlap": 1.0,
+      "length_score": 1.0,
+      "cardinality_score": 1.0,
+      "entropy_score": 1.0
+    },
+    {
+      "case_id": "eq_005_run_length_gradient",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "family": "run_length_gradient",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "high_similarity",
+      "success": true,
+      "fuzzy_similarity": 1.0,
+      "transition_overlap": 1.0,
+      "motif2_overlap": 1.0,
+      "motif3_overlap": 1.0,
+      "length_score": 1.0,
+      "cardinality_score": 1.0,
+      "entropy_score": 1.0
+    },
+    {
+      "case_id": "eq_006_mirror_sequence",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "family": "mirror_sequence",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "high_similarity",
+      "success": true,
+      "fuzzy_similarity": 1.0,
+      "transition_overlap": 1.0,
+      "motif2_overlap": 1.0,
+      "motif3_overlap": 1.0,
+      "length_score": 1.0,
+      "cardinality_score": 1.0,
+      "entropy_score": 1.0
+    },
+    {
+      "case_id": "near_001_binary_alternation",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "family": "binary_alternation",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "high_similarity",
+      "success": true,
+      "fuzzy_similarity": 0.855815876089,
+      "transition_overlap": 0.904761904762,
+      "motif2_overlap": 0.904761904762,
+      "motif3_overlap": 0.854838709677,
+      "length_score": 1.0,
+      "cardinality_score": 0.6765625,
+      "entropy_score": 0.623147720182
+    },
+    {
+      "case_id": "near_002_four_cycle",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "family": "four_cycle",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "high_similarity",
+      "success": true,
+      "fuzzy_similarity": 0.881768957803,
+      "transition_overlap": 0.904761904762,
+      "motif2_overlap": 0.904761904762,
+      "motif3_overlap": 0.854838709677,
+      "length_score": 1.0,
+      "cardinality_score": 0.762276785714,
+      "entropy_score": 0.796964251608
+    },
+    {
+      "case_id": "near_003_triple_cycle",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "family": "triple_cycle",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "high_similarity",
+      "success": true,
+      "fuzzy_similarity": 0.871307973518,
+      "transition_overlap": 0.903225806452,
+      "motif2_overlap": 0.903225806452,
+      "motif3_overlap": 0.852459016393,
+      "length_score": 1.0,
+      "cardinality_score": 0.72619047619,
+      "entropy_score": 0.740458798913
+    },
+    {
+      "case_id": "near_004_nested_blocks",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "family": "nested_blocks",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "high_similarity",
+      "success": true,
+      "fuzzy_similarity": 0.884526008963,
+      "transition_overlap": 0.904761904762,
+      "motif2_overlap": 0.904761904762,
+      "motif3_overlap": 0.854838709677,
+      "length_score": 1.0,
+      "cardinality_score": 0.7265625,
+      "entropy_score": 0.860249048921
+    },
+    {
+      "case_id": "near_005_run_length_gradient",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "family": "run_length_gradient",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "high_similarity",
+      "success": true,
+      "fuzzy_similarity": 0.880084974161,
+      "transition_overlap": 0.915492957746,
+      "motif2_overlap": 0.915492957746,
+      "motif3_overlap": 0.871428571429,
+      "length_score": 1.0,
+      "cardinality_score": 0.679166666667,
+      "entropy_score": 0.77932895019
+    },
+    {
+      "case_id": "near_006_mirror_sequence",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "family": "mirror_sequence",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "high_similarity",
+      "success": true,
+      "fuzzy_similarity": 0.881822987713,
+      "transition_overlap": 0.898305084746,
+      "motif2_overlap": 0.898305084746,
+      "motif3_overlap": 0.844827586207,
+      "length_score": 1.0,
+      "cardinality_score": 0.760714285714,
+      "entropy_score": 0.849596246001
+    },
+    {
+      "case_id": "diff_001_binary_alternation_vs_four_cycle",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "family": "binary_alternation_vs_four_cycle",
+      "expected_behavior": "low_similarity",
+      "observed_behavior": "medium_similarity",
+      "success": false,
+      "fuzzy_similarity": 0.363124732591,
+      "transition_overlap": 0.253968253968,
+      "motif2_overlap": 0.253968253968,
+      "motif3_overlap": 0.0,
+      "length_score": 1.0,
+      "cardinality_score": 0.734375,
+      "entropy_score": 0.500046929086
+    },
+    {
+      "case_id": "diff_002_binary_alternation_vs_nested_blocks",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "family": "binary_alternation_vs_nested_blocks",
+      "expected_behavior": "low_similarity",
+      "observed_behavior": "low_similarity",
+      "success": true,
+      "fuzzy_similarity": 0.34993147531,
+      "transition_overlap": 0.238095238095,
+      "motif2_overlap": 0.238095238095,
+      "motif3_overlap": 0.0,
+      "length_score": 1.0,
+      "cardinality_score": 0.825520833333,
+      "entropy_score": 0.364270110246
+    },
+    {
+      "case_id": "diff_003_four_cycle_vs_run_length_gradient",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "family": "four_cycle_vs_run_length_gradient",
+      "expected_behavior": "low_similarity",
+      "observed_behavior": "low_similarity",
+      "success": true,
+      "fuzzy_similarity": 0.311309681745,
+      "transition_overlap": 0.112676056338,
+      "motif2_overlap": 0.112676056338,
+      "motif3_overlap": 0.0,
+      "length_score": 0.888888888889,
+      "cardinality_score": 0.732638888889,
+      "entropy_score": 0.871850729815
+    },
+    {
+      "case_id": "diff_004_triple_cycle_vs_mirror_sequence",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "family": "triple_cycle_vs_mirror_sequence",
+      "expected_behavior": "low_similarity",
+      "observed_behavior": "medium_similarity",
+      "success": false,
+      "fuzzy_similarity": 0.441675207954,
+      "transition_overlap": 0.322033898305,
+      "motif2_overlap": 0.322033898305,
+      "motif3_overlap": 0.155172413793,
+      "length_score": 0.952380952381,
+      "cardinality_score": 0.865476190476,
+      "entropy_score": 0.594949875312
+    },
+    {
+      "case_id": "diff_005_nested_blocks_vs_mirror_sequence",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "family": "nested_blocks_vs_mirror_sequence",
+      "expected_behavior": "low_similarity",
+      "observed_behavior": "medium_similarity",
+      "success": false,
+      "fuzzy_similarity": 0.56242685504,
+      "transition_overlap": 0.509012644606,
+      "motif2_overlap": 0.509012644606,
+      "motif3_overlap": 0.034482758621,
+      "length_score": 0.9375,
+      "cardinality_score": 0.865104166667,
+      "entropy_score": 0.97037070047
+    },
+    {
+      "case_id": "diff_006_run_length_gradient_vs_binary_alternation",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "family": "run_length_gradient_vs_binary_alternation",
+      "expected_behavior": "low_similarity",
+      "observed_behavior": "medium_similarity",
+      "success": false,
+      "fuzzy_similarity": 0.364409967386,
+      "transition_overlap": 0.211267605634,
+      "motif2_overlap": 0.211267605634,
+      "motif3_overlap": 0.014285714286,
+      "length_score": 0.888888888889,
+      "cardinality_score": 0.998263888889,
+      "entropy_score": 0.573546493667
+    },
+    {
+      "case_id": "fm_001_temperature_vs_finance",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "family": "binary_alternation_domain_collision",
+      "expected_behavior": "low_similarity",
+      "observed_behavior": "high_similarity",
+      "success": false,
+      "fuzzy_similarity": 1.0,
+      "transition_overlap": 1.0,
+      "motif2_overlap": 1.0,
+      "motif3_overlap": 1.0,
+      "length_score": 1.0,
+      "cardinality_score": 1.0,
+      "entropy_score": 1.0
+    },
+    {
+      "case_id": "fm_002_periodicity_spoofing",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "family": "periodicity_collision",
+      "expected_behavior": "low_similarity",
+      "observed_behavior": "high_similarity",
+      "success": false,
+      "fuzzy_similarity": 1.0,
+      "transition_overlap": 1.0,
+      "motif2_overlap": 1.0,
+      "motif3_overlap": 1.0,
+      "length_score": 1.0,
+      "cardinality_score": 1.0,
+      "entropy_score": 1.0
+    },
+    {
+      "case_id": "fm_003_json_field_erasure",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "family": "metadata_erasure_collision",
+      "expected_behavior": "low_similarity",
+      "observed_behavior": "high_similarity",
+      "success": false,
+      "fuzzy_similarity": 1.0,
+      "transition_overlap": 1.0,
+      "motif2_overlap": 1.0,
+      "motif3_overlap": 1.0,
+      "length_score": 1.0,
+      "cardinality_score": 1.0,
+      "entropy_score": 1.0
+    },
+    {
+      "case_id": "fm_004_low_high_vs_zero_extreme",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "family": "magnitude_semantics_collision",
+      "expected_behavior": "low_similarity",
+      "observed_behavior": "high_similarity",
+      "success": false,
+      "fuzzy_similarity": 1.0,
+      "transition_overlap": 1.0,
+      "motif2_overlap": 1.0,
+      "motif3_overlap": 1.0,
+      "length_score": 1.0,
+      "cardinality_score": 1.0,
+      "entropy_score": 1.0
+    },
+    {
+      "case_id": "fs_001_alias_inflation_binary",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "family": "binary_alternation",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "low_similarity",
+      "success": false,
+      "fuzzy_similarity": 0.298276161786,
+      "transition_overlap": 0.174603174603,
+      "motif2_overlap": 0.174603174603,
+      "motif3_overlap": 0.0,
+      "length_score": 1.0,
+      "cardinality_score": 0.635416666667,
+      "entropy_score": 0.387027490871
+    },
+    {
+      "case_id": "fs_002_cardinality_inflation_cycle",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "family": "four_cycle",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "medium_similarity",
+      "success": false,
+      "fuzzy_similarity": 0.486786009742,
+      "transition_overlap": 0.380952380952,
+      "motif2_overlap": 0.380952380952,
+      "motif3_overlap": 0.258064516129,
+      "length_score": 1.0,
+      "cardinality_score": 0.71875,
+      "entropy_score": 0.666775227989
+    },
+    {
+      "case_id": "fs_003_separator_attack",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "family": "word_pair_alternation",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "low_similarity",
+      "success": false,
+      "fuzzy_similarity": 0.028125,
+      "transition_overlap": 0.0,
+      "motif2_overlap": 0.0,
+      "motif3_overlap": 0.0,
+      "length_score": 0.015625,
+      "cardinality_score": 0.265625,
+      "entropy_score": 0.0
+    },
+    {
+      "case_id": "fs_004_nested_alias_split",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "family": "nested_blocks",
+      "expected_behavior": "high_similarity",
+      "observed_behavior": "medium_similarity",
+      "success": false,
+      "fuzzy_similarity": 0.412338789683,
+      "transition_overlap": 0.253968253968,
+      "motif2_overlap": 0.253968253968,
+      "motif3_overlap": 0.0,
+      "length_score": 1.0,
+      "cardinality_score": 0.7265625,
+      "entropy_score": 1.0
+    },
+    {
+      "case_id": "drift_001_binary_alternation",
+      "pair_type": "PARTIAL_DRIFT",
+      "family": "binary_alternation",
+      "expected_behavior": "medium_similarity",
+      "observed_behavior": "high_similarity",
+      "success": false,
+      "fuzzy_similarity": 0.932954223066,
+      "transition_overlap": 0.950819672131,
+      "motif2_overlap": 0.950819672131,
+      "motif3_overlap": 0.9,
+      "length_score": 0.96875,
+      "cardinality_score": 0.999495967742,
+      "entropy_score": 0.781788066196
+    },
+    {
+      "case_id": "drift_002_four_cycle",
+      "pair_type": "PARTIAL_DRIFT",
+      "family": "four_cycle",
+      "expected_behavior": "medium_similarity",
+      "observed_behavior": "high_similarity",
+      "success": false,
+      "fuzzy_similarity": 0.900543580429,
+      "transition_overlap": 0.901639344262,
+      "motif2_overlap": 0.901639344262,
+      "motif3_overlap": 0.85,
+      "length_score": 0.96875,
+      "cardinality_score": 0.998991935484,
+      "entropy_score": 0.803677475361
+    },
+    {
+      "case_id": "drift_003_triple_cycle",
+      "pair_type": "PARTIAL_DRIFT",
+      "family": "triple_cycle",
+      "expected_behavior": "medium_similarity",
+      "observed_behavior": "high_similarity",
+      "success": false,
+      "fuzzy_similarity": 0.892144709518,
+      "transition_overlap": 0.898305084746,
+      "motif2_overlap": 0.898305084746,
+      "motif3_overlap": 0.844827586207,
+      "length_score": 0.952380952381,
+      "cardinality_score": 0.99880952381,
+      "entropy_score": 0.76233727358
+    },
+    {
+      "case_id": "drift_004_nested_blocks",
+      "pair_type": "PARTIAL_DRIFT",
+      "family": "nested_blocks",
+      "expected_behavior": "medium_similarity",
+      "observed_behavior": "high_similarity",
+      "success": false,
+      "fuzzy_similarity": 0.917115945493,
+      "transition_overlap": 0.90873015873,
+      "motif2_overlap": 0.90873015873,
+      "motif3_overlap": 0.818206670312,
+      "length_score": 0.953125,
+      "cardinality_score": 0.998847336066,
+      "entropy_score": 0.993861240383
+    },
+    {
+      "case_id": "drift_005_run_length_gradient",
+      "pair_type": "PARTIAL_DRIFT",
+      "family": "run_length_gradient",
+      "expected_behavior": "medium_similarity",
+      "observed_behavior": "high_similarity",
+      "success": false,
+      "fuzzy_similarity": 0.985705514851,
+      "transition_overlap": 0.990265120133,
+      "motif2_overlap": 0.990265120133,
+      "motif3_overlap": 0.972281449893,
+      "length_score": 0.958333333333,
+      "cardinality_score": 0.999396135266,
+      "entropy_score": 0.994445344343
+    },
+    {
+      "case_id": "drift_006_mirror_sequence",
+      "pair_type": "PARTIAL_DRIFT",
+      "family": "mirror_sequence",
+      "expected_behavior": "medium_similarity",
+      "observed_behavior": "medium_similarity",
+      "success": true,
+      "fuzzy_similarity": 0.652415927431,
+      "transition_overlap": 0.589891041162,
+      "motif2_overlap": 0.589891041162,
+      "motif3_overlap": 0.282445141066,
+      "length_score": 0.95,
+      "cardinality_score": 0.998245614035,
+      "entropy_score": 0.907845222282
+    }
+  ],
+  "main_insight": "Fuzzy transition topology is less brittle than exact graph-signature matching.",
+  "limitations": [
+    "This is not the full OMNIA engine.",
+    "This is a toy fuzzy topology detector.",
+    "Thresholds are manually chosen.",
+    "No semantic truth is evaluated.",
+    "False-merge traps remain hard boundaries.",
+    "No universal robustness claim is made."
+  ],
+  "reproduction_command": "python examples/structural_alias_detector_v4.py"
+}
+
+================================================================================
+VALIDATION SUMMARY
+================================================================================
+Status:          FAIL
+Version:         0.4.0
+Record count:    32
+Success count:   15
+Success rate:    0.46875
+
+Pair-type summary:
+  FALSE_MERGE_TRAP               count=4 success_count=0 success_rate=0.0 avg_similarity=1.0 transition=1.0 motif3=1.0
+  FALSE_SPLIT_TRAP               count=4 success_count=0 success_rate=0.0 avg_similarity=0.306381490303 transition=0.202380952381 motif3=0.064516129032
+  PARTIAL_DRIFT                  count=6 success_count=1 success_rate=0.166666666667 avg_similarity=0.880146650131 transition=0.873275070194 motif3=0.777960141246
+  STRUCTURAL_DIFFERENT           count=6 success_count=2 success_rate=0.333333333333 avg_similarity=0.398812986671 transition=0.274508949491 motif3=0.033990147783
+  STRUCTURAL_EQUIVALENT          count=6 success_count=6 success_rate=1.0 avg_similarity=1.0 transition=1.0 motif3=1.0
+  STRUCTURAL_NEAR_EQUIVALENT     count=6 success_count=6 success_rate=1.0 avg_similarity=0.875887796375 transition=0.905218260538 motif3=0.85553855051
+
+Failed cases:
+  diff_001_binary_alternation_vs_four_cycle  type=STRUCTURAL_DIFFERENT         expected=low_similarity    observed=medium_similarity sim=0.363124732591 trans=0.253968253968 motif3=0.0
+  diff_004_triple_cycle_vs_mirror_sequence   type=STRUCTURAL_DIFFERENT         expected=low_similarity    observed=medium_similarity sim=0.441675207954 trans=0.322033898305 motif3=0.155172413793
+  diff_005_nested_blocks_vs_mirror_sequence  type=STRUCTURAL_DIFFERENT         expected=low_similarity    observed=medium_similarity sim=0.56242685504 trans=0.509012644606 motif3=0.034482758621
+  diff_006_run_length_gradient_vs_binary_alternation type=STRUCTURAL_DIFFERENT         expected=low_similarity    observed=medium_similarity sim=0.364409967386 trans=0.211267605634 motif3=0.014285714286
+  fm_001_temperature_vs_finance              type=FALSE_MERGE_TRAP             expected=low_similarity    observed=high_similarity   sim=1.0 trans=1.0 motif3=1.0
+  fm_002_periodicity_spoofing                type=FALSE_MERGE_TRAP             expected=low_similarity    observed=high_similarity   sim=1.0 trans=1.0 motif3=1.0
+  fm_003_json_field_erasure                  type=FALSE_MERGE_TRAP             expected=low_similarity    observed=high_similarity   sim=1.0 trans=1.0 motif3=1.0
+  fm_004_low_high_vs_zero_extreme            type=FALSE_MERGE_TRAP             expected=low_similarity    observed=high_similarity   sim=1.0 trans=1.0 motif3=1.0
+  fs_001_alias_inflation_binary              type=FALSE_SPLIT_TRAP             expected=high_similarity   observed=low_similarity    sim=0.298276161786 trans=0.174603174603 motif3=0.0
+  fs_002_cardinality_inflation_cycle         type=FALSE_SPLIT_TRAP             expected=high_similarity   observed=medium_similarity sim=0.486786009742 trans=0.380952380952 motif3=0.258064516129
+  fs_003_separator_attack                    type=FALSE_SPLIT_TRAP             expected=high_similarity   observed=low_similarity    sim=0.028125 trans=0.0 motif3=0.0
+  fs_004_nested_alias_split                  type=FALSE_SPLIT_TRAP             expected=high_similarity   observed=medium_similarity sim=0.412338789683 trans=0.253968253968 motif3=0.0
+  drift_001_binary_alternation               type=PARTIAL_DRIFT                expected=medium_similarity observed=high_similarity   sim=0.932954223066 trans=0.950819672131 motif3=0.9
+  drift_002_four_cycle                       type=PARTIAL_DRIFT                expected=medium_similarity observed=high_similarity   sim=0.900543580429 trans=0.901639344262 motif3=0.85
+  drift_003_triple_cycle                     type=PARTIAL_DRIFT                expected=medium_similarity observed=high_similarity   sim=0.892144709518 trans=0.898305084746 motif3=0.844827586207
+  drift_004_nested_blocks                    type=PARTIAL_DRIFT                expected=medium_similarity observed=high_similarity   sim=0.917115945493 trans=0.90873015873 motif3=0.818206670312
+  drift_005_run_length_gradient              type=PARTIAL_DRIFT                expected=medium_similarity observed=high_similarity   sim=0.985705514851 trans=0.990265120133 motif3=0.972281449893
+
+Boundary-relevant cases:
+  fm_001_temperature_vs_finance              type=FALSE_MERGE_TRAP     success=False observed=high_similarity   sim=1.0 transition=1.0 motif3=1.0
+  fm_002_periodicity_spoofing                type=FALSE_MERGE_TRAP     success=False observed=high_similarity   sim=1.0 transition=1.0 motif3=1.0
+  fm_003_json_field_erasure                  type=FALSE_MERGE_TRAP     success=False observed=high_similarity   sim=1.0 transition=1.0 motif3=1.0
+  fm_004_low_high_vs_zero_extreme            type=FALSE_MERGE_TRAP     success=False observed=high_similarity   sim=1.0 transition=1.0 motif3=1.0
+  fs_001_alias_inflation_binary              type=FALSE_SPLIT_TRAP     success=False observed=low_similarity    sim=0.298276161786 transition=0.174603174603 motif3=0.0
+  fs_002_cardinality_inflation_cycle         type=FALSE_SPLIT_TRAP     success=False observed=medium_similarity sim=0.486786009742 transition=0.380952380952 motif3=0.258064516129
+  fs_003_separator_attack                    type=FALSE_SPLIT_TRAP     success=False observed=low_similarity    sim=0.028125 transition=0.0 motif3=0.0
+  fs_004_nested_alias_split                  type=FALSE_SPLIT_TRAP     success=False observed=medium_similarity sim=0.412338789683 transition=0.253968253968 motif3=0.0
+  drift_001_binary_alternation               type=PARTIAL_DRIFT        success=False observed=high_similarity   sim=0.932954223066 transition=0.950819672131 motif3=0.9
+  drift_002_four_cycle                       type=PARTIAL_DRIFT        success=False observed=high_similarity   sim=0.900543580429 transition=0.901639344262 motif3=0.85
+  drift_003_triple_cycle                     type=PARTIAL_DRIFT        success=False observed=high_similarity   sim=0.892144709518 transition=0.898305084746 motif3=0.844827586207
+  drift_004_nested_blocks                    type=PARTIAL_DRIFT        success=False observed=high_similarity   sim=0.917115945493 transition=0.90873015873 motif3=0.818206670312
+  drift_005_run_length_gradient              type=PARTIAL_DRIFT        success=False observed=high_similarity   sim=0.985705514851 transition=0.990265120133 motif3=0.972281449893
+  drift_006_mirror_sequence                  type=PARTIAL_DRIFT        success=True observed=medium_similarity sim=0.652415927431 transition=0.589891041162 motif3=0.282445141066
+
+================================================================================
+FINAL CHECK
+================================================================================
+FAIL — structural alias detector v4 did not satisfy pass condition.
