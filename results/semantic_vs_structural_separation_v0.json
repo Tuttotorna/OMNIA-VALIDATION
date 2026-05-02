@@ -1,0 +1,187 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+
+================================================================================
+REPOSITORY STATUS
+================================================================================
+
+================================================================================
+CHECKING FILES
+================================================================================
+Found: /content/OMNIA-VALIDATION/examples/semantic_vs_structural_separation_v0.py
+
+================================================================================
+RUNNING EXPERIMENT
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION — Semantic vs Structural Separation v0
+================================================================================
+Status: PASS
+Claim level: Level 1 — Toy Demonstration
+
+Case scores:
+  correct_structurally_stable          semantic_correct=True  structurally_stable=True  omega_proxy=0.860231980116
+  wrong_structurally_stable            semantic_correct=False structurally_stable=True  omega_proxy=0.860231980116
+  correct_structurally_unstable        semantic_correct=True  structurally_stable=False omega_proxy=0.12299382716
+  wrong_structurally_unstable          semantic_correct=False structurally_stable=False omega_proxy=0.055448717949
+
+Group means:
+  structurally stable mean:   0.860231980116
+  structurally unstable mean: 0.089221272554
+  semantic correct mean:      0.491612903638
+  semantic wrong mean:        0.457840349032
+
+Axis separation:
+  structural separation: 0.771010707562
+  semantic separation:   0.033772554605
+  structure dominates:   True
+
+Result saved to: /content/OMNIA-VALIDATION/results/semantic_vs_structural_separation_v0.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE:
+0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+{
+  "experiment_name": "semantic_vs_structural_separation_v0",
+  "version": "0.1.0",
+  "date_utc": "2026-05-02T10:40:26.937748+00:00",
+  "domain": "semantic_structural_axis_separation",
+  "purpose": "Minimal controlled experiment showing that semantic correctness and structural stability are separable axes.",
+  "core_boundary": "structural validity != semantic correctness; measurement != inference != decision",
+  "claim_level": "Level 1 — Toy Demonstration",
+  "cases": [
+    {
+      "case_id": "correct_structurally_stable",
+      "semantic_correct": true,
+      "structurally_stable": true,
+      "expected_answer": "4",
+      "signature": {
+        "entropy": 3.168740296203,
+        "compression_ratio": 0.281690140845,
+        "repetition_score": 0.882352941176,
+        "contract_score": 1.0,
+        "omega_proxy": 0.860231980116
+      }
+    },
+    {
+      "case_id": "wrong_structurally_stable",
+      "semantic_correct": false,
+      "structurally_stable": true,
+      "expected_answer": "4",
+      "signature": {
+        "entropy": 3.168740296203,
+        "compression_ratio": 0.281690140845,
+        "repetition_score": 0.882352941176,
+        "contract_score": 1.0,
+        "omega_proxy": 0.860231980116
+      }
+    },
+    {
+      "case_id": "correct_structurally_unstable",
+      "semantic_correct": true,
+      "structurally_stable": false,
+      "expected_answer": "4",
+      "signature": {
+        "entropy": 4.324689263806,
+        "compression_ratio": 0.928571428571,
+        "repetition_score": 0.172839506173,
+        "contract_score": 0.125,
+        "omega_proxy": 0.12299382716
+      }
+    },
+    {
+      "case_id": "wrong_structurally_unstable",
+      "semantic_correct": false,
+      "structurally_stable": false,
+      "expected_answer": "4",
+      "signature": {
+        "entropy": 4.579514429749,
+        "compression_ratio": 1.037037037037,
+        "repetition_score": 0.051282051282,
+        "contract_score": 0.125,
+        "omega_proxy": 0.055448717949
+      }
+    }
+  ],
+  "groups": {
+    "by_structure": {
+      "stable_scores": [
+        0.860231980116,
+        0.860231980116
+      ],
+      "unstable_scores": [
+        0.12299382716,
+        0.055448717949
+      ],
+      "stable_mean": 0.860231980116,
+      "unstable_mean": 0.089221272554,
+      "separation": 0.771010707562
+    },
+    "by_semantics": {
+      "semantic_correct_scores": [
+        0.860231980116,
+        0.12299382716
+      ],
+      "semantic_wrong_scores": [
+        0.860231980116,
+        0.055448717949
+      ],
+      "semantic_correct_mean": 0.491612903638,
+      "semantic_wrong_mean": 0.457840349032,
+      "separation": 0.033772554605
+    }
+  },
+  "axis_separation_check": {
+    "criterion": "structural_separation > semantic_separation",
+    "structural_separation": 0.771010707562,
+    "semantic_separation": 0.033772554605,
+    "structure_dominates": true
+  },
+  "status": "PASS",
+  "interpretation": "PASS means the toy structural proxy grouped cases more strongly by structural stability than by semantic correctness. It does not prove semantic truth and does not validate the full OMNIA engine.",
+  "limitations": [
+    "This is not the full OMNIA engine.",
+    "This is a toy demonstration.",
+    "Semantic labels are manually assigned.",
+    "The structural proxy is intentionally minimal.",
+    "The result does not prove semantic truth detection.",
+    "The result does not generalize across domains.",
+    "No adversarial examples are included yet."
+  ],
+  "reproduction_command": "python examples/semantic_vs_structural_separation_v0.py"
+}
+
+================================================================================
+VALIDATION SUMMARY
+================================================================================
+Status:                 PASS
+Claim level:            Level 1 — Toy Demonstration
+Stable mean:            0.860231980116
+Unstable mean:          0.089221272554
+Semantic correct mean:  0.491612903638
+Semantic wrong mean:    0.457840349032
+Structural separation:  0.771010707562
+Semantic separation:    0.033772554605
+Structure dominates:    True
+
+Case scores:
+  correct_structurally_stable          semantic_correct=True  structurally_stable=True  omega_proxy=0.860231980116
+  wrong_structurally_stable            semantic_correct=False structurally_stable=True  omega_proxy=0.860231980116
+  correct_structurally_unstable        semantic_correct=True  structurally_stable=False omega_proxy=0.12299382716
+  wrong_structurally_unstable          semantic_correct=False structurally_stable=False omega_proxy=0.055448717949
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS — semantic correctness and structural stability separated in this toy test.
