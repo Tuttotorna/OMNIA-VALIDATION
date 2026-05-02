@@ -1,0 +1,312 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+CLONE STDOUT:
+(empty)
+CLONE STDERR:
+Cloning into '/content/OMNIA-VALIDATION'...
+
+CLONE RETURN CODE:
+0
+
+================================================================================
+CHECKING FILE
+================================================================================
+Found: /content/OMNIA-VALIDATION/examples/projection_resilience_layer_v0.py
+
+================================================================================
+CLEANING FILE IF NEEDED
+================================================================================
+File cleaned.
+
+Last 8 lines of script:
+
+    print()
+    print(f"Result saved to: {RESULTS_PATH}")
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+RUNNING EXPERIMENT
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION — Projection Resilience Layer v0
+================================================================================
+Status: PASS
+Operational classification: TOY_RESILIENCE_LAYER_VALIDATED
+Claim level: Level 1 — Toy Structural Mitigation
+
+Results:
+  json_field_erasure_mitigation      family=JSON_FIELD_ERASURE     baseline=false_merge      resilient=false_merge        success=False delta=0.0
+  alias_inflation_mitigation         family=ALIAS_INFLATION        baseline=false_split      resilient=correct_merge      success=True  delta=-1.263691235877
+  cardinality_inflation_mitigation   family=CARDINALITY_INFLATION  baseline=false_split      resilient=correct_merge      success=True  delta=-0.826827245531
+  separator_attack_mitigation        family=SEPARATOR_ATTACK       baseline=false_split      resilient=correct_merge      success=True  delta=-0.827486195701
+  many_to_one_unsolved               family=MANY_TO_ONE_COLLAPSE   baseline=false_merge      resilient=false_merge        success=True  delta=0.0
+  periodicity_spoofing_unsolved      family=PERIODICITY_SPOOFING   baseline=false_merge      resilient=false_merge        success=True  delta=0.0
+  control_equivalent_binary          family=CONTROL                baseline=correct_merge    resilient=correct_merge      success=True  delta=0.0
+  control_separate_binary_cycle      family=CONTROL                baseline=correct_split    resilient=correct_split      success=True  delta=0.0
+
+Summary:
+  mitigation_case_count:             4
+  successful_mitigation_count:       3
+  mitigation_success_rate:           0.75
+  hard_boundary_case_count:          2
+  hard_boundary_preservation_rate:   1.0
+  control_case_count:                2
+  control_preservation_rate:         1.0
+  control_preservation:              True
+  baseline_failure_count:            6
+  resilient_failure_count:           1
+  stability_gain:                    0.833333333333
+
+Pass condition:
+  mitigation_success_rate >= 0.50 and control_preservation == true and stability_gain > 0.0
+
+Result saved to: /content/OMNIA-VALIDATION/results/projection_resilience_layer_v0.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE:
+0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+{
+  "experiment_name": "projection_resilience_layer_v0",
+  "version": "0.1.0",
+  "date_utc": "2026-05-02T13:53:34.128960+00:00",
+  "domain": "projection_boundary_aware_structural_mitigation",
+  "purpose": "Test a minimal boundary-aware resilience layer after first-seen canonical projection.",
+  "core_boundary": "measurement != inference != decision",
+  "claim_level": "Level 1 — Toy Structural Mitigation",
+  "results": [
+    {
+      "test_id": "json_field_erasure_mitigation",
+      "attack_family": "JSON_FIELD_ERASURE",
+      "target_failure": "false_merge",
+      "expected_resilience": "split_after_metadata_preservation",
+      "intended_same": false,
+      "baseline_effect": "false_merge",
+      "resilient_effect": "false_merge",
+      "mitigation_success": false,
+      "baseline_combined_distance": 0.0,
+      "resilient_combined_distance": 0.0,
+      "distance_delta": 0.0,
+      "baseline_projected_edit_distance": 0.0,
+      "resilient_projected_edit_distance": 0.0,
+      "baseline_left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "baseline_right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "resilient_left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "resilient_right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101"
+    },
+    {
+      "test_id": "alias_inflation_mitigation",
+      "attack_family": "ALIAS_INFLATION",
+      "target_failure": "false_split",
+      "expected_resilience": "merge_after_alias_collapse",
+      "intended_same": true,
+      "baseline_effect": "false_split",
+      "resilient_effect": "correct_merge",
+      "mitigation_success": true,
+      "baseline_combined_distance": 1.263691235877,
+      "resilient_combined_distance": 0.0,
+      "distance_delta": -1.263691235877,
+      "baseline_projected_edit_distance": 0.65625,
+      "resilient_projected_edit_distance": 0.0,
+      "baseline_left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "baseline_right_projected_preview": "0123450123450123450123450123450123450123450123450123450123450123",
+      "resilient_left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "resilient_right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101"
+    },
+    {
+      "test_id": "cardinality_inflation_mitigation",
+      "attack_family": "CARDINALITY_INFLATION",
+      "target_failure": "false_split",
+      "expected_resilience": "merge_after_alias_collapse",
+      "intended_same": true,
+      "baseline_effect": "false_split",
+      "resilient_effect": "correct_merge",
+      "mitigation_success": true,
+      "baseline_combined_distance": 0.826827245531,
+      "resilient_combined_distance": 0.0,
+      "distance_delta": -0.826827245531,
+      "baseline_projected_edit_distance": 0.5,
+      "resilient_projected_edit_distance": 0.0,
+      "baseline_left_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+      "baseline_right_projected_preview": "0123456701234567012345670123456701234567012345670123456701234567",
+      "resilient_left_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+      "resilient_right_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123"
+    },
+    {
+      "test_id": "separator_attack_mitigation",
+      "attack_family": "SEPARATOR_ATTACK",
+      "target_failure": "false_split",
+      "expected_resilience": "merge_after_boundary_recovery",
+      "intended_same": true,
+      "baseline_effect": "false_split",
+      "resilient_effect": "correct_merge",
+      "mitigation_success": true,
+      "baseline_combined_distance": 0.827486195701,
+      "resilient_combined_distance": 0.0,
+      "distance_delta": -0.827486195701,
+      "baseline_projected_edit_distance": 0.5,
+      "resilient_projected_edit_distance": 0.0,
+      "baseline_left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "baseline_right_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+      "resilient_left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "resilient_right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101"
+    },
+    {
+      "test_id": "many_to_one_unsolved",
+      "attack_family": "MANY_TO_ONE_COLLAPSE",
+      "target_failure": "false_merge",
+      "expected_resilience": "not_solved_without_semantics",
+      "intended_same": false,
+      "baseline_effect": "false_merge",
+      "resilient_effect": "false_merge",
+      "mitigation_success": true,
+      "baseline_combined_distance": 0.0,
+      "resilient_combined_distance": 0.0,
+      "distance_delta": 0.0,
+      "baseline_projected_edit_distance": 0.0,
+      "resilient_projected_edit_distance": 0.0,
+      "baseline_left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "baseline_right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "resilient_left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "resilient_right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101"
+    },
+    {
+      "test_id": "periodicity_spoofing_unsolved",
+      "attack_family": "PERIODICITY_SPOOFING",
+      "target_failure": "false_merge",
+      "expected_resilience": "not_solved_without_semantics",
+      "intended_same": false,
+      "baseline_effect": "false_merge",
+      "resilient_effect": "false_merge",
+      "mitigation_success": true,
+      "baseline_combined_distance": 0.0,
+      "resilient_combined_distance": 0.0,
+      "distance_delta": 0.0,
+      "baseline_projected_edit_distance": 0.0,
+      "resilient_projected_edit_distance": 0.0,
+      "baseline_left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "baseline_right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "resilient_left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "resilient_right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101"
+    },
+    {
+      "test_id": "control_equivalent_binary",
+      "attack_family": "CONTROL",
+      "target_failure": "none",
+      "expected_resilience": "preserve_correct_merge",
+      "intended_same": true,
+      "baseline_effect": "correct_merge",
+      "resilient_effect": "correct_merge",
+      "mitigation_success": true,
+      "baseline_combined_distance": 0.0,
+      "resilient_combined_distance": 0.0,
+      "distance_delta": 0.0,
+      "baseline_projected_edit_distance": 0.0,
+      "resilient_projected_edit_distance": 0.0,
+      "baseline_left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "baseline_right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "resilient_left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "resilient_right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101"
+    },
+    {
+      "test_id": "control_separate_binary_cycle",
+      "attack_family": "CONTROL",
+      "target_failure": "none",
+      "expected_resilience": "preserve_correct_split",
+      "intended_same": false,
+      "baseline_effect": "correct_split",
+      "resilient_effect": "correct_split",
+      "mitigation_success": true,
+      "baseline_combined_distance": 0.827486195701,
+      "resilient_combined_distance": 0.827486195701,
+      "distance_delta": 0.0,
+      "baseline_projected_edit_distance": 0.5,
+      "resilient_projected_edit_distance": 0.5,
+      "baseline_left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "baseline_right_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+      "resilient_left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "resilient_right_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123"
+    }
+  ],
+  "summary": {
+    "test_count": 8,
+    "mitigation_case_count": 4,
+    "hard_boundary_case_count": 2,
+    "control_case_count": 2,
+    "successful_mitigation_count": 3,
+    "successful_hard_boundary_count": 2,
+    "successful_control_count": 2,
+    "mitigation_success_rate": 0.75,
+    "hard_boundary_preservation_rate": 1.0,
+    "control_preservation_rate": 1.0,
+    "control_preservation": true,
+    "baseline_failure_count": 6,
+    "resilient_failure_count": 1,
+    "stability_gain": 0.833333333333
+  },
+  "pass_condition": "mitigation_success_rate >= 0.50 and control_preservation == true and stability_gain > 0.0",
+  "status": "PASS",
+  "operational_classification": "TOY_RESILIENCE_LAYER_VALIDATED",
+  "main_insight": "Boundary-aware correction can reduce some projection failures, but semantic false merges remain hard boundaries for this toy layer.",
+  "interpretation": "PASS means the toy resilience layer reduced several projection failure modes while preserving clean controls.",
+  "limitations": [
+    "This is not the full OMNIA engine.",
+    "This is a toy structural mitigation experiment.",
+    "The resilience layer is hand-built.",
+    "Mitigations target only known toy failure modes.",
+    "Semantic false merges are not solved.",
+    "No universal robustness claim is made.",
+    "No semantic truth is evaluated.",
+    "No external reproduction is included yet."
+  ],
+  "reproduction_command": "python examples/projection_resilience_layer_v0.py"
+}
+
+================================================================================
+VALIDATION SUMMARY
+================================================================================
+Status:                         PASS
+Operational classification:     TOY_RESILIENCE_LAYER_VALIDATED
+Claim level:                    Level 1 — Toy Structural Mitigation
+
+Summary:
+  Mitigation case count:        4
+  Successful mitigations:       3
+  Mitigation success rate:      0.75
+  Hard boundary case count:     2
+  Hard boundary preservation:   1.0
+  Control case count:           2
+  Control preservation rate:    1.0
+  Control preservation:         True
+  Baseline failure count:       6
+  Resilient failure count:      1
+  Stability gain:               0.833333333333
+
+Results:
+  json_field_erasure_mitigation      family=JSON_FIELD_ERASURE     baseline=false_merge      resilient=false_merge        success=False base_dist=0.0 res_dist=0.0 delta=0.0
+  alias_inflation_mitigation         family=ALIAS_INFLATION        baseline=false_split      resilient=correct_merge      success=True  base_dist=1.263691235877 res_dist=0.0 delta=-1.263691235877
+  cardinality_inflation_mitigation   family=CARDINALITY_INFLATION  baseline=false_split      resilient=correct_merge      success=True  base_dist=0.826827245531 res_dist=0.0 delta=-0.826827245531
+  separator_attack_mitigation        family=SEPARATOR_ATTACK       baseline=false_split      resilient=correct_merge      success=True  base_dist=0.827486195701 res_dist=0.0 delta=-0.827486195701
+  many_to_one_unsolved               family=MANY_TO_ONE_COLLAPSE   baseline=false_merge      resilient=false_merge        success=True  base_dist=0.0 res_dist=0.0 delta=0.0
+  periodicity_spoofing_unsolved      family=PERIODICITY_SPOOFING   baseline=false_merge      resilient=false_merge        success=True  base_dist=0.0 res_dist=0.0 delta=0.0
+  control_equivalent_binary          family=CONTROL                baseline=correct_merge    resilient=correct_merge      success=True  base_dist=0.0 res_dist=0.0 delta=0.0
+  control_separate_binary_cycle      family=CONTROL                baseline=correct_split    resilient=correct_split      success=True  base_dist=0.827486195701 res_dist=0.827486195701 delta=0.0
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS — projection resilience layer v0 succeeded.
