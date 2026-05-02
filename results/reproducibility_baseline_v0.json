@@ -1,0 +1,103 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+
+================================================================================
+REPOSITORY STATUS
+================================================================================
+
+================================================================================
+CHECKING FILES
+================================================================================
+Found: /content/OMNIA-VALIDATION/examples/reproducibility_baseline_v0.py
+
+================================================================================
+RUNNING EXPERIMENT
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION — Reproducibility Baseline v0
+================================================================================
+Status: PASS
+Runs executed: 10
+Reproducible: True
+
+Observed omega_proxy values:
+  structured         -> 0.858222336066
+  mildly_perturbed   -> 0.754354508197
+  random_like        -> 0.0
+
+Expected order: structured >= mildly_perturbed >= random_like
+Order holds: True
+
+Result saved to: /content/OMNIA-VALIDATION/results/reproducibility_baseline_v0.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE:
+0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+{
+  "experiment_name": "reproducibility_baseline_v0",
+  "version": "0.1.0",
+  "date_utc": "2026-05-02T10:28:24.993810+00:00",
+  "domain": "minimal_structural_measurement",
+  "purpose": "Minimal deterministic reproducibility test for structural measurement.",
+  "core_boundary": "measurement != inference != decision",
+  "claim_level": "Level 1 — Toy Demonstration",
+  "runs_executed": 10,
+  "metrics": [
+    "entropy",
+    "compression_ratio",
+    "repetition_score",
+    "omega_proxy"
+  ],
+  "reproducibility": {
+    "stable": true,
+    "mismatch_count": 0,
+    "mismatches": []
+  },
+  "structural_ordering": {
+    "expected_order": "structured >= mildly_perturbed >= random_like",
+    "observed_values": {
+      "structured": 0.858222336066,
+      "mildly_perturbed": 0.754354508197,
+      "random_like": 0.0
+    },
+    "order_holds": true
+  },
+  "status": "PASS",
+  "interpretation": "PASS means the toy measurement pipeline is deterministic and the expected toy structural ordering holds. It does not prove OMNIA correct and does not validate semantic truth.",
+  "limitations": [
+    "This is not the full OMNIA engine.",
+    "This is a toy baseline.",
+    "The omega_proxy is only a minimal structural proxy.",
+    "No semantic correctness is evaluated.",
+    "No universal claim is made."
+  ],
+  "reproduction_command": "python examples/reproducibility_baseline_v0.py"
+}
+
+================================================================================
+VALIDATION SUMMARY
+================================================================================
+Status:       PASS
+Reproducible: True
+Order holds:  True
+
+Observed omega_proxy values:
+  structured         -> 0.858222336066
+  mildly_perturbed   -> 0.754354508197
+  random_like        -> 0.0
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS — reproducibility baseline v0 succeeded.
