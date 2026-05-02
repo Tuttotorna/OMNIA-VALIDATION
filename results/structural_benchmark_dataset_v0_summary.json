@@ -1,0 +1,69 @@
+{
+  "experiment_name": "structural_benchmark_dataset_v0",
+  "version": "0.1.0",
+  "date_utc": "2026-05-02T14:45:18.086048+00:00",
+  "domain": "omnia_native_structural_benchmark_seed",
+  "purpose": "Generate a minimal OMNIA-native structural benchmark dataset.",
+  "core_boundary": "measurement != inference != decision",
+  "claim_level": "Level 1 — Dataset Seed",
+  "dataset_path": "data/structural_benchmark_dataset_v0.jsonl",
+  "record_count": 32,
+  "pair_type_counts": {
+    "FALSE_MERGE_TRAP": 4,
+    "FALSE_SPLIT_TRAP": 4,
+    "PARTIAL_DRIFT": 6,
+    "STRUCTURAL_DIFFERENT": 6,
+    "STRUCTURAL_EQUIVALENT": 6,
+    "STRUCTURAL_NEAR_EQUIVALENT": 6
+  },
+  "family_count": 17,
+  "family_counts": {
+    "binary_alternation": 4,
+    "binary_alternation_domain_collision": 1,
+    "binary_alternation_vs_four_cycle": 1,
+    "binary_alternation_vs_nested_blocks": 1,
+    "four_cycle": 4,
+    "four_cycle_vs_run_length_gradient": 1,
+    "magnitude_semantics_collision": 1,
+    "metadata_erasure_collision": 1,
+    "mirror_sequence": 3,
+    "nested_blocks": 4,
+    "nested_blocks_vs_mirror_sequence": 1,
+    "periodicity_collision": 1,
+    "run_length_gradient": 3,
+    "run_length_gradient_vs_binary_alternation": 1,
+    "triple_cycle": 3,
+    "triple_cycle_vs_mirror_sequence": 1,
+    "word_pair_alternation": 1
+  },
+  "attack_family_counts": {
+    "ALIAS_INFLATION": 2,
+    "CARDINALITY_INFLATION": 1,
+    "JSON_FIELD_ERASURE": 1,
+    "LOCAL_SWAP_DRIFT": 6,
+    "MANY_TO_ONE_COLLAPSE": 2,
+    "PERIODICITY_SPOOFING": 1,
+    "SEPARATOR_ATTACK": 1,
+    "SPARSE_UNKNOWN_INJECTION": 6
+  },
+  "noise_level_counts": {
+    "0": 16,
+    "1": 7,
+    "2": 9
+  },
+  "avg_left_text_length": 192.0,
+  "avg_right_text_length": 213.71875,
+  "validation": {
+    "valid": true,
+    "invalid_record_count": 0,
+    "invalid_records": {}
+  },
+  "limitations": [
+    "This is not the full OMNIA engine.",
+    "This is a synthetic benchmark seed.",
+    "Expected relations are manually assigned.",
+    "No semantic truth is evaluated.",
+    "No external reproduction is included yet.",
+    "The dataset is small by design."
+  ]
+}
