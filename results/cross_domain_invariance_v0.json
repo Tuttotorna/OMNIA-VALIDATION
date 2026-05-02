@@ -1,0 +1,518 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+
+================================================================================
+REPOSITORY STATUS
+================================================================================
+
+================================================================================
+CHECKING FILES
+================================================================================
+Found: /content/OMNIA-VALIDATION/examples/cross_domain_invariance_v0.py
+
+================================================================================
+CLEANING FILE IF NEEDED
+================================================================================
+File cleaned: extra text after final main() was removed.
+
+Last 8 lines of script:
+
+    print()
+    print(f"Result saved to: {RESULTS_PATH}")
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+RUNNING EXPERIMENT
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION — Cross-Domain Invariance v0
+================================================================================
+Status: FAIL
+Claim level: Level 1 — Toy Demonstration
+
+Cases:
+  A_letters_compact      family=A_alternating   representation=letters_compact omega_proxy=0.710798086822
+  A_digits_spaced        family=A_alternating   representation=digits_spaced   omega_proxy=0.972408876476
+  A_words_pipe           family=A_alternating   representation=words_pipe      omega_proxy=0.97692651516
+  A_json_like            family=A_alternating   representation=json_like       omega_proxy=0.984986050708
+  B_letters_compact      family=B_cyclic        representation=letters_compact omega_proxy=0.694894260467
+  B_digits_spaced        family=B_cyclic        representation=digits_spaced   omega_proxy=0.956563120155
+  B_words_pipe           family=B_cyclic        representation=words_pipe      omega_proxy=0.964553648505
+  B_json_like            family=B_cyclic        representation=json_like       omega_proxy=0.979759838933
+
+Distance analysis:
+  mean within-structure distance: 1.283698217317
+  mean cross-structure distance:  1.103052460455
+  separation margin:              -0.180645756862
+  within/cross ratio:             1.163768962346
+  within lower than cross:        False
+
+Pass condition:
+  mean_within_structure_distance < mean_cross_structure_distance and separation_margin > 0.05
+
+Result saved to: /content/OMNIA-VALIDATION/results/cross_domain_invariance_v0.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE:
+0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+{
+  "experiment_name": "cross_domain_invariance_v0",
+  "version": "0.1.0",
+  "date_utc": "2026-05-02T11:36:02.590403+00:00",
+  "domain": "cross_domain_structural_invariance",
+  "purpose": "Minimal controlled experiment testing whether the same structural pattern remains closer to itself across different representations than to a different structural pattern.",
+  "core_boundary": "measurement != inference != decision",
+  "claim_level": "Level 1 — Toy Demonstration",
+  "signature_keys": [
+    "entropy",
+    "compression_ratio",
+    "repetition_score",
+    "transition_regular_score",
+    "token_length_regular_score",
+    "omega_proxy"
+  ],
+  "cases": [
+    {
+      "case_id": "A_letters_compact",
+      "family": "A_alternating",
+      "representation": "letters_compact",
+      "signature": {
+        "entropy": 1.0,
+        "compression_ratio": 0.135416666667,
+        "repetition_score": 0.989247311828,
+        "transition_regular_score": 0.989361702128,
+        "token_length_regular_score": 0.0,
+        "omega_proxy": 0.710798086822
+      }
+    },
+    {
+      "case_id": "A_digits_spaced",
+      "family": "A_alternating",
+      "representation": "digits_spaced",
+      "signature": {
+        "entropy": 1.502598027718,
+        "compression_ratio": 0.078534031414,
+        "repetition_score": 0.984042553191,
+        "transition_regular_score": 0.984126984127,
+        "token_length_regular_score": 1.0,
+        "omega_proxy": 0.972408876476
+      }
+    },
+    {
+      "case_id": "A_words_pipe",
+      "family": "A_alternating",
+      "representation": "words_pipe",
+      "signature": {
+        "entropy": 3.096991062258,
+        "compression_ratio": 0.045540796964,
+        "repetition_score": 0.980916030534,
+        "transition_regular_score": 0.982857142857,
+        "token_length_regular_score": 0.989473684211,
+        "omega_proxy": 0.97692651516
+      }
+    },
+    {
+      "case_id": "A_json_like",
+      "family": "A_alternating",
+      "representation": "json_like",
+      "signature": {
+        "entropy": 2.874828421641,
+        "compression_ratio": 0.03520208605,
+        "repetition_score": 0.986910994764,
+        "transition_regular_score": 0.988235294118,
+        "token_length_regular_score": 1.0,
+        "omega_proxy": 0.984986050708
+      }
+    },
+    {
+      "case_id": "B_letters_compact",
+      "family": "B_cyclic",
+      "representation": "letters_compact",
+      "signature": {
+        "entropy": 2.0,
+        "compression_ratio": 0.15625,
+        "repetition_score": 0.967741935484,
+        "transition_regular_score": 0.968085106383,
+        "token_length_regular_score": 0.0,
+        "omega_proxy": 0.694894260467
+      }
+    },
+    {
+      "case_id": "B_digits_spaced",
+      "family": "B_cyclic",
+      "representation": "digits_spaced",
+      "signature": {
+        "entropy": 2.005215828765,
+        "compression_ratio": 0.099476439791,
+        "repetition_score": 0.962765957447,
+        "transition_regular_score": 0.962962962963,
+        "token_length_regular_score": 1.0,
+        "omega_proxy": 0.956563120155
+      }
+    },
+    {
+      "case_id": "B_words_pipe",
+      "family": "B_cyclic",
+      "representation": "words_pipe",
+      "signature": {
+        "entropy": 3.244776071647,
+        "compression_ratio": 0.062618595825,
+        "repetition_score": 0.963740458015,
+        "transition_regular_score": 0.967619047619,
+        "token_length_regular_score": 0.989473684211,
+        "omega_proxy": 0.964553648505
+      }
+    },
+    {
+      "case_id": "B_json_like",
+      "family": "B_cyclic",
+      "representation": "json_like",
+      "signature": {
+        "entropy": 2.999991394262,
+        "compression_ratio": 0.043024771838,
+        "repetition_score": 0.979057591623,
+        "transition_regular_score": 0.983006535948,
+        "token_length_regular_score": 1.0,
+        "omega_proxy": 0.979759838933
+      }
+    }
+  ],
+  "pairwise_distances": [
+    {
+      "left": "A_letters_compact",
+      "right": "A_digits_spaced",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 1.15079759676
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "A_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 2.335689067235
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "A_json_like",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 2.144810094035
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "B_letters_compact",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.000800746507
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "B_digits_spaced",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.439982350404
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "B_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 2.46756814909
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "B_json_like",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 2.254104363597
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "A_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 1.594779076278
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "A_json_like",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 1.372981137152
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "B_letters_compact",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.153683625558
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "B_digits_spaced",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 0.504197318229
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "B_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.742496723901
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "B_json_like",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.497841094236
+    },
+    {
+      "left": "A_words_pipe",
+      "right": "A_json_like",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 0.222943381543
+    },
+    {
+      "left": "A_words_pipe",
+      "right": "B_letters_compact",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.508190323728
+    },
+    {
+      "left": "A_words_pipe",
+      "right": "B_digits_spaced",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.093678603961
+    },
+    {
+      "left": "A_words_pipe",
+      "right": "B_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 0.151037571091
+    },
+    {
+      "left": "A_words_pipe",
+      "right": "B_json_like",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 0.097660499358
+    },
+    {
+      "left": "A_json_like",
+      "right": "B_letters_compact",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.365614914406
+    },
+    {
+      "left": "A_json_like",
+      "right": "B_digits_spaced",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 0.873147634004
+    },
+    {
+      "left": "A_json_like",
+      "right": "B_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 0.372965304727
+    },
+    {
+      "left": "A_json_like",
+      "right": "B_json_like",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 0.125870144477
+    },
+    {
+      "left": "B_letters_compact",
+      "right": "B_digits_spaced",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 1.035264232382
+    },
+    {
+      "left": "B_letters_compact",
+      "right": "B_words_pipe",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 1.615557146847
+    },
+    {
+      "left": "B_letters_compact",
+      "right": "B_json_like",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 1.44717028432
+    },
+    {
+      "left": "B_digits_spaced",
+      "right": "B_words_pipe",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 1.240187637835
+    },
+    {
+      "left": "B_digits_spaced",
+      "right": "B_json_like",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 0.996980675063
+    },
+    {
+      "left": "B_words_pipe",
+      "right": "B_json_like",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 0.247218278352
+    }
+  ],
+  "analysis": {
+    "within_structure_distances": [
+      1.15079759676,
+      2.335689067235,
+      2.144810094035,
+      1.594779076278,
+      1.372981137152,
+      0.222943381543,
+      1.035264232382,
+      1.615557146847,
+      1.44717028432,
+      1.240187637835,
+      0.996980675063,
+      0.247218278352
+    ],
+    "cross_structure_distances": [
+      1.000800746507,
+      1.439982350404,
+      2.46756814909,
+      2.254104363597,
+      1.153683625558,
+      0.504197318229,
+      1.742496723901,
+      1.497841094236,
+      1.508190323728,
+      1.093678603961,
+      0.151037571091,
+      0.097660499358,
+      1.365614914406,
+      0.873147634004,
+      0.372965304727,
+      0.125870144477
+    ],
+    "mean_within_structure_distance": 1.283698217317,
+    "mean_cross_structure_distance": 1.103052460455,
+    "separation_margin": -0.180645756862,
+    "within_to_cross_ratio": 1.163768962346,
+    "within_lower_than_cross": false
+  },
+  "pass_condition": "mean_within_structure_distance < mean_cross_structure_distance and separation_margin > 0.05",
+  "status": "FAIL",
+  "interpretation": "FAIL means the toy structural signature did not preserve family closeness across representations.",
+  "limitations": [
+    "This is not the full OMNIA engine.",
+    "This is a toy cross-representation experiment.",
+    "Only two structural families are tested.",
+    "Only four representations per family are tested.",
+    "The structural signature is intentionally minimal.",
+    "No universal invariance claim is made.",
+    "No semantic correctness is evaluated.",
+    "No external reproduction is included yet."
+  ],
+  "reproduction_command": "python examples/cross_domain_invariance_v0.py"
+}
+
+================================================================================
+VALIDATION SUMMARY
+================================================================================
+Status:                         FAIL
+Claim level:                    Level 1 — Toy Demonstration
+Mean within-structure distance: 1.283698217317
+Mean cross-structure distance:  1.103052460455
+Separation margin:              -0.180645756862
+Within/cross ratio:             1.163768962346
+Within lower than cross:        False
+
+Cases:
+  A_letters_compact      family=A_alternating   representation=letters_compact omega_proxy=0.710798086822
+  A_digits_spaced        family=A_alternating   representation=digits_spaced   omega_proxy=0.972408876476
+  A_words_pipe           family=A_alternating   representation=words_pipe      omega_proxy=0.97692651516
+  A_json_like            family=A_alternating   representation=json_like       omega_proxy=0.984986050708
+  B_letters_compact      family=B_cyclic        representation=letters_compact omega_proxy=0.694894260467
+  B_digits_spaced        family=B_cyclic        representation=digits_spaced   omega_proxy=0.956563120155
+  B_words_pipe           family=B_cyclic        representation=words_pipe      omega_proxy=0.964553648505
+  B_json_like            family=B_cyclic        representation=json_like       omega_proxy=0.979759838933
+
+Pairwise distance summary:
+  within pairs: 12
+  cross pairs:  16
+
+Smallest distances:
+  A_words_pipe <-> B_json_like same_family=False distance=0.097660499358
+  A_json_like <-> B_json_like same_family=False distance=0.125870144477
+  A_words_pipe <-> B_words_pipe same_family=False distance=0.151037571091
+  A_words_pipe <-> A_json_like same_family=True distance=0.222943381543
+  B_words_pipe <-> B_json_like same_family=True distance=0.247218278352
+
+Largest distances:
+  A_letters_compact <-> B_words_pipe same_family=False distance=2.46756814909
+  A_letters_compact <-> A_words_pipe same_family=True distance=2.335689067235
+  A_letters_compact <-> B_json_like same_family=False distance=2.254104363597
+  A_letters_compact <-> A_json_like same_family=True distance=2.144810094035
+  A_digits_spaced <-> B_words_pipe same_family=False distance=1.742496723901
+
+================================================================================
+FINAL CHECK
+================================================================================
+FAIL — same-structure representations were not closer than cross-structure representations.
