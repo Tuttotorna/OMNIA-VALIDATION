@@ -1,0 +1,903 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+
+================================================================================
+REPOSITORY STATUS
+================================================================================
+
+================================================================================
+CHECKING FILES
+================================================================================
+Found: /content/OMNIA-VALIDATION/examples/cross_domain_invariance_v0_1.py
+
+================================================================================
+CLEANING FILE IF NEEDED
+================================================================================
+File cleaned: extra text after final main() was removed.
+
+Last 8 lines of script:
+
+    print()
+    print(f"Result saved to: {RESULTS_PATH}")
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+RUNNING EXPERIMENT
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION — Cross-Domain Invariance v0.1
+================================================================================
+Status: PASS
+Claim level: Level 1 — Toy Demonstration
+
+Cases:
+  A_letters_compact      family=A_alternating   representation=letters_compact raw_omega=0.96612988567 norm_omega=0.96612988567
+  A_digits_spaced        family=A_alternating   representation=digits_spaced   raw_omega=0.97541242909 norm_omega=0.96612988567
+  A_words_pipe           family=A_alternating   representation=words_pipe      raw_omega=0.825141710974 norm_omega=0.96612988567
+  A_json_like            family=A_alternating   representation=json_like       raw_omega=0.962356286022 norm_omega=0.96612988567
+  B_letters_compact      family=B_cyclic        representation=letters_compact raw_omega=0.949034393852 norm_omega=0.949034393852
+  B_digits_spaced        family=B_cyclic        representation=digits_spaced   raw_omega=0.960223930942 norm_omega=0.949034393852
+  B_words_pipe           family=B_cyclic        representation=words_pipe      raw_omega=0.814181313735 norm_omega=0.949034393852
+  B_json_like            family=B_cyclic        representation=json_like       raw_omega=0.957654078506 norm_omega=0.949034393852
+
+Raw distance analysis:
+  mean within-structure distance: 1.19856921513
+  mean cross-structure distance:  1.073203798097
+  separation margin:              -0.125365417032
+  within lower than cross:        False
+
+Normalized distance analysis:
+  mean within-structure distance: 0.0
+  mean cross-structure distance:  1.001258557732
+  separation margin:              1.001258557732
+  within lower than cross:        True
+
+Improvement:
+  raw margin:        -0.125365417032
+  normalized margin: 1.001258557732
+  normalized > raw:  True
+
+Pass condition:
+  normalized_within_lower_than_cross == true and normalized_margin > raw_margin and normalized_margin > 0.05
+
+Result saved to: /content/OMNIA-VALIDATION/results/cross_domain_invariance_v0_1.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE:
+0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+{
+  "experiment_name": "cross_domain_invariance_v0_1",
+  "version": "0.1.0",
+  "date_utc": "2026-05-02T11:59:03.644419+00:00",
+  "domain": "normalization_aware_cross_domain_structural_invariance",
+  "purpose": "Normalization-aware test of whether structural family identity becomes more visible after canonical projection.",
+  "core_boundary": "measurement != inference != decision",
+  "claim_level": "Level 1 — Toy Demonstration",
+  "cases": [
+    {
+      "case_id": "A_letters_compact",
+      "family": "A_alternating",
+      "representation": "letters_compact",
+      "raw_signature": {
+        "entropy": 1.0,
+        "compression_ratio": 0.135416666667,
+        "repetition_score": 0.989247311828,
+        "transition_regular_score": 0.989361702128,
+        "unique_symbol_ratio": 0.020833333333,
+        "periodicity_score": 1.0,
+        "transition_cardinality_score": 0.978947368421,
+        "omega_proxy": 0.96612988567
+      },
+      "normalized_text": "010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101",
+      "normalized_signature": {
+        "entropy": 1.0,
+        "compression_ratio": 0.135416666667,
+        "repetition_score": 0.989247311828,
+        "transition_regular_score": 0.989361702128,
+        "unique_symbol_ratio": 0.020833333333,
+        "periodicity_score": 1.0,
+        "transition_cardinality_score": 0.978947368421,
+        "omega_proxy": 0.96612988567
+      }
+    },
+    {
+      "case_id": "A_digits_spaced",
+      "family": "A_alternating",
+      "representation": "digits_spaced",
+      "raw_signature": {
+        "entropy": 1.502598027718,
+        "compression_ratio": 0.078534031414,
+        "repetition_score": 0.984042553191,
+        "transition_regular_score": 0.984126984127,
+        "unique_symbol_ratio": 0.015706806283,
+        "periodicity_score": 1.0,
+        "transition_cardinality_score": 0.978947368421,
+        "omega_proxy": 0.97541242909
+      },
+      "normalized_text": "010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101",
+      "normalized_signature": {
+        "entropy": 1.0,
+        "compression_ratio": 0.135416666667,
+        "repetition_score": 0.989247311828,
+        "transition_regular_score": 0.989361702128,
+        "unique_symbol_ratio": 0.020833333333,
+        "periodicity_score": 1.0,
+        "transition_cardinality_score": 0.978947368421,
+        "omega_proxy": 0.96612988567
+      }
+    },
+    {
+      "case_id": "A_words_pipe",
+      "family": "A_alternating",
+      "representation": "words_pipe",
+      "raw_signature": {
+        "entropy": 3.096991062258,
+        "compression_ratio": 0.045540796964,
+        "repetition_score": 0.980916030534,
+        "transition_regular_score": 0.982857142857,
+        "unique_symbol_ratio": 0.017077798861,
+        "periodicity_score": 0.182341650672,
+        "transition_cardinality_score": 0.980988593156,
+        "omega_proxy": 0.825141710974
+      },
+      "normalized_text": "010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101",
+      "normalized_signature": {
+        "entropy": 1.0,
+        "compression_ratio": 0.135416666667,
+        "repetition_score": 0.989247311828,
+        "transition_regular_score": 0.989361702128,
+        "unique_symbol_ratio": 0.020833333333,
+        "periodicity_score": 1.0,
+        "transition_cardinality_score": 0.978947368421,
+        "omega_proxy": 0.96612988567
+      }
+    },
+    {
+      "case_id": "A_json_like",
+      "family": "A_alternating",
+      "representation": "json_like",
+      "raw_signature": {
+        "entropy": 2.874828421641,
+        "compression_ratio": 0.03520208605,
+        "repetition_score": 0.986910994764,
+        "transition_regular_score": 0.988235294118,
+        "unique_symbol_ratio": 0.010430247718,
+        "periodicity_score": 0.874835309618,
+        "transition_cardinality_score": 0.986945169713,
+        "omega_proxy": 0.962356286022
+      },
+      "normalized_text": "010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101",
+      "normalized_signature": {
+        "entropy": 1.0,
+        "compression_ratio": 0.135416666667,
+        "repetition_score": 0.989247311828,
+        "transition_regular_score": 0.989361702128,
+        "unique_symbol_ratio": 0.020833333333,
+        "periodicity_score": 1.0,
+        "transition_cardinality_score": 0.978947368421,
+        "omega_proxy": 0.96612988567
+      }
+    },
+    {
+      "case_id": "B_letters_compact",
+      "family": "B_cyclic",
+      "representation": "letters_compact",
+      "raw_signature": {
+        "entropy": 2.0,
+        "compression_ratio": 0.15625,
+        "repetition_score": 0.967741935484,
+        "transition_regular_score": 0.968085106383,
+        "unique_symbol_ratio": 0.041666666667,
+        "periodicity_score": 1.0,
+        "transition_cardinality_score": 0.957894736842,
+        "omega_proxy": 0.949034393852
+      },
+      "normalized_text": "012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123",
+      "normalized_signature": {
+        "entropy": 2.0,
+        "compression_ratio": 0.15625,
+        "repetition_score": 0.967741935484,
+        "transition_regular_score": 0.968085106383,
+        "unique_symbol_ratio": 0.041666666667,
+        "periodicity_score": 1.0,
+        "transition_cardinality_score": 0.957894736842,
+        "omega_proxy": 0.949034393852
+      }
+    },
+    {
+      "case_id": "B_digits_spaced",
+      "family": "B_cyclic",
+      "representation": "digits_spaced",
+      "raw_signature": {
+        "entropy": 2.005215828765,
+        "compression_ratio": 0.099476439791,
+        "repetition_score": 0.962765957447,
+        "transition_regular_score": 0.962962962963,
+        "unique_symbol_ratio": 0.026178010471,
+        "periodicity_score": 1.0,
+        "transition_cardinality_score": 0.957894736842,
+        "omega_proxy": 0.960223930942
+      },
+      "normalized_text": "012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123",
+      "normalized_signature": {
+        "entropy": 2.0,
+        "compression_ratio": 0.15625,
+        "repetition_score": 0.967741935484,
+        "transition_regular_score": 0.968085106383,
+        "unique_symbol_ratio": 0.041666666667,
+        "periodicity_score": 1.0,
+        "transition_cardinality_score": 0.957894736842,
+        "omega_proxy": 0.949034393852
+      }
+    },
+    {
+      "case_id": "B_words_pipe",
+      "family": "B_cyclic",
+      "representation": "words_pipe",
+      "raw_signature": {
+        "entropy": 3.244776071647,
+        "compression_ratio": 0.062618595825,
+        "repetition_score": 0.963740458015,
+        "transition_regular_score": 0.967619047619,
+        "unique_symbol_ratio": 0.020872865275,
+        "periodicity_score": 0.182341650672,
+        "transition_cardinality_score": 0.965779467681,
+        "omega_proxy": 0.814181313735
+      },
+      "normalized_text": "012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123",
+      "normalized_signature": {
+        "entropy": 2.0,
+        "compression_ratio": 0.15625,
+        "repetition_score": 0.967741935484,
+        "transition_regular_score": 0.968085106383,
+        "unique_symbol_ratio": 0.041666666667,
+        "periodicity_score": 1.0,
+        "transition_cardinality_score": 0.957894736842,
+        "omega_proxy": 0.949034393852
+      }
+    },
+    {
+      "case_id": "B_json_like",
+      "family": "B_cyclic",
+      "representation": "json_like",
+      "raw_signature": {
+        "entropy": 2.999991394262,
+        "compression_ratio": 0.043024771838,
+        "repetition_score": 0.979057591623,
+        "transition_regular_score": 0.983006535948,
+        "unique_symbol_ratio": 0.013037809648,
+        "periodicity_score": 0.874835309618,
+        "transition_cardinality_score": 0.981723237598,
+        "omega_proxy": 0.957654078506
+      },
+      "normalized_text": "012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123",
+      "normalized_signature": {
+        "entropy": 2.0,
+        "compression_ratio": 0.15625,
+        "repetition_score": 0.967741935484,
+        "transition_regular_score": 0.968085106383,
+        "unique_symbol_ratio": 0.041666666667,
+        "periodicity_score": 1.0,
+        "transition_cardinality_score": 0.957894736842,
+        "omega_proxy": 0.949034393852
+      }
+    }
+  ],
+  "raw_pairwise_distances": [
+    {
+      "left": "A_letters_compact",
+      "right": "A_digits_spaced",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 0.505971689264
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "A_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 2.256994022799
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "A_json_like",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 1.881723658969
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "B_letters_compact",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "B_digits_spaced",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.006804537653
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "B_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 2.395259788308
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "B_json_like",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 2.006103828956
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "A_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 1.798427535632
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "A_json_like",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 1.378712256836
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "B_letters_compact",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 0.505751395621
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "B_digits_spaced",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 0.504725071307
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "B_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.93154939244
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "B_json_like",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.503153450137
+    },
+    {
+      "left": "A_words_pipe",
+      "right": "A_json_like",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 0.740258718262
+    },
+    {
+      "left": "A_words_pipe",
+      "right": "B_letters_compact",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.378800275554
+    },
+    {
+      "left": "A_words_pipe",
+      "right": "B_digits_spaced",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.3722375669
+    },
+    {
+      "left": "A_words_pipe",
+      "right": "B_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 0.15174027279
+    },
+    {
+      "left": "A_words_pipe",
+      "right": "B_json_like",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 0.711718061125
+    },
+    {
+      "left": "A_json_like",
+      "right": "B_letters_compact",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 0.893540240689
+    },
+    {
+      "left": "A_json_like",
+      "right": "B_digits_spaced",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 0.882236699602
+    },
+    {
+      "left": "A_json_like",
+      "right": "B_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 0.800396874958
+    },
+    {
+      "left": "A_json_like",
+      "right": "B_json_like",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 0.125984755788
+    },
+    {
+      "left": "B_letters_compact",
+      "right": "B_digits_spaced",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 0.060551985353
+    },
+    {
+      "left": "B_letters_compact",
+      "right": "B_words_pipe",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 1.498497787127
+    },
+    {
+      "left": "B_letters_compact",
+      "right": "B_json_like",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 1.015027754108
+    },
+    {
+      "left": "B_digits_spaced",
+      "right": "B_words_pipe",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 1.492606666535
+    },
+    {
+      "left": "B_digits_spaced",
+      "right": "B_json_like",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 1.004910764632
+    },
+    {
+      "left": "B_words_pipe",
+      "right": "B_json_like",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 0.749147742042
+    }
+  ],
+  "normalized_pairwise_distances": [
+    {
+      "left": "A_letters_compact",
+      "right": "A_digits_spaced",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 0.0
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "A_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 0.0
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "A_json_like",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 0.0
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "B_letters_compact",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "B_digits_spaced",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "B_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_letters_compact",
+      "right": "B_json_like",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "A_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 0.0
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "A_json_like",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 0.0
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "B_letters_compact",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "B_digits_spaced",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "B_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_digits_spaced",
+      "right": "B_json_like",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_words_pipe",
+      "right": "A_json_like",
+      "left_family": "A_alternating",
+      "right_family": "A_alternating",
+      "same_family": true,
+      "distance": 0.0
+    },
+    {
+      "left": "A_words_pipe",
+      "right": "B_letters_compact",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_words_pipe",
+      "right": "B_digits_spaced",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_words_pipe",
+      "right": "B_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_words_pipe",
+      "right": "B_json_like",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_json_like",
+      "right": "B_letters_compact",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_json_like",
+      "right": "B_digits_spaced",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_json_like",
+      "right": "B_words_pipe",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "A_json_like",
+      "right": "B_json_like",
+      "left_family": "A_alternating",
+      "right_family": "B_cyclic",
+      "same_family": false,
+      "distance": 1.001258557732
+    },
+    {
+      "left": "B_letters_compact",
+      "right": "B_digits_spaced",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 0.0
+    },
+    {
+      "left": "B_letters_compact",
+      "right": "B_words_pipe",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 0.0
+    },
+    {
+      "left": "B_letters_compact",
+      "right": "B_json_like",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 0.0
+    },
+    {
+      "left": "B_digits_spaced",
+      "right": "B_words_pipe",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 0.0
+    },
+    {
+      "left": "B_digits_spaced",
+      "right": "B_json_like",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 0.0
+    },
+    {
+      "left": "B_words_pipe",
+      "right": "B_json_like",
+      "left_family": "B_cyclic",
+      "right_family": "B_cyclic",
+      "same_family": true,
+      "distance": 0.0
+    }
+  ],
+  "raw_analysis": {
+    "within_structure_distances": [
+      0.505971689264,
+      2.256994022799,
+      1.881723658969,
+      1.798427535632,
+      1.378712256836,
+      0.740258718262,
+      0.060551985353,
+      1.498497787127,
+      1.015027754108,
+      1.492606666535,
+      1.004910764632,
+      0.749147742042
+    ],
+    "cross_structure_distances": [
+      1.001258557732,
+      1.006804537653,
+      2.395259788308,
+      2.006103828956,
+      0.505751395621,
+      0.504725071307,
+      1.93154939244,
+      1.503153450137,
+      1.378800275554,
+      1.3722375669,
+      0.15174027279,
+      0.711718061125,
+      0.893540240689,
+      0.882236699602,
+      0.800396874958,
+      0.125984755788
+    ],
+    "mean_within_structure_distance": 1.19856921513,
+    "mean_cross_structure_distance": 1.073203798097,
+    "separation_margin": -0.125365417032,
+    "within_to_cross_ratio": 1.1168141757,
+    "within_lower_than_cross": false
+  },
+  "normalized_analysis": {
+    "within_structure_distances": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "cross_structure_distances": [
+      1.001258557732,
+      1.001258557732,
+      1.001258557732,
+      1.001258557732,
+      1.001258557732,
+      1.001258557732,
+      1.001258557732,
+      1.001258557732,
+      1.001258557732,
+      1.001258557732,
+      1.001258557732,
+      1.001258557732,
+      1.001258557732,
+      1.001258557732,
+      1.001258557732,
+      1.001258557732
+    ],
+    "mean_within_structure_distance": 0.0,
+    "mean_cross_structure_distance": 1.001258557732,
+    "separation_margin": 1.001258557732,
+    "within_to_cross_ratio": 0.0,
+    "within_lower_than_cross": true
+  },
+  "pass_condition": "normalized_within_lower_than_cross == true and normalized_margin > raw_margin and normalized_margin > 0.05",
+  "status": "PASS",
+  "interpretation": "PASS means canonical projection improved structural invariance enough that same-family representations were closer than cross-family representations with non-trivial margin.",
+  "limitations": [
+    "This is not the full OMNIA engine.",
+    "This is a toy normalization experiment.",
+    "The canonical projection is hand-built.",
+    "Only two structural families are tested.",
+    "Only four representations per family are tested.",
+    "No universal invariance claim is made.",
+    "No semantic correctness is evaluated.",
+    "No external reproduction is included yet."
+  ],
+  "reproduction_command": "python examples/cross_domain_invariance_v0_1.py"
+}
+
+================================================================================
+VALIDATION SUMMARY
+================================================================================
+Status:                            PASS
+Claim level:                       Level 1 — Toy Demonstration
+
+Raw analysis:
+  Mean within-structure distance:  1.19856921513
+  Mean cross-structure distance:   1.073203798097
+  Separation margin:               -0.125365417032
+  Within lower than cross:         False
+
+Normalized analysis:
+  Mean within-structure distance:  0.0
+  Mean cross-structure distance:   1.001258557732
+  Separation margin:               1.001258557732
+  Within lower than cross:         True
+
+Improvement:
+  Raw margin:                      -0.125365417032
+  Normalized margin:               1.001258557732
+  Normalized margin > raw margin:  True
+
+Cases:
+  A_letters_compact      family=A_alternating   representation=letters_compact raw_omega=0.96612988567 norm_omega=0.96612988567 normalized=01010101010101010101010101010101
+  A_digits_spaced        family=A_alternating   representation=digits_spaced   raw_omega=0.97541242909 norm_omega=0.96612988567 normalized=01010101010101010101010101010101
+  A_words_pipe           family=A_alternating   representation=words_pipe      raw_omega=0.825141710974 norm_omega=0.96612988567 normalized=01010101010101010101010101010101
+  A_json_like            family=A_alternating   representation=json_like       raw_omega=0.962356286022 norm_omega=0.96612988567 normalized=01010101010101010101010101010101
+  B_letters_compact      family=B_cyclic        representation=letters_compact raw_omega=0.949034393852 norm_omega=0.949034393852 normalized=01230123012301230123012301230123
+  B_digits_spaced        family=B_cyclic        representation=digits_spaced   raw_omega=0.960223930942 norm_omega=0.949034393852 normalized=01230123012301230123012301230123
+  B_words_pipe           family=B_cyclic        representation=words_pipe      raw_omega=0.814181313735 norm_omega=0.949034393852 normalized=01230123012301230123012301230123
+  B_json_like            family=B_cyclic        representation=json_like       raw_omega=0.957654078506 norm_omega=0.949034393852 normalized=01230123012301230123012301230123
+
+Smallest normalized distances:
+  A_letters_compact <-> A_digits_spaced same_family=True distance=0.0
+  A_letters_compact <-> A_words_pipe same_family=True distance=0.0
+  A_letters_compact <-> A_json_like same_family=True distance=0.0
+  A_digits_spaced <-> A_words_pipe same_family=True distance=0.0
+  A_digits_spaced <-> A_json_like same_family=True distance=0.0
+  A_words_pipe <-> A_json_like same_family=True distance=0.0
+  B_letters_compact <-> B_digits_spaced same_family=True distance=0.0
+  B_letters_compact <-> B_words_pipe same_family=True distance=0.0
+
+Largest normalized distances:
+  A_letters_compact <-> B_letters_compact same_family=False distance=1.001258557732
+  A_letters_compact <-> B_digits_spaced same_family=False distance=1.001258557732
+  A_letters_compact <-> B_words_pipe same_family=False distance=1.001258557732
+  A_letters_compact <-> B_json_like same_family=False distance=1.001258557732
+  A_digits_spaced <-> B_letters_compact same_family=False distance=1.001258557732
+  A_digits_spaced <-> B_digits_spaced same_family=False distance=1.001258557732
+  A_digits_spaced <-> B_words_pipe same_family=False distance=1.001258557732
+  A_digits_spaced <-> B_json_like same_family=False distance=1.001258557732
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS — normalization-aware invariance v0.1 succeeded.
