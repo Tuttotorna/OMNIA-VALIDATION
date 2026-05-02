@@ -1,0 +1,415 @@
+{
+  "experiment_name": "structural_benchmark_runner_v0",
+  "version": "0.1.0",
+  "date_utc": "2026-05-02T15:31:43.276048+00:00",
+  "domain": "omnia_native_structural_benchmark_execution",
+  "purpose": "Run the OMNIA-native structural benchmark dataset.",
+  "core_boundary": "measurement != inference != decision",
+  "claim_level": "Level 1 — Benchmark Runner",
+  "dataset_path": "data/structural_benchmark_dataset_v0.jsonl",
+  "results": [
+    {
+      "case_id": "eq_001_binary_alternation",
+      "family": "binary_alternation",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "expected_relation": "should_merge",
+      "observed_relation": "merge",
+      "success": true,
+      "distance": 0.0,
+      "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101"
+    },
+    {
+      "case_id": "eq_002_four_cycle",
+      "family": "four_cycle",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "expected_relation": "should_merge",
+      "observed_relation": "merge",
+      "success": true,
+      "distance": 0.0,
+      "left_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+      "right_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123"
+    },
+    {
+      "case_id": "eq_003_triple_cycle",
+      "family": "triple_cycle",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "expected_relation": "should_merge",
+      "observed_relation": "merge",
+      "success": true,
+      "distance": 0.0,
+      "left_projected_preview": "012012012012012012012012012012012012012012012012012012012012012",
+      "right_projected_preview": "012012012012012012012012012012012012012012012012012012012012012"
+    },
+    {
+      "case_id": "eq_004_nested_blocks",
+      "family": "nested_blocks",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "expected_relation": "should_merge",
+      "observed_relation": "merge",
+      "success": true,
+      "distance": 0.0,
+      "left_projected_preview": "0011221100112211001122110011221100112211001122110011221100112211",
+      "right_projected_preview": "0011221100112211001122110011221100112211001122110011221100112211"
+    },
+    {
+      "case_id": "eq_005_run_length_gradient",
+      "family": "run_length_gradient",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "expected_relation": "should_merge",
+      "observed_relation": "merge",
+      "success": true,
+      "distance": 0.0,
+      "left_projected_preview": "0100110001110000111100000111110000001111110000000111111100000000",
+      "right_projected_preview": "0100110001110000111100000111110000001111110000000111111100000000"
+    },
+    {
+      "case_id": "eq_006_mirror_sequence",
+      "family": "mirror_sequence",
+      "pair_type": "STRUCTURAL_EQUIVALENT",
+      "expected_relation": "should_merge",
+      "observed_relation": "merge",
+      "success": true,
+      "distance": 0.0,
+      "left_projected_preview": "012321012321012321012321012321123210123210123210123210123210",
+      "right_projected_preview": "012321012321012321012321012321123210123210123210123210123210"
+    },
+    {
+      "case_id": "near_001_binary_alternation",
+      "family": "binary_alternation",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "expected_relation": "should_merge",
+      "observed_relation": "merge",
+      "success": true,
+      "distance": 0.049805963912,
+      "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "right_projected_preview": "0101010101010101010201010101010101010131010101010101010104010101"
+    },
+    {
+      "case_id": "near_002_four_cycle",
+      "family": "four_cycle",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "expected_relation": "should_merge",
+      "observed_relation": "merge",
+      "success": true,
+      "distance": 0.050223862324,
+      "left_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+      "right_projected_preview": "0123012301230123012401230123012301230153012301230123012306230123"
+    },
+    {
+      "case_id": "near_003_triple_cycle",
+      "family": "triple_cycle",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "expected_relation": "should_merge",
+      "observed_relation": "merge",
+      "success": true,
+      "distance": 0.052008818282,
+      "left_projected_preview": "012012012012012012012012012012012012012012012012012012012012012",
+      "right_projected_preview": "012012012012012012032012012012012012014012012012012012012512012"
+    },
+    {
+      "case_id": "near_004_nested_blocks",
+      "family": "nested_blocks",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "expected_relation": "should_merge",
+      "observed_relation": "merge",
+      "success": true,
+      "distance": 0.05152464958,
+      "left_projected_preview": "0011221100112211001122110011221100112211001122110011221100112211",
+      "right_projected_preview": "0011221100112211001322110011221100112241001122110011221105112211"
+    },
+    {
+      "case_id": "near_005_run_length_gradient",
+      "family": "run_length_gradient",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "expected_relation": "should_merge",
+      "observed_relation": "merge",
+      "success": true,
+      "distance": 0.059447178377,
+      "left_projected_preview": "0100110001110000111100000111110000001111110000000111111100000000",
+      "right_projected_preview": "0100110001110000111200000111110000001131110000000111111104000000"
+    },
+    {
+      "case_id": "near_006_mirror_sequence",
+      "family": "mirror_sequence",
+      "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+      "expected_relation": "should_merge",
+      "observed_relation": "merge",
+      "success": true,
+      "distance": 0.056299188705,
+      "left_projected_preview": "012321012321012321012321012321123210123210123210123210123210",
+      "right_projected_preview": "012321012321012321042321012321123210125210123210123210123610"
+    },
+    {
+      "case_id": "diff_001_binary_alternation_vs_four_cycle",
+      "family": "binary_alternation_vs_four_cycle",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "expected_relation": "should_split",
+      "observed_relation": "split",
+      "success": true,
+      "distance": 0.525,
+      "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "right_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123"
+    },
+    {
+      "case_id": "diff_002_binary_alternation_vs_nested_blocks",
+      "family": "binary_alternation_vs_nested_blocks",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "expected_relation": "should_split",
+      "observed_relation": "split",
+      "success": true,
+      "distance": 0.714484126984,
+      "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "right_projected_preview": "0011221100112211001122110011221100112211001122110011221100112211"
+    },
+    {
+      "case_id": "diff_003_four_cycle_vs_run_length_gradient",
+      "family": "four_cycle_vs_run_length_gradient",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "expected_relation": "should_split",
+      "observed_relation": "split",
+      "success": true,
+      "distance": 0.969444444444,
+      "left_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+      "right_projected_preview": "0100110001110000111100000111110000001111110000000111111100000000"
+    },
+    {
+      "case_id": "diff_004_triple_cycle_vs_mirror_sequence",
+      "family": "triple_cycle_vs_mirror_sequence",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "expected_relation": "should_split",
+      "observed_relation": "split",
+      "success": true,
+      "distance": 0.499078557977,
+      "left_projected_preview": "012012012012012012012012012012012012012012012012012012012012012",
+      "right_projected_preview": "012321012321012321012321012321123210123210123210123210123210"
+    },
+    {
+      "case_id": "diff_005_nested_blocks_vs_mirror_sequence",
+      "family": "nested_blocks_vs_mirror_sequence",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "expected_relation": "should_split",
+      "observed_relation": "split",
+      "success": true,
+      "distance": 0.639882915291,
+      "left_projected_preview": "0011221100112211001122110011221100112211001122110011221100112211",
+      "right_projected_preview": "012321012321012321012321012321123210123210123210123210123210"
+    },
+    {
+      "case_id": "diff_006_run_length_gradient_vs_binary_alternation",
+      "family": "run_length_gradient_vs_binary_alternation",
+      "pair_type": "STRUCTURAL_DIFFERENT",
+      "expected_relation": "should_split",
+      "observed_relation": "split",
+      "success": true,
+      "distance": 0.694444444444,
+      "left_projected_preview": "0100110001110000111100000111110000001111110000000111111100000000",
+      "right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101"
+    },
+    {
+      "case_id": "fm_001_temperature_vs_finance",
+      "family": "binary_alternation_domain_collision",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "expected_relation": "should_split",
+      "observed_relation": "merge",
+      "success": false,
+      "distance": 0.0,
+      "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101"
+    },
+    {
+      "case_id": "fm_002_periodicity_spoofing",
+      "family": "periodicity_collision",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "expected_relation": "should_split",
+      "observed_relation": "merge",
+      "success": false,
+      "distance": 0.0,
+      "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101"
+    },
+    {
+      "case_id": "fm_003_json_field_erasure",
+      "family": "metadata_erasure_collision",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "expected_relation": "should_split",
+      "observed_relation": "merge",
+      "success": false,
+      "distance": 0.0,
+      "left_projected_preview": "0123401235012340123501234012350123401235012340123501234012350123",
+      "right_projected_preview": "0123401235012340123501234012350123401235012340123501234012350123"
+    },
+    {
+      "case_id": "fm_004_low_high_vs_zero_extreme",
+      "family": "magnitude_semantics_collision",
+      "pair_type": "FALSE_MERGE_TRAP",
+      "expected_relation": "should_split",
+      "observed_relation": "merge",
+      "success": false,
+      "distance": 0.0,
+      "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101"
+    },
+    {
+      "case_id": "fs_001_alias_inflation_binary",
+      "family": "binary_alternation",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "expected_relation": "should_merge",
+      "observed_relation": "split",
+      "success": false,
+      "distance": 0.567063242837,
+      "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "right_projected_preview": "0010011102120010011102120010011102120010011102120010011102120010"
+    },
+    {
+      "case_id": "fs_002_cardinality_inflation_cycle",
+      "family": "four_cycle",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "expected_relation": "should_merge",
+      "observed_relation": "split",
+      "success": false,
+      "distance": 0.55214626665,
+      "left_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+      "right_projected_preview": "0010203001112131001020300111213100102030011121310010203001112131"
+    },
+    {
+      "case_id": "fs_003_separator_attack",
+      "family": "word_pair_alternation",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "expected_relation": "should_merge",
+      "observed_relation": "split",
+      "success": false,
+      "distance": 1.459375,
+      "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "right_projected_preview": "0"
+    },
+    {
+      "case_id": "fs_004_nested_alias_split",
+      "family": "nested_blocks",
+      "pair_type": "FALSE_SPLIT_TRAP",
+      "expected_relation": "should_merge",
+      "observed_relation": "split",
+      "success": false,
+      "distance": 0.758234126984,
+      "left_projected_preview": "0011221100112211001122110011221100112211001122110011221100112211",
+      "right_projected_preview": "0102313241423132010231324142313201023132414231320102313241423132"
+    },
+    {
+      "case_id": "drift_001_binary_alternation",
+      "family": "binary_alternation",
+      "pair_type": "PARTIAL_DRIFT",
+      "expected_relation": "partial",
+      "observed_relation": "merge",
+      "success": false,
+      "distance": 0.096625581916,
+      "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+      "right_projected_preview": "01010101010101010110101010101001010101010101001010101010101010"
+    },
+    {
+      "case_id": "drift_002_four_cycle",
+      "family": "four_cycle",
+      "pair_type": "PARTIAL_DRIFT",
+      "expected_relation": "partial",
+      "observed_relation": "merge",
+      "success": false,
+      "distance": 0.128408973816,
+      "left_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+      "right_projected_preview": "01230123012301230323012301230212301230123012030123012301230123"
+    },
+    {
+      "case_id": "drift_003_triple_cycle",
+      "family": "triple_cycle",
+      "pair_type": "PARTIAL_DRIFT",
+      "expected_relation": "partial",
+      "observed_relation": "merge",
+      "success": false,
+      "distance": 0.140277069275,
+      "left_projected_preview": "012012012012012012012012012012012012012012012012012012012012012",
+      "right_projected_preview": "012012012012012011012012012010201201201201210120120120120120"
+    },
+    {
+      "case_id": "drift_004_nested_blocks",
+      "family": "nested_blocks",
+      "pair_type": "PARTIAL_DRIFT",
+      "expected_relation": "partial",
+      "observed_relation": "merge",
+      "success": false,
+      "distance": 0.142151263143,
+      "left_projected_preview": "0011221100112211001122110011221100112211001122110011221100112211",
+      "right_projected_preview": "0112211001122110101221100112110011221100112211001212110012211"
+    },
+    {
+      "case_id": "drift_005_run_length_gradient",
+      "family": "run_length_gradient",
+      "pair_type": "PARTIAL_DRIFT",
+      "expected_relation": "partial",
+      "observed_relation": "partial",
+      "success": true,
+      "distance": 0.195882356026,
+      "left_projected_preview": "0100110001110000111100000111110000001111110000000111111100000000",
+      "right_projected_preview": "0110011100011110000111110000111111000000111111100000001111111000"
+    },
+    {
+      "case_id": "drift_006_mirror_sequence",
+      "family": "mirror_sequence",
+      "pair_type": "PARTIAL_DRIFT",
+      "expected_relation": "partial",
+      "observed_relation": "split",
+      "success": false,
+      "distance": 0.542182118275,
+      "left_projected_preview": "012321012321012321012321012321123210123210123210123210123210",
+      "right_projected_preview": "012103012103012130012103012101213001210301210301201301213"
+    }
+  ],
+  "summary": {
+    "record_count": 32,
+    "success_count": 19,
+    "success_rate": 0.59375,
+    "false_merge_count": 4,
+    "false_split_count": 4,
+    "partial_mismatch_count": 5,
+    "pair_type_summary": {
+      "FALSE_MERGE_TRAP": {
+        "count": 4,
+        "success_rate": 0.0,
+        "avg_distance": 0.0
+      },
+      "FALSE_SPLIT_TRAP": {
+        "count": 4,
+        "success_rate": 0.0,
+        "avg_distance": 0.834204659118
+      },
+      "PARTIAL_DRIFT": {
+        "count": 6,
+        "success_rate": 0.166666666667,
+        "avg_distance": 0.207587893742
+      },
+      "STRUCTURAL_DIFFERENT": {
+        "count": 6,
+        "success_rate": 1.0,
+        "avg_distance": 0.673722414857
+      },
+      "STRUCTURAL_EQUIVALENT": {
+        "count": 6,
+        "success_rate": 1.0,
+        "avg_distance": 0.0
+      },
+      "STRUCTURAL_NEAR_EQUIVALENT": {
+        "count": 6,
+        "success_rate": 1.0,
+        "avg_distance": 0.053218276863
+      }
+    }
+  },
+  "pass_condition": "success_rate >= 0.60 and false_merge_count <= 4 and false_split_count <= 4",
+  "status": "FAIL",
+  "limitations": [
+    "This is not the full OMNIA engine.",
+    "This is a toy benchmark runner.",
+    "Thresholds are manually chosen.",
+    "No semantic truth is evaluated.",
+    "The dataset is synthetic.",
+    "No universal robustness claim is made."
+  ],
+  "reproduction_command": "python examples/structural_benchmark_runner_v0.py"
+}
