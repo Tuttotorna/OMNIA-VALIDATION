@@ -1,9 +1,3 @@
-Nome file:
-
-docs/STRUCTURAL_ALIAS_DETECTOR_V3_RESULT.md
-
-Contenuto completo:
-
 # Structural Alias Detector v3 — Result
 
 ## Status
