@@ -1,0 +1,109 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+CLONE STDOUT: (empty)
+CLONE STDERR: Cloning into '/content/OMNIA-VALIDATION'...
+
+CLONE RETURN CODE: 0
+
+================================================================================
+CHECKING FILE
+================================================================================
+Found script: /content/OMNIA-VALIDATION/examples/effective_observer_recoverability_gate_v0.py
+
+================================================================================
+CLEANING SCRIPT IF NEEDED
+================================================================================
+Script cleaned.
+
+Last 8 lines:
+    print()
+    print("=" * 80)
+    print("Result saved to:", RESULTS_PATH)
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+RUNNING EFFECTIVE OBSERVER RECOVERABILITY GATE V0
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION - Effective Observer Recoverability Gate v0
+================================================================================
+
+Status: PASS
+Version: 0.2.0
+
+Summary
+--------------------------------------------------------------------------------
+case_count: 10
+pass_count: 1
+flagged_count: 9
+action_counts: {'PASS': 1, 'FLAG': 6, 'COLLAPSE': 3}
+mean_adversarial_divergence: 0.4598025
+max_adversarial_divergence: 0.7089181250000001
+
+Cases
+--------------------------------------------------------------------------------
+clean_balanced                       action=PASS      raw=40  effective=22.661775 norm_eff=0.566544 recoverability=0.870000 divergence=0.303456
+high_raw_duplicate                   action=FLAG      raw=80  effective=0.166500 norm_eff=0.002081 recoverability=0.315000 divergence=0.312919
+projection_collapse                  action=COLLAPSE  raw=60  effective=2.314912 norm_eff=0.038582 recoverability=0.747500 divergence=0.708918
+collapse_resistance_failure          action=COLLAPSE  raw=52  effective=1.263600 norm_eff=0.024300 recoverability=0.655000 divergence=0.630700
+balanced_but_dependent               action=FLAG      raw=50  effective=1.268750 norm_eff=0.025375 recoverability=0.485000 divergence=0.459625
+sparse_but_independent               action=FLAG      raw=8   effective=3.283200 norm_eff=0.410400 recoverability=0.810000 divergence=0.399600
+entropy_inflation                    action=FLAG      raw=55  effective=0.687500 norm_eff=0.012500 recoverability=0.465000 divergence=0.452500
+observer_alias_attack                action=FLAG      raw=48  effective=0.441000 norm_eff=0.009188 recoverability=0.385000 divergence=0.375812
+partial_collapse                     action=FLAG      raw=45  effective=0.439425 norm_eff=0.009765 recoverability=0.442500 divergence=0.432735
+hidden_single_point_failure          action=COLLAPSE  raw=52  effective=0.168480 norm_eff=0.003240 recoverability=0.525000 divergence=0.521760
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS - recoverability gate detected adversarial boundary cases while allowing clean cases.
+
+================================================================================
+Result saved to: results/effective_observer_recoverability_gate_v0.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE: 0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+Status: PASS
+Version: 0.2.0
+
+Summary
+--------------------------------------------------------------------------------
+case_count: 10
+pass_count: 1
+flagged_count: 9
+action_counts: {'PASS': 1, 'FLAG': 6, 'COLLAPSE': 3}
+mean_adversarial_divergence: 0.4598025
+max_adversarial_divergence: 0.7089181250000001
+
+Cases
+--------------------------------------------------------------------------------
+clean_balanced                       action=PASS      raw=40  effective=22.661775 norm_eff=0.566544 recoverability=0.870000 divergence=0.303456
+high_raw_duplicate                   action=FLAG      raw=80  effective=0.166500 norm_eff=0.002081 recoverability=0.315000 divergence=0.312919
+projection_collapse                  action=COLLAPSE  raw=60  effective=2.314912 norm_eff=0.038582 recoverability=0.747500 divergence=0.708918
+collapse_resistance_failure          action=COLLAPSE  raw=52  effective=1.263600 norm_eff=0.024300 recoverability=0.655000 divergence=0.630700
+balanced_but_dependent               action=FLAG      raw=50  effective=1.268750 norm_eff=0.025375 recoverability=0.485000 divergence=0.459625
+sparse_but_independent               action=FLAG      raw=8   effective=3.283200 norm_eff=0.410400 recoverability=0.810000 divergence=0.399600
+entropy_inflation                    action=FLAG      raw=55  effective=0.687500 norm_eff=0.012500 recoverability=0.465000 divergence=0.452500
+observer_alias_attack                action=FLAG      raw=48  effective=0.441000 norm_eff=0.009188 recoverability=0.385000 divergence=0.375812
+partial_collapse                     action=FLAG      raw=45  effective=0.439425 norm_eff=0.009765 recoverability=0.442500 divergence=0.432735
+hidden_single_point_failure          action=COLLAPSE  raw=52  effective=0.168480 norm_eff=0.003240 recoverability=0.525000 divergence=0.521760
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS — recoverability gate detected adversarial boundary cases.
