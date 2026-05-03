@@ -1,0 +1,111 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+CLONE STDOUT: (empty)
+CLONE STDERR: Cloning into '/content/OMNIA-VALIDATION'...
+
+CLONE RETURN CODE: 0
+
+================================================================================
+CHECKING FILE
+================================================================================
+Found script: /content/OMNIA-VALIDATION/examples/correlation_analysis_effective_observer_adversarial_v0.py
+
+================================================================================
+CLEANING SCRIPT IF NEEDED
+================================================================================
+Script cleaned.
+
+Last 8 lines:
+    print()
+    print("=" * 80)
+    print("Result saved to:", RESULTS_PATH)
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+RUNNING CORRELATION ANALYSIS EFFECTIVE OBSERVER ADVERSARIAL V0
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION - Correlation Analysis Effective Observer Adversarial v0
+================================================================================
+
+Status: PASS
+Version: 0.1.0
+
+Summary
+--------------------------------------------------------------------------------
+case_count                    : 10
+mean_adversarial_score        : 0.462377863154
+max_adversarial_score         : 0.708918125000
+resisted_count                : 0
+stressed_count                : 1
+weakened_count                : 8
+collapsed_count               : 1
+
+Cases
+--------------------------------------------------------------------------------
+baseline_random                      outcome=WEAKENED   score=0.493009256539 effective=7.201085 recoverability=0.613027
+high_raw_duplicate                   outcome=STRESSED   score=0.312918750000 effective=0.166500 recoverability=0.315000
+high_effective_projection_collapse   outcome=COLLAPSED  score=0.708918125000 effective=2.314912 recoverability=0.747500
+fake_diversity_noise                 outcome=WEAKENED   score=0.466900000000 effective=1.617000 recoverability=0.490000
+balanced_but_dependent               outcome=WEAKENED   score=0.459625000000 effective=1.268750 recoverability=0.485000
+sparse_but_independent               outcome=WEAKENED   score=0.399600000000 effective=3.283200 recoverability=0.810000
+entropy_inflation                    outcome=WEAKENED   score=0.452500000000 effective=0.687500 recoverability=0.465000
+observer_alias_attack                outcome=WEAKENED   score=0.375812500000 effective=0.441000 recoverability=0.385000
+partial_collapse                     outcome=WEAKENED   score=0.432735000000 effective=0.439425 recoverability=0.442500
+hidden_single_point_failure          outcome=WEAKENED   score=0.521760000000 effective=0.168480 recoverability=0.525000
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS - adversarial analysis exposed measurable failure boundaries.
+
+================================================================================
+Result saved to: results/correlation_analysis_effective_observer_adversarial_v0.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE: 0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+Status: PASS
+Version: 0.1.0
+
+Summary
+--------------------------------------------------------------------------------
+case_count: 10
+mean_adversarial_score: 0.46237786315393326
+max_adversarial_score: 0.7089181250000001
+resisted_count: 0
+stressed_count: 1
+weakened_count: 8
+collapsed_count: 1
+
+Cases
+--------------------------------------------------------------------------------
+baseline_random                      outcome=WEAKENED   score=0.493009256539 raw=60  effective=7.201085 norm_eff=0.120018 recoverability=0.613027
+high_raw_duplicate                   outcome=STRESSED   score=0.312918750000 raw=80  effective=0.166500 norm_eff=0.002081 recoverability=0.315000
+high_effective_projection_collapse   outcome=COLLAPSED  score=0.708918125000 raw=60  effective=2.314912 norm_eff=0.038582 recoverability=0.747500
+fake_diversity_noise                 outcome=WEAKENED   score=0.466900000000 raw=70  effective=1.617000 norm_eff=0.023100 recoverability=0.490000
+balanced_but_dependent               outcome=WEAKENED   score=0.459625000000 raw=50  effective=1.268750 norm_eff=0.025375 recoverability=0.485000
+sparse_but_independent               outcome=WEAKENED   score=0.399600000000 raw=8   effective=3.283200 norm_eff=0.410400 recoverability=0.810000
+entropy_inflation                    outcome=WEAKENED   score=0.452500000000 raw=55  effective=0.687500 norm_eff=0.012500 recoverability=0.465000
+observer_alias_attack                outcome=WEAKENED   score=0.375812500000 raw=48  effective=0.441000 norm_eff=0.009188 recoverability=0.385000
+partial_collapse                     outcome=WEAKENED   score=0.432735000000 raw=45  effective=0.439425 norm_eff=0.009765 recoverability=0.442500
+hidden_single_point_failure          outcome=WEAKENED   score=0.521760000000 raw=52  effective=0.168480 norm_eff=0.003240 recoverability=0.525000
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS — adversarial analysis exposed measurable failure boundaries.
