@@ -1,0 +1,205 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+CLONE STDOUT: (empty)
+CLONE STDERR: Cloning into '/content/OMNIA-VALIDATION'...
+
+CLONE RETURN CODE: 0
+
+================================================================================
+CHECKING FILE
+================================================================================
+Found script: /content/OMNIA-VALIDATION/examples/effective_observer_recoverability_gate_randomized_v0.py
+
+================================================================================
+CLEANING SCRIPT IF NEEDED
+================================================================================
+Script cleaned.
+
+Last 8 lines:
+    print()
+    print("=" * 80)
+    print("Result saved to:", RESULTS_PATH)
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+RUNNING EFFECTIVE OBSERVER RECOVERABILITY GATE RANDOMIZED V0
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION - Effective Observer Recoverability Gate Randomized v0
+================================================================================
+
+Status: PASS
+Version: 0.1.0
+Random seed: 42
+System count: 1000
+
+Summary
+--------------------------------------------------------------------------------
+system_count: 1000
+random_seed: 42
+proxy_match_count: 978
+proxy_mismatch_count: 22
+proxy_accuracy: 0.978
+false_pass_proxy_count: 0
+false_collapse_proxy_count: 0
+gate_action_distribution:
+  COLLAPSE: 144
+  ESCALATE: 32
+  FLAG: 811
+  PASS: 9
+  RETRY: 4
+mode_distribution:
+  balanced: 151
+  borderline: 164
+  collapsed: 124
+  contradictory: 147
+  noisy: 125
+  redundant: 138
+  sparse: 151
+mean_divergence: 0.45313350231377625
+max_divergence: 0.7097414387640164
+mean_recoverability_score: 0.56605009904374
+mean_normalized_effective: 0.11291659672996378
+mean_divergence_by_action:
+  COLLAPSE: 0.3920435988747327
+  ESCALATE: 0.6359313749363089
+  FLAG: 0.45905140288851715
+  PASS: 0.32869692800013256
+  RETRY: 0.2701149958160579
+mean_recoverability_by_action:
+  COLLAPSE: 0.3956692906789732
+  ESCALATE: 0.7405494746410713
+  FLAG: 0.5876282067316018
+  PASS: 0.8584563149274573
+  RETRY: 0.27088887594436106
+mean_normalized_effective_by_action:
+  COLLAPSE: 0.003625691804240516
+  ESCALATE: 0.10461809970476238
+  FLAG: 0.1285768038430846
+  PASS: 0.5297593869273248
+  RETRY: 0.0007738801283031335
+
+Sample systems
+--------------------------------------------------------------------------------
+id=0    mode=balanced       action=FLAG      expected=FLAG      match=True  raw=85  eff=24.844531 norm_eff=0.292289 rec=0.739040 div=0.446752
+id=1    mode=balanced       action=FLAG      expected=FLAG      match=True  raw=73  eff=17.831233 norm_eff=0.244263 rec=0.716649 div=0.472385
+id=2    mode=redundant      action=FLAG      expected=FLAG      match=True  raw=75  eff=3.786019 norm_eff=0.050480 rec=0.535405 div=0.484925
+id=3    mode=borderline     action=FLAG      expected=FLAG      match=True  raw=4   eff=0.031336 norm_eff=0.007834 rec=0.385943 div=0.378109
+id=4    mode=balanced       action=FLAG      expected=FLAG      match=True  raw=47  eff=16.261174 norm_eff=0.345982 rec=0.780081 div=0.434098
+id=5    mode=noisy          action=FLAG      expected=FLAG      match=True  raw=97  eff=21.500018 norm_eff=0.221650 rec=0.736499 div=0.514849
+id=6    mode=borderline     action=FLAG      expected=FLAG      match=True  raw=83  eff=0.710894 norm_eff=0.008565 rec=0.353107 div=0.344542
+id=7    mode=borderline     action=FLAG      expected=FLAG      match=True  raw=14  eff=0.071484 norm_eff=0.005106 rec=0.335139 div=0.330033
+id=8    mode=collapsed      action=COLLAPSE  expected=COLLAPSE  match=True  raw=51  eff=0.085324 norm_eff=0.001673 rec=0.329490 div=0.327817
+id=9    mode=sparse         action=FLAG      expected=FLAG      match=True  raw=25  eff=5.562990 norm_eff=0.222520 rec=0.723898 div=0.501379
+id=10   mode=redundant      action=FLAG      expected=FLAG      match=True  raw=75  eff=2.590997 norm_eff=0.034547 rec=0.526166 div=0.491619
+id=11   mode=noisy          action=FLAG      expected=FLAG      match=True  raw=44  eff=3.008954 norm_eff=0.068385 rec=0.594620 div=0.526235
+id=12   mode=noisy          action=FLAG      expected=FLAG      match=True  raw=87  eff=5.503382 norm_eff=0.063257 rec=0.605796 div=0.542538
+id=13   mode=sparse         action=FLAG      expected=FLAG      match=True  raw=75  eff=12.197819 norm_eff=0.162638 rec=0.657172 div=0.494534
+id=14   mode=sparse         action=FLAG      expected=FLAG      match=True  raw=21  eff=3.245268 norm_eff=0.154537 rec=0.659082 div=0.504546
+id=15   mode=noisy          action=FLAG      expected=FLAG      match=True  raw=91  eff=6.120633 norm_eff=0.067260 rec=0.600377 div=0.533117
+id=16   mode=borderline     action=FLAG      expected=FLAG      match=True  raw=74  eff=1.176281 norm_eff=0.015896 rec=0.404981 div=0.389085
+id=17   mode=collapsed      action=FLAG      expected=FLAG      match=True  raw=86  eff=0.257112 norm_eff=0.002990 rec=0.308473 div=0.305483
+id=18   mode=sparse         action=FLAG      expected=FLAG      match=True  raw=37  eff=9.558857 norm_eff=0.258347 rec=0.730199 div=0.471851
+id=19   mode=sparse         action=FLAG      expected=FLAG      match=True  raw=68  eff=16.461838 norm_eff=0.242086 rec=0.718384 div=0.476299
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS - randomized population validation produced coherent gate behavior.
+
+================================================================================
+Result saved to: results/effective_observer_recoverability_gate_randomized_v0.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE: 0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+Status: PASS
+Version: 0.1.0
+
+Summary
+--------------------------------------------------------------------------------
+system_count: 1000
+random_seed: 42
+proxy_match_count: 978
+proxy_mismatch_count: 22
+proxy_accuracy: 0.978
+false_pass_proxy_count: 0
+false_collapse_proxy_count: 0
+gate_action_distribution:
+  COLLAPSE: 144
+  ESCALATE: 32
+  FLAG: 811
+  PASS: 9
+  RETRY: 4
+mode_distribution:
+  balanced: 151
+  borderline: 164
+  collapsed: 124
+  contradictory: 147
+  noisy: 125
+  redundant: 138
+  sparse: 151
+mean_divergence: 0.45313350231377625
+max_divergence: 0.7097414387640164
+mean_recoverability_score: 0.56605009904374
+mean_normalized_effective: 0.11291659672996378
+mean_divergence_by_action:
+  COLLAPSE: 0.3920435988747327
+  ESCALATE: 0.6359313749363089
+  FLAG: 0.45905140288851715
+  PASS: 0.32869692800013256
+  RETRY: 0.2701149958160579
+mean_recoverability_by_action:
+  COLLAPSE: 0.3956692906789732
+  ESCALATE: 0.7405494746410713
+  FLAG: 0.5876282067316018
+  PASS: 0.8584563149274573
+  RETRY: 0.27088887594436106
+mean_normalized_effective_by_action:
+  COLLAPSE: 0.003625691804240516
+  ESCALATE: 0.10461809970476238
+  FLAG: 0.1285768038430846
+  PASS: 0.5297593869273248
+  RETRY: 0.0007738801283031335
+
+Sample systems
+--------------------------------------------------------------------------------
+id=0    mode=balanced       action=FLAG      expected=FLAG      match=True  raw=85  eff=24.844531 norm_eff=0.292289 rec=0.739040 div=0.446752
+id=1    mode=balanced       action=FLAG      expected=FLAG      match=True  raw=73  eff=17.831233 norm_eff=0.244263 rec=0.716649 div=0.472385
+id=2    mode=redundant      action=FLAG      expected=FLAG      match=True  raw=75  eff=3.786019 norm_eff=0.050480 rec=0.535405 div=0.484925
+id=3    mode=borderline     action=FLAG      expected=FLAG      match=True  raw=4   eff=0.031336 norm_eff=0.007834 rec=0.385943 div=0.378109
+id=4    mode=balanced       action=FLAG      expected=FLAG      match=True  raw=47  eff=16.261174 norm_eff=0.345982 rec=0.780081 div=0.434098
+id=5    mode=noisy          action=FLAG      expected=FLAG      match=True  raw=97  eff=21.500018 norm_eff=0.221650 rec=0.736499 div=0.514849
+id=6    mode=borderline     action=FLAG      expected=FLAG      match=True  raw=83  eff=0.710894 norm_eff=0.008565 rec=0.353107 div=0.344542
+id=7    mode=borderline     action=FLAG      expected=FLAG      match=True  raw=14  eff=0.071484 norm_eff=0.005106 rec=0.335139 div=0.330033
+id=8    mode=collapsed      action=COLLAPSE  expected=COLLAPSE  match=True  raw=51  eff=0.085324 norm_eff=0.001673 rec=0.329490 div=0.327817
+id=9    mode=sparse         action=FLAG      expected=FLAG      match=True  raw=25  eff=5.562990 norm_eff=0.222520 rec=0.723898 div=0.501379
+id=10   mode=redundant      action=FLAG      expected=FLAG      match=True  raw=75  eff=2.590997 norm_eff=0.034547 rec=0.526166 div=0.491619
+id=11   mode=noisy          action=FLAG      expected=FLAG      match=True  raw=44  eff=3.008954 norm_eff=0.068385 rec=0.594620 div=0.526235
+id=12   mode=noisy          action=FLAG      expected=FLAG      match=True  raw=87  eff=5.503382 norm_eff=0.063257 rec=0.605796 div=0.542538
+id=13   mode=sparse         action=FLAG      expected=FLAG      match=True  raw=75  eff=12.197819 norm_eff=0.162638 rec=0.657172 div=0.494534
+id=14   mode=sparse         action=FLAG      expected=FLAG      match=True  raw=21  eff=3.245268 norm_eff=0.154537 rec=0.659082 div=0.504546
+id=15   mode=noisy          action=FLAG      expected=FLAG      match=True  raw=91  eff=6.120633 norm_eff=0.067260 rec=0.600377 div=0.533117
+id=16   mode=borderline     action=FLAG      expected=FLAG      match=True  raw=74  eff=1.176281 norm_eff=0.015896 rec=0.404981 div=0.389085
+id=17   mode=collapsed      action=FLAG      expected=FLAG      match=True  raw=86  eff=0.257112 norm_eff=0.002990 rec=0.308473 div=0.305483
+id=18   mode=sparse         action=FLAG      expected=FLAG      match=True  raw=37  eff=9.558857 norm_eff=0.258347 rec=0.730199 div=0.471851
+id=19   mode=sparse         action=FLAG      expected=FLAG      match=True  raw=68  eff=16.461838 norm_eff=0.242086 rec=0.718384 div=0.476299
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS — randomized population validation produced coherent gate behavior.
