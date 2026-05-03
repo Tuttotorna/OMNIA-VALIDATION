@@ -2,7 +2,7 @@ import json
 import os
 from statistics import mean
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 
 RESULTS_DIR = "results"
 RESULTS_PATH = os.path.join(
@@ -56,7 +56,10 @@ def compute_recoverability_score(
     )
 
 
-def compute_adversarial_divergence(normalized_effective, recoverability_score):
+def compute_adversarial_divergence(
+    normalized_effective,
+    recoverability_score,
+):
     return abs(normalized_effective - recoverability_score)
 
 
@@ -69,22 +72,28 @@ def gate_action(
     non_redundancy,
     adversarial_divergence,
 ):
-    if collapse_resistance < 0.10 or projection_stability < 0.10:
+    if collapse_resistance < 0.10:
         return "COLLAPSE"
 
-    if adversarial_divergence >= 0.55:
+    if projection_stability < 0.10:
+        return "COLLAPSE"
+
+    if adversarial_divergence >= 0.60:
         return "ESCALATE"
 
     if recoverability_score < 0.30:
         return "RETRY"
 
-    if family_balance < 0.35 or non_redundancy < 0.35:
+    if family_balance < 0.35:
+        return "FLAG"
+
+    if non_redundancy < 0.35:
         return "FLAG"
 
     if normalized_effective < 0.05 and recoverability_score >= 0.50:
         return "FLAG"
 
-    if adversarial_divergence >= 0.30:
+    if adversarial_divergence >= 0.35:
         return "FLAG"
 
     return "PASS"
@@ -175,27 +184,27 @@ def build_case(case_name):
         raise ValueError(f"unknown case: {case_name}")
 
     effective_count = compute_effective_count(
-        raw,
-        non_red,
-        family,
-        entropy,
-        collapse,
-        stability,
+        raw_count=raw,
+        non_redundancy=non_red,
+        family_balance=family,
+        relation_entropy=entropy,
+        collapse_resistance=collapse,
+        projection_stability=stability,
     )
 
     normalized_effective = safe_div(effective_count, raw)
 
     recoverability_score = compute_recoverability_score(
-        non_red,
-        family,
-        entropy,
-        collapse,
-        stability,
+        non_redundancy=non_red,
+        family_balance=family,
+        relation_entropy=entropy,
+        collapse_resistance=collapse,
+        projection_stability=stability,
     )
 
     adversarial_divergence = compute_adversarial_divergence(
-        normalized_effective,
-        recoverability_score,
+        normalized_effective=normalized_effective,
+        recoverability_score=recoverability_score,
     )
 
     action = gate_action(
@@ -248,13 +257,14 @@ def main():
         action = item["gate_action"]
         action_counts[action] = action_counts.get(action, 0) + 1
 
+    pass_count = action_counts.get("PASS", 0)
+
     flagged_count = sum(
         1
         for item in results
-        if item["gate_action"] in {"FLAG", "RETRY", "ESCALATE", "COLLAPSE"}
+        if item["gate_action"]
+        in {"FLAG", "RETRY", "ESCALATE", "COLLAPSE"}
     )
-
-    pass_count = action_counts.get("PASS", 0)
 
     divergence_values = [
         item["adversarial_divergence"]
@@ -270,21 +280,31 @@ def main():
         "max_adversarial_divergence": max(divergence_values),
     }
 
-    status = "PASS" if flagged_count >= 7 and pass_count >= 1 else "CHECK"
+    status = (
+        "PASS"
+        if pass_count >= 1 and flagged_count >= 8
+        else "CHECK"
+    )
 
     payload = {
         "status": status,
         "version": VERSION,
         "summary": summary,
         "results": results,
-        "reproduction_command": "python examples/effective_observer_recoverability_gate_v0.py",
+        "reproduction_command": (
+            "python examples/"
+            "effective_observer_recoverability_gate_v0.py"
+        ),
     }
 
     with open(RESULTS_PATH, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2)
 
     print("=" * 80)
-    print("OMNIA-VALIDATION - Effective Observer Recoverability Gate v0")
+    print(
+        "OMNIA-VALIDATION - "
+        "Effective Observer Recoverability Gate v0"
+    )
     print("=" * 80)
     print()
 
@@ -320,11 +340,12 @@ def main():
 
     if status == "PASS":
         print(
-            "PASS - recoverability gate detected adversarial boundary cases."
+            "PASS - recoverability gate detected adversarial "
+            "boundary cases while allowing clean cases."
         )
     else:
         print(
-            "CHECK - gate did not detect enough adversarial boundary cases."
+            "CHECK - gate balance is still not calibrated."
         )
 
     print()
