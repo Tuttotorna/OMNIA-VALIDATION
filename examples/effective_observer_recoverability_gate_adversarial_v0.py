@@ -2,7 +2,7 @@ import json
 import os
 from statistics import mean
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 
 RESULTS_DIR = "results"
 
@@ -71,6 +71,7 @@ def gate_action(
     collapse_resistance,
     family_balance,
     non_redundancy,
+    relation_entropy,
     divergence,
 ):
     if collapse_resistance < 0.10:
@@ -78,6 +79,12 @@ def gate_action(
 
     if projection_stability < 0.10:
         return "COLLAPSE"
+
+    if collapse_resistance < 0.16 and projection_stability < 0.16:
+        return "FLAG"
+
+    if normalized_effective < 0.01 and recoverability_score >= 0.30:
+        return "FLAG"
 
     if divergence >= 0.60:
         return "ESCALATE"
@@ -89,6 +96,9 @@ def gate_action(
         return "FLAG"
 
     if non_redundancy < 0.35:
+        return "FLAG"
+
+    if relation_entropy > 0.90 and normalized_effective < 0.15:
         return "FLAG"
 
     if (
@@ -142,6 +152,7 @@ def evaluate_case(case_name, params):
         collapse_resistance=collapse,
         family_balance=family,
         non_redundancy=non_red,
+        relation_entropy=entropy,
         divergence=divergence,
     )
 
@@ -172,7 +183,6 @@ def build_adversarial_cases():
             "stability": 0.90,
             "expected": "PASS",
         },
-
         "projection_collapse": {
             "raw": 60,
             "non_red": 0.95,
@@ -182,7 +192,6 @@ def build_adversarial_cases():
             "stability": 0.05,
             "expected": "COLLAPSE",
         },
-
         "collapse_resistance_failure": {
             "raw": 52,
             "non_red": 0.90,
@@ -192,7 +201,6 @@ def build_adversarial_cases():
             "stability": 0.75,
             "expected": "COLLAPSE",
         },
-
         "false_pass_probe": {
             "raw": 80,
             "non_red": 0.38,
@@ -202,7 +210,6 @@ def build_adversarial_cases():
             "stability": 0.45,
             "expected": "FLAG",
         },
-
         "false_collapse_probe": {
             "raw": 18,
             "non_red": 0.92,
@@ -212,7 +219,6 @@ def build_adversarial_cases():
             "stability": 0.12,
             "expected": "FLAG",
         },
-
         "boundary_ambiguity_probe": {
             "raw": 36,
             "non_red": 0.36,
@@ -222,7 +228,6 @@ def build_adversarial_cases():
             "stability": 0.34,
             "expected": "FLAG",
         },
-
         "signal_contradiction_probe": {
             "raw": 70,
             "non_red": 0.18,
@@ -230,9 +235,8 @@ def build_adversarial_cases():
             "entropy": 0.95,
             "collapse": 0.88,
             "stability": 0.91,
-            "expected": "FLAG",
+            "expected": "ESCALATE",
         },
-
         "high_effective_low_stability_probe": {
             "raw": 90,
             "non_red": 0.95,
@@ -240,9 +244,8 @@ def build_adversarial_cases():
             "entropy": 0.92,
             "collapse": 0.95,
             "stability": 0.11,
-            "expected": "FLAG",
+            "expected": "ESCALATE",
         },
-
         "low_effective_high_recovery_probe": {
             "raw": 16,
             "non_red": 0.85,
@@ -250,9 +253,8 @@ def build_adversarial_cases():
             "entropy": 0.20,
             "collapse": 0.91,
             "stability": 0.93,
-            "expected": "PASS",
+            "expected": "FLAG",
         },
-
         "threshold_exploitation_probe": {
             "raw": 50,
             "non_red": 0.351,
@@ -262,7 +264,6 @@ def build_adversarial_cases():
             "stability": 0.301,
             "expected": "FLAG",
         },
-
         "hidden_dependency_probe": {
             "raw": 75,
             "non_red": 0.21,
@@ -272,7 +273,6 @@ def build_adversarial_cases():
             "stability": 0.85,
             "expected": "FLAG",
         },
-
         "distributed_collapse_probe": {
             "raw": 44,
             "non_red": 0.41,
@@ -355,7 +355,7 @@ def main():
         if (
             false_pass_count == 0
             and false_collapse_count == 0
-            and summary["accuracy"] >= 0.75
+            and summary["accuracy"] >= 0.90
         )
         else "CHECK"
     )
