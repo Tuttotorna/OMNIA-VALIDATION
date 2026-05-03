@@ -1,0 +1,165 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+CLONE STDOUT:
+(empty)
+
+CLONE STDERR:
+Cloning into '/content/OMNIA-VALIDATION'...
+
+
+CLONE RETURN CODE: 0
+
+================================================================================
+CHECKING FILE
+================================================================================
+Found script: /content/OMNIA-VALIDATION/examples/recoverability_effective_observer_v0.py
+
+================================================================================
+CLEANING SCRIPT IF NEEDED
+================================================================================
+Script cleaned.
+
+Last 8 lines of script:
+    print()
+    print("=" * 80)
+    print("Result saved to:", RESULTS_PATH)
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+RUNNING RECOVERABILITY EFFECTIVE OBSERVER V0
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION — Recoverability vs Effective Observer Count v0
+================================================================================
+
+base_system
+--------------------------------------------------------------------------------
+raw_count             : 12
+effective_count       : 2.677125569494
+recoverability_score  : 0.319309954668
+non_redundancy        : 1.000000000000
+family_balance        : 1.000000000000
+relation_entropy      : 0.277291725654
+collapse_resistance   : 0.804545454545
+
+duplicate_system
+--------------------------------------------------------------------------------
+raw_count             : 32
+effective_count       : 4.189050523886
+recoverability_score  : 0.138279316655
+non_redundancy        : 0.576612903226
+family_balance        : 0.627336281178
+relation_entropy      : 0.780092165231
+collapse_resistance   : 0.463911290323
+
+balanced_system
+--------------------------------------------------------------------------------
+raw_count             : 40
+effective_count       : 9.616515593834
+recoverability_score  : 0.101542207162
+non_redundancy        : 1.000000000000
+family_balance        : 1.000000000000
+relation_entropy      : 0.300998481669
+collapse_resistance   : 0.798717948718
+
+collapsed_system
+--------------------------------------------------------------------------------
+raw_count             : 30
+effective_count       : 0.000000000000
+recoverability_score  : 0.009292827353
+non_redundancy        : 0.000000000000
+family_balance        : 0.000000000000
+relation_entropy      : 0.000000000000
+collapse_resistance   : 0.000000000000
+
+================================================================================
+Result saved to: results/recoverability_effective_observer_v0.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE: 0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+{
+  "status": "PASS",
+  "version": "0.1.0",
+  "results": [
+    {
+      "system": "base_system",
+      "raw_count": 12,
+      "effective_count": 2.6771255694938483,
+      "recoverability_score": 0.31930995466809803,
+      "non_redundancy": 1.0,
+      "family_balance": 0.9999999999999999,
+      "relation_entropy": 0.27729172565378846,
+      "collapse_resistance": 0.8045454545454546
+    },
+    {
+      "system": "duplicate_system",
+      "raw_count": 32,
+      "effective_count": 4.189050523886227,
+      "recoverability_score": 0.1382793166552138,
+      "non_redundancy": 0.5766129032258065,
+      "family_balance": 0.6273362811779477,
+      "relation_entropy": 0.7800921652312215,
+      "collapse_resistance": 0.46391129032258066
+    },
+    {
+      "system": "balanced_system",
+      "raw_count": 40,
+      "effective_count": 9.616515593834432,
+      "recoverability_score": 0.10154220716169318,
+      "non_redundancy": 1.0,
+      "family_balance": 1.0,
+      "relation_entropy": 0.30099848166897497,
+      "collapse_resistance": 0.7987179487179488
+    },
+    {
+      "system": "collapsed_system",
+      "raw_count": 30,
+      "effective_count": 0.0,
+      "recoverability_score": 0.009292827353274838,
+      "non_redundancy": 0.0,
+      "family_balance": 0.0,
+      "relation_entropy": 0.0,
+      "collapse_resistance": 0.0
+    }
+  ]
+}
+
+================================================================================
+VALIDATION SUMMARY
+================================================================================
+Status:   PASS
+Version:  0.1.0
+
+Systems:
+  base_system          raw=12 effective=2.677125569494 recoverability=0.319309954668 non_red=1.000000000000 family_balance=1.000000000000 relation_entropy=0.277291725654 collapse_resistance=0.804545454545
+  duplicate_system     raw=32 effective=4.189050523886 recoverability=0.138279316655 non_red=0.576612903226 family_balance=0.627336281178 relation_entropy=0.780092165231 collapse_resistance=0.463911290323
+  balanced_system      raw=40 effective=9.616515593834 recoverability=0.101542207162 non_red=1.000000000000 family_balance=1.000000000000 relation_entropy=0.300998481669 collapse_resistance=0.798717948718
+  collapsed_system     raw=30 effective=0.000000000000 recoverability=0.009292827353 non_red=0.000000000000 family_balance=0.000000000000 relation_entropy=0.000000000000 collapse_resistance=0.000000000000
+
+================================================================================
+RANKING BY RECOVERABILITY
+================================================================================
+1. base_system (recoverability=0.319309954668, effective=2.677125569494, raw=12)
+2. duplicate_system (recoverability=0.138279316655, effective=4.189050523886, raw=32)
+3. balanced_system (recoverability=0.101542207162, effective=9.616515593834, raw=40)
+4. collapsed_system (recoverability=0.009292827353, effective=0.000000000000, raw=30)
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS — recoverability vs effective observer count v0 produced measurable recovery distinctions.
