@@ -1,0 +1,149 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+CLONE STDOUT:
+(empty)
+
+CLONE STDERR:
+Cloning into '/content/OMNIA-VALIDATION'...
+
+
+CLONE RETURN CODE: 0
+
+================================================================================
+CHECKING FILE
+================================================================================
+Found script: /content/OMNIA-VALIDATION/examples/effective_observer_count_v0.py
+
+================================================================================
+CLEANING SCRIPT IF NEEDED
+================================================================================
+Script cleaned.
+
+Last 8 lines of script:
+    print()
+    print("=" * 80)
+    print("Result saved to:", RESULTS_PATH)
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+RUNNING EFFECTIVE OBSERVER COUNT V0
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION — Effective Observer Count v0
+================================================================================
+
+base_system
+--------------------------------------------------------------------------------
+raw_count            : 12
+effective_count      : 2.677125569494
+non_redundancy       : 1.000000000000
+family_balance       : 1.000000000000
+relation_entropy     : 0.277291725654
+collapse_resistance  : 0.804545454545
+
+duplicate_system
+--------------------------------------------------------------------------------
+raw_count            : 32
+effective_count      : 4.189050523886
+non_redundancy       : 0.576612903226
+family_balance       : 0.627336281178
+relation_entropy     : 0.780092165231
+collapse_resistance  : 0.463911290323
+
+balanced_system
+--------------------------------------------------------------------------------
+raw_count            : 40
+effective_count      : 9.616515593834
+non_redundancy       : 1.000000000000
+family_balance       : 1.000000000000
+relation_entropy     : 0.300998481669
+collapse_resistance  : 0.798717948718
+
+collapsed_system
+--------------------------------------------------------------------------------
+raw_count            : 30
+effective_count      : 0.000000000000
+non_redundancy       : 0.000000000000
+family_balance       : 0.000000000000
+relation_entropy     : 0.000000000000
+collapse_resistance  : 0.000000000000
+
+================================================================================
+Result saved to: results/effective_observer_count_v0.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE: 0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+{
+  "status": "PASS",
+  "version": "0.1.0",
+  "results": [
+    {
+      "raw_count": 12,
+      "effective_count": 2.6771255694938483,
+      "non_redundancy": 1.0,
+      "family_balance": 0.9999999999999999,
+      "relation_entropy": 0.27729172565378846,
+      "collapse_resistance": 0.8045454545454546,
+      "system": "base_system"
+    },
+    {
+      "raw_count": 32,
+      "effective_count": 4.189050523886227,
+      "non_redundancy": 0.5766129032258065,
+      "family_balance": 0.6273362811779477,
+      "relation_entropy": 0.7800921652312215,
+      "collapse_resistance": 0.46391129032258066,
+      "system": "duplicate_system"
+    },
+    {
+      "raw_count": 40,
+      "effective_count": 9.616515593834432,
+      "non_redundancy": 1.0,
+      "family_balance": 1.0,
+      "relation_entropy": 0.30099848166897497,
+      "collapse_resistance": 0.7987179487179488,
+      "system": "balanced_system"
+    },
+    {
+      "raw_count": 30,
+      "effective_count": 0.0,
+      "non_redundancy": 0.0,
+      "family_balance": 0.0,
+      "relation_entropy": 0.0,
+      "collapse_resistance": 0.0,
+      "system": "collapsed_system"
+    }
+  ]
+}
+
+================================================================================
+VALIDATION SUMMARY
+================================================================================
+Status:   PASS
+Version:  0.1.0
+
+Systems:
+  base_system          raw=12 effective=2.677125569494 non_red=1.000000000000 family_balance=1.000000000000 relation_entropy=0.277291725654 collapse_resistance=0.804545454545
+  duplicate_system     raw=32 effective=4.189050523886 non_red=0.576612903226 family_balance=0.627336281178 relation_entropy=0.780092165231 collapse_resistance=0.463911290323
+  balanced_system      raw=40 effective=9.616515593834 non_red=1.000000000000 family_balance=1.000000000000 relation_entropy=0.300998481669 collapse_resistance=0.798717948718
+  collapsed_system     raw=30 effective=0.000000000000 non_red=0.000000000000 family_balance=0.000000000000 relation_entropy=0.000000000000 collapse_resistance=0.000000000000
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS — effective observer count v0 produced a measurable effective-count distinction.
