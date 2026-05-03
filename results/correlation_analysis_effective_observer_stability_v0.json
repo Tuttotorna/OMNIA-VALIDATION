@@ -1,0 +1,134 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+CLONE STDOUT: (empty)
+CLONE STDERR: Cloning into '/content/OMNIA-VALIDATION'...
+
+CLONE RETURN CODE: 0
+
+================================================================================
+CHECKING FILE
+================================================================================
+Found script: /content/OMNIA-VALIDATION/examples/correlation_analysis_effective_observer_stability_v0.py
+
+================================================================================
+CLEANING SCRIPT IF NEEDED
+================================================================================
+Script cleaned.
+
+Last 8 lines:
+    print()
+    print("=" * 80)
+    print("Result saved to:", RESULTS_PATH)
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+RUNNING CORRELATION ANALYSIS EFFECTIVE OBSERVER STABILITY V0
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION — Correlation Analysis Stability v0
+================================================================================
+
+seed=0  pearson_improvement=0.124399284557 spearman_improvement=0.159788127153
+seed=1  pearson_improvement=0.131107382544 spearman_improvement=0.163266317065
+seed=2  pearson_improvement=0.127162801557 spearman_improvement=0.157259957040
+seed=3  pearson_improvement=0.149868360387 spearman_improvement=0.193078564314
+seed=4  pearson_improvement=0.155332521643 spearman_improvement=0.179302893212
+seed=5  pearson_improvement=0.151145261496 spearman_improvement=0.178443017772
+seed=6  pearson_improvement=0.140430634555 spearman_improvement=0.157779895120
+seed=7  pearson_improvement=0.137798340714 spearman_improvement=0.168225696903
+seed=8  pearson_improvement=0.137698722584 spearman_improvement=0.163637934552
+seed=9  pearson_improvement=0.109912781431 spearman_improvement=0.139765807063
+seed=10 pearson_improvement=0.145131202186 spearman_improvement=0.181087156349
+seed=11 pearson_improvement=0.157582034664 spearman_improvement=0.175442237769
+seed=12 pearson_improvement=0.149904858976 spearman_improvement=0.166124152497
+seed=13 pearson_improvement=0.151957292717 spearman_improvement=0.185734534938
+seed=14 pearson_improvement=0.136140286187 spearman_improvement=0.180436273745
+seed=15 pearson_improvement=0.156845833086 spearman_improvement=0.158196728787
+seed=16 pearson_improvement=0.120165781038 spearman_improvement=0.164224976900
+seed=17 pearson_improvement=0.153137018713 spearman_improvement=0.177981255925
+seed=18 pearson_improvement=0.130230199859 spearman_improvement=0.155852783411
+seed=19 pearson_improvement=0.160282682147 spearman_improvement=0.201344197377
+
+================================================================================
+SUMMARY
+================================================================================
+
+seed_count                         : 20
+systems_per_seed                   : 500
+mean_pearson_improvement           : 0.141311664052
+min_pearson_improvement            : 0.109912781431
+max_pearson_improvement            : 0.160282682147
+mean_spearman_improvement          : 0.170348625395
+min_spearman_improvement           : 0.139765807063
+max_spearman_improvement           : 0.201344197377
+positive_seed_count                : 20
+negative_seed_count                : 0
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS — effective_count outperformed raw_count across all tested seeds.
+
+================================================================================
+Result saved to: results/correlation_analysis_effective_observer_stability_v0.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE: 0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+Status: PASS
+Version: 0.1.0
+
+Summary
+--------------------------------------------------------------------------------
+seed_count: 20
+systems_per_seed: 500
+mean_pearson_improvement: 0.1413116640519977
+min_pearson_improvement: 0.10991278143118721
+max_pearson_improvement: 0.16028268214734476
+mean_spearman_improvement: 0.1703486253945016
+min_spearman_improvement: 0.13976580706322828
+max_spearman_improvement: 0.20134419737678955
+positive_seed_count: 20
+negative_seed_count: 0
+
+Seed results
+--------------------------------------------------------------------------------
+seed=0  raw_p=0.827167680175 eff_p=0.951566964731 p_imp=0.124399284557 raw_s=0.820849939400 eff_s=0.980638066552 s_imp=0.159788127153
+seed=1  raw_p=0.812735576687 eff_p=0.943842959231 p_imp=0.131107382544 raw_s=0.818451465806 eff_s=0.981717782871 s_imp=0.163266317065
+seed=2  raw_p=0.823578729419 eff_p=0.950741530976 p_imp=0.127162801557 raw_s=0.826475081900 eff_s=0.983735038940 s_imp=0.157259957040
+seed=3  raw_p=0.793480867647 eff_p=0.943349228035 p_imp=0.149868360387 raw_s=0.785176964708 eff_s=0.978255529022 s_imp=0.193078564314
+seed=4  raw_p=0.795374012867 eff_p=0.950706534510 p_imp=0.155332521643 raw_s=0.801218916876 eff_s=0.980521810087 s_imp=0.179302893212
+seed=5  raw_p=0.800121496630 eff_p=0.951266758126 p_imp=0.151145261496 raw_s=0.805432277729 eff_s=0.983875295501 s_imp=0.178443017772
+seed=6  raw_p=0.808534339298 eff_p=0.948964973853 p_imp=0.140430634555 raw_s=0.826682826731 eff_s=0.984462721851 s_imp=0.157779895120
+seed=7  raw_p=0.813589785561 eff_p=0.951388126274 p_imp=0.137798340714 raw_s=0.814253369013 eff_s=0.982479065916 s_imp=0.168225696903
+seed=8  raw_p=0.815690885662 eff_p=0.953389608246 p_imp=0.137698722584 raw_s=0.818844875380 eff_s=0.982482809931 s_imp=0.163637934552
+seed=9  raw_p=0.843072005238 eff_p=0.952984786669 p_imp=0.109912781431 raw_s=0.846824955300 eff_s=0.986590762363 s_imp=0.139765807063
+seed=10 raw_p=0.800421829425 eff_p=0.945553031611 p_imp=0.145131202186 raw_s=0.800735842943 eff_s=0.981822999292 s_imp=0.181087156349
+seed=11 raw_p=0.793151127633 eff_p=0.950733162297 p_imp=0.157582034664 raw_s=0.806899259597 eff_s=0.982341497366 s_imp=0.175442237769
+seed=12 raw_p=0.799601740787 eff_p=0.949506599763 p_imp=0.149904858976 raw_s=0.815787359149 eff_s=0.981911511646 s_imp=0.166124152497
+seed=13 raw_p=0.797979253621 eff_p=0.949936546338 p_imp=0.151957292717 raw_s=0.796822579290 eff_s=0.982557114228 s_imp=0.185734534938
+seed=14 raw_p=0.808295784293 eff_p=0.944436070480 p_imp=0.136140286187 raw_s=0.800680450722 eff_s=0.981116724467 s_imp=0.180436273745
+seed=15 raw_p=0.793183759904 eff_p=0.950029592989 p_imp=0.156845833086 raw_s=0.827808239233 eff_s=0.986004968020 s_imp=0.158196728787
+seed=16 raw_p=0.828091481707 eff_p=0.948257262745 p_imp=0.120165781038 raw_s=0.816745634983 eff_s=0.980970611882 s_imp=0.164224976900
+seed=17 raw_p=0.802432585491 eff_p=0.955569604204 p_imp=0.153137018713 raw_s=0.803919791679 eff_s=0.981901047604 s_imp=0.177981255925
+seed=18 raw_p=0.825556072482 eff_p=0.955786272340 p_imp=0.130230199859 raw_s=0.829553334213 eff_s=0.985406117624 s_imp=0.155852783411
+seed=19 raw_p=0.784107577841 eff_p=0.944390259988 p_imp=0.160282682147 raw_s=0.774344761379 eff_s=0.975688958756 s_imp=0.201344197377
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS — effective_count outperformed raw_count across all tested seeds.
