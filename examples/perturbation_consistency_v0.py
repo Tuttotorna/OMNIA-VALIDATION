@@ -427,15 +427,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-Output atteso:
-
-Status: PASS
-near monotonic decrease: True
-absolute drop: > 0.25
-
-Questo esperimento resta Level 1 — Toy Demonstration, ma introduce il primo asse dinamico:
-
-perturbation level
-->
-structural degradation

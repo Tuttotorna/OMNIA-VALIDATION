@@ -1,111 +1,165 @@
-================================================================================
-CLONING REPOSITORY
-================================================================================
-CLONE STDOUT: (empty)
-CLONE STDERR: Cloning into '/content/OMNIA-VALIDATION'...
-
-CLONE RETURN CODE: 0
-
-================================================================================
-CHECKING FILE
-================================================================================
-Found script: /content/OMNIA-VALIDATION/examples/correlation_analysis_effective_observer_adversarial_v0.py
-
-================================================================================
-CLEANING SCRIPT IF NEEDED
-================================================================================
-Script cleaned.
-
-Last 8 lines:
-    print()
-    print("=" * 80)
-    print("Result saved to:", RESULTS_PATH)
-    print("=" * 80)
-
-
-if __name__ == "__main__":
-    main()
-
-================================================================================
-RUNNING CORRELATION ANALYSIS EFFECTIVE OBSERVER ADVERSARIAL V0
-================================================================================
-
-STDOUT:
-================================================================================
-OMNIA-VALIDATION - Correlation Analysis Effective Observer Adversarial v0
-================================================================================
-
-Status: PASS
-Version: 0.1.0
-
-Summary
---------------------------------------------------------------------------------
-case_count                    : 10
-mean_adversarial_score        : 0.462377863154
-max_adversarial_score         : 0.708918125000
-resisted_count                : 0
-stressed_count                : 1
-weakened_count                : 8
-collapsed_count               : 1
-
-Cases
---------------------------------------------------------------------------------
-baseline_random                      outcome=WEAKENED   score=0.493009256539 effective=7.201085 recoverability=0.613027
-high_raw_duplicate                   outcome=STRESSED   score=0.312918750000 effective=0.166500 recoverability=0.315000
-high_effective_projection_collapse   outcome=COLLAPSED  score=0.708918125000 effective=2.314912 recoverability=0.747500
-fake_diversity_noise                 outcome=WEAKENED   score=0.466900000000 effective=1.617000 recoverability=0.490000
-balanced_but_dependent               outcome=WEAKENED   score=0.459625000000 effective=1.268750 recoverability=0.485000
-sparse_but_independent               outcome=WEAKENED   score=0.399600000000 effective=3.283200 recoverability=0.810000
-entropy_inflation                    outcome=WEAKENED   score=0.452500000000 effective=0.687500 recoverability=0.465000
-observer_alias_attack                outcome=WEAKENED   score=0.375812500000 effective=0.441000 recoverability=0.385000
-partial_collapse                     outcome=WEAKENED   score=0.432735000000 effective=0.439425 recoverability=0.442500
-hidden_single_point_failure          outcome=WEAKENED   score=0.521760000000 effective=0.168480 recoverability=0.525000
-
-================================================================================
-FINAL CHECK
-================================================================================
-PASS - adversarial analysis exposed measurable failure boundaries.
-
-================================================================================
-Result saved to: results/correlation_analysis_effective_observer_adversarial_v0.json
-================================================================================
-
-
-STDERR:
-(empty)
-
-RETURN CODE: 0
-
-================================================================================
-READING RESULT JSON
-================================================================================
-Status: PASS
-Version: 0.1.0
-
-Summary
---------------------------------------------------------------------------------
-case_count: 10
-mean_adversarial_score: 0.46237786315393326
-max_adversarial_score: 0.7089181250000001
-resisted_count: 0
-stressed_count: 1
-weakened_count: 8
-collapsed_count: 1
-
-Cases
---------------------------------------------------------------------------------
-baseline_random                      outcome=WEAKENED   score=0.493009256539 raw=60  effective=7.201085 norm_eff=0.120018 recoverability=0.613027
-high_raw_duplicate                   outcome=STRESSED   score=0.312918750000 raw=80  effective=0.166500 norm_eff=0.002081 recoverability=0.315000
-high_effective_projection_collapse   outcome=COLLAPSED  score=0.708918125000 raw=60  effective=2.314912 norm_eff=0.038582 recoverability=0.747500
-fake_diversity_noise                 outcome=WEAKENED   score=0.466900000000 raw=70  effective=1.617000 norm_eff=0.023100 recoverability=0.490000
-balanced_but_dependent               outcome=WEAKENED   score=0.459625000000 raw=50  effective=1.268750 norm_eff=0.025375 recoverability=0.485000
-sparse_but_independent               outcome=WEAKENED   score=0.399600000000 raw=8   effective=3.283200 norm_eff=0.410400 recoverability=0.810000
-entropy_inflation                    outcome=WEAKENED   score=0.452500000000 raw=55  effective=0.687500 norm_eff=0.012500 recoverability=0.465000
-observer_alias_attack                outcome=WEAKENED   score=0.375812500000 raw=48  effective=0.441000 norm_eff=0.009188 recoverability=0.385000
-partial_collapse                     outcome=WEAKENED   score=0.432735000000 raw=45  effective=0.439425 norm_eff=0.009765 recoverability=0.442500
-hidden_single_point_failure          outcome=WEAKENED   score=0.521760000000 raw=52  effective=0.168480 norm_eff=0.003240 recoverability=0.525000
-
-================================================================================
-FINAL CHECK
-================================================================================
-PASS — adversarial analysis exposed measurable failure boundaries.
+{
+  "status": "PASS",
+  "version": "0.1.0",
+  "summary": {
+    "case_count": 10,
+    "mean_adversarial_score": 0.46237786315393326,
+    "max_adversarial_score": 0.7089181250000001,
+    "resisted_count": 0,
+    "stressed_count": 1,
+    "weakened_count": 8,
+    "collapsed_count": 1
+  },
+  "results": [
+    {
+      "case": "baseline_random",
+      "raw_count": 60,
+      "effective_count": 7.201085385776874,
+      "recoverability": 0.6130273463022805,
+      "projection_stability": 0.5512475880857537,
+      "non_redundancy": 0.6445324272662721,
+      "family_balance": 0.8966201999039332,
+      "relation_entropy": 0.3224459269017381,
+      "collapse_resistance": 0.569768964262572,
+      "normalized_effective": 0.12001808976294791,
+      "correlation_shift": 0.4930092565393326,
+      "adversarial_score": 0.4930092565393326,
+      "failure_type": "WEAKENED"
+    },
+    {
+      "case": "high_raw_duplicate",
+      "raw_count": 80,
+      "effective_count": 0.1665,
+      "recoverability": 0.315,
+      "projection_stability": 0.3,
+      "non_redundancy": 0.15,
+      "family_balance": 0.25,
+      "relation_entropy": 0.85,
+      "collapse_resistance": 0.2,
+      "normalized_effective": 0.00208125,
+      "correlation_shift": 0.31291875,
+      "adversarial_score": 0.31291875,
+      "failure_type": "STRESSED"
+    },
+    {
+      "case": "high_effective_projection_collapse",
+      "raw_count": 60,
+      "effective_count": 2.3149124999999997,
+      "recoverability": 0.7475,
+      "projection_stability": 0.05,
+      "non_redundancy": 0.95,
+      "family_balance": 0.95,
+      "relation_entropy": 0.8,
+      "collapse_resistance": 0.95,
+      "normalized_effective": 0.038581874999999995,
+      "correlation_shift": 0.7089181250000001,
+      "adversarial_score": 0.7089181250000001,
+      "failure_type": "COLLAPSED"
+    },
+    {
+      "case": "fake_diversity_noise",
+      "raw_count": 70,
+      "effective_count": 1.617,
+      "recoverability": 0.49,
+      "projection_stability": 0.35,
+      "non_redundancy": 0.4,
+      "family_balance": 0.55,
+      "relation_entropy": 1.0,
+      "collapse_resistance": 0.3,
+      "normalized_effective": 0.0231,
+      "correlation_shift": 0.4669,
+      "adversarial_score": 0.4669,
+      "failure_type": "WEAKENED"
+    },
+    {
+      "case": "balanced_but_dependent",
+      "raw_count": 50,
+      "effective_count": 1.26875,
+      "recoverability": 0.485,
+      "projection_stability": 0.4,
+      "non_redundancy": 0.35,
+      "family_balance": 1.0,
+      "relation_entropy": 0.45,
+      "collapse_resistance": 0.25,
+      "normalized_effective": 0.025375,
+      "correlation_shift": 0.459625,
+      "adversarial_score": 0.459625,
+      "failure_type": "WEAKENED"
+    },
+    {
+      "case": "sparse_but_independent",
+      "raw_count": 8,
+      "effective_count": 3.2832,
+      "recoverability": 0.81,
+      "projection_stability": 0.95,
+      "non_redundancy": 1.0,
+      "family_balance": 0.8,
+      "relation_entropy": 0.2,
+      "collapse_resistance": 0.9,
+      "normalized_effective": 0.4104,
+      "correlation_shift": 0.39960000000000007,
+      "adversarial_score": 0.39960000000000007,
+      "failure_type": "WEAKENED"
+    },
+    {
+      "case": "entropy_inflation",
+      "raw_count": 55,
+      "effective_count": 0.6875,
+      "recoverability": 0.465,
+      "projection_stability": 0.25,
+      "non_redundancy": 0.5,
+      "family_balance": 0.5,
+      "relation_entropy": 1.0,
+      "collapse_resistance": 0.2,
+      "normalized_effective": 0.0125,
+      "correlation_shift": 0.4525,
+      "adversarial_score": 0.4525,
+      "failure_type": "WEAKENED"
+    },
+    {
+      "case": "observer_alias_attack",
+      "raw_count": 48,
+      "effective_count": 0.44100000000000006,
+      "recoverability": 0.385,
+      "projection_stability": 0.3,
+      "non_redundancy": 0.25,
+      "family_balance": 0.4,
+      "relation_entropy": 0.75,
+      "collapse_resistance": 0.35,
+      "normalized_effective": 0.009187500000000001,
+      "correlation_shift": 0.3758125,
+      "adversarial_score": 0.3758125,
+      "failure_type": "WEAKENED"
+    },
+    {
+      "case": "partial_collapse",
+      "raw_count": 45,
+      "effective_count": 0.43942499999999995,
+      "recoverability": 0.4425,
+      "projection_stability": 0.2,
+      "non_redundancy": 0.6,
+      "family_balance": 0.7,
+      "relation_entropy": 0.55,
+      "collapse_resistance": 0.15,
+      "normalized_effective": 0.009765,
+      "correlation_shift": 0.432735,
+      "adversarial_score": 0.432735,
+      "failure_type": "WEAKENED"
+    },
+    {
+      "case": "hidden_single_point_failure",
+      "raw_count": 52,
+      "effective_count": 0.16848000000000005,
+      "recoverability": 0.525,
+      "projection_stability": 0.1,
+      "non_redundancy": 0.9,
+      "family_balance": 0.9,
+      "relation_entropy": 0.6,
+      "collapse_resistance": 0.05,
+      "normalized_effective": 0.0032400000000000007,
+      "correlation_shift": 0.52176,
+      "adversarial_score": 0.52176,
+      "failure_type": "WEAKENED"
+    }
+  ]
+}

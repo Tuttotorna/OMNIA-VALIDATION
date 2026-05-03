@@ -1,79 +1,7 @@
-================================================================================
-CLONING REPOSITORY
-================================================================================
-
-================================================================================
-REPOSITORY STATUS
-================================================================================
-
-================================================================================
-CHECKING FILES
-================================================================================
-Found: /content/OMNIA-VALIDATION/examples/perturbation_consistency_v0.py
-
-================================================================================
-CLEANING FILE IF NEEDED
-================================================================================
-File cleaned: extra text after final main() was removed.
-
-Last 8 lines of script:
-    print()
-    print(f"Pass condition: {result['pass_condition']}")
-    print(f"Result saved to: {RESULTS_PATH}")
-    print("=" * 80)
-
-
-if __name__ == "__main__":
-    main()
-
-================================================================================
-RUNNING EXPERIMENT
-================================================================================
-
-STDOUT:
-================================================================================
-OMNIA-VALIDATION — Perturbation Consistency v0
-================================================================================
-Status: FAIL
-Claim level: Level 1 — Toy Demonstration
-
-Perturbation ladder omega_proxy:
-  level=0 omega_proxy=0.971782213747 entropy=2.0 compression_ratio=0.05859375
-  level=1 omega_proxy=0.931787066656 entropy=2.115572516654 compression_ratio=0.09765625
-  level=2 omega_proxy=0.916868985127 entropy=2.1983911108 compression_ratio=0.125
-  level=3 omega_proxy=0.878284428314 entropy=2.1983911108 compression_ratio=0.16796875
-  level=4 omega_proxy=0.831288959974 entropy=2.555688886518 compression_ratio=0.234375
-  level=5 omega_proxy=0.748544127297 entropy=5.232372925474 compression_ratio=0.28125
-
-Degradation:
-  initial omega_proxy: 0.971782213747
-  final omega_proxy:   0.748544127297
-  absolute drop:       0.22323808645
-  relative drop:       0.229720284331
-
-Monotonicity:
-  strict monotonic decrease: True
-  near monotonic decrease:   True
-  violation count:           0
-
-Pass condition: near_monotonic_decrease == true and absolute_drop > 0.25
-Result saved to: /content/OMNIA-VALIDATION/results/perturbation_consistency_v0.json
-================================================================================
-
-
-STDERR:
-(empty)
-
-RETURN CODE:
-0
-
-================================================================================
-READING RESULT JSON
-================================================================================
 {
   "experiment_name": "perturbation_consistency_v0",
   "version": "0.1.0",
-  "date_utc": "2026-05-02T10:58:45.524967+00:00",
+  "date_utc": "2026-05-03T20:44:57.593475+00:00",
   "domain": "controlled_perturbation_ladder",
   "purpose": "Minimal controlled experiment testing whether increasing perturbation produces consistent structural degradation.",
   "core_boundary": "measurement != inference != decision",
@@ -180,29 +108,3 @@ READING RESULT JSON
   ],
   "reproduction_command": "python examples/perturbation_consistency_v0.py"
 }
-
-================================================================================
-VALIDATION SUMMARY
-================================================================================
-Status:                    FAIL
-Claim level:               Level 1 — Toy Demonstration
-Initial omega_proxy:       0.971782213747
-Final omega_proxy:         0.748544127297
-Absolute drop:             0.22323808645
-Relative drop:             0.229720284331
-Strict monotonic decrease: True
-Near monotonic decrease:   True
-Violation count:           0
-
-Perturbation ladder:
-  level=0 omega_proxy=0.971782213747 entropy=2.0 compression_ratio=0.05859375
-  level=1 omega_proxy=0.931787066656 entropy=2.115572516654 compression_ratio=0.09765625
-  level=2 omega_proxy=0.916868985127 entropy=2.1983911108 compression_ratio=0.125
-  level=3 omega_proxy=0.878284428314 entropy=2.1983911108 compression_ratio=0.16796875
-  level=4 omega_proxy=0.831288959974 entropy=2.555688886518 compression_ratio=0.234375
-  level=5 omega_proxy=0.748544127297 entropy=5.232372925474 compression_ratio=0.28125
-
-================================================================================
-FINAL CHECK
-================================================================================
-FAIL — perturbation consistency v0 did not satisfy expected conditions.

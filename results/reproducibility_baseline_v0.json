@@ -1,49 +1,3 @@
-================================================================================
-CLONING REPOSITORY
-================================================================================
-
-================================================================================
-REPOSITORY STATUS
-================================================================================
-
-================================================================================
-CHECKING FILES
-================================================================================
-Found: /content/OMNIA-VALIDATION/examples/reproducibility_baseline_v0.py
-
-================================================================================
-RUNNING EXPERIMENT
-================================================================================
-
-STDOUT:
-================================================================================
-OMNIA-VALIDATION — Reproducibility Baseline v0
-================================================================================
-Status: PASS
-Runs executed: 10
-Reproducible: True
-
-Observed omega_proxy values:
-  structured         -> 0.858222336066
-  mildly_perturbed   -> 0.754354508197
-  random_like        -> 0.0
-
-Expected order: structured >= mildly_perturbed >= random_like
-Order holds: True
-
-Result saved to: /content/OMNIA-VALIDATION/results/reproducibility_baseline_v0.json
-================================================================================
-
-
-STDERR:
-(empty)
-
-RETURN CODE:
-0
-
-================================================================================
-READING RESULT JSON
-================================================================================
 {
   "experiment_name": "reproducibility_baseline_v0",
   "version": "0.1.0",
@@ -84,20 +38,3 @@ READING RESULT JSON
   ],
   "reproduction_command": "python examples/reproducibility_baseline_v0.py"
 }
-
-================================================================================
-VALIDATION SUMMARY
-================================================================================
-Status:       PASS
-Reproducible: True
-Order holds:  True
-
-Observed omega_proxy values:
-  structured         -> 0.858222336066
-  mildly_perturbed   -> 0.754354508197
-  random_like        -> 0.0
-
-================================================================================
-FINAL CHECK
-================================================================================
-PASS — reproducibility baseline v0 succeeded.

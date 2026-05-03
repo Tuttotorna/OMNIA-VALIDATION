@@ -1,109 +1,159 @@
-================================================================================
-CLONING REPOSITORY
-================================================================================
-CLONE STDOUT: (empty)
-CLONE STDERR: Cloning into '/content/OMNIA-VALIDATION'...
-
-CLONE RETURN CODE: 0
-
-================================================================================
-CHECKING FILE
-================================================================================
-Found script: /content/OMNIA-VALIDATION/examples/effective_observer_recoverability_gate_v0.py
-
-================================================================================
-CLEANING SCRIPT IF NEEDED
-================================================================================
-Script cleaned.
-
-Last 8 lines:
-    print()
-    print("=" * 80)
-    print("Result saved to:", RESULTS_PATH)
-    print("=" * 80)
-
-
-if __name__ == "__main__":
-    main()
-
-================================================================================
-RUNNING EFFECTIVE OBSERVER RECOVERABILITY GATE V0
-================================================================================
-
-STDOUT:
-================================================================================
-OMNIA-VALIDATION - Effective Observer Recoverability Gate v0
-================================================================================
-
-Status: PASS
-Version: 0.2.0
-
-Summary
---------------------------------------------------------------------------------
-case_count: 10
-pass_count: 1
-flagged_count: 9
-action_counts: {'PASS': 1, 'FLAG': 6, 'COLLAPSE': 3}
-mean_adversarial_divergence: 0.4598025
-max_adversarial_divergence: 0.7089181250000001
-
-Cases
---------------------------------------------------------------------------------
-clean_balanced                       action=PASS      raw=40  effective=22.661775 norm_eff=0.566544 recoverability=0.870000 divergence=0.303456
-high_raw_duplicate                   action=FLAG      raw=80  effective=0.166500 norm_eff=0.002081 recoverability=0.315000 divergence=0.312919
-projection_collapse                  action=COLLAPSE  raw=60  effective=2.314912 norm_eff=0.038582 recoverability=0.747500 divergence=0.708918
-collapse_resistance_failure          action=COLLAPSE  raw=52  effective=1.263600 norm_eff=0.024300 recoverability=0.655000 divergence=0.630700
-balanced_but_dependent               action=FLAG      raw=50  effective=1.268750 norm_eff=0.025375 recoverability=0.485000 divergence=0.459625
-sparse_but_independent               action=FLAG      raw=8   effective=3.283200 norm_eff=0.410400 recoverability=0.810000 divergence=0.399600
-entropy_inflation                    action=FLAG      raw=55  effective=0.687500 norm_eff=0.012500 recoverability=0.465000 divergence=0.452500
-observer_alias_attack                action=FLAG      raw=48  effective=0.441000 norm_eff=0.009188 recoverability=0.385000 divergence=0.375812
-partial_collapse                     action=FLAG      raw=45  effective=0.439425 norm_eff=0.009765 recoverability=0.442500 divergence=0.432735
-hidden_single_point_failure          action=COLLAPSE  raw=52  effective=0.168480 norm_eff=0.003240 recoverability=0.525000 divergence=0.521760
-
-================================================================================
-FINAL CHECK
-================================================================================
-PASS - recoverability gate detected adversarial boundary cases while allowing clean cases.
-
-================================================================================
-Result saved to: results/effective_observer_recoverability_gate_v0.json
-================================================================================
-
-
-STDERR:
-(empty)
-
-RETURN CODE: 0
-
-================================================================================
-READING RESULT JSON
-================================================================================
-Status: PASS
-Version: 0.2.0
-
-Summary
---------------------------------------------------------------------------------
-case_count: 10
-pass_count: 1
-flagged_count: 9
-action_counts: {'PASS': 1, 'FLAG': 6, 'COLLAPSE': 3}
-mean_adversarial_divergence: 0.4598025
-max_adversarial_divergence: 0.7089181250000001
-
-Cases
---------------------------------------------------------------------------------
-clean_balanced                       action=PASS      raw=40  effective=22.661775 norm_eff=0.566544 recoverability=0.870000 divergence=0.303456
-high_raw_duplicate                   action=FLAG      raw=80  effective=0.166500 norm_eff=0.002081 recoverability=0.315000 divergence=0.312919
-projection_collapse                  action=COLLAPSE  raw=60  effective=2.314912 norm_eff=0.038582 recoverability=0.747500 divergence=0.708918
-collapse_resistance_failure          action=COLLAPSE  raw=52  effective=1.263600 norm_eff=0.024300 recoverability=0.655000 divergence=0.630700
-balanced_but_dependent               action=FLAG      raw=50  effective=1.268750 norm_eff=0.025375 recoverability=0.485000 divergence=0.459625
-sparse_but_independent               action=FLAG      raw=8   effective=3.283200 norm_eff=0.410400 recoverability=0.810000 divergence=0.399600
-entropy_inflation                    action=FLAG      raw=55  effective=0.687500 norm_eff=0.012500 recoverability=0.465000 divergence=0.452500
-observer_alias_attack                action=FLAG      raw=48  effective=0.441000 norm_eff=0.009188 recoverability=0.385000 divergence=0.375812
-partial_collapse                     action=FLAG      raw=45  effective=0.439425 norm_eff=0.009765 recoverability=0.442500 divergence=0.432735
-hidden_single_point_failure          action=COLLAPSE  raw=52  effective=0.168480 norm_eff=0.003240 recoverability=0.525000 divergence=0.521760
-
-================================================================================
-FINAL CHECK
-================================================================================
-PASS — recoverability gate detected adversarial boundary cases.
+{
+  "status": "PASS",
+  "version": "0.2.0",
+  "summary": {
+    "case_count": 10,
+    "pass_count": 1,
+    "flagged_count": 9,
+    "action_counts": {
+      "PASS": 1,
+      "FLAG": 6,
+      "COLLAPSE": 3
+    },
+    "mean_adversarial_divergence": 0.4598025,
+    "max_adversarial_divergence": 0.7089181250000001
+  },
+  "results": [
+    {
+      "case": "clean_balanced",
+      "raw_count": 40,
+      "effective_count": 22.661775000000002,
+      "normalized_effective": 0.5665443750000001,
+      "recoverability_score": 0.8700000000000001,
+      "projection_stability": 0.9,
+      "collapse_resistance": 0.9,
+      "family_balance": 0.95,
+      "non_redundancy": 0.95,
+      "relation_entropy": 0.55,
+      "adversarial_divergence": 0.303455625,
+      "gate_action": "PASS"
+    },
+    {
+      "case": "high_raw_duplicate",
+      "raw_count": 80,
+      "effective_count": 0.1665,
+      "normalized_effective": 0.00208125,
+      "recoverability_score": 0.315,
+      "projection_stability": 0.3,
+      "collapse_resistance": 0.2,
+      "family_balance": 0.25,
+      "non_redundancy": 0.15,
+      "relation_entropy": 0.85,
+      "adversarial_divergence": 0.31291875,
+      "gate_action": "FLAG"
+    },
+    {
+      "case": "projection_collapse",
+      "raw_count": 60,
+      "effective_count": 2.3149124999999997,
+      "normalized_effective": 0.038581874999999995,
+      "recoverability_score": 0.7475,
+      "projection_stability": 0.05,
+      "collapse_resistance": 0.95,
+      "family_balance": 0.95,
+      "non_redundancy": 0.95,
+      "relation_entropy": 0.8,
+      "adversarial_divergence": 0.7089181250000001,
+      "gate_action": "COLLAPSE"
+    },
+    {
+      "case": "collapse_resistance_failure",
+      "raw_count": 52,
+      "effective_count": 1.2636000000000003,
+      "normalized_effective": 0.024300000000000006,
+      "recoverability_score": 0.655,
+      "projection_stability": 0.75,
+      "collapse_resistance": 0.05,
+      "family_balance": 0.9,
+      "non_redundancy": 0.9,
+      "relation_entropy": 0.6,
+      "adversarial_divergence": 0.6307,
+      "gate_action": "COLLAPSE"
+    },
+    {
+      "case": "balanced_but_dependent",
+      "raw_count": 50,
+      "effective_count": 1.26875,
+      "normalized_effective": 0.025375,
+      "recoverability_score": 0.485,
+      "projection_stability": 0.4,
+      "collapse_resistance": 0.25,
+      "family_balance": 1.0,
+      "non_redundancy": 0.35,
+      "relation_entropy": 0.45,
+      "adversarial_divergence": 0.459625,
+      "gate_action": "FLAG"
+    },
+    {
+      "case": "sparse_but_independent",
+      "raw_count": 8,
+      "effective_count": 3.2832,
+      "normalized_effective": 0.4104,
+      "recoverability_score": 0.81,
+      "projection_stability": 0.95,
+      "collapse_resistance": 0.9,
+      "family_balance": 0.8,
+      "non_redundancy": 1.0,
+      "relation_entropy": 0.2,
+      "adversarial_divergence": 0.39960000000000007,
+      "gate_action": "FLAG"
+    },
+    {
+      "case": "entropy_inflation",
+      "raw_count": 55,
+      "effective_count": 0.6875,
+      "normalized_effective": 0.0125,
+      "recoverability_score": 0.465,
+      "projection_stability": 0.25,
+      "collapse_resistance": 0.2,
+      "family_balance": 0.5,
+      "non_redundancy": 0.5,
+      "relation_entropy": 1.0,
+      "adversarial_divergence": 0.4525,
+      "gate_action": "FLAG"
+    },
+    {
+      "case": "observer_alias_attack",
+      "raw_count": 48,
+      "effective_count": 0.44100000000000006,
+      "normalized_effective": 0.009187500000000001,
+      "recoverability_score": 0.385,
+      "projection_stability": 0.3,
+      "collapse_resistance": 0.35,
+      "family_balance": 0.4,
+      "non_redundancy": 0.25,
+      "relation_entropy": 0.75,
+      "adversarial_divergence": 0.3758125,
+      "gate_action": "FLAG"
+    },
+    {
+      "case": "partial_collapse",
+      "raw_count": 45,
+      "effective_count": 0.43942499999999995,
+      "normalized_effective": 0.009765,
+      "recoverability_score": 0.4425,
+      "projection_stability": 0.2,
+      "collapse_resistance": 0.15,
+      "family_balance": 0.7,
+      "non_redundancy": 0.6,
+      "relation_entropy": 0.55,
+      "adversarial_divergence": 0.432735,
+      "gate_action": "FLAG"
+    },
+    {
+      "case": "hidden_single_point_failure",
+      "raw_count": 52,
+      "effective_count": 0.16848000000000005,
+      "normalized_effective": 0.0032400000000000007,
+      "recoverability_score": 0.525,
+      "projection_stability": 0.1,
+      "collapse_resistance": 0.05,
+      "family_balance": 0.9,
+      "non_redundancy": 0.9,
+      "relation_entropy": 0.6,
+      "adversarial_divergence": 0.52176,
+      "gate_action": "COLLAPSE"
+    }
+  ],
+  "reproduction_command": "python examples/effective_observer_recoverability_gate_v0.py"
+}
