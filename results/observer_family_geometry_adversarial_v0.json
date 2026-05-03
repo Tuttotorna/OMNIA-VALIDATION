@@ -1,0 +1,152 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+CLONE STDOUT:
+(empty)
+
+CLONE STDERR:
+Cloning into '/content/OMNIA-VALIDATION'...
+
+
+CLONE RETURN CODE: 0
+
+================================================================================
+CHECKING FILE
+================================================================================
+Found script: /content/OMNIA-VALIDATION/examples/observer_family_geometry_adversarial_v0.py
+
+================================================================================
+CLEANING SCRIPT IF NEEDED
+================================================================================
+Script cleaned.
+
+Last 8 lines of script:
+
+    print()
+    print("Result saved to:", RESULTS_PATH)
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+RUNNING OBSERVER FAMILY GEOMETRY ADVERSARIAL V0
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION — Observer Family Geometry Adversarial v0
+================================================================================
+Status: PASS
+Version: 0.1.0
+
+Baseline summary:
+  Observer count:              17
+  Pair count:                  136
+  Average distance:            0.633671839186
+  Redundant pair count:        18
+  Medium pair count:           33
+  Diverse pair count:          85
+  Geometry continuity index:   0.242647058824
+  Observer relation entropy:   0.823795055426
+
+Adversarial summary:
+  attack_count                 8
+  mean_attack_score            0.845647109999
+  max_attack_score             3.892436482261
+  resisted_count               4
+  stressed_count               1
+  weakened_count               1
+  collapse_count               2
+  non_collapse_count           6
+
+Adversarial results:
+  degenerate_samples           outcome=RESISTED  score=0.149937905104 persistence=0.838235294118 avg_drift=0.057899520504 red=14 med=30 div=92 entropy=0.757197166947
+  alias_collision_samples      outcome=RESISTED  score=0.130887205392 persistence=0.963235294118 avg_drift=0.007459113654 red=20 med=28 div=88 entropy=0.80916956272
+  chaotic_samples              outcome=RESISTED  score=0.127128360408 persistence=0.852941176471 avg_drift=0.025433191404 red=19 med=41 div=76 entropy=0.875332457567
+  duplicate_observers          outcome=WEAKENED  score=0.524546736471 persistence=1.0 avg_drift=0.032728674058 red=43 med=63 div=147 entropy=0.876437538473
+  family_imbalance_observers   outcome=COLLAPSE  score=1.523305486342 persistence=1.0 avg_drift=0.134300766552 red=103 med=93 div=155 entropy=0.976357947713
+  fake_bridge_observers        outcome=RESISTED  score=0.137748295243 persistence=1.0 avg_drift=0.012354175626 red=19 med=60 div=111 entropy=0.826744932328
+  observer_collapse            outcome=COLLAPSE  score=3.892436482261 persistence=0.132352941176 avg_drift=0.633671839186 red=136 med=0 div=0 entropy=-0.0
+  sparse_observers             outcome=STRESSED  score=0.279186408771 persistence=1.0 avg_drift=0.126139362974 red=1 med=2 div=12 entropy=0.571361947861
+
+Run summaries:
+  base                         obs=17 pairs=136 avg_dist=0.633671839186 red=18 med=33 div=85 gci=0.242647058824 entropy=0.823795055426 cross_red=7
+  degenerate_samples           obs=17 pairs=136 avg_dist=0.69157135969 red=14 med=30 div=92 gci=0.220588235294 entropy=0.757197166947 cross_red=7
+  alias_collision_samples      obs=17 pairs=136 avg_dist=0.64113095284 red=20 med=28 div=88 gci=0.205882352941 entropy=0.80916956272 cross_red=7
+  chaotic_samples              obs=17 pairs=136 avg_dist=0.608238647782 red=19 med=41 div=76 gci=0.301470588235 entropy=0.875332457567 cross_red=7
+  duplicate_observers          obs=23 pairs=253 avg_dist=0.600943165128 red=43 med=63 div=147 gci=0.249011857708 entropy=0.876437538473 cross_red=13
+  family_imbalance_observers   obs=27 pairs=351 avg_dist=0.499371072634 red=103 med=93 div=155 gci=0.264957264957 entropy=0.976357947713 cross_red=17
+  fake_bridge_observers        obs=20 pairs=190 avg_dist=0.62131766356 red=19 med=60 div=111 gci=0.315789473684 entropy=0.826744932328 cross_red=8
+  observer_collapse            obs=17 pairs=136 avg_dist=0.0 red=136 med=0 div=0 gci=0.0 entropy=-0.0 cross_red=119
+  sparse_observers             obs=6 pairs=15 avg_dist=0.75981120216 red=1 med=2 div=12 gci=0.133333333333 entropy=0.571361947861 cross_red=1
+
+Result saved to: /content/OMNIA-VALIDATION/results/observer_family_geometry_adversarial_v0.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE: 0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+Result JSON loaded.
+Result path: /content/OMNIA-VALIDATION/results/observer_family_geometry_adversarial_v0.json
+
+================================================================================
+VALIDATION SUMMARY
+================================================================================
+Status:                         PASS
+Version:                        0.1.0
+Run count:                      9
+Attack count:                   8
+
+Baseline summary:
+  Observer count:               17
+  Pair count:                   136
+  Average distance:             0.633671839186
+  Redundant pair count:         18
+  Medium pair count:            33
+  Diverse pair count:           85
+  Geometry continuity index:    0.242647058824
+  Observer relation entropy:    0.823795055426
+
+Adversarial summary:
+  attack_count                 8
+  mean_attack_score            0.845647109999
+  max_attack_score             3.892436482261
+  resisted_count               4
+  stressed_count               1
+  weakened_count               1
+  collapse_count               2
+  non_collapse_count           6
+
+Adversarial results:
+  degenerate_samples           outcome=RESISTED  score=0.149937905104 persistence=0.838235294118 avg_drift=0.057899520504 pair_drift=0.100607118648 continuity_drift=0.02205882353 entropy_drift=0.066597888479 red=14 med=30 div=92 cross_red=7
+  alias_collision_samples      outcome=RESISTED  score=0.130887205392 persistence=0.963235294118 avg_drift=0.007459113654 pair_drift=0.029842595636 continuity_drift=0.036764705883 entropy_drift=0.014625492706 red=20 med=28 div=88 cross_red=7
+  chaotic_samples              outcome=RESISTED  score=0.127128360408 persistence=0.852941176471 avg_drift=0.025433191404 pair_drift=0.079927414725 continuity_drift=0.058823529411 entropy_drift=0.051537402141 red=19 med=41 div=76 cross_red=7
+  duplicate_observers          outcome=WEAKENED  score=0.524546736471 persistence=1.0 avg_drift=0.032728674058 pair_drift=0.0 continuity_drift=0.006364798884 entropy_drift=0.052642483047 red=43 med=63 div=147 cross_red=13
+  family_imbalance_observers   outcome=COLLAPSE  score=1.523305486342 persistence=1.0 avg_drift=0.134300766552 pair_drift=0.0 continuity_drift=0.022310206133 entropy_drift=0.152562892287 red=103 med=93 div=155 cross_red=17
+  fake_bridge_observers        outcome=RESISTED  score=0.137748295243 persistence=1.0 avg_drift=0.012354175626 pair_drift=0.0 continuity_drift=0.07314241486 entropy_drift=0.002949876902 red=19 med=60 div=111 cross_red=8
+  observer_collapse            outcome=COLLAPSE  score=3.892436482261 persistence=0.132352941176 avg_drift=0.633671839186 pair_drift=0.633671839186 continuity_drift=0.242647058824 entropy_drift=0.823795055426 red=136 med=0 div=0 cross_red=119
+  sparse_observers             outcome=STRESSED  score=0.279186408771 persistence=1.0 avg_drift=0.126139362974 pair_drift=0.0 continuity_drift=0.109313725491 entropy_drift=0.252433107565 red=1 med=2 div=12 cross_red=1
+
+Run summaries:
+  base                         obs=17 pairs=136 avg_dist=0.633671839186 red=18 med=33 div=85 gci=0.242647058824 entropy=0.823795055426 cross_red=7
+  degenerate_samples           obs=17 pairs=136 avg_dist=0.69157135969 red=14 med=30 div=92 gci=0.220588235294 entropy=0.757197166947 cross_red=7
+  alias_collision_samples      obs=17 pairs=136 avg_dist=0.64113095284 red=20 med=28 div=88 gci=0.205882352941 entropy=0.80916956272 cross_red=7
+  chaotic_samples              obs=17 pairs=136 avg_dist=0.608238647782 red=19 med=41 div=76 gci=0.301470588235 entropy=0.875332457567 cross_red=7
+  duplicate_observers          obs=23 pairs=253 avg_dist=0.600943165128 red=43 med=63 div=147 gci=0.249011857708 entropy=0.876437538473 cross_red=13
+  family_imbalance_observers   obs=27 pairs=351 avg_dist=0.499371072634 red=103 med=93 div=155 gci=0.264957264957 entropy=0.976357947713 cross_red=17
+  fake_bridge_observers        obs=20 pairs=190 avg_dist=0.62131766356 red=19 med=60 div=111 gci=0.315789473684 entropy=0.826744932328 cross_red=8
+  observer_collapse            obs=17 pairs=136 avg_dist=0.0 red=136 med=0 div=0 gci=0.0 entropy=-0.0 cross_red=119
+  sparse_observers             obs=6 pairs=15 avg_dist=0.75981120216 red=1 med=2 div=12 gci=0.133333333333 entropy=0.571361947861 cross_red=1
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS — observer family geometry adversarial v0 exposed measurable attack boundaries.
