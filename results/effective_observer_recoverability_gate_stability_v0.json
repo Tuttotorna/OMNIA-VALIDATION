@@ -1,0 +1,129 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+CLONE STDOUT: (empty)
+CLONE STDERR: Cloning into '/content/OMNIA-VALIDATION'...
+
+CLONE RETURN CODE: 0
+
+================================================================================
+CHECKING FILE
+================================================================================
+Found script: /content/OMNIA-VALIDATION/examples/effective_observer_recoverability_gate_stability_v0.py
+
+================================================================================
+CLEANING SCRIPT IF NEEDED
+================================================================================
+Script cleaned.
+
+Last 8 lines:
+    print()
+    print("=" * 80)
+    print("Result saved to:", RESULTS_PATH)
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+RUNNING EFFECTIVE OBSERVER RECOVERABILITY GATE STABILITY V0
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION - Effective Observer Recoverability Gate Stability v0
+================================================================================
+
+Status: PASS
+Version: 0.1.0
+
+Summary
+--------------------------------------------------------------------------------
+config_count: 8
+pass_config_count: 8
+check_config_count: 0
+clean_pass_count: 8
+critical_collapse_full_count: 8
+mean_action_persistence: 0.9857142857142858
+min_action_persistence: 0.9
+max_action_persistence: 1.0
+
+Runs
+--------------------------------------------------------------------------------
+base_thresholds                  status=PASS  pass=1 flagged=9 collapse=3 critical_collapse=3 clean=PASS
+tighter_divergence_threshold     status=PASS  pass=1 flagged=9 collapse=3 critical_collapse=3 clean=PASS
+looser_divergence_threshold      status=PASS  pass=2 flagged=8 collapse=3 critical_collapse=3 clean=PASS
+tighter_collapse_threshold       status=PASS  pass=1 flagged=9 collapse=3 critical_collapse=3 clean=PASS
+looser_collapse_threshold        status=PASS  pass=1 flagged=9 collapse=3 critical_collapse=3 clean=PASS
+tighter_balance_thresholds       status=PASS  pass=1 flagged=9 collapse=3 critical_collapse=3 clean=PASS
+looser_balance_thresholds        status=PASS  pass=1 flagged=9 collapse=3 critical_collapse=3 clean=PASS
+combined_threshold_shift         status=PASS  pass=1 flagged=9 collapse=3 critical_collapse=3 clean=PASS
+
+Comparisons to base
+--------------------------------------------------------------------------------
+tighter_divergence_threshold     persistence=1.000000000000 changed=0
+looser_divergence_threshold      persistence=0.900000000000 changed=1
+tighter_collapse_threshold       persistence=1.000000000000 changed=0
+looser_collapse_threshold        persistence=1.000000000000 changed=0
+tighter_balance_thresholds       persistence=1.000000000000 changed=0
+looser_balance_thresholds        persistence=1.000000000000 changed=0
+combined_threshold_shift         persistence=1.000000000000 changed=0
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS - recoverability gate remained stable under threshold perturbation.
+
+================================================================================
+Result saved to: results/effective_observer_recoverability_gate_stability_v0.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE: 0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+Status: PASS
+Version: 0.1.0
+
+Summary
+--------------------------------------------------------------------------------
+config_count: 8
+pass_config_count: 8
+check_config_count: 0
+clean_pass_count: 8
+critical_collapse_full_count: 8
+mean_action_persistence: 0.9857142857142858
+min_action_persistence: 0.9
+max_action_persistence: 1.0
+
+Runs
+--------------------------------------------------------------------------------
+base_thresholds                  status=PASS  pass=1 flagged=9 collapse=3 critical_collapse=3 clean=PASS
+tighter_divergence_threshold     status=PASS  pass=1 flagged=9 collapse=3 critical_collapse=3 clean=PASS
+looser_divergence_threshold      status=PASS  pass=2 flagged=8 collapse=3 critical_collapse=3 clean=PASS
+tighter_collapse_threshold       status=PASS  pass=1 flagged=9 collapse=3 critical_collapse=3 clean=PASS
+looser_collapse_threshold        status=PASS  pass=1 flagged=9 collapse=3 critical_collapse=3 clean=PASS
+tighter_balance_thresholds       status=PASS  pass=1 flagged=9 collapse=3 critical_collapse=3 clean=PASS
+looser_balance_thresholds        status=PASS  pass=1 flagged=9 collapse=3 critical_collapse=3 clean=PASS
+combined_threshold_shift         status=PASS  pass=1 flagged=9 collapse=3 critical_collapse=3 clean=PASS
+
+Comparisons to base
+--------------------------------------------------------------------------------
+tighter_divergence_threshold     persistence=1.000000000000 changed=0
+looser_divergence_threshold      persistence=0.900000000000 changed=1
+tighter_collapse_threshold       persistence=1.000000000000 changed=0
+looser_collapse_threshold        persistence=1.000000000000 changed=0
+tighter_balance_thresholds       persistence=1.000000000000 changed=0
+looser_balance_thresholds        persistence=1.000000000000 changed=0
+combined_threshold_shift         persistence=1.000000000000 changed=0
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS — recoverability gate remained stable under threshold perturbation.
