@@ -1,0 +1,120 @@
+================================================================================
+CLONING REPOSITORY
+================================================================================
+CLONE STDOUT: (empty)
+CLONE STDERR: Cloning into '/content/OMNIA-VALIDATION'...
+
+CLONE RETURN CODE: 0
+
+================================================================================
+CHECKING FILE
+================================================================================
+Found script: /content/OMNIA-VALIDATION/examples/correlation_analysis_effective_observer_v0.py
+
+================================================================================
+CLEANING SCRIPT IF NEEDED
+================================================================================
+Script cleaned.
+
+Last 8 lines:
+    print()
+    print("=" * 80)
+    print("Result saved to:", RESULTS_PATH)
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+RUNNING CORRELATION ANALYSIS EFFECTIVE OBSERVER V0
+================================================================================
+
+STDOUT:
+================================================================================
+OMNIA-VALIDATION — Correlation Analysis: Effective Observer Count v0
+================================================================================
+
+Status: PASS
+Version: 0.1.0
+System count: 500
+
+Correlation summary
+--------------------------------------------------------------------------------
+raw_count       Pearson vs recoverability: 0.511993479277
+effective_count Pearson vs recoverability: 0.913339394233
+Pearson improvement:                    0.401345914955
+
+raw_count       Spearman vs recoverability: 0.511915918824
+effective_count Spearman vs recoverability: 0.941578989074
+Spearman improvement:                     0.429663070250
+
+Mean values
+--------------------------------------------------------------------------------
+mean_raw_count:        24.234000000000
+mean_effective_count:  6.374401328833
+mean_recoverability:   0.188165619687
+
+Top 10 by recoverability
+--------------------------------------------------------------------------------
+system=135  raw=43  families=8  effective=21.769579 recoverability=0.547558
+system=405  raw=38  families=8  effective=18.829794 recoverability=0.543920
+system=350  raw=37  families=8  effective=18.960148 recoverability=0.535095
+system=221  raw=34  families=8  effective=17.925725 recoverability=0.531929
+system=223  raw=53  families=8  effective=26.360152 recoverability=0.512886
+system=439  raw=36  families=8  effective=15.991476 recoverability=0.508712
+system=69   raw=43  families=8  effective=20.030283 recoverability=0.508372
+system=242  raw=42  families=8  effective=20.571236 recoverability=0.495122
+system=53   raw=36  families=8  effective=17.650079 recoverability=0.492895
+system=15   raw=26  families=8  effective=12.295275 recoverability=0.490811
+
+================================================================================
+Result saved to: results/correlation_analysis_effective_observer_v0.json
+================================================================================
+
+
+STDERR:
+(empty)
+
+RETURN CODE: 0
+
+================================================================================
+READING RESULT JSON
+================================================================================
+Status: PASS
+Version: 0.1.0
+Random seed: 42
+
+Correlation summary
+--------------------------------------------------------------------------------
+raw Pearson: 0.5119934792772954
+effective Pearson: 0.9133393942327751
+Pearson improvement: 0.40134591495547967
+
+raw Spearman: 0.5119159188239173
+effective Spearman: 0.9415789890737615
+Spearman improvement: 0.4296630702498442
+
+Mean values
+--------------------------------------------------------------------------------
+mean_raw_count: 24.234
+mean_effective_count: 6.374401328832888
+mean_recoverability: 0.18816561968725726
+
+Top 10 by recoverability
+--------------------------------------------------------------------------------
+system=135  raw=43  families=8  effective=21.769579 recoverability=0.547558
+system=405  raw=38  families=8  effective=18.829794 recoverability=0.543920
+system=350  raw=37  families=8  effective=18.960148 recoverability=0.535095
+system=221  raw=34  families=8  effective=17.925725 recoverability=0.531929
+system=223  raw=53  families=8  effective=26.360152 recoverability=0.512886
+system=439  raw=36  families=8  effective=15.991476 recoverability=0.508712
+system=69   raw=43  families=8  effective=20.030283 recoverability=0.508372
+system=242  raw=42  families=8  effective=20.571236 recoverability=0.495122
+system=53   raw=36  families=8  effective=17.650079 recoverability=0.492895
+system=15   raw=26  families=8  effective=12.295275 recoverability=0.490811
+
+================================================================================
+FINAL CHECK
+================================================================================
+PASS — effective_count correlated with recoverability better than raw_count.
