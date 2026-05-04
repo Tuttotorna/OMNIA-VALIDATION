@@ -1,0 +1,220 @@
+{
+  "status": "PASS",
+  "version": "0.1.0",
+  "summary": {
+    "record_count": 16,
+    "dataset_path": "data/collapse_confirmation_source_swap_v0.csv",
+    "arbitration_action_distribution": {
+      "COLLAPSE": 9,
+      "ESCALATE": 5,
+      "PASS": 1,
+      "RETRY": 1
+    },
+    "source_family_distribution": {
+      "ambiguous": 2,
+      "control": 1,
+      "divergence_swap": 2,
+      "effective_only": 1,
+      "projection_swap": 2,
+      "recoverability_swap": 2,
+      "resistance_swap": 2,
+      "source_swap": 2,
+      "triple_confirmed": 2
+    },
+    "collapse_count": 9,
+    "escalate_count": 5,
+    "multi_source_collapse_count": 9,
+    "projection_confirmed_collapse_count": 6,
+    "resistance_confirmed_collapse_count": 5,
+    "recoverability_confirmed_collapse_count": 1,
+    "confirmation_source_families": [
+      "collapse_gate",
+      "effective_signal_gate",
+      "projection_gate",
+      "recoverability_gate"
+    ],
+    "confirmation_swap_count": 7,
+    "projection_only_confirmation_count": 4,
+    "resistance_only_confirmation_count": 3,
+    "joint_projection_resistance_count": 2,
+    "source_swap_collapse_count": 9,
+    "isolated_effective_auto_collapse_count": 0,
+    "clean_control_pass_count": 1,
+    "escalation_recovery_count": 5,
+    "high_disagreement_count": 13,
+    "contradiction_count": 10,
+    "mean_unique_action_count": 2.875,
+    "mean_severity_spread": 3.3125,
+    "mean_severity_variance": 1.7650000000000001,
+    "gate_action_distributions": {
+      "collapse_gate": {
+        "PASS": 6,
+        "FLAG": 3,
+        "RETRY": 2,
+        "COLLAPSE": 5
+      },
+      "divergence_gate": {
+        "PASS": 2,
+        "FLAG": 11,
+        "ESCALATE": 2,
+        "RETRY": 1
+      },
+      "effective_signal_gate": {
+        "PASS": 1,
+        "COLLAPSE": 14,
+        "RETRY": 1
+      },
+      "projection_gate": {
+        "PASS": 8,
+        "COLLAPSE": 6,
+        "FLAG": 2
+      },
+      "recoverability_gate": {
+        "PASS": 1,
+        "FLAG": 10,
+        "RETRY": 4,
+        "COLLAPSE": 1
+      }
+    }
+  },
+  "records": [
+    {
+      "record_id": "clean_control_reference",
+      "family": "control",
+      "arbitration_action": "PASS",
+      "confirmation_sources": [],
+      "severity_spread": 0,
+      "severity_variance": 0.0,
+      "signal_actions": {
+        "effective_signal_gate": "PASS",
+        "recoverability_gate": "PASS",
+        "divergence_gate": "PASS",
+        "collapse_gate": "PASS",
+        "projection_gate": "PASS"
+      }
+    },
+    {
+      "record_id": "isolated_effective_collapse",
+      "family": "effective_only",
+      "arbitration_action": "ESCALATE",
+      "confirmation_sources": [
+        "effective_signal_gate"
+      ],
+      "severity_spread": 4,
+      "severity_variance": 2.24,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "FLAG",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "PASS",
+        "projection_gate": "PASS"
+      }
+    },
+    {
+      "record_id": "projection_strong_resistance_weak",
+      "family": "projection_swap",
+      "arbitration_action": "COLLAPSE",
+      "confirmation_sources": [
+        "effective_signal_gate",
+        "projection_gate"
+      ],
+      "severity_spread": 4,
+      "severity_variance": 2.24,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "FLAG",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "PASS",
+        "projection_gate": "COLLAPSE"
+      }
+    },
+    {
+      "record_id": "projection_weak_resistance_strong",
+      "family": "resistance_swap",
+      "arbitration_action": "ESCALATE",
+      "confirmation_sources": [
+        "effective_signal_gate"
+      ],
+      "severity_spread": 4,
+      "severity_variance": 1.6,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "FLAG",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "FLAG",
+        "projection_gate": "PASS"
+      }
+    },
+    {
+      "record_id": "projection_flag_resistance_collapse",
+      "family": "resistance_swap",
+      "arbitration_action": "ESCALATE",
+      "confirmation_sources": [
+        "effective_signal_gate"
+      ],
+      "severity_spread": 3,
+      "severity_variance": 0.96,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "RETRY",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "FLAG",
+        "projection_gate": "FLAG"
+      }
+    },
+    {
+      "record_id": "projection_collapse_resistance_flag",
+      "family": "projection_swap",
+      "arbitration_action": "COLLAPSE",
+      "confirmation_sources": [
+        "effective_signal_gate",
+        "projection_gate"
+      ],
+      "severity_spread": 2,
+      "severity_variance": 0.96,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "FLAG",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "FLAG",
+        "projection_gate": "COLLAPSE"
+      }
+    },
+    {
+      "record_id": "recoverability_weak_projection_strong",
+      "family": "recoverability_swap",
+      "arbitration_action": "ESCALATE",
+      "confirmation_sources": [
+        "effective_signal_gate"
+      ],
+      "severity_spread": 3,
+      "severity_variance": 1.2,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "RETRY",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "RETRY",
+        "projection_gate": "FLAG"
+      }
+    },
+    {
+      "record_id": "recoverability_weak_resistance_strong",
+      "family": "recoverability_swap",
+      "arbitration_action": "COLLAPSE",
+      "confirmation_sources": [
+        "effective_signal_gate",
+        "collapse_gate"
+      ],
+      "severity_spread": 4,
+      "severity_variance": 2.56,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "RETRY",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "COLLAPSE",
+        "projection_gate": "PASS"
+      }
+    }
+  ],
+  "reproduction_command": "python examples/collapse_confirmation_source_swap_v0.py"
+}
