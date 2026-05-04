@@ -1,0 +1,288 @@
+{
+  "status": "CHECK",
+  "version": "0.1.0",
+  "summary": {
+    "system_count": 1500,
+    "random_seed": 314159,
+    "match_count": 1449,
+    "mismatch_count": 51,
+    "proxy_alignment": 0.966,
+    "false_pass_count": 0,
+    "false_collapse_count": 18,
+    "gate_action_distribution": {
+      "COLLAPSE": 188,
+      "ESCALATE": 10,
+      "FLAG": 1271,
+      "PASS": 15,
+      "RETRY": 16
+    },
+    "external_proxy_label_distribution": {
+      "COLLAPSE": 173,
+      "ESCALATE": 8,
+      "FLAG": 1280,
+      "PASS": 27,
+      "RETRY": 12
+    },
+    "source_profile_distribution": {
+      "external_clean": 189,
+      "external_fragile": 185,
+      "external_mixed": 183,
+      "external_noisy": 202,
+      "external_outlier": 180,
+      "external_redundant": 202,
+      "external_shifted": 191,
+      "external_sparse": 168
+    },
+    "mean_external_risk_score": 0.47523775128504764,
+    "mean_divergence": 0.4572208102545519,
+    "mean_recoverability_score": 0.538456058996054,
+    "mean_normalized_effective": 0.08123524874150208,
+    "mean_external_risk_by_action": {
+      "COLLAPSE": 0.6582917172056766,
+      "ESCALATE": 0.35588179938915987,
+      "FLAG": 0.45039328279616925,
+      "PASS": 0.1556279705944456,
+      "RETRY": 0.6721677566353026
+    },
+    "mean_divergence_by_action": {
+      "COLLAPSE": 0.3674642369288647,
+      "ESCALATE": 0.6358611972103548,
+      "FLAG": 0.47360461042076163,
+      "PASS": 0.3099389167793057,
+      "RETRY": 0.23679895441375623
+    },
+    "mean_risk_by_profile": {
+      "external_clean": 0.23015945047215192,
+      "external_fragile": 0.658645956890184,
+      "external_mixed": 0.49046926766129695,
+      "external_noisy": 0.5132229043971186,
+      "external_outlier": 0.511328412916944,
+      "external_redundant": 0.5470433878838139,
+      "external_shifted": 0.511186610071555,
+      "external_sparse": 0.3208426481676671
+    }
+  },
+  "sample_results": [
+    {
+      "system_id": 0,
+      "source_profile": "external_redundant",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.587409,
+      "recoverability_score": 0.41529,
+      "normalized_effective": 0.010025,
+      "divergence": 0.405265
+    },
+    {
+      "system_id": 1,
+      "source_profile": "external_redundant",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.559746,
+      "recoverability_score": 0.448525,
+      "normalized_effective": 0.010519,
+      "divergence": 0.438006
+    },
+    {
+      "system_id": 2,
+      "source_profile": "external_mixed",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.50296,
+      "recoverability_score": 0.577897,
+      "normalized_effective": 0.067181,
+      "divergence": 0.510716
+    },
+    {
+      "system_id": 3,
+      "source_profile": "external_fragile",
+      "gate_action": "COLLAPSE",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": false,
+      "external_risk_score": 0.64743,
+      "recoverability_score": 0.292738,
+      "normalized_effective": 0.002421,
+      "divergence": 0.290317
+    },
+    {
+      "system_id": 4,
+      "source_profile": "external_redundant",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.503731,
+      "recoverability_score": 0.582463,
+      "normalized_effective": 0.071654,
+      "divergence": 0.510809
+    },
+    {
+      "system_id": 5,
+      "source_profile": "external_noisy",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.560692,
+      "recoverability_score": 0.525437,
+      "normalized_effective": 0.035188,
+      "divergence": 0.490249
+    },
+    {
+      "system_id": 6,
+      "source_profile": "external_noisy",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.534847,
+      "recoverability_score": 0.623105,
+      "normalized_effective": 0.079747,
+      "divergence": 0.543358
+    },
+    {
+      "system_id": 7,
+      "source_profile": "external_mixed",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.520537,
+      "recoverability_score": 0.499805,
+      "normalized_effective": 0.027876,
+      "divergence": 0.471929
+    },
+    {
+      "system_id": 8,
+      "source_profile": "external_redundant",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.506444,
+      "recoverability_score": 0.510672,
+      "normalized_effective": 0.040922,
+      "divergence": 0.46975
+    },
+    {
+      "system_id": 9,
+      "source_profile": "external_noisy",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.616119,
+      "recoverability_score": 0.454841,
+      "normalized_effective": 0.010714,
+      "divergence": 0.444127
+    },
+    {
+      "system_id": 10,
+      "source_profile": "external_redundant",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.514344,
+      "recoverability_score": 0.566032,
+      "normalized_effective": 0.05135,
+      "divergence": 0.514682
+    },
+    {
+      "system_id": 11,
+      "source_profile": "external_mixed",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.419411,
+      "recoverability_score": 0.555214,
+      "normalized_effective": 0.070222,
+      "divergence": 0.484992
+    },
+    {
+      "system_id": 12,
+      "source_profile": "external_mixed",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.49114,
+      "recoverability_score": 0.507136,
+      "normalized_effective": 0.037302,
+      "divergence": 0.469835
+    },
+    {
+      "system_id": 13,
+      "source_profile": "external_shifted",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.54532,
+      "recoverability_score": 0.447433,
+      "normalized_effective": 0.014574,
+      "divergence": 0.432859
+    },
+    {
+      "system_id": 14,
+      "source_profile": "external_outlier",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.385857,
+      "recoverability_score": 0.484332,
+      "normalized_effective": 0.005629,
+      "divergence": 0.478703
+    },
+    {
+      "system_id": 15,
+      "source_profile": "external_fragile",
+      "gate_action": "COLLAPSE",
+      "external_proxy_label": "COLLAPSE",
+      "external_proxy_match": true,
+      "external_risk_score": 0.674234,
+      "recoverability_score": 0.352817,
+      "normalized_effective": 0.002539,
+      "divergence": 0.350278
+    },
+    {
+      "system_id": 16,
+      "source_profile": "external_shifted",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.515986,
+      "recoverability_score": 0.565379,
+      "normalized_effective": 0.054761,
+      "divergence": 0.510617
+    },
+    {
+      "system_id": 17,
+      "source_profile": "external_clean",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.280676,
+      "recoverability_score": 0.646894,
+      "normalized_effective": 0.163127,
+      "divergence": 0.483767
+    },
+    {
+      "system_id": 18,
+      "source_profile": "external_noisy",
+      "gate_action": "FLAG",
+      "external_proxy_label": "FLAG",
+      "external_proxy_match": true,
+      "external_risk_score": 0.55199,
+      "recoverability_score": 0.523121,
+      "normalized_effective": 0.044663,
+      "divergence": 0.478458
+    },
+    {
+      "system_id": 19,
+      "source_profile": "external_fragile",
+      "gate_action": "COLLAPSE",
+      "external_proxy_label": "COLLAPSE",
+      "external_proxy_match": true,
+      "external_risk_score": 0.676223,
+      "recoverability_score": 0.431829,
+      "normalized_effective": 0.004286,
+      "divergence": 0.427543
+    }
+  ],
+  "reproduction_command": "python examples/effective_observer_recoverability_gate_external_proxy_v0.py"
+}
