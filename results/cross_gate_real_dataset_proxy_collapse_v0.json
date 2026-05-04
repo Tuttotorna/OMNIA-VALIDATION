@@ -1,0 +1,399 @@
+{
+  "status": "PASS",
+  "version": "0.1.0",
+  "summary": {
+    "record_count": 20,
+    "dataset_path": "data/cross_gate_real_dataset_proxy_collapse_v0.csv",
+    "arbitration_action_distribution": {
+      "COLLAPSE": 5,
+      "ESCALATE": 10,
+      "FLAG": 2,
+      "PASS": 2,
+      "RETRY": 1
+    },
+    "source_family_distribution": {
+      "borderline": 2,
+      "collapse": 5,
+      "control": 1,
+      "effective": 1,
+      "logs": 1,
+      "mixed": 3,
+      "observer": 1,
+      "projection": 2,
+      "recoverability": 1,
+      "sensor": 1,
+      "support": 2
+    },
+    "high_disagreement_count": 15,
+    "medium_disagreement_count": 3,
+    "low_disagreement_count": 2,
+    "contradiction_count": 9,
+    "unanimous_count": 1,
+    "multi_gate_collapse_count": 5,
+    "collapse_with_projection_count": 4,
+    "collapse_with_resistance_count": 3,
+    "mean_unique_action_count": 2.7,
+    "mean_severity_spread": 3.05,
+    "mean_severity_variance": 1.608,
+    "mean_spread_by_family": {
+      "borderline": 2.5,
+      "collapse": 3.6,
+      "control": 0,
+      "effective": 4,
+      "logs": 3,
+      "mixed": 3,
+      "observer": 3,
+      "projection": 4,
+      "recoverability": 4,
+      "sensor": 2,
+      "support": 2.5
+    },
+    "mean_variance_by_family": {
+      "borderline": 1.2000000000000002,
+      "collapse": 2.128,
+      "control": 0,
+      "effective": 2.24,
+      "logs": 1.3600000000000003,
+      "mixed": 1.2533333333333334,
+      "observer": 1.3600000000000003,
+      "projection": 2.8,
+      "recoverability": 2.24,
+      "sensor": 0.64,
+      "support": 0.9600000000000002
+    },
+    "gate_action_distributions": {
+      "collapse_gate": {
+        "PASS": 7,
+        "FLAG": 4,
+        "RETRY": 6,
+        "COLLAPSE": 3
+      },
+      "divergence_gate": {
+        "PASS": 2,
+        "FLAG": 13,
+        "RETRY": 3,
+        "ESCALATE": 2
+      },
+      "effective_signal_gate": {
+        "PASS": 2,
+        "COLLAPSE": 17,
+        "RETRY": 1
+      },
+      "projection_gate": {
+        "PASS": 9,
+        "COLLAPSE": 4,
+        "FLAG": 4,
+        "RETRY": 3
+      },
+      "recoverability_gate": {
+        "PASS": 4,
+        "FLAG": 9,
+        "RETRY": 6,
+        "COLLAPSE": 1
+      }
+    }
+  },
+  "results": [
+    {
+      "record_id": "clean_control_reference",
+      "source_family": "control",
+      "arbitration_action": "PASS",
+      "unique_action_count": 1,
+      "severity_spread": 0,
+      "severity_variance": 0.0,
+      "signal_actions": {
+        "effective_signal_gate": "PASS",
+        "recoverability_gate": "PASS",
+        "divergence_gate": "PASS",
+        "collapse_gate": "PASS",
+        "projection_gate": "PASS"
+      }
+    },
+    {
+      "record_id": "effective_only_collapse",
+      "source_family": "effective",
+      "arbitration_action": "ESCALATE",
+      "unique_action_count": 3,
+      "severity_spread": 4,
+      "severity_variance": 2.24,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "FLAG",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "PASS",
+        "projection_gate": "PASS"
+      }
+    },
+    {
+      "record_id": "recoverability_near_failure",
+      "source_family": "recoverability",
+      "arbitration_action": "ESCALATE",
+      "unique_action_count": 3,
+      "severity_spread": 4,
+      "severity_variance": 2.24,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "FLAG",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "PASS",
+        "projection_gate": "PASS"
+      }
+    },
+    {
+      "record_id": "projection_confirmed_collapse",
+      "source_family": "projection",
+      "arbitration_action": "COLLAPSE",
+      "unique_action_count": 3,
+      "severity_spread": 4,
+      "severity_variance": 2.24,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "FLAG",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "PASS",
+        "projection_gate": "COLLAPSE"
+      }
+    },
+    {
+      "record_id": "collapse_resistance_confirmed",
+      "source_family": "collapse",
+      "arbitration_action": "ESCALATE",
+      "unique_action_count": 3,
+      "severity_spread": 4,
+      "severity_variance": 1.6,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "FLAG",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "FLAG",
+        "projection_gate": "PASS"
+      }
+    },
+    {
+      "record_id": "dual_confirmed_collapse",
+      "source_family": "collapse",
+      "arbitration_action": "ESCALATE",
+      "unique_action_count": 3,
+      "severity_spread": 3,
+      "severity_variance": 0.96,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "RETRY",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "FLAG",
+        "projection_gate": "FLAG"
+      }
+    },
+    {
+      "record_id": "surface_stable_deep_collapse",
+      "source_family": "mixed",
+      "arbitration_action": "ESCALATE",
+      "unique_action_count": 3,
+      "severity_spread": 3,
+      "severity_variance": 1.36,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "RETRY",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "RETRY",
+        "projection_gate": "RETRY"
+      }
+    },
+    {
+      "record_id": "projection_last_to_fail",
+      "source_family": "mixed",
+      "arbitration_action": "ESCALATE",
+      "unique_action_count": 4,
+      "severity_spread": 4,
+      "severity_variance": 1.76,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "FLAG",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "RETRY",
+        "projection_gate": "PASS"
+      }
+    },
+    {
+      "record_id": "recoverability_last_to_fail",
+      "source_family": "mixed",
+      "arbitration_action": "FLAG",
+      "unique_action_count": 2,
+      "severity_spread": 2,
+      "severity_variance": 0.64,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "FLAG",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "FLAG",
+        "projection_gate": "FLAG"
+      }
+    },
+    {
+      "record_id": "distributed_irrecoverable_loss",
+      "source_family": "support",
+      "arbitration_action": "ESCALATE",
+      "unique_action_count": 3,
+      "severity_spread": 3,
+      "severity_variance": 1.36,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "RETRY",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "RETRY",
+        "projection_gate": "RETRY"
+      }
+    },
+    {
+      "record_id": "observer_alias_total_failure",
+      "source_family": "observer",
+      "arbitration_action": "ESCALATE",
+      "unique_action_count": 3,
+      "severity_spread": 3,
+      "severity_variance": 1.36,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "RETRY",
+        "divergence_gate": "RETRY",
+        "collapse_gate": "RETRY",
+        "projection_gate": "FLAG"
+      }
+    },
+    {
+      "record_id": "redundancy_hides_collapse",
+      "source_family": "logs",
+      "arbitration_action": "ESCALATE",
+      "unique_action_count": 3,
+      "severity_spread": 3,
+      "severity_variance": 1.36,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "RETRY",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "RETRY",
+        "projection_gate": "RETRY"
+      }
+    },
+    {
+      "record_id": "collapse_with_entropy_preserved",
+      "source_family": "sensor",
+      "arbitration_action": "FLAG",
+      "unique_action_count": 2,
+      "severity_spread": 2,
+      "severity_variance": 0.64,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "FLAG",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "FLAG",
+        "projection_gate": "FLAG"
+      }
+    },
+    {
+      "record_id": "hard_collapse_low_everything",
+      "source_family": "collapse",
+      "arbitration_action": "COLLAPSE",
+      "unique_action_count": 2,
+      "severity_spread": 4,
+      "severity_variance": 2.56,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "COLLAPSE",
+        "divergence_gate": "PASS",
+        "collapse_gate": "COLLAPSE",
+        "projection_gate": "COLLAPSE"
+      }
+    },
+    {
+      "record_id": "borderline_should_escalate",
+      "source_family": "borderline",
+      "arbitration_action": "ESCALATE",
+      "unique_action_count": 3,
+      "severity_spread": 4,
+      "severity_variance": 2.24,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "FLAG",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "PASS",
+        "projection_gate": "PASS"
+      }
+    },
+    {
+      "record_id": "clean_but_high_divergence",
+      "source_family": "borderline",
+      "arbitration_action": "PASS",
+      "unique_action_count": 2,
+      "severity_spread": 1,
+      "severity_variance": 0.16,
+      "signal_actions": {
+        "effective_signal_gate": "PASS",
+        "recoverability_gate": "PASS",
+        "divergence_gate": "RETRY",
+        "collapse_gate": "PASS",
+        "projection_gate": "PASS"
+      }
+    },
+    {
+      "record_id": "partial_collapse_recoverable",
+      "source_family": "support",
+      "arbitration_action": "RETRY",
+      "unique_action_count": 3,
+      "severity_spread": 2,
+      "severity_variance": 0.56,
+      "signal_actions": {
+        "effective_signal_gate": "RETRY",
+        "recoverability_gate": "FLAG",
+        "divergence_gate": "FLAG",
+        "collapse_gate": "RETRY",
+        "projection_gate": "PASS"
+      }
+    },
+    {
+      "record_id": "projection_only_failure",
+      "source_family": "projection",
+      "arbitration_action": "COLLAPSE",
+      "unique_action_count": 3,
+      "severity_spread": 4,
+      "severity_variance": 3.36,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "PASS",
+        "divergence_gate": "ESCALATE",
+        "collapse_gate": "PASS",
+        "projection_gate": "COLLAPSE"
+      }
+    },
+    {
+      "record_id": "collapse_only_failure",
+      "source_family": "collapse",
+      "arbitration_action": "COLLAPSE",
+      "unique_action_count": 3,
+      "severity_spread": 4,
+      "severity_variance": 3.36,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "PASS",
+        "divergence_gate": "ESCALATE",
+        "collapse_gate": "COLLAPSE",
+        "projection_gate": "PASS"
+      }
+    },
+    {
+      "record_id": "multi_gate_confirmed_collapse",
+      "source_family": "collapse",
+      "arbitration_action": "COLLAPSE",
+      "unique_action_count": 2,
+      "severity_spread": 3,
+      "severity_variance": 2.16,
+      "signal_actions": {
+        "effective_signal_gate": "COLLAPSE",
+        "recoverability_gate": "RETRY",
+        "divergence_gate": "RETRY",
+        "collapse_gate": "COLLAPSE",
+        "projection_gate": "COLLAPSE"
+      }
+    }
+  ],
+  "reproduction_command": "python examples/cross_gate_real_dataset_proxy_collapse_v0.py"
+}
