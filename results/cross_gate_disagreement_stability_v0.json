@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "version": "0.1.0",
+  "summary": {
+    "seed_count": 20,
+    "systems_per_seed": 1500,
+    "total_system_count": 30000,
+    "pass_seed_count": 20,
+    "check_seed_count": 0,
+
+    "high_disagreement_count": {
+      "mean": 863.7,
+      "min": 841,
+      "max": 902
+    },
+
+    "medium_disagreement_count": {
+      "mean": 619.9,
+      "min": 580,
+      "max": 645
+    },
+
+    "low_disagreement_count": {
+      "mean": 16.4,
+      "min": 10,
+      "max": 25
+    },
+
+    "contradiction_count": {
+      "mean": 550.55,
+      "min": 523,
+      "max": 570
+    },
+
+    "unanimous_count": {
+      "mean": 0.1,
+      "min": 0,
+      "max": 1
+    },
+
+    "mean_unique_action_count": {
+      "mean": 3.0504333333333333,
+      "min": 3.026666666666667,
+      "max": 3.082
+    },
+
+    "mean_severity_spread": {
+      "mean": 2.9318333333333335,
+      "min": 2.9033333333333333,
+      "max": 2.969333333333333
+    },
+
+    "mean_severity_variance": {
+      "mean": 1.3733973333333334,
+      "min": 1.3543466666666668,
+      "max": 1.3942400000000001
+    },
+
+    "pass_rate": {
+      "mean": 0.10233333333333333,
+      "min": 0.082,
+      "max": 0.12333333333333334
+    },
+
+    "retry_rate": {
+      "mean": 0.31716666666666665,
+      "min": 0.298,
+      "max": 0.3373333333333333
+    },
+
+    "flag_rate": {
+      "mean": 0.0014,
+      "min": 0.0,
+      "max": 0.0033333333333333335
+    },
+
+    "escalate_rate": {
+      "mean": 0.4382666666666667,
+      "min": 0.424,
+      "max": 0.452
+    },
+
+    "collapse_rate": {
+      "mean": 0.14083333333333334,
+      "min": 0.132,
+      "max": 0.158
+    }
+  },
+
+  "reproduction_command": "python examples/cross_gate_disagreement_stability_v0.py"
+}
