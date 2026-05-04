@@ -1,0 +1,69 @@
+{
+  "status": "CHECK",
+  "version": "0.1.0",
+  "summary": {
+    "record_count": 16,
+    "dataset_path": "data/cross_gate_real_dataset_proxy_v0.csv",
+    "arbitration_action_distribution": {
+      "ESCALATE": 1,
+      "PASS": 8,
+      "RETRY": 7
+    },
+    "source_family_distribution": {
+      "docs": 2,
+      "logs": 2,
+      "research": 4,
+      "sensor": 2,
+      "software": 3,
+      "support": 3
+    },
+    "high_disagreement_count": 1,
+    "medium_disagreement_count": 11,
+    "low_disagreement_count": 4,
+    "contradiction_count": 1,
+    "unanimous_count": 0,
+    "mean_unique_action_count": 2.5625,
+    "mean_severity_spread": 1.875,
+    "mean_severity_variance": 0.65,
+    "mean_spread_by_family": {
+      "docs": 1.5,
+      "logs": 3.0,
+      "research": 1.75,
+      "sensor": 1.5,
+      "software": 1.6666666666666667,
+      "support": 2.0
+    },
+    "mean_variance_by_family": {
+      "docs": 0.48000000000000004,
+      "logs": 1.1600000000000001,
+      "research": 0.6400000000000001,
+      "sensor": 0.36000000000000004,
+      "software": 0.5333333333333334,
+      "support": 0.7466666666666667
+    },
+    "gate_action_distributions": {
+      "collapse_gate": {
+        "PASS": 16
+      },
+      "divergence_gate": {
+        "FLAG": 12,
+        "RETRY": 4
+      },
+      "effective_signal_gate": {
+        "RETRY": 7,
+        "PASS": 7,
+        "COLLAPSE": 1,
+        "FLAG": 1
+      },
+      "projection_gate": {
+        "PASS": 13,
+        "RETRY": 3
+      },
+      "recoverability_gate": {
+        "FLAG": 8,
+        "PASS": 8
+      }
+    }
+  },
+  "reproduction_command": "python examples/cross_gate_real_dataset_proxy_v0.py"
+}
