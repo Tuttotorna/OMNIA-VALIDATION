@@ -1,0 +1,237 @@
+{
+  "experiment": "temporal_collapse_topology_transition_graph_v0",
+  "version": "0.1.0",
+  "status": "PASS",
+  "summary": {
+    "node_count": 6,
+    "edge_count": 14,
+    "confirmation_window": 2,
+    "persistence_window": 2,
+    "global_persistence_threshold": 4,
+    "max_mutation_depth": 2,
+    "supported_classes": [
+      "GLOBAL_PERSISTENT_COLLAPSE",
+      "RECOVERY_RELAPSE_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "OSCILLATING_NONPERSISTENT",
+      "SPIKE_FILTERED",
+      "CLEAN_PASS"
+    ],
+    "mean_edge_depth": 1.5,
+    "min_edge_depth": 1,
+    "max_edge_depth": 2,
+    "mean_outgoing_count": 2.3333333333333335,
+    "mean_incoming_count": 2.3333333333333335,
+    "strongly_connected_component_count": 2,
+    "largest_strongly_connected_component_size": 3,
+    "classes_with_no_outgoing_edges": [],
+    "classes_with_no_incoming_edges": []
+  },
+  "node_metrics": {
+    "GLOBAL_PERSISTENT_COLLAPSE": {
+      "outgoing_count": 2,
+      "incoming_count": 1,
+      "outgoing_targets": [
+        "RECOVERY_RELAPSE_COLLAPSE",
+        "FRAGMENTED_LOCAL_COLLAPSE"
+      ],
+      "incoming_sources": [
+        "RECOVERY_RELAPSE_COLLAPSE"
+      ],
+      "min_outgoing_depth": 1,
+      "mean_outgoing_depth": 1.5
+    },
+    "RECOVERY_RELAPSE_COLLAPSE": {
+      "outgoing_count": 2,
+      "incoming_count": 3,
+      "outgoing_targets": [
+        "FRAGMENTED_LOCAL_COLLAPSE",
+        "GLOBAL_PERSISTENT_COLLAPSE"
+      ],
+      "incoming_sources": [
+        "OSCILLATING_NONPERSISTENT",
+        "FRAGMENTED_LOCAL_COLLAPSE",
+        "GLOBAL_PERSISTENT_COLLAPSE"
+      ],
+      "min_outgoing_depth": 1,
+      "mean_outgoing_depth": 1.5
+    },
+    "FRAGMENTED_LOCAL_COLLAPSE": {
+      "outgoing_count": 1,
+      "incoming_count": 5,
+      "outgoing_targets": [
+        "RECOVERY_RELAPSE_COLLAPSE"
+      ],
+      "incoming_sources": [
+        "CLEAN_PASS",
+        "SPIKE_FILTERED",
+        "OSCILLATING_NONPERSISTENT",
+        "GLOBAL_PERSISTENT_COLLAPSE",
+        "RECOVERY_RELAPSE_COLLAPSE"
+      ],
+      "min_outgoing_depth": 2,
+      "mean_outgoing_depth": 2
+    },
+    "OSCILLATING_NONPERSISTENT": {
+      "outgoing_count": 3,
+      "incoming_count": 2,
+      "outgoing_targets": [
+        "FRAGMENTED_LOCAL_COLLAPSE",
+        "SPIKE_FILTERED",
+        "RECOVERY_RELAPSE_COLLAPSE"
+      ],
+      "incoming_sources": [
+        "CLEAN_PASS",
+        "SPIKE_FILTERED"
+      ],
+      "min_outgoing_depth": 1,
+      "mean_outgoing_depth": 1.6666666666666667
+    },
+    "SPIKE_FILTERED": {
+      "outgoing_count": 3,
+      "incoming_count": 2,
+      "outgoing_targets": [
+        "OSCILLATING_NONPERSISTENT",
+        "FRAGMENTED_LOCAL_COLLAPSE",
+        "CLEAN_PASS"
+      ],
+      "incoming_sources": [
+        "CLEAN_PASS",
+        "OSCILLATING_NONPERSISTENT"
+      ],
+      "min_outgoing_depth": 1,
+      "mean_outgoing_depth": 1
+    },
+    "CLEAN_PASS": {
+      "outgoing_count": 3,
+      "incoming_count": 1,
+      "outgoing_targets": [
+        "SPIKE_FILTERED",
+        "FRAGMENTED_LOCAL_COLLAPSE",
+        "OSCILLATING_NONPERSISTENT"
+      ],
+      "incoming_sources": [
+        "SPIKE_FILTERED"
+      ],
+      "min_outgoing_depth": 1,
+      "mean_outgoing_depth": 1.6666666666666667
+    }
+  },
+  "edges": [
+    {
+      "from_class": "CLEAN_PASS",
+      "to_class": "SPIKE_FILTERED",
+      "minimum_mutation_depth": 1,
+      "example_count": 144,
+      "source_case_names": ["clean_pass"]
+    },
+    {
+      "from_class": "CLEAN_PASS",
+      "to_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "minimum_mutation_depth": 2,
+      "example_count": 11,
+      "source_case_names": ["clean_pass"]
+    },
+    {
+      "from_class": "CLEAN_PASS",
+      "to_class": "OSCILLATING_NONPERSISTENT",
+      "minimum_mutation_depth": 2,
+      "example_count": 55,
+      "source_case_names": ["clean_pass"]
+    },
+    {
+      "from_class": "SPIKE_FILTERED",
+      "to_class": "OSCILLATING_NONPERSISTENT",
+      "minimum_mutation_depth": 1,
+      "example_count": 128,
+      "source_case_names": ["spike_filtered"]
+    },
+    {
+      "from_class": "SPIKE_FILTERED",
+      "to_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "minimum_mutation_depth": 1,
+      "example_count": 48,
+      "source_case_names": ["spike_filtered"]
+    },
+    {
+      "from_class": "SPIKE_FILTERED",
+      "to_class": "CLEAN_PASS",
+      "minimum_mutation_depth": 1,
+      "example_count": 24,
+      "source_case_names": ["spike_filtered"]
+    },
+    {
+      "from_class": "OSCILLATING_NONPERSISTENT",
+      "to_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "minimum_mutation_depth": 1,
+      "example_count": 136,
+      "source_case_names": ["oscillating_nonpersistent"]
+    },
+    {
+      "from_class": "OSCILLATING_NONPERSISTENT",
+      "to_class": "SPIKE_FILTERED",
+      "minimum_mutation_depth": 2,
+      "example_count": 12,
+      "source_case_names": ["oscillating_nonpersistent"]
+    },
+    {
+      "from_class": "OSCILLATING_NONPERSISTENT",
+      "to_class": "RECOVERY_RELAPSE_COLLAPSE",
+      "minimum_mutation_depth": 2,
+      "example_count": 2,
+      "source_case_names": ["oscillating_nonpersistent"]
+    },
+    {
+      "from_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "to_class": "RECOVERY_RELAPSE_COLLAPSE",
+      "minimum_mutation_depth": 2,
+      "example_count": 7,
+      "source_case_names": ["fragmented_local_collapse"]
+    },
+    {
+      "from_class": "GLOBAL_PERSISTENT_COLLAPSE",
+      "to_class": "RECOVERY_RELAPSE_COLLAPSE",
+      "minimum_mutation_depth": 1,
+      "example_count": 470,
+      "source_case_names": ["global_persistent_collapse"]
+    },
+    {
+      "from_class": "GLOBAL_PERSISTENT_COLLAPSE",
+      "to_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "minimum_mutation_depth": 2,
+      "example_count": 40,
+      "source_case_names": ["global_persistent_collapse"]
+    },
+    {
+      "from_class": "RECOVERY_RELAPSE_COLLAPSE",
+      "to_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "minimum_mutation_depth": 1,
+      "example_count": 160,
+      "source_case_names": ["recovery_relapse_collapse"]
+    },
+    {
+      "from_class": "RECOVERY_RELAPSE_COLLAPSE",
+      "to_class": "GLOBAL_PERSISTENT_COLLAPSE",
+      "minimum_mutation_depth": 2,
+      "example_count": 4,
+      "source_case_names": ["recovery_relapse_collapse"]
+    }
+  ],
+  "strongly_connected_components": [
+    [
+      "CLEAN_PASS",
+      "OSCILLATING_NONPERSISTENT",
+      "SPIKE_FILTERED"
+    ],
+    [
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "GLOBAL_PERSISTENT_COLLAPSE",
+      "RECOVERY_RELAPSE_COLLAPSE"
+    ]
+  ],
+  "final_check": {
+    "status": "PASS",
+    "message": "temporal topology transition graph exposed a connected mutation phase space"
+  },
+  "reproduction_command": "python examples/temporal_collapse_topology_transition_graph_v0.py"
+}
