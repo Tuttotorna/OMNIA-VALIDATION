@@ -1,0 +1,194 @@
+{
+  "status": "PASS",
+  "version": "0.1.0",
+  "summary": {
+    "trajectory_count": 8,
+    "states_per_trajectory": 8,
+    "total_state_count": 64,
+    "confirmation_window": 2,
+    "persistence_window": 2,
+    "pass_trajectory_count": 8,
+    "check_trajectory_count": 0,
+    "raw_collapse_trajectory_count": 7,
+    "temporal_collapse_trajectory_count": 5,
+    "persistent_temporal_collapse_count": 5,
+    "instant_spike_filtered_count": 1,
+    "control_pass_count": 1,
+    "warning_before_collapse_count": 5,
+    "filtered_collapse_total": 7,
+    "raw_single_frame_collapse_total": 2,
+    "mean_temporal_collapse_delay": 1,
+    "mean_first_persistent_temporal_collapse_step": 6
+  },
+  "trajectory_results": [
+    {
+      "trajectory_name": "stable_control",
+      "status": "PASS",
+      "first_raw_collapse_step": null,
+      "first_temporal_collapse_step": null,
+      "first_persistent_temporal_collapse_step": null,
+      "temporal_collapse_delay": null,
+      "temporal_filtered_collapse_count": 0,
+      "persistent_temporal_collapse": false,
+      "instant_spike_filtered": false,
+      "temporal_action_sequence": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ]
+    },
+    {
+      "trajectory_name": "slow_decay_persistent",
+      "status": "PASS",
+      "first_raw_collapse_step": 4,
+      "first_temporal_collapse_step": 5,
+      "first_persistent_temporal_collapse_step": 6,
+      "temporal_collapse_delay": 1,
+      "temporal_filtered_collapse_count": 1,
+      "persistent_temporal_collapse": true,
+      "instant_spike_filtered": false,
+      "temporal_action_sequence": [
+        "PASS",
+        "PASS",
+        "RETRY",
+        "ESCALATE",
+        "ESCALATE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "COLLAPSE"
+      ]
+    },
+    {
+      "trajectory_name": "projection_failure_persistent",
+      "status": "PASS",
+      "first_raw_collapse_step": 4,
+      "first_temporal_collapse_step": 5,
+      "first_persistent_temporal_collapse_step": 6,
+      "temporal_collapse_delay": 1,
+      "temporal_filtered_collapse_count": 1,
+      "persistent_temporal_collapse": true,
+      "instant_spike_filtered": false,
+      "temporal_action_sequence": [
+        "PASS",
+        "PASS",
+        "RETRY",
+        "ESCALATE",
+        "ESCALATE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "COLLAPSE"
+      ]
+    },
+    {
+      "trajectory_name": "recoverability_failure_persistent",
+      "status": "PASS",
+      "first_raw_collapse_step": 4,
+      "first_temporal_collapse_step": 5,
+      "first_persistent_temporal_collapse_step": 6,
+      "temporal_collapse_delay": 1,
+      "temporal_filtered_collapse_count": 1,
+      "persistent_temporal_collapse": true,
+      "instant_spike_filtered": false,
+      "temporal_action_sequence": [
+        "PASS",
+        "RETRY",
+        "ESCALATE",
+        "ESCALATE",
+        "ESCALATE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "COLLAPSE"
+      ]
+    },
+    {
+      "trajectory_name": "delayed_multi_gate_persistent",
+      "status": "PASS",
+      "first_raw_collapse_step": 4,
+      "first_temporal_collapse_step": 5,
+      "first_persistent_temporal_collapse_step": 6,
+      "temporal_collapse_delay": 1,
+      "temporal_filtered_collapse_count": 1,
+      "persistent_temporal_collapse": true,
+      "instant_spike_filtered": false,
+      "temporal_action_sequence": [
+        "PASS",
+        "RETRY",
+        "ESCALATE",
+        "ESCALATE",
+        "ESCALATE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "COLLAPSE"
+      ]
+    },
+    {
+      "trajectory_name": "instant_noise_spike",
+      "status": "PASS",
+      "first_raw_collapse_step": 1,
+      "first_temporal_collapse_step": null,
+      "first_persistent_temporal_collapse_step": null,
+      "temporal_collapse_delay": null,
+      "temporal_filtered_collapse_count": 1,
+      "persistent_temporal_collapse": false,
+      "instant_spike_filtered": true,
+      "temporal_action_sequence": [
+        "PASS",
+        "ESCALATE",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "RETRY"
+      ]
+    },
+    {
+      "trajectory_name": "oscillating_nonpersistent",
+      "status": "PASS",
+      "first_raw_collapse_step": 5,
+      "first_temporal_collapse_step": null,
+      "first_persistent_temporal_collapse_step": null,
+      "temporal_collapse_delay": null,
+      "temporal_filtered_collapse_count": 1,
+      "persistent_temporal_collapse": false,
+      "instant_spike_filtered": false,
+      "temporal_action_sequence": [
+        "PASS",
+        "ESCALATE",
+        "RETRY",
+        "ESCALATE",
+        "RETRY",
+        "ESCALATE",
+        "RETRY",
+        "RETRY"
+      ]
+    },
+    {
+      "trajectory_name": "false_recovery_then_persistent",
+      "status": "PASS",
+      "first_raw_collapse_step": 4,
+      "first_temporal_collapse_step": 5,
+      "first_persistent_temporal_collapse_step": 6,
+      "temporal_collapse_delay": 1,
+      "temporal_filtered_collapse_count": 1,
+      "persistent_temporal_collapse": true,
+      "instant_spike_filtered": false,
+      "temporal_action_sequence": [
+        "PASS",
+        "ESCALATE",
+        "ESCALATE",
+        "RETRY",
+        "ESCALATE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "COLLAPSE"
+      ]
+    }
+  ],
+  "reproduction_command": "python examples/temporal_collapse_persistence_v0.py"
+}
