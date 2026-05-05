@@ -1,0 +1,389 @@
+{
+  "experiment": "temporal_collapse_topology_attractor_stability_v0",
+  "version": "0.1.0",
+  "status": "CHECK",
+  "summary": {
+    "variant_count": 3,
+    "node_count": 6,
+    "confirmation_window": 2,
+    "persistence_window": 2,
+    "global_persistence_threshold": 4,
+    "max_mutation_depth": 2,
+    "supported_classes": [
+      "GLOBAL_PERSISTENT_COLLAPSE",
+      "RECOVERY_RELAPSE_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "OSCILLATING_NONPERSISTENT",
+      "SPIKE_FILTERED",
+      "CLEAN_PASS"
+    ],
+    "edge_count_values": [
+      14,
+      13,
+      13
+    ],
+    "mean_edge_count": 13.333333333333334,
+    "edge_count_std": 0.4714045207910317,
+    "strongest_attractor_values": [
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE"
+    ],
+    "strongest_basin_values": [
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE"
+    ],
+    "strongest_bridge_values": [
+      "OSCILLATING_NONPERSISTENT",
+      "SPIKE_FILTERED",
+      "SPIKE_FILTERED"
+    ],
+    "strongest_attractor_stable": true,
+    "strongest_basin_stable": true,
+    "strongest_bridge_stable": false,
+    "scc_signature_stability_rate": 1.0
+  },
+  "node_score_stability": {
+    "GLOBAL_PERSISTENT_COLLAPSE": {
+      "attractor_scores": [
+        3,
+        3,
+        3
+      ],
+      "basin_scores": [
+        5,
+        5,
+        5
+      ],
+      "escape_scores": [
+        2,
+        2,
+        2
+      ],
+      "direct_incoming_counts": [
+        1,
+        1,
+        1
+      ],
+      "direct_outgoing_counts": [
+        2,
+        2,
+        2
+      ],
+      "attractor_score_mean": 3,
+      "basin_score_mean": 5,
+      "escape_score_mean": 2,
+      "attractor_score_std": 0.0,
+      "basin_score_std": 0.0,
+      "escape_score_std": 0.0
+    },
+    "RECOVERY_RELAPSE_COLLAPSE": {
+      "attractor_scores": [
+        3,
+        3,
+        3
+      ],
+      "basin_scores": [
+        5,
+        5,
+        5
+      ],
+      "escape_scores": [
+        2,
+        2,
+        2
+      ],
+      "direct_incoming_counts": [
+        3,
+        2,
+        2
+      ],
+      "direct_outgoing_counts": [
+        2,
+        2,
+        2
+      ],
+      "attractor_score_mean": 3,
+      "basin_score_mean": 5,
+      "escape_score_mean": 2,
+      "attractor_score_std": 0.0,
+      "basin_score_std": 0.0,
+      "escape_score_std": 0.0
+    },
+    "FRAGMENTED_LOCAL_COLLAPSE": {
+      "attractor_scores": [
+        3,
+        3,
+        3
+      ],
+      "basin_scores": [
+        5,
+        5,
+        5
+      ],
+      "escape_scores": [
+        2,
+        2,
+        2
+      ],
+      "direct_incoming_counts": [
+        5,
+        5,
+        5
+      ],
+      "direct_outgoing_counts": [
+        1,
+        1,
+        1
+      ],
+      "attractor_score_mean": 3,
+      "basin_score_mean": 5,
+      "escape_score_mean": 2,
+      "attractor_score_std": 0.0,
+      "basin_score_std": 0.0,
+      "escape_score_std": 0.0
+    },
+    "OSCILLATING_NONPERSISTENT": {
+      "attractor_scores": [
+        -3,
+        -3,
+        -3
+      ],
+      "basin_scores": [
+        2,
+        2,
+        2
+      ],
+      "escape_scores": [
+        5,
+        5,
+        5
+      ],
+      "direct_incoming_counts": [
+        2,
+        2,
+        2
+      ],
+      "direct_outgoing_counts": [
+        3,
+        2,
+        2
+      ],
+      "attractor_score_mean": -3,
+      "basin_score_mean": 2,
+      "escape_score_mean": 5,
+      "attractor_score_std": 0.0,
+      "basin_score_std": 0.0,
+      "escape_score_std": 0.0
+    },
+    "SPIKE_FILTERED": {
+      "attractor_scores": [
+        -3,
+        -3,
+        -3
+      ],
+      "basin_scores": [
+        2,
+        2,
+        2
+      ],
+      "escape_scores": [
+        5,
+        5,
+        5
+      ],
+      "direct_incoming_counts": [
+        2,
+        2,
+        2
+      ],
+      "direct_outgoing_counts": [
+        3,
+        3,
+        3
+      ],
+      "attractor_score_mean": -3,
+      "basin_score_mean": 2,
+      "escape_score_mean": 5,
+      "attractor_score_std": 0.0,
+      "basin_score_std": 0.0,
+      "escape_score_std": 0.0
+    },
+    "CLEAN_PASS": {
+      "attractor_scores": [
+        -3,
+        -3,
+        -3
+      ],
+      "basin_scores": [
+        2,
+        2,
+        2
+      ],
+      "escape_scores": [
+        5,
+        5,
+        5
+      ],
+      "direct_incoming_counts": [
+        1,
+        1,
+        1
+      ],
+      "direct_outgoing_counts": [
+        3,
+        3,
+        3
+      ],
+      "attractor_score_mean": -3,
+      "basin_score_mean": 2,
+      "escape_score_mean": 5,
+      "attractor_score_std": 0.0,
+      "basin_score_std": 0.0,
+      "escape_score_std": 0.0
+    }
+  },
+  "component_score_stability": [
+    {
+      "variant_index": 0,
+      "component_results": [
+        {
+          "nodes": [
+            "CLEAN_PASS",
+            "OSCILLATING_NONPERSISTENT",
+            "SPIKE_FILTERED"
+          ],
+          "size": 3,
+          "external_incoming_count": 0,
+          "external_outgoing_count": 2,
+          "external_incoming_nodes": [],
+          "external_outgoing_nodes": [
+            "FRAGMENTED_LOCAL_COLLAPSE",
+            "RECOVERY_RELAPSE_COLLAPSE"
+          ],
+          "component_attractor_score": -2
+        },
+        {
+          "nodes": [
+            "FRAGMENTED_LOCAL_COLLAPSE",
+            "GLOBAL_PERSISTENT_COLLAPSE",
+            "RECOVERY_RELAPSE_COLLAPSE"
+          ],
+          "size": 3,
+          "external_incoming_count": 3,
+          "external_outgoing_count": 0,
+          "external_incoming_nodes": [
+            "CLEAN_PASS",
+            "OSCILLATING_NONPERSISTENT",
+            "SPIKE_FILTERED"
+          ],
+          "external_outgoing_nodes": [],
+          "component_attractor_score": 3
+        }
+      ]
+    },
+    {
+      "variant_index": 1,
+      "component_results": [
+        {
+          "nodes": [
+            "CLEAN_PASS",
+            "OSCILLATING_NONPERSISTENT",
+            "SPIKE_FILTERED"
+          ],
+          "size": 3,
+          "external_incoming_count": 0,
+          "external_outgoing_count": 1,
+          "external_incoming_nodes": [],
+          "external_outgoing_nodes": [
+            "FRAGMENTED_LOCAL_COLLAPSE"
+          ],
+          "component_attractor_score": -1
+        },
+        {
+          "nodes": [
+            "FRAGMENTED_LOCAL_COLLAPSE",
+            "GLOBAL_PERSISTENT_COLLAPSE",
+            "RECOVERY_RELAPSE_COLLAPSE"
+          ],
+          "size": 3,
+          "external_incoming_count": 3,
+          "external_outgoing_count": 0,
+          "external_incoming_nodes": [
+            "CLEAN_PASS",
+            "OSCILLATING_NONPERSISTENT",
+            "SPIKE_FILTERED"
+          ],
+          "external_outgoing_nodes": [],
+          "component_attractor_score": 3
+        }
+      ]
+    },
+    {
+      "variant_index": 2,
+      "component_results": [
+        {
+          "nodes": [
+            "CLEAN_PASS",
+            "OSCILLATING_NONPERSISTENT",
+            "SPIKE_FILTERED"
+          ],
+          "size": 3,
+          "external_incoming_count": 0,
+          "external_outgoing_count": 1,
+          "external_incoming_nodes": [],
+          "external_outgoing_nodes": [
+            "FRAGMENTED_LOCAL_COLLAPSE"
+          ],
+          "component_attractor_score": -1
+        },
+        {
+          "nodes": [
+            "FRAGMENTED_LOCAL_COLLAPSE",
+            "GLOBAL_PERSISTENT_COLLAPSE",
+            "RECOVERY_RELAPSE_COLLAPSE"
+          ],
+          "size": 3,
+          "external_incoming_count": 3,
+          "external_outgoing_count": 0,
+          "external_incoming_nodes": [
+            "CLEAN_PASS",
+            "OSCILLATING_NONPERSISTENT",
+            "SPIKE_FILTERED"
+          ],
+          "external_outgoing_nodes": [],
+          "component_attractor_score": 3
+        }
+      ]
+    }
+  ],
+  "variant_summaries": [
+    {
+      "variant_index": 0,
+      "edge_count": 14,
+      "strongest_attractor_candidate": "FRAGMENTED_LOCAL_COLLAPSE",
+      "strongest_basin_candidate": "FRAGMENTED_LOCAL_COLLAPSE",
+      "strongest_bridge_candidate": "OSCILLATING_NONPERSISTENT"
+    },
+    {
+      "variant_index": 1,
+      "edge_count": 13,
+      "strongest_attractor_candidate": "FRAGMENTED_LOCAL_COLLAPSE",
+      "strongest_basin_candidate": "FRAGMENTED_LOCAL_COLLAPSE",
+      "strongest_bridge_candidate": "SPIKE_FILTERED"
+    },
+    {
+      "variant_index": 2,
+      "edge_count": 13,
+      "strongest_attractor_candidate": "FRAGMENTED_LOCAL_COLLAPSE",
+      "strongest_basin_candidate": "FRAGMENTED_LOCAL_COLLAPSE",
+      "strongest_bridge_candidate": "SPIKE_FILTERED"
+    }
+  ],
+  "final_check": {
+    "status": "CHECK",
+    "message": "attractor and basin identities remained stable, but bridge identity changed across shifted trajectory variants"
+  },
+  "reproduction_command": "python examples/temporal_collapse_topology_attractor_stability_v0.py"
+}
