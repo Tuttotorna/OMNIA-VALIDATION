@@ -1,0 +1,278 @@
+{
+  "experiment": "temporal_collapse_topology_transition_graph_stability_v0",
+  "version": "0.1.0",
+  "status": "PASS",
+  "summary": {
+    "variant_count": 3,
+    "node_count": 6,
+    "confirmation_window": 2,
+    "persistence_window": 2,
+    "global_persistence_threshold": 4,
+    "max_mutation_depth": 2,
+    "supported_classes": [
+      "GLOBAL_PERSISTENT_COLLAPSE",
+      "RECOVERY_RELAPSE_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "OSCILLATING_NONPERSISTENT",
+      "SPIKE_FILTERED",
+      "CLEAN_PASS"
+    ],
+    "edge_count_values": [
+      14,
+      13,
+      13
+    ],
+    "mean_edge_count": 13.333333333333334,
+    "edge_count_std": 0.4714045207910317,
+    "mean_edge_persistence_rate": 0.9523809523809523,
+    "fully_persistent_edge_count": 13,
+    "partial_edge_count": 1,
+    "fully_persistent_edges": [
+      "CLEAN_PASS->FRAGMENTED_LOCAL_COLLAPSE",
+      "CLEAN_PASS->OSCILLATING_NONPERSISTENT",
+      "CLEAN_PASS->SPIKE_FILTERED",
+      "FRAGMENTED_LOCAL_COLLAPSE->RECOVERY_RELAPSE_COLLAPSE",
+      "GLOBAL_PERSISTENT_COLLAPSE->FRAGMENTED_LOCAL_COLLAPSE",
+      "GLOBAL_PERSISTENT_COLLAPSE->RECOVERY_RELAPSE_COLLAPSE",
+      "OSCILLATING_NONPERSISTENT->FRAGMENTED_LOCAL_COLLAPSE",
+      "OSCILLATING_NONPERSISTENT->SPIKE_FILTERED",
+      "RECOVERY_RELAPSE_COLLAPSE->FRAGMENTED_LOCAL_COLLAPSE",
+      "RECOVERY_RELAPSE_COLLAPSE->GLOBAL_PERSISTENT_COLLAPSE",
+      "SPIKE_FILTERED->CLEAN_PASS",
+      "SPIKE_FILTERED->FRAGMENTED_LOCAL_COLLAPSE",
+      "SPIKE_FILTERED->OSCILLATING_NONPERSISTENT"
+    ],
+    "partial_edges": [
+      "OSCILLATING_NONPERSISTENT->RECOVERY_RELAPSE_COLLAPSE"
+    ],
+    "component_signature_stability_rate": 1.0,
+    "largest_scc_size_values": [
+      3,
+      3,
+      3
+    ],
+    "largest_scc_size_std": 0.0
+  },
+  "edge_stability": {
+    "CLEAN_PASS->FRAGMENTED_LOCAL_COLLAPSE": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "minimum_depths": [
+        2,
+        2,
+        2
+      ],
+      "mean_depth": 2,
+      "depth_std": 0.0
+    },
+    "CLEAN_PASS->OSCILLATING_NONPERSISTENT": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "minimum_depths": [
+        2,
+        2,
+        2
+      ],
+      "mean_depth": 2,
+      "depth_std": 0.0
+    },
+    "CLEAN_PASS->SPIKE_FILTERED": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "minimum_depths": [
+        1,
+        1,
+        1
+      ],
+      "mean_depth": 1,
+      "depth_std": 0.0
+    },
+    "FRAGMENTED_LOCAL_COLLAPSE->RECOVERY_RELAPSE_COLLAPSE": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "minimum_depths": [
+        2,
+        2,
+        2
+      ],
+      "mean_depth": 2,
+      "depth_std": 0.0
+    },
+    "GLOBAL_PERSISTENT_COLLAPSE->FRAGMENTED_LOCAL_COLLAPSE": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "minimum_depths": [
+        2,
+        2,
+        2
+      ],
+      "mean_depth": 2,
+      "depth_std": 0.0
+    },
+    "GLOBAL_PERSISTENT_COLLAPSE->RECOVERY_RELAPSE_COLLAPSE": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "minimum_depths": [
+        1,
+        1,
+        1
+      ],
+      "mean_depth": 1,
+      "depth_std": 0.0
+    },
+    "OSCILLATING_NONPERSISTENT->FRAGMENTED_LOCAL_COLLAPSE": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "minimum_depths": [
+        1,
+        1,
+        1
+      ],
+      "mean_depth": 1,
+      "depth_std": 0.0
+    },
+    "OSCILLATING_NONPERSISTENT->RECOVERY_RELAPSE_COLLAPSE": {
+      "present_variant_count": 1,
+      "present_variants": [
+        0
+      ],
+      "persistence_rate": 0.3333333333333333,
+      "minimum_depths": [
+        2
+      ],
+      "mean_depth": 2,
+      "depth_std": 0.0
+    },
+    "OSCILLATING_NONPERSISTENT->SPIKE_FILTERED": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "minimum_depths": [
+        2,
+        2,
+        2
+      ],
+      "mean_depth": 2,
+      "depth_std": 0.0
+    },
+    "RECOVERY_RELAPSE_COLLAPSE->FRAGMENTED_LOCAL_COLLAPSE": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "minimum_depths": [
+        1,
+        1,
+        1
+      ],
+      "mean_depth": 1,
+      "depth_std": 0.0
+    },
+    "RECOVERY_RELAPSE_COLLAPSE->GLOBAL_PERSISTENT_COLLAPSE": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "minimum_depths": [
+        2,
+        2,
+        2
+      ],
+      "mean_depth": 2,
+      "depth_std": 0.0
+    },
+    "SPIKE_FILTERED->CLEAN_PASS": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "minimum_depths": [
+        1,
+        1,
+        1
+      ],
+      "mean_depth": 1,
+      "depth_std": 0.0
+    },
+    "SPIKE_FILTERED->FRAGMENTED_LOCAL_COLLAPSE": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "minimum_depths": [
+        1,
+        1,
+        1
+      ],
+      "mean_depth": 1,
+      "depth_std": 0.0
+    },
+    "SPIKE_FILTERED->OSCILLATING_NONPERSISTENT": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "minimum_depths": [
+        1,
+        1,
+        1
+      ],
+      "mean_depth": 1,
+      "depth_std": 0.0
+    }
+  }
+}
