@@ -1,0 +1,283 @@
+{
+  "experiment": "temporal_collapse_topology_absorption_depth_v0",
+  "version": "0.1.0",
+  "status": "CHECK",
+  "summary": {
+    "variant_count": 3,
+    "node_count": 6,
+    "confirmation_window": 2,
+    "persistence_window": 2,
+    "global_persistence_threshold": 4,
+    "max_mutation_depth": 4,
+    "noise_component": [
+      "CLEAN_PASS",
+      "SPIKE_FILTERED",
+      "OSCILLATING_NONPERSISTENT"
+    ],
+    "collapse_component": [
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "GLOBAL_PERSISTENT_COLLAPSE",
+      "RECOVERY_RELAPSE_COLLAPSE"
+    ],
+    "reversible_classes": [
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "GLOBAL_PERSISTENT_COLLAPSE",
+      "RECOVERY_RELAPSE_COLLAPSE"
+    ],
+    "absorbing_classes": [],
+    "stratification_detected": false,
+    "fragmented_min_escape_depth": 3,
+    "global_persistent_min_escape_depth": 4,
+    "recovery_relapse_min_escape_depth": 4,
+    "fragmented_reversibility_index": 0.3333333333333333,
+    "global_persistent_absorbing_state_index": 0.004149377593360996,
+    "recovery_relapse_absorbing_state_index": 0.0025974025974025974
+  },
+  "class_absorption_summary": {
+    "FRAGMENTED_LOCAL_COLLAPSE": {
+      "variant_count": 3,
+      "absorbing_variant_count": 0,
+      "reversible_variant_count": 3,
+      "absorbing_rate": 0.0,
+      "reversible_rate": 1.0,
+      "minimum_escape_depths": [
+        3,
+        3,
+        3
+      ],
+      "minimum_observed_escape_depth": 3,
+      "mean_minimum_escape_depth": 3,
+      "escape_depth_std": 0.0,
+      "unique_escape_targets": [
+        "OSCILLATING_NONPERSISTENT"
+      ],
+      "escape_example_counts": [
+        1600,
+        2112,
+        2624
+      ],
+      "total_escape_examples": 6336,
+      "depth_hit_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 3,
+        "4": 3
+      },
+      "depth_example_totals": {
+        "1": 0,
+        "2": 0,
+        "3": 192,
+        "4": 6144
+      },
+      "reversibility_index": 0.3333333333333333,
+      "absorbing_state_index": 0.00015780337699226762,
+      "is_absorbing_under_test": false,
+      "is_reversible_under_test": true
+    },
+    "GLOBAL_PERSISTENT_COLLAPSE": {
+      "variant_count": 3,
+      "absorbing_variant_count": 0,
+      "reversible_variant_count": 3,
+      "absorbing_rate": 0.0,
+      "reversible_rate": 1.0,
+      "minimum_escape_depths": [
+        4,
+        4,
+        4
+      ],
+      "minimum_observed_escape_depth": 4,
+      "mean_minimum_escape_depth": 4,
+      "escape_depth_std": 0.0,
+      "unique_escape_targets": [
+        "OSCILLATING_NONPERSISTENT"
+      ],
+      "escape_example_counts": [
+        80,
+        80,
+        80
+      ],
+      "total_escape_examples": 240,
+      "depth_hit_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 3
+      },
+      "depth_example_totals": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 240
+      },
+      "reversibility_index": 0.25,
+      "absorbing_state_index": 0.004149377593360996,
+      "is_absorbing_under_test": false,
+      "is_reversible_under_test": true
+    },
+    "RECOVERY_RELAPSE_COLLAPSE": {
+      "variant_count": 3,
+      "absorbing_variant_count": 0,
+      "reversible_variant_count": 3,
+      "absorbing_rate": 0.0,
+      "reversible_rate": 1.0,
+      "minimum_escape_depths": [
+        4,
+        4,
+        4
+      ],
+      "minimum_observed_escape_depth": 4,
+      "mean_minimum_escape_depth": 4,
+      "escape_depth_std": 0.0,
+      "unique_escape_targets": [
+        "OSCILLATING_NONPERSISTENT"
+      ],
+      "escape_example_counts": [
+        128,
+        128,
+        128
+      ],
+      "total_escape_examples": 384,
+      "depth_hit_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 3
+      },
+      "depth_example_totals": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 384
+      },
+      "reversibility_index": 0.25,
+      "absorbing_state_index": 0.0025974025974025974,
+      "is_absorbing_under_test": false,
+      "is_reversible_under_test": true
+    }
+  },
+  "variant_summaries": [
+    {
+      "variant_index": 0,
+      "source_profiles": [
+        {
+          "case_name": "fragmented_local_collapse",
+          "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+          "minimum_escape_depth": 3,
+          "escape_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ],
+          "escape_example_count": 1600
+        },
+        {
+          "case_name": "global_persistent_collapse",
+          "source_class": "GLOBAL_PERSISTENT_COLLAPSE",
+          "minimum_escape_depth": 4,
+          "escape_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ],
+          "escape_example_count": 80
+        },
+        {
+          "case_name": "recovery_relapse_collapse",
+          "source_class": "RECOVERY_RELAPSE_COLLAPSE",
+          "minimum_escape_depth": 4,
+          "escape_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ],
+          "escape_example_count": 128
+        }
+      ]
+    },
+    {
+      "variant_index": 1,
+      "source_profiles": [
+        {
+          "case_name": "fragmented_local_collapse",
+          "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+          "minimum_escape_depth": 3,
+          "escape_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ],
+          "escape_example_count": 2112
+        },
+        {
+          "case_name": "global_persistent_collapse",
+          "source_class": "GLOBAL_PERSISTENT_COLLAPSE",
+          "minimum_escape_depth": 4,
+          "escape_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ],
+          "escape_example_count": 80
+        },
+        {
+          "case_name": "recovery_relapse_collapse",
+          "source_class": "RECOVERY_RELAPSE_COLLAPSE",
+          "minimum_escape_depth": 4,
+          "escape_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ],
+          "escape_example_count": 128
+        }
+      ]
+    },
+    {
+      "variant_index": 2,
+      "source_profiles": [
+        {
+          "case_name": "fragmented_local_collapse",
+          "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+          "minimum_escape_depth": 3,
+          "escape_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ],
+          "escape_example_count": 2624
+        },
+        {
+          "case_name": "global_persistent_collapse",
+          "source_class": "GLOBAL_PERSISTENT_COLLAPSE",
+          "minimum_escape_depth": 4,
+          "escape_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ],
+          "escape_example_count": 80
+        },
+        {
+          "case_name": "recovery_relapse_collapse",
+          "source_class": "RECOVERY_RELAPSE_COLLAPSE",
+          "minimum_escape_depth": 4,
+          "escape_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ],
+          "escape_example_count": 128
+        }
+      ]
+    }
+  ],
+  "final_check": {
+    "status": "CHECK",
+    "message": "collapse-basin internal stratification was not cleanly separated as reversible versus absorbing; all collapse-side classes became reversible under mutation depth up to 4"
+  },
+  "interpretation": {
+    "initial_hypothesis": "FRAGMENTED_LOCAL_COLLAPSE is reversible, while GLOBAL_PERSISTENT_COLLAPSE and RECOVERY_RELAPSE_COLLAPSE remain absorbing.",
+    "observed_result": "All collapse-side classes escaped toward OSCILLATING_NONPERSISTENT under mutation depth <= 4.",
+    "structural_conclusion": "collapse basin is not absorbing; it is depth-stratified by reversibility threshold.",
+    "depth_stratification": {
+      "FRAGMENTED_LOCAL_COLLAPSE": {
+        "minimum_escape_depth": 3,
+        "escape_target": "OSCILLATING_NONPERSISTENT",
+        "interpretation": "closer to escape"
+      },
+      "GLOBAL_PERSISTENT_COLLAPSE": {
+        "minimum_escape_depth": 4,
+        "escape_target": "OSCILLATING_NONPERSISTENT",
+        "interpretation": "deeper mutation required to escape"
+      },
+      "RECOVERY_RELAPSE_COLLAPSE": {
+        "minimum_escape_depth": 4,
+        "escape_target": "OSCILLATING_NONPERSISTENT",
+        "interpretation": "deeper mutation required to escape"
+      }
+    }
+  },
+  "reproduction_command": "python examples/temporal_collapse_topology_absorption_depth_v0.py"
+}
