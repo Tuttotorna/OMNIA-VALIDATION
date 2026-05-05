@@ -402,7 +402,7 @@ def strongly_connected_components(graph):
 
         for neighbor in reverse_graph[node]:
             if neighbor not in visited:
-                reverse_dfs(node, component)
+                reverse_dfs(neighbor, component)
 
     for node in reversed(order):
         if node not in visited:
@@ -847,11 +847,14 @@ def main():
     print("-" * 80)
 
     for item in variant_results:
+        ranked = item["ranked_bridge_candidates"]
+        ranked_first = ranked[0] if ranked else None
+
         print(
             f"variant={item['variant_index']} "
             f"edge_count={item['edge_count']} "
             f"top_bridge_score={item['top_bridge_score']} "
-            f"ranked_first={item['ranked_bridge_candidates'][0]} "
+            f"ranked_first={ranked_first} "
             f"tied_top={item['tied_top_bridge_candidates']}"
         )
 
