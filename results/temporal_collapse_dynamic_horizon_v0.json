@@ -1,0 +1,97 @@
+{
+  "status": "CHECK",
+  "version": "0.1.0",
+  "summary": {
+    "trajectory_count": 8,
+    "trajectory_length": 16,
+    "confirmation_window": 2,
+    "persistence_window": 2,
+    "pass_trajectory_count": 7,
+    "check_trajectory_count": 1,
+    "observable_persistence_count": 5,
+    "mean_horizon_error": 1.2,
+    "max_abs_horizon_error": 6,
+    "mean_persistence_reset_count": 0.75,
+    "max_persistence_reset_count": 4,
+    "mean_horizon_fragmentation": 1.5,
+    "max_horizon_fragmentation": 5,
+    "tested_dynamic_families": [
+      "clean_monotonic",
+      "drifting_onset",
+      "instant_spike_recovery",
+      "oscillating_collapse",
+      "recovery_then_relapse",
+      "fragmented_persistence",
+      "dual_regime_collapse",
+      "delayed_secondary_collapse"
+    ],
+    "corrected_static_rule": "critical_horizon = first_raw_collapse + confirmation_window + persistence_window - 2"
+  },
+  "main_result": {
+    "clean_monotonic": {
+      "status": "PASS",
+      "horizon_error": 0
+    },
+    "drifting_onset": {
+      "status": "PASS",
+      "horizon_error": 0
+    },
+    "instant_spike_recovery": {
+      "status": "PASS",
+      "persistent_collapse_detected": false
+    },
+    "oscillating_collapse": {
+      "status": "PASS",
+      "persistent_collapse_detected": false
+    },
+    "recovery_then_relapse": {
+      "status": "CHECK",
+      "horizon_error": 6,
+      "reason": "initial collapse recovered before persistent relapse"
+    },
+    "fragmented_persistence": {
+      "status": "PASS",
+      "fragmented_runs": 5,
+      "persistence_resets": 4
+    },
+    "dual_regime_collapse": {
+      "status": "PASS",
+      "horizon_error": 0
+    },
+    "delayed_secondary_collapse": {
+      "status": "PASS",
+      "horizon_error": 0
+    }
+  },
+  "core_interpretation": {
+    "validated": [
+      "static critical horizon remains exact under monotonic collapse",
+      "delayed collapse remains predictable",
+      "dual regime collapse remains predictable",
+      "instant collapse spikes remain filtered",
+      "oscillating collapse does not automatically become persistent collapse"
+    ],
+    "exposed": [
+      "recovery and relapse break the static horizon prediction",
+      "non-stationary temporal structure introduces horizon drift",
+      "multiple collapse regimes require horizon reset logic"
+    ]
+  },
+  "boundary_statement": {
+    "this_experiment_does_not_prove": [
+      "universal dynamic horizon predictability",
+      "real-world temporal reliability",
+      "semantic correctness",
+      "causal correctness",
+      "full OMNIATEMPO correctness",
+      "full OMNIA correctness"
+    ],
+    "this_experiment_evaluates": [
+      "dynamic temporal collapse observability",
+      "horizon drift under non-stationary structure",
+      "collapse persistence reset behavior"
+    ]
+  },
+  "final_conclusion": "CHECK - dynamic horizon exposed temporal instability under non-stationary structure.",
+  "reproduction_command": "python examples/temporal_collapse_dynamic_horizon_v0.py"
+}
