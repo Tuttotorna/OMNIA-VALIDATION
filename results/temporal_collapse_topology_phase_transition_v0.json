@@ -1,0 +1,625 @@
+{
+  "experiment": "temporal_collapse_topology_phase_transition_v0",
+  "version": "0.1.0",
+  "status": "PASS",
+  "summary": {
+    "case_count": 6,
+    "transition_found_count": 6,
+    "no_transition_found_count": 0,
+    "transition_found_rate": 1.0,
+    "confirmation_window": 2,
+    "persistence_window": 2,
+    "global_persistence_threshold": 4,
+    "max_mutation_depth": 2,
+    "supported_classes": [
+      "GLOBAL_PERSISTENT_COLLAPSE",
+      "RECOVERY_RELAPSE_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "OSCILLATING_NONPERSISTENT",
+      "SPIKE_FILTERED",
+      "CLEAN_PASS"
+    ],
+    "topology_stability_index_definition": "minimum number of frame mutations required to induce a topology class transition",
+    "mean_topology_stability_index": 1.1666666666666667,
+    "min_topology_stability_index": 1,
+    "max_topology_stability_index": 2,
+    "class_to_topology_stability_index": {
+      "CLEAN_PASS": 1,
+      "SPIKE_FILTERED": 1,
+      "OSCILLATING_NONPERSISTENT": 1,
+      "FRAGMENTED_LOCAL_COLLAPSE": 2,
+      "GLOBAL_PERSISTENT_COLLAPSE": 1,
+      "RECOVERY_RELAPSE_COLLAPSE": 1
+    }
+  },
+  "case_results": [
+    {
+      "case_name": "clean_pass",
+      "sequence_length": 12,
+      "raw_action_sequence": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "topology_stability_index": 1,
+      "base_classification": "CLEAN_PASS",
+      "base_metrics": {
+        "classification": "CLEAN_PASS",
+        "collapse_run_count": 0,
+        "max_temporal_collapse_run_length": 0,
+        "temporal_collapse_run_count": 0,
+        "persistence_reset_count": 0,
+        "fragmentation_index": 0.0,
+        "global_persistence_detected": false,
+        "local_confirmation_count": 0,
+        "collapse_runs": []
+      },
+      "minimum_transition_depth": 1,
+      "transition_found": true,
+      "checked_mutation_count": 10,
+      "transition_examples": [
+        {
+          "mutation_depth": 1,
+          "mutations": [
+            [
+              0,
+              "COLLAPSE"
+            ]
+          ],
+          "from_class": "CLEAN_PASS",
+          "to_class": "SPIKE_FILTERED",
+          "mutated_sequence": [
+            "COLLAPSE",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS"
+          ],
+          "mutated_metrics": {
+            "classification": "SPIKE_FILTERED",
+            "collapse_run_count": 1,
+            "max_temporal_collapse_run_length": 1,
+            "temporal_collapse_run_count": 0,
+            "persistence_reset_count": 0,
+            "fragmentation_index": 0.0,
+            "global_persistence_detected": false,
+            "local_confirmation_count": 0,
+            "collapse_runs": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case_name": "spike_filtered",
+      "sequence_length": 12,
+      "raw_action_sequence": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "ESCALATE",
+        "COLLAPSE",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "topology_stability_index": 1,
+      "base_classification": "SPIKE_FILTERED",
+      "base_metrics": {
+        "classification": "SPIKE_FILTERED",
+        "collapse_run_count": 1,
+        "max_temporal_collapse_run_length": 1,
+        "temporal_collapse_run_count": 0,
+        "persistence_reset_count": 0,
+        "fragmentation_index": 0.0,
+        "global_persistence_detected": false,
+        "local_confirmation_count": 0,
+        "collapse_runs": [
+          [
+            5,
+            5
+          ]
+        ]
+      },
+      "minimum_transition_depth": 1,
+      "transition_found": true,
+      "checked_mutation_count": 10,
+      "transition_examples": [
+        {
+          "mutation_depth": 1,
+          "mutations": [
+            [
+              0,
+              "COLLAPSE"
+            ]
+          ],
+          "from_class": "SPIKE_FILTERED",
+          "to_class": "OSCILLATING_NONPERSISTENT",
+          "mutated_sequence": [
+            "COLLAPSE",
+            "PASS",
+            "PASS",
+            "PASS",
+            "ESCALATE",
+            "COLLAPSE",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS"
+          ],
+          "mutated_metrics": {
+            "classification": "OSCILLATING_NONPERSISTENT",
+            "collapse_run_count": 2,
+            "max_temporal_collapse_run_length": 1,
+            "temporal_collapse_run_count": 0,
+            "persistence_reset_count": 1,
+            "fragmentation_index": 0.5,
+            "global_persistence_detected": false,
+            "local_confirmation_count": 0,
+            "collapse_runs": [
+              [
+                0,
+                0
+              ],
+              [
+                5,
+                5
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case_name": "oscillating_nonpersistent",
+      "sequence_length": 14,
+      "raw_action_sequence": [
+        "PASS",
+        "PASS",
+        "ESCALATE",
+        "COLLAPSE",
+        "PASS",
+        "ESCALATE",
+        "COLLAPSE",
+        "PASS",
+        "ESCALATE",
+        "COLLAPSE",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "topology_stability_index": 1,
+      "base_classification": "OSCILLATING_NONPERSISTENT",
+      "base_metrics": {
+        "classification": "OSCILLATING_NONPERSISTENT",
+        "collapse_run_count": 3,
+        "max_temporal_collapse_run_length": 1,
+        "temporal_collapse_run_count": 0,
+        "persistence_reset_count": 2,
+        "fragmentation_index": 0.6667,
+        "global_persistence_detected": false,
+        "local_confirmation_count": 0,
+        "collapse_runs": [
+          [
+            3,
+            3
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            9,
+            9
+          ]
+        ]
+      },
+      "minimum_transition_depth": 1,
+      "transition_found": true,
+      "checked_mutation_count": 18,
+      "transition_examples": [
+        {
+          "mutation_depth": 1,
+          "mutations": [
+            [
+              2,
+              "COLLAPSE"
+            ]
+          ],
+          "from_class": "OSCILLATING_NONPERSISTENT",
+          "to_class": "FRAGMENTED_LOCAL_COLLAPSE",
+          "mutated_sequence": [
+            "PASS",
+            "PASS",
+            "COLLAPSE",
+            "COLLAPSE",
+            "PASS",
+            "ESCALATE",
+            "COLLAPSE",
+            "PASS",
+            "ESCALATE",
+            "COLLAPSE",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS"
+          ],
+          "mutated_metrics": {
+            "classification": "FRAGMENTED_LOCAL_COLLAPSE",
+            "collapse_run_count": 3,
+            "max_temporal_collapse_run_length": 2,
+            "temporal_collapse_run_count": 1,
+            "persistence_reset_count": 2,
+            "fragmentation_index": 0.6667,
+            "global_persistence_detected": false,
+            "local_confirmation_count": 1,
+            "collapse_runs": [
+              [
+                2,
+                3
+              ],
+              [
+                6,
+                6
+              ],
+              [
+                9,
+                9
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case_name": "fragmented_local_collapse",
+      "sequence_length": 18,
+      "raw_action_sequence": [
+        "PASS",
+        "PASS",
+        "ESCALATE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "PASS",
+        "ESCALATE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "PASS",
+        "ESCALATE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "topology_stability_index": 2,
+      "base_classification": "FRAGMENTED_LOCAL_COLLAPSE",
+      "base_metrics": {
+        "classification": "FRAGMENTED_LOCAL_COLLAPSE",
+        "collapse_run_count": 3,
+        "max_temporal_collapse_run_length": 2,
+        "temporal_collapse_run_count": 3,
+        "persistence_reset_count": 2,
+        "fragmentation_index": 0.6667,
+        "global_persistence_detected": false,
+        "local_confirmation_count": 3,
+        "collapse_runs": [
+          [
+            3,
+            4
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            11,
+            12
+          ]
+        ]
+      },
+      "minimum_transition_depth": 2,
+      "transition_found": true,
+      "checked_mutation_count": 508,
+      "transition_examples": [
+        {
+          "mutation_depth": 2,
+          "mutations": [
+            [
+              1,
+              "COLLAPSE"
+            ],
+            [
+              2,
+              "COLLAPSE"
+            ]
+          ],
+          "from_class": "FRAGMENTED_LOCAL_COLLAPSE",
+          "to_class": "RECOVERY_RELAPSE_COLLAPSE",
+          "mutated_sequence": [
+            "PASS",
+            "COLLAPSE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "PASS",
+            "ESCALATE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "PASS",
+            "ESCALATE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS"
+          ],
+          "mutated_metrics": {
+            "classification": "RECOVERY_RELAPSE_COLLAPSE",
+            "collapse_run_count": 3,
+            "max_temporal_collapse_run_length": 4,
+            "temporal_collapse_run_count": 3,
+            "persistence_reset_count": 2,
+            "fragmentation_index": 0.6667,
+            "global_persistence_detected": true,
+            "local_confirmation_count": 3,
+            "collapse_runs": [
+              [
+                1,
+                4
+              ],
+              [
+                7,
+                8
+              ],
+              [
+                11,
+                12
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case_name": "global_persistent_collapse",
+      "sequence_length": 18,
+      "raw_action_sequence": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "ESCALATE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "topology_stability_index": 1,
+      "base_classification": "GLOBAL_PERSISTENT_COLLAPSE",
+      "base_metrics": {
+        "classification": "GLOBAL_PERSISTENT_COLLAPSE",
+        "collapse_run_count": 1,
+        "max_temporal_collapse_run_length": 8,
+        "temporal_collapse_run_count": 1,
+        "persistence_reset_count": 0,
+        "fragmentation_index": 0.0,
+        "global_persistence_detected": true,
+        "local_confirmation_count": 1,
+        "collapse_runs": [
+          [
+            6,
+            13
+          ]
+        ]
+      },
+      "minimum_transition_depth": 1,
+      "transition_found": true,
+      "checked_mutation_count": 10,
+      "transition_examples": [
+        {
+          "mutation_depth": 1,
+          "mutations": [
+            [
+              0,
+              "COLLAPSE"
+            ]
+          ],
+          "from_class": "GLOBAL_PERSISTENT_COLLAPSE",
+          "to_class": "RECOVERY_RELAPSE_COLLAPSE",
+          "mutated_sequence": [
+            "COLLAPSE",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "ESCALATE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS"
+          ],
+          "mutated_metrics": {
+            "classification": "RECOVERY_RELAPSE_COLLAPSE",
+            "collapse_run_count": 2,
+            "max_temporal_collapse_run_length": 8,
+            "temporal_collapse_run_count": 2,
+            "persistence_reset_count": 1,
+            "fragmentation_index": 0.5,
+            "global_persistence_detected": true,
+            "local_confirmation_count": 2,
+            "collapse_runs": [
+              [
+                0,
+                0
+              ],
+              [
+                6,
+                13
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case_name": "recovery_relapse_collapse",
+      "sequence_length": 20,
+      "raw_action_sequence": [
+        "PASS",
+        "PASS",
+        "ESCALATE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "ESCALATE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "COLLAPSE",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "topology_stability_index": 1,
+      "base_classification": "RECOVERY_RELAPSE_COLLAPSE",
+      "base_metrics": {
+        "classification": "RECOVERY_RELAPSE_COLLAPSE",
+        "collapse_run_count": 2,
+        "max_temporal_collapse_run_length": 6,
+        "temporal_collapse_run_count": 2,
+        "persistence_reset_count": 1,
+        "fragmentation_index": 0.5,
+        "global_persistence_detected": true,
+        "local_confirmation_count": 2,
+        "collapse_runs": [
+          [
+            3,
+            4
+          ],
+          [
+            10,
+            15
+          ]
+        ]
+      },
+      "minimum_transition_depth": 1,
+      "transition_found": true,
+      "checked_mutation_count": 40,
+      "transition_examples": [
+        {
+          "mutation_depth": 1,
+          "mutations": [
+            [
+              12,
+              "PASS"
+            ]
+          ],
+          "from_class": "RECOVERY_RELAPSE_COLLAPSE",
+          "to_class": "FRAGMENTED_LOCAL_COLLAPSE",
+          "mutated_sequence": [
+            "PASS",
+            "PASS",
+            "ESCALATE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "ESCALATE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "PASS",
+            "COLLAPSE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS"
+          ],
+          "mutated_metrics": {
+            "classification": "FRAGMENTED_LOCAL_COLLAPSE",
+            "collapse_run_count": 3,
+            "max_temporal_collapse_run_length": 3,
+            "temporal_collapse_run_count": 3,
+            "persistence_reset_count": 2,
+            "fragmentation_index": 0.6667,
+            "global_persistence_detected": false,
+            "local_confirmation_count": 3,
+            "collapse_runs": [
+              [
+                3,
+                4
+              ],
+              [
+                10,
+                11
+              ],
+              [
+                13,
+                15
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "reproduction_command": "python examples/temporal_collapse_topology_phase_transition_v0.py"
+}
