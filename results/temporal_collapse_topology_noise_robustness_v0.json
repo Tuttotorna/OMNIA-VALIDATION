@@ -1,0 +1,228 @@
+{
+  "experiment": "temporal_collapse_topology_noise_robustness_v0",
+  "version": "0.1.0",
+  "status": "CHECK",
+  "summary": {
+    "case_count": 32,
+    "pass_case_count": 29,
+    "check_case_count": 3,
+    "pass_rate": 0.90625,
+    "stable_classification_count": 23,
+    "transition_count": 9,
+    "stable_rate": 0.71875,
+    "expected_transition_count": 26,
+    "confirmation_window": 2,
+    "persistence_window": 2,
+    "global_persistence_threshold": 4,
+    "supported_classes": [
+      "GLOBAL_PERSISTENT_COLLAPSE",
+      "RECOVERY_RELAPSE_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "OSCILLATING_NONPERSISTENT",
+      "SPIKE_FILTERED",
+      "CLEAN_PASS"
+    ],
+    "noise_types": [
+      "collapse_to_pass",
+      "collapse_to_pass_double",
+      "collapse_to_pass_local",
+      "collapse_to_pass_relapse",
+      "collapse_to_pass_sparse",
+      "none",
+      "pass_to_collapse",
+      "pass_to_collapse_bridge",
+      "pass_to_collapse_local_bridge",
+      "pass_to_collapse_sparse",
+      "pass_to_escalate"
+    ],
+    "mean_noise_flip_count": 0.90625
+  },
+  "by_case": {
+    "clean_pass": {
+      "case_count": 5,
+      "pass_count": 4,
+      "check_count": 1,
+      "stable_count": 3,
+      "transition_count": 2,
+      "pass_rate": 0.8,
+      "stable_rate": 0.6
+    },
+    "spike_filtered": {
+      "case_count": 5,
+      "pass_count": 4,
+      "check_count": 1,
+      "stable_count": 3,
+      "transition_count": 2,
+      "pass_rate": 0.8,
+      "stable_rate": 0.6
+    },
+    "global_persistent_collapse": {
+      "case_count": 6,
+      "pass_count": 5,
+      "check_count": 1,
+      "stable_count": 3,
+      "transition_count": 3,
+      "pass_rate": 0.8333333333333334,
+      "stable_rate": 0.5
+    },
+    "recovery_relapse_collapse": {
+      "case_count": 5,
+      "pass_count": 5,
+      "check_count": 0,
+      "stable_count": 5,
+      "transition_count": 0,
+      "pass_rate": 1.0,
+      "stable_rate": 1.0
+    },
+    "fragmented_local_collapse": {
+      "case_count": 6,
+      "pass_count": 6,
+      "check_count": 0,
+      "stable_count": 5,
+      "transition_count": 1,
+      "pass_rate": 1.0,
+      "stable_rate": 0.8333333333333334
+    },
+    "oscillating_nonpersistent": {
+      "case_count": 5,
+      "pass_count": 5,
+      "check_count": 0,
+      "stable_count": 4,
+      "transition_count": 1,
+      "pass_rate": 1.0,
+      "stable_rate": 0.8
+    }
+  },
+  "by_noise_type": {
+    "none": {
+      "case_count": 6,
+      "pass_count": 6,
+      "check_count": 0,
+      "stable_count": 6,
+      "transition_count": 0,
+      "pass_rate": 1.0,
+      "stable_rate": 1.0
+    },
+    "pass_to_collapse": {
+      "case_count": 6,
+      "pass_count": 3,
+      "check_count": 3,
+      "stable_count": 3,
+      "transition_count": 3,
+      "pass_rate": 0.5,
+      "stable_rate": 0.5
+    },
+    "collapse_to_pass": {
+      "case_count": 6,
+      "pass_count": 6,
+      "check_count": 0,
+      "stable_count": 6,
+      "transition_count": 0,
+      "pass_rate": 1.0,
+      "stable_rate": 1.0
+    },
+    "pass_to_escalate": {
+      "case_count": 6,
+      "pass_count": 6,
+      "check_count": 0,
+      "stable_count": 6,
+      "transition_count": 0,
+      "pass_rate": 1.0,
+      "stable_rate": 1.0
+    },
+    "pass_to_collapse_sparse": {
+      "case_count": 1,
+      "pass_count": 1,
+      "check_count": 0,
+      "stable_count": 0,
+      "transition_count": 1,
+      "pass_rate": 1.0,
+      "stable_rate": 0.0
+    },
+    "pass_to_collapse_local_bridge": {
+      "case_count": 2,
+      "pass_count": 2,
+      "check_count": 0,
+      "stable_count": 0,
+      "transition_count": 2,
+      "pass_rate": 1.0,
+      "stable_rate": 0.0
+    },
+    "collapse_to_pass_sparse": {
+      "case_count": 1,
+      "pass_count": 1,
+      "check_count": 0,
+      "stable_count": 0,
+      "transition_count": 1,
+      "pass_rate": 1.0,
+      "stable_rate": 0.0
+    },
+    "collapse_to_pass_double": {
+      "case_count": 1,
+      "pass_count": 1,
+      "check_count": 0,
+      "stable_count": 0,
+      "transition_count": 1,
+      "pass_rate": 1.0,
+      "stable_rate": 0.0
+    },
+    "collapse_to_pass_relapse": {
+      "case_count": 1,
+      "pass_count": 1,
+      "check_count": 0,
+      "stable_count": 1,
+      "transition_count": 0,
+      "pass_rate": 1.0,
+      "stable_rate": 1.0
+    },
+    "pass_to_collapse_bridge": {
+      "case_count": 1,
+      "pass_count": 1,
+      "check_count": 0,
+      "stable_count": 0,
+      "transition_count": 1,
+      "pass_rate": 1.0,
+      "stable_rate": 0.0
+    },
+    "collapse_to_pass_local": {
+      "case_count": 1,
+      "pass_count": 1,
+      "check_count": 0,
+      "stable_count": 1,
+      "transition_count": 0,
+      "pass_rate": 1.0,
+      "stable_rate": 1.0
+    }
+  },
+  "critical_transitions": [
+    {
+      "case_name": "clean_pass",
+      "noise_name": "single_false_spike",
+      "status": "CHECK",
+      "base_classification": "CLEAN_PASS",
+      "predicted_classification": "SPIKE_FILTERED",
+      "interpretation": "one false collapse frame turns clean pass into spike"
+    },
+    {
+      "case_name": "spike_filtered",
+      "noise_name": "single_false_spike",
+      "status": "CHECK",
+      "base_classification": "SPIKE_FILTERED",
+      "predicted_classification": "OSCILLATING_NONPERSISTENT",
+      "interpretation": "one additional false collapse creates oscillating nonpersistent topology"
+    },
+    {
+      "case_name": "global_persistent_collapse",
+      "noise_name": "single_false_spike",
+      "status": "CHECK",
+      "base_classification": "GLOBAL_PERSISTENT_COLLAPSE",
+      "predicted_classification": "RECOVERY_RELAPSE_COLLAPSE",
+      "interpretation": "one extra early false collapse creates multi-run relapse topology"
+    }
+  ],
+  "final_check": {
+    "status": "CHECK",
+    "message": "topology noise robustness exposed classification instability under controlled frame-level noise"
+  },
+  "reproduction_command": "python examples/temporal_collapse_topology_noise_robustness_v0.py"
+}
