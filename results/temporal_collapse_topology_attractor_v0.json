@@ -1,0 +1,173 @@
+{
+  "experiment": "temporal_collapse_topology_attractor_v0",
+  "version": "0.1.0",
+  "status": "PASS",
+  "summary": {
+    "node_count": 6,
+    "edge_count": 14,
+    "confirmation_window": 2,
+    "persistence_window": 2,
+    "global_persistence_threshold": 4,
+    "max_mutation_depth": 2,
+    "supported_classes": [
+      "GLOBAL_PERSISTENT_COLLAPSE",
+      "RECOVERY_RELAPSE_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "OSCILLATING_NONPERSISTENT",
+      "SPIKE_FILTERED",
+      "CLEAN_PASS"
+    ],
+    "strongly_connected_component_count": 2,
+    "largest_scc_size": 3,
+    "strongest_attractor_candidate": "FRAGMENTED_LOCAL_COLLAPSE",
+    "strongest_basin_candidate": "FRAGMENTED_LOCAL_COLLAPSE",
+    "strongest_bridge_candidate": "OSCILLATING_NONPERSISTENT",
+    "mean_attractor_score": 0,
+    "mean_basin_score": 3.5,
+    "mean_escape_score": 3.5
+  },
+  "node_metrics": {
+    "GLOBAL_PERSISTENT_COLLAPSE": {
+      "direct_incoming_count": 1,
+      "direct_outgoing_count": 2,
+      "reachable_incoming_count": 5,
+      "reachable_outgoing_count": 2,
+      "is_sink_like": false,
+      "is_source_like": false,
+      "attractor_score": 3,
+      "basin_score": 5,
+      "escape_score": 2
+    },
+    "RECOVERY_RELAPSE_COLLAPSE": {
+      "direct_incoming_count": 3,
+      "direct_outgoing_count": 2,
+      "reachable_incoming_count": 5,
+      "reachable_outgoing_count": 2,
+      "is_sink_like": false,
+      "is_source_like": false,
+      "attractor_score": 3,
+      "basin_score": 5,
+      "escape_score": 2
+    },
+    "FRAGMENTED_LOCAL_COLLAPSE": {
+      "direct_incoming_count": 5,
+      "direct_outgoing_count": 1,
+      "reachable_incoming_count": 5,
+      "reachable_outgoing_count": 2,
+      "is_sink_like": false,
+      "is_source_like": false,
+      "attractor_score": 3,
+      "basin_score": 5,
+      "escape_score": 2
+    },
+    "OSCILLATING_NONPERSISTENT": {
+      "direct_incoming_count": 2,
+      "direct_outgoing_count": 3,
+      "reachable_incoming_count": 2,
+      "reachable_outgoing_count": 5,
+      "is_sink_like": false,
+      "is_source_like": false,
+      "attractor_score": -3,
+      "basin_score": 2,
+      "escape_score": 5
+    },
+    "SPIKE_FILTERED": {
+      "direct_incoming_count": 2,
+      "direct_outgoing_count": 3,
+      "reachable_incoming_count": 2,
+      "reachable_outgoing_count": 5,
+      "is_sink_like": false,
+      "is_source_like": false,
+      "attractor_score": -3,
+      "basin_score": 2,
+      "escape_score": 5
+    },
+    "CLEAN_PASS": {
+      "direct_incoming_count": 1,
+      "direct_outgoing_count": 3,
+      "reachable_incoming_count": 2,
+      "reachable_outgoing_count": 5,
+      "is_sink_like": false,
+      "is_source_like": false,
+      "attractor_score": -3,
+      "basin_score": 2,
+      "escape_score": 5
+    }
+  },
+  "attractor_candidates": [
+    "FRAGMENTED_LOCAL_COLLAPSE",
+    "RECOVERY_RELAPSE_COLLAPSE",
+    "GLOBAL_PERSISTENT_COLLAPSE",
+    "OSCILLATING_NONPERSISTENT",
+    "SPIKE_FILTERED",
+    "CLEAN_PASS"
+  ],
+  "basin_candidates": [
+    "FRAGMENTED_LOCAL_COLLAPSE",
+    "RECOVERY_RELAPSE_COLLAPSE",
+    "GLOBAL_PERSISTENT_COLLAPSE",
+    "OSCILLATING_NONPERSISTENT",
+    "SPIKE_FILTERED",
+    "CLEAN_PASS"
+  ],
+  "bridge_candidates": [
+    "OSCILLATING_NONPERSISTENT",
+    "SPIKE_FILTERED",
+    "RECOVERY_RELAPSE_COLLAPSE",
+    "FRAGMENTED_LOCAL_COLLAPSE",
+    "CLEAN_PASS",
+    "GLOBAL_PERSISTENT_COLLAPSE"
+  ],
+  "component_results": [
+    {
+      "nodes": [
+        "CLEAN_PASS",
+        "OSCILLATING_NONPERSISTENT",
+        "SPIKE_FILTERED"
+      ],
+      "size": 3,
+      "external_incoming_count": 0,
+      "external_outgoing_count": 2,
+      "external_incoming_nodes": [],
+      "external_outgoing_nodes": [
+        "FRAGMENTED_LOCAL_COLLAPSE",
+        "RECOVERY_RELAPSE_COLLAPSE"
+      ],
+      "component_attractor_score": -2
+    },
+    {
+      "nodes": [
+        "FRAGMENTED_LOCAL_COLLAPSE",
+        "GLOBAL_PERSISTENT_COLLAPSE",
+        "RECOVERY_RELAPSE_COLLAPSE"
+      ],
+      "size": 3,
+      "external_incoming_count": 3,
+      "external_outgoing_count": 0,
+      "external_incoming_nodes": [
+        "CLEAN_PASS",
+        "OSCILLATING_NONPERSISTENT",
+        "SPIKE_FILTERED"
+      ],
+      "external_outgoing_nodes": [],
+      "component_attractor_score": 3
+    }
+  ],
+  "strongly_connected_components": [
+    [
+      "CLEAN_PASS",
+      "OSCILLATING_NONPERSISTENT",
+      "SPIKE_FILTERED"
+    ],
+    [
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "GLOBAL_PERSISTENT_COLLAPSE",
+      "RECOVERY_RELAPSE_COLLAPSE"
+    ]
+  ],
+  "final_check": {
+    "status": "PASS",
+    "message": "attractor and basin structure was detected inside the temporal topology transition graph"
+  },
+  "reproduction_command": "python examples/temporal_collapse_topology_attractor_v0.py"
+}
