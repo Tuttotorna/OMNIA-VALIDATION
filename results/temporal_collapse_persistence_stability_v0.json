@@ -1,0 +1,68 @@
+{
+  "status": "CHECK",
+  "version": "0.1.0",
+  "summary": {
+    "configuration_count": 5,
+    "pass_configuration_count": 3,
+    "check_configuration_count": 2,
+    "mean_persistent_delay": 5.8
+  },
+  "configuration_results": [
+    {
+      "config_name": "cw2_pw2",
+      "status": "PASS",
+      "confirmation_window": 2,
+      "persistence_window": 2,
+      "stable_pass": true,
+      "persistent_confirmed": true,
+      "spike_filtered": true,
+      "oscillating_filtered": true,
+      "persistent_delay": 5
+    },
+    {
+      "config_name": "cw2_pw3",
+      "status": "PASS",
+      "confirmation_window": 2,
+      "persistence_window": 3,
+      "stable_pass": true,
+      "persistent_confirmed": true,
+      "spike_filtered": true,
+      "oscillating_filtered": true,
+      "persistent_delay": 5
+    },
+    {
+      "config_name": "cw3_pw2",
+      "status": "PASS",
+      "confirmation_window": 3,
+      "persistence_window": 2,
+      "stable_pass": true,
+      "persistent_confirmed": true,
+      "spike_filtered": true,
+      "oscillating_filtered": true,
+      "persistent_delay": 6
+    },
+    {
+      "config_name": "cw3_pw3",
+      "status": "CHECK",
+      "confirmation_window": 3,
+      "persistence_window": 3,
+      "stable_pass": true,
+      "persistent_confirmed": false,
+      "spike_filtered": true,
+      "oscillating_filtered": true,
+      "persistent_delay": 6
+    },
+    {
+      "config_name": "cw4_pw2",
+      "status": "CHECK",
+      "confirmation_window": 4,
+      "persistence_window": 2,
+      "stable_pass": true,
+      "persistent_confirmed": false,
+      "spike_filtered": true,
+      "oscillating_filtered": true,
+      "persistent_delay": 7
+    }
+  ],
+  "reproduction_command": "python examples/temporal_collapse_persistence_stability_v0.py"
+}
