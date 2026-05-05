@@ -1,0 +1,274 @@
+{
+  "experiment": "temporal_collapse_topology_bridge_stability_v0",
+  "version": "0.1.0",
+  "status": "CHECK",
+  "summary": {
+    "variant_count": 3,
+    "node_count": 6,
+    "confirmation_window": 2,
+    "persistence_window": 2,
+    "global_persistence_threshold": 4,
+    "max_mutation_depth": 2,
+    "supported_classes": [
+      "GLOBAL_PERSISTENT_COLLAPSE",
+      "RECOVERY_RELAPSE_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "OSCILLATING_NONPERSISTENT",
+      "SPIKE_FILTERED",
+      "CLEAN_PASS"
+    ],
+    "edge_count_values": [
+      14,
+      13,
+      13
+    ],
+    "mean_edge_count": 13.333333333333334,
+    "edge_count_std": 0.4714045207910317,
+    "ranked_first_bridge_values": [
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE"
+    ],
+    "stable_ranked_first_bridge": true,
+    "stable_top_bridge_set": true,
+    "bridge_equivalence_candidates": [
+      "FRAGMENTED_LOCAL_COLLAPSE"
+    ],
+    "candidate_frequency": {
+      "FRAGMENTED_LOCAL_COLLAPSE": 3
+    }
+  },
+  "bridge_metric_stability": {
+    "GLOBAL_PERSISTENT_COLLAPSE": {
+      "bridge_scores": [
+        3,
+        3,
+        3
+      ],
+      "component_crossing_scores": [
+        0,
+        0,
+        0
+      ],
+      "bridge_score_std": 0.0,
+      "component_crossing_score_std": 0.0
+    },
+    "RECOVERY_RELAPSE_COLLAPSE": {
+      "bridge_scores": [
+        7,
+        4,
+        4
+      ],
+      "component_crossing_scores": [
+        1,
+        0,
+        0
+      ],
+      "bridge_score_std": 1.4142135623730951,
+      "component_crossing_score_std": 0.4714045207910317
+    },
+    "FRAGMENTED_LOCAL_COLLAPSE": {
+      "bridge_scores": [
+        12,
+        12,
+        12
+      ],
+      "component_crossing_scores": [
+        3,
+        3,
+        3
+      ],
+      "bridge_score_std": 0.0,
+      "component_crossing_score_std": 0.0
+    },
+    "OSCILLATING_NONPERSISTENT": {
+      "bridge_scores": [
+        11,
+        7,
+        7
+      ],
+      "component_crossing_scores": [
+        2,
+        1,
+        1
+      ],
+      "bridge_score_std": 1.8856180831641267,
+      "component_crossing_score_std": 0.4714045207910317
+    },
+    "SPIKE_FILTERED": {
+      "bridge_scores": [
+        8,
+        8,
+        8
+      ],
+      "component_crossing_scores": [
+        1,
+        1,
+        1
+      ],
+      "bridge_score_std": 0.0,
+      "component_crossing_score_std": 0.0
+    },
+    "CLEAN_PASS": {
+      "bridge_scores": [
+        7,
+        7,
+        7
+      ],
+      "component_crossing_scores": [
+        1,
+        1,
+        1
+      ],
+      "bridge_score_std": 0.0,
+      "component_crossing_score_std": 0.0
+    }
+  },
+  "variant_summaries": [
+    {
+      "variant_index": 0,
+      "edge_count": 14,
+      "top_bridge_score": 12,
+      "ranked_first": "FRAGMENTED_LOCAL_COLLAPSE",
+      "tied_top_bridge_candidates": [
+        "FRAGMENTED_LOCAL_COLLAPSE"
+      ]
+    },
+    {
+      "variant_index": 1,
+      "edge_count": 13,
+      "top_bridge_score": 12,
+      "ranked_first": "FRAGMENTED_LOCAL_COLLAPSE",
+      "tied_top_bridge_candidates": [
+        "FRAGMENTED_LOCAL_COLLAPSE"
+      ]
+    },
+    {
+      "variant_index": 2,
+      "edge_count": 13,
+      "top_bridge_score": 12,
+      "ranked_first": "FRAGMENTED_LOCAL_COLLAPSE",
+      "tied_top_bridge_candidates": [
+        "FRAGMENTED_LOCAL_COLLAPSE"
+      ]
+    }
+  ],
+  "component_results": [
+    {
+      "variant_index": 0,
+      "components": [
+        {
+          "nodes": [
+            "CLEAN_PASS",
+            "OSCILLATING_NONPERSISTENT",
+            "SPIKE_FILTERED"
+          ],
+          "size": 3,
+          "external_incoming_count": 0,
+          "external_outgoing_count": 2,
+          "external_incoming_nodes": [],
+          "external_outgoing_nodes": [
+            "FRAGMENTED_LOCAL_COLLAPSE",
+            "RECOVERY_RELAPSE_COLLAPSE"
+          ]
+        },
+        {
+          "nodes": [
+            "FRAGMENTED_LOCAL_COLLAPSE",
+            "GLOBAL_PERSISTENT_COLLAPSE",
+            "RECOVERY_RELAPSE_COLLAPSE"
+          ],
+          "size": 3,
+          "external_incoming_count": 3,
+          "external_outgoing_count": 0,
+          "external_incoming_nodes": [
+            "CLEAN_PASS",
+            "OSCILLATING_NONPERSISTENT",
+            "SPIKE_FILTERED"
+          ],
+          "external_outgoing_nodes": []
+        }
+      ]
+    },
+    {
+      "variant_index": 1,
+      "components": [
+        {
+          "nodes": [
+            "CLEAN_PASS",
+            "OSCILLATING_NONPERSISTENT",
+            "SPIKE_FILTERED"
+          ],
+          "size": 3,
+          "external_incoming_count": 0,
+          "external_outgoing_count": 1,
+          "external_incoming_nodes": [],
+          "external_outgoing_nodes": [
+            "FRAGMENTED_LOCAL_COLLAPSE"
+          ]
+        },
+        {
+          "nodes": [
+            "FRAGMENTED_LOCAL_COLLAPSE",
+            "GLOBAL_PERSISTENT_COLLAPSE",
+            "RECOVERY_RELAPSE_COLLAPSE"
+          ],
+          "size": 3,
+          "external_incoming_count": 3,
+          "external_outgoing_count": 0,
+          "external_incoming_nodes": [
+            "CLEAN_PASS",
+            "OSCILLATING_NONPERSISTENT",
+            "SPIKE_FILTERED"
+          ],
+          "external_outgoing_nodes": []
+        }
+      ]
+    },
+    {
+      "variant_index": 2,
+      "components": [
+        {
+          "nodes": [
+            "CLEAN_PASS",
+            "OSCILLATING_NONPERSISTENT",
+            "SPIKE_FILTERED"
+          ],
+          "size": 3,
+          "external_incoming_count": 0,
+          "external_outgoing_count": 1,
+          "external_incoming_nodes": [],
+          "external_outgoing_nodes": [
+            "FRAGMENTED_LOCAL_COLLAPSE"
+          ]
+        },
+        {
+          "nodes": [
+            "FRAGMENTED_LOCAL_COLLAPSE",
+            "GLOBAL_PERSISTENT_COLLAPSE",
+            "RECOVERY_RELAPSE_COLLAPSE"
+          ],
+          "size": 3,
+          "external_incoming_count": 3,
+          "external_outgoing_count": 0,
+          "external_incoming_nodes": [
+            "CLEAN_PASS",
+            "OSCILLATING_NONPERSISTENT",
+            "SPIKE_FILTERED"
+          ],
+          "external_outgoing_nodes": []
+        }
+      ]
+    }
+  ],
+  "final_check": {
+    "status": "CHECK",
+    "message": "bridge role did not expose the expected multi-candidate structure; instead, FRAGMENTED_LOCAL_COLLAPSE emerged as a stable single dominant bridge"
+  },
+  "interpretation": {
+    "initial_hypothesis": "OSCILLATING_NONPERSISTENT and SPIKE_FILTERED may be equivalent bridge candidates",
+    "observed_result": "FRAGMENTED_LOCAL_COLLAPSE is the stable ranked-first bridge candidate across all variants",
+    "structural_conclusion": "bridge identity is singular and stable under this metric, but the experiment remains CHECK because the expected multi-candidate bridge structure was not observed"
+  },
+  "reproduction_command": "python examples/temporal_collapse_topology_bridge_stability_v0.py"
+}
