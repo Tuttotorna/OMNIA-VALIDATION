@@ -1,0 +1,261 @@
+{
+  "status": "PASS",
+  "version": "0.1.0",
+  "summary": {
+    "case_count": 16,
+    "pass_case_count": 16,
+    "check_case_count": 0,
+    "pass_rate": 1.0,
+    "confirmation_window": 2,
+    "persistence_window": 2,
+    "global_persistence_threshold": 4,
+    "supported_classes": [
+      "GLOBAL_PERSISTENT_COLLAPSE",
+      "RECOVERY_RELAPSE_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "OSCILLATING_NONPERSISTENT",
+      "SPIKE_FILTERED",
+      "CLEAN_PASS"
+    ],
+    "mean_fragmentation_index": 0.30644375,
+    "max_fragmentation_index": 0.8889,
+    "mean_max_temporal_collapse_run_length": 2.75,
+    "mean_local_confirmation_count": 1.5
+  },
+  "boundary_family_summary": [
+    {
+      "family": "clean_vs_spike",
+      "cases": 2,
+      "pass": 2,
+      "check": 0,
+      "rate": 1.0
+    },
+    {
+      "family": "spike_vs_local_confirmation",
+      "cases": 2,
+      "pass": 2,
+      "check": 0,
+      "rate": 1.0
+    },
+    {
+      "family": "local_vs_global",
+      "cases": 2,
+      "pass": 2,
+      "check": 0,
+      "rate": 1.0
+    },
+    {
+      "family": "oscillation_vs_fragmentation",
+      "cases": 2,
+      "pass": 2,
+      "check": 0,
+      "rate": 1.0
+    },
+    {
+      "family": "fragmented_vs_recovery_relapse",
+      "cases": 2,
+      "pass": 2,
+      "check": 0,
+      "rate": 1.0
+    },
+    {
+      "family": "global_vs_recovery_relapse",
+      "cases": 2,
+      "pass": 2,
+      "check": 0,
+      "rate": 1.0
+    },
+    {
+      "family": "exact_global_threshold",
+      "cases": 2,
+      "pass": 2,
+      "check": 0,
+      "rate": 1.0
+    },
+    {
+      "family": "dense_oscillation_vs_dense_fragmentation",
+      "cases": 2,
+      "pass": 2,
+      "check": 0,
+      "rate": 1.0
+    }
+  ],
+  "boundary_case_results": [
+    {
+      "case_name": "B00_clean_no_collapse",
+      "status": "PASS",
+      "expected_class": "CLEAN_PASS",
+      "predicted_class": "CLEAN_PASS",
+      "collapse_run_count": 0,
+      "max_collapse_run_length": 0,
+      "local_confirmation_count": 0,
+      "global_persistent": false,
+      "fragmentation_index": 0.0
+    },
+    {
+      "case_name": "B01_single_spike_len1",
+      "status": "PASS",
+      "expected_class": "SPIKE_FILTERED",
+      "predicted_class": "SPIKE_FILTERED",
+      "collapse_run_count": 1,
+      "max_collapse_run_length": 1,
+      "local_confirmation_count": 0,
+      "global_persistent": false,
+      "fragmentation_index": 0.0
+    },
+    {
+      "case_name": "B02_single_run_len1_spike",
+      "status": "PASS",
+      "expected_class": "SPIKE_FILTERED",
+      "predicted_class": "SPIKE_FILTERED",
+      "collapse_run_count": 1,
+      "max_collapse_run_length": 1,
+      "local_confirmation_count": 0,
+      "global_persistent": false,
+      "fragmentation_index": 0.0
+    },
+    {
+      "case_name": "B03_single_run_len2_local",
+      "status": "PASS",
+      "expected_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "predicted_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "collapse_run_count": 1,
+      "max_collapse_run_length": 2,
+      "local_confirmation_count": 1,
+      "global_persistent": false,
+      "fragmentation_index": 0.0
+    },
+    {
+      "case_name": "B04_single_run_len3_local_only",
+      "status": "PASS",
+      "expected_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "predicted_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "collapse_run_count": 1,
+      "max_collapse_run_length": 3,
+      "local_confirmation_count": 1,
+      "global_persistent": false,
+      "fragmentation_index": 0.0
+    },
+    {
+      "case_name": "B05_single_run_len4_global",
+      "status": "PASS",
+      "expected_class": "GLOBAL_PERSISTENT_COLLAPSE",
+      "predicted_class": "GLOBAL_PERSISTENT_COLLAPSE",
+      "collapse_run_count": 1,
+      "max_collapse_run_length": 4,
+      "local_confirmation_count": 1,
+      "global_persistent": true,
+      "fragmentation_index": 0.0
+    },
+    {
+      "case_name": "B06_many_len1_oscillation",
+      "status": "PASS",
+      "expected_class": "OSCILLATING_NONPERSISTENT",
+      "predicted_class": "OSCILLATING_NONPERSISTENT",
+      "collapse_run_count": 7,
+      "max_collapse_run_length": 1,
+      "local_confirmation_count": 0,
+      "global_persistent": false,
+      "fragmentation_index": 0.8571
+    },
+    {
+      "case_name": "B07_many_len2_fragmented",
+      "status": "PASS",
+      "expected_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "predicted_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "collapse_run_count": 5,
+      "max_collapse_run_length": 2,
+      "local_confirmation_count": 5,
+      "global_persistent": false,
+      "fragmentation_index": 0.8
+    },
+    {
+      "case_name": "B08_two_len2_fragmented",
+      "status": "PASS",
+      "expected_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "predicted_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "collapse_run_count": 2,
+      "max_collapse_run_length": 2,
+      "local_confirmation_count": 2,
+      "global_persistent": false,
+      "fragmentation_index": 0.5
+    },
+    {
+      "case_name": "B09_len2_then_len4_relapse",
+      "status": "PASS",
+      "expected_class": "RECOVERY_RELAPSE_COLLAPSE",
+      "predicted_class": "RECOVERY_RELAPSE_COLLAPSE",
+      "collapse_run_count": 2,
+      "max_collapse_run_length": 4,
+      "local_confirmation_count": 2,
+      "global_persistent": true,
+      "fragmentation_index": 0.5
+    },
+    {
+      "case_name": "B10_single_global_run",
+      "status": "PASS",
+      "expected_class": "GLOBAL_PERSISTENT_COLLAPSE",
+      "predicted_class": "GLOBAL_PERSISTENT_COLLAPSE",
+      "collapse_run_count": 1,
+      "max_collapse_run_length": 7,
+      "local_confirmation_count": 1,
+      "global_persistent": true,
+      "fragmentation_index": 0.0
+    },
+    {
+      "case_name": "B11_two_runs_second_global",
+      "status": "PASS",
+      "expected_class": "RECOVERY_RELAPSE_COLLAPSE",
+      "predicted_class": "RECOVERY_RELAPSE_COLLAPSE",
+      "collapse_run_count": 2,
+      "max_collapse_run_length": 7,
+      "local_confirmation_count": 2,
+      "global_persistent": true,
+      "fragmentation_index": 0.5
+    },
+    {
+      "case_name": "B12_global_threshold_minus_1",
+      "status": "PASS",
+      "expected_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "predicted_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "collapse_run_count": 1,
+      "max_collapse_run_length": 3,
+      "local_confirmation_count": 1,
+      "global_persistent": false,
+      "fragmentation_index": 0.0
+    },
+    {
+      "case_name": "B13_global_threshold_exact",
+      "status": "PASS",
+      "expected_class": "GLOBAL_PERSISTENT_COLLAPSE",
+      "predicted_class": "GLOBAL_PERSISTENT_COLLAPSE",
+      "collapse_run_count": 1,
+      "max_collapse_run_length": 4,
+      "local_confirmation_count": 1,
+      "global_persistent": true,
+      "fragmentation_index": 0.0
+    },
+    {
+      "case_name": "B14_dense_len1_oscillation",
+      "status": "PASS",
+      "expected_class": "OSCILLATING_NONPERSISTENT",
+      "predicted_class": "OSCILLATING_NONPERSISTENT",
+      "collapse_run_count": 9,
+      "max_collapse_run_length": 1,
+      "local_confirmation_count": 0,
+      "global_persistent": false,
+      "fragmentation_index": 0.8889
+    },
+    {
+      "case_name": "B15_dense_len2_fragmentation",
+      "status": "PASS",
+      "expected_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "predicted_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "collapse_run_count": 7,
+      "max_collapse_run_length": 2,
+      "local_confirmation_count": 7,
+      "global_persistent": false,
+      "fragmentation_index": 0.8571
+    }
+  ]
+}
