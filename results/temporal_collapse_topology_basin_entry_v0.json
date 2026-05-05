@@ -1,0 +1,258 @@
+{
+  "experiment": "temporal_collapse_topology_basin_entry_v0",
+  "version": "0.1.0",
+  "status": "PASS",
+  "summary": {
+    "variant_count": 3,
+    "node_count": 6,
+    "confirmation_window": 2,
+    "persistence_window": 2,
+    "global_persistence_threshold": 4,
+    "max_mutation_depth": 2,
+    "noise_component": [
+      "CLEAN_PASS",
+      "SPIKE_FILTERED",
+      "OSCILLATING_NONPERSISTENT"
+    ],
+    "collapse_component": [
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "GLOBAL_PERSISTENT_COLLAPSE",
+      "RECOVERY_RELAPSE_COLLAPSE"
+    ],
+    "entry_count_values": [
+      4,
+      3,
+      3
+    ],
+    "mean_entry_count": 3.3333333333333335,
+    "entry_count_std": 0.4714045207910317,
+    "dominant_entry_values": [
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE",
+      "FRAGMENTED_LOCAL_COLLAPSE"
+    ],
+    "dominant_entry_stable": true,
+    "fragmented_local_entry_dominant": true,
+    "fully_persistent_entry_count": 3,
+    "partial_entry_count": 1,
+    "fully_persistent_entries": [
+      "CLEAN_PASS->FRAGMENTED_LOCAL_COLLAPSE",
+      "OSCILLATING_NONPERSISTENT->FRAGMENTED_LOCAL_COLLAPSE",
+      "SPIKE_FILTERED->FRAGMENTED_LOCAL_COLLAPSE"
+    ],
+    "partial_entries": [
+      "OSCILLATING_NONPERSISTENT->RECOVERY_RELAPSE_COLLAPSE"
+    ],
+    "target_frequency": {
+      "FRAGMENTED_LOCAL_COLLAPSE": 9,
+      "RECOVERY_RELAPSE_COLLAPSE": 1
+    },
+    "target_example_totals": {
+      "FRAGMENTED_LOCAL_COLLAPSE": 813,
+      "RECOVERY_RELAPSE_COLLAPSE": 2
+    }
+  },
+  "entry_stability": {
+    "CLEAN_PASS->FRAGMENTED_LOCAL_COLLAPSE": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "entry_depths": [
+        2,
+        2,
+        2
+      ],
+      "entry_depth_mean": 2,
+      "entry_depth_std": 0.0,
+      "example_counts": [
+        11,
+        15,
+        19
+      ],
+      "example_count_mean": 15
+    },
+    "OSCILLATING_NONPERSISTENT->FRAGMENTED_LOCAL_COLLAPSE": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "entry_depths": [
+        1,
+        1,
+        1
+      ],
+      "entry_depth_mean": 1,
+      "entry_depth_std": 0.0,
+      "example_counts": [
+        136,
+        188,
+        240
+      ],
+      "example_count_mean": 188
+    },
+    "OSCILLATING_NONPERSISTENT->RECOVERY_RELAPSE_COLLAPSE": {
+      "present_variant_count": 1,
+      "present_variants": [
+        0
+      ],
+      "persistence_rate": 0.3333333333333333,
+      "entry_depths": [
+        2
+      ],
+      "entry_depth_mean": 2,
+      "entry_depth_std": 0.0,
+      "example_counts": [
+        2
+      ],
+      "example_count_mean": 2
+    },
+    "SPIKE_FILTERED->FRAGMENTED_LOCAL_COLLAPSE": {
+      "present_variant_count": 3,
+      "present_variants": [
+        0,
+        1,
+        2
+      ],
+      "persistence_rate": 1.0,
+      "entry_depths": [
+        1,
+        1,
+        1
+      ],
+      "entry_depth_mean": 1,
+      "entry_depth_std": 0.0,
+      "example_counts": [
+        48,
+        68,
+        88
+      ],
+      "example_count_mean": 68
+    }
+  },
+  "source_entry_stability": {
+    "CLEAN_PASS": {
+      "targets_by_variant": [
+        [
+          "FRAGMENTED_LOCAL_COLLAPSE"
+        ],
+        [
+          "FRAGMENTED_LOCAL_COLLAPSE"
+        ],
+        [
+          "FRAGMENTED_LOCAL_COLLAPSE"
+        ]
+      ],
+      "unique_targets": [
+        "FRAGMENTED_LOCAL_COLLAPSE"
+      ],
+      "target_count_by_variant": [
+        1,
+        1,
+        1
+      ]
+    },
+    "SPIKE_FILTERED": {
+      "targets_by_variant": [
+        [
+          "FRAGMENTED_LOCAL_COLLAPSE"
+        ],
+        [
+          "FRAGMENTED_LOCAL_COLLAPSE"
+        ],
+        [
+          "FRAGMENTED_LOCAL_COLLAPSE"
+        ]
+      ],
+      "unique_targets": [
+        "FRAGMENTED_LOCAL_COLLAPSE"
+      ],
+      "target_count_by_variant": [
+        1,
+        1,
+        1
+      ]
+    },
+    "OSCILLATING_NONPERSISTENT": {
+      "targets_by_variant": [
+        [
+          "FRAGMENTED_LOCAL_COLLAPSE",
+          "RECOVERY_RELAPSE_COLLAPSE"
+        ],
+        [
+          "FRAGMENTED_LOCAL_COLLAPSE"
+        ],
+        [
+          "FRAGMENTED_LOCAL_COLLAPSE"
+        ]
+      ],
+      "unique_targets": [
+        "FRAGMENTED_LOCAL_COLLAPSE",
+        "RECOVERY_RELAPSE_COLLAPSE"
+      ],
+      "target_count_by_variant": [
+        2,
+        1,
+        1
+      ]
+    }
+  },
+  "variant_summaries": [
+    {
+      "variant_index": 0,
+      "entry_count": 4,
+      "dominant_entry_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "target_counts": {
+        "FRAGMENTED_LOCAL_COLLAPSE": 3,
+        "RECOVERY_RELAPSE_COLLAPSE": 1
+      },
+      "target_example_counts": {
+        "FRAGMENTED_LOCAL_COLLAPSE": 195,
+        "RECOVERY_RELAPSE_COLLAPSE": 2
+      }
+    },
+    {
+      "variant_index": 1,
+      "entry_count": 3,
+      "dominant_entry_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "target_counts": {
+        "FRAGMENTED_LOCAL_COLLAPSE": 3
+      },
+      "target_example_counts": {
+        "FRAGMENTED_LOCAL_COLLAPSE": 271
+      }
+    },
+    {
+      "variant_index": 2,
+      "entry_count": 3,
+      "dominant_entry_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "target_counts": {
+        "FRAGMENTED_LOCAL_COLLAPSE": 3
+      },
+      "target_example_counts": {
+        "FRAGMENTED_LOCAL_COLLAPSE": 347
+      }
+    }
+  ],
+  "final_check": {
+    "status": "PASS",
+    "message": "FRAGMENTED_LOCAL_COLLAPSE behaved as the dominant basin-entry state into confirmed-collapse topology"
+  },
+  "interpretation": {
+    "main_result": "FRAGMENTED_LOCAL_COLLAPSE is the stable dominant entry state into the confirmed-collapse basin.",
+    "persistent_entries": [
+      "CLEAN_PASS->FRAGMENTED_LOCAL_COLLAPSE",
+      "SPIKE_FILTERED->FRAGMENTED_LOCAL_COLLAPSE",
+      "OSCILLATING_NONPERSISTENT->FRAGMENTED_LOCAL_COLLAPSE"
+    ],
+    "weak_alternative_entry": "OSCILLATING_NONPERSISTENT->RECOVERY_RELAPSE_COLLAPSE",
+    "structural_conclusion": "confirmed-collapse topology has a measurable basin-entry state"
+  },
+  "reproduction_command": "python examples/temporal_collapse_topology_basin_entry_v0.py"
+}
