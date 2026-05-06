@@ -1,0 +1,1406 @@
+{
+  "experiment": "temporal_collapse_topology_variable_run_length_v0",
+  "version": "0.2.0",
+  "status": "PASS",
+  "summary": {
+    "variant_count": 14,
+    "node_count": 6,
+    "confirmation_window": 2,
+    "persistence_window": 2,
+    "global_persistence_threshold": 4,
+    "source_class_focus": "FRAGMENTED_LOCAL_COLLAPSE",
+    "target_class": "OSCILLATING_NONPERSISTENT",
+    "reachable_record_count": 14,
+    "target_depth_values": [
+      0,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9
+    ],
+    "strongest_feature": "total_collapse_frames",
+    "strongest_abs_correlation": 0.9231378498105907,
+    "dominant_factor": "total_collapse_frames",
+    "same_run_count_depth_varies": true,
+    "same_mass_depth_varies": true,
+    "separation_detected": true,
+    "analytical_rule": "minimum_target_depth = sum(max(0, run_length - 1)) for transition to OSCILLATING_NONPERSISTENT",
+    "bruteforce_removed": true
+  },
+  "variable_run_length_summary": {
+    "record_count": 14,
+    "reachable_record_count": 14,
+    "target_depths": [
+      3,
+      6,
+      9,
+      0,
+      4,
+      8,
+      6,
+      0,
+      5,
+      5,
+      3,
+      6,
+      5,
+      4
+    ],
+    "target_depth_values": [
+      0,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9
+    ],
+    "collapse_run_counts": [
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      2,
+      6,
+      5,
+      3,
+      4,
+      4,
+      3,
+      4
+    ],
+    "total_collapse_frames": [
+      6,
+      9,
+      12,
+      4,
+      8,
+      12,
+      8,
+      6,
+      10,
+      8,
+      7,
+      10,
+      8,
+      8
+    ],
+    "feature_correlations": {
+      "trajectory_length": 0.5691210869767894,
+      "collapse_run_count": -0.5043290851090749,
+      "run_length_mean": 0.8946216105633468,
+      "run_length_std": 0.18266566222392133,
+      "max_run_length": 0.7248362958782061,
+      "min_run_length": 0.8845156261913008,
+      "total_collapse_frames": 0.9231378498105907,
+      "collapse_density_global": 0.9071562510934046,
+      "collapse_density_span": 0.6126362807495889,
+      "run_count_density": -0.8370598679846799,
+      "run_spacing_mean": 0.8412673677430741,
+      "run_spacing_std": 0.07082882469748285,
+      "occupied_span": 0.6129225604147472,
+      "front_loading_ratio": -0.48916098513207545,
+      "back_loading_ratio": 0.48916098513207557,
+      "geometry_load_bias": -0.4520155500127058,
+      "mass_per_run": 0.8946216105633468
+    },
+    "strongest_feature": "total_collapse_frames",
+    "strongest_abs_correlation": 0.9231378498105907,
+    "dominant_factor": "total_collapse_frames",
+    "same_run_count_depth_varies": true,
+    "same_mass_depth_varies": true,
+    "separation_detected": true,
+    "analytical_rule": "minimum_target_depth = sum(max(0, run_length - 1)) for transition to OSCILLATING_NONPERSISTENT",
+    "same_run_count_comparison": {
+      "3": {
+        "collapse_run_count": 3,
+        "record_count": 5,
+        "geometry_names": [
+          "three_runs_mass_6_baseline",
+          "three_runs_mass_9_variable",
+          "three_runs_mass_12_long",
+          "three_runs_mass_8_mixed",
+          "same_mass_8_three_runs"
+        ],
+        "total_collapse_frames": [
+          6,
+          9,
+          12,
+          8,
+          8
+        ],
+        "run_lengths": [
+          [
+            2,
+            2,
+            2
+          ],
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            4,
+            4,
+            4
+          ],
+          [
+            2,
+            3,
+            3
+          ],
+          [
+            2,
+            3,
+            3
+          ]
+        ],
+        "minimum_target_depths": [
+          3,
+          6,
+          9,
+          5,
+          5
+        ],
+        "depth_values": [
+          3,
+          5,
+          6,
+          9
+        ],
+        "depth_stable_within_run_count": false
+      },
+      "4": {
+        "collapse_run_count": 4,
+        "record_count": 6,
+        "geometry_names": [
+          "four_runs_mass_4_spikes",
+          "four_runs_mass_8_baseline",
+          "four_runs_mass_12_variable",
+          "four_runs_mass_7_mixed",
+          "four_runs_mass_10_mixed",
+          "same_mass_8_four_runs"
+        ],
+        "total_collapse_frames": [
+          4,
+          8,
+          12,
+          7,
+          10,
+          8
+        ],
+        "run_lengths": [
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            2,
+            2,
+            2
+          ],
+          [
+            3,
+            3,
+            3,
+            3
+          ],
+          [
+            2,
+            1,
+            2,
+            2
+          ],
+          [
+            3,
+            2,
+            3,
+            2
+          ],
+          [
+            2,
+            2,
+            2,
+            2
+          ]
+        ],
+        "minimum_target_depths": [
+          0,
+          4,
+          8,
+          3,
+          6,
+          4
+        ],
+        "depth_values": [
+          0,
+          3,
+          4,
+          6,
+          8
+        ],
+        "depth_stable_within_run_count": false
+      },
+      "2": {
+        "collapse_run_count": 2,
+        "record_count": 1,
+        "geometry_names": [
+          "two_runs_mass_8_relapse_like"
+        ],
+        "total_collapse_frames": [
+          8
+        ],
+        "run_lengths": [
+          [
+            2,
+            6
+          ]
+        ],
+        "minimum_target_depths": [
+          6
+        ],
+        "depth_values": [
+          6
+        ],
+        "depth_stable_within_run_count": true
+      },
+      "6": {
+        "collapse_run_count": 6,
+        "record_count": 1,
+        "geometry_names": [
+          "six_runs_mass_6_spike_family"
+        ],
+        "total_collapse_frames": [
+          6
+        ],
+        "run_lengths": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "minimum_target_depths": [
+          0
+        ],
+        "depth_values": [
+          0
+        ],
+        "depth_stable_within_run_count": true
+      },
+      "5": {
+        "collapse_run_count": 5,
+        "record_count": 1,
+        "geometry_names": [
+          "five_runs_mass_10_fragmented"
+        ],
+        "total_collapse_frames": [
+          10
+        ],
+        "run_lengths": [
+          [
+            2,
+            2,
+            2,
+            2,
+            2
+          ]
+        ],
+        "minimum_target_depths": [
+          5
+        ],
+        "depth_values": [
+          5
+        ],
+        "depth_stable_within_run_count": true
+      }
+    },
+    "same_mass_comparison": {
+      "6": {
+        "total_collapse_frames": 6,
+        "record_count": 2,
+        "geometry_names": [
+          "three_runs_mass_6_baseline",
+          "six_runs_mass_6_spike_family"
+        ],
+        "collapse_run_counts": [
+          3,
+          6
+        ],
+        "minimum_target_depths": [
+          3,
+          0
+        ],
+        "depth_values": [
+          0,
+          3
+        ],
+        "depth_stable_within_mass": false
+      },
+      "12": {
+        "total_collapse_frames": 12,
+        "record_count": 2,
+        "geometry_names": [
+          "three_runs_mass_12_long",
+          "four_runs_mass_12_variable"
+        ],
+        "collapse_run_counts": [
+          3,
+          4
+        ],
+        "minimum_target_depths": [
+          9,
+          8
+        ],
+        "depth_values": [
+          8,
+          9
+        ],
+        "depth_stable_within_mass": false
+      },
+      "8": {
+        "total_collapse_frames": 8,
+        "record_count": 5,
+        "geometry_names": [
+          "four_runs_mass_8_baseline",
+          "two_runs_mass_8_relapse_like",
+          "three_runs_mass_8_mixed",
+          "same_mass_8_three_runs",
+          "same_mass_8_four_runs"
+        ],
+        "collapse_run_counts": [
+          4,
+          2,
+          3,
+          3,
+          4
+        ],
+        "minimum_target_depths": [
+          4,
+          6,
+          5,
+          5,
+          4
+        ],
+        "depth_values": [
+          4,
+          5,
+          6
+        ],
+        "depth_stable_within_mass": false
+      },
+      "10": {
+        "total_collapse_frames": 10,
+        "record_count": 2,
+        "geometry_names": [
+          "five_runs_mass_10_fragmented",
+          "four_runs_mass_10_mixed"
+        ],
+        "collapse_run_counts": [
+          5,
+          4
+        ],
+        "minimum_target_depths": [
+          5,
+          6
+        ],
+        "depth_values": [
+          5,
+          6
+        ],
+        "depth_stable_within_mass": false
+      }
+    },
+    "source_class_summary": {
+      "FRAGMENTED_LOCAL_COLLAPSE": {
+        "record_count": 10,
+        "minimum_target_depths": [
+          3,
+          6,
+          4,
+          8,
+          5,
+          5,
+          3,
+          6,
+          5,
+          4
+        ],
+        "minimum_target_depth_mean": 4.9,
+        "minimum_target_depth_std": 1.6401219466856727,
+        "collapse_run_counts": [
+          3,
+          3,
+          4,
+          4,
+          5,
+          3,
+          4,
+          4,
+          3,
+          4
+        ],
+        "total_collapse_frames": [
+          6,
+          9,
+          8,
+          12,
+          10,
+          8,
+          7,
+          10,
+          8,
+          8
+        ],
+        "geometry_names": [
+          "three_runs_mass_6_baseline",
+          "three_runs_mass_9_variable",
+          "four_runs_mass_8_baseline",
+          "four_runs_mass_12_variable",
+          "five_runs_mass_10_fragmented",
+          "three_runs_mass_8_mixed",
+          "four_runs_mass_7_mixed",
+          "four_runs_mass_10_mixed",
+          "same_mass_8_three_runs",
+          "same_mass_8_four_runs"
+        ]
+      },
+      "RECOVERY_RELAPSE_COLLAPSE": {
+        "record_count": 2,
+        "minimum_target_depths": [
+          9,
+          6
+        ],
+        "minimum_target_depth_mean": 7.5,
+        "minimum_target_depth_std": 1.5,
+        "collapse_run_counts": [
+          3,
+          2
+        ],
+        "total_collapse_frames": [
+          12,
+          8
+        ],
+        "geometry_names": [
+          "three_runs_mass_12_long",
+          "two_runs_mass_8_relapse_like"
+        ]
+      },
+      "OSCILLATING_NONPERSISTENT": {
+        "record_count": 2,
+        "minimum_target_depths": [
+          0,
+          0
+        ],
+        "minimum_target_depth_mean": 0,
+        "minimum_target_depth_std": 0.0,
+        "collapse_run_counts": [
+          4,
+          6
+        ],
+        "total_collapse_frames": [
+          4,
+          6
+        ],
+        "geometry_names": [
+          "four_runs_mass_4_spikes",
+          "six_runs_mass_6_spike_family"
+        ]
+      }
+    }
+  },
+  "geometry_records": [
+    {
+      "variant_index": 0,
+      "geometry_name": "three_runs_mass_6_baseline",
+      "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "target_class": "OSCILLATING_NONPERSISTENT",
+      "runs": [
+        [
+          5,
+          2
+        ],
+        [
+          11,
+          2
+        ],
+        [
+          17,
+          2
+        ]
+      ],
+      "features": {
+        "trajectory_length": 26,
+        "collapse_run_count": 3,
+        "run_lengths": [
+          2,
+          2,
+          2
+        ],
+        "run_length_mean": 2,
+        "run_length_std": 0.0,
+        "max_run_length": 2,
+        "min_run_length": 2,
+        "total_collapse_frames": 6,
+        "collapse_density_global": 0.23076923076923078,
+        "collapse_density_span": 0.42857142857142855,
+        "run_count_density": 0.11538461538461539,
+        "run_start_positions": [
+          5,
+          11,
+          17
+        ],
+        "run_spacing_values": [
+          6,
+          6
+        ],
+        "run_spacing_mean": 6,
+        "run_spacing_std": 0.0,
+        "occupied_span": 14,
+        "front_loading_ratio": 0.6666666666666666,
+        "back_loading_ratio": 0.3333333333333333,
+        "geometry_load_bias": 0.3333333333333333,
+        "mass_per_run": 2
+      },
+      "minimum_target_depth": 3,
+      "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+      "target_reachable_by_formula": true,
+      "method": "analytical_minimum_depth_no_bruteforce"
+    },
+    {
+      "variant_index": 1,
+      "geometry_name": "three_runs_mass_9_variable",
+      "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "target_class": "OSCILLATING_NONPERSISTENT",
+      "runs": [
+        [
+          5,
+          3
+        ],
+        [
+          13,
+          3
+        ],
+        [
+          21,
+          3
+        ]
+      ],
+      "features": {
+        "trajectory_length": 32,
+        "collapse_run_count": 3,
+        "run_lengths": [
+          3,
+          3,
+          3
+        ],
+        "run_length_mean": 3,
+        "run_length_std": 0.0,
+        "max_run_length": 3,
+        "min_run_length": 3,
+        "total_collapse_frames": 9,
+        "collapse_density_global": 0.28125,
+        "collapse_density_span": 0.47368421052631576,
+        "run_count_density": 0.09375,
+        "run_start_positions": [
+          5,
+          13,
+          21
+        ],
+        "run_spacing_values": [
+          8,
+          8
+        ],
+        "run_spacing_mean": 8,
+        "run_spacing_std": 0.0,
+        "occupied_span": 19,
+        "front_loading_ratio": 0.6666666666666666,
+        "back_loading_ratio": 0.3333333333333333,
+        "geometry_load_bias": 0.3333333333333333,
+        "mass_per_run": 3
+      },
+      "minimum_target_depth": 6,
+      "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+      "target_reachable_by_formula": true,
+      "method": "analytical_minimum_depth_no_bruteforce"
+    },
+    {
+      "variant_index": 2,
+      "geometry_name": "three_runs_mass_12_long",
+      "source_class": "RECOVERY_RELAPSE_COLLAPSE",
+      "target_class": "OSCILLATING_NONPERSISTENT",
+      "runs": [
+        [
+          5,
+          4
+        ],
+        [
+          16,
+          4
+        ],
+        [
+          27,
+          4
+        ]
+      ],
+      "features": {
+        "trajectory_length": 38,
+        "collapse_run_count": 3,
+        "run_lengths": [
+          4,
+          4,
+          4
+        ],
+        "run_length_mean": 4,
+        "run_length_std": 0.0,
+        "max_run_length": 4,
+        "min_run_length": 4,
+        "total_collapse_frames": 12,
+        "collapse_density_global": 0.3157894736842105,
+        "collapse_density_span": 0.46153846153846156,
+        "run_count_density": 0.07894736842105263,
+        "run_start_positions": [
+          5,
+          16,
+          27
+        ],
+        "run_spacing_values": [
+          11,
+          11
+        ],
+        "run_spacing_mean": 11,
+        "run_spacing_std": 0.0,
+        "occupied_span": 26,
+        "front_loading_ratio": 0.6666666666666666,
+        "back_loading_ratio": 0.3333333333333333,
+        "geometry_load_bias": 0.3333333333333333,
+        "mass_per_run": 4
+      },
+      "minimum_target_depth": 9,
+      "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+      "target_reachable_by_formula": true,
+      "method": "analytical_minimum_depth_no_bruteforce"
+    },
+    {
+      "variant_index": 3,
+      "geometry_name": "four_runs_mass_4_spikes",
+      "source_class": "OSCILLATING_NONPERSISTENT",
+      "target_class": "OSCILLATING_NONPERSISTENT",
+      "runs": [
+        [
+          4,
+          1
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          12,
+          1
+        ],
+        [
+          16,
+          1
+        ]
+      ],
+      "features": {
+        "trajectory_length": 26,
+        "collapse_run_count": 4,
+        "run_lengths": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "run_length_mean": 1,
+        "run_length_std": 0.0,
+        "max_run_length": 1,
+        "min_run_length": 1,
+        "total_collapse_frames": 4,
+        "collapse_density_global": 0.15384615384615385,
+        "collapse_density_span": 0.23529411764705882,
+        "run_count_density": 0.15384615384615385,
+        "run_start_positions": [
+          4,
+          8,
+          12,
+          16
+        ],
+        "run_spacing_values": [
+          4,
+          4,
+          4
+        ],
+        "run_spacing_mean": 4,
+        "run_spacing_std": 0.0,
+        "occupied_span": 17,
+        "front_loading_ratio": 0.75,
+        "back_loading_ratio": 0.25,
+        "geometry_load_bias": 0.5,
+        "mass_per_run": 1
+      },
+      "minimum_target_depth": 0,
+      "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+      "target_reachable_by_formula": true,
+      "method": "analytical_minimum_depth_no_bruteforce"
+    },
+    {
+      "variant_index": 4,
+      "geometry_name": "four_runs_mass_8_baseline",
+      "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "target_class": "OSCILLATING_NONPERSISTENT",
+      "runs": [
+        [
+          4,
+          2
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          14,
+          2
+        ],
+        [
+          19,
+          2
+        ]
+      ],
+      "features": {
+        "trajectory_length": 30,
+        "collapse_run_count": 4,
+        "run_lengths": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "run_length_mean": 2,
+        "run_length_std": 0.0,
+        "max_run_length": 2,
+        "min_run_length": 2,
+        "total_collapse_frames": 8,
+        "collapse_density_global": 0.26666666666666666,
+        "collapse_density_span": 0.47058823529411764,
+        "run_count_density": 0.13333333333333333,
+        "run_start_positions": [
+          4,
+          9,
+          14,
+          19
+        ],
+        "run_spacing_values": [
+          5,
+          5,
+          5
+        ],
+        "run_spacing_mean": 5,
+        "run_spacing_std": 0.0,
+        "occupied_span": 17,
+        "front_loading_ratio": 0.625,
+        "back_loading_ratio": 0.375,
+        "geometry_load_bias": 0.25,
+        "mass_per_run": 2
+      },
+      "minimum_target_depth": 4,
+      "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+      "target_reachable_by_formula": true,
+      "method": "analytical_minimum_depth_no_bruteforce"
+    },
+    {
+      "variant_index": 5,
+      "geometry_name": "four_runs_mass_12_variable",
+      "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "target_class": "OSCILLATING_NONPERSISTENT",
+      "runs": [
+        [
+          4,
+          3
+        ],
+        [
+          13,
+          3
+        ],
+        [
+          22,
+          3
+        ],
+        [
+          31,
+          3
+        ]
+      ],
+      "features": {
+        "trajectory_length": 40,
+        "collapse_run_count": 4,
+        "run_lengths": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "run_length_mean": 3,
+        "run_length_std": 0.0,
+        "max_run_length": 3,
+        "min_run_length": 3,
+        "total_collapse_frames": 12,
+        "collapse_density_global": 0.3,
+        "collapse_density_span": 0.42857142857142855,
+        "run_count_density": 0.1,
+        "run_start_positions": [
+          4,
+          13,
+          22,
+          31
+        ],
+        "run_spacing_values": [
+          9,
+          9,
+          9
+        ],
+        "run_spacing_mean": 9,
+        "run_spacing_std": 0.0,
+        "occupied_span": 28,
+        "front_loading_ratio": 0.5,
+        "back_loading_ratio": 0.5,
+        "geometry_load_bias": 0.0,
+        "mass_per_run": 3
+      },
+      "minimum_target_depth": 8,
+      "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+      "target_reachable_by_formula": true,
+      "method": "analytical_minimum_depth_no_bruteforce"
+    },
+    {
+      "variant_index": 6,
+      "geometry_name": "two_runs_mass_8_relapse_like",
+      "source_class": "RECOVERY_RELAPSE_COLLAPSE",
+      "target_class": "OSCILLATING_NONPERSISTENT",
+      "runs": [
+        [
+          4,
+          2
+        ],
+        [
+          16,
+          6
+        ]
+      ],
+      "features": {
+        "trajectory_length": 28,
+        "collapse_run_count": 2,
+        "run_lengths": [
+          2,
+          6
+        ],
+        "run_length_mean": 4,
+        "run_length_std": 2.0,
+        "max_run_length": 6,
+        "min_run_length": 2,
+        "total_collapse_frames": 8,
+        "collapse_density_global": 0.2857142857142857,
+        "collapse_density_span": 0.36363636363636365,
+        "run_count_density": 0.07142857142857142,
+        "run_start_positions": [
+          4,
+          16
+        ],
+        "run_spacing_values": [
+          12
+        ],
+        "run_spacing_mean": 12,
+        "run_spacing_std": 0.0,
+        "occupied_span": 22,
+        "front_loading_ratio": 0.25,
+        "back_loading_ratio": 0.75,
+        "geometry_load_bias": 0.5,
+        "mass_per_run": 4
+      },
+      "minimum_target_depth": 6,
+      "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+      "target_reachable_by_formula": true,
+      "method": "analytical_minimum_depth_no_bruteforce"
+    },
+    {
+      "variant_index": 7,
+      "geometry_name": "six_runs_mass_6_spike_family",
+      "source_class": "OSCILLATING_NONPERSISTENT",
+      "target_class": "OSCILLATING_NONPERSISTENT",
+      "runs": [
+        [
+          3,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          15,
+          1
+        ],
+        [
+          19,
+          1
+        ],
+        [
+          23,
+          1
+        ]
+      ],
+      "features": {
+        "trajectory_length": 32,
+        "collapse_run_count": 6,
+        "run_lengths": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "run_length_mean": 1,
+        "run_length_std": 0.0,
+        "max_run_length": 1,
+        "min_run_length": 1,
+        "total_collapse_frames": 6,
+        "collapse_density_global": 0.1875,
+        "collapse_density_span": 0.23076923076923078,
+        "run_count_density": 0.1875,
+        "run_start_positions": [
+          3,
+          7,
+          11,
+          15,
+          19,
+          23
+        ],
+        "run_spacing_values": [
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "run_spacing_mean": 4,
+        "run_spacing_std": 0.0,
+        "occupied_span": 26,
+        "front_loading_ratio": 0.6666666666666666,
+        "back_loading_ratio": 0.3333333333333333,
+        "geometry_load_bias": 0.3333333333333333,
+        "mass_per_run": 1
+      },
+      "minimum_target_depth": 0,
+      "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+      "target_reachable_by_formula": true,
+      "method": "analytical_minimum_depth_no_bruteforce"
+    },
+    {
+      "variant_index": 8,
+      "geometry_name": "five_runs_mass_10_fragmented",
+      "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "target_class": "OSCILLATING_NONPERSISTENT",
+      "runs": [
+        [
+          4,
+          2
+        ],
+        [
+          11,
+          2
+        ],
+        [
+          18,
+          2
+        ],
+        [
+          25,
+          2
+        ],
+        [
+          32,
+          2
+        ]
+      ],
+      "features": {
+        "trajectory_length": 42,
+        "collapse_run_count": 5,
+        "run_lengths": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "run_length_mean": 2,
+        "run_length_std": 0.0,
+        "max_run_length": 2,
+        "min_run_length": 2,
+        "total_collapse_frames": 10,
+        "collapse_density_global": 0.23809523809523808,
+        "collapse_density_span": 0.29411764705882354,
+        "run_count_density": 0.11904761904761904,
+        "run_start_positions": [
+          4,
+          11,
+          18,
+          25,
+          32
+        ],
+        "run_spacing_values": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "run_spacing_mean": 7,
+        "run_spacing_std": 0.0,
+        "occupied_span": 34,
+        "front_loading_ratio": 0.6,
+        "back_loading_ratio": 0.4,
+        "geometry_load_bias": 0.19999999999999996,
+        "mass_per_run": 2
+      },
+      "minimum_target_depth": 5,
+      "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+      "target_reachable_by_formula": true,
+      "method": "analytical_minimum_depth_no_bruteforce"
+    },
+    {
+      "variant_index": 9,
+      "geometry_name": "three_runs_mass_8_mixed",
+      "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "target_class": "OSCILLATING_NONPERSISTENT",
+      "runs": [
+        [
+          5,
+          2
+        ],
+        [
+          14,
+          3
+        ],
+        [
+          24,
+          3
+        ]
+      ],
+      "features": {
+        "trajectory_length": 34,
+        "collapse_run_count": 3,
+        "run_lengths": [
+          2,
+          3,
+          3
+        ],
+        "run_length_mean": 2.6666666666666665,
+        "run_length_std": 0.4714045207910317,
+        "max_run_length": 3,
+        "min_run_length": 2,
+        "total_collapse_frames": 8,
+        "collapse_density_global": 0.23529411764705882,
+        "collapse_density_span": 0.2962962962962963,
+        "run_count_density": 0.08823529411764706,
+        "run_start_positions": [
+          5,
+          14,
+          24
+        ],
+        "run_spacing_values": [
+          9,
+          10
+        ],
+        "run_spacing_mean": 9.5,
+        "run_spacing_std": 0.5,
+        "occupied_span": 27,
+        "front_loading_ratio": 0.625,
+        "back_loading_ratio": 0.375,
+        "geometry_load_bias": 0.25,
+        "mass_per_run": 2.6666666666666665
+      },
+      "minimum_target_depth": 5,
+      "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+      "target_reachable_by_formula": true,
+      "method": "analytical_minimum_depth_no_bruteforce"
+    },
+    {
+      "variant_index": 10,
+      "geometry_name": "four_runs_mass_7_mixed",
+      "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "target_class": "OSCILLATING_NONPERSISTENT",
+      "runs": [
+        [
+          4,
+          2
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          16,
+          2
+        ],
+        [
+          22,
+          2
+        ]
+      ],
+      "features": {
+        "trajectory_length": 34,
+        "collapse_run_count": 4,
+        "run_lengths": [
+          2,
+          1,
+          2,
+          2
+        ],
+        "run_length_mean": 1.75,
+        "run_length_std": 0.4330127018922193,
+        "max_run_length": 2,
+        "min_run_length": 1,
+        "total_collapse_frames": 7,
+        "collapse_density_global": 0.20588235294117646,
+        "collapse_density_span": 0.2692307692307692,
+        "run_count_density": 0.11764705882352941,
+        "run_start_positions": [
+          4,
+          10,
+          16,
+          22
+        ],
+        "run_spacing_values": [
+          6,
+          6,
+          6
+        ],
+        "run_spacing_mean": 6,
+        "run_spacing_std": 0.0,
+        "occupied_span": 26,
+        "front_loading_ratio": 0.5714285714285714,
+        "back_loading_ratio": 0.42857142857142855,
+        "geometry_load_bias": 0.1428571428571428,
+        "mass_per_run": 1.75
+      },
+      "minimum_target_depth": 3,
+      "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+      "target_reachable_by_formula": true,
+      "method": "analytical_minimum_depth_no_bruteforce"
+    },
+    {
+      "variant_index": 11,
+      "geometry_name": "four_runs_mass_10_mixed",
+      "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "target_class": "OSCILLATING_NONPERSISTENT",
+      "runs": [
+        [
+          4,
+          3
+        ],
+        [
+          13,
+          2
+        ],
+        [
+          22,
+          3
+        ],
+        [
+          31,
+          2
+        ]
+      ],
+      "features": {
+        "trajectory_length": 42,
+        "collapse_run_count": 4,
+        "run_lengths": [
+          3,
+          2,
+          3,
+          2
+        ],
+        "run_length_mean": 2.5,
+        "run_length_std": 0.5,
+        "max_run_length": 3,
+        "min_run_length": 2,
+        "total_collapse_frames": 10,
+        "collapse_density_global": 0.23809523809523808,
+        "collapse_density_span": 0.30303030303030304,
+        "run_count_density": 0.09523809523809523,
+        "run_start_positions": [
+          4,
+          13,
+          22,
+          31
+        ],
+        "run_spacing_values": [
+          9,
+          9,
+          9
+        ],
+        "run_spacing_mean": 9,
+        "run_spacing_std": 0.0,
+        "occupied_span": 33,
+        "front_loading_ratio": 0.5,
+        "back_loading_ratio": 0.5,
+        "geometry_load_bias": 0.0,
+        "mass_per_run": 2.5
+      },
+      "minimum_target_depth": 6,
+      "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+      "target_reachable_by_formula": true,
+      "method": "analytical_minimum_depth_no_bruteforce"
+    },
+    {
+      "variant_index": 12,
+      "geometry_name": "same_mass_8_three_runs",
+      "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "target_class": "OSCILLATING_NONPERSISTENT",
+      "runs": [
+        [
+          5,
+          2
+        ],
+        [
+          14,
+          3
+        ],
+        [
+          24,
+          3
+        ]
+      ],
+      "features": {
+        "trajectory_length": 36,
+        "collapse_run_count": 3,
+        "run_lengths": [
+          2,
+          3,
+          3
+        ],
+        "run_length_mean": 2.6666666666666665,
+        "run_length_std": 0.4714045207910317,
+        "max_run_length": 3,
+        "min_run_length": 2,
+        "total_collapse_frames": 8,
+        "collapse_density_global": 0.2222222222222222,
+        "collapse_density_span": 0.2962962962962963,
+        "run_count_density": 0.08333333333333333,
+        "run_start_positions": [
+          5,
+          14,
+          24
+        ],
+        "run_spacing_values": [
+          9,
+          10
+        ],
+        "run_spacing_mean": 9.5,
+        "run_spacing_std": 0.5,
+        "occupied_span": 27,
+        "front_loading_ratio": 0.625,
+        "back_loading_ratio": 0.375,
+        "geometry_load_bias": 0.25,
+        "mass_per_run": 2.6666666666666665
+      },
+      "minimum_target_depth": 5,
+      "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+      "target_reachable_by_formula": true,
+      "method": "analytical_minimum_depth_no_bruteforce"
+    },
+    {
+      "variant_index": 13,
+      "geometry_name": "same_mass_8_four_runs",
+      "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+      "target_class": "OSCILLATING_NONPERSISTENT",
+      "runs": [
+        [
+          4,
+          2
+        ],
+        [
+          11,
+          2
+        ],
+        [
+          18,
+          2
+        ],
+        [
+          25,
+          2
+        ]
+      ],
+      "features": {
+        "trajectory_length": 36,
+        "collapse_run_count": 4,
+        "run_lengths": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "run_length_mean": 2,
+        "run_length_std": 0.0,
+        "max_run_length": 2,
+        "min_run_length": 2,
+        "total_collapse_frames": 8,
+        "collapse_density_global": 0.2222222222222222,
+        "collapse_density_span": 0.2962962962962963,
+        "run_count_density": 0.1111111111111111,
+        "run_start_positions": [
+          4,
+          11,
+          18,
+          25
+        ],
+        "run_spacing_values": [
+          7,
+          7,
+          7
+        ],
+        "run_spacing_mean": 7,
+        "run_spacing_std": 0.0,
+        "occupied_span": 27,
+        "front_loading_ratio": 0.5,
+        "back_loading_ratio": 0.5,
+        "geometry_load_bias": 0.0,
+        "mass_per_run": 2
+      },
+      "minimum_target_depth": 4,
+      "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+      "target_reachable_by_formula": true,
+      "method": "analytical_minimum_depth_no_bruteforce"
+    }
+  ],
+  "final_check": {
+    "status": "PASS",
+    "message": "run-count vs collapse-mass separation measured without brute-force enumeration"
+  },
+  "interpretation": {
+    "main_result": "Variable run lengths separated collapse_run_count from total_collapse_frames.",
+    "dominant_factor": "total_collapse_frames",
+    "strongest_feature": "total_collapse_frames",
+    "strongest_abs_correlation": 0.9231378498105907,
+    "analytical_rule": "minimum_target_depth = sum(max(0, run_length - 1)) for transition to OSCILLATING_NONPERSISTENT",
+    "structural_conclusion": "target depth is controlled by reducible collapse mass rather than collapse_run_count alone"
+  },
+  "reproduction_command": "python examples/temporal_collapse_topology_variable_run_length_v0.py"
+}
