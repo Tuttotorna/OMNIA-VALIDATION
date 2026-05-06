@@ -149,9 +149,99 @@ inside the bounded synthetic v0 setup.
 
 ---
 
-## Risk Formula v0
+## Level 3 v1 Bridge Files
 
-The v0 risk score is computed as:
+### Level 2-derived bridge script
+
+```text
+examples/temporal_collapse_early_warning_from_level_2_v1.py
+```
+
+Applies the Level 3 early-warning layer to trajectory-like snapshots derived from existing Level 2 temporal-collapse result files.
+
+This script reads:
+
+```text
+results/temporal_collapse_topology_cluster_adjacency_graph_v0.json
+results/temporal_collapse_topology_cluster_graph_centrality_v0.json
+results/temporal_collapse_topology_cluster_graph_control_plane_v0.json
+results/temporal_collapse_topology_control_plane_robustness_v0.json
+results/temporal_collapse_topology_dependency_map_v0.json
+results/temporal_collapse_topology_dependency_boundary_v0.json
+results/temporal_collapse_topology_boundary_phase_diagram_v0.json
+```
+
+Then emits:
+
+```text
+results/temporal_collapse_early_warning_from_level_2_v1.json
+```
+
+### Level 2-derived result JSON
+
+```text
+results/temporal_collapse_early_warning_from_level_2_v1.json
+```
+
+Stores the reproducible output of the Level 3 v1 bridge.
+
+### Level 2-derived result document
+
+```text
+docs/TEMPORAL_COLLAPSE_EARLY_WARNING_FROM_LEVEL_2_V1_RESULT.md
+```
+
+Documents the Level 3 v1 bridge result.
+
+The v1 bridge moved beyond synthetic trajectories and tested warning pressure over Level 2-derived result snapshots.
+
+Current aggregate result:
+
+```text
+aggregate_risk_score:  0.300373
+aggregate_risk_regime: DRIFT
+aggregate_gate_action: WATCH
+```
+
+Regime counts:
+
+```text
+STABLE   -> 4
+DRIFT    -> 2
+CRITICAL -> 1
+COLLAPSE -> 0
+```
+
+Strongest local warning:
+
+```text
+dependency_boundary_v0 -> CRITICAL -> ESCALATE
+```
+
+Correct interpretation:
+
+```text
+Level 3 v1 did not detect global collapse.
+
+It detected aggregate structural drift inside the Level 2-derived chain,
+with a critical local warning at the dependency-boundary layer.
+```
+
+Important limitation:
+
+```text
+Level 3 v1 is a heuristic bridge.
+
+It converts Level 2 result files into trajectory-like risk snapshots.
+
+It is not yet a direct trajectory-native validator.
+```
+
+---
+
+## Risk Formula v0/v1
+
+The current risk score is computed as:
 
 ```text
 risk_score =
@@ -168,7 +258,7 @@ No hidden interpretation layer is used.
 
 ---
 
-## Classification Thresholds v0
+## Classification Thresholds v0/v1
 
 ```text
 risk_score < 0.25         -> STABLE
@@ -181,7 +271,7 @@ These thresholds are experimental.
 
 They are not universal.
 
-They are valid only inside the tested v0 construction unless expanded by later validation.
+They are valid only inside the tested construction unless expanded by later validation.
 
 ---
 
@@ -232,17 +322,50 @@ A warning system becomes stronger when it knows where the measurement becomes un
 
 ---
 
+## Structural Reading of v1
+
+The Level 3 v1 bridge produced a coherent structural gradient:
+
+```text
+initial graph / centrality / control-plane files
+  -> mostly STABLE
+
+control-plane robustness
+  -> DRIFT
+
+dependency map
+  -> DRIFT
+
+dependency boundary
+  -> CRITICAL
+
+global aggregate
+  -> DRIFT
+```
+
+This means the chain does not collapse globally.
+
+Instead, it shows increasing risk around robustness and dependency-boundary layers.
+
+The strongest warning appears at the dependency boundary.
+
+That is structurally coherent because boundary-sensitive systems should expose instability near their measured boundaries.
+
+---
+
 ## Safe Claim
 
 ```text
-OMNIA-VALIDATION Level 3 v0 introduces a bounded early-warning layer
+OMNIA-VALIDATION Level 3 v0 introduced a bounded early-warning layer
 for temporal-collapse trajectories.
 
-It classifies trajectory behavior into structural risk regimes using
-visible, reproducible, falsifiable measurements.
+Level 3 v1 applied that warning layer to Level 2-derived result snapshots.
 
-The current v0 result separates STABLE, DRIFT, CRITICAL, and COLLAPSE
-over synthetic reference trajectories.
+The current chain separates STABLE, DRIFT, CRITICAL, and COLLAPSE regimes
+through visible, reproducible, falsifiable measurements.
+
+The v1 aggregate result is DRIFT, with a CRITICAL local warning
+at the dependency-boundary layer.
 ```
 
 ---
@@ -273,24 +396,82 @@ Do not claim:
 The thresholds are universal.
 ```
 
+Do not claim:
+
+```text
+Level 3 v1 is direct trajectory-native validation.
+```
+
 Correct boundary:
 
 ```text
 Level 3 v0 measures structural warning conditions
-inside a bounded validation setup.
+inside a bounded synthetic validation setup.
+
+Level 3 v1 measures structural warning pressure
+over Level 2-derived result snapshots.
+```
+
+---
+
+## Current Level 3 Status
+
+```text
+Level 3 v0
+  -> synthetic early-warning prototype
+  -> PASS
+
+Level 3 v1
+  -> Level 2-derived bridge
+  -> PASS
+  -> aggregate DRIFT
+  -> strongest local warning: dependency_boundary_v0 CRITICAL
 ```
 
 ---
 
 ## Next Step
 
-The next validation step is to move from synthetic reference trajectories to non-synthetic trajectories generated by the Level 2 temporal-collapse chain.
+The next validation step is to move from Level 2-derived result snapshots to direct ordered trajectory analysis.
 
 Target direction:
 
 ```text
 Level 3 v0 synthetic reference
-  -> Level 3 v1 Level-2-derived trajectories
+  -> Level 3 v1 Level-2-derived snapshots
+  -> Level 3 v2 trajectory-native validation
 ```
 
-The next script should test whether the same early-warning layer can classify trajectories derived from existing Level 2 result files.
+The next script should read ordered temporal-collapse trajectories directly.
+
+It should preserve:
+
+```text
+time order
+signature transitions
+cluster transitions
+delta progression
+boundary crossings
+irreversibility progression
+phase-regime changes
+```
+
+Target file:
+
+```text
+examples/temporal_collapse_trajectory_native_validator_v2.py
+```
+
+The v2 objective is to stop treating each Level 2 result file as a snapshot and instead measure risk across ordered temporal-collapse trajectories.
+
+This is the move from:
+
+```text
+snapshot-derived warning
+```
+
+to:
+
+```text
+trajectory-native warning
+```
