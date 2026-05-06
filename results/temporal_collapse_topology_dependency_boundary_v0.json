@@ -1,0 +1,349 @@
+{
+  "experiment": "temporal_collapse_topology_dependency_boundary_v0",
+  "version": "0.1.0",
+  "status": "PASS",
+  "summary": {
+    "baseline_status": "PASS",
+    "baseline_strict_status": "PASS",
+    "boundary_scenario_count": 104,
+    "critical_boundary_count": 31,
+    "moderate_boundary_count": 13,
+    "stable_boundary_count": 60,
+    "minimum_critical_distance": 1,
+    "minimum_moderate_distance": 1,
+    "minimum_critical_scenario_names": [
+      "remove_family_boundary__three_equal_runs",
+      "keep_threshold_boundary__C3__C4",
+      "remove_threshold_boundary__C2",
+      "keep_threshold_boundary__C2__C3",
+      "remove_threshold_boundary__C4"
+    ],
+    "expected_dominant_control_cluster": "cost=0|remaining=3|dest=OSCILLATING_NONPERSISTENT",
+    "expected_second_control_cluster": "cost=3|remaining=3|dest=OSCILLATING_NONPERSISTENT",
+    "dependency_boundary_detected": true,
+    "method": "dependency_boundary"
+  },
+  "dependency_boundary_summary": {
+    "baseline_status": "PASS",
+    "baseline_strict_status": "PASS",
+    "boundary_scenario_count": 104,
+    "critical_boundary_count": 31,
+    "moderate_boundary_count": 13,
+    "stable_boundary_count": 60,
+    "minimum_critical_distance": 1,
+    "minimum_moderate_distance": 1,
+    "minimum_critical_scenario_names": [
+      "remove_family_boundary__three_equal_runs",
+      "keep_threshold_boundary__C3__C4",
+      "remove_threshold_boundary__C2",
+      "keep_threshold_boundary__C2__C3",
+      "remove_threshold_boundary__C4"
+    ],
+    "expected_dominant_control_cluster": "cost=0|remaining=3|dest=OSCILLATING_NONPERSISTENT",
+    "expected_second_control_cluster": "cost=3|remaining=3|dest=OSCILLATING_NONPERSISTENT",
+    "dependency_boundary_detected": true,
+    "boundary_rule": "A dependency boundary is detected when perturbation scenarios expose stable, moderate, and critical control-plane response zones across family, threshold, and variant axes.",
+    "by_axis": {
+      "family": {
+        "boundary_axis": "family",
+        "scenario_count": 56,
+        "pass_count": 33,
+        "check_count": 23,
+        "strict_pass_count": 22,
+        "critical_count": 23,
+        "moderate_count": 11,
+        "stable_count": 22,
+        "minimum_critical_distance": 1,
+        "minimum_moderate_distance": 1,
+        "impact_score_mean": 91.67857142857143,
+        "impact_score_max": 302.0
+      },
+      "threshold": {
+        "boundary_axis": "threshold",
+        "scenario_count": 12,
+        "pass_count": 4,
+        "check_count": 8,
+        "strict_pass_count": 2,
+        "critical_count": 8,
+        "moderate_count": 2,
+        "stable_count": 2,
+        "minimum_critical_distance": 1,
+        "minimum_moderate_distance": 2,
+        "impact_score_mean": 97.33333333333333,
+        "impact_score_max": 288.0
+      },
+      "variant": {
+        "boundary_axis": "variant",
+        "scenario_count": 36,
+        "pass_count": 36,
+        "check_count": 0,
+        "strict_pass_count": 36,
+        "critical_count": 0,
+        "moderate_count": 0,
+        "stable_count": 36,
+        "minimum_critical_distance": null,
+        "minimum_moderate_distance": null,
+        "impact_score_mean": 0.0,
+        "impact_score_max": 0.0
+      }
+    },
+    "minimum_critical_scenarios": [
+      {
+        "scenario_name": "remove_family_boundary__three_equal_runs",
+        "scenario_type": "remove_family_boundary",
+        "boundary_axis": "family",
+        "boundary_distance": 1,
+        "status": "CHECK",
+        "strict_status": "CHECK",
+        "dependency_class": "CRITICAL_ORDER_INVERSION",
+        "impact_score": 98.0,
+        "expected_dominant_rank": 6,
+        "expected_second_rank": 1,
+        "dominant_cluster_id": "cost=3|remaining=3|dest=OSCILLATING_NONPERSISTENT",
+        "second_cluster_id": "cost=0|remaining=2|dest=OSCILLATING_NONPERSISTENT"
+      },
+      {
+        "scenario_name": "keep_threshold_boundary__C3__C4",
+        "scenario_type": "keep_threshold_boundary",
+        "boundary_axis": "threshold",
+        "boundary_distance": 1,
+        "status": "CHECK",
+        "strict_status": "CHECK",
+        "dependency_class": "CRITICAL_TOP6_LOSS",
+        "impact_score": 90.0,
+        "expected_dominant_rank": 1,
+        "expected_second_rank": 7,
+        "dominant_cluster_id": "cost=0|remaining=3|dest=OSCILLATING_NONPERSISTENT",
+        "second_cluster_id": "cost=0|remaining=2|dest=OSCILLATING_NONPERSISTENT"
+      },
+      {
+        "scenario_name": "remove_threshold_boundary__C2",
+        "scenario_type": "remove_threshold_boundary",
+        "boundary_axis": "threshold",
+        "boundary_distance": 1,
+        "status": "CHECK",
+        "strict_status": "CHECK",
+        "dependency_class": "CRITICAL_TOP6_LOSS",
+        "impact_score": 90.0,
+        "expected_dominant_rank": 1,
+        "expected_second_rank": 7,
+        "dominant_cluster_id": "cost=0|remaining=3|dest=OSCILLATING_NONPERSISTENT",
+        "second_cluster_id": "cost=0|remaining=2|dest=OSCILLATING_NONPERSISTENT"
+      },
+      {
+        "scenario_name": "keep_threshold_boundary__C2__C3",
+        "scenario_type": "keep_threshold_boundary",
+        "boundary_axis": "threshold",
+        "boundary_distance": 1,
+        "status": "CHECK",
+        "strict_status": "CHECK",
+        "dependency_class": "CRITICAL_ORDER_INVERSION",
+        "impact_score": 58.0,
+        "expected_dominant_rank": 2,
+        "expected_second_rank": 1,
+        "dominant_cluster_id": "cost=3|remaining=3|dest=OSCILLATING_NONPERSISTENT",
+        "second_cluster_id": "cost=0|remaining=3|dest=OSCILLATING_NONPERSISTENT"
+      },
+      {
+        "scenario_name": "remove_threshold_boundary__C4",
+        "scenario_type": "remove_threshold_boundary",
+        "boundary_axis": "threshold",
+        "boundary_distance": 1,
+        "status": "CHECK",
+        "strict_status": "CHECK",
+        "dependency_class": "CRITICAL_ORDER_INVERSION",
+        "impact_score": 58.0,
+        "expected_dominant_rank": 2,
+        "expected_second_rank": 1,
+        "dominant_cluster_id": "cost=3|remaining=3|dest=OSCILLATING_NONPERSISTENT",
+        "second_cluster_id": "cost=0|remaining=3|dest=OSCILLATING_NONPERSISTENT"
+      }
+    ],
+    "top_critical_boundaries": [
+      {
+        "scenario_name": "remove_family_boundary__mixed_same_cost__three_equal_runs",
+        "boundary_axis": "family",
+        "boundary_distance": 2,
+        "dependency_class": "CRITICAL_ABSENCE",
+        "impact_score": 302.0,
+        "expected_dominant_rank": null,
+        "expected_second_rank": 16
+      },
+      {
+        "scenario_name": "keep_threshold_boundary__C2",
+        "boundary_axis": "threshold",
+        "boundary_distance": 2,
+        "dependency_class": "CRITICAL_TOP6_LOSS",
+        "impact_score": 288.0,
+        "expected_dominant_rank": 20,
+        "expected_second_rank": 1
+      },
+      {
+        "scenario_name": "remove_threshold_boundary__C3__C4",
+        "boundary_axis": "threshold",
+        "boundary_distance": 2,
+        "dependency_class": "CRITICAL_TOP6_LOSS",
+        "impact_score": 288.0,
+        "expected_dominant_rank": 20,
+        "expected_second_rank": 1
+      },
+      {
+        "scenario_name": "remove_family_boundary__three_equal_runs",
+        "boundary_axis": "family",
+        "boundary_distance": 1,
+        "dependency_class": "CRITICAL_ORDER_INVERSION",
+        "impact_score": 98.0,
+        "expected_dominant_rank": 6,
+        "expected_second_rank": 1
+      },
+      {
+        "scenario_name": "keep_threshold_boundary__C3__C4",
+        "boundary_axis": "threshold",
+        "boundary_distance": 1,
+        "dependency_class": "CRITICAL_TOP6_LOSS",
+        "impact_score": 90.0,
+        "expected_dominant_rank": 1,
+        "expected_second_rank": 7
+      },
+      {
+        "scenario_name": "remove_threshold_boundary__C2",
+        "boundary_axis": "threshold",
+        "boundary_distance": 1,
+        "dependency_class": "CRITICAL_TOP6_LOSS",
+        "impact_score": 90.0,
+        "expected_dominant_rank": 1,
+        "expected_second_rank": 7
+      },
+      {
+        "scenario_name": "keep_threshold_boundary__C2__C3",
+        "boundary_axis": "threshold",
+        "boundary_distance": 1,
+        "dependency_class": "CRITICAL_ORDER_INVERSION",
+        "impact_score": 58.0,
+        "expected_dominant_rank": 2,
+        "expected_second_rank": 1
+      },
+      {
+        "scenario_name": "remove_threshold_boundary__C4",
+        "boundary_axis": "threshold",
+        "boundary_distance": 1,
+        "dependency_class": "CRITICAL_ORDER_INVERSION",
+        "impact_score": 58.0,
+        "expected_dominant_rank": 2,
+        "expected_second_rank": 1
+      }
+    ],
+    "top_moderate_boundaries": [
+      {
+        "scenario_name": "remove_family_boundary__mixed_same_cost",
+        "boundary_axis": "family",
+        "boundary_distance": 1,
+        "dependency_class": "MODERATE_RANK_DRIFT",
+        "impact_score": 16.0,
+        "expected_dominant_rank": 1,
+        "expected_second_rank": 4
+      },
+      {
+        "scenario_name": "remove_family_boundary__spike_plus_long__three_equal_runs",
+        "boundary_axis": "family",
+        "boundary_distance": 2,
+        "dependency_class": "MODERATE_RANK_DRIFT",
+        "impact_score": 36.0,
+        "expected_dominant_rank": 3,
+        "expected_second_rank": 4
+      },
+      {
+        "scenario_name": "keep_threshold_boundary__C3",
+        "boundary_axis": "threshold",
+        "boundary_distance": 2,
+        "dependency_class": "MODERATE_RANK_DRIFT",
+        "impact_score": 18.0,
+        "expected_dominant_rank": 2,
+        "expected_second_rank": 3
+      },
+      {
+        "scenario_name": "remove_threshold_boundary__C2__C4",
+        "boundary_axis": "threshold",
+        "boundary_distance": 2,
+        "dependency_class": "MODERATE_RANK_DRIFT",
+        "impact_score": 18.0,
+        "expected_dominant_rank": 2,
+        "expected_second_rank": 3
+      }
+    ],
+    "top_stable_boundaries": [
+      {
+        "scenario_name": "keep_threshold_boundary__C2__C4",
+        "boundary_axis": "threshold",
+        "boundary_distance": 1,
+        "dependency_class": "STABLE_SUPPORT",
+        "expected_dominant_rank": 1,
+        "expected_second_rank": 2
+      },
+      {
+        "scenario_name": "remove_family_boundary__dense_short",
+        "boundary_axis": "family",
+        "boundary_distance": 1,
+        "dependency_class": "STABLE_SUPPORT",
+        "expected_dominant_rank": 1,
+        "expected_second_rank": 2
+      },
+      {
+        "scenario_name": "remove_family_boundary__single_run",
+        "boundary_axis": "family",
+        "boundary_distance": 1,
+        "dependency_class": "STABLE_SUPPORT",
+        "expected_dominant_rank": 1,
+        "expected_second_rank": 2
+      },
+      {
+        "scenario_name": "remove_family_boundary__spike_plus_long",
+        "boundary_axis": "family",
+        "boundary_distance": 1,
+        "dependency_class": "STABLE_SUPPORT",
+        "expected_dominant_rank": 1,
+        "expected_second_rank": 2
+      },
+      {
+        "scenario_name": "remove_family_boundary__staircase",
+        "boundary_axis": "family",
+        "boundary_distance": 1,
+        "dependency_class": "STABLE_SUPPORT",
+        "expected_dominant_rank": 1,
+        "expected_second_rank": 2
+      },
+      {
+        "scenario_name": "remove_family_boundary__two_equal_runs",
+        "boundary_axis": "family",
+        "boundary_distance": 1,
+        "dependency_class": "STABLE_SUPPORT",
+        "expected_dominant_rank": 1,
+        "expected_second_rank": 2
+      },
+      {
+        "scenario_name": "remove_threshold_boundary__C3",
+        "boundary_axis": "threshold",
+        "boundary_distance": 1,
+        "dependency_class": "STABLE_SUPPORT",
+        "expected_dominant_rank": 1,
+        "expected_second_rank": 2
+      }
+    ]
+  },
+  "interpretation": {
+    "main_result": "dependency boundary detected",
+    "structural_conclusion": "The control plane is not uniformly robust. It has measurable dependency boundaries: stable regions, moderate drift regions, and critical failure boundaries.",
+    "minimum_critical_boundary": "A single-unit perturbation can be sufficient to produce critical control-plane drift or inversion.",
+    "critical_axes": [
+      "family",
+      "threshold"
+    ],
+    "stable_axis": "variant",
+    "important_boundary": "Variant removal stayed stable in all tested boundary scenarios. Family and threshold perturbations produced the critical boundaries."
+  },
+  "final_check": {
+    "status": "PASS",
+    "message": "dependency boundary detected: the control plane has measurable stable, moderate, and critical perturbation boundaries"
+  },
+  "reproduction_command": "python examples/temporal_collapse_topology_dependency_boundary_v0.py"
+}
