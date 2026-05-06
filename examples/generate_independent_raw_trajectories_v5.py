@@ -47,273 +47,54 @@ INDEPENDENCE_METHOD = "separate_generator_script"
 
 
 TRAJECTORIES = [
-    # ------------------------------------------------------------------
-    # Independent stable trajectory
-    # ------------------------------------------------------------------
     {
         "trajectory_id": "independent_stable_001",
         "events": [
-            {
-                "step": 1,
-                "signature": "IG0",
-                "cluster": "IC0",
-                "delta": 0.035,
-                "iri": 0.010,
-                "boundary_distance": 0.955,
-                "phase": "STABLE",
-            },
-            {
-                "step": 2,
-                "signature": "IG0",
-                "cluster": "IC0",
-                "delta": 0.045,
-                "iri": 0.012,
-                "boundary_distance": 0.940,
-                "phase": "STABLE",
-            },
-            {
-                "step": 3,
-                "signature": "IG0",
-                "cluster": "IC0",
-                "delta": 0.052,
-                "iri": 0.016,
-                "boundary_distance": 0.925,
-                "phase": "STABLE",
-            },
-            {
-                "step": 4,
-                "signature": "IG0",
-                "cluster": "IC0",
-                "delta": 0.048,
-                "iri": 0.018,
-                "boundary_distance": 0.915,
-                "phase": "STABLE",
-            },
-            {
-                "step": 5,
-                "signature": "IG0",
-                "cluster": "IC0",
-                "delta": 0.050,
-                "iri": 0.020,
-                "boundary_distance": 0.905,
-                "phase": "STABLE",
-            },
+            {"step": 1, "signature": "IG0", "cluster": "IC0", "delta": 0.035, "iri": 0.010, "boundary_distance": 0.955, "phase": "STABLE"},
+            {"step": 2, "signature": "IG0", "cluster": "IC0", "delta": 0.045, "iri": 0.012, "boundary_distance": 0.940, "phase": "STABLE"},
+            {"step": 3, "signature": "IG0", "cluster": "IC0", "delta": 0.052, "iri": 0.016, "boundary_distance": 0.925, "phase": "STABLE"},
+            {"step": 4, "signature": "IG0", "cluster": "IC0", "delta": 0.048, "iri": 0.018, "boundary_distance": 0.915, "phase": "STABLE"},
+            {"step": 5, "signature": "IG0", "cluster": "IC0", "delta": 0.050, "iri": 0.020, "boundary_distance": 0.905, "phase": "STABLE"},
         ],
     },
-
-    # ------------------------------------------------------------------
-    # Independent mild drift trajectory
-    # ------------------------------------------------------------------
     {
         "trajectory_id": "independent_drift_001",
         "events": [
-            {
-                "step": 1,
-                "signature": "IG0",
-                "cluster": "IC0",
-                "delta": 0.075,
-                "iri": 0.025,
-                "boundary_distance": 0.875,
-                "phase": "STABLE",
-            },
-            {
-                "step": 2,
-                "signature": "IG0",
-                "cluster": "IC0",
-                "delta": 0.135,
-                "iri": 0.045,
-                "boundary_distance": 0.805,
-                "phase": "STABLE",
-            },
-            {
-                "step": 3,
-                "signature": "IG1",
-                "cluster": "IC0",
-                "delta": 0.215,
-                "iri": 0.075,
-                "boundary_distance": 0.690,
-                "phase": "DRIFT",
-            },
-            {
-                "step": 4,
-                "signature": "IG1",
-                "cluster": "IC1",
-                "delta": 0.305,
-                "iri": 0.115,
-                "boundary_distance": 0.590,
-                "phase": "DRIFT",
-            },
-            {
-                "step": 5,
-                "signature": "IG2",
-                "cluster": "IC1",
-                "delta": 0.370,
-                "iri": 0.155,
-                "boundary_distance": 0.520,
-                "phase": "DRIFT",
-            },
+            {"step": 1, "signature": "IG0", "cluster": "IC0", "delta": 0.075, "iri": 0.025, "boundary_distance": 0.875, "phase": "STABLE"},
+            {"step": 2, "signature": "IG0", "cluster": "IC0", "delta": 0.135, "iri": 0.045, "boundary_distance": 0.805, "phase": "STABLE"},
+            {"step": 3, "signature": "IG1", "cluster": "IC0", "delta": 0.215, "iri": 0.075, "boundary_distance": 0.690, "phase": "DRIFT"},
+            {"step": 4, "signature": "IG1", "cluster": "IC1", "delta": 0.305, "iri": 0.115, "boundary_distance": 0.590, "phase": "DRIFT"},
+            {"step": 5, "signature": "IG2", "cluster": "IC1", "delta": 0.370, "iri": 0.155, "boundary_distance": 0.520, "phase": "DRIFT"},
         ],
     },
-
-    # ------------------------------------------------------------------
-    # Independent borderline critical trajectory
-    # ------------------------------------------------------------------
     {
         "trajectory_id": "independent_borderline_critical_001",
         "events": [
-            {
-                "step": 1,
-                "signature": "IG0",
-                "cluster": "IC0",
-                "delta": 0.120,
-                "iri": 0.055,
-                "boundary_distance": 0.800,
-                "phase": "STABLE",
-            },
-            {
-                "step": 2,
-                "signature": "IG1",
-                "cluster": "IC1",
-                "delta": 0.245,
-                "iri": 0.115,
-                "boundary_distance": 0.640,
-                "phase": "DRIFT",
-            },
-            {
-                "step": 3,
-                "signature": "IG2",
-                "cluster": "IC1",
-                "delta": 0.390,
-                "iri": 0.205,
-                "boundary_distance": 0.455,
-                "phase": "DRIFT",
-            },
-            {
-                "step": 4,
-                "signature": "IG3",
-                "cluster": "IC2",
-                "delta": 0.530,
-                "iri": 0.310,
-                "boundary_distance": 0.300,
-                "phase": "CRITICAL",
-            },
-            {
-                "step": 5,
-                "signature": "IG3",
-                "cluster": "IC2",
-                "delta": 0.610,
-                "iri": 0.380,
-                "boundary_distance": 0.235,
-                "phase": "CRITICAL",
-            },
+            {"step": 1, "signature": "IG0", "cluster": "IC0", "delta": 0.120, "iri": 0.055, "boundary_distance": 0.800, "phase": "STABLE"},
+            {"step": 2, "signature": "IG1", "cluster": "IC1", "delta": 0.245, "iri": 0.115, "boundary_distance": 0.640, "phase": "DRIFT"},
+            {"step": 3, "signature": "IG2", "cluster": "IC1", "delta": 0.390, "iri": 0.205, "boundary_distance": 0.455, "phase": "DRIFT"},
+            {"step": 4, "signature": "IG3", "cluster": "IC2", "delta": 0.530, "iri": 0.310, "boundary_distance": 0.300, "phase": "CRITICAL"},
+            {"step": 5, "signature": "IG3", "cluster": "IC2", "delta": 0.610, "iri": 0.380, "boundary_distance": 0.235, "phase": "CRITICAL"},
         ],
     },
-
-    # ------------------------------------------------------------------
-    # Independent critical trajectory
-    # ------------------------------------------------------------------
     {
         "trajectory_id": "independent_critical_001",
         "events": [
-            {
-                "step": 1,
-                "signature": "IG0",
-                "cluster": "IC0",
-                "delta": 0.170,
-                "iri": 0.080,
-                "boundary_distance": 0.730,
-                "phase": "STABLE",
-            },
-            {
-                "step": 2,
-                "signature": "IG1",
-                "cluster": "IC1",
-                "delta": 0.330,
-                "iri": 0.165,
-                "boundary_distance": 0.540,
-                "phase": "DRIFT",
-            },
-            {
-                "step": 3,
-                "signature": "IG2",
-                "cluster": "IC2",
-                "delta": 0.520,
-                "iri": 0.285,
-                "boundary_distance": 0.345,
-                "phase": "CRITICAL",
-            },
-            {
-                "step": 4,
-                "signature": "IG4",
-                "cluster": "IC3",
-                "delta": 0.660,
-                "iri": 0.415,
-                "boundary_distance": 0.210,
-                "phase": "CRITICAL",
-            },
-            {
-                "step": 5,
-                "signature": "IG5",
-                "cluster": "IC3",
-                "delta": 0.735,
-                "iri": 0.505,
-                "boundary_distance": 0.150,
-                "phase": "CRITICAL",
-            },
+            {"step": 1, "signature": "IG0", "cluster": "IC0", "delta": 0.170, "iri": 0.080, "boundary_distance": 0.730, "phase": "STABLE"},
+            {"step": 2, "signature": "IG1", "cluster": "IC1", "delta": 0.330, "iri": 0.165, "boundary_distance": 0.540, "phase": "DRIFT"},
+            {"step": 3, "signature": "IG2", "cluster": "IC2", "delta": 0.520, "iri": 0.285, "boundary_distance": 0.345, "phase": "CRITICAL"},
+            {"step": 4, "signature": "IG4", "cluster": "IC3", "delta": 0.660, "iri": 0.415, "boundary_distance": 0.210, "phase": "CRITICAL"},
+            {"step": 5, "signature": "IG5", "cluster": "IC3", "delta": 0.735, "iri": 0.505, "boundary_distance": 0.150, "phase": "CRITICAL"},
         ],
     },
-
-    # ------------------------------------------------------------------
-    # Independent collapse-like trajectory
-    # ------------------------------------------------------------------
     {
         "trajectory_id": "independent_collapse_like_001",
         "events": [
-            {
-                "step": 1,
-                "signature": "IG0",
-                "cluster": "IC0",
-                "delta": 0.210,
-                "iri": 0.120,
-                "boundary_distance": 0.670,
-                "phase": "DRIFT",
-            },
-            {
-                "step": 2,
-                "signature": "IG2",
-                "cluster": "IC2",
-                "delta": 0.455,
-                "iri": 0.280,
-                "boundary_distance": 0.420,
-                "phase": "CRITICAL",
-            },
-            {
-                "step": 3,
-                "signature": "IG6",
-                "cluster": "IC6",
-                "delta": 0.720,
-                "iri": 0.545,
-                "boundary_distance": 0.190,
-                "phase": "CRITICAL",
-            },
-            {
-                "step": 4,
-                "signature": "IG9",
-                "cluster": "IC9",
-                "delta": 0.885,
-                "iri": 0.760,
-                "boundary_distance": 0.085,
-                "phase": "COLLAPSE",
-            },
-            {
-                "step": 5,
-                "signature": "BROKEN",
-                "cluster": "IC9",
-                "delta": 0.970,
-                "iri": 0.930,
-                "boundary_distance": 0.025,
-                "phase": "COLLAPSE",
-            },
+            {"step": 1, "signature": "IG0", "cluster": "IC0", "delta": 0.210, "iri": 0.120, "boundary_distance": 0.670, "phase": "DRIFT"},
+            {"step": 2, "signature": "IG2", "cluster": "IC2", "delta": 0.455, "iri": 0.280, "boundary_distance": 0.420, "phase": "CRITICAL"},
+            {"step": 3, "signature": "IG6", "cluster": "IC6", "delta": 0.720, "iri": 0.545, "boundary_distance": 0.190, "phase": "CRITICAL"},
+            {"step": 4, "signature": "IG9", "cluster": "IC9", "delta": 0.885, "iri": 0.760, "boundary_distance": 0.085, "phase": "COLLAPSE"},
+            {"step": 5, "signature": "BROKEN", "cluster": "IC9", "delta": 0.970, "iri": 0.930, "boundary_distance": 0.025, "phase": "COLLAPSE"},
         ],
     },
 ]
