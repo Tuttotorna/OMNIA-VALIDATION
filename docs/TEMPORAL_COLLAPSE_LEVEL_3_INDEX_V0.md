@@ -68,6 +68,45 @@ It is a measurement-derived warning signal for an external decision layer.
 
 ---
 
+## Level 3 Progression
+
+Level 3 currently has three validation steps:
+
+```text
+Level 3 v0
+  -> synthetic reference trajectories
+
+Level 3 v1
+  -> Level 2-derived result snapshots
+
+Level 3 v2
+  -> ordered Level 2 stage trajectory
+```
+
+This progression moves from:
+
+```text
+synthetic warning
+```
+
+to:
+
+```text
+snapshot-derived warning
+```
+
+to:
+
+```text
+ordered trajectory warning
+```
+
+The current result does not show terminal collapse.
+
+It shows localized boundary-pressure drift.
+
+---
+
 ## Canonical Level 3 Files
 
 ### Concept document
@@ -78,7 +117,7 @@ docs/TEMPORAL_COLLAPSE_EARLY_WARNING_LEVEL_3_V0.md
 
 Defines the Level 3 purpose, risk regimes, warning principles, formula, thresholds, and boundaries.
 
-### Prototype script
+### Level 3 v0 prototype script
 
 ```text
 examples/temporal_collapse_early_warning_level_3_v0.py
@@ -99,7 +138,7 @@ risk_regime
 gate_action
 ```
 
-### Result JSON
+### Level 3 v0 result JSON
 
 ```text
 results/temporal_collapse_early_warning_level_3_v0.json
@@ -107,7 +146,7 @@ results/temporal_collapse_early_warning_level_3_v0.json
 
 Stores the reproducible output of the Level 3 v0 prototype.
 
-### Result document
+### Level 3 v0 result document
 
 ```text
 docs/TEMPORAL_COLLAPSE_EARLY_WARNING_LEVEL_3_V0_RESULT.md
@@ -125,7 +164,7 @@ Current status:
 PASS
 ```
 
-The prototype executed successfully.
+The v0 prototype executed successfully.
 
 The script produced the expected ordered risk progression:
 
@@ -146,6 +185,13 @@ COLLAPSE
 ```
 
 inside the bounded synthetic v0 setup.
+
+Correct interpretation:
+
+```text
+Level 3 v0 validates the minimal early-warning mechanism
+on synthetic reference trajectories only.
+```
 
 ---
 
@@ -177,7 +223,7 @@ Then emits:
 results/temporal_collapse_early_warning_from_level_2_v1.json
 ```
 
-### Level 2-derived result JSON
+### Level 3 v1 result JSON
 
 ```text
 results/temporal_collapse_early_warning_from_level_2_v1.json
@@ -185,7 +231,7 @@ results/temporal_collapse_early_warning_from_level_2_v1.json
 
 Stores the reproducible output of the Level 3 v1 bridge.
 
-### Level 2-derived result document
+### Level 3 v1 result document
 
 ```text
 docs/TEMPORAL_COLLAPSE_EARLY_WARNING_FROM_LEVEL_2_V1_RESULT.md
@@ -239,9 +285,124 @@ It is not yet a direct trajectory-native validator.
 
 ---
 
+## Level 3 v2 Trajectory-Native Files
+
+### Ordered trajectory validator script
+
+```text
+examples/temporal_collapse_trajectory_native_validator_v2.py
+```
+
+Builds an ordered Level 2 stage trajectory and evaluates Level 3 warning risk across the chain.
+
+The script moves from:
+
+```text
+file -> snapshot -> risk
+```
+
+to:
+
+```text
+ordered chain -> trajectory -> risk
+```
+
+It reads the ordered stage chain:
+
+```text
+1 -> cluster_adjacency_graph
+2 -> cluster_graph_centrality
+3 -> cluster_graph_control_plane
+4 -> control_plane_robustness
+5 -> dependency_map
+6 -> dependency_boundary
+7 -> boundary_phase_diagram
+```
+
+Then emits:
+
+```text
+results/temporal_collapse_trajectory_native_validator_v2.json
+```
+
+### Level 3 v2 result JSON
+
+```text
+results/temporal_collapse_trajectory_native_validator_v2.json
+```
+
+Stores the reproducible output of the Level 3 v2 trajectory-native validator.
+
+### Level 3 v2 result document
+
+```text
+docs/TEMPORAL_COLLAPSE_TRAJECTORY_NATIVE_VALIDATOR_V2_RESULT.md
+```
+
+Documents the ordered trajectory result, structural sequence, dominant warning axis, tested boundary, and safe claim.
+
+Current v2 result:
+
+```text
+risk_regime:    DRIFT
+risk_score:     0.35722
+gate_action:    WATCH
+dominant_axis:  boundary_proximity
+warning_flags:
+  - boundary_proximity
+```
+
+Observed ordered status-signature trajectory:
+
+```text
+PASS_DOMINANT
+PASS_DOMINANT
+PASS_DOMINANT
+CHECK_PRESSURE
+CHECK_PRESSURE
+CHECK_PRESSURE
+PASS_DOMINANT
+```
+
+Compact form:
+
+```text
+PASS -> PASS -> PASS -> CHECK -> CHECK -> CHECK -> PASS
+```
+
+Strongest local pressure:
+
+```text
+dependency_boundary
+  check_ratio:      0.625
+  boundary_signal:  0.7375
+  collapse_signal:  0.1875
+```
+
+Correct interpretation:
+
+```text
+Level 3 v2 did not detect terminal collapse.
+
+It detected ordered trajectory drift,
+driven mainly by boundary proximity.
+
+The strongest local pressure appears at the dependency-boundary stage.
+```
+
+Important limitation:
+
+```text
+Level 3 v2 is trajectory-native relative to the ordered Level 2 stage chain.
+
+It is not yet raw runtime trajectory validation.
+```
+
+---
+
 ## Risk Formula v0/v1
 
-The current risk score is computed as:
+Level 3 v0 and v1 use:
 
 ```text
 risk_score =
@@ -258,7 +419,26 @@ No hidden interpretation layer is used.
 
 ---
 
-## Classification Thresholds v0/v1
+## Risk Formula v2
+
+Level 3 v2 uses the trajectory-native variant:
+
+```text
+risk_score =
+    0.20 * transition_density
+  + 0.20 * drift_progression
+  + 0.25 * boundary_proximity
+  + 0.25 * collapse_similarity
+  + 0.10 * irreversibility_proxy
+```
+
+The v2 formula preserves the same structural intent while replacing snapshot signals with ordered-trajectory signals.
+
+---
+
+## Classification Thresholds
+
+Current thresholds:
 
 ```text
 risk_score < 0.25         -> STABLE
@@ -322,34 +502,70 @@ A warning system becomes stronger when it knows where the measurement becomes un
 
 ---
 
-## Structural Reading of v1
+## Structural Reading Across v0, v1, and v2
 
-The Level 3 v1 bridge produced a coherent structural gradient:
+### v0
 
 ```text
-initial graph / centrality / control-plane files
-  -> mostly STABLE
-
-control-plane robustness
-  -> DRIFT
-
-dependency map
-  -> DRIFT
-
-dependency boundary
-  -> CRITICAL
-
-global aggregate
-  -> DRIFT
+synthetic reference trajectories
+  -> STABLE / DRIFT / CRITICAL / COLLAPSE separated correctly
 ```
 
-This means the chain does not collapse globally.
+v0 proves only that the minimal warning machine works on controlled synthetic examples.
 
-Instead, it shows increasing risk around robustness and dependency-boundary layers.
+### v1
 
-The strongest warning appears at the dependency boundary.
+```text
+Level 2-derived snapshots
+  -> aggregate DRIFT
+  -> dependency_boundary CRITICAL
+```
 
-That is structurally coherent because boundary-sensitive systems should expose instability near their measured boundaries.
+v1 shows that warning pressure appears in Level 2-derived result snapshots.
+
+Its strongest local warning appears at the dependency-boundary layer.
+
+### v2
+
+```text
+ordered Level 2 stage trajectory
+  -> DRIFT
+  -> WATCH
+  -> boundary_proximity dominant
+```
+
+v2 shows that the ordered chain does not collapse globally.
+
+It enters a drift regime driven by boundary proximity.
+
+The structural sequence is:
+
+```text
+PASS -> PASS -> PASS -> CHECK -> CHECK -> CHECK -> PASS
+```
+
+This indicates a localized boundary-pressure zone, not terminal collapse.
+
+---
+
+## Current Structural Verdict
+
+Safe verdict:
+
+```text
+Level 3 has moved from synthetic warning,
+to snapshot-derived warning,
+to ordered trajectory warning.
+
+The current result does not show terminal collapse.
+
+It shows localized boundary-pressure drift,
+with strongest local pressure at the dependency-boundary stage.
+```
+
+This is the strongest current claim.
+
+It is bounded, reproducible, and falsifiable.
 
 ---
 
@@ -361,11 +577,13 @@ for temporal-collapse trajectories.
 
 Level 3 v1 applied that warning layer to Level 2-derived result snapshots.
 
-The current chain separates STABLE, DRIFT, CRITICAL, and COLLAPSE regimes
-through visible, reproducible, falsifiable measurements.
+Level 3 v2 evaluated the Level 2 temporal-collapse chain
+as an ordered trajectory.
 
-The v1 aggregate result is DRIFT, with a CRITICAL local warning
-at the dependency-boundary layer.
+The current trajectory result is DRIFT, with WATCH gate action.
+
+The dominant warning axis is boundary proximity, with the strongest
+local pressure appearing at the dependency-boundary stage.
 ```
 
 ---
@@ -399,7 +617,7 @@ The thresholds are universal.
 Do not claim:
 
 ```text
-Level 3 v1 is direct trajectory-native validation.
+Level 3 v2 validates raw runtime trajectories.
 ```
 
 Correct boundary:
@@ -410,6 +628,8 @@ inside a bounded synthetic validation setup.
 
 Level 3 v1 measures structural warning pressure
 over Level 2-derived result snapshots.
+
+Level 3 v2 measures warning risk across an ordered Level 2 stage trajectory.
 ```
 
 ---
@@ -426,23 +646,31 @@ Level 3 v1
   -> PASS
   -> aggregate DRIFT
   -> strongest local warning: dependency_boundary_v0 CRITICAL
+
+Level 3 v2
+  -> ordered Level 2 stage trajectory
+  -> PASS
+  -> trajectory DRIFT
+  -> WATCH
+  -> dominant axis: boundary_proximity
 ```
 
 ---
 
 ## Next Step
 
-The next validation step is to move from Level 2-derived result snapshots to direct ordered trajectory analysis.
+The next validation step is to move from ordered Level 2 stage summaries to raw ordered trajectory records.
 
 Target direction:
 
 ```text
 Level 3 v0 synthetic reference
   -> Level 3 v1 Level-2-derived snapshots
-  -> Level 3 v2 trajectory-native validation
+  -> Level 3 v2 ordered Level 2 stage trajectory
+  -> Level 3 v3 raw ordered trajectory records
 ```
 
-The next script should read ordered temporal-collapse trajectories directly.
+The next script should read raw temporal-collapse trajectory records directly.
 
 It should preserve:
 
@@ -454,24 +682,25 @@ delta progression
 boundary crossings
 irreversibility progression
 phase-regime changes
+raw trajectory events
 ```
 
 Target file:
 
 ```text
-examples/temporal_collapse_trajectory_native_validator_v2.py
+examples/temporal_collapse_raw_trajectory_validator_v3.py
 ```
 
-The v2 objective is to stop treating each Level 2 result file as a snapshot and instead measure risk across ordered temporal-collapse trajectories.
+The v3 objective is to stop deriving trajectory risk from Level 2 summaries and instead measure risk over raw ordered trajectory records.
 
 This is the move from:
 
 ```text
-snapshot-derived warning
+stage-summary trajectory warning
 ```
 
 to:
 
 ```text
-trajectory-native warning
+raw trajectory warning
 ```
