@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from statistics import mean, pstdev
 
-VERSION = "0.1.1"
+VERSION = "0.1.2"
 
 INPUT_RESULTS_PATH = Path(
     "results/temporal_collapse_topology_dependency_boundary_v0.json"
@@ -64,12 +64,12 @@ def extract_boundary_records(payload):
     """
     Supports multiple possible result layouts.
 
-    Expected useful locations include:
-    - scenario_results
-    - boundary_records
-    - dependency_boundary_summary.boundary_records
-    - dependency_boundary_summary.scenario_records
-    - dependency_boundary_summary.boundary_scenarios
+    Important:
+    The dependency-boundary result may contain many short summary lists,
+    such as top critical boundaries or minimum critical boundaries.
+
+    This function must select the full scenario record list,
+    not a short summary list.
     """
 
     records = first_existing(
@@ -88,8 +88,6 @@ def extract_boundary_records(payload):
     if records:
         return records
 
-    # Last-resort recursive search:
-    # choose the largest list of dicts containing scenario-like records.
     candidates = []
 
     def walk(obj):
@@ -99,27 +97,38 @@ def extract_boundary_records(payload):
 
         elif isinstance(obj, list):
             if obj and all(isinstance(item, dict) for item in obj):
-                score = 0
-
                 sample_keys = set()
-                for item in obj[:10]:
+
+                for item in obj[:30]:
                     sample_keys.update(item.keys())
 
-                for key in [
+                scenario_like_keys = {
                     "scenario_name",
+                    "scenario_type",
                     "boundary_axis",
                     "axis",
+                    "dependency_axis",
                     "dependency_class",
                     "boundary_class",
                     "impact_score",
+                    "impact",
                     "boundary_distance",
                     "distance",
-                ]:
-                    if key in sample_keys:
-                        score += 1
+                    "expected_dominant_rank",
+                    "dominant_rank",
+                    "expected_second_rank",
+                    "second_rank",
+                }
+
+                score = len(sample_keys.intersection(scenario_like_keys))
 
                 if score >= 3:
-                    candidates.append((len(obj), score, obj))
+                    candidates.append({
+                        "length": len(obj),
+                        "score": score,
+                        "records": obj,
+                        "sample_keys": sorted(sample_keys),
+                    })
 
             for value in obj:
                 walk(value)
@@ -129,8 +138,15 @@ def extract_boundary_records(payload):
     if not candidates:
         return []
 
-    candidates.sort(key=lambda item: (item[1], item[0]), reverse=True)
-    return candidates[0][2]
+    candidates.sort(
+        key=lambda item: (
+            item["length"],
+            item["score"],
+        ),
+        reverse=True,
+    )
+
+    return candidates[0]["records"]
 
 
 def get_value(record, *keys, default=None):
@@ -654,6 +670,7 @@ def main():
     dependency_payload = load_json(INPUT_RESULTS_PATH)
 
     raw_records = extract_boundary_records(dependency_payload)
+
     phase_records = [
         normalize_boundary_record(record)
         for record in raw_records
