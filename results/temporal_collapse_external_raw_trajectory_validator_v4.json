@@ -1,0 +1,229 @@
+{
+  "experiment": "temporal_collapse_external_raw_trajectory_validator_v4",
+  "status": "v4_external_raw_trajectory_validation",
+  "boundary": "external-style raw ordered trajectory records; source independence explicitly tracked",
+  "claim": "This script applies the Level 3 v3 raw trajectory warning mechanism to external-style raw ordered trajectory records using visible signals, weights, thresholds, source labels, and transition evidence.",
+  "input_file": "data/temporal_collapse_external_raw_trajectories_v4.jsonl",
+  "trajectory_count": 5,
+  "source_count": 1,
+  "source_independence_values": [
+    "not_verified"
+  ],
+  "source_independence_note": "A source label alone does not prove independence. If source_independence is not_verified, the result must be read as external-style validation, not verified independent validation.",
+  "weights": {
+    "transition_density": 0.2,
+    "drift_progression": 0.2,
+    "boundary_proximity": 0.25,
+    "collapse_similarity": 0.25,
+    "irreversibility_signal": 0.1
+  },
+  "thresholds": {
+    "STABLE": 0.25,
+    "DRIFT": 0.5,
+    "CRITICAL": 0.75
+  },
+  "aggregate": {
+    "aggregate_risk_score": 0.468439,
+    "aggregate_risk_regime": "DRIFT",
+    "aggregate_gate_action": "WATCH",
+    "regime_counts": {
+      "CRITICAL": 2,
+      "COLLAPSE": 1,
+      "DRIFT": 1,
+      "STABLE": 1
+    },
+    "highest_risk_trajectory": "external_collapse_like_001",
+    "highest_risk_score": 0.824306,
+    "source_count": 1
+  },
+  "source_summary": [
+    {
+      "source": "external_style_generator_v4",
+      "source_independence": "not_verified",
+      "trajectory_count": 5,
+      "average_risk_score": 0.468439,
+      "regime_counts": {
+        "CRITICAL": 2,
+        "COLLAPSE": 1,
+        "DRIFT": 1,
+        "STABLE": 1
+      },
+      "highest_risk_trajectory": "external_collapse_like_001",
+      "highest_risk_score": 0.824306
+    }
+  ],
+  "results": [
+    {
+      "trajectory_id": "external_borderline_critical_001",
+      "source": "external_style_generator_v4",
+      "source_independence": "not_verified",
+      "event_count": 4,
+      "risk_regime": "CRITICAL",
+      "risk_score": 0.536222,
+      "gate_action": "ESCALATE",
+      "dominant_axis": "transition_density",
+      "warning_flags": [
+        "high_transition_density",
+        "boundary_proximity"
+      ],
+      "signals": {
+        "transition_density": 0.777778,
+        "drift_progression": 0.393333,
+        "boundary_proximity": 0.73,
+        "collapse_similarity": 0.342,
+        "irreversibility_signal": 0.34
+      },
+      "transition_evidence": {
+        "signature_changes": 1.0,
+        "cluster_changes": 0.666667,
+        "phase_changes": 0.666667,
+        "delta_early_mean": 0.215,
+        "delta_late_mean": 0.545,
+        "iri_early_mean": 0.105,
+        "iri_late_mean": 0.31,
+        "min_boundary_distance": 0.24,
+        "max_boundary_proximity": 0.76,
+        "collapse_phase_count": 0,
+        "source": "external_style_generator_v4",
+        "source_independence": "not_verified"
+      }
+    },
+    {
+      "trajectory_id": "external_collapse_like_001",
+      "source": "external_style_generator_v4",
+      "source_independence": "not_verified",
+      "event_count": 4,
+      "risk_regime": "COLLAPSE",
+      "risk_score": 0.824306,
+      "gate_action": "STOP",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [
+        "high_transition_density",
+        "high_drift_progression",
+        "boundary_proximity",
+        "collapse_similarity",
+        "irreversibility_signal"
+      ],
+      "signals": {
+        "transition_density": 0.777778,
+        "drift_progression": 0.635,
+        "boundary_proximity": 0.9525,
+        "collapse_similarity": 0.8685,
+        "irreversibility_signal": 0.865
+      },
+      "transition_evidence": {
+        "signature_changes": 1.0,
+        "cluster_changes": 0.666667,
+        "phase_changes": 0.666667,
+        "delta_early_mean": 0.395,
+        "delta_late_mean": 0.915,
+        "iri_early_mean": 0.245,
+        "iri_late_mean": 0.81,
+        "min_boundary_distance": 0.03,
+        "max_boundary_proximity": 0.97,
+        "collapse_phase_count": 2,
+        "source": "external_style_generator_v4",
+        "source_independence": "not_verified"
+      }
+    },
+    {
+      "trajectory_id": "external_critical_001",
+      "source": "external_style_generator_v4",
+      "source_independence": "not_verified",
+      "event_count": 4,
+      "risk_regime": "CRITICAL",
+      "risk_score": 0.619778,
+      "gate_action": "ESCALATE",
+      "dominant_axis": "transition_density",
+      "warning_flags": [
+        "high_transition_density",
+        "boundary_proximity"
+      ],
+      "signals": {
+        "transition_density": 0.888889,
+        "drift_progression": 0.4625,
+        "boundary_proximity": 0.8125,
+        "collapse_similarity": 0.4045,
+        "irreversibility_signal": 0.4525
+      },
+      "transition_evidence": {
+        "signature_changes": 1.0,
+        "cluster_changes": 1.0,
+        "phase_changes": 0.666667,
+        "delta_early_mean": 0.27,
+        "delta_late_mean": 0.655,
+        "iri_early_mean": 0.135,
+        "iri_late_mean": 0.415,
+        "min_boundary_distance": 0.16,
+        "max_boundary_proximity": 0.84,
+        "collapse_phase_count": 0,
+        "source": "external_style_generator_v4",
+        "source_independence": "not_verified"
+      }
+    },
+    {
+      "trajectory_id": "external_drift_001",
+      "source": "external_style_generator_v4",
+      "source_independence": "not_verified",
+      "event_count": 4,
+      "risk_regime": "DRIFT",
+      "risk_score": 0.321306,
+      "gate_action": "WATCH",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [],
+      "signals": {
+        "transition_density": 0.444444,
+        "drift_progression": 0.238333,
+        "boundary_proximity": 0.4725,
+        "collapse_similarity": 0.2045,
+        "irreversibility_signal": 0.155
+      },
+      "transition_evidence": {
+        "signature_changes": 0.666667,
+        "cluster_changes": 0.333333,
+        "phase_changes": 0.333333,
+        "delta_early_mean": 0.125,
+        "delta_late_mean": 0.325,
+        "iri_early_mean": 0.045,
+        "iri_late_mean": 0.14,
+        "min_boundary_distance": 0.5,
+        "max_boundary_proximity": 0.5,
+        "collapse_phase_count": 0,
+        "source": "external_style_generator_v4",
+        "source_independence": "not_verified"
+      }
+    },
+    {
+      "trajectory_id": "external_stable_001",
+      "source": "external_style_generator_v4",
+      "source_independence": "not_verified",
+      "event_count": 4,
+      "risk_regime": "STABLE",
+      "risk_score": 0.040583,
+      "gate_action": "PASS",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [],
+      "signals": {
+        "transition_density": 0.0,
+        "drift_progression": 0.026667,
+        "boundary_proximity": 0.0975,
+        "collapse_similarity": 0.0355,
+        "irreversibility_signal": 0.02
+      },
+      "transition_evidence": {
+        "signature_changes": 0.0,
+        "cluster_changes": 0.0,
+        "phase_changes": 0.0,
+        "delta_early_mean": 0.045,
+        "delta_late_mean": 0.055,
+        "iri_early_mean": 0.01,
+        "iri_late_mean": 0.02,
+        "min_boundary_distance": 0.9,
+        "max_boundary_proximity": 0.1,
+        "collapse_phase_count": 0,
+        "source": "external_style_generator_v4",
+        "source_independence": "not_verified"
+      }
+    }
+  ]
+}
