@@ -2,36 +2,66 @@
 
 Structural validation, falsification, perturbation testing, and reproducibility layer for the OMNIA ecosystem.
 
+OMNIA-VALIDATION exists to pressure-test structural measurements.
+
+Its purpose is not to defend OMNIA.
+
+Its purpose is to expose what survives controlled validation, and what collapses under perturbation, falsification, threshold changes, observer variation, and reproducibility checks.
+
+```text
+measurement != inference != decision
+
+
 ---
 
-# Purpose
+Purpose
 
-OMNIA-VALIDATION exists to test whether OMNIA measurements remain meaningful under:
+OMNIA-VALIDATION tests whether structural measurements remain meaningful under controlled pressure.
 
-- perturbation
-- adversarial pressure
-- representation changes
-- synthetic stress
-- cross-domain transfer
-- observer variation
-- reproducibility constraints
-- falsification attempts
+The repository studies:
+
+perturbation behavior
+
+adversarial pressure
+
+representation changes
+
+synthetic stress
+
+cross-run reproducibility
+
+observer variation
+
+threshold sensitivity
+
+falsification attempts
+
+structural collapse
+
+boundary instability
+
 
 This repository is intentionally pressure-oriented.
 
-Its purpose is not to protect OMNIA from failure.
+A failed experiment is not hidden.
 
-Its purpose is to expose failure when failure exists.
+A weak result is not rewritten as a strong result.
+
+A structural collapse is preserved as evidence.
+
+The purpose is not to protect OMNIA from failure.
+
+The purpose is to expose failure when failure exists.
+
 
 ---
 
-# Core Position
+Core Position
 
 OMNIA-VALIDATION does not assume that OMNIA is universally correct.
 
-The repository exists to test:
+It tests two things:
 
-```text
 what survives structured criticism
 
 and:
@@ -40,12 +70,12 @@ what collapses under controlled validation
 
 This distinction is fundamental.
 
+A measurement framework becomes stronger when its failure boundaries become clearer.
+
 
 ---
 
 Core Boundary
-
-measurement != inference != decision
 
 OMNIA-VALIDATION validates structural measurements only.
 
@@ -61,10 +91,16 @@ correctness guarantees
 
 universal scientific laws
 
+final decisions
+
+domain-independent truth
+
 
 Interpretation remains external.
 
 Decision remains external.
+
+measurement != inference != decision
 
 
 ---
@@ -89,7 +125,7 @@ threshold robustness
 
 metric collapse behavior
 
-false positive generation
+false-positive generation
 
 semantic-vs-structural separation
 
@@ -101,6 +137,12 @@ saturation stability
 
 irreversibility consistency
 
+dependency-boundary behavior
+
+phase-like structural regimes
+
+
+The objective is to determine where a measurement remains stable, where it becomes unstable, where it becomes misleading, and where it collapses entirely.
 
 
 ---
@@ -109,7 +151,7 @@ Validation Philosophy
 
 The repository is built around a falsification-oriented philosophy.
 
-The objective is NOT:
+The objective is not:
 
 prove OMNIA correct
 
@@ -125,6 +167,8 @@ the collapse is preserved
 the limitation is documented
 
 the negative result remains public
+
+the boundary becomes part of the measured system
 
 
 Negative results are considered part of the system.
@@ -155,8 +199,16 @@ semantic contradictions
 
 metric instability
 
+dependency failures
+
+boundary collapses
+
 
 This is intentional.
+
+The repository is not designed to produce only positive results.
+
+It is designed to make structural behavior harder to fake.
 
 
 ---
@@ -184,6 +236,10 @@ chaotic dynamics
 representation-sensitive instability
 
 synthetic perturbation families
+
+temporal-collapse topology
+
+dependency-boundary phase behavior
 
 
 The repository may expand toward additional domains over time.
@@ -216,9 +272,116 @@ where they collapse entirely
 
 ---
 
-What This Repository Does NOT Claim
+Temporal Collapse Topology
 
-OMNIA-VALIDATION does NOT claim:
+One current validation line studies temporal-collapse behavior as a structural topology.
+
+This line asks:
+
+Does temporal-collapse behavior expose a stable structural topology,
+or is it only a collection of isolated trajectory labels?
+
+The v0 chain detected:
+
+directed signature-cluster topology
+centrality structure
+control plane
+dependency map
+dependency boundary map
+boundary phase diagram
+
+Canonical entry point:
+
+docs/TEMPORAL_COLLAPSE_TOPOLOGY_INDEX_V0.md
+
+Main chain document:
+
+docs/TEMPORAL_COLLAPSE_TOPOLOGY_EXPERIMENT_CHAIN_V0.md
+
+Final phase result:
+
+docs/TEMPORAL_COLLAPSE_TOPOLOGY_BOUNDARY_PHASE_DIAGRAM_V0_RESULT.md
+
+Safe canonical claim:
+
+OMNIA-VALIDATION detected a directed temporal-collapse signature topology
+with a measurable control plane and a dependency boundary phase diagram.
+
+The tested variant axis remained stable, while family and threshold axes
+exposed drift and critical boundaries.
+
+Important limitation:
+
+The control plane is not universally invariant.
+
+This is not a failure of the chain.
+
+It is the measured boundary of the chain.
+
+
+---
+
+Temporal Collapse Topology — v0 Results
+
+Current v0 status:
+
+cluster adjacency graph        PASS
+cluster graph centrality       PASS
+cluster graph control plane    PASS
+control-plane robustness       CHECK
+dependency map                 PASS
+dependency boundary            PASS
+boundary phase diagram         PASS
+
+The CHECK result in the robustness test is important.
+
+It shows that the control plane is not fully robust under all tested perturbations.
+
+That instability is then mapped by the dependency-map, dependency-boundary, and phase-diagram experiments.
+
+The correct reading is:
+
+detect structure
+test structure
+find instability
+map instability
+classify boundary regimes
+
+Not:
+
+force every result to PASS
+
+
+---
+
+Temporal Collapse Topology — Reproduction Order
+
+Run the temporal-collapse topology scripts in this order:
+
+python examples/temporal_collapse_topology_cluster_adjacency_graph_v0.py
+python examples/temporal_collapse_topology_cluster_graph_centrality_v0.py
+python examples/temporal_collapse_topology_cluster_graph_control_plane_v0.py
+python examples/temporal_collapse_topology_control_plane_robustness_v0.py
+python examples/temporal_collapse_topology_dependency_map_v0.py
+python examples/temporal_collapse_topology_dependency_boundary_v0.py
+python examples/temporal_collapse_topology_boundary_phase_diagram_v0.py
+
+Result files:
+
+results/temporal_collapse_topology_cluster_adjacency_graph_v0.json
+results/temporal_collapse_topology_cluster_graph_centrality_v0.json
+results/temporal_collapse_topology_cluster_graph_control_plane_v0.json
+results/temporal_collapse_topology_control_plane_robustness_v0.json
+results/temporal_collapse_topology_dependency_map_v0.json
+results/temporal_collapse_topology_dependency_boundary_v0.json
+results/temporal_collapse_topology_boundary_phase_diagram_v0.json
+
+
+---
+
+What This Repository Does Not Claim
+
+OMNIA-VALIDATION does not claim:
 
 universal validity
 
@@ -232,10 +395,16 @@ mathematical completeness
 
 scientific finality
 
+production certification
+
 domain-independent guarantees
+
+decision authority
 
 
 The repository is exploratory and adversarial by design.
+
+A result is valid only inside its tested construction unless later validation expands the boundary.
 
 
 ---
@@ -258,10 +427,14 @@ reproducible execution paths
 
 environment notes
 
+result files
+
 negative outcomes when relevant
 
 
 Validation without reproducibility is considered weak evidence.
+
+A result should be readable, runnable, and falsifiable.
 
 
 ---
@@ -284,10 +457,12 @@ unexpected behavior
 
 measurement collapse
 
+boundary sensitivity
 
-Negative evidence defines:
+partial robustness
 
-what the framework is NOT measuring
+
+Negative evidence defines what the framework is not measuring.
 
 This is considered scientifically valuable.
 
@@ -310,7 +485,13 @@ and:
 a semantically correct answer
 may become structurally unstable
 
-This repository actively studies this separation.
+OMNIA-VALIDATION actively studies this separation.
+
+Structural stability is not semantic correctness.
+
+Structural instability is not semantic incorrectness.
+
+The two domains must not be confused.
 
 
 ---
@@ -371,6 +552,8 @@ representation-only explanations
 
 topology-only explanations
 
+threshold-only explanations
+
 
 The objective is to determine whether the measurement survives reduction attempts.
 
@@ -393,6 +576,8 @@ cryptographic systems
 
 synthetic perturbation spaces
 
+temporal-collapse trajectories
+
 
 
 ---
@@ -413,13 +598,17 @@ metric degeneracy
 
 structural exhaustion
 
+dependency boundaries
+
+phase-like structural zones
+
 
 
 ---
 
 Repository Structure
 
-Planned structure:
+Typical structure:
 
 docs/
 examples/
@@ -430,6 +619,12 @@ reproducibility/
 synthetic/
 stress_tests/
 cross_domain/
+
+Current important directories:
+
+docs/      -> technical documentation and result reports
+examples/  -> runnable validation scripts
+results/   -> generated JSON result files
 
 
 ---
@@ -443,16 +638,18 @@ OMNIA-VALIDATION pressure-tests that layer.
 Simplified relationship:
 
 OMNIA
-    ->
-measurement generation
+  -> measurement generation
 
 OMNIA-VALIDATION
-    ->
-measurement stress testing
+  -> measurement stress testing
 
 The repositories are complementary.
 
 They are not interchangeable.
+
+OMNIA-VALIDATION does not replace OMNIA.
+
+It tests whether OMNIA-related measurements remain stable, reproducible, falsifiable, and bounded under pressure.
 
 
 ---
@@ -476,6 +673,10 @@ reproducibility
 failure boundaries
 
 adversarial stability
+
+dependency behavior
+
+structural phase zones
 
 
 across the ecosystem.
@@ -504,6 +705,12 @@ production certification
 
 semantic authority
 
+correctness oracle
+
+
+The correct interpretation is:
+
+a growing validation layer for structural measurement behavior
 
 
 ---
@@ -520,8 +727,12 @@ frameworks become unfalsifiable
 
 failures disappear from visibility
 
+structural claims become too easy to overstate
+
 
 OMNIA-VALIDATION exists to prevent this.
+
+Its function is to make the measurement layer face controlled criticism.
 
 
 ---
@@ -546,6 +757,10 @@ false interpretations
 
 reproducibility problems
 
+dependency boundaries
+
+structural collapse
+
 
 under controlled structural validation.
 
@@ -553,3 +768,7 @@ Core principle:
 
 a framework becomes more trustworthy
 when its failure boundaries become measurable
+
+Final boundary:
+
+measurement != inference != decision
