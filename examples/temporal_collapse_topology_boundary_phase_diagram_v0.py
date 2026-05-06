@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from statistics import mean, pstdev
 
-VERSION = "0.1.3"
+VERSION = "0.1.4"
 
 INPUT_RESULTS_PATH = Path(
     "results/temporal_collapse_topology_dependency_boundary_v0.json"
@@ -46,18 +46,38 @@ def extract_boundary_records(payload):
     """
     Extract the full dependency-boundary scenario list.
 
-    The input JSON can contain several short summary lists:
-    - minimum critical boundaries
-    - top critical boundaries
-    - top moderate boundaries
-    - top stable boundaries
+    The input JSON may store the full records as:
+    - a list of dict records
+    - a dict of dict records
+    - a nested structure under dependency_boundary_summary
+    - a nested structure under boundary_extremes / records / scenario_records
 
-    The correct source is the largest scenario-like list.
-    Therefore this function never returns the first matching list.
-    It scans the whole payload and selects the largest valid candidate.
+    This function searches the whole payload and selects the largest
+    scenario-like collection. It rejects small summary lists when a larger
+    valid collection exists.
     """
 
     candidates = []
+
+    scenario_like_keys = {
+        "scenario_name",
+        "scenario_type",
+        "boundary_axis",
+        "axis",
+        "dependency_axis",
+        "dependency_class",
+        "boundary_class",
+        "impact_score",
+        "impact",
+        "boundary_distance",
+        "distance",
+        "expected_dominant_rank",
+        "dominant_rank",
+        "expected_second_rank",
+        "second_rank",
+        "status",
+        "strict_status",
+    }
 
     def score_record_list(records):
         if not records:
@@ -65,51 +85,49 @@ def extract_boundary_records(payload):
 
         sample_keys = set()
 
-        for item in records[:50]:
+        for item in records[:80]:
             if isinstance(item, dict):
                 sample_keys.update(item.keys())
 
-        scenario_like_keys = {
-            "scenario_name",
-            "scenario_type",
-            "boundary_axis",
-            "axis",
-            "dependency_axis",
-            "dependency_class",
-            "boundary_class",
-            "impact_score",
-            "impact",
-            "boundary_distance",
-            "distance",
-            "expected_dominant_rank",
-            "dominant_rank",
-            "expected_second_rank",
-            "second_rank",
-            "status",
-            "strict_status",
-        }
-
         return len(sample_keys.intersection(scenario_like_keys))
+
+    def maybe_add_candidate(records, path):
+        if not records:
+            return
+
+        if not all(isinstance(item, dict) for item in records):
+            return
+
+        score = score_record_list(records)
+
+        if score >= 3:
+            candidates.append({
+                "path": path,
+                "length": len(records),
+                "score": score,
+                "records": records,
+            })
 
     def walk(obj, path=None):
         path = path or []
 
         if isinstance(obj, dict):
+            values = list(obj.values())
+
+            # Case 1: dict of scenario records.
+            if values and all(isinstance(value, dict) for value in values):
+                maybe_add_candidate(values, path + ["<dict_values>"])
+
+            # Case 2: normal recursive traversal.
             for key, value in obj.items():
                 walk(value, path + [key])
 
         elif isinstance(obj, list):
+            # Case 3: list of scenario records.
             if obj and all(isinstance(item, dict) for item in obj):
-                score = score_record_list(obj)
+                maybe_add_candidate(obj, path)
 
-                if score >= 4:
-                    candidates.append({
-                        "path": path,
-                        "length": len(obj),
-                        "score": score,
-                        "records": obj,
-                    })
-
+            # Case 4: nested lists/dicts.
             for index, value in enumerate(obj):
                 walk(value, path + [str(index)])
 
@@ -117,6 +135,25 @@ def extract_boundary_records(payload):
 
     if not candidates:
         return []
+
+    expected_count = (
+        payload.get("summary", {}).get("boundary_scenario_count")
+        or payload.get("summary", {}).get("dependency_scenario_count")
+        or payload.get("summary", {}).get("dependency_record_count")
+    )
+
+    if expected_count is not None:
+        exact_matches = [
+            candidate for candidate in candidates
+            if candidate["length"] == expected_count
+        ]
+
+        if exact_matches:
+            exact_matches.sort(
+                key=lambda item: item["score"],
+                reverse=True,
+            )
+            return exact_matches[0]["records"]
 
     candidates.sort(
         key=lambda item: (
@@ -775,6 +812,10 @@ def main():
             ),
         },
         "phase_records": phase_records,
+        "debug": {
+            "raw_record_count": len(raw_records),
+            "input_summary": dependency_payload.get("summary", {}),
+        },
         "interpretation": {
             "main_result": (
                 "boundary phase diagram detected"
