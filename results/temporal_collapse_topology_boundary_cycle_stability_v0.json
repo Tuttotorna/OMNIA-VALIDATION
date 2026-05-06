@@ -1,0 +1,416 @@
+{
+  "experiment": "temporal_collapse_topology_boundary_cycle_stability_v0",
+  "version": "0.1.0",
+  "status": "CHECK",
+  "summary": {
+    "variant_count": 8,
+    "node_count": 6,
+    "confirmation_window": 2,
+    "persistence_window": 2,
+    "global_persistence_threshold": 4,
+    "max_mutation_depth": 4,
+    "boundary_cycle": "OSCILLATING_NONPERSISTENT<->FRAGMENTED_LOCAL_COLLAPSE",
+    "forward_transition": "OSCILLATING_NONPERSISTENT->FRAGMENTED_LOCAL_COLLAPSE",
+    "reverse_transition": "FRAGMENTED_LOCAL_COLLAPSE->OSCILLATING_NONPERSISTENT",
+    "all_cycles_detected": true,
+    "expected_cycle_stable": false,
+    "forward_depths": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "reverse_depths": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4
+    ],
+    "forward_depth_stable": true,
+    "reverse_depth_stable": false,
+    "cycle_depth_sums": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5
+    ],
+    "cycle_depth_sum_mean": 4.25,
+    "cycle_depth_sum_stable": false,
+    "cycle_depth_asymmetries": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3
+    ],
+    "cycle_asymmetry_mean": 2.25,
+    "cycle_asymmetry_stable": false,
+    "forward_example_total": 676759,
+    "reverse_example_total": 16768,
+    "forward_example_mean": 84594.875,
+    "reverse_example_mean": 2096,
+    "cycle_density_ratio_mean": 121.49976751254495,
+    "boundary_cycle_index_mean": 0.012006418612918904,
+    "boundary_cycle_index_std": 0.01270085228050615
+  },
+  "cycle_summary": {
+    "all_cycles_detected": true,
+    "cycle_detected_values": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "forward_depths": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "reverse_depths": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4
+    ],
+    "forward_depth_stable": true,
+    "reverse_depth_stable": false,
+    "cycle_depth_sums": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5
+    ],
+    "cycle_depth_sum_mean": 4.25,
+    "cycle_depth_sum_std": 0.4330127018922193,
+    "cycle_asymmetries": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3
+    ],
+    "cycle_asymmetry_mean": 2.25,
+    "cycle_asymmetry_std": 0.4330127018922193,
+    "cycle_asymmetry_stable": false,
+    "cycle_depth_sum_stable": false,
+    "forward_examples": [
+      9608,
+      26121,
+      55363,
+      167773,
+      75883,
+      131746,
+      120702,
+      89563
+    ],
+    "reverse_examples": [
+      1600,
+      2112,
+      2624,
+      3648,
+      2880,
+      3392,
+      256,
+      256
+    ],
+    "forward_example_total": 676759,
+    "reverse_example_total": 16768,
+    "forward_example_mean": 84594.875,
+    "reverse_example_mean": 2096,
+    "forward_example_std": 52726.953454783184,
+    "reverse_example_std": 1285.1443483135912,
+    "cycle_density_ratios": [
+      6.005,
+      12.367897727272727,
+      21.098704268292682,
+      45.99040570175438,
+      26.348263888888887,
+      38.84021226415094,
+      471.4921875,
+      349.85546875
+    ],
+    "cycle_density_ratio_mean": 121.49976751254495,
+    "cycle_density_ratio_std": 168.4643549906674,
+    "cycle_indices": [
+      0.041631973355537054,
+      0.020213621224302286,
+      0.011849068872712823,
+      0.005435916387022941,
+      0.009488291185113925,
+      0.006436628057018809,
+      0.00042418518334410367,
+      0.0005716646382992977
+    ],
+    "boundary_cycle_index_mean": 0.012006418612918904,
+    "boundary_cycle_index_std": 0.01270085228050615,
+    "expected_cycle_stable": false
+  },
+  "variant_summaries": [
+    {
+      "variant_index": 0,
+      "geometry_name": "compact_low_spacing",
+      "cycle_detected": true,
+      "forward_depth": 1,
+      "reverse_depth": 3,
+      "forward_examples": 9608,
+      "reverse_examples": 1600,
+      "cycle_depth_sum": 4,
+      "cycle_depth_asymmetry": 2,
+      "cycle_density_ratio": 6.005,
+      "boundary_cycle_index": 0.041631973355537054,
+      "forward_counts": {
+        "1": 6,
+        "2": 130,
+        "3": 1311,
+        "4": 8161
+      },
+      "reverse_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 64,
+        "4": 1536
+      }
+    },
+    {
+      "variant_index": 1,
+      "geometry_name": "medium_shifted_spacing",
+      "cycle_detected": true,
+      "forward_depth": 1,
+      "reverse_depth": 3,
+      "forward_examples": 26121,
+      "reverse_examples": 2112,
+      "cycle_depth_sum": 4,
+      "cycle_depth_asymmetry": 2,
+      "cycle_density_ratio": 12.367897727272727,
+      "boundary_cycle_index": 0.020213621224302286,
+      "forward_counts": {
+        "1": 6,
+        "2": 182,
+        "3": 2603,
+        "4": 23330
+      },
+      "reverse_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 64,
+        "4": 2048
+      }
+    },
+    {
+      "variant_index": 2,
+      "geometry_name": "wide_spacing",
+      "cycle_detected": true,
+      "forward_depth": 1,
+      "reverse_depth": 3,
+      "forward_examples": 55363,
+      "reverse_examples": 2624,
+      "cycle_depth_sum": 4,
+      "cycle_depth_asymmetry": 2,
+      "cycle_density_ratio": 21.098704268292682,
+      "boundary_cycle_index": 0.011849068872712823,
+      "forward_counts": {
+        "1": 6,
+        "2": 234,
+        "3": 4335,
+        "4": 50788
+      },
+      "reverse_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 64,
+        "4": 2560
+      }
+    },
+    {
+      "variant_index": 3,
+      "geometry_name": "long_sparse_spacing",
+      "cycle_detected": true,
+      "forward_depth": 1,
+      "reverse_depth": 3,
+      "forward_examples": 167773,
+      "reverse_examples": 3648,
+      "cycle_depth_sum": 4,
+      "cycle_depth_asymmetry": 2,
+      "cycle_density_ratio": 45.99040570175438,
+      "boundary_cycle_index": 0.005435916387022941,
+      "forward_counts": {
+        "1": 6,
+        "2": 338,
+        "3": 9143,
+        "4": 158286
+      },
+      "reverse_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 64,
+        "4": 3584
+      }
+    },
+    {
+      "variant_index": 4,
+      "geometry_name": "front_loaded_geometry",
+      "cycle_detected": true,
+      "forward_depth": 1,
+      "reverse_depth": 3,
+      "forward_examples": 75883,
+      "reverse_examples": 2880,
+      "cycle_depth_sum": 4,
+      "cycle_depth_asymmetry": 2,
+      "cycle_density_ratio": 26.348263888888887,
+      "boundary_cycle_index": 0.009488291185113925,
+      "forward_counts": {
+        "1": 6,
+        "2": 260,
+        "3": 5365,
+        "4": 70252
+      },
+      "reverse_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 64,
+        "4": 2816
+      }
+    },
+    {
+      "variant_index": 5,
+      "geometry_name": "back_loaded_geometry",
+      "cycle_detected": true,
+      "forward_depth": 1,
+      "reverse_depth": 3,
+      "forward_examples": 131746,
+      "reverse_examples": 3392,
+      "cycle_depth_sum": 4,
+      "cycle_depth_asymmetry": 2,
+      "cycle_density_ratio": 38.84021226415094,
+      "boundary_cycle_index": 0.006436628057018809,
+      "forward_counts": {
+        "1": 6,
+        "2": 312,
+        "3": 7773,
+        "4": 123655
+      },
+      "reverse_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 64,
+        "4": 3328
+      }
+    },
+    {
+      "variant_index": 6,
+      "geometry_name": "four_spike_oscillation",
+      "cycle_detected": true,
+      "forward_depth": 1,
+      "reverse_depth": 4,
+      "forward_examples": 120702,
+      "reverse_examples": 256,
+      "cycle_depth_sum": 5,
+      "cycle_depth_asymmetry": 3,
+      "cycle_density_ratio": 471.4921875,
+      "boundary_cycle_index": 0.00042418518334410367,
+      "forward_counts": {
+        "1": 8,
+        "2": 365,
+        "3": 8004,
+        "4": 112325
+      },
+      "reverse_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 256
+      }
+    },
+    {
+      "variant_index": 7,
+      "geometry_name": "dense_fragmented_geometry",
+      "cycle_detected": true,
+      "forward_depth": 1,
+      "reverse_depth": 4,
+      "forward_examples": 89563,
+      "reverse_examples": 256,
+      "cycle_depth_sum": 5,
+      "cycle_depth_asymmetry": 3,
+      "cycle_density_ratio": 349.85546875,
+      "boundary_cycle_index": 0.0005716646382992977,
+      "forward_counts": {
+        "1": 8,
+        "2": 331,
+        "3": 6552,
+        "4": 82672
+      },
+      "reverse_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 256
+      }
+    }
+  ],
+  "final_check": {
+    "status": "CHECK",
+    "message": "boundary-cycle existence remained stable, but reverse escape depth was geometry-sensitive"
+  },
+  "interpretation": {
+    "main_result": "The basin-boundary cycle exists across all tested geometries, but its reverse depth is not fully stable.",
+    "boundary_cycle": "OSCILLATING_NONPERSISTENT<->FRAGMENTED_LOCAL_COLLAPSE",
+    "stable_component": {
+      "path": "OSCILLATING_NONPERSISTENT->FRAGMENTED_LOCAL_COLLAPSE",
+      "minimum_depth": 1,
+      "depth_stable": true,
+      "interpretation": "entry into the collapse-entry state is stable and shallow across all tested geometries"
+    },
+    "geometry_sensitive_component": {
+      "path": "FRAGMENTED_LOCAL_COLLAPSE->OSCILLATING_NONPERSISTENT",
+      "depths": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4,
+        4
+      ],
+      "depth_stable": false,
+      "interpretation": "escape from the collapse-entry state remains possible in all geometries, but its required depth depends on trajectory geometry"
+    },
+    "structural_conclusion": "boundary cycle existence is stable, but reverse escape depth is geometry-sensitive"
+  },
+  "reproduction_command": "python examples/temporal_collapse_topology_boundary_cycle_stability_v0.py"
+}
