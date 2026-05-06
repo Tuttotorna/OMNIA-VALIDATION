@@ -70,7 +70,7 @@ It is a measurement-derived warning signal for an external decision layer.
 
 ## Level 3 Progression
 
-Level 3 currently has four validation steps:
+Level 3 currently has five validation steps:
 
 ```text
 Level 3 v0
@@ -83,7 +83,10 @@ Level 3 v2
   -> ordered Level 2 stage trajectory
 
 Level 3 v3
-  -> raw ordered trajectory records
+  -> raw ordered reference trajectories
+
+Level 3 v4
+  -> external-style raw trajectory validation
 ```
 
 This progression moves from:
@@ -110,9 +113,23 @@ to:
 raw trajectory warning
 ```
 
-The current strongest result is v3.
+to:
 
-v3 is the first Level 3 result where the warning layer operates directly over raw ordered trajectory records.
+```text
+external-style raw trajectory validation
+```
+
+The current strongest internal result is v3.
+
+The current strongest external-style result is v4.
+
+v4 is not verified independent validation.
+
+v4 is external-style validation with source independence explicitly tracked as:
+
+```text
+not_verified
+```
 
 ---
 
@@ -594,6 +611,195 @@ and COLLAPSE regimes over raw ordered trajectory records.
 
 ---
 
+## Level 3 v4 Files
+
+### External raw trajectory concept document
+
+```text
+docs/TEMPORAL_COLLAPSE_EXTERNAL_RAW_TRAJECTORY_VALIDATOR_V4.md
+```
+
+Defines the v4 external-style raw trajectory validation direction.
+
+It specifies:
+
+```text
+external raw trajectory schema
+required source field
+source independence tracking
+warning signals
+risk formula
+classification thresholds
+source summary
+aggregate output
+safe claims
+limitations
+```
+
+### External-style raw trajectory input JSONL
+
+```text
+data/temporal_collapse_external_raw_trajectories_v4.jsonl
+```
+
+Stores the external-style raw ordered trajectory records used by v4.
+
+The dataset contains five trajectories:
+
+```text
+external_stable_001
+external_drift_001
+external_borderline_critical_001
+external_critical_001
+external_collapse_like_001
+```
+
+Each event contains:
+
+```text
+trajectory_id
+step
+signature
+cluster
+delta
+iri
+boundary_distance
+phase
+source
+source_independence
+```
+
+The current source is:
+
+```text
+external_style_generator_v4
+```
+
+The current source independence status is:
+
+```text
+not_verified
+```
+
+### External raw trajectory validator script
+
+```text
+examples/temporal_collapse_external_raw_trajectory_validator_v4.py
+```
+
+Applies the v3 raw trajectory warning mechanism to external-style raw ordered trajectory records.
+
+The script groups events by `trajectory_id`, sorts by `step`, computes warning signals, emits gate actions, preserves transition evidence, and builds source summaries.
+
+It moves from:
+
+```text
+raw reference trajectory warning
+```
+
+to:
+
+```text
+external-style raw trajectory validation
+```
+
+### Level 3 v4 result JSON
+
+```text
+results/temporal_collapse_external_raw_trajectory_validator_v4.json
+```
+
+Stores the reproducible output of the Level 3 v4 external-style raw trajectory validator.
+
+### Level 3 v4 result document
+
+```text
+docs/TEMPORAL_COLLAPSE_EXTERNAL_RAW_TRAJECTORY_VALIDATOR_V4_RESULT.md
+```
+
+Documents the v4 result, source summary, ordered risk progression, aggregate result, per-trajectory evidence, safe claim, and source-independence limitation.
+
+---
+
+## Level 3 v4 Result Status
+
+Current status:
+
+```text
+PASS
+```
+
+The v4 validator executed successfully.
+
+The script read the external-style raw JSONL trajectory dataset.
+
+No runtime error was produced.
+
+Source summary:
+
+```text
+source:              external_style_generator_v4
+source_independence: not_verified
+trajectory_count:    5
+average_risk_score:  0.468439
+```
+
+Aggregate result:
+
+```text
+aggregate_risk_score:  0.468439
+aggregate_risk_regime: DRIFT
+aggregate_gate_action: WATCH
+source_count:          1
+```
+
+Regime counts:
+
+```text
+STABLE   -> 1
+DRIFT    -> 1
+CRITICAL -> 2
+COLLAPSE -> 1
+```
+
+Highest-risk trajectory:
+
+```text
+external_collapse_like_001 -> 0.824306
+```
+
+Observed risk progression:
+
+```text
+external_stable_001               -> STABLE    -> 0.040583 -> PASS
+external_drift_001                -> DRIFT     -> 0.321306 -> WATCH
+external_borderline_critical_001  -> CRITICAL  -> 0.536222 -> ESCALATE
+external_critical_001             -> CRITICAL  -> 0.619778 -> ESCALATE
+external_collapse_like_001        -> COLLAPSE  -> 0.824306 -> STOP
+```
+
+Correct interpretation:
+
+```text
+Level 3 v4 applied the v3 raw trajectory warning mechanism
+to external-style raw ordered trajectory records.
+
+The validator separated STABLE, DRIFT, CRITICAL, and COLLAPSE-like regimes,
+while explicitly marking source independence as not verified.
+```
+
+Important limitation:
+
+```text
+Level 3 v4 is external-style validation.
+
+It is not verified independent validation.
+
+A source label alone does not prove independence.
+```
+
+---
+
 ## Risk Formula v0/v1
 
 Level 3 v0 and v1 use:
@@ -630,9 +836,9 @@ The v2 formula preserves the same structural intent while replacing snapshot sig
 
 ---
 
-## Risk Formula v3
+## Risk Formula v3/v4
 
-Level 3 v3 uses the raw ordered trajectory variant:
+Level 3 v3 and v4 use the raw ordered trajectory variant:
 
 ```text
 risk_score =
@@ -643,7 +849,7 @@ risk_score =
   + 0.10 * irreversibility_signal
 ```
 
-The v3 formula measures directly over raw ordered trajectory events.
+The v3/v4 formula measures directly over raw ordered trajectory events.
 
 It uses:
 
@@ -656,6 +862,14 @@ iri progression
 boundary distance
 collapse phase count
 broken signature markers
+```
+
+v4 additionally tracks:
+
+```text
+source
+source_independence
+source_summary
 ```
 
 ---
@@ -697,6 +911,7 @@ temporal-collapse signatures
   -> phase diagram
   -> early-warning classification
   -> raw trajectory warning
+  -> external-style raw trajectory validation
 ```
 
 The Level 3 warning layer exists because Level 2 mapped structural boundaries.
@@ -706,6 +921,8 @@ Without the Level 2 boundary map, Level 3 would only be arbitrary scoring.
 With the Level 2 boundary map, Level 3 becomes bounded structural navigation.
 
 With v3, the warning layer begins operating directly over raw ordered trajectory events.
+
+With v4, the same mechanism is applied to external-style raw ordered trajectory records while tracking source independence.
 
 ---
 
@@ -729,7 +946,7 @@ A warning system becomes stronger when it knows where the measurement becomes un
 
 ---
 
-## Structural Reading Across v0, v1, v2, and v3
+## Structural Reading Across v0, v1, v2, v3, and v4
 
 ### v0
 
@@ -776,7 +993,7 @@ This indicates a localized boundary-pressure zone, not terminal collapse.
 ### v3
 
 ```text
-raw ordered trajectory records
+raw ordered reference trajectory records
   -> STABLE / DRIFT / CRITICAL / COLLAPSE separated correctly
 ```
 
@@ -788,7 +1005,32 @@ The ordered risk progression is:
 0.033417 -> 0.277833 -> 0.568722 -> 0.817056
 ```
 
-This is the strongest Level 3 result so far because the warning layer operates directly over raw ordered events.
+This is the strongest internal Level 3 result because the warning layer operates directly over raw ordered events.
+
+### v4
+
+```text
+external-style raw trajectory records
+  -> STABLE / DRIFT / CRITICAL / COLLAPSE-like regimes separated
+```
+
+v4 applies the v3 mechanism to external-style raw ordered trajectory records.
+
+The observed risk progression is:
+
+```text
+0.040583 -> 0.321306 -> 0.536222 -> 0.619778 -> 0.824306
+```
+
+The decisive boundary condition is:
+
+```text
+source_independence: not_verified
+```
+
+Therefore v4 is not verified independent validation.
+
+It is external-style validation with source independence explicitly tracked.
 
 ---
 
@@ -800,13 +1042,18 @@ Safe verdict:
 Level 3 has moved from synthetic warning,
 to snapshot-derived warning,
 to ordered stage-trajectory warning,
-to raw ordered trajectory warning.
+to raw ordered trajectory warning,
+to external-style raw trajectory validation.
 
-The current strongest result is v3.
+The current strongest internal result is v3.
 
-Level 3 v3 separated STABLE, DRIFT, CRITICAL, and COLLAPSE regimes
-over bounded raw ordered trajectory records using visible signals,
-explicit thresholds, and inspectable transition evidence.
+The current strongest external-style result is v4.
+
+Level 3 v4 separated STABLE, DRIFT, CRITICAL, and COLLAPSE-like regimes
+over external-style raw ordered trajectory records using visible signals,
+explicit thresholds, source labels, and inspectable transition evidence.
+
+Source independence is explicitly marked as not_verified.
 ```
 
 This is bounded, reproducible, and falsifiable.
@@ -824,11 +1071,13 @@ Level 3 v1 applied that warning layer to Level 2-derived result snapshots.
 Level 3 v2 evaluated the Level 2 temporal-collapse chain
 as an ordered stage trajectory.
 
-Level 3 v3 evaluated raw ordered trajectory records directly.
+Level 3 v3 evaluated raw ordered reference trajectory records directly.
 
-The v3 validator separated STABLE, DRIFT, CRITICAL, and COLLAPSE regimes
-over four bounded reference trajectories using visible structural signals,
-explicit thresholds, and inspectable transition evidence.
+Level 3 v4 applied the same raw trajectory warning mechanism
+to external-style raw ordered trajectory records.
+
+The v4 validator separated STABLE, DRIFT, CRITICAL, and COLLAPSE-like regimes
+while explicitly marking source independence as not verified.
 ```
 
 ---
@@ -862,13 +1111,13 @@ The thresholds are universal.
 Do not claim:
 
 ```text
-Level 3 v3 validates live runtime systems.
+Level 3 v4 is verified independent validation.
 ```
 
 Do not claim:
 
 ```text
-Raw trajectory warning proves model cognition.
+External-style validation proves model cognition.
 ```
 
 Correct boundary:
@@ -883,7 +1132,10 @@ over Level 2-derived result snapshots.
 Level 3 v2 measures warning risk across an ordered Level 2 stage trajectory.
 
 Level 3 v3 measures warning risk directly over bounded raw ordered
-trajectory records.
+reference trajectory records.
+
+Level 3 v4 measures warning risk over external-style raw ordered trajectory
+records with source independence explicitly marked as not_verified.
 ```
 
 ---
@@ -909,17 +1161,24 @@ Level 3 v2
   -> dominant axis: boundary_proximity
 
 Level 3 v3
-  -> raw ordered trajectory records
+  -> raw ordered reference trajectories
   -> PASS
   -> STABLE / DRIFT / CRITICAL / COLLAPSE separated
   -> highest risk: raw_collapse_like_001
+
+Level 3 v4
+  -> external-style raw trajectory validation
+  -> PASS
+  -> STABLE / DRIFT / CRITICAL / COLLAPSE-like regimes separated
+  -> highest risk: external_collapse_like_001
+  -> source independence: not_verified
 ```
 
 ---
 
 ## Next Step
 
-The next validation step is to move from bounded internal raw reference trajectories to external or independently generated raw trajectory records.
+The next validation step is to move from external-style raw trajectories to genuinely independent raw trajectory records.
 
 Target direction:
 
@@ -928,10 +1187,11 @@ Level 3 v0 synthetic reference
   -> Level 3 v1 Level-2-derived snapshots
   -> Level 3 v2 ordered Level 2 stage trajectory
   -> Level 3 v3 raw ordered reference trajectories
-  -> Level 3 v4 external raw trajectory validation
+  -> Level 3 v4 external-style raw trajectory validation
+  -> Level 3 v5 verified independent raw trajectory validation
 ```
 
-The next script should test the v3 validator against raw ordered trajectory records not generated only as internal reference cases.
+The next script should test the raw trajectory warning mechanism against records from another generator, model, benchmark, or externally produced trace source.
 
 It should preserve:
 
@@ -944,25 +1204,26 @@ boundary crossings
 irreversibility progression
 phase-regime changes
 raw trajectory events
-external or independently generated source
+source labels
+source independence status
 ```
 
 Target file:
 
 ```text
-examples/temporal_collapse_external_raw_trajectory_validator_v4.py
+examples/temporal_collapse_verified_independent_raw_trajectory_validator_v5.py
 ```
 
-The v4 objective is to test whether the raw trajectory warning mechanism remains meaningful beyond bounded internal reference trajectories.
+The v5 objective is to test whether the raw trajectory warning mechanism remains coherent when source independence is verified or externally documented.
 
 This is the move from:
 
 ```text
-raw reference trajectory warning
+external-style validation
 ```
 
 to:
 
 ```text
-external raw trajectory validation
+verified independent validation
 ```
