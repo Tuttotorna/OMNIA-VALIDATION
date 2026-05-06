@@ -1,0 +1,156 @@
+{
+  "experiment": "temporal_collapse_raw_trajectory_validator_v3",
+  "status": "v3_raw_ordered_trajectory_records",
+  "boundary": "raw ordered trajectory records in JSONL format",
+  "claim": "This script measures structural warning risk directly over raw ordered trajectory events using visible signals, weights, thresholds, and transition evidence.",
+  "input_file": "data/temporal_collapse_raw_trajectories_v3.jsonl",
+  "trajectory_count": 4,
+  "weights": {
+    "transition_density": 0.2,
+    "drift_progression": 0.2,
+    "boundary_proximity": 0.25,
+    "collapse_similarity": 0.25,
+    "irreversibility_signal": 0.1
+  },
+  "thresholds": {
+    "STABLE": 0.25,
+    "DRIFT": 0.5,
+    "CRITICAL": 0.75
+  },
+  "aggregate": {
+    "aggregate_risk_score": 0.424257,
+    "aggregate_risk_regime": "DRIFT",
+    "aggregate_gate_action": "WATCH",
+    "regime_counts": {
+      "COLLAPSE": 1,
+      "CRITICAL": 1,
+      "DRIFT": 1,
+      "STABLE": 1
+    },
+    "highest_risk_trajectory": "raw_collapse_like_001",
+    "highest_risk_score": 0.817056
+  },
+  "results": [
+    {
+      "trajectory_id": "raw_collapse_like_001",
+      "event_count": 4,
+      "risk_regime": "COLLAPSE",
+      "risk_score": 0.817056,
+      "gate_action": "STOP",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [
+        "high_transition_density",
+        "high_drift_progression",
+        "boundary_proximity",
+        "collapse_similarity",
+        "irreversibility_signal"
+      ],
+      "signals": {
+        "transition_density": 0.777778,
+        "drift_progression": 0.635,
+        "boundary_proximity": 0.94,
+        "collapse_similarity": 0.86,
+        "irreversibility_signal": 0.845
+      },
+      "transition_evidence": {
+        "signature_changes": 1.0,
+        "cluster_changes": 0.666667,
+        "phase_changes": 0.666667,
+        "delta_early_mean": 0.37,
+        "delta_late_mean": 0.9,
+        "iri_early_mean": 0.24,
+        "iri_late_mean": 0.79,
+        "min_boundary_distance": 0.04,
+        "max_boundary_proximity": 0.96,
+        "collapse_phase_count": 2
+      }
+    },
+    {
+      "trajectory_id": "raw_critical_001",
+      "event_count": 4,
+      "risk_regime": "CRITICAL",
+      "risk_score": 0.568722,
+      "gate_action": "ESCALATE",
+      "dominant_axis": "transition_density",
+      "warning_flags": [
+        "high_transition_density",
+        "boundary_proximity"
+      ],
+      "signals": {
+        "transition_density": 0.777778,
+        "drift_progression": 0.440833,
+        "boundary_proximity": 0.77,
+        "collapse_similarity": 0.374,
+        "irreversibility_signal": 0.39
+      },
+      "transition_evidence": {
+        "signature_changes": 1.0,
+        "cluster_changes": 0.666667,
+        "phase_changes": 0.666667,
+        "delta_early_mean": 0.24,
+        "delta_late_mean": 0.615,
+        "iri_early_mean": 0.12,
+        "iri_late_mean": 0.36,
+        "min_boundary_distance": 0.2,
+        "max_boundary_proximity": 0.8,
+        "collapse_phase_count": 0
+      }
+    },
+    {
+      "trajectory_id": "raw_drift_001",
+      "event_count": 4,
+      "risk_regime": "DRIFT",
+      "risk_score": 0.277833,
+      "gate_action": "WATCH",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [],
+      "signals": {
+        "transition_density": 0.333333,
+        "drift_progression": 0.215833,
+        "boundary_proximity": 0.4325,
+        "collapse_similarity": 0.1845,
+        "irreversibility_signal": 0.1375
+      },
+      "transition_evidence": {
+        "signature_changes": 0.333333,
+        "cluster_changes": 0.333333,
+        "phase_changes": 0.333333,
+        "delta_early_mean": 0.11,
+        "delta_late_mean": 0.295,
+        "iri_early_mean": 0.045,
+        "iri_late_mean": 0.125,
+        "min_boundary_distance": 0.55,
+        "max_boundary_proximity": 0.45,
+        "collapse_phase_count": 0
+      }
+    },
+    {
+      "trajectory_id": "raw_stable_001",
+      "event_count": 4,
+      "risk_regime": "STABLE",
+      "risk_score": 0.033417,
+      "gate_action": "PASS",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [],
+      "signals": {
+        "transition_density": 0.0,
+        "drift_progression": 0.023333,
+        "boundary_proximity": 0.0775,
+        "collapse_similarity": 0.0295,
+        "irreversibility_signal": 0.02
+      },
+      "transition_evidence": {
+        "signature_changes": 0.0,
+        "cluster_changes": 0.0,
+        "phase_changes": 0.0,
+        "delta_early_mean": 0.035,
+        "delta_late_mean": 0.045,
+        "iri_early_mean": 0.01,
+        "iri_late_mean": 0.02,
+        "min_boundary_distance": 0.92,
+        "max_boundary_proximity": 0.08,
+        "collapse_phase_count": 0
+      }
+    }
+  ]
+}
