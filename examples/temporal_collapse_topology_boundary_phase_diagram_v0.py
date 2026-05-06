@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from statistics import mean, pstdev
 
-VERSION = "0.1.2"
+VERSION = "0.1.3"
 
 INPUT_RESULTS_PATH = Path(
     "results/temporal_collapse_topology_dependency_boundary_v0.json"
@@ -42,96 +42,76 @@ def load_json(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def first_existing(payload, paths):
-    for path in paths:
-        current = payload
-        ok = True
-
-        for key in path:
-            if not isinstance(current, dict) or key not in current:
-                ok = False
-                break
-
-            current = current[key]
-
-        if ok and isinstance(current, list):
-            return current
-
-    return []
-
-
 def extract_boundary_records(payload):
     """
-    Supports multiple possible result layouts.
+    Extract the full dependency-boundary scenario list.
 
-    Important:
-    The dependency-boundary result may contain many short summary lists,
-    such as top critical boundaries or minimum critical boundaries.
+    The input JSON can contain several short summary lists:
+    - minimum critical boundaries
+    - top critical boundaries
+    - top moderate boundaries
+    - top stable boundaries
 
-    This function must select the full scenario record list,
-    not a short summary list.
+    The correct source is the largest scenario-like list.
+    Therefore this function never returns the first matching list.
+    It scans the whole payload and selects the largest valid candidate.
     """
-
-    records = first_existing(
-        payload,
-        [
-            ["scenario_results"],
-            ["boundary_records"],
-            ["dependency_boundary_summary", "scenario_results"],
-            ["dependency_boundary_summary", "boundary_records"],
-            ["dependency_boundary_summary", "scenario_records"],
-            ["dependency_boundary_summary", "boundary_scenarios"],
-            ["dependency_boundary_summary", "records"],
-        ],
-    )
-
-    if records:
-        return records
 
     candidates = []
 
-    def walk(obj):
+    def score_record_list(records):
+        if not records:
+            return 0
+
+        sample_keys = set()
+
+        for item in records[:50]:
+            if isinstance(item, dict):
+                sample_keys.update(item.keys())
+
+        scenario_like_keys = {
+            "scenario_name",
+            "scenario_type",
+            "boundary_axis",
+            "axis",
+            "dependency_axis",
+            "dependency_class",
+            "boundary_class",
+            "impact_score",
+            "impact",
+            "boundary_distance",
+            "distance",
+            "expected_dominant_rank",
+            "dominant_rank",
+            "expected_second_rank",
+            "second_rank",
+            "status",
+            "strict_status",
+        }
+
+        return len(sample_keys.intersection(scenario_like_keys))
+
+    def walk(obj, path=None):
+        path = path or []
+
         if isinstance(obj, dict):
-            for value in obj.values():
-                walk(value)
+            for key, value in obj.items():
+                walk(value, path + [key])
 
         elif isinstance(obj, list):
             if obj and all(isinstance(item, dict) for item in obj):
-                sample_keys = set()
+                score = score_record_list(obj)
 
-                for item in obj[:30]:
-                    sample_keys.update(item.keys())
-
-                scenario_like_keys = {
-                    "scenario_name",
-                    "scenario_type",
-                    "boundary_axis",
-                    "axis",
-                    "dependency_axis",
-                    "dependency_class",
-                    "boundary_class",
-                    "impact_score",
-                    "impact",
-                    "boundary_distance",
-                    "distance",
-                    "expected_dominant_rank",
-                    "dominant_rank",
-                    "expected_second_rank",
-                    "second_rank",
-                }
-
-                score = len(sample_keys.intersection(scenario_like_keys))
-
-                if score >= 3:
+                if score >= 4:
                     candidates.append({
+                        "path": path,
                         "length": len(obj),
                         "score": score,
                         "records": obj,
-                        "sample_keys": sorted(sample_keys),
                     })
 
-            for value in obj:
-                walk(value)
+            for index, value in enumerate(obj):
+                walk(value, path + [str(index)])
 
     walk(payload)
 
@@ -351,17 +331,21 @@ def summarize_axis_phase_matrix(records):
             item["dependency_class_values"] = sorted(
                 set(item["dependency_class_values"])
             )
+
             item["minimum_boundary_distance"] = (
                 min(item["boundary_distances"])
                 if item["boundary_distances"]
                 else None
             )
+
             item["maximum_boundary_distance"] = (
                 max(item["boundary_distances"])
                 if item["boundary_distances"]
                 else None
             )
+
             item["impact_score_mean"] = safe_mean(item["impact_scores"])
+
             item["impact_score_max"] = (
                 max(item["impact_scores"])
                 if item["impact_scores"]
@@ -425,6 +409,7 @@ def summarize_distance_phase_map(records):
 
             item["dominant_phase"] = ordered[0][0] if ordered else None
             item["impact_score_mean"] = safe_mean(item["impact_scores"])
+
             item["impact_score_max"] = (
                 max(item["impact_scores"])
                 if item["impact_scores"]
@@ -472,6 +457,7 @@ def compute_phase_boundaries(records):
                 for item in items
                 if item["boundary_distance"] is not None
             ]
+
             return min(values) if values else None
 
         sequence = []
@@ -602,10 +588,10 @@ def select_extremes(records):
     )
 
     return {
-        "minimum_critical_boundaries": minimum_critical[:10],
-        "maximum_impact_critical_boundaries": maximum_critical[:10],
-        "minimum_drift_boundaries": minimum_drift[:10],
-        "minimum_distance_stable_boundaries": minimum_stable[:10],
+        "minimum_critical_boundaries": minimum_critical[:12],
+        "maximum_impact_critical_boundaries": maximum_critical[:12],
+        "minimum_drift_boundaries": minimum_drift[:12],
+        "minimum_distance_stable_boundaries": minimum_stable[:12],
     }
 
 
@@ -940,6 +926,21 @@ def main():
     print("-" * 80)
 
     for record in boundary_extremes["minimum_drift_boundaries"]:
+        print(
+            f"scenario={record['scenario_name']:<64} "
+            f"axis={record['boundary_axis']:<10} "
+            f"distance={record['boundary_distance']} "
+            f"class={record['dependency_class']} "
+            f"impact={record['impact_score']} "
+            f"dom_rank={record['expected_dominant_rank']} "
+            f"sec_rank={record['expected_second_rank']}"
+        )
+
+    print()
+    print("Minimum stable boundaries")
+    print("-" * 80)
+
+    for record in boundary_extremes["minimum_distance_stable_boundaries"]:
         print(
             f"scenario={record['scenario_name']:<64} "
             f"axis={record['boundary_axis']:<10} "
