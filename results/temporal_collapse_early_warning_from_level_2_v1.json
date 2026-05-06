@@ -1,0 +1,167 @@
+{
+  "experiment": "temporal_collapse_early_warning_from_level_2_v1",
+  "status": "v1_level_2_derived",
+  "boundary": "derived from existing Level 2 temporal-collapse result files",
+  "claim": "This script applies the Level 3 early-warning layer to trajectory-like snapshots derived from Level 2 result files.",
+  "level_2_result_files": [
+    "results/temporal_collapse_topology_cluster_adjacency_graph_v0.json",
+    "results/temporal_collapse_topology_cluster_graph_centrality_v0.json",
+    "results/temporal_collapse_topology_cluster_graph_control_plane_v0.json",
+    "results/temporal_collapse_topology_control_plane_robustness_v0.json",
+    "results/temporal_collapse_topology_dependency_map_v0.json",
+    "results/temporal_collapse_topology_dependency_boundary_v0.json",
+    "results/temporal_collapse_topology_boundary_phase_diagram_v0.json"
+  ],
+  "weights": {
+    "transition_density": 0.2,
+    "drift_score": 0.2,
+    "boundary_proximity": 0.25,
+    "collapse_similarity": 0.25,
+    "irreversibility_signal": 0.1
+  },
+  "thresholds": {
+    "STABLE": 0.25,
+    "DRIFT": 0.5,
+    "CRITICAL": 0.75
+  },
+  "aggregate": {
+    "aggregate_risk_score": 0.300373,
+    "aggregate_risk_regime": "DRIFT",
+    "aggregate_gate_action": "WATCH",
+    "regime_counts": {
+      "STABLE": 4,
+      "DRIFT": 2,
+      "CRITICAL": 1
+    }
+  },
+  "results": [
+    {
+      "source_file": "results/temporal_collapse_topology_cluster_adjacency_graph_v0.json",
+      "source_status": "LOADED",
+      "risk_regime": "STABLE",
+      "risk_score": 0.208333,
+      "gate_action": "PASS",
+      "dominant_axis": "drift_score",
+      "warning_flags": [
+        "high_drift_score"
+      ],
+      "signals": {
+        "transition_density": 0.0,
+        "drift_score": 0.666667,
+        "boundary_proximity": 0.3,
+        "collapse_similarity": 0.0,
+        "irreversibility_signal": 0.0
+      }
+    },
+    {
+      "source_file": "results/temporal_collapse_topology_cluster_graph_centrality_v0.json",
+      "source_status": "LOADED",
+      "risk_regime": "STABLE",
+      "risk_score": 0.208333,
+      "gate_action": "PASS",
+      "dominant_axis": "drift_score",
+      "warning_flags": [
+        "high_drift_score"
+      ],
+      "signals": {
+        "transition_density": 0.0,
+        "drift_score": 0.666667,
+        "boundary_proximity": 0.3,
+        "collapse_similarity": 0.0,
+        "irreversibility_signal": 0.0
+      }
+    },
+    {
+      "source_file": "results/temporal_collapse_topology_cluster_graph_control_plane_v0.json",
+      "source_status": "LOADED",
+      "risk_regime": "STABLE",
+      "risk_score": 0.208333,
+      "gate_action": "PASS",
+      "dominant_axis": "drift_score",
+      "warning_flags": [
+        "high_drift_score"
+      ],
+      "signals": {
+        "transition_density": 0.0,
+        "drift_score": 0.666667,
+        "boundary_proximity": 0.3,
+        "collapse_similarity": 0.0,
+        "irreversibility_signal": 0.0
+      }
+    },
+    {
+      "source_file": "results/temporal_collapse_topology_control_plane_robustness_v0.json",
+      "source_status": "LOADED",
+      "risk_regime": "DRIFT",
+      "risk_score": 0.340248,
+      "gate_action": "WATCH",
+      "dominant_axis": "drift_score",
+      "warning_flags": [
+        "high_drift_score"
+      ],
+      "signals": {
+        "transition_density": 0.255319,
+        "drift_score": 0.751773,
+        "boundary_proximity": 0.478723,
+        "collapse_similarity": 0.076596,
+        "irreversibility_signal": 0.0
+      }
+    },
+    {
+      "source_file": "results/temporal_collapse_topology_dependency_map_v0.json",
+      "source_status": "LOADED",
+      "risk_regime": "DRIFT",
+      "risk_score": 0.397778,
+      "gate_action": "WATCH",
+      "dominant_axis": "drift_score",
+      "warning_flags": [
+        "high_drift_score"
+      ],
+      "signals": {
+        "transition_density": 0.366667,
+        "drift_score": 0.788889,
+        "boundary_proximity": 0.556667,
+        "collapse_similarity": 0.11,
+        "irreversibility_signal": 0.0
+      }
+    },
+    {
+      "source_file": "results/temporal_collapse_topology_dependency_boundary_v0.json",
+      "source_status": "LOADED",
+      "risk_regime": "CRITICAL",
+      "risk_score": 0.53125,
+      "gate_action": "ESCALATE",
+      "dominant_axis": "drift_score",
+      "warning_flags": [
+        "high_transition_density",
+        "high_drift_score",
+        "boundary_proximity"
+      ],
+      "signals": {
+        "transition_density": 0.625,
+        "drift_score": 0.875,
+        "boundary_proximity": 0.7375,
+        "collapse_similarity": 0.1875,
+        "irreversibility_signal": 0.0
+      }
+    },
+    {
+      "source_file": "results/temporal_collapse_topology_boundary_phase_diagram_v0.json",
+      "source_status": "LOADED",
+      "risk_regime": "STABLE",
+      "risk_score": 0.208333,
+      "gate_action": "PASS",
+      "dominant_axis": "drift_score",
+      "warning_flags": [
+        "high_drift_score"
+      ],
+      "signals": {
+        "transition_density": 0.0,
+        "drift_score": 0.666667,
+        "boundary_proximity": 0.3,
+        "collapse_similarity": 0.0,
+        "irreversibility_signal": 0.0
+      }
+    }
+  ]
+}
