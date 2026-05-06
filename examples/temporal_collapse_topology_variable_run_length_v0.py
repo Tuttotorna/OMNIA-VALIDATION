@@ -1,9 +1,8 @@
-import itertools
 import json
 from pathlib import Path
 from statistics import mean, pstdev
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 
 RESULTS_PATH = Path(
     "results/temporal_collapse_topology_variable_run_length_v0.json"
@@ -15,8 +14,6 @@ GLOBAL_PERSISTENCE_THRESHOLD = (
     CONFIRMATION_WINDOW + PERSISTENCE_WINDOW
 )
 
-MAX_MUTATION_DEPTH = 5
-
 SUPPORTED_CLASSES = [
     "GLOBAL_PERSISTENT_COLLAPSE",
     "RECOVERY_RELAPSE_COLLAPSE",
@@ -26,14 +23,8 @@ SUPPORTED_CLASSES = [
     "CLEAN_PASS",
 ]
 
-SOURCE_CLASS = "FRAGMENTED_LOCAL_COLLAPSE"
+SOURCE_CLASS_FOCUS = "FRAGMENTED_LOCAL_COLLAPSE"
 TARGET_CLASS = "OSCILLATING_NONPERSISTENT"
-
-MUTATION_VALUES = [
-    "PASS",
-    "ESCALATE",
-    "COLLAPSE",
-]
 
 
 def compute_runs(sequence):
@@ -120,6 +111,7 @@ def classify(sequence):
     return {
         "classification": label,
         "collapse_run_count": collapse_run_count,
+        "run_lengths": run_lengths,
         "max_temporal_collapse_run_length": max_run_length,
         "temporal_collapse_run_count": local_confirmation_count,
         "persistence_reset_count": persistence_reset_count,
@@ -151,116 +143,73 @@ def variable_run_length_specs():
             "name": "three_runs_mass_6_baseline",
             "length": 26,
             "runs": [(5, 2), (11, 2), (17, 2)],
-            "expected_source_class": "FRAGMENTED_LOCAL_COLLAPSE",
         },
         {
             "name": "three_runs_mass_9_variable",
             "length": 32,
             "runs": [(5, 3), (13, 3), (21, 3)],
-            "expected_source_class": "FRAGMENTED_LOCAL_COLLAPSE",
         },
         {
             "name": "three_runs_mass_12_long",
             "length": 38,
             "runs": [(5, 4), (16, 4), (27, 4)],
-            "expected_source_class": "RECOVERY_RELAPSE_COLLAPSE",
         },
         {
             "name": "four_runs_mass_4_spikes",
             "length": 26,
             "runs": [(4, 1), (8, 1), (12, 1), (16, 1)],
-            "expected_source_class": "OSCILLATING_NONPERSISTENT",
         },
         {
             "name": "four_runs_mass_8_baseline",
             "length": 30,
             "runs": [(4, 2), (9, 2), (14, 2), (19, 2)],
-            "expected_source_class": "FRAGMENTED_LOCAL_COLLAPSE",
         },
         {
             "name": "four_runs_mass_12_variable",
             "length": 40,
             "runs": [(4, 3), (13, 3), (22, 3), (31, 3)],
-            "expected_source_class": "FRAGMENTED_LOCAL_COLLAPSE",
         },
         {
             "name": "two_runs_mass_8_relapse_like",
             "length": 28,
             "runs": [(4, 2), (16, 6)],
-            "expected_source_class": "RECOVERY_RELAPSE_COLLAPSE",
         },
         {
             "name": "six_runs_mass_6_spike_family",
             "length": 32,
             "runs": [(3, 1), (7, 1), (11, 1), (15, 1), (19, 1), (23, 1)],
-            "expected_source_class": "OSCILLATING_NONPERSISTENT",
         },
         {
             "name": "five_runs_mass_10_fragmented",
             "length": 42,
             "runs": [(4, 2), (11, 2), (18, 2), (25, 2), (32, 2)],
-            "expected_source_class": "FRAGMENTED_LOCAL_COLLAPSE",
         },
         {
             "name": "three_runs_mass_8_mixed",
             "length": 34,
             "runs": [(5, 2), (14, 3), (24, 3)],
-            "expected_source_class": "FRAGMENTED_LOCAL_COLLAPSE",
         },
         {
             "name": "four_runs_mass_7_mixed",
             "length": 34,
             "runs": [(4, 2), (10, 1), (16, 2), (22, 2)],
-            "expected_source_class": "FRAGMENTED_LOCAL_COLLAPSE",
         },
         {
             "name": "four_runs_mass_10_mixed",
             "length": 42,
             "runs": [(4, 3), (13, 2), (22, 3), (31, 2)],
-            "expected_source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+        },
+        {
+            "name": "same_mass_8_three_runs",
+            "length": 36,
+            "runs": [(5, 2), (14, 3), (24, 3)],
+        },
+        {
+            "name": "same_mass_8_four_runs",
+            "length": 36,
+            "runs": [(4, 2), (11, 2), (18, 2), (25, 2)],
         },
     ]
-
-
-def mutate_sequence(sequence, mutations):
-    mutated = list(sequence)
-
-    for index, new_value in mutations:
-        if 0 <= index < len(mutated):
-            mutated[index] = new_value
-
-    return mutated
-
-
-def candidate_mutations(sequence, depth):
-    indices = list(range(len(sequence)))
-
-    if depth < 1:
-        raise ValueError("Mutation depth must be >= 1.")
-
-    if depth > MAX_MUTATION_DEPTH:
-        raise ValueError("Mutation depth exceeds MAX_MUTATION_DEPTH.")
-
-    for selected_indices in itertools.combinations(indices, depth):
-        replacement_options = []
-
-        for index in selected_indices:
-            old_value = sequence[index]
-
-            replacement_options.append([
-                value
-                for value in MUTATION_VALUES
-                if value != old_value
-            ])
-
-        for replacement_values in itertools.product(*replacement_options):
-            yield [
-                (index, new_value)
-                for index, new_value in zip(
-                    selected_indices,
-                    replacement_values,
-                )
-            ]
 
 
 def safe_mean(values):
@@ -306,7 +255,6 @@ def geometry_features(length, runs):
 
     front_mass = 0
     back_mass = 0
-
     midpoint = length / 2
 
     for start, run_length in runs:
@@ -358,69 +306,65 @@ def geometry_features(length, runs):
     }
 
 
-def find_target_profile(sequence, target_class):
-    source_metrics = classify(sequence)
-    source_class = source_metrics["classification"]
+def analytical_minimum_depth_to_oscillating(runs):
+    """
+    Exact shortcut for this classifier.
 
-    checked_by_depth = {
-        str(depth): 0
-        for depth in range(1, MAX_MUTATION_DEPTH + 1)
-    }
+    To reach OSCILLATING_NONPERSISTENT from a collapse-run sequence,
+    all collapse runs must be reduced below CONFIRMATION_WINDOW.
 
-    target_example_count_by_depth = {
-        str(depth): 0
-        for depth in range(1, MAX_MUTATION_DEPTH + 1)
-    }
+    With CONFIRMATION_WINDOW = 2, each run must become length <= 1.
 
-    example_by_depth = {}
+    Minimum edits needed:
+        sum(max(0, run_length - 1))
 
-    for depth in range(1, MAX_MUTATION_DEPTH + 1):
-        for mutations in candidate_mutations(sequence, depth):
-            checked_by_depth[str(depth)] += 1
+    If the sequence is already OSCILLATING_NONPERSISTENT, depth = 0.
+    """
 
-            mutated = mutate_sequence(sequence, mutations)
-            target_metrics = classify(mutated)
-
-            if target_metrics["classification"] != target_class:
-                continue
-
-            depth_key = str(depth)
-
-            target_example_count_by_depth[depth_key] += 1
-
-            if depth_key not in example_by_depth:
-                example_by_depth[depth_key] = {
-                    "mutations": mutations,
-                    "sequence": mutated,
-                    "metrics": target_metrics,
-                }
-
-    hit_depths = [
-        int(depth)
-        for depth, count in target_example_count_by_depth.items()
-        if count > 0
+    run_lengths = [
+        run_length
+        for _start, run_length in runs
     ]
 
-    minimum_target_depth = (
-        min(hit_depths)
-        if hit_depths
-        else None
+    if not run_lengths:
+        return None
+
+    already_oscillating = (
+        len(run_lengths) >= 2
+        and all(length < CONFIRMATION_WINDOW for length in run_lengths)
     )
 
-    target_example_total = sum(
-        target_example_count_by_depth.values()
+    if already_oscillating:
+        return 0
+
+    return sum(
+        max(0, run_length - (CONFIRMATION_WINDOW - 1))
+        for run_length in run_lengths
     )
 
-    return {
-        "source_class": source_class,
-        "target_class": target_class,
-        "source_metrics": source_metrics,
-        "checked_by_depth": checked_by_depth,
-        "target_example_count_by_depth": target_example_count_by_depth,
-        "minimum_target_depth": minimum_target_depth,
-        "target_example_total": target_example_total,
-        "example_by_depth": example_by_depth,
-    }
+
+def predicted_class_after_minimal_escape(runs):
+    escaped_lengths = [
+        min(run_length, CONFIRMATION_WINDOW - 1)
+        for _start, run_length in runs
+    ]
+
+    nonzero_runs = [
+        length
+        for length in escaped_lengths
+        if length > 0
+    ]
+
+    if len(nonzero_runs) == 0:
+        return "CLEAN_PASS"
+
+    if len(nonzero_runs) == 1:
+        return "SPIKE_FILTERED"
+
+    if all(length < CONFIRMATION_WINDOW for length in nonzero_runs):
+        return "OSCILLATING_NONPERSISTENT"
+
+    return "UNRESOLVED"
 
 
 def pearson_correlation(xs, ys):
@@ -453,22 +397,6 @@ def pearson_correlation(xs, ys):
     return numerator / denominator
 
 
-def infer_factor(features):
-    collapse_run_count = features["collapse_run_count"]
-    max_run_length = features["max_run_length"]
-
-    if collapse_run_count >= 5:
-        return "run_count_dominant"
-
-    if collapse_run_count == 4:
-        return "run_count_dominant"
-
-    if max_run_length >= GLOBAL_PERSISTENCE_THRESHOLD:
-        return "run_length_persistence_dominant"
-
-    return "fragmented_boundary"
-
-
 def build_records():
     records = []
 
@@ -479,17 +407,19 @@ def build_records():
         )
 
         source_metrics = classify(sequence)
+
         features = geometry_features(
             spec["length"],
             spec["runs"],
         )
 
-        target_profile = find_target_profile(
-            sequence,
-            TARGET_CLASS,
+        analytical_depth = analytical_minimum_depth_to_oscillating(
+            spec["runs"],
         )
 
-        inferred_factor = infer_factor(features)
+        predicted_target = predicted_class_after_minimal_escape(
+            spec["runs"],
+        )
 
         record = {
             "variant_index": variant_index,
@@ -497,26 +427,17 @@ def build_records():
             "trajectory_length": spec["length"],
             "runs": spec["runs"],
             "raw_action_sequence": sequence,
-            "expected_source_class": spec["expected_source_class"],
             "source_class": source_metrics["classification"],
-            "source_class_matches_expected": (
-                source_metrics["classification"]
-                == spec["expected_source_class"]
-            ),
             "source_metrics": source_metrics,
             "features": features,
             "target_class": TARGET_CLASS,
-            "minimum_target_depth": (
-                target_profile["minimum_target_depth"]
+            "minimum_target_depth": analytical_depth,
+            "predicted_target_after_minimal_escape": predicted_target,
+            "target_reachable_by_formula": (
+                predicted_target == TARGET_CLASS
             ),
-            "target_example_total": (
-                target_profile["target_example_total"]
-            ),
-            "target_example_count_by_depth": (
-                target_profile["target_example_count_by_depth"]
-            ),
-            "checked_by_depth": target_profile["checked_by_depth"],
-            "inferred_factor": inferred_factor,
+            "target_example_total": None,
+            "method": "analytical_minimum_depth_no_bruteforce",
         }
 
         records.append(record)
@@ -531,6 +452,7 @@ def feature_correlations(records, feature_keys):
         record
         for record in records
         if record["minimum_target_depth"] is not None
+        and record["target_reachable_by_formula"]
     ]
 
     for key in feature_keys:
@@ -571,11 +493,6 @@ def grouped_by_source_class(records):
             if item["minimum_target_depth"] is not None
         ]
 
-        example_totals = [
-            item["target_example_total"]
-            for item in items
-        ]
-
         run_counts = [
             item["features"]["collapse_run_count"]
             for item in items
@@ -591,8 +508,6 @@ def grouped_by_source_class(records):
             "minimum_target_depths": depths,
             "minimum_target_depth_mean": safe_mean(depths),
             "minimum_target_depth_std": safe_std(depths),
-            "target_example_totals": example_totals,
-            "target_example_total_mean": safe_mean(example_totals),
             "collapse_run_counts": run_counts,
             "total_collapse_frames": collapse_masses,
             "geometry_names": [
@@ -742,27 +657,7 @@ def summarize(records):
     same_run_count = compare_same_run_count(records)
     same_mass = compare_same_mass(records)
 
-    fragmented_records = [
-        record
-        for record in records
-        if record["source_class"] == SOURCE_CLASS
-    ]
-
-    fragmented_depths = [
-        record["minimum_target_depth"]
-        for record in fragmented_records
-        if record["minimum_target_depth"] is not None
-    ]
-
-    fragmented_run_counts = [
-        record["features"]["collapse_run_count"]
-        for record in fragmented_records
-    ]
-
-    fragmented_masses = [
-        record["features"]["total_collapse_frames"]
-        for record in fragmented_records
-    ]
+    source_class_summary = grouped_by_source_class(records)
 
     same_run_count_depth_varies = any(
         not value["depth_stable_within_run_count"]
@@ -775,26 +670,43 @@ def summarize(records):
         for value in same_mass.values()
     )
 
-    source_class_summary = grouped_by_source_class(records)
+    reachable_records = [
+        record
+        for record in records
+        if record["target_reachable_by_formula"]
+    ]
+
+    depths = [
+        record["minimum_target_depth"]
+        for record in reachable_records
+        if record["minimum_target_depth"] is not None
+    ]
+
+    run_counts = [
+        record["features"]["collapse_run_count"]
+        for record in reachable_records
+    ]
+
+    masses = [
+        record["features"]["total_collapse_frames"]
+        for record in reachable_records
+    ]
 
     run_count_corr = correlations.get("collapse_run_count")
     mass_corr = correlations.get("total_collapse_frames")
-    max_run_length_corr = correlations.get("max_run_length")
 
-    dominant_factor = "undetermined"
-
-    if (
-        run_count_corr is not None
-        and mass_corr is not None
-        and abs(run_count_corr) >= abs(mass_corr)
-    ):
+    if run_count_corr is None and mass_corr is None:
+        dominant_factor = "undetermined"
+    elif run_count_corr is None:
+        dominant_factor = "total_collapse_frames"
+    elif mass_corr is None:
         dominant_factor = "collapse_run_count"
-
-    if (
-        max_run_length_corr is not None
-        and abs(max_run_length_corr) > abs(run_count_corr or 0)
-    ):
-        dominant_factor = "max_run_length"
+    elif abs(mass_corr) > abs(run_count_corr):
+        dominant_factor = "total_collapse_frames"
+    elif abs(run_count_corr) > abs(mass_corr):
+        dominant_factor = "collapse_run_count"
+    else:
+        dominant_factor = "tie_run_count_and_mass"
 
     separation_detected = (
         same_run_count_depth_varies
@@ -804,11 +716,11 @@ def summarize(records):
 
     return {
         "record_count": len(records),
-        "fragmented_record_count": len(fragmented_records),
-        "fragmented_depths": fragmented_depths,
-        "fragmented_depth_values": sorted(set(fragmented_depths)),
-        "fragmented_run_counts": fragmented_run_counts,
-        "fragmented_total_collapse_frames": fragmented_masses,
+        "reachable_record_count": len(reachable_records),
+        "target_depths": depths,
+        "target_depth_values": sorted(set(depths)),
+        "collapse_run_counts": run_counts,
+        "total_collapse_frames": masses,
         "feature_correlations": correlations,
         "strongest_feature": strongest_feature,
         "strongest_abs_correlation": strongest_abs_corr,
@@ -819,6 +731,11 @@ def summarize(records):
         "same_mass_depth_varies": same_mass_depth_varies,
         "source_class_summary": source_class_summary,
         "separation_detected": separation_detected,
+        "analytical_rule": (
+            "minimum_target_depth = "
+            "sum(max(0, run_length - 1)) "
+            "for transition to OSCILLATING_NONPERSISTENT"
+        ),
     }
 
 
@@ -831,11 +748,13 @@ def compact_record(record):
         "runs": record["runs"],
         "features": record["features"],
         "minimum_target_depth": record["minimum_target_depth"],
-        "target_example_total": record["target_example_total"],
-        "target_example_count_by_depth": (
-            record["target_example_count_by_depth"]
+        "predicted_target_after_minimal_escape": (
+            record["predicted_target_after_minimal_escape"]
         ),
-        "inferred_factor": record["inferred_factor"],
+        "target_reachable_by_formula": (
+            record["target_reachable_by_formula"]
+        ),
+        "method": record["method"],
     }
 
 
@@ -855,15 +774,10 @@ def main():
         "confirmation_window": CONFIRMATION_WINDOW,
         "persistence_window": PERSISTENCE_WINDOW,
         "global_persistence_threshold": GLOBAL_PERSISTENCE_THRESHOLD,
-        "max_mutation_depth": MAX_MUTATION_DEPTH,
-        "source_class_focus": SOURCE_CLASS,
+        "source_class_focus": SOURCE_CLASS_FOCUS,
         "target_class": TARGET_CLASS,
-        "fragmented_record_count": (
-            analysis["fragmented_record_count"]
-        ),
-        "fragmented_depth_values": (
-            analysis["fragmented_depth_values"]
-        ),
+        "reachable_record_count": analysis["reachable_record_count"],
+        "target_depth_values": analysis["target_depth_values"],
         "strongest_feature": analysis["strongest_feature"],
         "strongest_abs_correlation": (
             analysis["strongest_abs_correlation"]
@@ -876,6 +790,8 @@ def main():
             analysis["same_mass_depth_varies"]
         ),
         "separation_detected": analysis["separation_detected"],
+        "analytical_rule": analysis["analytical_rule"],
+        "bruteforce_removed": True,
     }
 
     payload = {
@@ -892,8 +808,9 @@ def main():
         ],
         "interpretation": (
             "This experiment separates collapse_run_count from "
-            "total_collapse_frames by testing variable run lengths "
-            "and mixed run-count / collapse-mass geometries."
+            "total_collapse_frames by using variable run lengths. "
+            "It uses an analytical minimum-depth rule instead of "
+            "brute-force mutation enumeration."
         ),
         "reproduction_command": (
             "python examples/"
@@ -945,8 +862,7 @@ def main():
             f"mass={features['total_collapse_frames']} "
             f"max_run={features['max_run_length']} "
             f"target_depth={record['minimum_target_depth']} "
-            f"examples={record['target_example_total']} "
-            f"factor={record['inferred_factor']}"
+            f"target={record['predicted_target_after_minimal_escape']}"
         )
 
     print()
@@ -985,15 +901,29 @@ def main():
         )
 
     print()
+    print("Source class summary")
+    print("-" * 80)
+
+    for source_class, value in analysis["source_class_summary"].items():
+        print(
+            f"class={source_class:<32} "
+            f"records={value['record_count']} "
+            f"depths={value['minimum_target_depths']} "
+            f"mean_depth={value['minimum_target_depth_mean']} "
+            f"run_counts={value['collapse_run_counts']} "
+            f"masses={value['total_collapse_frames']} "
+            f"geometries={value['geometry_names']}"
+        )
+
+    print()
     print("=" * 80)
     print("FINAL CHECK")
     print("=" * 80)
 
     if status == "PASS":
         print(
-            "PASS - run-count vs collapse-mass separation measured: "
-            "variable run lengths exposed which geometry factors "
-            "control target-depth behavior under tested cases."
+            "PASS - run-count vs collapse-mass separation measured "
+            "without brute-force enumeration."
         )
     else:
         print(
