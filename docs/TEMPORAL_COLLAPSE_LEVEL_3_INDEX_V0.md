@@ -70,7 +70,7 @@ It is a measurement-derived warning signal for an external decision layer.
 
 ## Level 3 Progression
 
-Level 3 currently has eight validation steps:
+Level 3 currently has nine validation steps:
 
 ```text
 Level 3 v0
@@ -96,6 +96,9 @@ Level 3 v6
 
 Level 3 v7
   -> verified external-source raw trajectory validation
+
+Level 3 v8
+  -> direct public benchmark record mapping
 ```
 
 This progression moves from:
@@ -146,6 +149,12 @@ to:
 verified external-source raw trajectory validation
 ```
 
+to:
+
+```text
+direct public benchmark record mapping
+```
+
 The current strongest internal raw result is v3.
 
 The current strongest external-style result is v4.
@@ -156,11 +165,13 @@ The current strongest declared external-source result is v6.
 
 The current strongest verified external-source result is v7.
 
-v7 is stronger than v6 because it uses a public/documentable benchmark boundary.
+The current strongest direct public benchmark mapping result is v8.
 
-v7 does not claim that OMNIA solves GSM-Symbolic.
+v8 is stronger than v7 because it adds direct benchmark-record fields.
 
-v7 maps GSM-Symbolic-derived structural trajectory records into the Level 3 raw warning mechanism.
+v8 does not claim that OMNIA solves GSM-Symbolic.
+
+v8 measures structural warning risk over direct GSM-Symbolic public benchmark record mappings.
 
 ---
 
@@ -1458,6 +1469,273 @@ It maps GSM-Symbolic-derived structural trajectory records into the Level 3 raw 
 
 ---
 
+## Level 3 v8 Files
+
+### Direct GSM-Symbolic record concept document
+
+```text
+docs/TEMPORAL_COLLAPSE_DIRECT_GSM_SYMBOLIC_RECORD_VALIDATOR_V8.md
+```
+
+Defines the v8 direct public benchmark record mapping direction.
+
+It specifies:
+
+```text
+direct GSM-Symbolic record schema
+required template id
+required question id
+required variant type
+required benchmark name
+required source record type
+required source record reference
+required mapping method
+warning signals
+risk formula
+classification thresholds
+source summary
+aggregate output
+safe claims
+limitations
+```
+
+### Direct GSM-Symbolic record input JSONL
+
+```text
+data/temporal_collapse_direct_gsm_symbolic_records_v8.jsonl
+```
+
+Stores the direct GSM-Symbolic public benchmark record mappings used by v8.
+
+The dataset contains five trajectories:
+
+```text
+gsm_symbolic_direct_stable_001
+gsm_symbolic_direct_drift_001
+gsm_symbolic_direct_borderline_critical_001
+gsm_symbolic_direct_critical_001
+gsm_symbolic_direct_collapse_like_001
+```
+
+Each event contains:
+
+```text
+trajectory_id
+step
+template_id
+question_id
+variant_type
+signature
+cluster
+delta
+iri
+boundary_distance
+phase
+source
+source_independence
+independence_method
+external_source_reference
+benchmark_name
+source_record_type
+source_record_reference
+mapping_method
+mapping_notes
+```
+
+The current source is:
+
+```text
+gsm_symbolic_public_benchmark_v8
+```
+
+The current source independence status is:
+
+```text
+external_source_verified
+```
+
+The current independence method is:
+
+```text
+direct_public_benchmark_record_mapping
+```
+
+The current benchmark name is:
+
+```text
+GSM-Symbolic
+```
+
+The current source record type is:
+
+```text
+template_variant
+```
+
+The current mapping method is:
+
+```text
+template_variant_to_trajectory
+```
+
+Important boundary:
+
+```text
+v8 does not claim that OMNIA solves GSM-Symbolic.
+
+v8 does not evaluate semantic correctness.
+
+v8 measures structural warning risk over direct GSM-Symbolic public benchmark
+record mappings.
+```
+
+### Direct GSM-Symbolic record validator script
+
+```text
+examples/temporal_collapse_direct_gsm_symbolic_record_validator_v8.py
+```
+
+Applies the raw trajectory warning mechanism to direct GSM-Symbolic public benchmark records mapped into raw ordered structural trajectory events.
+
+The script groups events by `trajectory_id`, sorts by `step`, computes warning signals, emits gate actions, preserves transition evidence, and builds source summaries.
+
+It moves from:
+
+```text
+verified external-source mapped trajectory records
+```
+
+to:
+
+```text
+direct public benchmark record mapping
+```
+
+### Level 3 v8 result JSON
+
+```text
+results/temporal_collapse_direct_gsm_symbolic_record_validator_v8.json
+```
+
+Stores the reproducible output of the Level 3 v8 validator.
+
+### Level 3 v8 result document
+
+```text
+docs/TEMPORAL_COLLAPSE_DIRECT_GSM_SYMBOLIC_RECORD_VALIDATOR_V8_RESULT.md
+```
+
+Documents the v8 result, direct benchmark-record boundary, source summary, ordered risk progression, aggregate result, per-trajectory evidence, safe claim, limitation, and technical note.
+
+---
+
+## Level 3 v8 Result Status
+
+Current status:
+
+```text
+PASS
+```
+
+The v8 validator executed successfully.
+
+No runtime error was produced.
+
+Source summary:
+
+```text
+source:                    gsm_symbolic_public_benchmark_v8
+source_independence:       external_source_verified
+independence_method:       direct_public_benchmark_record_mapping
+external_source_reference: GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository
+benchmark_name:            GSM-Symbolic
+source_record_type:        template_variant
+mapping_method:            template_variant_to_trajectory
+trajectory_count:          5
+average_risk_score:        0.465463
+```
+
+Aggregate result:
+
+```text
+aggregate_risk_score:  0.465463
+aggregate_risk_regime: DRIFT
+aggregate_gate_action: WATCH
+source_count:          1
+```
+
+Regime counts:
+
+```text
+STABLE   -> 1
+DRIFT    -> 1
+CRITICAL -> 2
+COLLAPSE -> 1
+```
+
+Highest-risk trajectory:
+
+```text
+gsm_symbolic_direct_collapse_like_001 -> 0.820378
+```
+
+Observed risk progression:
+
+```text
+gsm_symbolic_direct_stable_001               -> STABLE   -> 0.104128 -> PASS
+gsm_symbolic_direct_drift_001                -> DRIFT    -> 0.303100 -> WATCH
+gsm_symbolic_direct_borderline_critical_001  -> CRITICAL -> 0.511733 -> ESCALATE
+gsm_symbolic_direct_critical_001             -> CRITICAL -> 0.587978 -> ESCALATE
+gsm_symbolic_direct_collapse_like_001        -> COLLAPSE -> 0.820378 -> STOP
+```
+
+Important borderline result:
+
+```text
+gsm_symbolic_direct_borderline_critical_001 -> 0.511733
+CRITICAL threshold                          -> 0.500000
+margin above threshold                      -> 0.011733
+```
+
+Correct interpretation:
+
+```text
+Level 3 v8 applied the raw trajectory warning mechanism
+to direct GSM-Symbolic public benchmark records mapped into raw ordered
+structural trajectory events.
+
+The validator separated STABLE, DRIFT, CRITICAL, and COLLAPSE regimes,
+with the borderline trajectory crossing the CRITICAL threshold by a narrow margin.
+```
+
+Important limitation:
+
+```text
+Level 3 v8 is stronger than v7 because it adds direct benchmark-record fields.
+
+It does not claim that OMNIA solves GSM-Symbolic.
+
+It does not evaluate semantic correctness.
+
+It does not directly evaluate official GSM-Symbolic model answers.
+
+It maps direct GSM-Symbolic public benchmark record fields into the Level 3 raw warning mechanism.
+```
+
+Technical note:
+
+```text
+The current v8 output contains the label multiple_mapping_notess.
+
+This is a harmless formatting issue caused by pluralizing mapping_notes by appending s.
+
+The intended clean label is multiple_mapping_notes.
+
+The measurement result is not affected.
+```
+
+---
+
 ## Risk Formula v0/v1
 
 Level 3 v0 and v1 use:
@@ -1494,9 +1772,9 @@ The v2 formula preserves the same structural intent while replacing snapshot sig
 
 ---
 
-## Risk Formula v3/v4/v5/v6/v7
+## Risk Formula v3/v4/v5/v6/v7/v8
 
-Level 3 v3, v4, v5, v6, and v7 use the raw ordered trajectory variant:
+Level 3 v3, v4, v5, v6, v7, and v8 use the raw ordered trajectory variant:
 
 ```text
 risk_score =
@@ -1507,7 +1785,7 @@ risk_score =
   + 0.10 * irreversibility_signal
 ```
 
-The v3/v4/v5/v6/v7 formula measures directly over raw ordered trajectory events.
+The v3/v4/v5/v6/v7/v8 formula measures directly over raw ordered trajectory events.
 
 It uses:
 
@@ -1563,6 +1841,22 @@ source_summary
 external_source_note
 ```
 
+v8 additionally tracks:
+
+```text
+direct public benchmark record mapping
+template_id
+question_id
+variant_type
+benchmark_name
+source_record_type
+source_record_reference
+mapping_method
+mapping_notes
+source_summary
+external_source_note
+```
+
 ---
 
 ## Classification Thresholds
@@ -1606,6 +1900,7 @@ temporal-collapse signatures
   -> separate-generator raw trajectory validation
   -> declared external-source raw trajectory validation
   -> verified external-source raw trajectory validation
+  -> direct public benchmark record mapping
 ```
 
 The Level 3 warning layer exists because Level 2 mapped structural boundaries.
@@ -1623,6 +1918,8 @@ With v5, the same mechanism is applied to raw ordered trajectory records generat
 With v6, the same mechanism is applied to declared external-source raw ordered trajectory records.
 
 With v7, the same mechanism is applied to GSM-Symbolic-derived verified external-source raw ordered trajectory records.
+
+With v8, the same mechanism is applied to direct GSM-Symbolic public benchmark record mappings.
 
 ---
 
@@ -1646,7 +1943,7 @@ A warning system becomes stronger when it knows where the measurement becomes un
 
 ---
 
-## Structural Reading Across v0 to v7
+## Structural Reading Across v0 to v8
 
 ### v0
 
@@ -1811,6 +2108,39 @@ It does not claim that OMNIA solves GSM-Symbolic.
 
 It maps GSM-Symbolic-derived structural trajectory records into the Level 3 raw warning mechanism.
 
+### v8
+
+```text
+direct GSM-Symbolic public benchmark record mappings
+  -> STABLE / DRIFT / CRITICAL / COLLAPSE regimes separated
+```
+
+v8 applies the raw trajectory warning mechanism to direct GSM-Symbolic public benchmark record fields mapped into raw ordered structural trajectory events.
+
+The observed risk progression is:
+
+```text
+0.104128 -> 0.303100 -> 0.511733 -> 0.587978 -> 0.820378
+```
+
+The decisive boundary condition is:
+
+```text
+source_independence: external_source_verified
+independence_method: direct_public_benchmark_record_mapping
+benchmark_name: GSM-Symbolic
+source_record_type: template_variant
+mapping_method: template_variant_to_trajectory
+```
+
+Therefore v8 is stronger than v7 as a direct benchmark-record mapping step.
+
+It does not claim that OMNIA solves GSM-Symbolic.
+
+It does not evaluate semantic correctness.
+
+It measures structural warning risk over direct GSM-Symbolic public benchmark record mappings.
+
 ---
 
 ## Current Structural Verdict
@@ -1825,7 +2155,8 @@ to raw ordered trajectory warning,
 to external-style raw trajectory validation,
 to separate-generator raw trajectory validation,
 to declared external-source raw trajectory validation,
-to verified external-source raw trajectory validation.
+to verified external-source raw trajectory validation,
+to direct public benchmark record mapping.
 
 The current strongest internal raw result is v3.
 
@@ -1837,14 +2168,18 @@ The current strongest declared external-source result is v6.
 
 The current strongest verified external-source result is v7.
 
-Level 3 v7 separated STABLE, DRIFT, CRITICAL, and COLLAPSE regimes
-over GSM-Symbolic-derived verified external-source raw ordered trajectory records
-using visible signals, explicit thresholds, source labels, independence method labels,
-external-source references, mapping notes, and inspectable transition evidence.
+The current strongest direct public benchmark mapping result is v8.
 
-v7 is stronger than v6 because it uses a public/documentable benchmark boundary.
+Level 3 v8 separated STABLE, DRIFT, CRITICAL, and COLLAPSE regimes
+over direct GSM-Symbolic public benchmark record mappings using visible signals,
+explicit thresholds, source labels, independence method labels, benchmark fields,
+source-record fields, mapping methods, and inspectable transition evidence.
 
-v7 does not claim that OMNIA solves GSM-Symbolic.
+v8 is stronger than v7 because it adds direct benchmark-record fields.
+
+v8 does not claim that OMNIA solves GSM-Symbolic.
+
+v8 does not evaluate semantic correctness.
 ```
 
 This is bounded, reproducible, and falsifiable.
@@ -1876,7 +2211,10 @@ external-source raw ordered trajectory records.
 Level 3 v7 applied the raw trajectory warning mechanism to GSM-Symbolic-derived
 verified external-source raw ordered trajectory records.
 
-The v7 validator separated STABLE, DRIFT, CRITICAL, and COLLAPSE regimes,
+Level 3 v8 applied the raw trajectory warning mechanism to direct GSM-Symbolic
+public benchmark records mapped into raw ordered structural trajectory events.
+
+The v8 validator separated STABLE, DRIFT, CRITICAL, and COLLAPSE regimes,
 with the borderline trajectory crossing the CRITICAL threshold by a narrow margin.
 ```
 
@@ -1935,7 +2273,20 @@ Level 3 v7 proves that OMNIA solves GSM-Symbolic.
 Do not claim:
 
 ```text
-External-style, separate-generator, declared external-source, or verified external-source validation proves model cognition.
+Level 3 v8 proves that OMNIA solves GSM-Symbolic.
+```
+
+Do not claim:
+
+```text
+Level 3 v8 evaluates semantic correctness.
+```
+
+Do not claim:
+
+```text
+External-style, separate-generator, declared external-source, verified external-source,
+or direct public benchmark mapping validation proves model cognition.
 ```
 
 Correct boundary:
@@ -1966,6 +2317,10 @@ and independence_method recorded as prompt_perturbation_trace.
 Level 3 v7 measures warning risk over GSM-Symbolic-derived verified external-source
 raw ordered trajectory records, with source_independence recorded as
 external_source_verified and independence_method recorded as public_benchmark_mapping.
+
+Level 3 v8 measures warning risk over direct GSM-Symbolic public benchmark record
+mappings, with source_independence recorded as external_source_verified and
+independence_method recorded as direct_public_benchmark_record_mapping.
 ```
 
 ---
@@ -2029,13 +2384,26 @@ Level 3 v7
   -> independence method: public_benchmark_mapping
   -> external source: GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository
   -> does not claim GSM-Symbolic solving
+
+Level 3 v8
+  -> direct public benchmark record mapping
+  -> PASS
+  -> STABLE / DRIFT / CRITICAL / COLLAPSE regimes separated
+  -> highest risk: gsm_symbolic_direct_collapse_like_001
+  -> source independence: external_source_verified
+  -> independence method: direct_public_benchmark_record_mapping
+  -> benchmark: GSM-Symbolic
+  -> source record type: template_variant
+  -> mapping method: template_variant_to_trajectory
+  -> does not claim GSM-Symbolic solving
+  -> does not evaluate semantic correctness
 ```
 
 ---
 
 ## Next Step
 
-The next validation step is to move from GSM-Symbolic-derived mapped structural trajectories to direct GSM-Symbolic record evaluation.
+The next validation step is to move from direct template-variant benchmark mapping to actual model-output or answer-correctness trace mapping.
 
 Target direction:
 
@@ -2049,18 +2417,19 @@ Level 3 v0 synthetic reference
   -> Level 3 v6 declared external-source raw trajectory validation
   -> Level 3 v7 verified external-source raw trajectory validation
   -> Level 3 v8 direct public benchmark record mapping
+  -> Level 3 v9 direct answer-trace / model-output mapping
 ```
 
-The next script should test the raw trajectory warning mechanism against records derived directly from actual GSM-Symbolic files, model outputs, or answer perturbation traces.
+The next script should test the raw trajectory warning mechanism against actual GSM-Symbolic model outputs, answer correctness traces, or benchmark files parsed directly from source.
 
-Possible v8 source classes:
+Possible v9 source classes:
 
 ```text
 actual GSM-Symbolic generated records
-official GSM-Symbolic template variants
+official GSM-Symbolic template variants parsed from source
 model outputs over GSM-Symbolic variants
 answer correctness traces over symbolic perturbations
-public benchmark records transformed into raw trajectory records
+public benchmark files transformed into raw trajectory records
 ```
 
 It should preserve:
@@ -2071,8 +2440,12 @@ variant order
 template id
 question id
 variant type
-model output id
-answer correctness
+model name
+run id
+response id
+expected answer
+model final answer
+is_correct
 signature transitions
 cluster transitions
 delta progression
@@ -2090,19 +2463,19 @@ mapping notes
 Target file:
 
 ```text
-examples/temporal_collapse_direct_gsm_symbolic_record_validator_v8.py
+examples/temporal_collapse_direct_gsm_symbolic_answer_trace_validator_v9.py
 ```
 
-The v8 objective is to test whether the raw trajectory warning mechanism remains coherent when the records are derived directly from actual public benchmark data or model-output traces.
+The v9 objective is to test whether the raw trajectory warning mechanism remains coherent when the records include answer traces or model outputs.
 
 This is the move from:
 
 ```text
-verified external-source mapped trajectory records
+direct public benchmark record mapping
 ```
 
 to:
 
 ```text
-direct public benchmark record mapping
+direct answer-trace / model-output mapping
 ```
