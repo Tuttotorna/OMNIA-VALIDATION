@@ -1,0 +1,270 @@
+{
+  "experiment": "temporal_collapse_verified_external_source_raw_trajectory_validator_v7",
+  "status": "v7_verified_external_source_raw_trajectory_validation",
+  "boundary": "verified external-source raw ordered trajectory records mapped from GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+  "claim": "This script applies the Level 3 raw trajectory warning mechanism to verified external-source raw ordered trajectory records mapped from GSM-Symbolic. It does not claim that OMNIA solves GSM-Symbolic.",
+  "input_file": "data/temporal_collapse_verified_external_source_raw_trajectories_v7.jsonl",
+  "trajectory_count": 5,
+  "source_count": 1,
+  "source_independence_values": [
+    "external_source_verified"
+  ],
+  "independence_method_values": [
+    "public_benchmark_mapping"
+  ],
+  "external_source_references": [
+    "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository"
+  ],
+  "external_source_note": "source_independence=external_source_verified means the trajectory records are mapped from a public/documentable benchmark source. This does not imply semantic solving or universal collapse prediction.",
+  "weights": {
+    "transition_density": 0.2,
+    "drift_progression": 0.2,
+    "boundary_proximity": 0.25,
+    "collapse_similarity": 0.25,
+    "irreversibility_signal": 0.1
+  },
+  "thresholds": {
+    "STABLE": 0.25,
+    "DRIFT": 0.5,
+    "CRITICAL": 0.75
+  },
+  "aggregate": {
+    "aggregate_risk_score": 0.4647,
+    "aggregate_risk_regime": "DRIFT",
+    "aggregate_gate_action": "WATCH",
+    "regime_counts": {
+      "CRITICAL": 2,
+      "COLLAPSE": 1,
+      "DRIFT": 1,
+      "STABLE": 1
+    },
+    "highest_risk_trajectory": "gsm_symbolic_collapse_like_001",
+    "highest_risk_score": 0.817794,
+    "source_count": 1,
+    "independence_method_count": 1,
+    "external_source_reference_count": 1
+  },
+  "source_summary": [
+    {
+      "source": "gsm_symbolic_public_benchmark_v7",
+      "source_independence": "external_source_verified",
+      "independence_method": "public_benchmark_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "trajectory_count": 5,
+      "average_risk_score": 0.4647,
+      "regime_counts": {
+        "CRITICAL": 2,
+        "COLLAPSE": 1,
+        "DRIFT": 1,
+        "STABLE": 1
+      },
+      "highest_risk_trajectory": "gsm_symbolic_collapse_like_001",
+      "highest_risk_score": 0.817794
+    }
+  ],
+  "results": [
+    {
+      "trajectory_id": "gsm_symbolic_borderline_critical_001",
+      "source": "gsm_symbolic_public_benchmark_v7",
+      "source_independence": "external_source_verified",
+      "independence_method": "public_benchmark_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "mapping_notes": "multiple_mapping_notes",
+      "event_count": 5,
+      "risk_regime": "CRITICAL",
+      "risk_score": 0.508467,
+      "gate_action": "ESCALATE",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [
+        "high_transition_density",
+        "boundary_proximity"
+      ],
+      "signals": {
+        "transition_density": 0.583333,
+        "drift_progression": 0.417333,
+        "boundary_proximity": 0.734167,
+        "collapse_similarity": 0.353833,
+        "irreversibility_signal": 0.363333
+      },
+      "transition_evidence": {
+        "signature_changes": 0.75,
+        "cluster_changes": 0.5,
+        "phase_changes": 0.5,
+        "delta_early_mean": 0.19,
+        "delta_late_mean": 0.535,
+        "iri_early_mean": 0.0875,
+        "iri_late_mean": 0.321667,
+        "min_boundary_distance": 0.22,
+        "max_boundary_proximity": 0.78,
+        "collapse_phase_count": 0,
+        "source": "gsm_symbolic_public_benchmark_v7",
+        "source_independence": "external_source_verified",
+        "independence_method": "public_benchmark_mapping",
+        "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+        "mapping_notes": "multiple_mapping_notes"
+      }
+    },
+    {
+      "trajectory_id": "gsm_symbolic_collapse_like_001",
+      "source": "gsm_symbolic_public_benchmark_v7",
+      "source_independence": "external_source_verified",
+      "independence_method": "public_benchmark_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "mapping_notes": "multiple_mapping_notes",
+      "event_count": 5,
+      "risk_regime": "COLLAPSE",
+      "risk_score": 0.817794,
+      "gate_action": "STOP",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [
+        "high_transition_density",
+        "high_drift_progression",
+        "boundary_proximity",
+        "collapse_similarity",
+        "irreversibility_signal"
+      ],
+      "signals": {
+        "transition_density": 0.75,
+        "drift_progression": 0.648222,
+        "boundary_proximity": 0.9505,
+        "collapse_similarity": 0.8561,
+        "irreversibility_signal": 0.865
+      },
+      "transition_evidence": {
+        "signature_changes": 1.0,
+        "cluster_changes": 0.75,
+        "phase_changes": 0.5,
+        "delta_early_mean": 0.36,
+        "delta_late_mean": 0.881667,
+        "iri_early_mean": 0.22,
+        "iri_late_mean": 0.78,
+        "min_boundary_distance": 0.018,
+        "max_boundary_proximity": 0.982,
+        "collapse_phase_count": 2,
+        "source": "gsm_symbolic_public_benchmark_v7",
+        "source_independence": "external_source_verified",
+        "independence_method": "public_benchmark_mapping",
+        "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+        "mapping_notes": "multiple_mapping_notes"
+      }
+    },
+    {
+      "trajectory_id": "gsm_symbolic_critical_001",
+      "source": "gsm_symbolic_public_benchmark_v7",
+      "source_independence": "external_source_verified",
+      "independence_method": "public_benchmark_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "mapping_notes": "multiple_mapping_notes",
+      "event_count": 5,
+      "risk_regime": "CRITICAL",
+      "risk_score": 0.584711,
+      "gate_action": "ESCALATE",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [
+        "high_transition_density",
+        "high_drift_progression",
+        "boundary_proximity"
+      ],
+      "signals": {
+        "transition_density": 0.583333,
+        "drift_progression": 0.503556,
+        "boundary_proximity": 0.840833,
+        "collapse_similarity": 0.431167,
+        "irreversibility_signal": 0.493333
+      },
+      "transition_evidence": {
+        "signature_changes": 0.5,
+        "cluster_changes": 0.75,
+        "phase_changes": 0.5,
+        "delta_early_mean": 0.27,
+        "delta_late_mean": 0.676667,
+        "iri_early_mean": 0.1325,
+        "iri_late_mean": 0.441667,
+        "min_boundary_distance": 0.12,
+        "max_boundary_proximity": 0.88,
+        "collapse_phase_count": 0,
+        "source": "gsm_symbolic_public_benchmark_v7",
+        "source_independence": "external_source_verified",
+        "independence_method": "public_benchmark_mapping",
+        "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+        "mapping_notes": "multiple_mapping_notes"
+      }
+    },
+    {
+      "trajectory_id": "gsm_symbolic_drift_001",
+      "source": "gsm_symbolic_public_benchmark_v7",
+      "source_independence": "external_source_verified",
+      "independence_method": "public_benchmark_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "mapping_notes": "multiple_mapping_notes",
+      "event_count": 5,
+      "risk_regime": "DRIFT",
+      "risk_score": 0.306183,
+      "gate_action": "WATCH",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [],
+      "signals": {
+        "transition_density": 0.333333,
+        "drift_progression": 0.263,
+        "boundary_proximity": 0.475,
+        "collapse_similarity": 0.211,
+        "irreversibility_signal": 0.154167
+      },
+      "transition_evidence": {
+        "signature_changes": 0.5,
+        "cluster_changes": 0.25,
+        "phase_changes": 0.25,
+        "delta_early_mean": 0.12,
+        "delta_late_mean": 0.335,
+        "iri_early_mean": 0.04,
+        "iri_late_mean": 0.133333,
+        "min_boundary_distance": 0.49,
+        "max_boundary_proximity": 0.51,
+        "collapse_phase_count": 0,
+        "source": "gsm_symbolic_public_benchmark_v7",
+        "source_independence": "external_source_verified",
+        "independence_method": "public_benchmark_mapping",
+        "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+        "mapping_notes": "multiple_mapping_notes"
+      }
+    },
+    {
+      "trajectory_id": "gsm_symbolic_stable_001",
+      "source": "gsm_symbolic_public_benchmark_v7",
+      "source_independence": "external_source_verified",
+      "independence_method": "public_benchmark_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "mapping_notes": "multiple_mapping_notes",
+      "event_count": 5,
+      "risk_regime": "STABLE",
+      "risk_score": 0.106344,
+      "gate_action": "PASS",
+      "dominant_axis": "transition_density",
+      "warning_flags": [],
+      "signals": {
+        "transition_density": 0.166667,
+        "drift_progression": 0.072556,
+        "boundary_proximity": 0.158333,
+        "collapse_similarity": 0.062667,
+        "irreversibility_signal": 0.0325
+      },
+      "transition_evidence": {
+        "signature_changes": 0.5,
+        "cluster_changes": 0.0,
+        "phase_changes": 0.0,
+        "delta_early_mean": 0.055,
+        "delta_late_mean": 0.106667,
+        "iri_early_mean": 0.015,
+        "iri_late_mean": 0.03,
+        "min_boundary_distance": 0.83,
+        "max_boundary_proximity": 0.17,
+        "collapse_phase_count": 0,
+        "source": "gsm_symbolic_public_benchmark_v7",
+        "source_independence": "external_source_verified",
+        "independence_method": "public_benchmark_mapping",
+        "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+        "mapping_notes": "multiple_mapping_notes"
+      }
+    }
+  ]
+}
