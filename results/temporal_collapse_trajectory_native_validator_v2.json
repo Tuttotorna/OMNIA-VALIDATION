@@ -1,0 +1,128 @@
+{
+  "experiment": "temporal_collapse_trajectory_native_validator_v2",
+  "status": "v2_trajectory_native",
+  "boundary": "ordered Level 2 temporal-collapse stage chain",
+  "claim": "This script evaluates Level 3 warning risk across an ordered temporal-collapse stage trajectory instead of independent snapshots.",
+  "ordered_stage_count": 7,
+  "weights": {
+    "transition_density": 0.2,
+    "drift_progression": 0.2,
+    "boundary_proximity": 0.25,
+    "collapse_similarity": 0.25,
+    "irreversibility_proxy": 0.1
+  },
+  "thresholds": {
+    "STABLE": 0.25,
+    "DRIFT": 0.5,
+    "CRITICAL": 0.75
+  },
+  "trajectory_result": {
+    "risk_regime": "DRIFT",
+    "risk_score": 0.35722,
+    "gate_action": "WATCH",
+    "dominant_axis": "boundary_proximity",
+    "warning_flags": [
+      "boundary_proximity"
+    ],
+    "signals": {
+      "transition_density": 0.333333,
+      "drift_progression": 0.2,
+      "boundary_proximity": 0.65,
+      "collapse_similarity": 0.192035,
+      "irreversibility_proxy": 0.400444
+    }
+  },
+  "ordered_observations": [
+    {
+      "stage_index": 1,
+      "stage_name": "cluster_adjacency_graph",
+      "source_file": "results/temporal_collapse_topology_cluster_adjacency_graph_v0.json",
+      "source_status": "LOADED",
+      "status_signature": "PASS_DOMINANT",
+      "numeric_mean": 1.0,
+      "numeric_range": 1.0,
+      "check_ratio": 0.0,
+      "fail_ratio": 0.0,
+      "boundary_signal": 0.3,
+      "collapse_signal": 0.0
+    },
+    {
+      "stage_index": 2,
+      "stage_name": "cluster_graph_centrality",
+      "source_file": "results/temporal_collapse_topology_cluster_graph_centrality_v0.json",
+      "source_status": "LOADED",
+      "status_signature": "PASS_DOMINANT",
+      "numeric_mean": 1.0,
+      "numeric_range": 1.0,
+      "check_ratio": 0.0,
+      "fail_ratio": 0.0,
+      "boundary_signal": 0.3,
+      "collapse_signal": 0.0
+    },
+    {
+      "stage_index": 3,
+      "stage_name": "cluster_graph_control_plane",
+      "source_file": "results/temporal_collapse_topology_cluster_graph_control_plane_v0.json",
+      "source_status": "LOADED",
+      "status_signature": "PASS_DOMINANT",
+      "numeric_mean": 1.0,
+      "numeric_range": 1.0,
+      "check_ratio": 0.0,
+      "fail_ratio": 0.0,
+      "boundary_signal": 0.3,
+      "collapse_signal": 0.0
+    },
+    {
+      "stage_index": 4,
+      "stage_name": "control_plane_robustness",
+      "source_file": "results/temporal_collapse_topology_control_plane_robustness_v0.json",
+      "source_status": "LOADED",
+      "status_signature": "CHECK_PRESSURE",
+      "numeric_mean": 1.0,
+      "numeric_range": 1.0,
+      "check_ratio": 0.255319,
+      "fail_ratio": 0.0,
+      "boundary_signal": 0.478723,
+      "collapse_signal": 0.076596
+    },
+    {
+      "stage_index": 5,
+      "stage_name": "dependency_map",
+      "source_file": "results/temporal_collapse_topology_dependency_map_v0.json",
+      "source_status": "LOADED",
+      "status_signature": "CHECK_PRESSURE",
+      "numeric_mean": 1.0,
+      "numeric_range": 1.0,
+      "check_ratio": 0.366667,
+      "fail_ratio": 0.0,
+      "boundary_signal": 0.556667,
+      "collapse_signal": 0.11
+    },
+    {
+      "stage_index": 6,
+      "stage_name": "dependency_boundary",
+      "source_file": "results/temporal_collapse_topology_dependency_boundary_v0.json",
+      "source_status": "LOADED",
+      "status_signature": "CHECK_PRESSURE",
+      "numeric_mean": 1.0,
+      "numeric_range": 1.0,
+      "check_ratio": 0.625,
+      "fail_ratio": 0.0,
+      "boundary_signal": 0.7375,
+      "collapse_signal": 0.1875
+    },
+    {
+      "stage_index": 7,
+      "stage_name": "boundary_phase_diagram",
+      "source_file": "results/temporal_collapse_topology_boundary_phase_diagram_v0.json",
+      "source_status": "LOADED",
+      "status_signature": "PASS_DOMINANT",
+      "numeric_mean": 1.0,
+      "numeric_range": 1.0,
+      "check_ratio": 0.0,
+      "fail_ratio": 0.0,
+      "boundary_signal": 0.3,
+      "collapse_signal": 0.0
+    }
+  ]
+}
