@@ -1,5 +1,7 @@
 # OMNIA-VALIDATION
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20056181.svg)](https://doi.org/10.5281/zenodo.20056181)
+
 Structural validation, falsification, perturbation testing, and reproducibility layer for the OMNIA ecosystem.
 
 OMNIA-VALIDATION exists to pressure-test structural measurements.
