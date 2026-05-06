@@ -1,0 +1,885 @@
+{
+  "experiment": "temporal_collapse_topology_boundary_phase_diagram_v0",
+  "version": "0.1.4",
+  "status": "PASS",
+  "summary": {
+    "input_result_file": "results/temporal_collapse_topology_dependency_boundary_v0.json",
+    "boundary_scenario_count": 104,
+    "phase_zone_count": 3,
+    "stable_zone_count": 60,
+    "drift_zone_count": 13,
+    "critical_zone_count": 31,
+    "family_transition_boundary_detected": true,
+    "threshold_transition_boundary_detected": true,
+    "variant_transition_boundary_detected": false,
+    "minimum_critical_distance": 1,
+    "minimum_drift_distance": 1,
+    "phase_diagram_validation_holds": true,
+    "phase_diagram_detected": true,
+    "method": "boundary_phase_diagram"
+  },
+  "boundary_phase_diagram_summary": {
+    "input_result_file": "results/temporal_collapse_topology_dependency_boundary_v0.json",
+    "boundary_scenario_count": 104,
+    "phase_zone_count": 3,
+    "stable_zone_count": 60,
+    "drift_zone_count": 13,
+    "critical_zone_count": 31,
+    "family_transition_boundary_detected": true,
+    "threshold_transition_boundary_detected": true,
+    "variant_transition_boundary_detected": false,
+    "minimum_critical_distance": 1,
+    "minimum_drift_distance": 1,
+    "phase_diagram_detected": true,
+    "phase_zones": [
+      {
+        "phase_zone": "STABLE_ZONE",
+        "record_count": 60,
+        "axes": [
+          "family",
+          "threshold",
+          "variant"
+        ],
+        "dependency_classes": [
+          "STABLE_SUPPORT"
+        ],
+        "minimum_distance": 1,
+        "maximum_distance": 6,
+        "impact_mean": 10.801041666666666,
+        "impact_max": 63.0
+      },
+      {
+        "phase_zone": "DRIFT_ZONE",
+        "record_count": 13,
+        "axes": [
+          "family",
+          "threshold"
+        ],
+        "dependency_classes": [
+          "MODERATE_RANK_DRIFT"
+        ],
+        "minimum_distance": 1,
+        "maximum_distance": 5,
+        "impact_mean": 68.1298076923077,
+        "impact_max": 91.75
+      },
+      {
+        "phase_zone": "CRITICAL_ZONE",
+        "record_count": 31,
+        "axes": [
+          "family",
+          "threshold"
+        ],
+        "dependency_classes": [
+          "CRITICAL_ABSENCE",
+          "CRITICAL_ORDER_INVERSION",
+          "CRITICAL_TOP6_LOSS"
+        ],
+        "minimum_distance": 1,
+        "maximum_distance": 6,
+        "impact_mean": 290.2681451612903,
+        "impact_max": 489.8125
+      }
+    ],
+    "axis_phase_matrix": {
+      "family": {
+        "STABLE_ZONE": {
+          "record_count": 22,
+          "minimum_distance": 1,
+          "maximum_distance": 6,
+          "impact_mean": 18.664772727272727,
+          "impact_max": 63.0
+        },
+        "DRIFT_ZONE": {
+          "record_count": 11,
+          "minimum_distance": 1,
+          "maximum_distance": 5,
+          "impact_mean": 63.83522727272727,
+          "impact_max": 78.125
+        },
+        "CRITICAL_ZONE": {
+          "record_count": 23,
+          "minimum_distance": 1,
+          "maximum_distance": 6,
+          "impact_mean": 332.88858695652175,
+          "impact_max": 489.8125
+        }
+      },
+      "threshold": {
+        "STABLE_ZONE": {
+          "record_count": 2,
+          "minimum_distance": 1,
+          "maximum_distance": 1,
+          "impact_mean": 28.5,
+          "impact_max": 28.5
+        },
+        "DRIFT_ZONE": {
+          "record_count": 2,
+          "minimum_distance": 2,
+          "maximum_distance": 2,
+          "impact_mean": 91.75,
+          "impact_max": 91.75
+        },
+        "CRITICAL_ZONE": {
+          "record_count": 8,
+          "minimum_distance": 1,
+          "maximum_distance": 2,
+          "impact_mean": 167.734375,
+          "impact_max": 297.5625
+        }
+      },
+      "variant": {
+        "STABLE_ZONE": {
+          "record_count": 36,
+          "minimum_distance": 1,
+          "maximum_distance": 2,
+          "impact_mean": 5.012152777777778,
+          "impact_max": 15.4375
+        }
+      }
+    },
+    "distance_phase_map": {
+      "family": {
+        "1": {
+          "stable_count": 5,
+          "drift_count": 1,
+          "critical_count": 1,
+          "dominant_phase": "STABLE_ZONE"
+        },
+        "2": {
+          "stable_count": 10,
+          "drift_count": 5,
+          "critical_count": 6,
+          "dominant_phase": "STABLE_ZONE"
+        },
+        "5": {
+          "stable_count": 5,
+          "drift_count": 5,
+          "critical_count": 11,
+          "dominant_phase": "CRITICAL_ZONE"
+        },
+        "6": {
+          "stable_count": 2,
+          "drift_count": 0,
+          "critical_count": 5,
+          "dominant_phase": "CRITICAL_ZONE"
+        }
+      },
+      "threshold": {
+        "1": {
+          "stable_count": 2,
+          "drift_count": 0,
+          "critical_count": 4,
+          "dominant_phase": "CRITICAL_ZONE"
+        },
+        "2": {
+          "stable_count": 0,
+          "drift_count": 2,
+          "critical_count": 4,
+          "dominant_phase": "CRITICAL_ZONE"
+        }
+      },
+      "variant": {
+        "1": {
+          "stable_count": 8,
+          "drift_count": 0,
+          "critical_count": 0,
+          "dominant_phase": "STABLE_ZONE"
+        },
+        "2": {
+          "stable_count": 28,
+          "drift_count": 0,
+          "critical_count": 0,
+          "dominant_phase": "STABLE_ZONE"
+        }
+      }
+    },
+    "phase_boundaries": [
+      {
+        "boundary_axis": "family",
+        "stable_count": 22,
+        "drift_count": 11,
+        "critical_count": 23,
+        "minimum_stable_distance": 1,
+        "minimum_drift_distance": 1,
+        "minimum_critical_distance": 1,
+        "transition_boundary_detected": true
+      },
+      {
+        "boundary_axis": "threshold",
+        "stable_count": 2,
+        "drift_count": 2,
+        "critical_count": 8,
+        "minimum_stable_distance": 1,
+        "minimum_drift_distance": 2,
+        "minimum_critical_distance": 1,
+        "transition_boundary_detected": true
+      },
+      {
+        "boundary_axis": "variant",
+        "stable_count": 36,
+        "drift_count": 0,
+        "critical_count": 0,
+        "minimum_stable_distance": 1,
+        "minimum_drift_distance": null,
+        "minimum_critical_distance": null,
+        "transition_boundary_detected": false
+      }
+    ],
+    "boundary_extremes": {
+      "minimum_critical_boundaries": [
+        {
+          "scenario_name": "remove_family_boundary__three_equal_runs",
+          "boundary_axis": "family",
+          "boundary_distance": 1,
+          "dependency_class": "CRITICAL_ORDER_INVERSION",
+          "impact_score": 118.75,
+          "expected_dominant_rank": 6,
+          "expected_second_rank": 1
+        },
+        {
+          "scenario_name": "keep_threshold_boundary__C3__C4",
+          "boundary_axis": "threshold",
+          "boundary_distance": 1,
+          "dependency_class": "CRITICAL_TOP6_LOSS",
+          "impact_score": 106.5,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 7
+        },
+        {
+          "scenario_name": "remove_threshold_boundary__C2",
+          "boundary_axis": "threshold",
+          "boundary_distance": 1,
+          "dependency_class": "CRITICAL_TOP6_LOSS",
+          "impact_score": 106.5,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 7
+        },
+        {
+          "scenario_name": "keep_threshold_boundary__C2__C3",
+          "boundary_axis": "threshold",
+          "boundary_distance": 1,
+          "dependency_class": "CRITICAL_ORDER_INVERSION",
+          "impact_score": 88.4375,
+          "expected_dominant_rank": 2,
+          "expected_second_rank": 1
+        },
+        {
+          "scenario_name": "remove_threshold_boundary__C4",
+          "boundary_axis": "threshold",
+          "boundary_distance": 1,
+          "dependency_class": "CRITICAL_ORDER_INVERSION",
+          "impact_score": 88.4375,
+          "expected_dominant_rank": 2,
+          "expected_second_rank": 1
+        },
+        {
+          "scenario_name": "remove_family_boundary__mixed_same_cost__three_equal_runs",
+          "boundary_axis": "family",
+          "boundary_distance": 2,
+          "dependency_class": "CRITICAL_ABSENCE",
+          "impact_score": 398.125,
+          "expected_dominant_rank": null,
+          "expected_second_rank": 16
+        },
+        {
+          "scenario_name": "keep_threshold_boundary__C2",
+          "boundary_axis": "threshold",
+          "boundary_distance": 2,
+          "dependency_class": "CRITICAL_TOP6_LOSS",
+          "impact_score": 297.5625,
+          "expected_dominant_rank": 20,
+          "expected_second_rank": 1
+        },
+        {
+          "scenario_name": "remove_threshold_boundary__C3__C4",
+          "boundary_axis": "threshold",
+          "boundary_distance": 2,
+          "dependency_class": "CRITICAL_TOP6_LOSS",
+          "impact_score": 297.5625,
+          "expected_dominant_rank": 20,
+          "expected_second_rank": 1
+        },
+        {
+          "scenario_name": "keep_threshold_boundary__C4",
+          "boundary_axis": "threshold",
+          "boundary_distance": 2,
+          "dependency_class": "CRITICAL_TOP6_LOSS",
+          "impact_score": 178.4375,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 12
+        },
+        {
+          "scenario_name": "remove_threshold_boundary__C2__C3",
+          "boundary_axis": "threshold",
+          "boundary_distance": 2,
+          "dependency_class": "CRITICAL_TOP6_LOSS",
+          "impact_score": 178.4375,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 12
+        },
+        {
+          "scenario_name": "remove_family_boundary__mixed_same_cost__spike_plus_long",
+          "boundary_axis": "family",
+          "boundary_distance": 2,
+          "dependency_class": "CRITICAL_TOP6_LOSS",
+          "impact_score": 126.125,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 7
+        },
+        {
+          "scenario_name": "remove_family_boundary__dense_short__three_equal_runs",
+          "boundary_axis": "family",
+          "boundary_distance": 2,
+          "dependency_class": "CRITICAL_ORDER_INVERSION",
+          "impact_score": 118.75,
+          "expected_dominant_rank": 6,
+          "expected_second_rank": 1
+        }
+      ],
+      "maximum_impact_critical_boundaries": [
+        {
+          "scenario_name": "keep_family_boundary__staircase",
+          "boundary_axis": "family",
+          "boundary_distance": 6,
+          "dependency_class": "CRITICAL_ABSENCE",
+          "impact_score": 489.8125,
+          "expected_dominant_rank": null,
+          "expected_second_rank": null
+        },
+        {
+          "scenario_name": "keep_family_boundary__dense_short__staircase",
+          "boundary_axis": "family",
+          "boundary_distance": 5,
+          "dependency_class": "CRITICAL_ABSENCE",
+          "impact_score": 483.0625,
+          "expected_dominant_rank": null,
+          "expected_second_rank": null
+        },
+        {
+          "scenario_name": "keep_family_boundary__dense_short",
+          "boundary_axis": "family",
+          "boundary_distance": 6,
+          "dependency_class": "CRITICAL_ABSENCE",
+          "impact_score": 483.0625,
+          "expected_dominant_rank": null,
+          "expected_second_rank": null
+        },
+        {
+          "scenario_name": "keep_family_boundary__staircase__two_equal_runs",
+          "boundary_axis": "family",
+          "boundary_distance": 5,
+          "dependency_class": "CRITICAL_ABSENCE",
+          "impact_score": 473.5,
+          "expected_dominant_rank": null,
+          "expected_second_rank": null
+        },
+        {
+          "scenario_name": "keep_family_boundary__two_equal_runs",
+          "boundary_axis": "family",
+          "boundary_distance": 6,
+          "dependency_class": "CRITICAL_ABSENCE",
+          "impact_score": 473.5,
+          "expected_dominant_rank": null,
+          "expected_second_rank": null
+        },
+        {
+          "scenario_name": "keep_family_boundary__single_run__staircase",
+          "boundary_axis": "family",
+          "boundary_distance": 5,
+          "dependency_class": "CRITICAL_ABSENCE",
+          "impact_score": 472.375,
+          "expected_dominant_rank": null,
+          "expected_second_rank": null
+        },
+        {
+          "scenario_name": "keep_family_boundary__single_run",
+          "boundary_axis": "family",
+          "boundary_distance": 6,
+          "dependency_class": "CRITICAL_ABSENCE",
+          "impact_score": 472.375,
+          "expected_dominant_rank": null,
+          "expected_second_rank": null
+        },
+        {
+          "scenario_name": "keep_family_boundary__dense_short__two_equal_runs",
+          "boundary_axis": "family",
+          "boundary_distance": 5,
+          "dependency_class": "CRITICAL_ABSENCE",
+          "impact_score": 471.0625,
+          "expected_dominant_rank": null,
+          "expected_second_rank": null
+        },
+        {
+          "scenario_name": "keep_family_boundary__dense_short__single_run",
+          "boundary_axis": "family",
+          "boundary_distance": 5,
+          "dependency_class": "CRITICAL_ABSENCE",
+          "impact_score": 471.0625,
+          "expected_dominant_rank": null,
+          "expected_second_rank": null
+        },
+        {
+          "scenario_name": "keep_family_boundary__single_run__two_equal_runs",
+          "boundary_axis": "family",
+          "boundary_distance": 5,
+          "dependency_class": "CRITICAL_ABSENCE",
+          "impact_score": 461.125,
+          "expected_dominant_rank": null,
+          "expected_second_rank": null
+        },
+        {
+          "scenario_name": "remove_family_boundary__mixed_same_cost__three_equal_runs",
+          "boundary_axis": "family",
+          "boundary_distance": 2,
+          "dependency_class": "CRITICAL_ABSENCE",
+          "impact_score": 398.125,
+          "expected_dominant_rank": null,
+          "expected_second_rank": 16
+        },
+        {
+          "scenario_name": "keep_family_boundary__dense_short__spike_plus_long",
+          "boundary_axis": "family",
+          "boundary_distance": 5,
+          "dependency_class": "CRITICAL_ABSENCE",
+          "impact_score": 348.0625,
+          "expected_dominant_rank": null,
+          "expected_second_rank": 7
+        }
+      ],
+      "minimum_drift_boundaries": [
+        {
+          "scenario_name": "remove_family_boundary__mixed_same_cost",
+          "boundary_axis": "family",
+          "boundary_distance": 1,
+          "dependency_class": "MODERATE_RANK_DRIFT",
+          "impact_score": 62.125,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 4
+        },
+        {
+          "scenario_name": "keep_threshold_boundary__C3",
+          "boundary_axis": "threshold",
+          "boundary_distance": 2,
+          "dependency_class": "MODERATE_RANK_DRIFT",
+          "impact_score": 91.75,
+          "expected_dominant_rank": 2,
+          "expected_second_rank": 3
+        },
+        {
+          "scenario_name": "remove_threshold_boundary__C2__C4",
+          "boundary_axis": "threshold",
+          "boundary_distance": 2,
+          "dependency_class": "MODERATE_RANK_DRIFT",
+          "impact_score": 91.75,
+          "expected_dominant_rank": 2,
+          "expected_second_rank": 3
+        },
+        {
+          "scenario_name": "remove_family_boundary__spike_plus_long__three_equal_runs",
+          "boundary_axis": "family",
+          "boundary_distance": 2,
+          "dependency_class": "MODERATE_RANK_DRIFT",
+          "impact_score": 78.125,
+          "expected_dominant_rank": 3,
+          "expected_second_rank": 4
+        },
+        {
+          "scenario_name": "remove_family_boundary__dense_short__mixed_same_cost",
+          "boundary_axis": "family",
+          "boundary_distance": 2,
+          "dependency_class": "MODERATE_RANK_DRIFT",
+          "impact_score": 62.125,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 4
+        },
+        {
+          "scenario_name": "remove_family_boundary__mixed_same_cost__staircase",
+          "boundary_axis": "family",
+          "boundary_distance": 2,
+          "dependency_class": "MODERATE_RANK_DRIFT",
+          "impact_score": 62.125,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 4
+        },
+        {
+          "scenario_name": "remove_family_boundary__mixed_same_cost__single_run",
+          "boundary_axis": "family",
+          "boundary_distance": 2,
+          "dependency_class": "MODERATE_RANK_DRIFT",
+          "impact_score": 54.125,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 3
+        },
+        {
+          "scenario_name": "remove_family_boundary__mixed_same_cost__two_equal_runs",
+          "boundary_axis": "family",
+          "boundary_distance": 2,
+          "dependency_class": "MODERATE_RANK_DRIFT",
+          "impact_score": 54.125,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 3
+        },
+        {
+          "scenario_name": "keep_family_boundary__dense_short__three_equal_runs",
+          "boundary_axis": "family",
+          "boundary_distance": 5,
+          "dependency_class": "MODERATE_RANK_DRIFT",
+          "impact_score": 72.0625,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 4
+        },
+        {
+          "scenario_name": "keep_family_boundary__mixed_same_cost__single_run",
+          "boundary_axis": "family",
+          "boundary_distance": 5,
+          "dependency_class": "MODERATE_RANK_DRIFT",
+          "impact_score": 70.5625,
+          "expected_dominant_rank": 2,
+          "expected_second_rank": 3
+        },
+        {
+          "scenario_name": "keep_family_boundary__mixed_same_cost__two_equal_runs",
+          "boundary_axis": "family",
+          "boundary_distance": 5,
+          "dependency_class": "MODERATE_RANK_DRIFT",
+          "impact_score": 70.5625,
+          "expected_dominant_rank": 2,
+          "expected_second_rank": 3
+        },
+        {
+          "scenario_name": "keep_family_boundary__single_run__three_equal_runs",
+          "boundary_axis": "family",
+          "boundary_distance": 5,
+          "dependency_class": "MODERATE_RANK_DRIFT",
+          "impact_score": 62.125,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 4
+        }
+      ],
+      "minimum_distance_stable_boundaries": [
+        {
+          "scenario_name": "keep_threshold_boundary__C2__C4",
+          "boundary_axis": "threshold",
+          "boundary_distance": 1,
+          "dependency_class": "STABLE_SUPPORT",
+          "impact_score": 28.5,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 2
+        },
+        {
+          "scenario_name": "remove_family_boundary__dense_short",
+          "boundary_axis": "family",
+          "boundary_distance": 1,
+          "dependency_class": "STABLE_SUPPORT",
+          "impact_score": 0.0,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 2
+        },
+        {
+          "scenario_name": "remove_family_boundary__single_run",
+          "boundary_axis": "family",
+          "boundary_distance": 1,
+          "dependency_class": "STABLE_SUPPORT",
+          "impact_score": 0.0,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 2
+        },
+        {
+          "scenario_name": "remove_family_boundary__spike_plus_long",
+          "boundary_axis": "family",
+          "boundary_distance": 1,
+          "dependency_class": "STABLE_SUPPORT",
+          "impact_score": 8.8125,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 2
+        },
+        {
+          "scenario_name": "remove_family_boundary__staircase",
+          "boundary_axis": "family",
+          "boundary_distance": 1,
+          "dependency_class": "STABLE_SUPPORT",
+          "impact_score": 0.0,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 2
+        },
+        {
+          "scenario_name": "remove_family_boundary__two_equal_runs",
+          "boundary_axis": "family",
+          "boundary_distance": 1,
+          "dependency_class": "STABLE_SUPPORT",
+          "impact_score": 0.0,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 2
+        },
+        {
+          "scenario_name": "remove_threshold_boundary__C3",
+          "boundary_axis": "threshold",
+          "boundary_distance": 1,
+          "dependency_class": "STABLE_SUPPORT",
+          "impact_score": 28.5,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 2
+        },
+        {
+          "scenario_name": "remove_variant_boundary__dense_short_2_2_1_2_1_2",
+          "boundary_axis": "variant",
+          "boundary_distance": 1,
+          "dependency_class": "STABLE_SUPPORT",
+          "impact_score": 0.0,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 2
+        },
+        {
+          "scenario_name": "remove_variant_boundary__long_then_spikes_4_1_1",
+          "boundary_axis": "variant",
+          "boundary_distance": 1,
+          "dependency_class": "STABLE_SUPPORT",
+          "impact_score": 3.3125,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 2
+        },
+        {
+          "scenario_name": "remove_variant_boundary__mixed_1_1_4",
+          "boundary_axis": "variant",
+          "boundary_distance": 1,
+          "dependency_class": "STABLE_SUPPORT",
+          "impact_score": 6.9375,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 2
+        },
+        {
+          "scenario_name": "remove_variant_boundary__mixed_1_2_3",
+          "boundary_axis": "variant",
+          "boundary_distance": 1,
+          "dependency_class": "STABLE_SUPPORT",
+          "impact_score": 8.5,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 2
+        },
+        {
+          "scenario_name": "remove_variant_boundary__single_run_len_5",
+          "boundary_axis": "variant",
+          "boundary_distance": 1,
+          "dependency_class": "STABLE_SUPPORT",
+          "impact_score": 0.0,
+          "expected_dominant_rank": 1,
+          "expected_second_rank": 2
+        }
+      ]
+    },
+    "phase_diagram_validation": {
+      "phase_diagram_validation_holds": true,
+      "failure_count": 0,
+      "failures": []
+    }
+  },
+  "phase_zones": [
+    {
+      "phase_zone": "STABLE_ZONE",
+      "record_count": 60,
+      "axes": [
+        "family",
+        "threshold",
+        "variant"
+      ],
+      "dependency_classes": [
+        "STABLE_SUPPORT"
+      ],
+      "minimum_distance": 1,
+      "maximum_distance": 6,
+      "impact_mean": 10.801041666666666,
+      "impact_max": 63.0
+    },
+    {
+      "phase_zone": "DRIFT_ZONE",
+      "record_count": 13,
+      "axes": [
+        "family",
+        "threshold"
+      ],
+      "dependency_classes": [
+        "MODERATE_RANK_DRIFT"
+      ],
+      "minimum_distance": 1,
+      "maximum_distance": 5,
+      "impact_mean": 68.1298076923077,
+      "impact_max": 91.75
+    },
+    {
+      "phase_zone": "CRITICAL_ZONE",
+      "record_count": 31,
+      "axes": [
+        "family",
+        "threshold"
+      ],
+      "dependency_classes": [
+        "CRITICAL_ABSENCE",
+        "CRITICAL_ORDER_INVERSION",
+        "CRITICAL_TOP6_LOSS"
+      ],
+      "minimum_distance": 1,
+      "maximum_distance": 6,
+      "impact_mean": 290.2681451612903,
+      "impact_max": 489.8125
+    }
+  ],
+  "axis_phase_matrix": {
+    "family": {
+      "STABLE_ZONE": {
+        "record_count": 22,
+        "minimum_distance": 1,
+        "maximum_distance": 6,
+        "impact_mean": 18.664772727272727,
+        "impact_max": 63.0
+      },
+      "DRIFT_ZONE": {
+        "record_count": 11,
+        "minimum_distance": 1,
+        "maximum_distance": 5,
+        "impact_mean": 63.83522727272727,
+        "impact_max": 78.125
+      },
+      "CRITICAL_ZONE": {
+        "record_count": 23,
+        "minimum_distance": 1,
+        "maximum_distance": 6,
+        "impact_mean": 332.88858695652175,
+        "impact_max": 489.8125
+      }
+    },
+    "threshold": {
+      "STABLE_ZONE": {
+        "record_count": 2,
+        "minimum_distance": 1,
+        "maximum_distance": 1,
+        "impact_mean": 28.5,
+        "impact_max": 28.5
+      },
+      "DRIFT_ZONE": {
+        "record_count": 2,
+        "minimum_distance": 2,
+        "maximum_distance": 2,
+        "impact_mean": 91.75,
+        "impact_max": 91.75
+      },
+      "CRITICAL_ZONE": {
+        "record_count": 8,
+        "minimum_distance": 1,
+        "maximum_distance": 2,
+        "impact_mean": 167.734375,
+        "impact_max": 297.5625
+      }
+    },
+    "variant": {
+      "STABLE_ZONE": {
+        "record_count": 36,
+        "minimum_distance": 1,
+        "maximum_distance": 2,
+        "impact_mean": 5.012152777777778,
+        "impact_max": 15.4375
+      }
+    }
+  },
+  "distance_phase_map": {
+    "family": {
+      "1": {
+        "stable_count": 5,
+        "drift_count": 1,
+        "critical_count": 1,
+        "dominant_phase": "STABLE_ZONE"
+      },
+      "2": {
+        "stable_count": 10,
+        "drift_count": 5,
+        "critical_count": 6,
+        "dominant_phase": "STABLE_ZONE"
+      },
+      "5": {
+        "stable_count": 5,
+        "drift_count": 5,
+        "critical_count": 11,
+        "dominant_phase": "CRITICAL_ZONE"
+      },
+      "6": {
+        "stable_count": 2,
+        "drift_count": 0,
+        "critical_count": 5,
+        "dominant_phase": "CRITICAL_ZONE"
+      }
+    },
+    "threshold": {
+      "1": {
+        "stable_count": 2,
+        "drift_count": 0,
+        "critical_count": 4,
+        "dominant_phase": "CRITICAL_ZONE"
+      },
+      "2": {
+        "stable_count": 0,
+        "drift_count": 2,
+        "critical_count": 4,
+        "dominant_phase": "CRITICAL_ZONE"
+      }
+    },
+    "variant": {
+      "1": {
+        "stable_count": 8,
+        "drift_count": 0,
+        "critical_count": 0,
+        "dominant_phase": "STABLE_ZONE"
+      },
+      "2": {
+        "stable_count": 28,
+        "drift_count": 0,
+        "critical_count": 0,
+        "dominant_phase": "STABLE_ZONE"
+      }
+    }
+  },
+  "phase_boundaries": [
+    {
+      "boundary_axis": "family",
+      "stable_count": 22,
+      "drift_count": 11,
+      "critical_count": 23,
+      "minimum_stable_distance": 1,
+      "minimum_drift_distance": 1,
+      "minimum_critical_distance": 1,
+      "transition_boundary_detected": true
+    },
+    {
+      "boundary_axis": "threshold",
+      "stable_count": 2,
+      "drift_count": 2,
+      "critical_count": 8,
+      "minimum_stable_distance": 1,
+      "minimum_drift_distance": 2,
+      "minimum_critical_distance": 1,
+      "transition_boundary_detected": true
+    },
+    {
+      "boundary_axis": "variant",
+      "stable_count": 36,
+      "drift_count": 0,
+      "critical_count": 0,
+      "minimum_stable_distance": 1,
+      "minimum_drift_distance": null,
+      "minimum_critical_distance": null,
+      "transition_boundary_detected": false
+    }
+  ],
+  "interpretation": {
+    "main_result": "boundary phase diagram detected",
+    "structural_conclusion": "Dependency boundaries separate into stable, drift, and critical zones. The variant axis remains stable under tested perturbations, while family and threshold axes contain drift and critical transition boundaries.",
+    "stable_zone": "Perturbations that preserve the expected control plane structure.",
+    "drift_zone": "Perturbations that preserve the control plane but alter its ranking.",
+    "critical_zone": "Perturbations that cause absence, order inversion, or top-6 loss of the expected control plane.",
+    "important_boundary": "This is a structural dependency phase diagram. It does not claim semantic causality or external decision authority."
+  },
+  "final_check": {
+    "status": "PASS",
+    "message": "boundary phase diagram detected"
+  },
+  "reproduction_command": "python examples/temporal_collapse_topology_boundary_phase_diagram_v0.py"
+}
