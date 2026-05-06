@@ -3,7 +3,7 @@ from itertools import combinations
 from pathlib import Path
 from statistics import mean, pstdev
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 
 RESULTS_PATH = Path(
     "results/temporal_collapse_topology_dependency_boundary_v0.json"
@@ -19,6 +19,15 @@ EXPECTED_DOMINANT = (
 EXPECTED_SECOND = (
     "cost=3|remaining=3|dest=OSCILLATING_NONPERSISTENT"
 )
+
+SUPPORTED_CLASSES = [
+    "GLOBAL_PERSISTENT_COLLAPSE",
+    "RECOVERY_RELAPSE_COLLAPSE",
+    "FRAGMENTED_LOCAL_COLLAPSE",
+    "OSCILLATING_NONPERSISTENT",
+    "SPIKE_FILTERED",
+    "CLEAN_PASS",
+]
 
 
 def safe_mean(values):
@@ -57,13 +66,11 @@ def classify(sequence, confirmation_window):
     max_run_length = max(run_lengths) if run_lengths else 0
 
     local_confirmation_count = sum(
-        1
-        for run_length in run_lengths
+        1 for run_length in run_lengths
         if run_length >= confirmation_window
     )
 
     persistence_reset_count = max(collapse_run_count - 1, 0)
-
     global_persistence_detected = any(
         run_length >= persistence_threshold
         for run_length in run_lengths
@@ -134,146 +141,40 @@ def make_sequence_from_lengths(run_lengths, spacing=5, start_offset=4):
 
 def cluster_specs():
     return [
-        {
-            "family": "single_run",
-            "name": "single_run_len_1",
-            "run_lengths": [1],
-        },
-        {
-            "family": "single_run",
-            "name": "single_run_len_2",
-            "run_lengths": [2],
-        },
-        {
-            "family": "single_run",
-            "name": "single_run_len_3",
-            "run_lengths": [3],
-        },
-        {
-            "family": "single_run",
-            "name": "single_run_len_4",
-            "run_lengths": [4],
-        },
-        {
-            "family": "single_run",
-            "name": "single_run_len_5",
-            "run_lengths": [5],
-        },
-        {
-            "family": "two_equal_runs",
-            "name": "two_runs_len_1_1",
-            "run_lengths": [1, 1],
-        },
-        {
-            "family": "two_equal_runs",
-            "name": "two_runs_len_2_2",
-            "run_lengths": [2, 2],
-        },
-        {
-            "family": "two_equal_runs",
-            "name": "two_runs_len_3_3",
-            "run_lengths": [3, 3],
-        },
-        {
-            "family": "two_equal_runs",
-            "name": "two_runs_len_4_4",
-            "run_lengths": [4, 4],
-        },
-        {
-            "family": "three_equal_runs",
-            "name": "three_runs_len_1_1_1",
-            "run_lengths": [1, 1, 1],
-        },
-        {
-            "family": "three_equal_runs",
-            "name": "three_runs_len_2_2_2",
-            "run_lengths": [2, 2, 2],
-        },
-        {
-            "family": "three_equal_runs",
-            "name": "three_runs_len_3_3_3",
-            "run_lengths": [3, 3, 3],
-        },
-        {
-            "family": "three_equal_runs",
-            "name": "three_runs_len_4_4_4",
-            "run_lengths": [4, 4, 4],
-        },
-        {
-            "family": "mixed_same_cost",
-            "name": "mixed_1_2_3",
-            "run_lengths": [1, 2, 3],
-        },
-        {
-            "family": "mixed_same_cost",
-            "name": "mixed_1_1_4",
-            "run_lengths": [1, 1, 4],
-        },
-        {
-            "family": "mixed_same_cost",
-            "name": "mixed_2_2_2",
-            "run_lengths": [2, 2, 2],
-        },
-        {
-            "family": "mixed_same_cost",
-            "name": "mixed_1_3_2",
-            "run_lengths": [1, 3, 2],
-        },
-        {
-            "family": "staircase",
-            "name": "staircase_1_2_3_4",
-            "run_lengths": [1, 2, 3, 4],
-        },
-        {
-            "family": "staircase",
-            "name": "staircase_1_2_3_4_5",
-            "run_lengths": [1, 2, 3, 4, 5],
-        },
-        {
-            "family": "staircase",
-            "name": "staircase_2_3_4_5",
-            "run_lengths": [2, 3, 4, 5],
-        },
-        {
-            "family": "spike_plus_long",
-            "name": "long_then_spikes_4_1_1",
-            "run_lengths": [4, 1, 1],
-        },
-        {
-            "family": "spike_plus_long",
-            "name": "long_then_spikes_5_1_1",
-            "run_lengths": [5, 1, 1],
-        },
-        {
-            "family": "spike_plus_long",
-            "name": "long_then_spikes_6_1_1_1",
-            "run_lengths": [6, 1, 1, 1],
-        },
-        {
-            "family": "spike_plus_long",
-            "name": "long_then_spikes_7_1_1_1",
-            "run_lengths": [7, 1, 1, 1],
-        },
-        {
-            "family": "dense_short",
-            "name": "dense_short_2_1_2_1",
-            "run_lengths": [2, 1, 2, 1],
-        },
-        {
-            "family": "dense_short",
-            "name": "dense_short_2_2_1_2_1",
-            "run_lengths": [2, 2, 1, 2, 1],
-        },
-        {
-            "family": "dense_short",
-            "name": "dense_short_2_2_1_2_1_2",
-            "run_lengths": [2, 2, 1, 2, 1, 2],
-        },
-        {
-            "family": "dense_short",
-            "name": "dense_short_3_2_1_2_1_2",
-            "run_lengths": [3, 2, 1, 2, 1, 2],
-        },
+        {"family": "single_run", "name": "single_run_len_1", "run_lengths": [1]},
+        {"family": "single_run", "name": "single_run_len_2", "run_lengths": [2]},
+        {"family": "single_run", "name": "single_run_len_3", "run_lengths": [3]},
+        {"family": "single_run", "name": "single_run_len_4", "run_lengths": [4]},
+        {"family": "single_run", "name": "single_run_len_5", "run_lengths": [5]},
+
+        {"family": "two_equal_runs", "name": "two_runs_len_1_1", "run_lengths": [1, 1]},
+        {"family": "two_equal_runs", "name": "two_runs_len_2_2", "run_lengths": [2, 2]},
+        {"family": "two_equal_runs", "name": "two_runs_len_3_3", "run_lengths": [3, 3]},
+        {"family": "two_equal_runs", "name": "two_runs_len_4_4", "run_lengths": [4, 4]},
+
+        {"family": "three_equal_runs", "name": "three_runs_len_1_1_1", "run_lengths": [1, 1, 1]},
+        {"family": "three_equal_runs", "name": "three_runs_len_2_2_2", "run_lengths": [2, 2, 2]},
+        {"family": "three_equal_runs", "name": "three_runs_len_3_3_3", "run_lengths": [3, 3, 3]},
+        {"family": "three_equal_runs", "name": "three_runs_len_4_4_4", "run_lengths": [4, 4, 4]},
+
+        {"family": "mixed_same_cost", "name": "mixed_1_2_3", "run_lengths": [1, 2, 3]},
+        {"family": "mixed_same_cost", "name": "mixed_1_1_4", "run_lengths": [1, 1, 4]},
+        {"family": "mixed_same_cost", "name": "mixed_2_2_2", "run_lengths": [2, 2, 2]},
+        {"family": "mixed_same_cost", "name": "mixed_1_3_2", "run_lengths": [1, 3, 2]},
+
+        {"family": "staircase", "name": "staircase_1_2_3_4", "run_lengths": [1, 2, 3, 4]},
+        {"family": "staircase", "name": "staircase_1_2_3_4_5", "run_lengths": [1, 2, 3, 4, 5]},
+        {"family": "staircase", "name": "staircase_2_3_4_5", "run_lengths": [2, 3, 4, 5]},
+
+        {"family": "spike_plus_long", "name": "long_then_spikes_4_1_1", "run_lengths": [4, 1, 1]},
+        {"family": "spike_plus_long", "name": "long_then_spikes_5_1_1", "run_lengths": [5, 1, 1]},
+        {"family": "spike_plus_long", "name": "long_then_spikes_6_1_1_1", "run_lengths": [6, 1, 1, 1]},
+        {"family": "spike_plus_long", "name": "long_then_spikes_7_1_1_1", "run_lengths": [7, 1, 1, 1]},
+
+        {"family": "dense_short", "name": "dense_short_2_1_2_1", "run_lengths": [2, 1, 2, 1]},
+        {"family": "dense_short", "name": "dense_short_2_2_1_2_1", "run_lengths": [2, 2, 1, 2, 1]},
+        {"family": "dense_short", "name": "dense_short_2_2_1_2_1_2", "run_lengths": [2, 2, 1, 2, 1, 2]},
+        {"family": "dense_short", "name": "dense_short_3_2_1_2_1_2", "run_lengths": [3, 2, 1, 2, 1, 2]},
     ]
 
 
@@ -358,7 +259,6 @@ def parse_cluster_id(cluster_id):
 
 def build_records(specs=None, confirmation_windows=None):
     specs = specs if specs is not None else cluster_specs()
-
     confirmation_windows = (
         confirmation_windows
         if confirmation_windows is not None
@@ -408,35 +308,31 @@ def build_records(specs=None, confirmation_windows=None):
                 observed_destination,
             )
 
-            transition_results.append(
-                {
-                    "confirmation_window": confirmation_window,
-                    "source_class": source_metrics["classification"],
-                    "transition_cost": transition_cost,
-                    "remaining_run_count": remaining_run_count,
-                    "remaining_run_lengths": remaining_lengths,
-                    "predicted_destination_class": predicted_destination,
-                    "observed_destination_class": observed_destination,
-                    "cluster_id": cluster_id,
-                    "signature_core": signature_core,
-                    "destination_matches_rule": (
-                        predicted_destination == observed_destination
-                    ),
-                }
-            )
+            transition_results.append({
+                "confirmation_window": confirmation_window,
+                "source_class": source_metrics["classification"],
+                "transition_cost": transition_cost,
+                "remaining_run_count": remaining_run_count,
+                "remaining_run_lengths": remaining_lengths,
+                "predicted_destination_class": predicted_destination,
+                "observed_destination_class": observed_destination,
+                "cluster_id": cluster_id,
+                "signature_core": signature_core,
+                "destination_matches_rule": (
+                    predicted_destination == observed_destination
+                ),
+            })
 
-        records.append(
-            {
-                "variant_index": variant_index,
-                "family": spec["family"],
-                "geometry_name": spec["name"],
-                "run_lengths": spec["run_lengths"],
-                "trajectory_length": length,
-                "runs": runs,
-                "features": features,
-                "transition_results": transition_results,
-            }
-        )
+        records.append({
+            "variant_index": variant_index,
+            "family": spec["family"],
+            "geometry_name": spec["name"],
+            "run_lengths": spec["run_lengths"],
+            "trajectory_length": length,
+            "runs": runs,
+            "features": features,
+            "transition_results": transition_results,
+        })
 
     return records
 
@@ -446,27 +342,21 @@ def flatten_records(records):
 
     for record in records:
         for item in record["transition_results"]:
-            flat.append(
-                {
-                    "variant_index": record["variant_index"],
-                    "family": record["family"],
-                    "geometry_name": record["geometry_name"],
-                    "run_lengths": record["run_lengths"],
-                    "features": record["features"],
-                    "confirmation_window": item["confirmation_window"],
-                    "source_class": item["source_class"],
-                    "transition_cost": item["transition_cost"],
-                    "remaining_run_count": item["remaining_run_count"],
-                    "observed_destination_class": (
-                        item["observed_destination_class"]
-                    ),
-                    "cluster_id": item["cluster_id"],
-                    "signature_core": item["signature_core"],
-                    "destination_matches_rule": (
-                        item["destination_matches_rule"]
-                    ),
-                }
-            )
+            flat.append({
+                "variant_index": record["variant_index"],
+                "family": record["family"],
+                "geometry_name": record["geometry_name"],
+                "run_lengths": record["run_lengths"],
+                "features": record["features"],
+                "confirmation_window": item["confirmation_window"],
+                "source_class": item["source_class"],
+                "transition_cost": item["transition_cost"],
+                "remaining_run_count": item["remaining_run_count"],
+                "observed_destination_class": item["observed_destination_class"],
+                "cluster_id": item["cluster_id"],
+                "signature_core": item["signature_core"],
+                "destination_matches_rule": item["destination_matches_rule"],
+            })
 
     return flat
 
@@ -509,9 +399,7 @@ def summarize_clusters(flat_records):
         )
         cluster["source_class_values"] = sorted(set(cluster["source_classes"]))
         cluster["family_crossing"] = len(cluster["family_values"]) > 1
-        cluster["source_class_variation"] = (
-            len(cluster["source_class_values"]) > 1
-        )
+        cluster["source_class_variation"] = len(cluster["source_class_values"]) > 1
         cluster["threshold_crossing"] = (
             len(cluster["confirmation_window_values"]) > 1
         )
@@ -565,12 +453,8 @@ def build_threshold_edges(records):
                 {
                     "family": record["family"],
                     "geometry_name": record["geometry_name"],
-                    "from_confirmation_window": (
-                        left["confirmation_window"]
-                    ),
-                    "to_confirmation_window": (
-                        right["confirmation_window"]
-                    ),
+                    "from_confirmation_window": left["confirmation_window"],
+                    "to_confirmation_window": right["confirmation_window"],
                     "confirmation_window": right["confirmation_window"],
                 },
             )
@@ -595,10 +479,7 @@ def build_geometry_edges(records):
             ),
         )
 
-        for left_record, right_record in zip(
-            ordered_records,
-            ordered_records[1:],
-        ):
+        for left_record, right_record in zip(ordered_records, ordered_records[1:]):
             left_windows = {
                 item["confirmation_window"]
                 for item in left_record["transition_results"]
@@ -617,7 +498,6 @@ def build_geometry_edges(records):
                     for item in left_record["transition_results"]
                     if item["confirmation_window"] == confirmation_window
                 )
-
                 right_item = next(
                     item
                     for item in right_record["transition_results"]
@@ -672,14 +552,10 @@ def merge_edges(*edge_maps):
 
     for edge in merged.values():
         edge["family_values"] = sorted(
-            value
-            for value in set(edge["families"])
-            if value is not None
+            value for value in set(edge["families"]) if value is not None
         )
         edge["geometry_name_values"] = sorted(
-            value
-            for value in set(edge["geometry_names"])
-            if value is not None
+            value for value in set(edge["geometry_names"]) if value is not None
         )
         edge["confirmation_window_values"] = sorted(
             value
@@ -697,31 +573,25 @@ def validate_graph(clusters, edges):
 
     for edge_id, edge in edges.items():
         if edge["source_cluster"] not in clusters:
-            failures.append(
-                {
-                    "edge_id": edge_id,
-                    "reason": "missing_source_cluster",
-                    "source_cluster": edge["source_cluster"],
-                }
-            )
+            failures.append({
+                "edge_id": edge_id,
+                "reason": "missing_source_cluster",
+                "source_cluster": edge["source_cluster"],
+            })
 
         if edge["target_cluster"] not in clusters:
-            failures.append(
-                {
-                    "edge_id": edge_id,
-                    "reason": "missing_target_cluster",
-                    "target_cluster": edge["target_cluster"],
-                }
-            )
+            failures.append({
+                "edge_id": edge_id,
+                "reason": "missing_target_cluster",
+                "target_cluster": edge["target_cluster"],
+            })
 
         if edge["weight"] <= 0:
-            failures.append(
-                {
-                    "edge_id": edge_id,
-                    "reason": "non_positive_edge_weight",
-                    "weight": edge["weight"],
-                }
-            )
+            failures.append({
+                "edge_id": edge_id,
+                "reason": "non_positive_edge_weight",
+                "weight": edge["weight"],
+            })
 
     return {
         "graph_validation_holds": len(failures) == 0,
@@ -921,7 +791,7 @@ def compact_metric(item):
     }
 
 
-def evaluate_control_plane(records, scenario_name, scenario_type, boundary_axis):
+def evaluate_control_plane(records, scenario_name, scenario_type):
     flat = flatten_records(records)
     clusters = summarize_clusters(flat)
 
@@ -939,8 +809,7 @@ def evaluate_control_plane(records, scenario_name, scenario_type, boundary_axis)
     dominant_id = dominant["cluster_id"] if dominant else None
     second_id = second["cluster_id"] if second else None
 
-    top6 = ranked[:6]
-    top6_ids = [item["cluster_id"] for item in top6]
+    top_ids = [item["cluster_id"] for item in ranked[:6]]
 
     expected_dominant_rank = None
     expected_second_rank = None
@@ -952,12 +821,13 @@ def evaluate_control_plane(records, scenario_name, scenario_type, boundary_axis)
         if item["cluster_id"] == EXPECTED_SECOND:
             expected_second_rank = item["control_plane_rank"]
 
-    expected_dominant_present = EXPECTED_DOMINANT in metrics
-    expected_second_present = EXPECTED_SECOND in metrics
+    dominant_survived = EXPECTED_DOMINANT in metrics
+    second_survived = EXPECTED_SECOND in metrics
 
-    expected_pair_present = (
-        expected_dominant_present and expected_second_present
-    )
+    dominant_top1 = dominant_id == EXPECTED_DOMINANT
+    second_top2 = second_id == EXPECTED_SECOND
+
+    both_expected_present = dominant_survived and second_survived
 
     expected_pair_order_preserved = (
         expected_dominant_rank is not None
@@ -966,38 +836,28 @@ def evaluate_control_plane(records, scenario_name, scenario_type, boundary_axis)
     )
 
     top6_contains_expected_pair = (
-        EXPECTED_DOMINANT in top6_ids
-        and EXPECTED_SECOND in top6_ids
+        EXPECTED_DOMINANT in top_ids
+        and EXPECTED_SECOND in top_ids
     )
-
-    dominant_top1 = dominant_id == EXPECTED_DOMINANT
-    second_top2 = second_id == EXPECTED_SECOND
 
     robustness_pass = (
         validation["graph_validation_holds"]
-        and expected_pair_present
-        and expected_pair_order_preserved
+        and both_expected_present
         and top6_contains_expected_pair
+        and expected_pair_order_preserved
     )
 
-    strict_pass = robustness_pass and dominant_top1 and second_top2
-
-    dependency_class = classify_boundary_dependency(
-        expected_dominant_present=expected_dominant_present,
-        expected_second_present=expected_second_present,
-        top6_contains_expected_pair=top6_contains_expected_pair,
-        expected_pair_order_preserved=expected_pair_order_preserved,
-        dominant_top1=dominant_top1,
-        second_top2=second_top2,
+    strict_pass = (
+        robustness_pass
+        and dominant_top1
+        and second_top2
     )
 
     return {
         "scenario_name": scenario_name,
         "scenario_type": scenario_type,
-        "boundary_axis": boundary_axis,
         "status": "PASS" if robustness_pass else "CHECK",
         "strict_status": "PASS" if strict_pass else "CHECK",
-        "dependency_class": dependency_class,
         "record_count": len(records),
         "flat_record_count": len(flat),
         "cluster_count": len(clusters),
@@ -1010,215 +870,29 @@ def evaluate_control_plane(records, scenario_name, scenario_type, boundary_axis)
         "second_cluster": compact_metric(second),
         "dominant_cluster_id": dominant_id,
         "second_cluster_id": second_id,
-        "expected_dominant_present": expected_dominant_present,
-        "expected_second_present": expected_second_present,
+        "expected_dominant_present": dominant_survived,
+        "expected_second_present": second_survived,
         "expected_dominant_rank": expected_dominant_rank,
         "expected_second_rank": expected_second_rank,
-        "expected_pair_present": expected_pair_present,
-        "expected_pair_order_preserved": expected_pair_order_preserved,
-        "top6_contains_expected_pair": top6_contains_expected_pair,
         "dominant_top1": dominant_top1,
         "second_top2": second_top2,
-        "top6_cluster_ids": top6_ids,
-        "top6_clusters": [compact_metric(item) for item in top6],
+        "expected_pair_order_preserved": expected_pair_order_preserved,
+        "top6_contains_expected_pair": top6_contains_expected_pair,
+        "top6_cluster_ids": top_ids,
+        "top6_clusters": [
+            compact_metric(item)
+            for item in ranked[:6]
+        ],
         "graph_validation": validation,
     }
 
 
-def classify_boundary_dependency(
-    expected_dominant_present,
-    expected_second_present,
-    top6_contains_expected_pair,
-    expected_pair_order_preserved,
-    dominant_top1,
-    second_top2,
-):
-    if not expected_dominant_present or not expected_second_present:
-        return "CRITICAL_ABSENCE"
-
-    if not top6_contains_expected_pair:
-        return "CRITICAL_TOP6_LOSS"
-
-    if not expected_pair_order_preserved:
-        return "CRITICAL_ORDER_INVERSION"
-
-    if not dominant_top1 or not second_top2:
-        return "MODERATE_RANK_DRIFT"
-
-    return "STABLE_SUPPORT"
-
-
-def impact_score(result):
-    score = 0.0
-
-    if not result["expected_dominant_present"]:
-        score += 100.0
-
-    if not result["expected_second_present"]:
-        score += 100.0
-
-    if not result["top6_contains_expected_pair"]:
-        score += 50.0
-
-    if not result["expected_pair_order_preserved"]:
-        score += 40.0
-
-    if result["expected_dominant_rank"] is not None:
-        score += abs(result["expected_dominant_rank"] - 1) * 10.0
-
-    if result["expected_second_rank"] is not None:
-        score += abs(result["expected_second_rank"] - 2) * 8.0
-
-    return score
-
-
-def all_family_values(specs):
+def family_values(specs):
     return sorted(set(spec["family"] for spec in specs))
 
 
-def all_variant_names(specs):
-    return sorted(set(spec["name"] for spec in specs))
-
-
-def filter_specs_by_families(specs, kept_families):
-    kept = set(kept_families)
-
+def variant_candidate_names():
     return [
-        spec
-        for spec in specs
-        if spec["family"] in kept
-    ]
-
-
-def remove_specs_by_families(specs, removed_families):
-    removed = set(removed_families)
-
-    return [
-        spec
-        for spec in specs
-        if spec["family"] not in removed
-    ]
-
-
-def remove_specs_by_variants(specs, removed_variants):
-    removed = set(removed_variants)
-
-    return [
-        spec
-        for spec in specs
-        if spec["name"] not in removed
-    ]
-
-
-def build_boundary_scenarios():
-    specs = cluster_specs()
-    families = all_family_values(specs)
-    variants = all_variant_names(specs)
-
-    scenarios = [
-        {
-            "scenario_name": "baseline",
-            "scenario_type": "baseline",
-            "boundary_axis": "baseline",
-            "distance": 0,
-            "removed": [],
-            "kept": families,
-            "specs": specs,
-            "confirmation_windows": CONFIRMATION_WINDOWS,
-        }
-    ]
-
-    for size in [1, 2]:
-        for removed in combinations(families, size):
-            scenarios.append(
-                {
-                    "scenario_name": (
-                        "remove_family_boundary__"
-                        + "__".join(removed)
-                    ),
-                    "scenario_type": "remove_family_boundary",
-                    "boundary_axis": "family",
-                    "distance": size,
-                    "removed": list(removed),
-                    "kept": [
-                        family
-                        for family in families
-                        if family not in removed
-                    ],
-                    "specs": remove_specs_by_families(specs, removed),
-                    "confirmation_windows": CONFIRMATION_WINDOWS,
-                }
-            )
-
-    for size in [1, 2]:
-        for kept in combinations(families, size):
-            scenarios.append(
-                {
-                    "scenario_name": (
-                        "keep_family_boundary__"
-                        + "__".join(kept)
-                    ),
-                    "scenario_type": "keep_family_boundary",
-                    "boundary_axis": "family",
-                    "distance": len(families) - size,
-                    "removed": [
-                        family
-                        for family in families
-                        if family not in kept
-                    ],
-                    "kept": list(kept),
-                    "specs": filter_specs_by_families(specs, kept),
-                    "confirmation_windows": CONFIRMATION_WINDOWS,
-                }
-            )
-
-    for size in [1, 2]:
-        for removed in combinations(CONFIRMATION_WINDOWS, size):
-            kept_thresholds = [
-                threshold
-                for threshold in CONFIRMATION_WINDOWS
-                if threshold not in removed
-            ]
-
-            scenarios.append(
-                {
-                    "scenario_name": (
-                        "remove_threshold_boundary__"
-                        + "__".join(f"C{item}" for item in removed)
-                    ),
-                    "scenario_type": "remove_threshold_boundary",
-                    "boundary_axis": "threshold",
-                    "distance": size,
-                    "removed": [f"C{item}" for item in removed],
-                    "kept": [f"C{item}" for item in kept_thresholds],
-                    "specs": specs,
-                    "confirmation_windows": kept_thresholds,
-                }
-            )
-
-    for size in [1, 2]:
-        for kept in combinations(CONFIRMATION_WINDOWS, size):
-            scenarios.append(
-                {
-                    "scenario_name": (
-                        "keep_threshold_boundary__"
-                        + "__".join(f"C{item}" for item in kept)
-                    ),
-                    "scenario_type": "keep_threshold_boundary",
-                    "boundary_axis": "threshold",
-                    "distance": len(CONFIRMATION_WINDOWS) - size,
-                    "removed": [
-                        f"C{threshold}"
-                        for threshold in CONFIRMATION_WINDOWS
-                        if threshold not in kept
-                    ],
-                    "kept": [f"C{item}" for item in kept],
-                    "specs": specs,
-                    "confirmation_windows": list(kept),
-                }
-            )
-
-    variant_probe_names = [
         "single_run_len_5",
         "two_runs_len_4_4",
         "three_runs_len_4_4_4",
@@ -1229,63 +903,268 @@ def build_boundary_scenarios():
         "dense_short_2_2_1_2_1_2",
     ]
 
-    for size in [1, 2]:
-        for removed in combinations(variant_probe_names, size):
-            scenarios.append(
-                {
-                    "scenario_name": (
-                        "remove_variant_boundary__"
-                        + "__".join(removed)
-                    ),
-                    "scenario_type": "remove_variant_boundary",
-                    "boundary_axis": "variant",
-                    "distance": size,
-                    "removed": list(removed),
-                    "kept": [
-                        name
-                        for name in variants
-                        if name not in removed
-                    ],
-                    "specs": remove_specs_by_variants(specs, removed),
-                    "confirmation_windows": CONFIRMATION_WINDOWS,
-                }
-            )
+
+def build_boundary_scenarios():
+    specs = cluster_specs()
+    families = family_values(specs)
+    variant_names = variant_candidate_names()
+
+    scenarios = []
+
+    for distance in [1, 2]:
+        for removed_families in combinations(families, distance):
+            removed = set(removed_families)
+
+            filtered = [
+                spec for spec in specs
+                if spec["family"] not in removed
+            ]
+
+            scenarios.append({
+                "scenario_name": (
+                    "remove_family_boundary__"
+                    + "__".join(removed_families)
+                ),
+                "scenario_type": "remove_family_boundary",
+                "boundary_axis": "family",
+                "boundary_target": "__".join(removed_families),
+                "boundary_distance": distance,
+                "specs": filtered,
+                "confirmation_windows": CONFIRMATION_WINDOWS,
+            })
+
+    for kept_count in [1, 2]:
+        distance = len(families) - kept_count
+
+        for kept_families in combinations(families, kept_count):
+            kept = set(kept_families)
+
+            filtered = [
+                spec for spec in specs
+                if spec["family"] in kept
+            ]
+
+            scenarios.append({
+                "scenario_name": (
+                    "keep_family_boundary__"
+                    + "__".join(kept_families)
+                ),
+                "scenario_type": "keep_family_boundary",
+                "boundary_axis": "family",
+                "boundary_target": "__".join(kept_families),
+                "boundary_distance": distance,
+                "specs": filtered,
+                "confirmation_windows": CONFIRMATION_WINDOWS,
+            })
+
+    for distance in [1, 2]:
+        for removed_thresholds in combinations(CONFIRMATION_WINDOWS, distance):
+            removed = set(removed_thresholds)
+            kept_thresholds = [
+                threshold
+                for threshold in CONFIRMATION_WINDOWS
+                if threshold not in removed
+            ]
+
+            scenarios.append({
+                "scenario_name": (
+                    "remove_threshold_boundary__"
+                    + "__".join(f"C{threshold}" for threshold in removed_thresholds)
+                ),
+                "scenario_type": "remove_threshold_boundary",
+                "boundary_axis": "threshold",
+                "boundary_target": "__".join(
+                    f"C{threshold}" for threshold in removed_thresholds
+                ),
+                "boundary_distance": distance,
+                "specs": specs,
+                "confirmation_windows": kept_thresholds,
+            })
+
+    for kept_count in [1, 2]:
+        distance = len(CONFIRMATION_WINDOWS) - kept_count
+
+        for kept_thresholds in combinations(CONFIRMATION_WINDOWS, kept_count):
+            scenarios.append({
+                "scenario_name": (
+                    "keep_threshold_boundary__"
+                    + "__".join(f"C{threshold}" for threshold in kept_thresholds)
+                ),
+                "scenario_type": "keep_threshold_boundary",
+                "boundary_axis": "threshold",
+                "boundary_target": "__".join(
+                    f"C{threshold}" for threshold in kept_thresholds
+                ),
+                "boundary_distance": distance,
+                "specs": specs,
+                "confirmation_windows": list(kept_thresholds),
+            })
+
+    for distance in [1, 2]:
+        for removed_variants in combinations(variant_names, distance):
+            removed = set(removed_variants)
+
+            filtered = [
+                spec for spec in specs
+                if spec["name"] not in removed
+            ]
+
+            scenarios.append({
+                "scenario_name": (
+                    "remove_variant_boundary__"
+                    + "__".join(removed_variants)
+                ),
+                "scenario_type": "remove_variant_boundary",
+                "boundary_axis": "variant",
+                "boundary_target": "__".join(removed_variants),
+                "boundary_distance": distance,
+                "specs": filtered,
+                "confirmation_windows": CONFIRMATION_WINDOWS,
+            })
 
     return scenarios
 
 
-def evaluate_boundary_scenarios():
-    scenario_definitions = build_boundary_scenarios()
-    scenario_results = []
+def classify_dependency(base_result, scenario_result):
+    expected_dominant_rank = scenario_result["expected_dominant_rank"]
+    expected_second_rank = scenario_result["expected_second_rank"]
 
-    for scenario in scenario_definitions:
-        records = build_records(
-            specs=scenario["specs"],
-            confirmation_windows=scenario["confirmation_windows"],
-        )
+    expected_dominant_present = scenario_result["expected_dominant_present"]
+    expected_second_present = scenario_result["expected_second_present"]
 
-        result = evaluate_control_plane(
-            records=records,
-            scenario_name=scenario["scenario_name"],
-            scenario_type=scenario["scenario_type"],
-            boundary_axis=scenario["boundary_axis"],
-        )
+    top6_contains_expected_pair = scenario_result["top6_contains_expected_pair"]
+    expected_pair_order_preserved = (
+        scenario_result["expected_pair_order_preserved"]
+    )
 
-        result["boundary_distance"] = scenario["distance"]
-        result["removed"] = scenario["removed"]
-        result["kept"] = scenario["kept"]
-        result["impact_score"] = impact_score(result)
+    if not expected_dominant_present or not expected_second_present:
+        dependency_class = "CRITICAL_ABSENCE"
 
-        scenario_results.append(result)
+    elif not top6_contains_expected_pair:
+        dependency_class = "CRITICAL_TOP6_LOSS"
 
-    return scenario_results
+    elif not expected_pair_order_preserved:
+        dependency_class = "CRITICAL_ORDER_INVERSION"
+
+    elif (
+        expected_dominant_rank != 1
+        or expected_second_rank != 2
+    ):
+        dependency_class = "MODERATE_RANK_DRIFT"
+
+    else:
+        dependency_class = "STABLE_SUPPORT"
+
+    baseline_dominant_score = (
+        base_result["dominant_cluster"]["control_plane_score"]
+        if base_result["dominant_cluster"]
+        else 0.0
+    )
+
+    baseline_second_score = (
+        base_result["second_cluster"]["control_plane_score"]
+        if base_result["second_cluster"]
+        else 0.0
+    )
+
+    scenario_dominant_score = (
+        scenario_result["dominant_cluster"]["control_plane_score"]
+        if scenario_result["dominant_cluster"]
+        else 0.0
+    )
+
+    scenario_second_score = (
+        scenario_result["second_cluster"]["control_plane_score"]
+        if scenario_result["second_cluster"]
+        else 0.0
+    )
+
+    rank_penalty = 0.0
+
+    if expected_dominant_rank is None:
+        rank_penalty += 90.0
+    else:
+        rank_penalty += abs(expected_dominant_rank - 1) * 8.0
+
+    if expected_second_rank is None:
+        rank_penalty += 90.0
+    else:
+        rank_penalty += abs(expected_second_rank - 2) * 8.0
+
+    presence_penalty = 0.0
+
+    if not expected_dominant_present:
+        presence_penalty += 85.0
+
+    if not expected_second_present:
+        presence_penalty += 85.0
+
+    top6_penalty = 0.0 if top6_contains_expected_pair else 40.0
+    order_penalty = 0.0 if expected_pair_order_preserved else 25.0
+
+    score_drift = abs(
+        baseline_dominant_score - scenario_dominant_score
+    ) * 0.25 + abs(
+        baseline_second_score - scenario_second_score
+    ) * 0.25
+
+    impact_score = round(
+        rank_penalty
+        + presence_penalty
+        + top6_penalty
+        + order_penalty
+        + score_drift,
+        4,
+    )
+
+    return {
+        "dependency_class": dependency_class,
+        "impact_score": impact_score,
+    }
 
 
-def summarize_boundary_by_axis(scenario_results):
+def enrich_boundary_record(base_result, scenario, scenario_result):
+    dependency = classify_dependency(base_result, scenario_result)
+
+    return {
+        "scenario_name": scenario["scenario_name"],
+        "scenario_type": scenario["scenario_type"],
+        "boundary_axis": scenario["boundary_axis"],
+        "boundary_target": scenario["boundary_target"],
+        "boundary_distance": scenario["boundary_distance"],
+        "status": scenario_result["status"],
+        "strict_status": scenario_result["strict_status"],
+        "dependency_class": dependency["dependency_class"],
+        "impact_score": dependency["impact_score"],
+        "record_count": scenario_result["record_count"],
+        "flat_record_count": scenario_result["flat_record_count"],
+        "cluster_count": scenario_result["cluster_count"],
+        "edge_count": scenario_result["edge_count"],
+        "threshold_edge_count": scenario_result["threshold_edge_count"],
+        "geometry_edge_count": scenario_result["geometry_edge_count"],
+        "dominant_cluster_id": scenario_result["dominant_cluster_id"],
+        "second_cluster_id": scenario_result["second_cluster_id"],
+        "expected_dominant_rank": scenario_result["expected_dominant_rank"],
+        "expected_second_rank": scenario_result["expected_second_rank"],
+        "expected_dominant_present": scenario_result["expected_dominant_present"],
+        "expected_second_present": scenario_result["expected_second_present"],
+        "top6_contains_expected_pair": (
+            scenario_result["top6_contains_expected_pair"]
+        ),
+        "expected_pair_order_preserved": (
+            scenario_result["expected_pair_order_preserved"]
+        ),
+        "dominant_top1": scenario_result["dominant_top1"],
+        "second_top2": scenario_result["second_top2"],
+        "top6_cluster_ids": scenario_result["top6_cluster_ids"],
+    }
+
+
+def summarize_by_axis(boundary_records):
     by_axis = {}
 
-    for result in scenario_results:
-        axis = result["boundary_axis"]
+    for record in boundary_records:
+        axis = record["boundary_axis"]
 
         if axis not in by_axis:
             by_axis[axis] = {
@@ -1298,237 +1177,303 @@ def summarize_boundary_by_axis(scenario_results):
                 "moderate_count": 0,
                 "stable_count": 0,
                 "impact_scores": [],
-                "critical_distances": [],
-                "moderate_distances": [],
-                "stable_distances": [],
-                "critical_scenarios": [],
-                "moderate_scenarios": [],
-                "stable_scenarios": [],
+                "critical_targets": [],
+                "stable_targets": [],
             }
 
         item = by_axis[axis]
         item["scenario_count"] += 1
-        item["impact_scores"].append(result["impact_score"])
 
-        if result["status"] == "PASS":
+        if record["status"] == "PASS":
             item["pass_count"] += 1
         else:
             item["check_count"] += 1
 
-        if result["strict_status"] == "PASS":
+        if record["strict_status"] == "PASS":
             item["strict_pass_count"] += 1
 
-        dependency_class = result["dependency_class"]
-
-        if dependency_class.startswith("CRITICAL"):
+        if record["dependency_class"].startswith("CRITICAL"):
             item["critical_count"] += 1
-            item["critical_distances"].append(result["boundary_distance"])
-            item["critical_scenarios"].append(result["scenario_name"])
+            item["critical_targets"].append(record["boundary_target"])
 
-        elif dependency_class.startswith("MODERATE"):
+        elif record["dependency_class"].startswith("MODERATE"):
             item["moderate_count"] += 1
-            item["moderate_distances"].append(result["boundary_distance"])
-            item["moderate_scenarios"].append(result["scenario_name"])
 
-        else:
+        elif record["dependency_class"] == "STABLE_SUPPORT":
             item["stable_count"] += 1
-            item["stable_distances"].append(result["boundary_distance"])
-            item["stable_scenarios"].append(result["scenario_name"])
+            item["stable_targets"].append(record["boundary_target"])
+
+        item["impact_scores"].append(record["impact_score"])
 
     for item in by_axis.values():
         scenario_count = item["scenario_count"]
-
         item["pass_rate"] = item["pass_count"] / scenario_count
-        item["check_rate"] = item["check_count"] / scenario_count
         item["strict_pass_rate"] = item["strict_pass_count"] / scenario_count
-        item["critical_rate"] = item["critical_count"] / scenario_count
-        item["moderate_rate"] = item["moderate_count"] / scenario_count
-        item["stable_rate"] = item["stable_count"] / scenario_count
-        item["impact_score_mean"] = safe_mean(item["impact_scores"])
-        item["impact_score_max"] = (
-            max(item["impact_scores"])
-            if item["impact_scores"]
-            else None
-        )
-        item["minimum_critical_distance"] = (
-            min(item["critical_distances"])
-            if item["critical_distances"]
-            else None
-        )
-        item["minimum_moderate_distance"] = (
-            min(item["moderate_distances"])
-            if item["moderate_distances"]
-            else None
-        )
-        item["minimum_stable_distance"] = (
-            min(item["stable_distances"])
-            if item["stable_distances"]
-            else None
-        )
+        item["impact_mean"] = safe_mean(item["impact_scores"])
+        item["impact_std"] = safe_std(item["impact_scores"])
+        item["impact_max"] = max(item["impact_scores"]) if item["impact_scores"] else None
+        item["critical_targets"] = sorted(set(item["critical_targets"]))
+        item["stable_targets"] = sorted(set(item["stable_targets"]))
 
     return by_axis
 
 
-def summarize_boundary(scenario_results):
-    baseline = next(
-        result
-        for result in scenario_results
-        if result["scenario_name"] == "baseline"
-    )
+def summarize_by_distance(boundary_records):
+    by_distance = {}
 
-    non_baseline_results = [
-        result
-        for result in scenario_results
-        if result["scenario_name"] != "baseline"
+    for record in boundary_records:
+        key = f"{record['boundary_axis']}|d={record['boundary_distance']}"
+
+        if key not in by_distance:
+            by_distance[key] = {
+                "boundary_axis": record["boundary_axis"],
+                "boundary_distance": record["boundary_distance"],
+                "scenario_count": 0,
+                "critical_count": 0,
+                "moderate_count": 0,
+                "stable_count": 0,
+                "impact_scores": [],
+            }
+
+        item = by_distance[key]
+        item["scenario_count"] += 1
+
+        if record["dependency_class"].startswith("CRITICAL"):
+            item["critical_count"] += 1
+
+        elif record["dependency_class"].startswith("MODERATE"):
+            item["moderate_count"] += 1
+
+        elif record["dependency_class"] == "STABLE_SUPPORT":
+            item["stable_count"] += 1
+
+        item["impact_scores"].append(record["impact_score"])
+
+    for item in by_distance.values():
+        item["impact_mean"] = safe_mean(item["impact_scores"])
+        item["impact_max"] = (
+            max(item["impact_scores"]) if item["impact_scores"] else None
+        )
+
+    return by_distance
+
+
+def select_extreme_records(boundary_records):
+    critical = [
+        record for record in boundary_records
+        if record["dependency_class"].startswith("CRITICAL")
     ]
 
-    by_axis = summarize_boundary_by_axis(non_baseline_results)
-
-    critical_results = [
-        result
-        for result in non_baseline_results
-        if result["dependency_class"].startswith("CRITICAL")
+    moderate = [
+        record for record in boundary_records
+        if record["dependency_class"].startswith("MODERATE")
     ]
 
-    moderate_results = [
-        result
-        for result in non_baseline_results
-        if result["dependency_class"].startswith("MODERATE")
+    stable = [
+        record for record in boundary_records
+        if record["dependency_class"] == "STABLE_SUPPORT"
     ]
 
-    stable_results = [
-        result
-        for result in non_baseline_results
-        if result["dependency_class"] == "STABLE_SUPPORT"
-    ]
-
-    sorted_critical = sorted(
-        critical_results,
-        key=lambda result: (
-            result["boundary_distance"],
-            -result["impact_score"],
-            result["scenario_name"],
+    minimum_critical = sorted(
+        critical,
+        key=lambda record: (
+            record["boundary_distance"],
+            -record["impact_score"],
+            record["scenario_name"],
         ),
     )
 
-    sorted_moderate = sorted(
-        moderate_results,
-        key=lambda result: (
-            result["boundary_distance"],
-            -result["impact_score"],
-            result["scenario_name"],
+    top_critical = sorted(
+        critical,
+        key=lambda record: (
+            record["impact_score"],
+            -record["boundary_distance"],
+            record["scenario_name"],
         ),
+        reverse=True,
     )
 
-    sorted_stable = sorted(
-        stable_results,
-        key=lambda result: (
-            result["boundary_distance"],
-            result["scenario_name"],
+    top_moderate = sorted(
+        moderate,
+        key=lambda record: (
+            record["impact_score"],
+            -record["boundary_distance"],
+            record["scenario_name"],
         ),
+        reverse=True,
     )
 
-    minimum_critical_distance = (
-        sorted_critical[0]["boundary_distance"]
-        if sorted_critical
-        else None
-    )
-
-    minimum_moderate_distance = (
-        sorted_moderate[0]["boundary_distance"]
-        if sorted_moderate
-        else None
-    )
-
-    minimum_critical_scenarios = [
-        result
-        for result in sorted_critical
-        if result["boundary_distance"] == minimum_critical_distance
-    ]
-
-    boundary_detected = (
-        baseline["status"] == "PASS"
-        and baseline["strict_status"] == "PASS"
-        and len(critical_results) > 0
-        and len(moderate_results) > 0
-        and len(stable_results) > 0
-        and by_axis.get("threshold", {}).get("minimum_critical_distance")
-        is not None
-        and by_axis.get("family", {}).get("minimum_critical_distance")
-        is not None
+    top_stable = sorted(
+        stable,
+        key=lambda record: (
+            record["boundary_distance"],
+            record["scenario_name"],
+        ),
     )
 
     return {
-        "baseline_status": baseline["status"],
-        "baseline_strict_status": baseline["strict_status"],
-        "boundary_scenario_count": len(non_baseline_results),
-        "critical_boundary_count": len(critical_results),
-        "moderate_boundary_count": len(moderate_results),
-        "stable_boundary_count": len(stable_results),
-        "minimum_critical_distance": minimum_critical_distance,
-        "minimum_moderate_distance": minimum_moderate_distance,
-        "minimum_critical_scenario_names": [
-            result["scenario_name"]
-            for result in minimum_critical_scenarios
-        ],
-        "minimum_critical_scenarios": [
-            compact_boundary_record(result)
-            for result in minimum_critical_scenarios
-        ],
-        "top_critical_boundaries": [
-            compact_boundary_record(result)
-            for result in sorted_critical[:12]
-        ],
-        "top_moderate_boundaries": [
-            compact_boundary_record(result)
-            for result in sorted_moderate[:12]
-        ],
-        "top_stable_boundaries": [
-            compact_boundary_record(result)
-            for result in sorted_stable[:12]
-        ],
-        "by_axis": by_axis,
-        "dependency_boundary_detected": boundary_detected,
-        "boundary_rule": (
-            "Boundary distance is the perturbation size required to move "
-            "the expected control-plane pair from stable support into "
-            "moderate rank drift or critical failure."
-        ),
+        "minimum_critical_boundaries": minimum_critical[:12],
+        "top_critical_boundaries": top_critical[:12],
+        "top_moderate_boundaries": top_moderate[:12],
+        "top_stable_boundaries": top_stable[:12],
     }
 
 
-def compact_boundary_record(result):
+def summarize_boundary_records(boundary_records):
+    critical = [
+        record for record in boundary_records
+        if record["dependency_class"].startswith("CRITICAL")
+    ]
+
+    moderate = [
+        record for record in boundary_records
+        if record["dependency_class"].startswith("MODERATE")
+    ]
+
+    stable = [
+        record for record in boundary_records
+        if record["dependency_class"] == "STABLE_SUPPORT"
+    ]
+
+    minimum_critical_distances = [
+        record["boundary_distance"]
+        for record in critical
+    ]
+
+    minimum_moderate_distances = [
+        record["boundary_distance"]
+        for record in moderate
+    ]
+
+    by_axis = summarize_by_axis(boundary_records)
+    by_distance = summarize_by_distance(boundary_records)
+    extremes = select_extreme_records(boundary_records)
+
+    dependency_boundary_detected = (
+        len(boundary_records) > 0
+        and len(critical) > 0
+        and len(moderate) > 0
+        and len(stable) > 0
+    )
+
     return {
-        "scenario_name": result["scenario_name"],
-        "scenario_type": result["scenario_type"],
-        "boundary_axis": result["boundary_axis"],
-        "boundary_distance": result["boundary_distance"],
-        "removed": result["removed"],
-        "kept": result["kept"],
-        "status": result["status"],
-        "strict_status": result["strict_status"],
-        "dependency_class": result["dependency_class"],
-        "impact_score": result["impact_score"],
-        "expected_dominant_rank": result["expected_dominant_rank"],
-        "expected_second_rank": result["expected_second_rank"],
-        "dominant_cluster_id": result["dominant_cluster_id"],
-        "second_cluster_id": result["second_cluster_id"],
-        "top6_contains_expected_pair": result["top6_contains_expected_pair"],
-        "expected_pair_order_preserved": (
-            result["expected_pair_order_preserved"]
+        "boundary_scenario_count": len(boundary_records),
+        "critical_boundary_count": len(critical),
+        "moderate_boundary_count": len(moderate),
+        "stable_boundary_count": len(stable),
+        "minimum_critical_distance": (
+            min(minimum_critical_distances)
+            if minimum_critical_distances
+            else None
         ),
+        "minimum_moderate_distance": (
+            min(minimum_moderate_distances)
+            if minimum_moderate_distances
+            else None
+        ),
+        "minimum_critical_scenario_names": [
+            record["scenario_name"]
+            for record in critical
+            if record["boundary_distance"] == (
+                min(minimum_critical_distances)
+                if minimum_critical_distances
+                else None
+            )
+        ],
+        "critical_dependency_targets": sorted(
+            set(record["boundary_target"] for record in critical)
+        ),
+        "by_axis": by_axis,
+        "by_distance": by_distance,
+        "boundary_extremes": extremes,
+        "dependency_boundary_detected": dependency_boundary_detected,
     }
 
 
 def main():
-    scenario_results = evaluate_boundary_scenarios()
-    boundary_summary = summarize_boundary(scenario_results)
+    specs = cluster_specs()
+
+    baseline_records = build_records(
+        specs=specs,
+        confirmation_windows=CONFIRMATION_WINDOWS,
+    )
+
+    baseline_result = evaluate_control_plane(
+        baseline_records,
+        "baseline",
+        "baseline",
+    )
+
+    boundary_scenarios = build_boundary_scenarios()
+    boundary_records = []
+    raw_scenario_results = []
+
+    for scenario in boundary_scenarios:
+        records = build_records(
+            specs=scenario["specs"],
+            confirmation_windows=scenario["confirmation_windows"],
+        )
+
+        scenario_result = evaluate_control_plane(
+            records,
+            scenario["scenario_name"],
+            scenario["scenario_type"],
+        )
+
+        raw_scenario_results.append(scenario_result)
+
+        boundary_records.append(
+            enrich_boundary_record(
+                baseline_result,
+                scenario,
+                scenario_result,
+            )
+        )
+
+    dependency_summary = summarize_boundary_records(boundary_records)
+    by_axis = dependency_summary["by_axis"]
+    extremes = dependency_summary["boundary_extremes"]
 
     status = (
         "PASS"
-        if boundary_summary["dependency_boundary_detected"]
+        if dependency_summary["dependency_boundary_detected"]
         else "CHECK"
     )
+
+    scenario_records_with_baseline = [
+        {
+            "scenario_name": "baseline",
+            "scenario_type": "baseline",
+            "boundary_axis": "baseline",
+            "boundary_target": "baseline",
+            "boundary_distance": 0,
+            "status": baseline_result["status"],
+            "strict_status": baseline_result["strict_status"],
+            "dependency_class": "STABLE_SUPPORT",
+            "impact_score": 0.0,
+            "record_count": baseline_result["record_count"],
+            "flat_record_count": baseline_result["flat_record_count"],
+            "cluster_count": baseline_result["cluster_count"],
+            "edge_count": baseline_result["edge_count"],
+            "threshold_edge_count": baseline_result["threshold_edge_count"],
+            "geometry_edge_count": baseline_result["geometry_edge_count"],
+            "dominant_cluster_id": baseline_result["dominant_cluster_id"],
+            "second_cluster_id": baseline_result["second_cluster_id"],
+            "expected_dominant_rank": baseline_result["expected_dominant_rank"],
+            "expected_second_rank": baseline_result["expected_second_rank"],
+            "expected_dominant_present": baseline_result["expected_dominant_present"],
+            "expected_second_present": baseline_result["expected_second_present"],
+            "top6_contains_expected_pair": (
+                baseline_result["top6_contains_expected_pair"]
+            ),
+            "expected_pair_order_preserved": (
+                baseline_result["expected_pair_order_preserved"]
+            ),
+            "dominant_top1": baseline_result["dominant_top1"],
+            "second_top2": baseline_result["second_top2"],
+            "top6_cluster_ids": baseline_result["top6_cluster_ids"],
+        }
+    ] + boundary_records
 
     payload = {
         "experiment": (
@@ -1537,55 +1482,87 @@ def main():
         "version": VERSION,
         "status": status,
         "summary": {
-            "baseline_status": boundary_summary["baseline_status"],
-            "baseline_strict_status": (
-                boundary_summary["baseline_strict_status"]
-            ),
+            "baseline_status": baseline_result["status"],
+            "baseline_strict_status": baseline_result["strict_status"],
             "boundary_scenario_count": (
-                boundary_summary["boundary_scenario_count"]
+                dependency_summary["boundary_scenario_count"]
             ),
             "critical_boundary_count": (
-                boundary_summary["critical_boundary_count"]
+                dependency_summary["critical_boundary_count"]
             ),
             "moderate_boundary_count": (
-                boundary_summary["moderate_boundary_count"]
+                dependency_summary["moderate_boundary_count"]
             ),
             "stable_boundary_count": (
-                boundary_summary["stable_boundary_count"]
+                dependency_summary["stable_boundary_count"]
             ),
             "minimum_critical_distance": (
-                boundary_summary["minimum_critical_distance"]
+                dependency_summary["minimum_critical_distance"]
             ),
             "minimum_moderate_distance": (
-                boundary_summary["minimum_moderate_distance"]
+                dependency_summary["minimum_moderate_distance"]
             ),
             "minimum_critical_scenario_names": (
-                boundary_summary["minimum_critical_scenario_names"]
+                dependency_summary["minimum_critical_scenario_names"]
             ),
             "expected_dominant_control_cluster": EXPECTED_DOMINANT,
             "expected_second_control_cluster": EXPECTED_SECOND,
             "dependency_boundary_detected": (
-                boundary_summary["dependency_boundary_detected"]
+                dependency_summary["dependency_boundary_detected"]
             ),
             "method": "dependency_boundary",
         },
-        "dependency_boundary_summary": boundary_summary,
-        "scenario_results": [
-            compact_boundary_record(result)
-            for result in scenario_results
-        ],
+        "dependency_boundary_summary": {
+            "boundary_scenario_count": (
+                dependency_summary["boundary_scenario_count"]
+            ),
+            "critical_boundary_count": (
+                dependency_summary["critical_boundary_count"]
+            ),
+            "moderate_boundary_count": (
+                dependency_summary["moderate_boundary_count"]
+            ),
+            "stable_boundary_count": (
+                dependency_summary["stable_boundary_count"]
+            ),
+            "minimum_critical_distance": (
+                dependency_summary["minimum_critical_distance"]
+            ),
+            "minimum_moderate_distance": (
+                dependency_summary["minimum_moderate_distance"]
+            ),
+            "critical_dependency_targets": (
+                dependency_summary["critical_dependency_targets"]
+            ),
+            "by_axis": by_axis,
+            "by_distance": dependency_summary["by_distance"],
+            "boundary_extremes": extremes,
+            "dependency_boundary_detected": (
+                dependency_summary["dependency_boundary_detected"]
+            ),
+            "boundary_records": boundary_records,
+            "scenario_records": boundary_records,
+            "scenario_records_with_baseline": scenario_records_with_baseline,
+        },
+        "boundary_records": boundary_records,
+        "scenario_records": boundary_records,
+        "scenario_records_with_baseline": scenario_records_with_baseline,
+        "baseline_result": baseline_result,
+        "raw_scenario_results": raw_scenario_results,
         "interpretation": {
-            "main_result": "dependency boundary detected",
+            "main_result": (
+                "dependency boundary detected"
+                if status == "PASS"
+                else "dependency boundary not fully detected"
+            ),
             "structural_conclusion": (
-                "The control plane has a measurable perturbation boundary. "
-                "Some one-step perturbations remain stable, some cause "
-                "moderate rank drift, and some produce critical loss or "
-                "order inversion."
+                "The control plane has measurable stable, moderate, and "
+                "critical perturbation boundaries across family, threshold, "
+                "and variant axes."
             ),
             "important_boundary": (
-                "This experiment measures structural boundary behavior. "
-                "It does not claim semantic causality or external model "
-                "correctness."
+                "This result maps dependency boundaries. It does not claim "
+                "semantic causality or final decision authority."
             ),
         },
         "final_check": {
@@ -1627,7 +1604,7 @@ def main():
     print("By boundary axis")
     print("-" * 80)
 
-    for axis, item in boundary_summary["by_axis"].items():
+    for axis, item in by_axis.items():
         print(
             f"axis={axis:<10} "
             f"scenarios={item['scenario_count']} "
@@ -1637,69 +1614,84 @@ def main():
             f"critical={item['critical_count']} "
             f"moderate={item['moderate_count']} "
             f"stable={item['stable_count']} "
-            f"min_critical={item['minimum_critical_distance']} "
-            f"min_moderate={item['minimum_moderate_distance']} "
-            f"impact_mean={item['impact_score_mean']} "
-            f"impact_max={item['impact_score_max']}"
+            f"impact_mean={item['impact_mean']} "
+            f"impact_max={item['impact_max']}"
         )
 
     print()
     print("Minimum critical boundaries")
     print("-" * 80)
 
-    for item in boundary_summary["minimum_critical_scenarios"]:
+    for record in extremes["minimum_critical_boundaries"]:
         print(
-            f"scenario={item['scenario_name']:<64} "
-            f"axis={item['boundary_axis']:<10} "
-            f"distance={item['boundary_distance']} "
-            f"class={item['dependency_class']} "
-            f"impact={item['impact_score']} "
-            f"dom_rank={item['expected_dominant_rank']} "
-            f"sec_rank={item['expected_second_rank']}"
+            f"scenario={record['scenario_name']:<64} "
+            f"axis={record['boundary_axis']:<10} "
+            f"distance={record['boundary_distance']} "
+            f"class={record['dependency_class']} "
+            f"impact={record['impact_score']} "
+            f"dom_rank={record['expected_dominant_rank']} "
+            f"sec_rank={record['expected_second_rank']}"
         )
 
     print()
     print("Top critical boundaries")
     print("-" * 80)
 
-    for item in boundary_summary["top_critical_boundaries"]:
+    for record in extremes["top_critical_boundaries"]:
         print(
-            f"scenario={item['scenario_name']:<64} "
-            f"axis={item['boundary_axis']:<10} "
-            f"distance={item['boundary_distance']} "
-            f"class={item['dependency_class']} "
-            f"impact={item['impact_score']} "
-            f"dom_rank={item['expected_dominant_rank']} "
-            f"sec_rank={item['expected_second_rank']}"
+            f"scenario={record['scenario_name']:<64} "
+            f"axis={record['boundary_axis']:<10} "
+            f"distance={record['boundary_distance']} "
+            f"class={record['dependency_class']} "
+            f"impact={record['impact_score']} "
+            f"dom_rank={record['expected_dominant_rank']} "
+            f"sec_rank={record['expected_second_rank']}"
         )
 
     print()
     print("Top moderate boundaries")
     print("-" * 80)
 
-    for item in boundary_summary["top_moderate_boundaries"]:
+    for record in extremes["top_moderate_boundaries"]:
         print(
-            f"scenario={item['scenario_name']:<64} "
-            f"axis={item['boundary_axis']:<10} "
-            f"distance={item['boundary_distance']} "
-            f"class={item['dependency_class']} "
-            f"impact={item['impact_score']} "
-            f"dom_rank={item['expected_dominant_rank']} "
-            f"sec_rank={item['expected_second_rank']}"
+            f"scenario={record['scenario_name']:<64} "
+            f"axis={record['boundary_axis']:<10} "
+            f"distance={record['boundary_distance']} "
+            f"class={record['dependency_class']} "
+            f"impact={record['impact_score']} "
+            f"dom_rank={record['expected_dominant_rank']} "
+            f"sec_rank={record['expected_second_rank']}"
         )
 
     print()
     print("Top stable boundaries")
     print("-" * 80)
 
-    for item in boundary_summary["top_stable_boundaries"]:
+    for record in extremes["top_stable_boundaries"]:
         print(
-            f"scenario={item['scenario_name']:<64} "
-            f"axis={item['boundary_axis']:<10} "
-            f"distance={item['boundary_distance']} "
-            f"class={item['dependency_class']} "
-            f"dom_rank={item['expected_dominant_rank']} "
-            f"sec_rank={item['expected_second_rank']}"
+            f"scenario={record['scenario_name']:<64} "
+            f"axis={record['boundary_axis']:<10} "
+            f"distance={record['boundary_distance']} "
+            f"class={record['dependency_class']} "
+            f"impact={record['impact_score']} "
+            f"dom_rank={record['expected_dominant_rank']} "
+            f"sec_rank={record['expected_second_rank']}"
+        )
+
+    print()
+    print("Boundary records")
+    print("-" * 80)
+
+    for record in boundary_records:
+        print(
+            f"scenario={record['scenario_name']:<64} "
+            f"type={record['scenario_type']:<28} "
+            f"axis={record['boundary_axis']:<10} "
+            f"distance={record['boundary_distance']} "
+            f"status={record['status']} "
+            f"strict={record['strict_status']} "
+            f"class={record['dependency_class']} "
+            f"impact={record['impact_score']}"
         )
 
     print()
@@ -1708,7 +1700,7 @@ def main():
 
     print(
         "dependency_boundary_detected:",
-        boundary_summary["dependency_boundary_detected"],
+        dependency_summary["dependency_boundary_detected"],
     )
 
     print()
@@ -1719,13 +1711,12 @@ def main():
     if status == "PASS":
         print(
             "PASS - dependency boundary detected: the control plane has "
-            "measurable stable, moderate, and critical perturbation "
-            "boundaries."
+            "measurable stable, moderate, and critical perturbation boundaries."
         )
     else:
         print(
-            "CHECK - dependency boundary was not fully confirmed under "
-            "the tested perturbation scenarios."
+            "CHECK - dependency boundary was not fully confirmed under the "
+            "tested perturbation boundary scenarios."
         )
 
     print()
