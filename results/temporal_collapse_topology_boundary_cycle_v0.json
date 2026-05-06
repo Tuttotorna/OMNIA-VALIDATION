@@ -1,0 +1,269 @@
+{
+  "experiment": "temporal_collapse_topology_boundary_cycle_v0",
+  "version": "0.1.0",
+  "status": "PASS",
+  "summary": {
+    "variant_count": 5,
+    "node_count": 6,
+    "confirmation_window": 2,
+    "persistence_window": 2,
+    "global_persistence_threshold": 4,
+    "max_mutation_depth": 4,
+    "boundary_cycle": "OSCILLATING_NONPERSISTENT<->FRAGMENTED_LOCAL_COLLAPSE",
+    "forward_transition": "OSCILLATING_NONPERSISTENT->FRAGMENTED_LOCAL_COLLAPSE",
+    "reverse_transition": "FRAGMENTED_LOCAL_COLLAPSE->OSCILLATING_NONPERSISTENT",
+    "all_cycles_detected": true,
+    "expected_cycle_detected": true,
+    "forward_depths": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "reverse_depths": [
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "forward_depth_stable": true,
+    "reverse_depth_stable": true,
+    "cycle_depth_sums": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "cycle_depth_sum_mean": 4,
+    "cycle_depth_asymmetries": [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "cycle_asymmetry_mean": 2,
+    "forward_example_total": 360168,
+    "reverse_example_total": 13120,
+    "forward_example_mean": 72033.6,
+    "reverse_example_mean": 2624,
+    "boundary_cycle_index_mean": 0.01737394772018297,
+    "boundary_cycle_index_std": 0.013133054404879881
+  },
+  "cycle_summary": {
+    "all_cycles_detected": true,
+    "cycle_detected_values": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "forward_depths": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "reverse_depths": [
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "forward_depth_stable": true,
+    "reverse_depth_stable": true,
+    "cycle_depth_sums": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "cycle_depth_sum_mean": 4,
+    "cycle_depth_sum_std": 0.0,
+    "cycle_asymmetries": [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "cycle_asymmetry_mean": 2,
+    "cycle_asymmetry_std": 0.0,
+    "forward_examples": [
+      9608,
+      26121,
+      55363,
+      101303,
+      167773
+    ],
+    "reverse_examples": [
+      1600,
+      2112,
+      2624,
+      3136,
+      3648
+    ],
+    "forward_example_total": 360168,
+    "reverse_example_total": 13120,
+    "forward_example_mean": 72033.6,
+    "reverse_example_mean": 2624,
+    "cycle_indices": [
+      0.041631973355537054,
+      0.020213621224302286,
+      0.011849068872712823,
+      0.007739158761339743,
+      0.005435916387022941
+    ],
+    "boundary_cycle_index_mean": 0.01737394772018297,
+    "boundary_cycle_index_std": 0.013133054404879881,
+    "expected_cycle_detected": true
+  },
+  "variant_summaries": [
+    {
+      "variant_index": 0,
+      "cycle_detected": true,
+      "forward_depth": 1,
+      "reverse_depth": 3,
+      "forward_examples": 9608,
+      "reverse_examples": 1600,
+      "cycle_depth_sum": 4,
+      "cycle_depth_asymmetry": 2,
+      "boundary_cycle_index": 0.041631973355537054,
+      "forward_counts": {
+        "1": 6,
+        "2": 130,
+        "3": 1311,
+        "4": 8161
+      },
+      "reverse_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 64,
+        "4": 1536
+      }
+    },
+    {
+      "variant_index": 1,
+      "cycle_detected": true,
+      "forward_depth": 1,
+      "reverse_depth": 3,
+      "forward_examples": 26121,
+      "reverse_examples": 2112,
+      "cycle_depth_sum": 4,
+      "cycle_depth_asymmetry": 2,
+      "boundary_cycle_index": 0.020213621224302286,
+      "forward_counts": {
+        "1": 6,
+        "2": 182,
+        "3": 2603,
+        "4": 23330
+      },
+      "reverse_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 64,
+        "4": 2048
+      }
+    },
+    {
+      "variant_index": 2,
+      "cycle_detected": true,
+      "forward_depth": 1,
+      "reverse_depth": 3,
+      "forward_examples": 55363,
+      "reverse_examples": 2624,
+      "cycle_depth_sum": 4,
+      "cycle_depth_asymmetry": 2,
+      "boundary_cycle_index": 0.011849068872712823,
+      "forward_counts": {
+        "1": 6,
+        "2": 234,
+        "3": 4335,
+        "4": 50788
+      },
+      "reverse_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 64,
+        "4": 2560
+      }
+    },
+    {
+      "variant_index": 3,
+      "cycle_detected": true,
+      "forward_depth": 1,
+      "reverse_depth": 3,
+      "forward_examples": 101303,
+      "reverse_examples": 3136,
+      "cycle_depth_sum": 4,
+      "cycle_depth_asymmetry": 2,
+      "boundary_cycle_index": 0.007739158761339743,
+      "forward_counts": {
+        "1": 6,
+        "2": 286,
+        "3": 6515,
+        "4": 94496
+      },
+      "reverse_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 64,
+        "4": 3072
+      }
+    },
+    {
+      "variant_index": 4,
+      "cycle_detected": true,
+      "forward_depth": 1,
+      "reverse_depth": 3,
+      "forward_examples": 167773,
+      "reverse_examples": 3648,
+      "cycle_depth_sum": 4,
+      "cycle_depth_asymmetry": 2,
+      "boundary_cycle_index": 0.005435916387022941,
+      "forward_counts": {
+        "1": 6,
+        "2": 338,
+        "3": 9143,
+        "4": 158286
+      },
+      "reverse_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 64,
+        "4": 3584
+      }
+    }
+  ],
+  "final_check": {
+    "status": "PASS",
+    "message": "basin-boundary cycle detected: OSCILLATING_NONPERSISTENT and FRAGMENTED_LOCAL_COLLAPSE form a stable reversible boundary cycle"
+  },
+  "interpretation": {
+    "main_result": "A stable reversible basin-boundary cycle was detected.",
+    "boundary_cycle": "OSCILLATING_NONPERSISTENT<->FRAGMENTED_LOCAL_COLLAPSE",
+    "forward_transition": {
+      "path": "OSCILLATING_NONPERSISTENT->FRAGMENTED_LOCAL_COLLAPSE",
+      "minimum_depth": 1,
+      "depth_stable": true,
+      "example_total": 360168
+    },
+    "reverse_transition": {
+      "path": "FRAGMENTED_LOCAL_COLLAPSE->OSCILLATING_NONPERSISTENT",
+      "minimum_depth": 3,
+      "depth_stable": true,
+      "example_total": 13120
+    },
+    "cycle_depth_sum": 4,
+    "cycle_depth_asymmetry": 2,
+    "structural_conclusion": "the basin boundary is reversible but asymmetric: entering the collapse-entry state is easier than escaping it"
+  },
+  "reproduction_command": "python examples/temporal_collapse_topology_boundary_cycle_v0.py"
+}
