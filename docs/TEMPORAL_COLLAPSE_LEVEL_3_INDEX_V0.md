@@ -70,7 +70,7 @@ It is a measurement-derived warning signal for an external decision layer.
 
 ## Level 3 Progression
 
-Level 3 currently has six validation steps:
+Level 3 currently has seven validation steps:
 
 ```text
 Level 3 v0
@@ -90,6 +90,9 @@ Level 3 v4
 
 Level 3 v5
   -> separate-generator raw trajectory validation
+
+Level 3 v6
+  -> declared external-source raw trajectory validation
 ```
 
 This progression moves from:
@@ -128,13 +131,23 @@ to:
 separate-generator raw trajectory validation
 ```
 
+to:
+
+```text
+declared external-source raw trajectory validation
+```
+
 The current strongest internal raw result is v3.
 
 The current strongest external-style result is v4.
 
 The current strongest separate-generator result is v5.
 
-v5 is stronger than v4, but it does not prove absolute external independence.
+The current strongest declared external-source result is v6.
+
+v6 is stronger than v5 as a declared source-boundary step.
+
+v6 is not `external_source_verified`.
 
 ---
 
@@ -283,8 +296,6 @@ Current status:
 ```text
 PASS
 ```
-
-The v1 bridge moved beyond synthetic trajectories and tested warning pressure over Level 2-derived result snapshots.
 
 Aggregate result:
 
@@ -560,10 +571,6 @@ PASS
 
 The v3 validator executed successfully.
 
-The script created and read the raw JSONL trajectory dataset.
-
-No runtime error was produced.
-
 The validator separated all four bounded reference trajectories into the expected regimes:
 
 ```text
@@ -733,12 +740,6 @@ Current status:
 ```text
 PASS
 ```
-
-The v4 validator executed successfully.
-
-The script read the external-style raw JSONL trajectory dataset.
-
-No runtime error was produced.
 
 Source summary:
 
@@ -1009,6 +1010,217 @@ not independently verified external source.
 
 ---
 
+## Level 3 v6 Files
+
+### External-source concept document
+
+```text
+docs/TEMPORAL_COLLAPSE_EXTERNAL_SOURCE_RAW_TRAJECTORY_VALIDATOR_V6.md
+```
+
+Defines the v6 declared external-source raw trajectory validation direction.
+
+It specifies:
+
+```text
+external-source raw trajectory schema
+source independence levels
+required source field
+required independence method
+warning signals
+risk formula
+classification thresholds
+source summary
+aggregate output
+safe claims
+limitations
+```
+
+### Declared external-source raw trajectory input JSONL
+
+```text
+data/temporal_collapse_external_source_raw_trajectories_v6.jsonl
+```
+
+Stores the declared external-source raw ordered trajectory records used by v6.
+
+The dataset contains five trajectories:
+
+```text
+external_source_stable_001
+external_source_drift_001
+external_source_borderline_critical_001
+external_source_critical_001
+external_source_collapse_like_001
+```
+
+Each event contains:
+
+```text
+trajectory_id
+step
+signature
+cluster
+delta
+iri
+boundary_distance
+phase
+source
+source_independence
+independence_method
+```
+
+The current source is:
+
+```text
+benchmark_prompt_perturbation_v6
+```
+
+The current source independence status is:
+
+```text
+external_source_declared
+```
+
+The current independence method is:
+
+```text
+prompt_perturbation_trace
+```
+
+This is not:
+
+```text
+external_source_verified
+```
+
+### External-source raw trajectory validator script
+
+```text
+examples/temporal_collapse_external_source_raw_trajectory_validator_v6.py
+```
+
+Applies the raw trajectory warning mechanism to declared external-source raw ordered trajectory records.
+
+The script groups events by `trajectory_id`, sorts by `step`, computes warning signals, emits gate actions, preserves transition evidence, and builds source summaries.
+
+It moves from:
+
+```text
+separate-generator validation
+```
+
+to:
+
+```text
+declared external-source validation
+```
+
+### Level 3 v6 result JSON
+
+```text
+results/temporal_collapse_external_source_raw_trajectory_validator_v6.json
+```
+
+Stores the reproducible output of the Level 3 v6 validator.
+
+### Level 3 v6 result document
+
+```text
+docs/TEMPORAL_COLLAPSE_EXTERNAL_SOURCE_RAW_TRAJECTORY_VALIDATOR_V6_RESULT.md
+```
+
+Documents the v6 result, source boundary, source summary, ordered risk progression, aggregate result, per-trajectory evidence, safe claim, and external-source limitation.
+
+---
+
+## Level 3 v6 Result Status
+
+Current status:
+
+```text
+PASS
+```
+
+The v6 validator executed successfully.
+
+No runtime error was produced.
+
+Source summary:
+
+```text
+source:              benchmark_prompt_perturbation_v6
+source_independence: external_source_declared
+independence_method: prompt_perturbation_trace
+trajectory_count:    5
+average_risk_score:  0.451667
+```
+
+Aggregate result:
+
+```text
+aggregate_risk_score:  0.451667
+aggregate_risk_regime: DRIFT
+aggregate_gate_action: WATCH
+source_count:          1
+```
+
+Regime counts:
+
+```text
+STABLE   -> 1
+DRIFT    -> 1
+CRITICAL -> 2
+COLLAPSE -> 1
+```
+
+Highest-risk trajectory:
+
+```text
+external_source_collapse_like_001 -> 0.813406
+```
+
+Observed risk progression:
+
+```text
+external_source_stable_001               -> STABLE   -> 0.040000 -> PASS
+external_source_drift_001                -> DRIFT    -> 0.294956 -> WATCH
+external_source_borderline_critical_001  -> CRITICAL -> 0.503233 -> ESCALATE
+external_source_critical_001             -> CRITICAL -> 0.606739 -> ESCALATE
+external_source_collapse_like_001        -> COLLAPSE -> 0.813406 -> STOP
+```
+
+Important borderline result:
+
+```text
+external_source_borderline_critical_001 -> 0.503233
+CRITICAL threshold                      -> 0.500000
+margin above threshold                  -> 0.003233
+```
+
+Correct interpretation:
+
+```text
+Level 3 v6 applied the raw trajectory warning mechanism
+to declared external-source raw ordered trajectory records.
+
+The validator separated STABLE, DRIFT, CRITICAL, and COLLAPSE regimes,
+with the borderline trajectory crossing the CRITICAL threshold by a narrow margin.
+```
+
+Important limitation:
+
+```text
+Level 3 v6 is stronger than v5 as a declared source-boundary step.
+
+It is not external_source_verified.
+
+The source independence label means external_source_declared,
+not absolute independent verification.
+```
+
+---
+
 ## Risk Formula v0/v1
 
 Level 3 v0 and v1 use:
@@ -1045,9 +1257,9 @@ The v2 formula preserves the same structural intent while replacing snapshot sig
 
 ---
 
-## Risk Formula v3/v4/v5
+## Risk Formula v3/v4/v5/v6
 
-Level 3 v3, v4, and v5 use the raw ordered trajectory variant:
+Level 3 v3, v4, v5, and v6 use the raw ordered trajectory variant:
 
 ```text
 risk_score =
@@ -1058,7 +1270,7 @@ risk_score =
   + 0.10 * irreversibility_signal
 ```
 
-The v3/v4/v5 formula measures directly over raw ordered trajectory events.
+The v3/v4/v5/v6 formula measures directly over raw ordered trajectory events.
 
 It uses:
 
@@ -1088,6 +1300,17 @@ source
 source_independence
 independence_method
 source_summary
+```
+
+v6 additionally tracks:
+
+```text
+declared external-source boundary
+source
+source_independence
+independence_method
+source_summary
+external_source_note
 ```
 
 ---
@@ -1131,6 +1354,7 @@ temporal-collapse signatures
   -> raw trajectory warning
   -> external-style raw trajectory validation
   -> separate-generator raw trajectory validation
+  -> declared external-source raw trajectory validation
 ```
 
 The Level 3 warning layer exists because Level 2 mapped structural boundaries.
@@ -1144,6 +1368,8 @@ With v3, the warning layer begins operating directly over raw ordered trajectory
 With v4, the same mechanism is applied to external-style raw ordered trajectory records while tracking source independence.
 
 With v5, the same mechanism is applied to raw ordered trajectory records generated by a separate generator script.
+
+With v6, the same mechanism is applied to declared external-source raw ordered trajectory records.
 
 ---
 
@@ -1167,7 +1393,7 @@ A warning system becomes stronger when it knows where the measurement becomes un
 
 ---
 
-## Structural Reading Across v0, v1, v2, v3, v4, and v5
+## Structural Reading Across v0, v1, v2, v3, v4, v5, and v6
 
 ### v0
 
@@ -1277,6 +1503,32 @@ independence_method: separate_generator_script
 
 Therefore v5 is stronger than v4, but it is not absolute external validation.
 
+### v6
+
+```text
+declared external-source raw trajectory records
+  -> STABLE / DRIFT / CRITICAL / COLLAPSE regimes separated
+```
+
+v6 applies the raw trajectory warning mechanism to records under a declared external-source boundary.
+
+The observed risk progression is:
+
+```text
+0.040000 -> 0.294956 -> 0.503233 -> 0.606739 -> 0.813406
+```
+
+The decisive boundary condition is:
+
+```text
+source_independence: external_source_declared
+independence_method: prompt_perturbation_trace
+```
+
+Therefore v6 is stronger than v5 as a declared source-boundary step.
+
+It is not `external_source_verified`.
+
 ---
 
 ## Current Structural Verdict
@@ -1289,7 +1541,8 @@ to snapshot-derived warning,
 to ordered stage-trajectory warning,
 to raw ordered trajectory warning,
 to external-style raw trajectory validation,
-to separate-generator raw trajectory validation.
+to separate-generator raw trajectory validation,
+to declared external-source raw trajectory validation.
 
 The current strongest internal raw result is v3.
 
@@ -1297,12 +1550,15 @@ The current strongest external-style result is v4.
 
 The current strongest separate-generator result is v5.
 
-Level 3 v5 separated STABLE, DRIFT, CRITICAL, and COLLAPSE regimes
-over separately generated raw ordered trajectory records using visible signals,
+The current strongest declared external-source result is v6.
+
+Level 3 v6 separated STABLE, DRIFT, CRITICAL, and COLLAPSE regimes
+over declared external-source raw ordered trajectory records using visible signals,
 explicit thresholds, source labels, independence method labels, and inspectable
 transition evidence.
 
-v5 is stronger than v4, but it does not prove absolute external independence.
+v6 is stronger than v5 as a declared source-boundary step,
+but it is not external_source_verified.
 ```
 
 This is bounded, reproducible, and falsifiable.
@@ -1328,8 +1584,11 @@ to external-style raw ordered trajectory records.
 Level 3 v5 applied the raw trajectory warning mechanism to records generated
 by a separate generator script.
 
-The v5 validator separated STABLE, DRIFT, CRITICAL, and COLLAPSE regimes,
-with one borderline near-critical trajectory preserved below the CRITICAL threshold.
+Level 3 v6 applied the raw trajectory warning mechanism to declared
+external-source raw ordered trajectory records.
+
+The v6 validator separated STABLE, DRIFT, CRITICAL, and COLLAPSE regimes,
+with the borderline trajectory crossing the CRITICAL threshold by a narrow margin.
 ```
 
 ---
@@ -1375,7 +1634,13 @@ Level 3 v5 proves absolute external independence.
 Do not claim:
 
 ```text
-External-style or separate-generator validation proves model cognition.
+Level 3 v6 proves external_source_verified validation.
+```
+
+Do not claim:
+
+```text
+External-style, separate-generator, or declared external-source validation proves model cognition.
 ```
 
 Correct boundary:
@@ -1398,6 +1663,10 @@ records with source independence explicitly marked as not_verified.
 Level 3 v5 measures warning risk over raw ordered trajectory records generated
 by a separate generator script, with independence_method recorded as
 separate_generator_script.
+
+Level 3 v6 measures warning risk over declared external-source raw ordered
+trajectory records, with source_independence recorded as external_source_declared
+and independence_method recorded as prompt_perturbation_trace.
 ```
 
 ---
@@ -1442,13 +1711,22 @@ Level 3 v5
   -> highest risk: independent_collapse_like_001
   -> source independence: generated_by_independent_script
   -> independence method: separate_generator_script
+
+Level 3 v6
+  -> declared external-source raw trajectory validation
+  -> PASS
+  -> STABLE / DRIFT / CRITICAL / COLLAPSE regimes separated
+  -> highest risk: external_source_collapse_like_001
+  -> source independence: external_source_declared
+  -> independence method: prompt_perturbation_trace
+  -> not external_source_verified
 ```
 
 ---
 
 ## Next Step
 
-The next validation step is to move from separate-generator internal validation to genuinely external raw trajectory records.
+The next validation step is to move from declared external-source validation to verified external-source validation.
 
 Target direction:
 
@@ -1459,10 +1737,22 @@ Level 3 v0 synthetic reference
   -> Level 3 v3 raw ordered reference trajectories
   -> Level 3 v4 external-style raw trajectory validation
   -> Level 3 v5 separate-generator raw trajectory validation
-  -> Level 3 v6 external-source raw trajectory validation
+  -> Level 3 v6 declared external-source raw trajectory validation
+  -> Level 3 v7 verified external-source raw trajectory validation
 ```
 
-The next script should test the raw trajectory warning mechanism against records from another model, benchmark, external trace source, or independently produced dataset outside the current generator chain.
+The next script should test the raw trajectory warning mechanism against records from a genuinely documented external source.
+
+Possible v7 source classes:
+
+```text
+public benchmark-derived trace
+external model output trace
+multi-run prompt perturbation output from another system
+public dataset transformed into raw trajectory records
+real perturbation log
+externally generated reasoning trace
+```
 
 It should preserve:
 
@@ -1478,25 +1768,25 @@ raw trajectory events
 source labels
 source independence status
 independence method
-external-source description
+external-source documentation
 ```
 
 Target file:
 
 ```text
-examples/temporal_collapse_external_source_raw_trajectory_validator_v6.py
+examples/temporal_collapse_verified_external_source_raw_trajectory_validator_v7.py
 ```
 
-The v6 objective is to test whether the raw trajectory warning mechanism remains coherent on records produced outside the internal generator chain.
+The v7 objective is to test whether the raw trajectory warning mechanism remains coherent on records whose origin can be documented as externally produced.
 
 This is the move from:
 
 ```text
-separate-generator validation
+external_source_declared
 ```
 
 to:
 
 ```text
-external-source validation
+external_source_verified
 ```
