@@ -70,7 +70,7 @@ It is a measurement-derived warning signal for an external decision layer.
 
 ## Level 3 Progression
 
-Level 3 currently has three validation steps:
+Level 3 currently has four validation steps:
 
 ```text
 Level 3 v0
@@ -81,6 +81,9 @@ Level 3 v1
 
 Level 3 v2
   -> ordered Level 2 stage trajectory
+
+Level 3 v3
+  -> raw ordered trajectory records
 ```
 
 This progression moves from:
@@ -98,12 +101,18 @@ snapshot-derived warning
 to:
 
 ```text
-ordered trajectory warning
+ordered stage-trajectory warning
 ```
 
-The current result does not show terminal collapse.
+to:
 
-It shows localized boundary-pressure drift.
+```text
+raw trajectory warning
+```
+
+The current strongest result is v3.
+
+v3 is the first Level 3 result where the warning layer operates directly over raw ordered trajectory records.
 
 ---
 
@@ -116,6 +125,10 @@ docs/TEMPORAL_COLLAPSE_EARLY_WARNING_LEVEL_3_V0.md
 ```
 
 Defines the Level 3 purpose, risk regimes, warning principles, formula, thresholds, and boundaries.
+
+---
+
+## Level 3 v0 Files
 
 ### Level 3 v0 prototype script
 
@@ -195,7 +208,7 @@ on synthetic reference trajectories only.
 
 ---
 
-## Level 3 v1 Bridge Files
+## Level 3 v1 Files
 
 ### Level 2-derived bridge script
 
@@ -239,9 +252,19 @@ docs/TEMPORAL_COLLAPSE_EARLY_WARNING_FROM_LEVEL_2_V1_RESULT.md
 
 Documents the Level 3 v1 bridge result.
 
+---
+
+## Level 3 v1 Result Status
+
+Current status:
+
+```text
+PASS
+```
+
 The v1 bridge moved beyond synthetic trajectories and tested warning pressure over Level 2-derived result snapshots.
 
-Current aggregate result:
+Aggregate result:
 
 ```text
 aggregate_risk_score:  0.300373
@@ -285,7 +308,7 @@ It is not yet a direct trajectory-native validator.
 
 ---
 
-## Level 3 v2 Trajectory-Native Files
+## Level 3 v2 Files
 
 ### Ordered trajectory validator script
 
@@ -340,6 +363,16 @@ docs/TEMPORAL_COLLAPSE_TRAJECTORY_NATIVE_VALIDATOR_V2_RESULT.md
 ```
 
 Documents the ordered trajectory result, structural sequence, dominant warning axis, tested boundary, and safe claim.
+
+---
+
+## Level 3 v2 Result Status
+
+Current status:
+
+```text
+PASS
+```
 
 Current v2 result:
 
@@ -400,6 +433,167 @@ It is not yet raw runtime trajectory validation.
 
 ---
 
+## Level 3 v3 Files
+
+### Raw trajectory concept document
+
+```text
+docs/TEMPORAL_COLLAPSE_RAW_TRAJECTORY_VALIDATOR_V3.md
+```
+
+Defines the v3 raw ordered trajectory validator.
+
+It specifies:
+
+```text
+raw trajectory schema
+required event fields
+warning signals
+risk formula
+classification thresholds
+gate actions
+transition evidence
+aggregate output
+safe claims
+limitations
+```
+
+### Raw trajectory input JSONL
+
+```text
+data/temporal_collapse_raw_trajectories_v3.jsonl
+```
+
+Stores the bounded raw ordered trajectory records used by v3.
+
+The dataset contains four reference trajectories:
+
+```text
+raw_stable_001
+raw_drift_001
+raw_critical_001
+raw_collapse_like_001
+```
+
+Each event contains:
+
+```text
+trajectory_id
+step
+signature
+cluster
+delta
+iri
+boundary_distance
+phase
+```
+
+### Raw trajectory validator script
+
+```text
+examples/temporal_collapse_raw_trajectory_validator_v3.py
+```
+
+Reads raw ordered trajectory events directly from JSONL.
+
+The script groups events by `trajectory_id`, sorts them by `step`, computes visible warning signals, classifies risk regimes, emits gate actions, and preserves transition evidence.
+
+It moves from:
+
+```text
+stage-summary trajectory warning
+```
+
+to:
+
+```text
+raw trajectory warning
+```
+
+### Level 3 v3 result JSON
+
+```text
+results/temporal_collapse_raw_trajectory_validator_v3.json
+```
+
+Stores the reproducible output of the Level 3 v3 raw trajectory validator.
+
+### Level 3 v3 result document
+
+```text
+docs/TEMPORAL_COLLAPSE_RAW_TRAJECTORY_VALIDATOR_V3_RESULT.md
+```
+
+Documents the v3 result, ordered risk progression, per-trajectory evidence, aggregate result, safe claim, and limitations.
+
+---
+
+## Level 3 v3 Result Status
+
+Current status:
+
+```text
+PASS
+```
+
+The v3 validator executed successfully.
+
+The script created and read the raw JSONL trajectory dataset.
+
+No runtime error was produced.
+
+The validator separated all four bounded reference trajectories into the expected regimes:
+
+```text
+raw_stable_001         -> STABLE    -> 0.033417 -> PASS
+raw_drift_001          -> DRIFT     -> 0.277833 -> WATCH
+raw_critical_001       -> CRITICAL  -> 0.568722 -> ESCALATE
+raw_collapse_like_001  -> COLLAPSE  -> 0.817056 -> STOP
+```
+
+Risk score progression:
+
+```text
+0.033417 -> 0.277833 -> 0.568722 -> 0.817056
+```
+
+Aggregate result:
+
+```text
+aggregate_risk_score:  0.424257
+aggregate_risk_regime: DRIFT
+aggregate_gate_action: WATCH
+```
+
+Regime counts:
+
+```text
+STABLE   -> 1
+DRIFT    -> 1
+CRITICAL -> 1
+COLLAPSE -> 1
+```
+
+Highest-risk trajectory:
+
+```text
+raw_collapse_like_001 -> 0.817056
+```
+
+Correct interpretation:
+
+```text
+Level 3 v3 validates the raw ordered trajectory warning mechanism
+on bounded reference trajectories.
+
+It does not prove universal collapse prediction.
+
+It shows that the warning layer can separate STABLE, DRIFT, CRITICAL,
+and COLLAPSE regimes over raw ordered trajectory records.
+```
+
+---
+
 ## Risk Formula v0/v1
 
 Level 3 v0 and v1 use:
@@ -421,7 +615,7 @@ No hidden interpretation layer is used.
 
 ## Risk Formula v2
 
-Level 3 v2 uses the trajectory-native variant:
+Level 3 v2 uses the trajectory-native stage-chain variant:
 
 ```text
 risk_score =
@@ -432,7 +626,37 @@ risk_score =
   + 0.10 * irreversibility_proxy
 ```
 
-The v2 formula preserves the same structural intent while replacing snapshot signals with ordered-trajectory signals.
+The v2 formula preserves the same structural intent while replacing snapshot signals with ordered-stage signals.
+
+---
+
+## Risk Formula v3
+
+Level 3 v3 uses the raw ordered trajectory variant:
+
+```text
+risk_score =
+    0.20 * transition_density
+  + 0.20 * drift_progression
+  + 0.25 * boundary_proximity
+  + 0.25 * collapse_similarity
+  + 0.10 * irreversibility_signal
+```
+
+The v3 formula measures directly over raw ordered trajectory events.
+
+It uses:
+
+```text
+signature transitions
+cluster transitions
+phase transitions
+delta progression
+iri progression
+boundary distance
+collapse phase count
+broken signature markers
+```
 
 ---
 
@@ -472,6 +696,7 @@ temporal-collapse signatures
   -> boundary map
   -> phase diagram
   -> early-warning classification
+  -> raw trajectory warning
 ```
 
 The Level 3 warning layer exists because Level 2 mapped structural boundaries.
@@ -479,6 +704,8 @@ The Level 3 warning layer exists because Level 2 mapped structural boundaries.
 Without the Level 2 boundary map, Level 3 would only be arbitrary scoring.
 
 With the Level 2 boundary map, Level 3 becomes bounded structural navigation.
+
+With v3, the warning layer begins operating directly over raw ordered trajectory events.
 
 ---
 
@@ -502,7 +729,7 @@ A warning system becomes stronger when it knows where the measurement becomes un
 
 ---
 
-## Structural Reading Across v0, v1, and v2
+## Structural Reading Across v0, v1, v2, and v3
 
 ### v0
 
@@ -546,6 +773,23 @@ PASS -> PASS -> PASS -> CHECK -> CHECK -> CHECK -> PASS
 
 This indicates a localized boundary-pressure zone, not terminal collapse.
 
+### v3
+
+```text
+raw ordered trajectory records
+  -> STABLE / DRIFT / CRITICAL / COLLAPSE separated correctly
+```
+
+v3 validates the raw trajectory warning mechanism on bounded reference trajectories.
+
+The ordered risk progression is:
+
+```text
+0.033417 -> 0.277833 -> 0.568722 -> 0.817056
+```
+
+This is the strongest Level 3 result so far because the warning layer operates directly over raw ordered events.
+
 ---
 
 ## Current Structural Verdict
@@ -555,17 +799,17 @@ Safe verdict:
 ```text
 Level 3 has moved from synthetic warning,
 to snapshot-derived warning,
-to ordered trajectory warning.
+to ordered stage-trajectory warning,
+to raw ordered trajectory warning.
 
-The current result does not show terminal collapse.
+The current strongest result is v3.
 
-It shows localized boundary-pressure drift,
-with strongest local pressure at the dependency-boundary stage.
+Level 3 v3 separated STABLE, DRIFT, CRITICAL, and COLLAPSE regimes
+over bounded raw ordered trajectory records using visible signals,
+explicit thresholds, and inspectable transition evidence.
 ```
 
-This is the strongest current claim.
-
-It is bounded, reproducible, and falsifiable.
+This is bounded, reproducible, and falsifiable.
 
 ---
 
@@ -578,12 +822,13 @@ for temporal-collapse trajectories.
 Level 3 v1 applied that warning layer to Level 2-derived result snapshots.
 
 Level 3 v2 evaluated the Level 2 temporal-collapse chain
-as an ordered trajectory.
+as an ordered stage trajectory.
 
-The current trajectory result is DRIFT, with WATCH gate action.
+Level 3 v3 evaluated raw ordered trajectory records directly.
 
-The dominant warning axis is boundary proximity, with the strongest
-local pressure appearing at the dependency-boundary stage.
+The v3 validator separated STABLE, DRIFT, CRITICAL, and COLLAPSE regimes
+over four bounded reference trajectories using visible structural signals,
+explicit thresholds, and inspectable transition evidence.
 ```
 
 ---
@@ -617,7 +862,13 @@ The thresholds are universal.
 Do not claim:
 
 ```text
-Level 3 v2 validates raw runtime trajectories.
+Level 3 v3 validates live runtime systems.
+```
+
+Do not claim:
+
+```text
+Raw trajectory warning proves model cognition.
 ```
 
 Correct boundary:
@@ -630,6 +881,9 @@ Level 3 v1 measures structural warning pressure
 over Level 2-derived result snapshots.
 
 Level 3 v2 measures warning risk across an ordered Level 2 stage trajectory.
+
+Level 3 v3 measures warning risk directly over bounded raw ordered
+trajectory records.
 ```
 
 ---
@@ -653,13 +907,19 @@ Level 3 v2
   -> trajectory DRIFT
   -> WATCH
   -> dominant axis: boundary_proximity
+
+Level 3 v3
+  -> raw ordered trajectory records
+  -> PASS
+  -> STABLE / DRIFT / CRITICAL / COLLAPSE separated
+  -> highest risk: raw_collapse_like_001
 ```
 
 ---
 
 ## Next Step
 
-The next validation step is to move from ordered Level 2 stage summaries to raw ordered trajectory records.
+The next validation step is to move from bounded internal raw reference trajectories to external or independently generated raw trajectory records.
 
 Target direction:
 
@@ -667,10 +927,11 @@ Target direction:
 Level 3 v0 synthetic reference
   -> Level 3 v1 Level-2-derived snapshots
   -> Level 3 v2 ordered Level 2 stage trajectory
-  -> Level 3 v3 raw ordered trajectory records
+  -> Level 3 v3 raw ordered reference trajectories
+  -> Level 3 v4 external raw trajectory validation
 ```
 
-The next script should read raw temporal-collapse trajectory records directly.
+The next script should test the v3 validator against raw ordered trajectory records not generated only as internal reference cases.
 
 It should preserve:
 
@@ -683,24 +944,25 @@ boundary crossings
 irreversibility progression
 phase-regime changes
 raw trajectory events
+external or independently generated source
 ```
 
 Target file:
 
 ```text
-examples/temporal_collapse_raw_trajectory_validator_v3.py
+examples/temporal_collapse_external_raw_trajectory_validator_v4.py
 ```
 
-The v3 objective is to stop deriving trajectory risk from Level 2 summaries and instead measure risk over raw ordered trajectory records.
+The v4 objective is to test whether the raw trajectory warning mechanism remains meaningful beyond bounded internal reference trajectories.
 
 This is the move from:
 
 ```text
-stage-summary trajectory warning
+raw reference trajectory warning
 ```
 
 to:
 
 ```text
-raw trajectory warning
+external raw trajectory validation
 ```
