@@ -1,0 +1,16 @@
+{"boundary_distance": 0.96, "cluster": "C0", "delta": 0.03, "iri": 0.01, "phase": "STABLE", "signature": "S0", "step": 1, "trajectory_id": "raw_stable_001"}
+{"boundary_distance": 0.94, "cluster": "C0", "delta": 0.04, "iri": 0.01, "phase": "STABLE", "signature": "S0", "step": 2, "trajectory_id": "raw_stable_001"}
+{"boundary_distance": 0.93, "cluster": "C0", "delta": 0.05, "iri": 0.02, "phase": "STABLE", "signature": "S0", "step": 3, "trajectory_id": "raw_stable_001"}
+{"boundary_distance": 0.92, "cluster": "C0", "delta": 0.04, "iri": 0.02, "phase": "STABLE", "signature": "S0", "step": 4, "trajectory_id": "raw_stable_001"}
+{"boundary_distance": 0.88, "cluster": "C0", "delta": 0.08, "iri": 0.03, "phase": "STABLE", "signature": "S0", "step": 1, "trajectory_id": "raw_drift_001"}
+{"boundary_distance": 0.78, "cluster": "C0", "delta": 0.14, "iri": 0.06, "phase": "STABLE", "signature": "S0", "step": 2, "trajectory_id": "raw_drift_001"}
+{"boundary_distance": 0.62, "cluster": "C1", "delta": 0.25, "iri": 0.1, "phase": "DRIFT", "signature": "S1", "step": 3, "trajectory_id": "raw_drift_001"}
+{"boundary_distance": 0.55, "cluster": "C1", "delta": 0.34, "iri": 0.15, "phase": "DRIFT", "signature": "S1", "step": 4, "trajectory_id": "raw_drift_001"}
+{"boundary_distance": 0.75, "cluster": "C0", "delta": 0.16, "iri": 0.08, "phase": "STABLE", "signature": "S0", "step": 1, "trajectory_id": "raw_critical_001"}
+{"boundary_distance": 0.55, "cluster": "C1", "delta": 0.32, "iri": 0.16, "phase": "DRIFT", "signature": "S1", "step": 2, "trajectory_id": "raw_critical_001"}
+{"boundary_distance": 0.32, "cluster": "C2", "delta": 0.55, "iri": 0.3, "phase": "CRITICAL", "signature": "S2", "step": 3, "trajectory_id": "raw_critical_001"}
+{"boundary_distance": 0.2, "cluster": "C2", "delta": 0.68, "iri": 0.42, "phase": "CRITICAL", "signature": "S3", "step": 4, "trajectory_id": "raw_critical_001"}
+{"boundary_distance": 0.66, "cluster": "C0", "delta": 0.22, "iri": 0.14, "phase": "DRIFT", "signature": "S0", "step": 1, "trajectory_id": "raw_collapse_like_001"}
+{"boundary_distance": 0.36, "cluster": "C2", "delta": 0.52, "iri": 0.34, "phase": "CRITICAL", "signature": "S2", "step": 2, "trajectory_id": "raw_collapse_like_001"}
+{"boundary_distance": 0.12, "cluster": "C9", "delta": 0.84, "iri": 0.68, "phase": "COLLAPSE", "signature": "S9", "step": 3, "trajectory_id": "raw_collapse_like_001"}
+{"boundary_distance": 0.04, "cluster": "C9", "delta": 0.96, "iri": 0.9, "phase": "COLLAPSE", "signature": "BROKEN", "step": 4, "trajectory_id": "raw_collapse_like_001"}
