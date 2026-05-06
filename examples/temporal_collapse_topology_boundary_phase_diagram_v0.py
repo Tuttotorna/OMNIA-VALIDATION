@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from statistics import mean, pstdev
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 
 INPUT_RESULTS_PATH = Path(
     "results/temporal_collapse_topology_dependency_boundary_v0.json"
@@ -18,7 +18,7 @@ PHASE_ORDER = [
     "CRITICAL_ZONE",
 ]
 
-PHASE_FROM_DEPENDENCY_CLASS = {
+PHASE_FROM_CLASS = {
     "STABLE_SUPPORT": "STABLE_ZONE",
     "MODERATE_RANK_DRIFT": "DRIFT_ZONE",
     "CRITICAL_TOP6_LOSS": "CRITICAL_ZONE",
@@ -35,21 +35,176 @@ def safe_std(values):
     return pstdev(values) if len(values) > 1 else 0.0
 
 
-def load_dependency_boundary_result():
-    if not INPUT_RESULTS_PATH.exists():
-        raise FileNotFoundError(
-            f"Missing input result file: {INPUT_RESULTS_PATH}"
-        )
+def load_json(path):
+    if not path.exists():
+        raise FileNotFoundError(f"Missing input result file: {path}")
 
-    return json.loads(INPUT_RESULTS_PATH.read_text(encoding="utf-8"))
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
-def classify_phase(record):
-    dependency_class = record.get("dependency_class")
-    return PHASE_FROM_DEPENDENCY_CLASS.get(
-        dependency_class,
-        "UNKNOWN_ZONE",
+def first_existing(payload, paths):
+    for path in paths:
+        current = payload
+        ok = True
+
+        for key in path:
+            if not isinstance(current, dict) or key not in current:
+                ok = False
+                break
+
+            current = current[key]
+
+        if ok and isinstance(current, list):
+            return current
+
+    return []
+
+
+def extract_boundary_records(payload):
+    """
+    Supports multiple possible result layouts.
+
+    Expected useful locations include:
+    - scenario_results
+    - boundary_records
+    - dependency_boundary_summary.boundary_records
+    - dependency_boundary_summary.scenario_records
+    - dependency_boundary_summary.boundary_scenarios
+    """
+
+    records = first_existing(
+        payload,
+        [
+            ["scenario_results"],
+            ["boundary_records"],
+            ["dependency_boundary_summary", "scenario_results"],
+            ["dependency_boundary_summary", "boundary_records"],
+            ["dependency_boundary_summary", "scenario_records"],
+            ["dependency_boundary_summary", "boundary_scenarios"],
+            ["dependency_boundary_summary", "records"],
+        ],
     )
+
+    if records:
+        return records
+
+    # Last-resort recursive search:
+    # choose the largest list of dicts containing scenario-like records.
+    candidates = []
+
+    def walk(obj):
+        if isinstance(obj, dict):
+            for value in obj.values():
+                walk(value)
+
+        elif isinstance(obj, list):
+            if obj and all(isinstance(item, dict) for item in obj):
+                score = 0
+
+                sample_keys = set()
+                for item in obj[:10]:
+                    sample_keys.update(item.keys())
+
+                for key in [
+                    "scenario_name",
+                    "boundary_axis",
+                    "axis",
+                    "dependency_class",
+                    "boundary_class",
+                    "impact_score",
+                    "boundary_distance",
+                    "distance",
+                ]:
+                    if key in sample_keys:
+                        score += 1
+
+                if score >= 3:
+                    candidates.append((len(obj), score, obj))
+
+            for value in obj:
+                walk(value)
+
+    walk(payload)
+
+    if not candidates:
+        return []
+
+    candidates.sort(key=lambda item: (item[1], item[0]), reverse=True)
+    return candidates[0][2]
+
+
+def get_value(record, *keys, default=None):
+    for key in keys:
+        if key in record:
+            return record[key]
+
+    return default
+
+
+def normalize_boundary_record(record):
+    dependency_class = get_value(
+        record,
+        "dependency_class",
+        "boundary_class",
+        "class",
+        "classification",
+    )
+
+    phase_zone = PHASE_FROM_CLASS.get(dependency_class, "UNKNOWN_ZONE")
+
+    boundary_axis = get_value(
+        record,
+        "boundary_axis",
+        "axis",
+        "dependency_axis",
+    )
+
+    boundary_distance = get_value(
+        record,
+        "boundary_distance",
+        "distance",
+        "perturbation_distance",
+    )
+
+    impact_score = get_value(
+        record,
+        "impact_score",
+        "impact",
+        "boundary_impact",
+        default=0.0,
+    )
+
+    return {
+        "scenario_name": get_value(record, "scenario_name", "name"),
+        "scenario_type": get_value(record, "scenario_type", "type"),
+        "boundary_axis": boundary_axis,
+        "boundary_distance": boundary_distance,
+        "status": get_value(record, "status"),
+        "strict_status": get_value(record, "strict_status"),
+        "dependency_class": dependency_class,
+        "phase_zone": phase_zone,
+        "impact_score": impact_score,
+        "expected_dominant_rank": get_value(
+            record,
+            "expected_dominant_rank",
+            "dominant_rank",
+        ),
+        "expected_second_rank": get_value(
+            record,
+            "expected_second_rank",
+            "second_rank",
+        ),
+        "dominant_cluster_id": get_value(
+            record,
+            "dominant_cluster_id",
+            "dominant_cluster",
+        ),
+        "second_cluster_id": get_value(
+            record,
+            "second_cluster_id",
+            "second_cluster",
+        ),
+    }
 
 
 def phase_severity(phase):
@@ -65,181 +220,120 @@ def phase_severity(phase):
     return 99
 
 
-def compact_record(record):
-    return {
-        "scenario_name": record.get("scenario_name"),
-        "scenario_type": record.get("scenario_type"),
-        "boundary_axis": record.get("boundary_axis"),
-        "boundary_distance": record.get("boundary_distance"),
-        "status": record.get("status"),
-        "strict_status": record.get("strict_status"),
-        "dependency_class": record.get("dependency_class"),
-        "phase_zone": record.get("phase_zone"),
-        "impact_score": record.get("impact_score"),
-        "expected_dominant_rank": record.get("expected_dominant_rank"),
-        "expected_second_rank": record.get("expected_second_rank"),
-        "dominant_cluster_id": record.get("dominant_cluster_id"),
-        "second_cluster_id": record.get("second_cluster_id"),
-    }
-
-
-def build_phase_records(dependency_payload):
-    records = []
-
-    for raw in dependency_payload.get("scenario_results", []):
-        record = dict(raw)
-        record["phase_zone"] = classify_phase(record)
-        record["phase_severity"] = phase_severity(record["phase_zone"])
-        records.append(record)
-
-    return records
-
-
 def summarize_by_phase(records):
-    by_phase = {}
+    summary = {}
 
     for phase in PHASE_ORDER + ["UNKNOWN_ZONE"]:
-        by_phase[phase] = {
+        phase_records = [
+            record for record in records
+            if record["phase_zone"] == phase
+        ]
+
+        if not phase_records:
+            continue
+
+        distances = [
+            record["boundary_distance"]
+            for record in phase_records
+            if record["boundary_distance"] is not None
+        ]
+
+        impacts = [
+            record["impact_score"]
+            for record in phase_records
+            if record["impact_score"] is not None
+        ]
+
+        dominant_ranks = [
+            record["expected_dominant_rank"]
+            for record in phase_records
+            if record["expected_dominant_rank"] is not None
+        ]
+
+        second_ranks = [
+            record["expected_second_rank"]
+            for record in phase_records
+            if record["expected_second_rank"] is not None
+        ]
+
+        summary[phase] = {
             "phase_zone": phase,
-            "record_count": 0,
-            "scenario_names": [],
-            "boundary_axes": [],
-            "scenario_types": [],
-            "dependency_classes": [],
-            "boundary_distances": [],
-            "impact_scores": [],
-            "dominant_ranks": [],
-            "second_ranks": [],
+            "record_count": len(phase_records),
+            "boundary_axis_values": sorted(
+                set(
+                    record["boundary_axis"]
+                    for record in phase_records
+                    if record["boundary_axis"] is not None
+                )
+            ),
+            "scenario_type_values": sorted(
+                set(
+                    record["scenario_type"]
+                    for record in phase_records
+                    if record["scenario_type"] is not None
+                )
+            ),
+            "dependency_class_values": sorted(
+                set(
+                    record["dependency_class"]
+                    for record in phase_records
+                    if record["dependency_class"] is not None
+                )
+            ),
+            "minimum_boundary_distance": min(distances) if distances else None,
+            "maximum_boundary_distance": max(distances) if distances else None,
+            "impact_score_mean": safe_mean(impacts),
+            "impact_score_std": safe_std(impacts),
+            "impact_score_max": max(impacts) if impacts else None,
+            "dominant_rank_mean": safe_mean(dominant_ranks),
+            "second_rank_mean": safe_mean(second_ranks),
+            "scenario_names": [
+                record["scenario_name"]
+                for record in phase_records
+            ],
         }
 
+    return summary
+
+
+def summarize_axis_phase_matrix(records):
+    matrix = {}
+
     for record in records:
+        axis = record["boundary_axis"] or "unknown"
         phase = record["phase_zone"]
 
-        if phase not in by_phase:
-            by_phase[phase] = {
-                "phase_zone": phase,
-                "record_count": 0,
-                "scenario_names": [],
-                "boundary_axes": [],
-                "scenario_types": [],
-                "dependency_classes": [],
-                "boundary_distances": [],
-                "impact_scores": [],
-                "dominant_ranks": [],
-                "second_ranks": [],
-            }
-
-        item = by_phase[phase]
-        item["record_count"] += 1
-        item["scenario_names"].append(record.get("scenario_name"))
-        item["boundary_axes"].append(record.get("boundary_axis"))
-        item["scenario_types"].append(record.get("scenario_type"))
-        item["dependency_classes"].append(record.get("dependency_class"))
-
-        distance = record.get("boundary_distance")
-        impact = record.get("impact_score")
-        dominant_rank = record.get("expected_dominant_rank")
-        second_rank = record.get("expected_second_rank")
-
-        if distance is not None:
-            item["boundary_distances"].append(distance)
-
-        if impact is not None:
-            item["impact_scores"].append(impact)
-
-        if dominant_rank is not None:
-            item["dominant_ranks"].append(dominant_rank)
-
-        if second_rank is not None:
-            item["second_ranks"].append(second_rank)
-
-    for item in by_phase.values():
-        item["boundary_axis_values"] = sorted(
-            value
-            for value in set(item["boundary_axes"])
-            if value is not None
-        )
-        item["scenario_type_values"] = sorted(
-            value
-            for value in set(item["scenario_types"])
-            if value is not None
-        )
-        item["dependency_class_values"] = sorted(
-            value
-            for value in set(item["dependency_classes"])
-            if value is not None
-        )
-        item["minimum_boundary_distance"] = (
-            min(item["boundary_distances"])
-            if item["boundary_distances"]
-            else None
-        )
-        item["maximum_boundary_distance"] = (
-            max(item["boundary_distances"])
-            if item["boundary_distances"]
-            else None
-        )
-        item["impact_score_mean"] = safe_mean(item["impact_scores"])
-        item["impact_score_std"] = safe_std(item["impact_scores"])
-        item["impact_score_max"] = (
-            max(item["impact_scores"])
-            if item["impact_scores"]
-            else None
-        )
-        item["dominant_rank_mean"] = safe_mean(item["dominant_ranks"])
-        item["second_rank_mean"] = safe_mean(item["second_ranks"])
-
-    return {
-        phase: item
-        for phase, item in by_phase.items()
-        if item["record_count"] > 0
-    }
-
-
-def summarize_by_axis_and_phase(records):
-    table = {}
-
-    for record in records:
-        axis = record.get("boundary_axis")
-        phase = record.get("phase_zone")
-
-        if axis is None:
-            axis = "unknown"
-
-        if axis not in table:
-            table[axis] = {}
-
-        if phase not in table[axis]:
-            table[axis][phase] = {
+        matrix.setdefault(axis, {})
+        matrix[axis].setdefault(
+            phase,
+            {
                 "boundary_axis": axis,
                 "phase_zone": phase,
                 "record_count": 0,
-                "scenario_names": [],
-                "dependency_classes": [],
+                "dependency_class_values": [],
                 "boundary_distances": [],
                 "impact_scores": [],
-            }
+                "scenario_names": [],
+            },
+        )
 
-        item = table[axis][phase]
+        item = matrix[axis][phase]
         item["record_count"] += 1
-        item["scenario_names"].append(record.get("scenario_name"))
-        item["dependency_classes"].append(record.get("dependency_class"))
+        item["scenario_names"].append(record["scenario_name"])
 
-        distance = record.get("boundary_distance")
-        impact = record.get("impact_score")
+        if record["dependency_class"] is not None:
+            item["dependency_class_values"].append(record["dependency_class"])
 
-        if distance is not None:
-            item["boundary_distances"].append(distance)
+        if record["boundary_distance"] is not None:
+            item["boundary_distances"].append(record["boundary_distance"])
 
-        if impact is not None:
-            item["impact_scores"].append(impact)
+        if record["impact_score"] is not None:
+            item["impact_scores"].append(record["impact_score"])
 
-    for axis_items in table.values():
+    for axis_items in matrix.values():
         for item in axis_items.values():
             item["dependency_class_values"] = sorted(
-                value
-                for value in set(item["dependency_classes"])
-                if value is not None
+                set(item["dependency_class_values"])
             )
             item["minimum_boundary_distance"] = (
                 min(item["boundary_distances"])
@@ -258,28 +352,26 @@ def summarize_by_axis_and_phase(records):
                 else None
             )
 
-    return table
+    return matrix
 
 
 def summarize_distance_phase_map(records):
     distance_map = {}
 
     for record in records:
-        axis = record.get("boundary_axis")
-        distance = record.get("boundary_distance")
-        phase = record.get("phase_zone")
-
-        if axis is None:
-            axis = "unknown"
+        axis = record["boundary_axis"] or "unknown"
+        distance = record["boundary_distance"]
+        phase = record["phase_zone"]
 
         if distance is None:
             continue
 
-        axis_map = distance_map.setdefault(axis, {})
         distance_key = str(distance)
 
-        if distance_key not in axis_map:
-            axis_map[distance_key] = {
+        distance_map.setdefault(axis, {})
+        distance_map[axis].setdefault(
+            distance_key,
+            {
                 "boundary_axis": axis,
                 "boundary_distance": distance,
                 "record_count": 0,
@@ -292,20 +384,19 @@ def summarize_distance_phase_map(records):
                 "dominant_phase": None,
                 "scenario_names": [],
                 "impact_scores": [],
-            }
+            },
+        )
 
-        item = axis_map[distance_key]
+        item = distance_map[axis][distance_key]
         item["record_count"] += 1
         item["phase_counts"][phase] = item["phase_counts"].get(phase, 0) + 1
-        item["scenario_names"].append(record.get("scenario_name"))
+        item["scenario_names"].append(record["scenario_name"])
 
-        impact = record.get("impact_score")
+        if record["impact_score"] is not None:
+            item["impact_scores"].append(record["impact_score"])
 
-        if impact is not None:
-            item["impact_scores"].append(impact)
-
-    for axis_map in distance_map.values():
-        for item in axis_map.values():
+    for axis_items in distance_map.values():
+        for item in axis_items.values():
             ordered = sorted(
                 item["phase_counts"].items(),
                 key=lambda pair: (
@@ -328,75 +419,74 @@ def summarize_distance_phase_map(records):
 
 
 def compute_phase_boundaries(records):
-    phase_boundaries = {}
+    boundaries = {}
 
-    for axis in sorted(
-        set(record.get("boundary_axis") for record in records)
-    ):
-        if axis is None:
-            continue
-
-        axis_records = [
-            record
+    axes = sorted(
+        set(
+            record["boundary_axis"]
             for record in records
-            if record.get("boundary_axis") == axis
+            if record["boundary_axis"] is not None
+        )
+    )
+
+    for axis in axes:
+        axis_records = [
+            record for record in records
+            if record["boundary_axis"] == axis
         ]
 
-        item = {
-            "boundary_axis": axis,
-            "stable_min_distance": None,
-            "drift_min_distance": None,
-            "critical_min_distance": None,
-            "stable_count": 0,
-            "drift_count": 0,
-            "critical_count": 0,
-            "transition_boundary_detected": False,
-            "phase_sequence_by_distance": [],
-        }
+        stable = [
+            record for record in axis_records
+            if record["phase_zone"] == "STABLE_ZONE"
+        ]
 
-        by_distance = {}
+        drift = [
+            record for record in axis_records
+            if record["phase_zone"] == "DRIFT_ZONE"
+        ]
 
-        for record in axis_records:
-            distance = record.get("boundary_distance")
-            phase = record.get("phase_zone")
+        critical = [
+            record for record in axis_records
+            if record["phase_zone"] == "CRITICAL_ZONE"
+        ]
 
-            if distance is None:
-                continue
+        def min_distance(items):
+            values = [
+                item["boundary_distance"]
+                for item in items
+                if item["boundary_distance"] is not None
+            ]
+            return min(values) if values else None
 
-            by_distance.setdefault(distance, []).append(phase)
+        sequence = []
 
-            if phase == "STABLE_ZONE":
-                item["stable_count"] += 1
+        distances = sorted(
+            set(
+                record["boundary_distance"]
+                for record in axis_records
+                if record["boundary_distance"] is not None
+            )
+        )
 
-                if (
-                    item["stable_min_distance"] is None
-                    or distance < item["stable_min_distance"]
-                ):
-                    item["stable_min_distance"] = distance
+        for distance in distances:
+            distance_records = [
+                record for record in axis_records
+                if record["boundary_distance"] == distance
+            ]
 
-            if phase == "DRIFT_ZONE":
-                item["drift_count"] += 1
-
-                if (
-                    item["drift_min_distance"] is None
-                    or distance < item["drift_min_distance"]
-                ):
-                    item["drift_min_distance"] = distance
-
-            if phase == "CRITICAL_ZONE":
-                item["critical_count"] += 1
-
-                if (
-                    item["critical_min_distance"] is None
-                    or distance < item["critical_min_distance"]
-                ):
-                    item["critical_min_distance"] = distance
-
-        for distance, phase_values in sorted(by_distance.items()):
             phase_counts = {
-                "STABLE_ZONE": phase_values.count("STABLE_ZONE"),
-                "DRIFT_ZONE": phase_values.count("DRIFT_ZONE"),
-                "CRITICAL_ZONE": phase_values.count("CRITICAL_ZONE"),
+                "STABLE_ZONE": sum(
+                    1 for record in distance_records
+                    if record["phase_zone"] == "STABLE_ZONE"
+                ),
+                "DRIFT_ZONE": sum(
+                    1 for record in distance_records
+                    if record["phase_zone"] == "DRIFT_ZONE"
+                ),
+                "CRITICAL_ZONE": sum(
+                    1 for record in distance_records
+                    if record["phase_zone"] == "CRITICAL_ZONE"
+                ),
             }
 
             dominant_phase = sorted(
@@ -409,59 +499,67 @@ def compute_phase_boundaries(records):
                 reverse=True,
             )[0][0]
 
-            item["phase_sequence_by_distance"].append({
+            sequence.append({
                 "boundary_distance": distance,
                 "phase_counts": phase_counts,
                 "dominant_phase": dominant_phase,
             })
 
-        item["transition_boundary_detected"] = (
-            item["stable_count"] > 0
-            and (
-                item["drift_count"] > 0
-                or item["critical_count"] > 0
-            )
-        )
+        boundaries[axis] = {
+            "boundary_axis": axis,
+            "stable_count": len(stable),
+            "drift_count": len(drift),
+            "critical_count": len(critical),
+            "stable_min_distance": min_distance(stable),
+            "drift_min_distance": min_distance(drift),
+            "critical_min_distance": min_distance(critical),
+            "transition_boundary_detected": (
+                len(stable) > 0
+                and (len(drift) > 0 or len(critical) > 0)
+            ),
+            "phase_sequence_by_distance": sequence,
+        }
 
-        phase_boundaries[axis] = item
-
-    return phase_boundaries
+    return boundaries
 
 
-def select_boundary_extremes(records):
+def select_extremes(records):
     stable = [
-        record
-        for record in records
+        record for record in records
         if record["phase_zone"] == "STABLE_ZONE"
     ]
 
     drift = [
-        record
-        for record in records
+        record for record in records
         if record["phase_zone"] == "DRIFT_ZONE"
     ]
 
     critical = [
-        record
-        for record in records
+        record for record in records
         if record["phase_zone"] == "CRITICAL_ZONE"
     ]
 
     minimum_critical = sorted(
         critical,
         key=lambda record: (
-            record.get("boundary_distance", 999999),
-            -record.get("impact_score", 0),
-            record.get("scenario_name", ""),
+            record["boundary_distance"]
+            if record["boundary_distance"] is not None
+            else 999999,
+            -record["impact_score"],
+            record["scenario_name"] or "",
         ),
     )
 
     maximum_critical = sorted(
         critical,
         key=lambda record: (
-            record.get("impact_score", 0),
-            -record.get("boundary_distance", 0),
-            record.get("scenario_name", ""),
+            record["impact_score"],
+            -(
+                record["boundary_distance"]
+                if record["boundary_distance"] is not None
+                else 0
+            ),
+            record["scenario_name"] or "",
         ),
         reverse=True,
     )
@@ -469,37 +567,29 @@ def select_boundary_extremes(records):
     minimum_drift = sorted(
         drift,
         key=lambda record: (
-            record.get("boundary_distance", 999999),
-            -record.get("impact_score", 0),
-            record.get("scenario_name", ""),
+            record["boundary_distance"]
+            if record["boundary_distance"] is not None
+            else 999999,
+            -record["impact_score"],
+            record["scenario_name"] or "",
         ),
     )
 
-    stable_low_distance = sorted(
+    minimum_stable = sorted(
         stable,
         key=lambda record: (
-            record.get("boundary_distance", 999999),
-            record.get("scenario_name", ""),
+            record["boundary_distance"]
+            if record["boundary_distance"] is not None
+            else 999999,
+            record["scenario_name"] or "",
         ),
     )
 
     return {
-        "minimum_critical_boundaries": [
-            compact_record(record)
-            for record in minimum_critical[:10]
-        ],
-        "maximum_impact_critical_boundaries": [
-            compact_record(record)
-            for record in maximum_critical[:10]
-        ],
-        "minimum_drift_boundaries": [
-            compact_record(record)
-            for record in minimum_drift[:10]
-        ],
-        "minimum_distance_stable_boundaries": [
-            compact_record(record)
-            for record in stable_low_distance[:10]
-        ],
+        "minimum_critical_boundaries": minimum_critical[:10],
+        "maximum_impact_critical_boundaries": maximum_critical[:10],
+        "minimum_drift_boundaries": minimum_drift[:10],
+        "minimum_distance_stable_boundaries": minimum_stable[:10],
     }
 
 
@@ -509,25 +599,19 @@ def build_ascii_phase_diagram(distance_phase_map):
     for axis in sorted(distance_phase_map):
         lines.append(f"{axis}:")
 
-        axis_map = distance_phase_map[axis]
-
         for distance_key in sorted(
-            axis_map,
+            distance_phase_map[axis],
             key=lambda value: int(value),
         ):
-            item = axis_map[distance_key]
-            phase_counts = item["phase_counts"]
-
-            stable = phase_counts.get("STABLE_ZONE", 0)
-            drift = phase_counts.get("DRIFT_ZONE", 0)
-            critical = phase_counts.get("CRITICAL_ZONE", 0)
+            item = distance_phase_map[axis][distance_key]
+            counts = item["phase_counts"]
 
             lines.append(
                 "  "
                 f"d={distance_key} "
-                f"stable={stable} "
-                f"drift={drift} "
-                f"critical={critical} "
+                f"stable={counts.get('STABLE_ZONE', 0)} "
+                f"drift={counts.get('DRIFT_ZONE', 0)} "
+                f"critical={counts.get('CRITICAL_ZONE', 0)} "
                 f"dominant={item['dominant_phase']}"
             )
 
@@ -537,20 +621,11 @@ def build_ascii_phase_diagram(distance_phase_map):
 def validate_phase_diagram(phase_summary, phase_boundaries):
     failures = []
 
-    if "STABLE_ZONE" not in phase_summary:
-        failures.append({
-            "reason": "missing_stable_zone",
-        })
-
-    if "DRIFT_ZONE" not in phase_summary:
-        failures.append({
-            "reason": "missing_drift_zone",
-        })
-
-    if "CRITICAL_ZONE" not in phase_summary:
-        failures.append({
-            "reason": "missing_critical_zone",
-        })
+    for phase in PHASE_ORDER:
+        if phase not in phase_summary:
+            failures.append({
+                "reason": f"missing_{phase.lower()}",
+            })
 
     for axis, item in phase_boundaries.items():
         if axis in {"family", "threshold"}:
@@ -576,14 +651,19 @@ def validate_phase_diagram(phase_summary, phase_boundaries):
 
 
 def main():
-    dependency_payload = load_dependency_boundary_result()
-    phase_records = build_phase_records(dependency_payload)
+    dependency_payload = load_json(INPUT_RESULTS_PATH)
+
+    raw_records = extract_boundary_records(dependency_payload)
+    phase_records = [
+        normalize_boundary_record(record)
+        for record in raw_records
+    ]
 
     phase_summary = summarize_by_phase(phase_records)
-    axis_phase_summary = summarize_by_axis_and_phase(phase_records)
+    axis_phase_summary = summarize_axis_phase_matrix(phase_records)
     distance_phase_map = summarize_distance_phase_map(phase_records)
     phase_boundaries = compute_phase_boundaries(phase_records)
-    boundary_extremes = select_boundary_extremes(phase_records)
+    boundary_extremes = select_extremes(phase_records)
     ascii_phase_diagram = build_ascii_phase_diagram(distance_phase_map)
 
     validation = validate_phase_diagram(
@@ -591,13 +671,14 @@ def main():
         phase_boundaries,
     )
 
-    dependency_boundary_detected = dependency_payload.get(
+    input_detected = dependency_payload.get(
         "summary",
         {},
     ).get("dependency_boundary_detected", False)
 
     phase_diagram_detected = (
-        dependency_boundary_detected
+        input_detected
+        and len(phase_records) > 0
         and validation["phase_diagram_validation_holds"]
         and "STABLE_ZONE" in phase_summary
         and "DRIFT_ZONE" in phase_summary
@@ -605,6 +686,18 @@ def main():
     )
 
     status = "PASS" if phase_diagram_detected else "CHECK"
+
+    minimum_critical_distances = [
+        item["critical_min_distance"]
+        for item in phase_boundaries.values()
+        if item["critical_min_distance"] is not None
+    ]
+
+    minimum_drift_distances = [
+        item["drift_min_distance"]
+        for item in phase_boundaries.values()
+        if item["drift_min_distance"] is not None
+    ]
 
     payload = {
         "experiment": (
@@ -646,21 +739,15 @@ def main():
                     {},
                 ).get("transition_boundary_detected", False)
             ),
-            "minimum_critical_distance": min(
-                [
-                    item["critical_min_distance"]
-                    for item in phase_boundaries.values()
-                    if item["critical_min_distance"] is not None
-                ],
-                default=None,
+            "minimum_critical_distance": (
+                min(minimum_critical_distances)
+                if minimum_critical_distances
+                else None
             ),
-            "minimum_drift_distance": min(
-                [
-                    item["drift_min_distance"]
-                    for item in phase_boundaries.values()
-                    if item["drift_min_distance"] is not None
-                ],
-                default=None,
+            "minimum_drift_distance": (
+                min(minimum_drift_distances)
+                if minimum_drift_distances
+                else None
             ),
             "phase_diagram_validation_holds": (
                 validation["phase_diagram_validation_holds"]
@@ -684,12 +771,13 @@ def main():
                 "and CRITICAL_ABSENCE -> CRITICAL_ZONE."
             ),
         },
-        "phase_records": [
-            compact_record(record)
-            for record in phase_records
-        ],
+        "phase_records": phase_records,
         "interpretation": {
-            "main_result": "boundary phase diagram detected",
+            "main_result": (
+                "boundary phase diagram detected"
+                if status == "PASS"
+                else "boundary phase diagram not fully confirmed"
+            ),
             "structural_conclusion": (
                 "The dependency-boundary landscape separates into "
                 "stable, drift, and critical zones. Family and threshold "
@@ -781,7 +869,8 @@ def main():
     print()
     print("Distance phase map")
     print("-" * 80)
-    print(ascii_phase_diagram)
+
+    print(ascii_phase_diagram if ascii_phase_diagram else "(empty)")
 
     print()
     print("Phase boundaries")
