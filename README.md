@@ -774,3 +774,7 @@ when its failure boundaries become measurable
 Final boundary:
 
 measurement != inference != decision
+
+
+Author: Brighindi Massimiliano 
+Contact: brighissimo@gmail.com
