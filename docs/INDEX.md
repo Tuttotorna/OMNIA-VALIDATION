@@ -44,6 +44,12 @@ omnia_validation.metadata
 omnia_validation.cli
 ```
 
+Package API reference:
+
+```text
+docs/PACKAGE_API.md
+```
+
 ---
 
 ## Tests
@@ -78,6 +84,7 @@ It checks:
 Python 3.10
 Python 3.11
 Python 3.12
+package installation
 ruff
 pytest
 CLI smoke test
@@ -93,6 +100,8 @@ Clean execution guide:
 docs/RUNNING_EXPERIMENTS.md
 ```
 
+This document explains how to run OMNIA-VALIDATION experiments from a clean environment.
+
 ---
 
 ## Validator Authoring Guide
@@ -102,6 +111,8 @@ Guide for adding new validators:
 ```text
 docs/VALIDATOR_AUTHORING_GUIDE.md
 ```
+
+This document defines validator discipline, naming rules, file patterns, result expectations, and non-claim boundaries.
 
 ---
 
@@ -117,6 +128,28 @@ This document defines the recommended result envelope, status vocabulary, payloa
 
 ---
 
+## Package API
+
+Reusable Python package API reference:
+
+```text
+docs/PACKAGE_API.md
+```
+
+This document describes:
+
+```text
+omnia_validation.hashing
+omnia_validation.io
+omnia_validation.metrics
+omnia_validation.metadata
+omnia_validation.cli
+```
+
+It explains available functions, CLI commands, recommended validator usage, tests, and design boundaries.
+
+---
+
 ## Consolidation Roadmap
 
 The engineering consolidation roadmap is located in:
@@ -124,6 +157,8 @@ The engineering consolidation roadmap is located in:
 ```text
 docs/CONSOLIDATION_ROADMAP_V0.md
 ```
+
+This document defines the path from research-script archive toward a reproducible, installable, testable validation layer.
 
 ---
 
@@ -182,6 +217,18 @@ results/
 docs/
 ```
 
+Current important directories:
+
+```text
+docs/              -> technical documentation and result reports
+examples/          -> runnable validation scripts
+results/           -> generated JSON result files
+data/              -> bounded datasets and source-output records
+omnia_validation/  -> reusable Python package utilities
+tests/             -> pytest suite
+.github/workflows/ -> CI workflow
+```
+
 ---
 
 ## Reading Order
@@ -194,6 +241,7 @@ docs/INDEX.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/RESULT_SCHEMA.md
+docs/PACKAGE_API.md
 docs/CONSOLIDATION_ROADMAP_V0.md
 docs/TEMPORAL_COLLAPSE_LEVEL_3_INDEX_V0.md
 docs/TEMPORAL_COLLAPSE_TOPOLOGY_INDEX_V0.md
@@ -211,6 +259,7 @@ Current engineering/consolidation documents:
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/RESULT_SCHEMA.md
+docs/PACKAGE_API.md
 docs/CONSOLIDATION_ROADMAP_V0.md
 ```
 
@@ -220,6 +269,7 @@ Purpose:
 make experiments runnable
 make validators authorable
 make result files comparable
+make package utilities documented
 make repository structure maintainable
 ```
 
