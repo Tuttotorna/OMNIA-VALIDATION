@@ -39,11 +39,14 @@ partially industrialized
 CI-enabled
 package-layer added
 documentation-layer expanded
+schema-validator added
+legacy-result normalization added
+enveloped-result validation added
 ```
 
 The repository is no longer only a loose archive of scripts.
 
-It now contains a minimal engineering layer that supports reproducibility, package installation, testing, and validator extension.
+It now contains a minimal engineering layer that supports reproducibility, package installation, testing, schema validation, result normalization, and validator extension.
 
 ---
 
@@ -58,6 +61,8 @@ docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/RESULT_SCHEMA.md
 docs/PACKAGE_API.md
+docs/PROJECT_STATUS.md
+docs/LEGACY_RESULT_NORMALIZATION.md
 docs/CONSOLIDATION_ROADMAP_V0.md
 CONTRIBUTING.md
 SECURITY.md
@@ -66,9 +71,12 @@ requirements-dev.txt
 omnia_validation/
 tests/
 .github/workflows/ci.yml
+examples/wrap_legacy_results_in_envelope.py
+results/
+results_enveloped/
 ```
 
-These files establish:
+These files and directories establish:
 
 ```text
 documentation index
@@ -76,12 +84,16 @@ clean execution guide
 validator authoring discipline
 common result schema
 package API reference
+current project status
+legacy result normalization policy
 engineering roadmap
 contribution rules
 security boundary
 installable package layer
 test suite
 continuous integration
+historical result preservation
+canonical enveloped result copies
 ```
 
 ---
@@ -101,6 +113,7 @@ omnia_validation.hashing
 omnia_validation.io
 omnia_validation.metrics
 omnia_validation.metadata
+omnia_validation.schemas
 omnia_validation.cli
 ```
 
@@ -120,7 +133,10 @@ normalized repetition scoring
 UTC timestamp generation
 file metadata generation
 result envelope construction
+result envelope validation
+strict result envelope validation
 CLI artifact validation
+CLI result-envelope validation
 ```
 
 Status:
@@ -129,6 +145,7 @@ Status:
 usable
 minimal
 standard-library-first
+schema-aware
 not complete
 not domain-final
 ```
@@ -138,6 +155,68 @@ The package layer is intentionally small.
 It supports validators.
 
 It does not replace experimental scripts.
+
+---
+
+## Schema Validator Status
+
+The schema validator is present at:
+
+```text
+omnia_validation/schemas.py
+```
+
+It validates the canonical result envelope:
+
+```text
+experiment
+status
+created_at_utc
+boundary
+payload
+```
+
+Available schema helpers:
+
+```text
+validate_result_envelope
+is_valid_result_envelope
+require_valid_result_envelope
+```
+
+Allowed result statuses:
+
+```text
+PASS
+CHECK
+FAIL
+```
+
+CLI support:
+
+```bash
+omnia-validation validate-result results_enveloped/<result_file>.json
+```
+
+Status:
+
+```text
+present
+tested
+CLI-accessible
+top-level envelope only
+not yet payload-specific
+```
+
+Current limitation:
+
+```text
+payload-specific schemas are not yet enforced
+legacy status vocabularies are not yet mapped
+regime vocabularies are not yet enforced
+failure-mode vocabularies are not yet enforced
+relative paths are not yet enforced
+```
 
 ---
 
@@ -155,6 +234,11 @@ Current test files:
 tests/test_hashing.py
 tests/test_io.py
 tests/test_metrics.py
+tests/test_metadata.py
+tests/test_cli.py
+tests/test_schemas.py
+tests/test_existing_results.py
+tests/test_enveloped_results.py
 ```
 
 Current coverage includes:
@@ -169,15 +253,30 @@ empty metric behavior
 entropy ordering behavior
 compression ordering behavior
 repetition score behavior
+UTC timestamp generation
+file metadata generation
+result envelope construction
+CLI command behavior
+validate-result CLI behavior
+schema constants
+schema validation
+schema error reporting
+schema failure raising
+legacy results JSON parseability
+enveloped result schema compliance
 ```
 
 Status:
 
 ```text
 basic unit tests present
+schema tests present
+CLI tests present
+legacy result parseability tests present
+enveloped result schema tests present
 CI verified
 not exhaustive
-not yet full integration coverage
+not yet full experiment-chain coverage
 ```
 
 Missing test families:
@@ -185,11 +284,13 @@ Missing test families:
 ```text
 validator integration tests
 result-regression tests
-schema-compliance tests
+payload-specific schema tests
 experiment-chain tests
 artifact reproducibility tests
 topology-chain regression tests
 Level 3 chain regression tests
+hash manifest tests
+legacy-status mapping tests
 ```
 
 ---
@@ -219,9 +320,21 @@ Status:
 ```text
 active
 green after current consolidation commits
-basic
+basic but useful
 sufficient for package sanity
+sufficient for result JSON parseability checks
+sufficient for enveloped-result schema checks
 not yet sufficient for full experiment reproduction
+```
+
+Current CI-protected guarantees:
+
+```text
+package imports
+unit tests pass
+CLI smoke test passes
+historical results are parseable JSON
+enveloped results follow canonical envelope
 ```
 
 Future CI should add:
@@ -230,7 +343,7 @@ Future CI should add:
 selected experiment-chain execution
 JSON result validation
 JSONL dataset validation
-schema compliance checks
+payload-specific schema compliance checks
 hash traceability checks
 regression comparison against frozen results
 ```
@@ -249,8 +362,9 @@ docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/RESULT_SCHEMA.md
 docs/PACKAGE_API.md
-docs/CONSOLIDATION_ROADMAP_V0.md
 docs/PROJECT_STATUS.md
+docs/LEGACY_RESULT_NORMALIZATION.md
+docs/CONSOLIDATION_ROADMAP_V0.md
 ```
 
 Current purpose:
@@ -261,16 +375,154 @@ make experiments runnable
 make validators authorable
 make results comparable
 make package utilities explicit
-make consolidation direction visible
 make current status honest
+explain legacy result normalization
+make consolidation direction visible
 ```
 
 Status:
 
 ```text
 good foundation
+internally consistent
+aligned with current package layer
+aligned with current result schema layer
 still growing
 not final
+```
+
+---
+
+## Legacy Result Normalization Status
+
+The repository intentionally contains both:
+
+```text
+results/
+results_enveloped/
+```
+
+Meaning:
+
+```text
+results/           -> historical raw result artifacts
+results_enveloped/ -> canonical-envelope copies of legacy results
+```
+
+The original result files in `results/` were not rewritten.
+
+They preserve historical output.
+
+A schema audit showed:
+
+```text
+total_json_files_checked: 97
+compliant_count: 0
+non_compliant_count: 97
+unreadable_count: 0
+```
+
+Interpretation:
+
+```text
+all legacy result files were readable JSON
+none were corrupted
+none followed the new canonical result envelope yet
+```
+
+The normalization script is present at:
+
+```text
+examples/wrap_legacy_results_in_envelope.py
+```
+
+It generated:
+
+```text
+results_enveloped/
+```
+
+Current normalization result:
+
+```text
+legacy results wrapped: 97
+schema-valid enveloped files: 98
+wrapping failures: 0
+```
+
+The extra file is the manifest:
+
+```text
+results_enveloped/legacy_result_envelope_manifest_v0.json
+```
+
+Status:
+
+```text
+present
+non-destructive
+manifested
+schema-valid
+CI-tested
+```
+
+Important boundary:
+
+```text
+legacy normalization is format normalization
+legacy normalization is not scientific revalidation
+legacy normalization is not semantic validation
+```
+
+---
+
+## Result Directory Status
+
+Historical results:
+
+```text
+results/
+```
+
+Status:
+
+```text
+preserved
+parseable JSON
+legacy format
+not required to follow canonical envelope
+CI checks JSON parseability
+```
+
+Schema-normalized results:
+
+```text
+results_enveloped/
+```
+
+Status:
+
+```text
+canonical-envelope copies
+schema-valid
+CI-tested
+generated from legacy results
+original legacy payload preserved inside payload.legacy_result
+```
+
+Correct interpretation:
+
+```text
+results/ preserves historical evidence
+results_enveloped/ enables schema-based validation
+```
+
+Incorrect interpretation:
+
+```text
+results_enveloped/ proves every legacy experiment scientifically correct
+results_enveloped/ replaces results/
+results/ should be deleted
 ```
 
 ---
@@ -292,6 +544,10 @@ structural drift
 structural collapse
 perturbation behavior
 reproducibility pressure
+observer sensitivity
+effective observer geometry
+cross-domain invariance
+semantic-vs-structural separation
 ```
 
 These experiments should be read as bounded structural validations.
@@ -392,7 +648,7 @@ not a semantic correctness claim
 
 ## Result Schema Status
 
-A recommended result schema is now defined at:
+A recommended result schema is defined at:
 
 ```text
 docs/RESULT_SCHEMA.md
@@ -416,21 +672,38 @@ CHECK
 FAIL
 ```
 
+Code-level schema validation is present at:
+
+```text
+omnia_validation/schemas.py
+```
+
+CLI-level schema validation is available through:
+
+```bash
+omnia-validation validate-result <path>
+```
+
 Status:
 
 ```text
 schema guidance present
-not yet enforced globally
-not yet validated by automated schema tests
+top-level schema enforcement present
+CLI schema validation present
+tests present
+not yet payload-specific
 ```
 
 Future work:
 
 ```text
-add schema validator
-add tests for result envelope compliance
-validate existing result files
-flag result files missing required fields
+add payload-specific schema validators
+add schema validator for hash payloads
+add schema validator for trajectory payloads
+add schema validator for topology payloads
+add relative path validation
+add failure-mode vocabulary validation
+add regime vocabulary validation
 ```
 
 ---
@@ -479,11 +752,15 @@ The repository has partial consolidation in these areas:
 package installation
 basic reusable utilities
 unit testing
+CLI artifact validation
+result-envelope schema validation
 CI
 documentation navigation
 result schema definition
 validator authoring discipline
 clean execution instructions
+legacy result normalization
+enveloped result CI checks
 ```
 
 Still partial:
@@ -491,10 +768,12 @@ Still partial:
 ```text
 full modular extraction
 full experiment integration tests
-result schema automation
+payload-specific schema automation
 experiment-chain reproducibility automation
 dataset validation automation
 artifact hash verification automation
+legacy-status mapping
+release process
 ```
 
 ---
@@ -505,7 +784,8 @@ Important missing components:
 
 ```text
 full validator registry
-schema validation module
+payload-specific schema validation
+schema validation module extensions
 trajectory utility module
 topology utility module
 benchmark runner module
@@ -518,6 +798,7 @@ pull request template
 CODE_OF_CONDUCT.md
 release procedure
 versioning policy for package releases
+maintenance guide
 ```
 
 Possible future package modules:
@@ -532,6 +813,16 @@ omnia_validation.regression
 omnia_validation.manifest
 ```
 
+Possible future documentation files:
+
+```text
+docs/MAINTENANCE.md
+docs/RELEASE_POLICY.md
+docs/LEGACY_STATUS_MAPPING.md
+docs/VALIDATOR_REGISTRY.md
+docs/RESULT_REGRESSION_POLICY.md
+```
+
 ---
 
 ## Engineering Maturity
@@ -542,11 +833,13 @@ Current engineering maturity:
 early alpha
 research-ready
 developer-runnable
+schema-aware
+CI-guarded
 not production-ready
 not industrially hardened
 ```
 
-The repository can now be cloned, installed, tested, and inspected more easily.
+The repository can now be cloned, installed, tested, inspected, and partially schema-validated more easily.
 
 However, it is not yet a production package.
 
@@ -578,6 +871,7 @@ critical local behavior
 boundary instability
 non-universal invariance
 negative evidence
+legacy result history
 ```
 
 This makes the work more falsifiable.
@@ -630,13 +924,14 @@ not a correctness oracle
 It may become useful inside production-adjacent research pipelines after:
 
 ```text
-schema enforcement
+payload-specific schema enforcement
 runner standardization
 integration tests
 result regression checks
 artifact hash manifests
 clear versioned releases
 external reproduction
+independent review
 ```
 
 ---
@@ -652,12 +947,20 @@ explicit epistemic boundary
 real SHA-256 traceability in V15
 clean package layer
 basic unit tests
+CLI validation utilities
+schema validator
+validate-result command
 green CI
 documentation index
 validator authoring guide
 result schema guide
 package API guide
 clean execution guide
+project status document
+legacy result normalization layer
+schema-valid enveloped result copies
+CI validation for enveloped results
+historical results preserved unchanged
 ```
 
 These strengths make the repository more serious than a loose script dump.
@@ -672,11 +975,13 @@ Current weaknesses:
 many experimental scripts remain monolithic
 version proliferation is still visible
 no full validator registry
-no automated schema enforcement
+no payload-specific schema enforcement
 no full regression suite
 limited external adoption
 limited independent reproduction
 no package release workflow yet
+legacy statuses are not yet semantically mapped
+experiment chains are not yet fully CI-reproduced
 ```
 
 These weaknesses are fixable.
@@ -694,7 +999,9 @@ OMNIA-VALIDATION is a structural pressure-testing layer.
 It measures behavior under controlled validation conditions.
 It preserves instability as evidence.
 It defines boundaries instead of hiding them.
-It is becoming installable, testable, and extensible.
+It preserves historical results.
+It provides schema-normalized copies for validation tooling.
+It is becoming installable, testable, schema-aware, and extensible.
 ```
 
 Incorrect interpretation:
@@ -705,6 +1012,7 @@ OMNIA-VALIDATION detects semantic truth.
 OMNIA-VALIDATION certifies model intelligence.
 OMNIA-VALIDATION guarantees production safety.
 OMNIA-VALIDATION replaces external judgment.
+results_enveloped/ scientifically revalidates all legacy experiments.
 ```
 
 ---
@@ -714,11 +1022,10 @@ OMNIA-VALIDATION replaces external judgment.
 Recommended next steps:
 
 ```text
-connect PROJECT_STATUS.md from docs/INDEX.md
-connect PROJECT_STATUS.md from README.md
-add schema validation utility
-add tests for result_envelope
-add tests for metadata utilities
+add tests for wrap_legacy_results_in_envelope.py
+add docs/LEGACY_STATUS_MAPPING.md
+add payload-specific schema validators
+add tests for payload-specific schemas
 add docs/MAINTENANCE.md
 add docs/RELEASE_POLICY.md
 add GitHub issue templates
@@ -731,6 +1038,7 @@ Engineering priority:
 schemas before new experiments
 tests before expansion
 runner discipline before scale
+payload-specific validation before stricter CI gates
 ```
 
 ---
