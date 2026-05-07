@@ -241,7 +241,7 @@
       "source_files": [
         "data/source_outputs/gsm_symbolic_real_model_outputs_v12_provider_a.jsonl"
       ],
-      "source_file_hashs": [
+      "source_file_hashes": [
         "sha256:provider_a_source_file_hash_v12"
       ],
       "source_group_ids": [
@@ -312,7 +312,7 @@
       "source_files": [
         "data/source_outputs/gsm_symbolic_real_model_outputs_v12_provider_b.jsonl"
       ],
-      "source_file_hashs": [
+      "source_file_hashes": [
         "sha256:provider_b_source_file_hash_v12"
       ],
       "source_group_ids": [
@@ -385,7 +385,7 @@
       "source_files": [
         "data/source_outputs/gsm_symbolic_real_model_outputs_v12_provider_a.jsonl"
       ],
-      "source_file_hashs": [
+      "source_file_hashes": [
         "sha256:provider_a_source_file_hash_v12"
       ],
       "source_group_ids": [
@@ -456,7 +456,7 @@
       "source_files": [
         "data/source_outputs/gsm_symbolic_real_model_outputs_v12_provider_b.jsonl"
       ],
-      "source_file_hashs": [
+      "source_file_hashes": [
         "sha256:provider_b_source_file_hash_v12"
       ],
       "source_group_ids": [
@@ -684,12 +684,12 @@
       "cross_source_role": "provider_b_member",
       "answer_extraction_method": "final_numeric_answer_extractor_v1",
       "source_record_reference": "multiple_source_record_references",
-      "mapping_notes": "multiple_mapping_notess",
+      "mapping_notes": "multiple_mapping_notes",
       "response_id": "multiple_response_ids",
       "question_id": "multiple_question_ids",
       "variant_type": "multiple_variant_types",
-      "raw_question_hash": "multiple_raw_question_hashs",
-      "raw_output_hash": "multiple_raw_output_hashs",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
       "expected_answer": "multiple_expected_answers",
       "model_final_answer": "multiple_model_final_answers",
       "correctness_profile": {
@@ -775,12 +775,12 @@
         "cross_source_role": "provider_b_member",
         "answer_extraction_method": "final_numeric_answer_extractor_v1",
         "source_record_reference": "multiple_source_record_references",
-        "mapping_notes": "multiple_mapping_notess",
+        "mapping_notes": "multiple_mapping_notes",
         "response_id": "multiple_response_ids",
         "question_id": "multiple_question_ids",
         "variant_type": "multiple_variant_types",
-        "raw_question_hash": "multiple_raw_question_hashs",
-        "raw_output_hash": "multiple_raw_output_hashs",
+        "raw_question_hash": "multiple_raw_question_hashes",
+        "raw_output_hash": "multiple_raw_output_hashes",
         "expected_answer": "multiple_expected_answers",
         "model_final_answer": "multiple_model_final_answers"
       }
@@ -806,12 +806,12 @@
       "cross_source_role": "provider_a_member",
       "answer_extraction_method": "final_numeric_answer_extractor_v1",
       "source_record_reference": "multiple_source_record_references",
-      "mapping_notes": "multiple_mapping_notess",
+      "mapping_notes": "multiple_mapping_notes",
       "response_id": "multiple_response_ids",
       "question_id": "multiple_question_ids",
       "variant_type": "multiple_variant_types",
-      "raw_question_hash": "multiple_raw_question_hashs",
-      "raw_output_hash": "multiple_raw_output_hashs",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
       "expected_answer": "multiple_expected_answers",
       "model_final_answer": "multiple_model_final_answers",
       "correctness_profile": {
@@ -896,12 +896,12 @@
         "cross_source_role": "provider_a_member",
         "answer_extraction_method": "final_numeric_answer_extractor_v1",
         "source_record_reference": "multiple_source_record_references",
-        "mapping_notes": "multiple_mapping_notess",
+        "mapping_notes": "multiple_mapping_notes",
         "response_id": "multiple_response_ids",
         "question_id": "multiple_question_ids",
         "variant_type": "multiple_variant_types",
-        "raw_question_hash": "multiple_raw_question_hashs",
-        "raw_output_hash": "multiple_raw_output_hashs",
+        "raw_question_hash": "multiple_raw_question_hashes",
+        "raw_output_hash": "multiple_raw_output_hashes",
         "expected_answer": "multiple_expected_answers",
         "model_final_answer": "multiple_model_final_answers"
       }
@@ -927,12 +927,12 @@
       "cross_source_role": "provider_b_member",
       "answer_extraction_method": "final_numeric_answer_extractor_v1",
       "source_record_reference": "multiple_source_record_references",
-      "mapping_notes": "multiple_mapping_notess",
+      "mapping_notes": "multiple_mapping_notes",
       "response_id": "multiple_response_ids",
       "question_id": "multiple_question_ids",
       "variant_type": "multiple_variant_types",
-      "raw_question_hash": "multiple_raw_question_hashs",
-      "raw_output_hash": "multiple_raw_output_hashs",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
       "expected_answer": "multiple_expected_answers",
       "model_final_answer": "multiple_model_final_answers",
       "correctness_profile": {
@@ -1016,12 +1016,12 @@
         "cross_source_role": "provider_b_member",
         "answer_extraction_method": "final_numeric_answer_extractor_v1",
         "source_record_reference": "multiple_source_record_references",
-        "mapping_notes": "multiple_mapping_notess",
+        "mapping_notes": "multiple_mapping_notes",
         "response_id": "multiple_response_ids",
         "question_id": "multiple_question_ids",
         "variant_type": "multiple_variant_types",
-        "raw_question_hash": "multiple_raw_question_hashs",
-        "raw_output_hash": "multiple_raw_output_hashs",
+        "raw_question_hash": "multiple_raw_question_hashes",
+        "raw_output_hash": "multiple_raw_output_hashes",
         "expected_answer": "multiple_expected_answers",
         "model_final_answer": "multiple_model_final_answers"
       }
@@ -1047,12 +1047,12 @@
       "cross_source_role": "provider_b_member",
       "answer_extraction_method": "final_numeric_answer_extractor_v1",
       "source_record_reference": "multiple_source_record_references",
-      "mapping_notes": "multiple_mapping_notess",
+      "mapping_notes": "multiple_mapping_notes",
       "response_id": "multiple_response_ids",
       "question_id": "multiple_question_ids",
       "variant_type": "multiple_variant_types",
-      "raw_question_hash": "multiple_raw_question_hashs",
-      "raw_output_hash": "multiple_raw_output_hashs",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
       "expected_answer": "multiple_expected_answers",
       "model_final_answer": "multiple_model_final_answers",
       "correctness_profile": {
@@ -1135,12 +1135,12 @@
         "cross_source_role": "provider_b_member",
         "answer_extraction_method": "final_numeric_answer_extractor_v1",
         "source_record_reference": "multiple_source_record_references",
-        "mapping_notes": "multiple_mapping_notess",
+        "mapping_notes": "multiple_mapping_notes",
         "response_id": "multiple_response_ids",
         "question_id": "multiple_question_ids",
         "variant_type": "multiple_variant_types",
-        "raw_question_hash": "multiple_raw_question_hashs",
-        "raw_output_hash": "multiple_raw_output_hashs",
+        "raw_question_hash": "multiple_raw_question_hashes",
+        "raw_output_hash": "multiple_raw_output_hashes",
         "expected_answer": "multiple_expected_answers",
         "model_final_answer": "multiple_model_final_answers"
       }
@@ -1166,12 +1166,12 @@
       "cross_source_role": "provider_a_member",
       "answer_extraction_method": "final_numeric_answer_extractor_v1",
       "source_record_reference": "multiple_source_record_references",
-      "mapping_notes": "multiple_mapping_notess",
+      "mapping_notes": "multiple_mapping_notes",
       "response_id": "multiple_response_ids",
       "question_id": "multiple_question_ids",
       "variant_type": "multiple_variant_types",
-      "raw_question_hash": "multiple_raw_question_hashs",
-      "raw_output_hash": "multiple_raw_output_hashs",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
       "expected_answer": "multiple_expected_answers",
       "model_final_answer": "multiple_model_final_answers",
       "correctness_profile": {
@@ -1254,12 +1254,12 @@
         "cross_source_role": "provider_a_member",
         "answer_extraction_method": "final_numeric_answer_extractor_v1",
         "source_record_reference": "multiple_source_record_references",
-        "mapping_notes": "multiple_mapping_notess",
+        "mapping_notes": "multiple_mapping_notes",
         "response_id": "multiple_response_ids",
         "question_id": "multiple_question_ids",
         "variant_type": "multiple_variant_types",
-        "raw_question_hash": "multiple_raw_question_hashs",
-        "raw_output_hash": "multiple_raw_output_hashs",
+        "raw_question_hash": "multiple_raw_question_hashes",
+        "raw_output_hash": "multiple_raw_output_hashes",
         "expected_answer": "multiple_expected_answers",
         "model_final_answer": "multiple_model_final_answers"
       }
@@ -1285,12 +1285,12 @@
       "cross_source_role": "provider_a_member",
       "answer_extraction_method": "final_numeric_answer_extractor_v1",
       "source_record_reference": "multiple_source_record_references",
-      "mapping_notes": "multiple_mapping_notess",
+      "mapping_notes": "multiple_mapping_notes",
       "response_id": "multiple_response_ids",
       "question_id": "multiple_question_ids",
       "variant_type": "multiple_variant_types",
-      "raw_question_hash": "multiple_raw_question_hashs",
-      "raw_output_hash": "multiple_raw_output_hashs",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
       "expected_answer": "multiple_expected_answers",
       "model_final_answer": "multiple_model_final_answers",
       "correctness_profile": {
@@ -1373,12 +1373,12 @@
         "cross_source_role": "provider_a_member",
         "answer_extraction_method": "final_numeric_answer_extractor_v1",
         "source_record_reference": "multiple_source_record_references",
-        "mapping_notes": "multiple_mapping_notess",
+        "mapping_notes": "multiple_mapping_notes",
         "response_id": "multiple_response_ids",
         "question_id": "multiple_question_ids",
         "variant_type": "multiple_variant_types",
-        "raw_question_hash": "multiple_raw_question_hashs",
-        "raw_output_hash": "multiple_raw_output_hashs",
+        "raw_question_hash": "multiple_raw_question_hashes",
+        "raw_output_hash": "multiple_raw_output_hashes",
         "expected_answer": "multiple_expected_answers",
         "model_final_answer": "multiple_model_final_answers"
       }
@@ -1404,12 +1404,12 @@
       "cross_source_role": "provider_b_member",
       "answer_extraction_method": "final_numeric_answer_extractor_v1",
       "source_record_reference": "multiple_source_record_references",
-      "mapping_notes": "multiple_mapping_notess",
+      "mapping_notes": "multiple_mapping_notes",
       "response_id": "multiple_response_ids",
       "question_id": "multiple_question_ids",
       "variant_type": "multiple_variant_types",
-      "raw_question_hash": "multiple_raw_question_hashs",
-      "raw_output_hash": "multiple_raw_output_hashs",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
       "expected_answer": "multiple_expected_answers",
       "model_final_answer": "multiple_model_final_answers",
       "correctness_profile": {
@@ -1492,12 +1492,12 @@
         "cross_source_role": "provider_b_member",
         "answer_extraction_method": "final_numeric_answer_extractor_v1",
         "source_record_reference": "multiple_source_record_references",
-        "mapping_notes": "multiple_mapping_notess",
+        "mapping_notes": "multiple_mapping_notes",
         "response_id": "multiple_response_ids",
         "question_id": "multiple_question_ids",
         "variant_type": "multiple_variant_types",
-        "raw_question_hash": "multiple_raw_question_hashs",
-        "raw_output_hash": "multiple_raw_output_hashs",
+        "raw_question_hash": "multiple_raw_question_hashes",
+        "raw_output_hash": "multiple_raw_output_hashes",
         "expected_answer": "multiple_expected_answers",
         "model_final_answer": "multiple_model_final_answers"
       }
@@ -1523,12 +1523,12 @@
       "cross_source_role": "provider_a_member",
       "answer_extraction_method": "final_numeric_answer_extractor_v1",
       "source_record_reference": "multiple_source_record_references",
-      "mapping_notes": "multiple_mapping_notess",
+      "mapping_notes": "multiple_mapping_notes",
       "response_id": "multiple_response_ids",
       "question_id": "multiple_question_ids",
       "variant_type": "multiple_variant_types",
-      "raw_question_hash": "multiple_raw_question_hashs",
-      "raw_output_hash": "multiple_raw_output_hashs",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
       "expected_answer": "multiple_expected_answers",
       "model_final_answer": "multiple_model_final_answers",
       "correctness_profile": {
@@ -1609,12 +1609,12 @@
         "cross_source_role": "provider_a_member",
         "answer_extraction_method": "final_numeric_answer_extractor_v1",
         "source_record_reference": "multiple_source_record_references",
-        "mapping_notes": "multiple_mapping_notess",
+        "mapping_notes": "multiple_mapping_notes",
         "response_id": "multiple_response_ids",
         "question_id": "multiple_question_ids",
         "variant_type": "multiple_variant_types",
-        "raw_question_hash": "multiple_raw_question_hashs",
-        "raw_output_hash": "multiple_raw_output_hashs",
+        "raw_question_hash": "multiple_raw_question_hashes",
+        "raw_output_hash": "multiple_raw_output_hashes",
         "expected_answer": "multiple_expected_answers",
         "model_final_answer": "multiple_model_final_answers"
       }
@@ -1640,12 +1640,12 @@
       "cross_source_role": "provider_b_member",
       "answer_extraction_method": "final_numeric_answer_extractor_v1",
       "source_record_reference": "multiple_source_record_references",
-      "mapping_notes": "multiple_mapping_notess",
+      "mapping_notes": "multiple_mapping_notes",
       "response_id": "multiple_response_ids",
       "question_id": "multiple_question_ids",
       "variant_type": "multiple_variant_types",
-      "raw_question_hash": "multiple_raw_question_hashs",
-      "raw_output_hash": "multiple_raw_output_hashs",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
       "expected_answer": "multiple_expected_answers",
       "model_final_answer": "multiple_model_final_answers",
       "correctness_profile": {
@@ -1726,12 +1726,12 @@
         "cross_source_role": "provider_b_member",
         "answer_extraction_method": "final_numeric_answer_extractor_v1",
         "source_record_reference": "multiple_source_record_references",
-        "mapping_notes": "multiple_mapping_notess",
+        "mapping_notes": "multiple_mapping_notes",
         "response_id": "multiple_response_ids",
         "question_id": "multiple_question_ids",
         "variant_type": "multiple_variant_types",
-        "raw_question_hash": "multiple_raw_question_hashs",
-        "raw_output_hash": "multiple_raw_output_hashs",
+        "raw_question_hash": "multiple_raw_question_hashes",
+        "raw_output_hash": "multiple_raw_output_hashes",
         "expected_answer": "multiple_expected_answers",
         "model_final_answer": "multiple_model_final_answers"
       }
@@ -1757,12 +1757,12 @@
       "cross_source_role": "provider_a_member",
       "answer_extraction_method": "final_numeric_answer_extractor_v1",
       "source_record_reference": "multiple_source_record_references",
-      "mapping_notes": "multiple_mapping_notess",
+      "mapping_notes": "multiple_mapping_notes",
       "response_id": "multiple_response_ids",
       "question_id": "multiple_question_ids",
       "variant_type": "multiple_variant_types",
-      "raw_question_hash": "multiple_raw_question_hashs",
-      "raw_output_hash": "multiple_raw_output_hashs",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
       "expected_answer": "multiple_expected_answers",
       "model_final_answer": "multiple_model_final_answers",
       "correctness_profile": {
@@ -1843,16 +1843,15 @@
         "cross_source_role": "provider_a_member",
         "answer_extraction_method": "final_numeric_answer_extractor_v1",
         "source_record_reference": "multiple_source_record_references",
-        "mapping_notes": "multiple_mapping_notess",
+        "mapping_notes": "multiple_mapping_notes",
         "response_id": "multiple_response_ids",
         "question_id": "multiple_question_ids",
         "variant_type": "multiple_variant_types",
-        "raw_question_hash": "multiple_raw_question_hashs",
-        "raw_output_hash": "multiple_raw_output_hashs",
+        "raw_question_hash": "multiple_raw_question_hashes",
+        "raw_output_hash": "multiple_raw_output_hashes",
         "expected_answer": "multiple_expected_answers",
         "model_final_answer": "multiple_model_final_answers"
       }
     }
   ]
 }
-
