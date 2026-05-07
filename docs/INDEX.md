@@ -95,6 +95,16 @@ docs/RUNNING_EXPERIMENTS.md
 
 ---
 
+## Validator Authoring Guide
+
+Guide for adding new validators:
+
+```text
+docs/VALIDATOR_AUTHORING_GUIDE.md
+```
+
+---
+
 ## Consolidation Roadmap
 
 The engineering consolidation roadmap is located in:
@@ -170,6 +180,7 @@ Suggested reading order for new visitors:
 README.md
 docs/INDEX.md
 docs/RUNNING_EXPERIMENTS.md
+docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/CONSOLIDATION_ROADMAP_V0.md
 docs/TEMPORAL_COLLAPSE_LEVEL_3_INDEX_V0.md
 docs/TEMPORAL_COLLAPSE_TOPOLOGY_INDEX_V0.md
