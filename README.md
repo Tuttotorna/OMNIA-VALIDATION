@@ -24,6 +24,12 @@ Canonical documentation index:
 docs/INDEX.md
 ```
 
+Current project status:
+
+```text
+docs/PROJECT_STATUS.md
+```
+
 Clean execution guide:
 
 ```text
@@ -991,12 +997,20 @@ experimental
 falsification-oriented
 pressure-driven
 non-final
+partially industrialized
 installable package layer added
 CI-enabled
 clean execution guide added
 validator authoring guide added
 result schema added
 package API documented
+project status documented
+```
+
+Current status document:
+
+```text
+docs/PROJECT_STATUS.md
 ```
 
 This status is intentional.
