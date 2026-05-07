@@ -42,6 +42,12 @@ Common result schema:
 docs/RESULT_SCHEMA.md
 ```
 
+Package API reference:
+
+```text
+docs/PACKAGE_API.md
+```
+
 Engineering consolidation roadmap:
 
 ```text
@@ -80,9 +86,15 @@ omnia_validation.metadata
 omnia_validation.cli
 ```
 
+The package API is documented in:
+
+```text
+docs/PACKAGE_API.md
+```
+
 This package layer does not replace the experimental scripts.
 
-It provides reusable support utilities for reproducibility, hashing, JSON/JSONL handling, metadata envelopes, and simple structural metrics.
+It provides reusable support utilities for reproducibility, hashing, JSON/JSONL handling, metadata envelopes, simple structural metrics, and command-line artifact checks.
 
 Install in editable development mode:
 
@@ -984,6 +996,7 @@ CI-enabled
 clean execution guide added
 validator authoring guide added
 result schema added
+package API documented
 ```
 
 This status is intentional.
