@@ -60,6 +60,12 @@ Legacy result normalization:
 docs/LEGACY_RESULT_NORMALIZATION.md
 ```
 
+Legacy status mapping:
+
+```text
+docs/LEGACY_STATUS_MAPPING.md
+```
+
 Engineering consolidation roadmap:
 
 ```text
@@ -841,6 +847,58 @@ docs/LEGACY_RESULT_NORMALIZATION.md
 
 ---
 
+## Legacy Status Mapping
+
+Historical results may contain legacy status values created before the canonical schema existed.
+
+Examples:
+
+```text
+DRIFT
+STABLE
+CRITICAL
+WATCH
+passed
+stable
+collapse-like
+v15_external_source_hash_strengthened
+```
+
+The current canonical schema allows only:
+
+```text
+PASS
+CHECK
+FAIL
+```
+
+Current policy:
+
+```text
+legacy status values are preserved
+legacy status values are not erased
+legacy status values are stored inside payload.legacy_status
+wrapped legacy files use canonical status CHECK
+automatic scientific reinterpretation is not applied
+```
+
+Reason:
+
+```text
+wrapping is normalization
+wrapping is not revalidation
+```
+
+This prevents a format conversion from being falsely presented as a scientific rerun.
+
+Documentation:
+
+```text
+docs/LEGACY_STATUS_MAPPING.md
+```
+
+---
+
 ## Temporal Collapse Level 3 — Boundary
 
 Level 3 does not claim:
@@ -1157,6 +1215,7 @@ project status documented
 schema validator added
 validate-result CLI added
 legacy result normalization added
+legacy status mapping documented
 ```
 
 Current status document:
