@@ -1,0 +1,1069 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.559356+00:00",
+  "experiment": "observer_family_geometry_v1",
+  "payload": {
+    "legacy_result": {
+      "core_boundary": "measurement != inference != decision",
+      "date_utc": "2026-05-03T06:08:14.523347+00:00",
+      "domain": "observer_family_geometry",
+      "experiment_name": "observer_family_geometry_v1",
+      "family_summary": {
+        "entropy": {
+          "cross_family_avg_distance": 0.964444444444,
+          "cross_family_pair_count": 24,
+          "observer_count": 2,
+          "same_family_avg_distance": 0.083333333333,
+          "same_family_pair_count": 1
+        },
+        "motif": {
+          "cross_family_avg_distance": 0.98946026196,
+          "cross_family_pair_count": 33,
+          "observer_count": 3,
+          "same_family_avg_distance": 0.75,
+          "same_family_pair_count": 3
+        },
+        "run_length": {
+          "cross_family_avg_distance": 0.984444444444,
+          "cross_family_pair_count": 24,
+          "observer_count": 2,
+          "same_family_avg_distance": 0.75,
+          "same_family_pair_count": 1
+        },
+        "symbol": {
+          "cross_family_avg_distance": 0.964543650794,
+          "cross_family_pair_count": 24,
+          "observer_count": 2,
+          "same_family_avg_distance": 0.75,
+          "same_family_pair_count": 1
+        },
+        "symmetry": {
+          "cross_family_avg_distance": 0.931701643264,
+          "cross_family_pair_count": 24,
+          "observer_count": 2,
+          "same_family_avg_distance": 0.69,
+          "same_family_pair_count": 1
+        },
+        "transition": {
+          "cross_family_avg_distance": 0.988472823473,
+          "cross_family_pair_count": 33,
+          "observer_count": 3,
+          "same_family_avg_distance": 0.57253968254,
+          "same_family_pair_count": 3
+        }
+      },
+      "limitations": [
+        "This is not the full OMNIA engine.",
+        "This is a toy observer geometry experiment.",
+        "Observer distance is heuristic.",
+        "Family bonuses are manually chosen.",
+        "Observer families are simplified.",
+        "No semantic truth is evaluated.",
+        "No universal observer geometry claim is made."
+      ],
+      "main_insight": "Observer-family geometry should contain redundancy, medium-distance relations, and diverse cross-family separation.",
+      "observer_family": {
+        "entropy_profile": "entropy",
+        "entropy_profile_extended": "entropy",
+        "motif3": "motif",
+        "motif3_soft": "motif",
+        "motif4": "motif",
+        "periodicity_profile": "symmetry",
+        "run_length_profile": "run_length",
+        "run_length_profile_exact": "run_length",
+        "symbol_pattern": "symbol",
+        "symbol_pattern_unique_ratio": "symbol",
+        "symmetry_profile": "symmetry",
+        "transition_topology": "transition",
+        "transition_topology_soft": "transition",
+        "transition_topology_windowed": "transition"
+      },
+      "observer_names": [
+        "entropy_profile",
+        "entropy_profile_extended",
+        "motif3",
+        "motif3_soft",
+        "motif4",
+        "periodicity_profile",
+        "run_length_profile",
+        "run_length_profile_exact",
+        "symbol_pattern",
+        "symbol_pattern_unique_ratio",
+        "symmetry_profile",
+        "transition_topology",
+        "transition_topology_soft",
+        "transition_topology_windowed"
+      ],
+      "observer_uniqueness": {
+        "entropy_profile": 0.892307692308,
+        "entropy_profile_extended": 0.901025641026,
+        "motif3": 0.954719639335,
+        "motif3_soft": 0.948076923077,
+        "motif4": 0.955064102564,
+        "periodicity_profile": 0.976153846154,
+        "run_length_profile": 0.96641025641,
+        "run_length_profile_exact": 0.96641025641,
+        "symbol_pattern": 0.971721611722,
+        "symbol_pattern_unique_ratio": 0.924358974359,
+        "symmetry_profile": 0.85006457218,
+        "transition_topology": 0.913192918193,
+        "transition_topology_soft": 0.950384615385,
+        "transition_topology_windowed": 0.909871794872
+      },
+      "pairwise_observer_geometry": [
+        {
+          "distance": 0.083333333333,
+          "left": "entropy_profile",
+          "left_family": "entropy",
+          "pair_type": "same_family",
+          "relation": "redundant",
+          "right": "entropy_profile_extended",
+          "right_family": "entropy",
+          "similarity": 0.916666666667
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "motif3",
+          "right_family": "motif",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "motif3_soft",
+          "right_family": "motif",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "motif4",
+          "right_family": "motif",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "periodicity_profile",
+          "right_family": "symmetry",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "run_length_profile",
+          "right_family": "run_length",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "run_length_profile_exact",
+          "right_family": "run_length",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern",
+          "right_family": "symbol",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.666666666667,
+          "left": "entropy_profile",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern_unique_ratio",
+          "right_family": "symbol",
+          "similarity": 0.333333333333
+        },
+        {
+          "distance": 0.85,
+          "left": "entropy_profile",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symmetry_profile",
+          "right_family": "symmetry",
+          "similarity": 0.15
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_soft",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_windowed",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile_extended",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "motif3",
+          "right_family": "motif",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile_extended",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "motif3_soft",
+          "right_family": "motif",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile_extended",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "motif4",
+          "right_family": "motif",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile_extended",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "periodicity_profile",
+          "right_family": "symmetry",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile_extended",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "run_length_profile",
+          "right_family": "run_length",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile_extended",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "run_length_profile_exact",
+          "right_family": "run_length",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile_extended",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern",
+          "right_family": "symbol",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.75,
+          "left": "entropy_profile_extended",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern_unique_ratio",
+          "right_family": "symbol",
+          "similarity": 0.25
+        },
+        {
+          "distance": 0.88,
+          "left": "entropy_profile_extended",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symmetry_profile",
+          "right_family": "symmetry",
+          "similarity": 0.12
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile_extended",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile_extended",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_soft",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile_extended",
+          "left_family": "entropy",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_windowed",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.75,
+          "left": "motif3",
+          "left_family": "motif",
+          "pair_type": "same_family",
+          "relation": "diverse",
+          "right": "motif3_soft",
+          "right_family": "motif",
+          "similarity": 0.25
+        },
+        {
+          "distance": 0.75,
+          "left": "motif3",
+          "left_family": "motif",
+          "pair_type": "same_family",
+          "relation": "diverse",
+          "right": "motif4",
+          "right_family": "motif",
+          "similarity": 0.25
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "periodicity_profile",
+          "right_family": "symmetry",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "run_length_profile",
+          "right_family": "run_length",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "run_length_profile_exact",
+          "right_family": "run_length",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern",
+          "right_family": "symbol",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern_unique_ratio",
+          "right_family": "symbol",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.911355311355,
+          "left": "motif3",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symmetry_profile",
+          "right_family": "symmetry",
+          "similarity": 0.088644688645
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_soft",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_windowed",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.75,
+          "left": "motif3_soft",
+          "left_family": "motif",
+          "pair_type": "same_family",
+          "relation": "diverse",
+          "right": "motif4",
+          "right_family": "motif",
+          "similarity": 0.25
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3_soft",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "periodicity_profile",
+          "right_family": "symmetry",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3_soft",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "run_length_profile",
+          "right_family": "run_length",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3_soft",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "run_length_profile_exact",
+          "right_family": "run_length",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3_soft",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern",
+          "right_family": "symbol",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3_soft",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern_unique_ratio",
+          "right_family": "symbol",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.825,
+          "left": "motif3_soft",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symmetry_profile",
+          "right_family": "symmetry",
+          "similarity": 0.175
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3_soft",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3_soft",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_soft",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3_soft",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_windowed",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif4",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "periodicity_profile",
+          "right_family": "symmetry",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif4",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "run_length_profile",
+          "right_family": "run_length",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif4",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "run_length_profile_exact",
+          "right_family": "run_length",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif4",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern",
+          "right_family": "symbol",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif4",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern_unique_ratio",
+          "right_family": "symbol",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.915833333333,
+          "left": "motif4",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symmetry_profile",
+          "right_family": "symmetry",
+          "similarity": 0.084166666667
+        },
+        {
+          "distance": 1.0,
+          "left": "motif4",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif4",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_soft",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif4",
+          "left_family": "motif",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_windowed",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "periodicity_profile",
+          "left_family": "symmetry",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "run_length_profile",
+          "right_family": "run_length",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "periodicity_profile",
+          "left_family": "symmetry",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "run_length_profile_exact",
+          "right_family": "run_length",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "periodicity_profile",
+          "left_family": "symmetry",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern",
+          "right_family": "symbol",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "periodicity_profile",
+          "left_family": "symmetry",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern_unique_ratio",
+          "right_family": "symbol",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.69,
+          "left": "periodicity_profile",
+          "left_family": "symmetry",
+          "pair_type": "same_family",
+          "relation": "diverse",
+          "right": "symmetry_profile",
+          "right_family": "symmetry",
+          "similarity": 0.31
+        },
+        {
+          "distance": 1.0,
+          "left": "periodicity_profile",
+          "left_family": "symmetry",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "periodicity_profile",
+          "left_family": "symmetry",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_soft",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "periodicity_profile",
+          "left_family": "symmetry",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_windowed",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.75,
+          "left": "run_length_profile",
+          "left_family": "run_length",
+          "pair_type": "same_family",
+          "relation": "diverse",
+          "right": "run_length_profile_exact",
+          "right_family": "run_length",
+          "similarity": 0.25
+        },
+        {
+          "distance": 1.0,
+          "left": "run_length_profile",
+          "left_family": "run_length",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern",
+          "right_family": "symbol",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "run_length_profile",
+          "left_family": "run_length",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern_unique_ratio",
+          "right_family": "symbol",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.813333333333,
+          "left": "run_length_profile",
+          "left_family": "run_length",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symmetry_profile",
+          "right_family": "symmetry",
+          "similarity": 0.186666666667
+        },
+        {
+          "distance": 1.0,
+          "left": "run_length_profile",
+          "left_family": "run_length",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "run_length_profile",
+          "left_family": "run_length",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_soft",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "run_length_profile",
+          "left_family": "run_length",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_windowed",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "run_length_profile_exact",
+          "left_family": "run_length",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern",
+          "right_family": "symbol",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "run_length_profile_exact",
+          "left_family": "run_length",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symbol_pattern_unique_ratio",
+          "right_family": "symbol",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.813333333333,
+          "left": "run_length_profile_exact",
+          "left_family": "run_length",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symmetry_profile",
+          "right_family": "symmetry",
+          "similarity": 0.186666666667
+        },
+        {
+          "distance": 1.0,
+          "left": "run_length_profile_exact",
+          "left_family": "run_length",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "run_length_profile_exact",
+          "left_family": "run_length",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_soft",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "run_length_profile_exact",
+          "left_family": "run_length",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_windowed",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.75,
+          "left": "symbol_pattern",
+          "left_family": "symbol",
+          "pair_type": "same_family",
+          "relation": "diverse",
+          "right": "symbol_pattern_unique_ratio",
+          "right_family": "symbol",
+          "similarity": 0.25
+        },
+        {
+          "distance": 0.882380952381,
+          "left": "symbol_pattern",
+          "left_family": "symbol",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symmetry_profile",
+          "right_family": "symmetry",
+          "similarity": 0.117619047619
+        },
+        {
+          "distance": 1.0,
+          "left": "symbol_pattern",
+          "left_family": "symbol",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "symbol_pattern",
+          "left_family": "symbol",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_soft",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "symbol_pattern",
+          "left_family": "symbol",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_windowed",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.85,
+          "left": "symbol_pattern_unique_ratio",
+          "left_family": "symbol",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "symmetry_profile",
+          "right_family": "symmetry",
+          "similarity": 0.15
+        },
+        {
+          "distance": 1.0,
+          "left": "symbol_pattern_unique_ratio",
+          "left_family": "symbol",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "symbol_pattern_unique_ratio",
+          "left_family": "symbol",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_soft",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "symbol_pattern_unique_ratio",
+          "left_family": "symbol",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_windowed",
+          "right_family": "transition",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.903888888889,
+          "left": "symmetry_profile",
+          "left_family": "symmetry",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology",
+          "right_family": "transition",
+          "similarity": 0.096111111111
+        },
+        {
+          "distance": 0.855,
+          "left": "symmetry_profile",
+          "left_family": "symmetry",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_soft",
+          "right_family": "transition",
+          "similarity": 0.145
+        },
+        {
+          "distance": 0.860714285714,
+          "left": "symmetry_profile",
+          "left_family": "symmetry",
+          "pair_type": "cross_family",
+          "relation": "diverse",
+          "right": "transition_topology_windowed",
+          "right_family": "transition",
+          "similarity": 0.139285714286
+        },
+        {
+          "distance": 0.75,
+          "left": "transition_topology",
+          "left_family": "transition",
+          "pair_type": "same_family",
+          "relation": "diverse",
+          "right": "transition_topology_soft",
+          "right_family": "transition",
+          "similarity": 0.25
+        },
+        {
+          "distance": 0.217619047619,
+          "left": "transition_topology",
+          "left_family": "transition",
+          "pair_type": "same_family",
+          "relation": "redundant",
+          "right": "transition_topology_windowed",
+          "right_family": "transition",
+          "similarity": 0.782380952381
+        },
+        {
+          "distance": 0.75,
+          "left": "transition_topology_soft",
+          "left_family": "transition",
+          "pair_type": "same_family",
+          "relation": "diverse",
+          "right": "transition_topology_windowed",
+          "right_family": "transition",
+          "similarity": 0.25
+        }
+      ],
+      "pass_condition": "observer_count >= 10 and family_count >= 5 and same_family_medium_or_redundant_count >= 3 and cross_family_diverse_count >= 10 and medium_pair_count >= 3 and 0.40 < average_distance < 0.95",
+      "purpose": "Measure observer redundancy, medium-distance structure, and cross-family diversity inside a toy observer family.",
+      "reproduction_command": "python examples/observer_family_geometry_v1.py",
+      "sample_count": 10,
+      "status": "FAIL",
+      "summary": {
+        "average_distance": 0.934268774571,
+        "cross_family_diverse_count": 81,
+        "diverse_pair_count": 89,
+        "family_count": 6,
+        "max_distance": 1.0,
+        "medium_pair_count": 0,
+        "min_distance": 0.083333333333,
+        "observer_count": 14,
+        "pair_count": 91,
+        "redundant_observer_count": 0,
+        "redundant_observers": [],
+        "redundant_pair_count": 2,
+        "same_family_medium_or_redundant_count": 2,
+        "unique_observer_count": 14,
+        "unique_observers": [
+          "entropy_profile",
+          "entropy_profile_extended",
+          "motif3",
+          "motif3_soft",
+          "motif4",
+          "periodicity_profile",
+          "run_length_profile",
+          "run_length_profile_exact",
+          "symbol_pattern",
+          "symbol_pattern_unique_ratio",
+          "symmetry_profile",
+          "transition_topology",
+          "transition_topology_soft",
+          "transition_topology_windowed"
+        ]
+      },
+      "version": "0.2.0"
+    },
+    "legacy_result_path": "results/observer_family_geometry_v1.json",
+    "legacy_status": "FAIL",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

@@ -1,0 +1,170 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.521359+00:00",
+  "experiment": "effective_observer_recoverability_gate_v0",
+  "payload": {
+    "legacy_result": {
+      "reproduction_command": "python examples/effective_observer_recoverability_gate_v0.py",
+      "results": [
+        {
+          "adversarial_divergence": 0.303455625,
+          "case": "clean_balanced",
+          "collapse_resistance": 0.9,
+          "effective_count": 22.661775000000002,
+          "family_balance": 0.95,
+          "gate_action": "PASS",
+          "non_redundancy": 0.95,
+          "normalized_effective": 0.5665443750000001,
+          "projection_stability": 0.9,
+          "raw_count": 40,
+          "recoverability_score": 0.8700000000000001,
+          "relation_entropy": 0.55
+        },
+        {
+          "adversarial_divergence": 0.31291875,
+          "case": "high_raw_duplicate",
+          "collapse_resistance": 0.2,
+          "effective_count": 0.1665,
+          "family_balance": 0.25,
+          "gate_action": "FLAG",
+          "non_redundancy": 0.15,
+          "normalized_effective": 0.00208125,
+          "projection_stability": 0.3,
+          "raw_count": 80,
+          "recoverability_score": 0.315,
+          "relation_entropy": 0.85
+        },
+        {
+          "adversarial_divergence": 0.7089181250000001,
+          "case": "projection_collapse",
+          "collapse_resistance": 0.95,
+          "effective_count": 2.3149124999999997,
+          "family_balance": 0.95,
+          "gate_action": "COLLAPSE",
+          "non_redundancy": 0.95,
+          "normalized_effective": 0.038581874999999995,
+          "projection_stability": 0.05,
+          "raw_count": 60,
+          "recoverability_score": 0.7475,
+          "relation_entropy": 0.8
+        },
+        {
+          "adversarial_divergence": 0.6307,
+          "case": "collapse_resistance_failure",
+          "collapse_resistance": 0.05,
+          "effective_count": 1.2636000000000003,
+          "family_balance": 0.9,
+          "gate_action": "COLLAPSE",
+          "non_redundancy": 0.9,
+          "normalized_effective": 0.024300000000000006,
+          "projection_stability": 0.75,
+          "raw_count": 52,
+          "recoverability_score": 0.655,
+          "relation_entropy": 0.6
+        },
+        {
+          "adversarial_divergence": 0.459625,
+          "case": "balanced_but_dependent",
+          "collapse_resistance": 0.25,
+          "effective_count": 1.26875,
+          "family_balance": 1.0,
+          "gate_action": "FLAG",
+          "non_redundancy": 0.35,
+          "normalized_effective": 0.025375,
+          "projection_stability": 0.4,
+          "raw_count": 50,
+          "recoverability_score": 0.485,
+          "relation_entropy": 0.45
+        },
+        {
+          "adversarial_divergence": 0.39960000000000007,
+          "case": "sparse_but_independent",
+          "collapse_resistance": 0.9,
+          "effective_count": 3.2832,
+          "family_balance": 0.8,
+          "gate_action": "FLAG",
+          "non_redundancy": 1.0,
+          "normalized_effective": 0.4104,
+          "projection_stability": 0.95,
+          "raw_count": 8,
+          "recoverability_score": 0.81,
+          "relation_entropy": 0.2
+        },
+        {
+          "adversarial_divergence": 0.4525,
+          "case": "entropy_inflation",
+          "collapse_resistance": 0.2,
+          "effective_count": 0.6875,
+          "family_balance": 0.5,
+          "gate_action": "FLAG",
+          "non_redundancy": 0.5,
+          "normalized_effective": 0.0125,
+          "projection_stability": 0.25,
+          "raw_count": 55,
+          "recoverability_score": 0.465,
+          "relation_entropy": 1.0
+        },
+        {
+          "adversarial_divergence": 0.3758125,
+          "case": "observer_alias_attack",
+          "collapse_resistance": 0.35,
+          "effective_count": 0.44100000000000006,
+          "family_balance": 0.4,
+          "gate_action": "FLAG",
+          "non_redundancy": 0.25,
+          "normalized_effective": 0.009187500000000001,
+          "projection_stability": 0.3,
+          "raw_count": 48,
+          "recoverability_score": 0.385,
+          "relation_entropy": 0.75
+        },
+        {
+          "adversarial_divergence": 0.432735,
+          "case": "partial_collapse",
+          "collapse_resistance": 0.15,
+          "effective_count": 0.43942499999999995,
+          "family_balance": 0.7,
+          "gate_action": "FLAG",
+          "non_redundancy": 0.6,
+          "normalized_effective": 0.009765,
+          "projection_stability": 0.2,
+          "raw_count": 45,
+          "recoverability_score": 0.4425,
+          "relation_entropy": 0.55
+        },
+        {
+          "adversarial_divergence": 0.52176,
+          "case": "hidden_single_point_failure",
+          "collapse_resistance": 0.05,
+          "effective_count": 0.16848000000000005,
+          "family_balance": 0.9,
+          "gate_action": "COLLAPSE",
+          "non_redundancy": 0.9,
+          "normalized_effective": 0.0032400000000000007,
+          "projection_stability": 0.1,
+          "raw_count": 52,
+          "recoverability_score": 0.525,
+          "relation_entropy": 0.6
+        }
+      ],
+      "status": "PASS",
+      "summary": {
+        "action_counts": {
+          "COLLAPSE": 3,
+          "FLAG": 6,
+          "PASS": 1
+        },
+        "case_count": 10,
+        "flagged_count": 9,
+        "max_adversarial_divergence": 0.7089181250000001,
+        "mean_adversarial_divergence": 0.4598025,
+        "pass_count": 1
+      },
+      "version": "0.2.0"
+    },
+    "legacy_result_path": "results/effective_observer_recoverability_gate_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

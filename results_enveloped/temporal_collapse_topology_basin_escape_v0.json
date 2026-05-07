@@ -1,0 +1,276 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.622257+00:00",
+  "experiment": "temporal_collapse_topology_basin_escape_v0",
+  "payload": {
+    "legacy_result": {
+      "escape_stability": {
+        "FRAGMENTED_LOCAL_COLLAPSE->OSCILLATING_NONPERSISTENT": {
+          "escape_depth_mean": 3,
+          "escape_depth_std": 0.0,
+          "escape_depths": [
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "example_count_mean": 64,
+          "example_count_total": 320,
+          "example_counts": [
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "persistence_rate": 1.0,
+          "present_variant_count": 5,
+          "present_variants": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      },
+      "experiment": "temporal_collapse_topology_basin_escape_v0",
+      "final_check": {
+        "message": "confirmed-collapse basin exposed a fully persistent escape path back to noise-like topology",
+        "status": "CHECK"
+      },
+      "interpretation": {
+        "absorbing_states": [
+          "GLOBAL_PERSISTENT_COLLAPSE",
+          "RECOVERY_RELAPSE_COLLAPSE"
+        ],
+        "main_result": "The confirmed-collapse basin is not fully absorbing under the tested mutation space.",
+        "reversible_state": "FRAGMENTED_LOCAL_COLLAPSE",
+        "stable_escape": "FRAGMENTED_LOCAL_COLLAPSE->OSCILLATING_NONPERSISTENT",
+        "stable_escape_depth": 3,
+        "stable_escape_example_total": 320,
+        "stable_escape_persistence_rate": 1.0,
+        "structural_conclusion": "the basin-entry state is reversible at depth 3, while deeper collapse states remained absorbing under tested mutations"
+      },
+      "reproduction_command": "python examples/temporal_collapse_topology_basin_escape_v0.py",
+      "source_escape_stability": {
+        "FRAGMENTED_LOCAL_COLLAPSE": {
+          "escape_depths_by_variant": [
+            [
+              3
+            ],
+            [
+              3
+            ],
+            [
+              3
+            ],
+            [
+              3
+            ],
+            [
+              3
+            ]
+          ],
+          "mean_escape_depth": 3,
+          "minimum_escape_depth": 3,
+          "target_count_by_variant": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "targets_by_variant": [
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ]
+          ],
+          "unique_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ]
+        },
+        "GLOBAL_PERSISTENT_COLLAPSE": {
+          "escape_depths_by_variant": [
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "mean_escape_depth": null,
+          "minimum_escape_depth": null,
+          "target_count_by_variant": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "targets_by_variant": [
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "unique_targets": []
+        },
+        "RECOVERY_RELAPSE_COLLAPSE": {
+          "escape_depths_by_variant": [
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "mean_escape_depth": null,
+          "minimum_escape_depth": null,
+          "target_count_by_variant": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "targets_by_variant": [
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "unique_targets": []
+        }
+      },
+      "status": "CHECK",
+      "summary": {
+        "absorbing_basin_score": 0.5,
+        "collapse_component": [
+          "FRAGMENTED_LOCAL_COLLAPSE",
+          "GLOBAL_PERSISTENT_COLLAPSE",
+          "RECOVERY_RELAPSE_COLLAPSE"
+        ],
+        "confirmation_window": 2,
+        "dominant_escape_stable": true,
+        "dominant_escape_values": [
+          "OSCILLATING_NONPERSISTENT",
+          "OSCILLATING_NONPERSISTENT",
+          "OSCILLATING_NONPERSISTENT",
+          "OSCILLATING_NONPERSISTENT",
+          "OSCILLATING_NONPERSISTENT"
+        ],
+        "escape_count_std": 0.0,
+        "escape_count_values": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fully_persistent_escape_count": 1,
+        "fully_persistent_escapes": [
+          "FRAGMENTED_LOCAL_COLLAPSE->OSCILLATING_NONPERSISTENT"
+        ],
+        "global_persistence_threshold": 4,
+        "max_mutation_depth": 3,
+        "mean_escape_count": 1,
+        "node_count": 6,
+        "noise_component": [
+          "CLEAN_PASS",
+          "SPIKE_FILTERED",
+          "OSCILLATING_NONPERSISTENT"
+        ],
+        "partial_escape_count": 0,
+        "partial_escapes": [],
+        "persistence_window": 2,
+        "strong_absorption": false,
+        "target_example_totals": {
+          "OSCILLATING_NONPERSISTENT": 320
+        },
+        "target_frequency": {
+          "OSCILLATING_NONPERSISTENT": 5
+        },
+        "total_escape_example_count": 320,
+        "total_escape_path_count": 1,
+        "variant_count": 5,
+        "weak_absorption": false
+      },
+      "variant_summaries": [
+        {
+          "dominant_escape_target": "OSCILLATING_NONPERSISTENT",
+          "escape_count": 1,
+          "target_counts": {
+            "OSCILLATING_NONPERSISTENT": 1
+          },
+          "target_example_counts": {
+            "OSCILLATING_NONPERSISTENT": 64
+          },
+          "variant_index": 0
+        },
+        {
+          "dominant_escape_target": "OSCILLATING_NONPERSISTENT",
+          "escape_count": 1,
+          "target_counts": {
+            "OSCILLATING_NONPERSISTENT": 1
+          },
+          "target_example_counts": {
+            "OSCILLATING_NONPERSISTENT": 64
+          },
+          "variant_index": 1
+        },
+        {
+          "dominant_escape_target": "OSCILLATING_NONPERSISTENT",
+          "escape_count": 1,
+          "target_counts": {
+            "OSCILLATING_NONPERSISTENT": 1
+          },
+          "target_example_counts": {
+            "OSCILLATING_NONPERSISTENT": 64
+          },
+          "variant_index": 2
+        },
+        {
+          "dominant_escape_target": "OSCILLATING_NONPERSISTENT",
+          "escape_count": 1,
+          "target_counts": {
+            "OSCILLATING_NONPERSISTENT": 1
+          },
+          "target_example_counts": {
+            "OSCILLATING_NONPERSISTENT": 64
+          },
+          "variant_index": 3
+        },
+        {
+          "dominant_escape_target": "OSCILLATING_NONPERSISTENT",
+          "escape_count": 1,
+          "target_counts": {
+            "OSCILLATING_NONPERSISTENT": 1
+          },
+          "target_example_counts": {
+            "OSCILLATING_NONPERSISTENT": 64
+          },
+          "variant_index": 4
+        }
+      ],
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_topology_basin_escape_v0.json",
+    "legacy_status": "CHECK",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

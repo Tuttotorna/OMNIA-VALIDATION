@@ -1,0 +1,774 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.468800+00:00",
+  "experiment": "cross_domain_invariance_v0_1",
+  "payload": {
+    "legacy_result": {
+      "cases": [
+        {
+          "case_id": "A_letters_compact",
+          "family": "A_alternating",
+          "normalized_signature": {
+            "compression_ratio": 0.135416666667,
+            "entropy": 1.0,
+            "omega_proxy": 0.96612988567,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.989247311828,
+            "transition_cardinality_score": 0.978947368421,
+            "transition_regular_score": 0.989361702128,
+            "unique_symbol_ratio": 0.020833333333
+          },
+          "normalized_text": "010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101",
+          "raw_signature": {
+            "compression_ratio": 0.135416666667,
+            "entropy": 1.0,
+            "omega_proxy": 0.96612988567,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.989247311828,
+            "transition_cardinality_score": 0.978947368421,
+            "transition_regular_score": 0.989361702128,
+            "unique_symbol_ratio": 0.020833333333
+          },
+          "representation": "letters_compact"
+        },
+        {
+          "case_id": "A_digits_spaced",
+          "family": "A_alternating",
+          "normalized_signature": {
+            "compression_ratio": 0.135416666667,
+            "entropy": 1.0,
+            "omega_proxy": 0.96612988567,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.989247311828,
+            "transition_cardinality_score": 0.978947368421,
+            "transition_regular_score": 0.989361702128,
+            "unique_symbol_ratio": 0.020833333333
+          },
+          "normalized_text": "010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101",
+          "raw_signature": {
+            "compression_ratio": 0.078534031414,
+            "entropy": 1.502598027718,
+            "omega_proxy": 0.97541242909,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.984042553191,
+            "transition_cardinality_score": 0.978947368421,
+            "transition_regular_score": 0.984126984127,
+            "unique_symbol_ratio": 0.015706806283
+          },
+          "representation": "digits_spaced"
+        },
+        {
+          "case_id": "A_words_pipe",
+          "family": "A_alternating",
+          "normalized_signature": {
+            "compression_ratio": 0.135416666667,
+            "entropy": 1.0,
+            "omega_proxy": 0.96612988567,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.989247311828,
+            "transition_cardinality_score": 0.978947368421,
+            "transition_regular_score": 0.989361702128,
+            "unique_symbol_ratio": 0.020833333333
+          },
+          "normalized_text": "010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101",
+          "raw_signature": {
+            "compression_ratio": 0.045540796964,
+            "entropy": 3.096991062258,
+            "omega_proxy": 0.825141710974,
+            "periodicity_score": 0.182341650672,
+            "repetition_score": 0.980916030534,
+            "transition_cardinality_score": 0.980988593156,
+            "transition_regular_score": 0.982857142857,
+            "unique_symbol_ratio": 0.017077798861
+          },
+          "representation": "words_pipe"
+        },
+        {
+          "case_id": "A_json_like",
+          "family": "A_alternating",
+          "normalized_signature": {
+            "compression_ratio": 0.135416666667,
+            "entropy": 1.0,
+            "omega_proxy": 0.96612988567,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.989247311828,
+            "transition_cardinality_score": 0.978947368421,
+            "transition_regular_score": 0.989361702128,
+            "unique_symbol_ratio": 0.020833333333
+          },
+          "normalized_text": "010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101",
+          "raw_signature": {
+            "compression_ratio": 0.03520208605,
+            "entropy": 2.874828421641,
+            "omega_proxy": 0.962356286022,
+            "periodicity_score": 0.874835309618,
+            "repetition_score": 0.986910994764,
+            "transition_cardinality_score": 0.986945169713,
+            "transition_regular_score": 0.988235294118,
+            "unique_symbol_ratio": 0.010430247718
+          },
+          "representation": "json_like"
+        },
+        {
+          "case_id": "B_letters_compact",
+          "family": "B_cyclic",
+          "normalized_signature": {
+            "compression_ratio": 0.15625,
+            "entropy": 2.0,
+            "omega_proxy": 0.949034393852,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.967741935484,
+            "transition_cardinality_score": 0.957894736842,
+            "transition_regular_score": 0.968085106383,
+            "unique_symbol_ratio": 0.041666666667
+          },
+          "normalized_text": "012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123",
+          "raw_signature": {
+            "compression_ratio": 0.15625,
+            "entropy": 2.0,
+            "omega_proxy": 0.949034393852,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.967741935484,
+            "transition_cardinality_score": 0.957894736842,
+            "transition_regular_score": 0.968085106383,
+            "unique_symbol_ratio": 0.041666666667
+          },
+          "representation": "letters_compact"
+        },
+        {
+          "case_id": "B_digits_spaced",
+          "family": "B_cyclic",
+          "normalized_signature": {
+            "compression_ratio": 0.15625,
+            "entropy": 2.0,
+            "omega_proxy": 0.949034393852,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.967741935484,
+            "transition_cardinality_score": 0.957894736842,
+            "transition_regular_score": 0.968085106383,
+            "unique_symbol_ratio": 0.041666666667
+          },
+          "normalized_text": "012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123",
+          "raw_signature": {
+            "compression_ratio": 0.099476439791,
+            "entropy": 2.005215828765,
+            "omega_proxy": 0.960223930942,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.962765957447,
+            "transition_cardinality_score": 0.957894736842,
+            "transition_regular_score": 0.962962962963,
+            "unique_symbol_ratio": 0.026178010471
+          },
+          "representation": "digits_spaced"
+        },
+        {
+          "case_id": "B_words_pipe",
+          "family": "B_cyclic",
+          "normalized_signature": {
+            "compression_ratio": 0.15625,
+            "entropy": 2.0,
+            "omega_proxy": 0.949034393852,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.967741935484,
+            "transition_cardinality_score": 0.957894736842,
+            "transition_regular_score": 0.968085106383,
+            "unique_symbol_ratio": 0.041666666667
+          },
+          "normalized_text": "012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123",
+          "raw_signature": {
+            "compression_ratio": 0.062618595825,
+            "entropy": 3.244776071647,
+            "omega_proxy": 0.814181313735,
+            "periodicity_score": 0.182341650672,
+            "repetition_score": 0.963740458015,
+            "transition_cardinality_score": 0.965779467681,
+            "transition_regular_score": 0.967619047619,
+            "unique_symbol_ratio": 0.020872865275
+          },
+          "representation": "words_pipe"
+        },
+        {
+          "case_id": "B_json_like",
+          "family": "B_cyclic",
+          "normalized_signature": {
+            "compression_ratio": 0.15625,
+            "entropy": 2.0,
+            "omega_proxy": 0.949034393852,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.967741935484,
+            "transition_cardinality_score": 0.957894736842,
+            "transition_regular_score": 0.968085106383,
+            "unique_symbol_ratio": 0.041666666667
+          },
+          "normalized_text": "012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123",
+          "raw_signature": {
+            "compression_ratio": 0.043024771838,
+            "entropy": 2.999991394262,
+            "omega_proxy": 0.957654078506,
+            "periodicity_score": 0.874835309618,
+            "repetition_score": 0.979057591623,
+            "transition_cardinality_score": 0.981723237598,
+            "transition_regular_score": 0.983006535948,
+            "unique_symbol_ratio": 0.013037809648
+          },
+          "representation": "json_like"
+        }
+      ],
+      "claim_level": "Level 1 — Toy Demonstration",
+      "core_boundary": "measurement != inference != decision",
+      "date_utc": "2026-05-03T20:44:52.964701+00:00",
+      "domain": "normalization_aware_cross_domain_structural_invariance",
+      "experiment_name": "cross_domain_invariance_v0_1",
+      "interpretation": "PASS means canonical projection improved structural invariance enough that same-family representations were closer than cross-family representations with non-trivial margin.",
+      "limitations": [
+        "This is not the full OMNIA engine.",
+        "This is a toy normalization experiment.",
+        "The canonical projection is hand-built.",
+        "Only two structural families are tested.",
+        "Only four representations per family are tested.",
+        "No universal invariance claim is made.",
+        "No semantic correctness is evaluated.",
+        "No external reproduction is included yet."
+      ],
+      "normalized_analysis": {
+        "cross_structure_distances": [
+          1.001258557732,
+          1.001258557732,
+          1.001258557732,
+          1.001258557732,
+          1.001258557732,
+          1.001258557732,
+          1.001258557732,
+          1.001258557732,
+          1.001258557732,
+          1.001258557732,
+          1.001258557732,
+          1.001258557732,
+          1.001258557732,
+          1.001258557732,
+          1.001258557732,
+          1.001258557732
+        ],
+        "mean_cross_structure_distance": 1.001258557732,
+        "mean_within_structure_distance": 0.0,
+        "separation_margin": 1.001258557732,
+        "within_lower_than_cross": true,
+        "within_structure_distances": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "within_to_cross_ratio": 0.0
+      },
+      "normalized_pairwise_distances": [
+        {
+          "distance": 0.0,
+          "left": "A_letters_compact",
+          "left_family": "A_alternating",
+          "right": "A_digits_spaced",
+          "right_family": "A_alternating",
+          "same_family": true
+        },
+        {
+          "distance": 0.0,
+          "left": "A_letters_compact",
+          "left_family": "A_alternating",
+          "right": "A_words_pipe",
+          "right_family": "A_alternating",
+          "same_family": true
+        },
+        {
+          "distance": 0.0,
+          "left": "A_letters_compact",
+          "left_family": "A_alternating",
+          "right": "A_json_like",
+          "right_family": "A_alternating",
+          "same_family": true
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_letters_compact",
+          "left_family": "A_alternating",
+          "right": "B_letters_compact",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_letters_compact",
+          "left_family": "A_alternating",
+          "right": "B_digits_spaced",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_letters_compact",
+          "left_family": "A_alternating",
+          "right": "B_words_pipe",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_letters_compact",
+          "left_family": "A_alternating",
+          "right": "B_json_like",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 0.0,
+          "left": "A_digits_spaced",
+          "left_family": "A_alternating",
+          "right": "A_words_pipe",
+          "right_family": "A_alternating",
+          "same_family": true
+        },
+        {
+          "distance": 0.0,
+          "left": "A_digits_spaced",
+          "left_family": "A_alternating",
+          "right": "A_json_like",
+          "right_family": "A_alternating",
+          "same_family": true
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_digits_spaced",
+          "left_family": "A_alternating",
+          "right": "B_letters_compact",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_digits_spaced",
+          "left_family": "A_alternating",
+          "right": "B_digits_spaced",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_digits_spaced",
+          "left_family": "A_alternating",
+          "right": "B_words_pipe",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_digits_spaced",
+          "left_family": "A_alternating",
+          "right": "B_json_like",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 0.0,
+          "left": "A_words_pipe",
+          "left_family": "A_alternating",
+          "right": "A_json_like",
+          "right_family": "A_alternating",
+          "same_family": true
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_words_pipe",
+          "left_family": "A_alternating",
+          "right": "B_letters_compact",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_words_pipe",
+          "left_family": "A_alternating",
+          "right": "B_digits_spaced",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_words_pipe",
+          "left_family": "A_alternating",
+          "right": "B_words_pipe",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_words_pipe",
+          "left_family": "A_alternating",
+          "right": "B_json_like",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_json_like",
+          "left_family": "A_alternating",
+          "right": "B_letters_compact",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_json_like",
+          "left_family": "A_alternating",
+          "right": "B_digits_spaced",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_json_like",
+          "left_family": "A_alternating",
+          "right": "B_words_pipe",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_json_like",
+          "left_family": "A_alternating",
+          "right": "B_json_like",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 0.0,
+          "left": "B_letters_compact",
+          "left_family": "B_cyclic",
+          "right": "B_digits_spaced",
+          "right_family": "B_cyclic",
+          "same_family": true
+        },
+        {
+          "distance": 0.0,
+          "left": "B_letters_compact",
+          "left_family": "B_cyclic",
+          "right": "B_words_pipe",
+          "right_family": "B_cyclic",
+          "same_family": true
+        },
+        {
+          "distance": 0.0,
+          "left": "B_letters_compact",
+          "left_family": "B_cyclic",
+          "right": "B_json_like",
+          "right_family": "B_cyclic",
+          "same_family": true
+        },
+        {
+          "distance": 0.0,
+          "left": "B_digits_spaced",
+          "left_family": "B_cyclic",
+          "right": "B_words_pipe",
+          "right_family": "B_cyclic",
+          "same_family": true
+        },
+        {
+          "distance": 0.0,
+          "left": "B_digits_spaced",
+          "left_family": "B_cyclic",
+          "right": "B_json_like",
+          "right_family": "B_cyclic",
+          "same_family": true
+        },
+        {
+          "distance": 0.0,
+          "left": "B_words_pipe",
+          "left_family": "B_cyclic",
+          "right": "B_json_like",
+          "right_family": "B_cyclic",
+          "same_family": true
+        }
+      ],
+      "pass_condition": "normalized_within_lower_than_cross == true and normalized_margin > raw_margin and normalized_margin > 0.05",
+      "purpose": "Normalization-aware test of whether structural family identity becomes more visible after canonical projection.",
+      "raw_analysis": {
+        "cross_structure_distances": [
+          1.001258557732,
+          1.006804537653,
+          2.395259788308,
+          2.006103828956,
+          0.505751395621,
+          0.504725071307,
+          1.93154939244,
+          1.503153450137,
+          1.378800275554,
+          1.3722375669,
+          0.15174027279,
+          0.711718061125,
+          0.893540240689,
+          0.882236699602,
+          0.800396874958,
+          0.125984755788
+        ],
+        "mean_cross_structure_distance": 1.073203798097,
+        "mean_within_structure_distance": 1.19856921513,
+        "separation_margin": -0.125365417032,
+        "within_lower_than_cross": false,
+        "within_structure_distances": [
+          0.505971689264,
+          2.256994022799,
+          1.881723658969,
+          1.798427535632,
+          1.378712256836,
+          0.740258718262,
+          0.060551985353,
+          1.498497787127,
+          1.015027754108,
+          1.492606666535,
+          1.004910764632,
+          0.749147742042
+        ],
+        "within_to_cross_ratio": 1.1168141757
+      },
+      "raw_pairwise_distances": [
+        {
+          "distance": 0.505971689264,
+          "left": "A_letters_compact",
+          "left_family": "A_alternating",
+          "right": "A_digits_spaced",
+          "right_family": "A_alternating",
+          "same_family": true
+        },
+        {
+          "distance": 2.256994022799,
+          "left": "A_letters_compact",
+          "left_family": "A_alternating",
+          "right": "A_words_pipe",
+          "right_family": "A_alternating",
+          "same_family": true
+        },
+        {
+          "distance": 1.881723658969,
+          "left": "A_letters_compact",
+          "left_family": "A_alternating",
+          "right": "A_json_like",
+          "right_family": "A_alternating",
+          "same_family": true
+        },
+        {
+          "distance": 1.001258557732,
+          "left": "A_letters_compact",
+          "left_family": "A_alternating",
+          "right": "B_letters_compact",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.006804537653,
+          "left": "A_letters_compact",
+          "left_family": "A_alternating",
+          "right": "B_digits_spaced",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 2.395259788308,
+          "left": "A_letters_compact",
+          "left_family": "A_alternating",
+          "right": "B_words_pipe",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 2.006103828956,
+          "left": "A_letters_compact",
+          "left_family": "A_alternating",
+          "right": "B_json_like",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.798427535632,
+          "left": "A_digits_spaced",
+          "left_family": "A_alternating",
+          "right": "A_words_pipe",
+          "right_family": "A_alternating",
+          "same_family": true
+        },
+        {
+          "distance": 1.378712256836,
+          "left": "A_digits_spaced",
+          "left_family": "A_alternating",
+          "right": "A_json_like",
+          "right_family": "A_alternating",
+          "same_family": true
+        },
+        {
+          "distance": 0.505751395621,
+          "left": "A_digits_spaced",
+          "left_family": "A_alternating",
+          "right": "B_letters_compact",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 0.504725071307,
+          "left": "A_digits_spaced",
+          "left_family": "A_alternating",
+          "right": "B_digits_spaced",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.93154939244,
+          "left": "A_digits_spaced",
+          "left_family": "A_alternating",
+          "right": "B_words_pipe",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.503153450137,
+          "left": "A_digits_spaced",
+          "left_family": "A_alternating",
+          "right": "B_json_like",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 0.740258718262,
+          "left": "A_words_pipe",
+          "left_family": "A_alternating",
+          "right": "A_json_like",
+          "right_family": "A_alternating",
+          "same_family": true
+        },
+        {
+          "distance": 1.378800275554,
+          "left": "A_words_pipe",
+          "left_family": "A_alternating",
+          "right": "B_letters_compact",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 1.3722375669,
+          "left": "A_words_pipe",
+          "left_family": "A_alternating",
+          "right": "B_digits_spaced",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 0.15174027279,
+          "left": "A_words_pipe",
+          "left_family": "A_alternating",
+          "right": "B_words_pipe",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 0.711718061125,
+          "left": "A_words_pipe",
+          "left_family": "A_alternating",
+          "right": "B_json_like",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 0.893540240689,
+          "left": "A_json_like",
+          "left_family": "A_alternating",
+          "right": "B_letters_compact",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 0.882236699602,
+          "left": "A_json_like",
+          "left_family": "A_alternating",
+          "right": "B_digits_spaced",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 0.800396874958,
+          "left": "A_json_like",
+          "left_family": "A_alternating",
+          "right": "B_words_pipe",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 0.125984755788,
+          "left": "A_json_like",
+          "left_family": "A_alternating",
+          "right": "B_json_like",
+          "right_family": "B_cyclic",
+          "same_family": false
+        },
+        {
+          "distance": 0.060551985353,
+          "left": "B_letters_compact",
+          "left_family": "B_cyclic",
+          "right": "B_digits_spaced",
+          "right_family": "B_cyclic",
+          "same_family": true
+        },
+        {
+          "distance": 1.498497787127,
+          "left": "B_letters_compact",
+          "left_family": "B_cyclic",
+          "right": "B_words_pipe",
+          "right_family": "B_cyclic",
+          "same_family": true
+        },
+        {
+          "distance": 1.015027754108,
+          "left": "B_letters_compact",
+          "left_family": "B_cyclic",
+          "right": "B_json_like",
+          "right_family": "B_cyclic",
+          "same_family": true
+        },
+        {
+          "distance": 1.492606666535,
+          "left": "B_digits_spaced",
+          "left_family": "B_cyclic",
+          "right": "B_words_pipe",
+          "right_family": "B_cyclic",
+          "same_family": true
+        },
+        {
+          "distance": 1.004910764632,
+          "left": "B_digits_spaced",
+          "left_family": "B_cyclic",
+          "right": "B_json_like",
+          "right_family": "B_cyclic",
+          "same_family": true
+        },
+        {
+          "distance": 0.749147742042,
+          "left": "B_words_pipe",
+          "left_family": "B_cyclic",
+          "right": "B_json_like",
+          "right_family": "B_cyclic",
+          "same_family": true
+        }
+      ],
+      "reproduction_command": "python examples/cross_domain_invariance_v0_1.py",
+      "status": "PASS",
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/cross_domain_invariance_v0_1.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

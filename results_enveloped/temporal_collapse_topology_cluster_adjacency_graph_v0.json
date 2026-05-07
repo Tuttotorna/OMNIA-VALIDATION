@@ -1,0 +1,254 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.626611+00:00",
+  "experiment": "temporal_collapse_topology_cluster_adjacency_graph_v0",
+  "payload": {
+    "legacy_result": {
+      "cluster_adjacency_graph_summary": {
+        "by_edge_type": {
+          "geometry_transition": {
+            "edge_count": 39,
+            "edge_type": "geometry_transition",
+            "family_values": [
+              "dense_short",
+              "mixed_same_cost",
+              "single_run",
+              "spike_plus_long",
+              "staircase",
+              "three_equal_runs",
+              "two_equal_runs"
+            ],
+            "source_cluster_count": 25,
+            "target_cluster_count": 29,
+            "total_weight": 63
+          },
+          "threshold_transition": {
+            "edge_count": 34,
+            "edge_type": "threshold_transition",
+            "family_values": [
+              "dense_short",
+              "mixed_same_cost",
+              "single_run",
+              "spike_plus_long",
+              "staircase",
+              "three_equal_runs",
+              "two_equal_runs"
+            ],
+            "source_cluster_count": 31,
+            "target_cluster_count": 23,
+            "total_weight": 56
+          }
+        },
+        "cluster_adjacency_graph_detected": true,
+        "cluster_count": 32,
+        "edge_count": 73,
+        "family_crossing_edge_count": 5,
+        "family_crossing_edges": {
+          "cost=0|remaining=3|dest=OSCILLATING_NONPERSISTENT -> cost=0|remaining=3|dest=OSCILLATING_NONPERSISTENT [geometry_transition]": {
+            "edge_type": "geometry_transition",
+            "family_values": [
+              "mixed_same_cost",
+              "three_equal_runs"
+            ],
+            "weight": 5
+          },
+          "cost=0|remaining=3|dest=OSCILLATING_NONPERSISTENT -> cost=0|remaining=3|dest=OSCILLATING_NONPERSISTENT [threshold_transition]": {
+            "edge_type": "threshold_transition",
+            "family_values": [
+              "mixed_same_cost",
+              "three_equal_runs"
+            ],
+            "weight": 4
+          },
+          "cost=2|remaining=3|dest=OSCILLATING_NONPERSISTENT -> cost=1|remaining=3|dest=OSCILLATING_NONPERSISTENT [threshold_transition]": {
+            "edge_type": "threshold_transition",
+            "family_values": [
+              "mixed_same_cost",
+              "spike_plus_long"
+            ],
+            "weight": 2
+          },
+          "cost=3|remaining=3|dest=OSCILLATING_NONPERSISTENT -> cost=0|remaining=3|dest=OSCILLATING_NONPERSISTENT [threshold_transition]": {
+            "edge_type": "threshold_transition",
+            "family_values": [
+              "mixed_same_cost",
+              "three_equal_runs"
+            ],
+            "weight": 3
+          },
+          "cost=3|remaining=3|dest=OSCILLATING_NONPERSISTENT -> cost=2|remaining=3|dest=OSCILLATING_NONPERSISTENT [threshold_transition]": {
+            "edge_type": "threshold_transition",
+            "family_values": [
+              "mixed_same_cost",
+              "spike_plus_long"
+            ],
+            "weight": 3
+          }
+        },
+        "flat_record_count": 84,
+        "geometry_edge_count": 39,
+        "graph_definition": "nodes = invariant signature clusters; edges = threshold transitions + geometry transitions",
+        "graph_metrics": {
+          "attractor_clusters": {},
+          "attractor_count": 0,
+          "bridge_cluster_count": 31,
+          "bridge_cluster_ratio": 0.96875,
+          "bridge_count": 31,
+          "cluster_count": 32,
+          "edge_count": 73,
+          "isolated_count": 0,
+          "source_clusters_note": "One source cluster was detected by the script, but the run output did not print its identity.",
+          "source_count": 1,
+          "top_clusters_by_weighted_degree": [
+            {
+              "cluster_id": "cost=0|remaining=3|dest=OSCILLATING_NONPERSISTENT",
+              "in_degree": 5,
+              "out_degree": 3,
+              "weighted_in_degree": 16,
+              "weighted_out_degree": 12,
+              "weighted_total_degree": 28
+            },
+            {
+              "cluster_id": "cost=3|remaining=3|dest=OSCILLATING_NONPERSISTENT",
+              "in_degree": 5,
+              "out_degree": 7,
+              "weighted_in_degree": 10,
+              "weighted_out_degree": 15,
+              "weighted_total_degree": 25
+            },
+            {
+              "cluster_id": "cost=0|remaining=2|dest=OSCILLATING_NONPERSISTENT",
+              "in_degree": 3,
+              "out_degree": 3,
+              "weighted_in_degree": 8,
+              "weighted_out_degree": 9,
+              "weighted_total_degree": 17
+            },
+            {
+              "cluster_id": "cost=0|remaining=1|dest=SPIKE_FILTERED",
+              "in_degree": 3,
+              "out_degree": 3,
+              "weighted_in_degree": 8,
+              "weighted_out_degree": 9,
+              "weighted_total_degree": 17
+            },
+            {
+              "cluster_id": "cost=1|remaining=3|dest=OSCILLATING_NONPERSISTENT",
+              "in_degree": 4,
+              "out_degree": 4,
+              "weighted_in_degree": 6,
+              "weighted_out_degree": 6,
+              "weighted_total_degree": 12
+            },
+            {
+              "cluster_id": "cost=1|remaining=1|dest=SPIKE_FILTERED",
+              "in_degree": 2,
+              "out_degree": 2,
+              "weighted_in_degree": 5,
+              "weighted_out_degree": 5,
+              "weighted_total_degree": 10
+            },
+            {
+              "cluster_id": "cost=3|remaining=4|dest=OSCILLATING_NONPERSISTENT",
+              "in_degree": 4,
+              "out_degree": 4,
+              "weighted_in_degree": 5,
+              "weighted_out_degree": 4,
+              "weighted_total_degree": 9
+            },
+            {
+              "cluster_id": "cost=0|remaining=6|dest=OSCILLATING_NONPERSISTENT",
+              "in_degree": 5,
+              "out_degree": 3,
+              "weighted_in_degree": 6,
+              "weighted_out_degree": 3,
+              "weighted_total_degree": 9
+            },
+            {
+              "cluster_id": "cost=2|remaining=3|dest=OSCILLATING_NONPERSISTENT",
+              "in_degree": 2,
+              "out_degree": 4,
+              "weighted_in_degree": 4,
+              "weighted_out_degree": 5,
+              "weighted_total_degree": 9
+            },
+            {
+              "cluster_id": "cost=2|remaining=2|dest=OSCILLATING_NONPERSISTENT",
+              "in_degree": 2,
+              "out_degree": 2,
+              "weighted_in_degree": 5,
+              "weighted_out_degree": 4,
+              "weighted_total_degree": 9
+            }
+          ]
+        },
+        "graph_validation": {
+          "failure_count": 0,
+          "failures": [],
+          "graph_validation_holds": true
+        },
+        "non_self_edge_count": 61,
+        "record_count": 28,
+        "self_edge_count": 12,
+        "threshold_edge_count": 34,
+        "thresholds": [
+          2,
+          3,
+          4
+        ]
+      },
+      "experiment": "temporal_collapse_topology_cluster_adjacency_graph_v0",
+      "final_check": {
+        "message": "signature-cluster adjacency graph detected: invariant clusters form a directed transition topology under threshold and geometry transitions",
+        "status": "PASS"
+      },
+      "interpretation": {
+        "attractor_result": "No attractor clusters were detected in this run.",
+        "bridge_result": "31 out of 32 clusters are bridge clusters.",
+        "central_cluster_1": "cost=0|remaining=3|dest=OSCILLATING_NONPERSISTENT",
+        "central_cluster_1_weighted_total_degree": 28,
+        "central_cluster_2": "cost=3|remaining=3|dest=OSCILLATING_NONPERSISTENT",
+        "central_cluster_2_weighted_total_degree": 25,
+        "edge_definition": "edges = threshold_transition + geometry_transition",
+        "important_boundary": "The graph confirms adjacency topology, not terminal attractors.",
+        "main_result": "Invariant signature clusters form a directed transition topology under threshold transitions and geometry transitions.",
+        "node_definition": "cluster_id = transition_cost + remaining_run_count + destination_class",
+        "structural_conclusion": "The invariant cluster layer is not isolated; it forms a measurable directed transition graph."
+      },
+      "reproduction_command": "python examples/temporal_collapse_topology_cluster_adjacency_graph_v0.py",
+      "status": "PASS",
+      "summary": {
+        "attractor_cluster_count": 0,
+        "bridge_cluster_count": 31,
+        "cluster_adjacency_graph_detected": true,
+        "cluster_count": 32,
+        "confirmation_windows": [
+          2,
+          3,
+          4
+        ],
+        "edge_count": 73,
+        "family_crossing_edge_count": 5,
+        "flat_record_count": 84,
+        "geometry_edge_count": 39,
+        "graph_definition": "nodes = invariant signature clusters; edges = threshold transitions + geometry transitions",
+        "graph_failure_count": 0,
+        "graph_validation_holds": true,
+        "isolated_cluster_count": 0,
+        "method": "cluster_adjacency_graph",
+        "node_count": 6,
+        "non_self_edge_count": 61,
+        "persistence_window": 2,
+        "self_edge_count": 12,
+        "source_cluster_count": 1,
+        "threshold_edge_count": 34,
+        "variant_count": 28
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_topology_cluster_adjacency_graph_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

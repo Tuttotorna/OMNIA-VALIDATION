@@ -1,0 +1,155 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.578607+00:00",
+  "experiment": "temporal_collapse_actual_gsm_symbolic_model_output_validator_v10",
+  "payload": {
+    "legacy_result": {
+      "aggregate": {
+        "aggregate_accuracy_rate": 0.48,
+        "aggregate_extraction_rate": 0.92,
+        "aggregate_gate_action": "WATCH",
+        "aggregate_risk_regime": "DRIFT",
+        "aggregate_risk_score": 0.481561,
+        "answer_extraction_method_count": 1,
+        "benchmark_count": 1,
+        "external_source_reference_count": 1,
+        "highest_risk_score": 0.787044,
+        "highest_risk_trajectory": "gsm_symbolic_actual_output_collapse_like_001",
+        "independence_method_count": 1,
+        "mapping_method_count": 1,
+        "model_count": 3,
+        "model_version_count": 3,
+        "regime_counts": {
+          "COLLAPSE": 1,
+          "CRITICAL": 2,
+          "DRIFT": 1,
+          "STABLE": 1
+        },
+        "source_count": 1,
+        "source_record_type_count": 1
+      },
+      "answer_extraction_methods": [
+        "final_numeric_answer_extractor_v1"
+      ],
+      "benchmark_names": [
+        "GSM-Symbolic"
+      ],
+      "boundary": "bounded actual-output-style GSM-Symbolic model-output traces mapped into raw ordered structural trajectory events",
+      "claim": "This script applies the Level 3 raw trajectory warning mechanism to bounded actual-output-style GSM-Symbolic model-output traces mapped into raw ordered structural trajectory events. It does not claim that OMNIA solves GSM-Symbolic, does not infer semantic truth, and does not replace benchmark correctness.",
+      "experiment": "temporal_collapse_actual_gsm_symbolic_model_output_validator_v10",
+      "external_source_note": "source_independence=external_source_verified means the trace boundary is mapped from a public/documentable GSM-Symbolic benchmark reference. independence_method=actual_model_output_trace_mapping means the records include model-output-style fields such as model_name, model_version, run_id, response_id, raw_question_hash, raw_output_hash, answer_extraction_method, expected_answer, model_final_answer, and is_correct. Correctness and extraction are reported as evidence; risk_score remains a structural warning measurement.",
+      "external_source_references": [
+        "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository"
+      ],
+      "independence_method_values": [
+        "actual_model_output_trace_mapping"
+      ],
+      "input_file": "data/temporal_collapse_actual_gsm_symbolic_model_outputs_v10.jsonl",
+      "limitation_note": "These are bounded actual-output-style records for validator construction, not an official public GSM-Symbolic model-output benchmark run.",
+      "mapping_methods": [
+        "actual_model_output_to_trajectory"
+      ],
+      "model_names": [
+        "reference_model_a",
+        "reference_model_b",
+        "reference_model_c"
+      ],
+      "model_versions": [
+        "reference_model_a_v1",
+        "reference_model_b_v1",
+        "reference_model_c_v1"
+      ],
+      "source_count": 1,
+      "source_independence_values": [
+        "external_source_verified"
+      ],
+      "source_record_types": [
+        "actual_model_output"
+      ],
+      "source_summary": [
+        {
+          "answer_extraction_method": "final_numeric_answer_extractor_v1",
+          "average_accuracy_rate": 0.8,
+          "average_extraction_rate": 1.0,
+          "average_risk_score": 0.210525,
+          "benchmark_name": "GSM-Symbolic",
+          "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+          "highest_risk_score": 0.352772,
+          "highest_risk_trajectory": "gsm_symbolic_actual_output_drift_001",
+          "independence_method": "actual_model_output_trace_mapping",
+          "mapping_method": "actual_model_output_to_trajectory",
+          "model_name": "reference_model_a",
+          "model_version": "reference_model_a_v1",
+          "regime_counts": {
+            "DRIFT": 1,
+            "STABLE": 1
+          },
+          "source": "gsm_symbolic_actual_model_output_v10",
+          "source_independence": "external_source_verified",
+          "source_record_type": "actual_model_output",
+          "trajectory_count": 2
+        },
+        {
+          "answer_extraction_method": "final_numeric_answer_extractor_v1",
+          "average_accuracy_rate": 0.3,
+          "average_extraction_rate": 1.0,
+          "average_risk_score": 0.599856,
+          "benchmark_name": "GSM-Symbolic",
+          "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+          "highest_risk_score": 0.637978,
+          "highest_risk_trajectory": "gsm_symbolic_actual_output_critical_001",
+          "independence_method": "actual_model_output_trace_mapping",
+          "mapping_method": "actual_model_output_to_trajectory",
+          "model_name": "reference_model_b",
+          "model_version": "reference_model_b_v1",
+          "regime_counts": {
+            "CRITICAL": 2
+          },
+          "source": "gsm_symbolic_actual_model_output_v10",
+          "source_independence": "external_source_verified",
+          "source_record_type": "actual_model_output",
+          "trajectory_count": 2
+        },
+        {
+          "answer_extraction_method": "final_numeric_answer_extractor_v1",
+          "average_accuracy_rate": 0.2,
+          "average_extraction_rate": 0.6,
+          "average_risk_score": 0.787044,
+          "benchmark_name": "GSM-Symbolic",
+          "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+          "highest_risk_score": 0.787044,
+          "highest_risk_trajectory": "gsm_symbolic_actual_output_collapse_like_001",
+          "independence_method": "actual_model_output_trace_mapping",
+          "mapping_method": "actual_model_output_to_trajectory",
+          "model_name": "reference_model_c",
+          "model_version": "reference_model_c_v1",
+          "regime_counts": {
+            "COLLAPSE": 1
+          },
+          "source": "gsm_symbolic_actual_model_output_v10",
+          "source_independence": "external_source_verified",
+          "source_record_type": "actual_model_output",
+          "trajectory_count": 1
+        }
+      ],
+      "status": "v10_actual_model_output_style_trace_validation",
+      "thresholds": {
+        "CRITICAL": 0.75,
+        "DRIFT": 0.5,
+        "STABLE": 0.25
+      },
+      "trajectory_count": 5,
+      "weights": {
+        "boundary_proximity": 0.25,
+        "collapse_similarity": 0.25,
+        "drift_progression": 0.2,
+        "irreversibility_signal": 0.1,
+        "transition_density": 0.2
+      }
+    },
+    "legacy_result_path": "results/temporal_collapse_actual_gsm_symbolic_model_output_validator_v10.json",
+    "legacy_status": "v10_actual_model_output_style_trace_validation",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

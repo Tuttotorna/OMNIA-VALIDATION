@@ -1,0 +1,426 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.575297+00:00",
+  "experiment": "structural_benchmark_runner_v0",
+  "payload": {
+    "legacy_result": {
+      "claim_level": "Level 1 — Benchmark Runner",
+      "core_boundary": "measurement != inference != decision",
+      "dataset_path": "data/structural_benchmark_dataset_v0.jsonl",
+      "date_utc": "2026-05-02T15:31:43.276048+00:00",
+      "domain": "omnia_native_structural_benchmark_execution",
+      "experiment_name": "structural_benchmark_runner_v0",
+      "limitations": [
+        "This is not the full OMNIA engine.",
+        "This is a toy benchmark runner.",
+        "Thresholds are manually chosen.",
+        "No semantic truth is evaluated.",
+        "The dataset is synthetic.",
+        "No universal robustness claim is made."
+      ],
+      "pass_condition": "success_rate >= 0.60 and false_merge_count <= 4 and false_split_count <= 4",
+      "purpose": "Run the OMNIA-native structural benchmark dataset.",
+      "reproduction_command": "python examples/structural_benchmark_runner_v0.py",
+      "results": [
+        {
+          "case_id": "eq_001_binary_alternation",
+          "distance": 0.0,
+          "expected_relation": "should_merge",
+          "family": "binary_alternation",
+          "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "observed_relation": "merge",
+          "pair_type": "STRUCTURAL_EQUIVALENT",
+          "right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "success": true
+        },
+        {
+          "case_id": "eq_002_four_cycle",
+          "distance": 0.0,
+          "expected_relation": "should_merge",
+          "family": "four_cycle",
+          "left_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+          "observed_relation": "merge",
+          "pair_type": "STRUCTURAL_EQUIVALENT",
+          "right_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+          "success": true
+        },
+        {
+          "case_id": "eq_003_triple_cycle",
+          "distance": 0.0,
+          "expected_relation": "should_merge",
+          "family": "triple_cycle",
+          "left_projected_preview": "012012012012012012012012012012012012012012012012012012012012012",
+          "observed_relation": "merge",
+          "pair_type": "STRUCTURAL_EQUIVALENT",
+          "right_projected_preview": "012012012012012012012012012012012012012012012012012012012012012",
+          "success": true
+        },
+        {
+          "case_id": "eq_004_nested_blocks",
+          "distance": 0.0,
+          "expected_relation": "should_merge",
+          "family": "nested_blocks",
+          "left_projected_preview": "0011221100112211001122110011221100112211001122110011221100112211",
+          "observed_relation": "merge",
+          "pair_type": "STRUCTURAL_EQUIVALENT",
+          "right_projected_preview": "0011221100112211001122110011221100112211001122110011221100112211",
+          "success": true
+        },
+        {
+          "case_id": "eq_005_run_length_gradient",
+          "distance": 0.0,
+          "expected_relation": "should_merge",
+          "family": "run_length_gradient",
+          "left_projected_preview": "0100110001110000111100000111110000001111110000000111111100000000",
+          "observed_relation": "merge",
+          "pair_type": "STRUCTURAL_EQUIVALENT",
+          "right_projected_preview": "0100110001110000111100000111110000001111110000000111111100000000",
+          "success": true
+        },
+        {
+          "case_id": "eq_006_mirror_sequence",
+          "distance": 0.0,
+          "expected_relation": "should_merge",
+          "family": "mirror_sequence",
+          "left_projected_preview": "012321012321012321012321012321123210123210123210123210123210",
+          "observed_relation": "merge",
+          "pair_type": "STRUCTURAL_EQUIVALENT",
+          "right_projected_preview": "012321012321012321012321012321123210123210123210123210123210",
+          "success": true
+        },
+        {
+          "case_id": "near_001_binary_alternation",
+          "distance": 0.049805963912,
+          "expected_relation": "should_merge",
+          "family": "binary_alternation",
+          "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "observed_relation": "merge",
+          "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+          "right_projected_preview": "0101010101010101010201010101010101010131010101010101010104010101",
+          "success": true
+        },
+        {
+          "case_id": "near_002_four_cycle",
+          "distance": 0.050223862324,
+          "expected_relation": "should_merge",
+          "family": "four_cycle",
+          "left_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+          "observed_relation": "merge",
+          "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+          "right_projected_preview": "0123012301230123012401230123012301230153012301230123012306230123",
+          "success": true
+        },
+        {
+          "case_id": "near_003_triple_cycle",
+          "distance": 0.052008818282,
+          "expected_relation": "should_merge",
+          "family": "triple_cycle",
+          "left_projected_preview": "012012012012012012012012012012012012012012012012012012012012012",
+          "observed_relation": "merge",
+          "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+          "right_projected_preview": "012012012012012012032012012012012012014012012012012012012512012",
+          "success": true
+        },
+        {
+          "case_id": "near_004_nested_blocks",
+          "distance": 0.05152464958,
+          "expected_relation": "should_merge",
+          "family": "nested_blocks",
+          "left_projected_preview": "0011221100112211001122110011221100112211001122110011221100112211",
+          "observed_relation": "merge",
+          "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+          "right_projected_preview": "0011221100112211001322110011221100112241001122110011221105112211",
+          "success": true
+        },
+        {
+          "case_id": "near_005_run_length_gradient",
+          "distance": 0.059447178377,
+          "expected_relation": "should_merge",
+          "family": "run_length_gradient",
+          "left_projected_preview": "0100110001110000111100000111110000001111110000000111111100000000",
+          "observed_relation": "merge",
+          "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+          "right_projected_preview": "0100110001110000111200000111110000001131110000000111111104000000",
+          "success": true
+        },
+        {
+          "case_id": "near_006_mirror_sequence",
+          "distance": 0.056299188705,
+          "expected_relation": "should_merge",
+          "family": "mirror_sequence",
+          "left_projected_preview": "012321012321012321012321012321123210123210123210123210123210",
+          "observed_relation": "merge",
+          "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+          "right_projected_preview": "012321012321012321042321012321123210125210123210123210123610",
+          "success": true
+        },
+        {
+          "case_id": "diff_001_binary_alternation_vs_four_cycle",
+          "distance": 0.525,
+          "expected_relation": "should_split",
+          "family": "binary_alternation_vs_four_cycle",
+          "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "observed_relation": "split",
+          "pair_type": "STRUCTURAL_DIFFERENT",
+          "right_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+          "success": true
+        },
+        {
+          "case_id": "diff_002_binary_alternation_vs_nested_blocks",
+          "distance": 0.714484126984,
+          "expected_relation": "should_split",
+          "family": "binary_alternation_vs_nested_blocks",
+          "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "observed_relation": "split",
+          "pair_type": "STRUCTURAL_DIFFERENT",
+          "right_projected_preview": "0011221100112211001122110011221100112211001122110011221100112211",
+          "success": true
+        },
+        {
+          "case_id": "diff_003_four_cycle_vs_run_length_gradient",
+          "distance": 0.969444444444,
+          "expected_relation": "should_split",
+          "family": "four_cycle_vs_run_length_gradient",
+          "left_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+          "observed_relation": "split",
+          "pair_type": "STRUCTURAL_DIFFERENT",
+          "right_projected_preview": "0100110001110000111100000111110000001111110000000111111100000000",
+          "success": true
+        },
+        {
+          "case_id": "diff_004_triple_cycle_vs_mirror_sequence",
+          "distance": 0.499078557977,
+          "expected_relation": "should_split",
+          "family": "triple_cycle_vs_mirror_sequence",
+          "left_projected_preview": "012012012012012012012012012012012012012012012012012012012012012",
+          "observed_relation": "split",
+          "pair_type": "STRUCTURAL_DIFFERENT",
+          "right_projected_preview": "012321012321012321012321012321123210123210123210123210123210",
+          "success": true
+        },
+        {
+          "case_id": "diff_005_nested_blocks_vs_mirror_sequence",
+          "distance": 0.639882915291,
+          "expected_relation": "should_split",
+          "family": "nested_blocks_vs_mirror_sequence",
+          "left_projected_preview": "0011221100112211001122110011221100112211001122110011221100112211",
+          "observed_relation": "split",
+          "pair_type": "STRUCTURAL_DIFFERENT",
+          "right_projected_preview": "012321012321012321012321012321123210123210123210123210123210",
+          "success": true
+        },
+        {
+          "case_id": "diff_006_run_length_gradient_vs_binary_alternation",
+          "distance": 0.694444444444,
+          "expected_relation": "should_split",
+          "family": "run_length_gradient_vs_binary_alternation",
+          "left_projected_preview": "0100110001110000111100000111110000001111110000000111111100000000",
+          "observed_relation": "split",
+          "pair_type": "STRUCTURAL_DIFFERENT",
+          "right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "success": true
+        },
+        {
+          "case_id": "fm_001_temperature_vs_finance",
+          "distance": 0.0,
+          "expected_relation": "should_split",
+          "family": "binary_alternation_domain_collision",
+          "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "observed_relation": "merge",
+          "pair_type": "FALSE_MERGE_TRAP",
+          "right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "success": false
+        },
+        {
+          "case_id": "fm_002_periodicity_spoofing",
+          "distance": 0.0,
+          "expected_relation": "should_split",
+          "family": "periodicity_collision",
+          "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "observed_relation": "merge",
+          "pair_type": "FALSE_MERGE_TRAP",
+          "right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "success": false
+        },
+        {
+          "case_id": "fm_003_json_field_erasure",
+          "distance": 0.0,
+          "expected_relation": "should_split",
+          "family": "metadata_erasure_collision",
+          "left_projected_preview": "0123401235012340123501234012350123401235012340123501234012350123",
+          "observed_relation": "merge",
+          "pair_type": "FALSE_MERGE_TRAP",
+          "right_projected_preview": "0123401235012340123501234012350123401235012340123501234012350123",
+          "success": false
+        },
+        {
+          "case_id": "fm_004_low_high_vs_zero_extreme",
+          "distance": 0.0,
+          "expected_relation": "should_split",
+          "family": "magnitude_semantics_collision",
+          "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "observed_relation": "merge",
+          "pair_type": "FALSE_MERGE_TRAP",
+          "right_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "success": false
+        },
+        {
+          "case_id": "fs_001_alias_inflation_binary",
+          "distance": 0.567063242837,
+          "expected_relation": "should_merge",
+          "family": "binary_alternation",
+          "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "observed_relation": "split",
+          "pair_type": "FALSE_SPLIT_TRAP",
+          "right_projected_preview": "0010011102120010011102120010011102120010011102120010011102120010",
+          "success": false
+        },
+        {
+          "case_id": "fs_002_cardinality_inflation_cycle",
+          "distance": 0.55214626665,
+          "expected_relation": "should_merge",
+          "family": "four_cycle",
+          "left_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+          "observed_relation": "split",
+          "pair_type": "FALSE_SPLIT_TRAP",
+          "right_projected_preview": "0010203001112131001020300111213100102030011121310010203001112131",
+          "success": false
+        },
+        {
+          "case_id": "fs_003_separator_attack",
+          "distance": 1.459375,
+          "expected_relation": "should_merge",
+          "family": "word_pair_alternation",
+          "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "observed_relation": "split",
+          "pair_type": "FALSE_SPLIT_TRAP",
+          "right_projected_preview": "0",
+          "success": false
+        },
+        {
+          "case_id": "fs_004_nested_alias_split",
+          "distance": 0.758234126984,
+          "expected_relation": "should_merge",
+          "family": "nested_blocks",
+          "left_projected_preview": "0011221100112211001122110011221100112211001122110011221100112211",
+          "observed_relation": "split",
+          "pair_type": "FALSE_SPLIT_TRAP",
+          "right_projected_preview": "0102313241423132010231324142313201023132414231320102313241423132",
+          "success": false
+        },
+        {
+          "case_id": "drift_001_binary_alternation",
+          "distance": 0.096625581916,
+          "expected_relation": "partial",
+          "family": "binary_alternation",
+          "left_projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "observed_relation": "merge",
+          "pair_type": "PARTIAL_DRIFT",
+          "right_projected_preview": "01010101010101010110101010101001010101010101001010101010101010",
+          "success": false
+        },
+        {
+          "case_id": "drift_002_four_cycle",
+          "distance": 0.128408973816,
+          "expected_relation": "partial",
+          "family": "four_cycle",
+          "left_projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+          "observed_relation": "merge",
+          "pair_type": "PARTIAL_DRIFT",
+          "right_projected_preview": "01230123012301230323012301230212301230123012030123012301230123",
+          "success": false
+        },
+        {
+          "case_id": "drift_003_triple_cycle",
+          "distance": 0.140277069275,
+          "expected_relation": "partial",
+          "family": "triple_cycle",
+          "left_projected_preview": "012012012012012012012012012012012012012012012012012012012012012",
+          "observed_relation": "merge",
+          "pair_type": "PARTIAL_DRIFT",
+          "right_projected_preview": "012012012012012011012012012010201201201201210120120120120120",
+          "success": false
+        },
+        {
+          "case_id": "drift_004_nested_blocks",
+          "distance": 0.142151263143,
+          "expected_relation": "partial",
+          "family": "nested_blocks",
+          "left_projected_preview": "0011221100112211001122110011221100112211001122110011221100112211",
+          "observed_relation": "merge",
+          "pair_type": "PARTIAL_DRIFT",
+          "right_projected_preview": "0112211001122110101221100112110011221100112211001212110012211",
+          "success": false
+        },
+        {
+          "case_id": "drift_005_run_length_gradient",
+          "distance": 0.195882356026,
+          "expected_relation": "partial",
+          "family": "run_length_gradient",
+          "left_projected_preview": "0100110001110000111100000111110000001111110000000111111100000000",
+          "observed_relation": "partial",
+          "pair_type": "PARTIAL_DRIFT",
+          "right_projected_preview": "0110011100011110000111110000111111000000111111100000001111111000",
+          "success": true
+        },
+        {
+          "case_id": "drift_006_mirror_sequence",
+          "distance": 0.542182118275,
+          "expected_relation": "partial",
+          "family": "mirror_sequence",
+          "left_projected_preview": "012321012321012321012321012321123210123210123210123210123210",
+          "observed_relation": "split",
+          "pair_type": "PARTIAL_DRIFT",
+          "right_projected_preview": "012103012103012130012103012101213001210301210301201301213",
+          "success": false
+        }
+      ],
+      "status": "FAIL",
+      "summary": {
+        "false_merge_count": 4,
+        "false_split_count": 4,
+        "pair_type_summary": {
+          "FALSE_MERGE_TRAP": {
+            "avg_distance": 0.0,
+            "count": 4,
+            "success_rate": 0.0
+          },
+          "FALSE_SPLIT_TRAP": {
+            "avg_distance": 0.834204659118,
+            "count": 4,
+            "success_rate": 0.0
+          },
+          "PARTIAL_DRIFT": {
+            "avg_distance": 0.207587893742,
+            "count": 6,
+            "success_rate": 0.166666666667
+          },
+          "STRUCTURAL_DIFFERENT": {
+            "avg_distance": 0.673722414857,
+            "count": 6,
+            "success_rate": 1.0
+          },
+          "STRUCTURAL_EQUIVALENT": {
+            "avg_distance": 0.0,
+            "count": 6,
+            "success_rate": 1.0
+          },
+          "STRUCTURAL_NEAR_EQUIVALENT": {
+            "avg_distance": 0.053218276863,
+            "count": 6,
+            "success_rate": 1.0
+          }
+        },
+        "partial_mismatch_count": 5,
+        "record_count": 32,
+        "success_count": 19,
+        "success_rate": 0.59375
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/structural_benchmark_runner_v0.json",
+    "legacy_status": "FAIL",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

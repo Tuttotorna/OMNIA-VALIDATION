@@ -1,0 +1,276 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.649576+00:00",
+  "experiment": "temporal_collapse_topology_transition_graph_v0",
+  "payload": {
+    "legacy_result": {
+      "edges": [
+        {
+          "example_count": 144,
+          "from_class": "CLEAN_PASS",
+          "minimum_mutation_depth": 1,
+          "source_case_names": [
+            "clean_pass"
+          ],
+          "to_class": "SPIKE_FILTERED"
+        },
+        {
+          "example_count": 11,
+          "from_class": "CLEAN_PASS",
+          "minimum_mutation_depth": 2,
+          "source_case_names": [
+            "clean_pass"
+          ],
+          "to_class": "FRAGMENTED_LOCAL_COLLAPSE"
+        },
+        {
+          "example_count": 55,
+          "from_class": "CLEAN_PASS",
+          "minimum_mutation_depth": 2,
+          "source_case_names": [
+            "clean_pass"
+          ],
+          "to_class": "OSCILLATING_NONPERSISTENT"
+        },
+        {
+          "example_count": 128,
+          "from_class": "SPIKE_FILTERED",
+          "minimum_mutation_depth": 1,
+          "source_case_names": [
+            "spike_filtered"
+          ],
+          "to_class": "OSCILLATING_NONPERSISTENT"
+        },
+        {
+          "example_count": 48,
+          "from_class": "SPIKE_FILTERED",
+          "minimum_mutation_depth": 1,
+          "source_case_names": [
+            "spike_filtered"
+          ],
+          "to_class": "FRAGMENTED_LOCAL_COLLAPSE"
+        },
+        {
+          "example_count": 24,
+          "from_class": "SPIKE_FILTERED",
+          "minimum_mutation_depth": 1,
+          "source_case_names": [
+            "spike_filtered"
+          ],
+          "to_class": "CLEAN_PASS"
+        },
+        {
+          "example_count": 136,
+          "from_class": "OSCILLATING_NONPERSISTENT",
+          "minimum_mutation_depth": 1,
+          "source_case_names": [
+            "oscillating_nonpersistent"
+          ],
+          "to_class": "FRAGMENTED_LOCAL_COLLAPSE"
+        },
+        {
+          "example_count": 12,
+          "from_class": "OSCILLATING_NONPERSISTENT",
+          "minimum_mutation_depth": 2,
+          "source_case_names": [
+            "oscillating_nonpersistent"
+          ],
+          "to_class": "SPIKE_FILTERED"
+        },
+        {
+          "example_count": 2,
+          "from_class": "OSCILLATING_NONPERSISTENT",
+          "minimum_mutation_depth": 2,
+          "source_case_names": [
+            "oscillating_nonpersistent"
+          ],
+          "to_class": "RECOVERY_RELAPSE_COLLAPSE"
+        },
+        {
+          "example_count": 7,
+          "from_class": "FRAGMENTED_LOCAL_COLLAPSE",
+          "minimum_mutation_depth": 2,
+          "source_case_names": [
+            "fragmented_local_collapse"
+          ],
+          "to_class": "RECOVERY_RELAPSE_COLLAPSE"
+        },
+        {
+          "example_count": 470,
+          "from_class": "GLOBAL_PERSISTENT_COLLAPSE",
+          "minimum_mutation_depth": 1,
+          "source_case_names": [
+            "global_persistent_collapse"
+          ],
+          "to_class": "RECOVERY_RELAPSE_COLLAPSE"
+        },
+        {
+          "example_count": 40,
+          "from_class": "GLOBAL_PERSISTENT_COLLAPSE",
+          "minimum_mutation_depth": 2,
+          "source_case_names": [
+            "global_persistent_collapse"
+          ],
+          "to_class": "FRAGMENTED_LOCAL_COLLAPSE"
+        },
+        {
+          "example_count": 160,
+          "from_class": "RECOVERY_RELAPSE_COLLAPSE",
+          "minimum_mutation_depth": 1,
+          "source_case_names": [
+            "recovery_relapse_collapse"
+          ],
+          "to_class": "FRAGMENTED_LOCAL_COLLAPSE"
+        },
+        {
+          "example_count": 4,
+          "from_class": "RECOVERY_RELAPSE_COLLAPSE",
+          "minimum_mutation_depth": 2,
+          "source_case_names": [
+            "recovery_relapse_collapse"
+          ],
+          "to_class": "GLOBAL_PERSISTENT_COLLAPSE"
+        }
+      ],
+      "experiment": "temporal_collapse_topology_transition_graph_v0",
+      "final_check": {
+        "message": "temporal topology transition graph exposed a connected mutation phase space",
+        "status": "PASS"
+      },
+      "node_metrics": {
+        "CLEAN_PASS": {
+          "incoming_count": 1,
+          "incoming_sources": [
+            "SPIKE_FILTERED"
+          ],
+          "mean_outgoing_depth": 1.6666666666666667,
+          "min_outgoing_depth": 1,
+          "outgoing_count": 3,
+          "outgoing_targets": [
+            "SPIKE_FILTERED",
+            "FRAGMENTED_LOCAL_COLLAPSE",
+            "OSCILLATING_NONPERSISTENT"
+          ]
+        },
+        "FRAGMENTED_LOCAL_COLLAPSE": {
+          "incoming_count": 5,
+          "incoming_sources": [
+            "CLEAN_PASS",
+            "SPIKE_FILTERED",
+            "OSCILLATING_NONPERSISTENT",
+            "GLOBAL_PERSISTENT_COLLAPSE",
+            "RECOVERY_RELAPSE_COLLAPSE"
+          ],
+          "mean_outgoing_depth": 2,
+          "min_outgoing_depth": 2,
+          "outgoing_count": 1,
+          "outgoing_targets": [
+            "RECOVERY_RELAPSE_COLLAPSE"
+          ]
+        },
+        "GLOBAL_PERSISTENT_COLLAPSE": {
+          "incoming_count": 1,
+          "incoming_sources": [
+            "RECOVERY_RELAPSE_COLLAPSE"
+          ],
+          "mean_outgoing_depth": 1.5,
+          "min_outgoing_depth": 1,
+          "outgoing_count": 2,
+          "outgoing_targets": [
+            "RECOVERY_RELAPSE_COLLAPSE",
+            "FRAGMENTED_LOCAL_COLLAPSE"
+          ]
+        },
+        "OSCILLATING_NONPERSISTENT": {
+          "incoming_count": 2,
+          "incoming_sources": [
+            "CLEAN_PASS",
+            "SPIKE_FILTERED"
+          ],
+          "mean_outgoing_depth": 1.6666666666666667,
+          "min_outgoing_depth": 1,
+          "outgoing_count": 3,
+          "outgoing_targets": [
+            "FRAGMENTED_LOCAL_COLLAPSE",
+            "SPIKE_FILTERED",
+            "RECOVERY_RELAPSE_COLLAPSE"
+          ]
+        },
+        "RECOVERY_RELAPSE_COLLAPSE": {
+          "incoming_count": 3,
+          "incoming_sources": [
+            "OSCILLATING_NONPERSISTENT",
+            "FRAGMENTED_LOCAL_COLLAPSE",
+            "GLOBAL_PERSISTENT_COLLAPSE"
+          ],
+          "mean_outgoing_depth": 1.5,
+          "min_outgoing_depth": 1,
+          "outgoing_count": 2,
+          "outgoing_targets": [
+            "FRAGMENTED_LOCAL_COLLAPSE",
+            "GLOBAL_PERSISTENT_COLLAPSE"
+          ]
+        },
+        "SPIKE_FILTERED": {
+          "incoming_count": 2,
+          "incoming_sources": [
+            "CLEAN_PASS",
+            "OSCILLATING_NONPERSISTENT"
+          ],
+          "mean_outgoing_depth": 1,
+          "min_outgoing_depth": 1,
+          "outgoing_count": 3,
+          "outgoing_targets": [
+            "OSCILLATING_NONPERSISTENT",
+            "FRAGMENTED_LOCAL_COLLAPSE",
+            "CLEAN_PASS"
+          ]
+        }
+      },
+      "reproduction_command": "python examples/temporal_collapse_topology_transition_graph_v0.py",
+      "status": "PASS",
+      "strongly_connected_components": [
+        [
+          "CLEAN_PASS",
+          "OSCILLATING_NONPERSISTENT",
+          "SPIKE_FILTERED"
+        ],
+        [
+          "FRAGMENTED_LOCAL_COLLAPSE",
+          "GLOBAL_PERSISTENT_COLLAPSE",
+          "RECOVERY_RELAPSE_COLLAPSE"
+        ]
+      ],
+      "summary": {
+        "classes_with_no_incoming_edges": [],
+        "classes_with_no_outgoing_edges": [],
+        "confirmation_window": 2,
+        "edge_count": 14,
+        "global_persistence_threshold": 4,
+        "largest_strongly_connected_component_size": 3,
+        "max_edge_depth": 2,
+        "max_mutation_depth": 2,
+        "mean_edge_depth": 1.5,
+        "mean_incoming_count": 2.3333333333333335,
+        "mean_outgoing_count": 2.3333333333333335,
+        "min_edge_depth": 1,
+        "node_count": 6,
+        "persistence_window": 2,
+        "strongly_connected_component_count": 2,
+        "supported_classes": [
+          "GLOBAL_PERSISTENT_COLLAPSE",
+          "RECOVERY_RELAPSE_COLLAPSE",
+          "FRAGMENTED_LOCAL_COLLAPSE",
+          "OSCILLATING_NONPERSISTENT",
+          "SPIKE_FILTERED",
+          "CLEAN_PASS"
+        ]
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_topology_transition_graph_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

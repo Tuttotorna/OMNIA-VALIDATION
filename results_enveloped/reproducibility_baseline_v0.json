@@ -1,0 +1,51 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.569553+00:00",
+  "experiment": "reproducibility_baseline_v0",
+  "payload": {
+    "legacy_result": {
+      "claim_level": "Level 1 — Toy Demonstration",
+      "core_boundary": "measurement != inference != decision",
+      "date_utc": "2026-05-02T10:28:24.993810+00:00",
+      "domain": "minimal_structural_measurement",
+      "experiment_name": "reproducibility_baseline_v0",
+      "interpretation": "PASS means the toy measurement pipeline is deterministic and the expected toy structural ordering holds. It does not prove OMNIA correct and does not validate semantic truth.",
+      "limitations": [
+        "This is not the full OMNIA engine.",
+        "This is a toy baseline.",
+        "The omega_proxy is only a minimal structural proxy.",
+        "No semantic correctness is evaluated.",
+        "No universal claim is made."
+      ],
+      "metrics": [
+        "entropy",
+        "compression_ratio",
+        "repetition_score",
+        "omega_proxy"
+      ],
+      "purpose": "Minimal deterministic reproducibility test for structural measurement.",
+      "reproducibility": {
+        "mismatch_count": 0,
+        "mismatches": [],
+        "stable": true
+      },
+      "reproduction_command": "python examples/reproducibility_baseline_v0.py",
+      "runs_executed": 10,
+      "status": "PASS",
+      "structural_ordering": {
+        "expected_order": "structured >= mildly_perturbed >= random_like",
+        "observed_values": {
+          "mildly_perturbed": 0.754354508197,
+          "random_like": 0.0,
+          "structured": 0.858222336066
+        },
+        "order_holds": true
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/reproducibility_baseline_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

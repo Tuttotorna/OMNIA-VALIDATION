@@ -1,0 +1,411 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.633921+00:00",
+  "experiment": "temporal_collapse_topology_escape_depth_stability_v0",
+  "payload": {
+    "legacy_result": {
+      "class_escape_depth_stability": {
+        "FRAGMENTED_LOCAL_COLLAPSE": {
+          "depth_example_totals": {
+            "1": 0,
+            "2": 0,
+            "3": 320,
+            "4": 12800
+          },
+          "depth_hit_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 5,
+            "4": 5
+          },
+          "escape_depth_stable": true,
+          "escape_example_count_mean": 2624,
+          "escape_example_count_std": 724.0773436570327,
+          "escape_example_count_total": 13120,
+          "escape_example_counts": [
+            1600,
+            2112,
+            2624,
+            3136,
+            3648
+          ],
+          "escape_target_stable": true,
+          "escape_targets_by_variant": [
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ]
+          ],
+          "expected_depth_matched": true,
+          "expected_escape_depth": 3,
+          "expected_target": "OSCILLATING_NONPERSISTENT",
+          "minimum_escape_depth_mean": 3,
+          "minimum_escape_depth_std": 0.0,
+          "minimum_escape_depths": [
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "record_count": 5,
+          "unique_escape_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ]
+        },
+        "GLOBAL_PERSISTENT_COLLAPSE": {
+          "depth_example_totals": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 400
+          },
+          "depth_hit_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 5
+          },
+          "escape_depth_stable": true,
+          "escape_example_count_mean": 80,
+          "escape_example_count_std": 0.0,
+          "escape_example_count_total": 400,
+          "escape_example_counts": [
+            80,
+            80,
+            80,
+            80,
+            80
+          ],
+          "escape_target_stable": true,
+          "escape_targets_by_variant": [
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ]
+          ],
+          "expected_depth_matched": true,
+          "expected_escape_depth": 4,
+          "expected_target": "OSCILLATING_NONPERSISTENT",
+          "minimum_escape_depth_mean": 4,
+          "minimum_escape_depth_std": 0.0,
+          "minimum_escape_depths": [
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "record_count": 5,
+          "unique_escape_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ]
+        },
+        "RECOVERY_RELAPSE_COLLAPSE": {
+          "depth_example_totals": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 640
+          },
+          "depth_hit_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 5
+          },
+          "escape_depth_stable": true,
+          "escape_example_count_mean": 128,
+          "escape_example_count_std": 0.0,
+          "escape_example_count_total": 640,
+          "escape_example_counts": [
+            128,
+            128,
+            128,
+            128,
+            128
+          ],
+          "escape_target_stable": true,
+          "escape_targets_by_variant": [
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            [
+              "OSCILLATING_NONPERSISTENT"
+            ]
+          ],
+          "expected_depth_matched": true,
+          "expected_escape_depth": 4,
+          "expected_target": "OSCILLATING_NONPERSISTENT",
+          "minimum_escape_depth_mean": 4,
+          "minimum_escape_depth_std": 0.0,
+          "minimum_escape_depths": [
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "record_count": 5,
+          "unique_escape_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ]
+        }
+      },
+      "experiment": "temporal_collapse_topology_escape_depth_stability_v0",
+      "final_check": {
+        "message": "escape-depth ordering stability detected: FRAGMENTED_LOCAL_COLLAPSE escaped at depth 3 while GLOBAL_PERSISTENT_COLLAPSE and RECOVERY_RELAPSE_COLLAPSE escaped at depth 4",
+        "status": "PASS"
+      },
+      "interpretation": {
+        "depth_ordering": {
+          "FRAGMENTED_LOCAL_COLLAPSE": 3,
+          "GLOBAL_PERSISTENT_COLLAPSE": 4,
+          "RECOVERY_RELAPSE_COLLAPSE": 4
+        },
+        "escape_target": "OSCILLATING_NONPERSISTENT",
+        "main_result": "Escape-depth ordering remained stable under wider trajectory variants.",
+        "structural_conclusion": "collapse basin is not absorbing; it is stably stratified by reversibility depth"
+      },
+      "reproduction_command": "python examples/temporal_collapse_topology_escape_depth_stability_v0.py",
+      "status": "PASS",
+      "summary": {
+        "all_depths_stable": true,
+        "all_expected_depths_matched": true,
+        "all_targets_stable": true,
+        "collapse_component": [
+          "FRAGMENTED_LOCAL_COLLAPSE",
+          "GLOBAL_PERSISTENT_COLLAPSE",
+          "RECOVERY_RELAPSE_COLLAPSE"
+        ],
+        "confirmation_window": 2,
+        "expected_escape_depths": {
+          "FRAGMENTED_LOCAL_COLLAPSE": 3,
+          "GLOBAL_PERSISTENT_COLLAPSE": 4,
+          "RECOVERY_RELAPSE_COLLAPSE": 4
+        },
+        "expected_escape_target": "OSCILLATING_NONPERSISTENT",
+        "expected_ordering_detected": true,
+        "fragmented_escape_depth": 3,
+        "fragmented_escape_example_total": 13120,
+        "global_persistence_threshold": 4,
+        "global_persistent_escape_depth": 4,
+        "global_persistent_escape_example_total": 400,
+        "max_mutation_depth": 4,
+        "node_count": 6,
+        "noise_component": [
+          "CLEAN_PASS",
+          "SPIKE_FILTERED",
+          "OSCILLATING_NONPERSISTENT"
+        ],
+        "ordering_values": {
+          "FRAGMENTED_LOCAL_COLLAPSE": 3,
+          "GLOBAL_PERSISTENT_COLLAPSE": 4,
+          "RECOVERY_RELAPSE_COLLAPSE": 4
+        },
+        "persistence_window": 2,
+        "recovery_relapse_escape_depth": 4,
+        "recovery_relapse_escape_example_total": 640,
+        "variant_count": 5
+      },
+      "variant_summaries": [
+        {
+          "source_profiles": [
+            {
+              "case_name": "fragmented_local_collapse",
+              "escape_example_count": 1600,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 3,
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE"
+            },
+            {
+              "case_name": "global_persistent_collapse",
+              "escape_example_count": 80,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "GLOBAL_PERSISTENT_COLLAPSE"
+            },
+            {
+              "case_name": "recovery_relapse_collapse",
+              "escape_example_count": 128,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE"
+            }
+          ],
+          "variant_index": 0
+        },
+        {
+          "source_profiles": [
+            {
+              "case_name": "fragmented_local_collapse",
+              "escape_example_count": 2112,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 3,
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE"
+            },
+            {
+              "case_name": "global_persistent_collapse",
+              "escape_example_count": 80,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "GLOBAL_PERSISTENT_COLLAPSE"
+            },
+            {
+              "case_name": "recovery_relapse_collapse",
+              "escape_example_count": 128,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE"
+            }
+          ],
+          "variant_index": 1
+        },
+        {
+          "source_profiles": [
+            {
+              "case_name": "fragmented_local_collapse",
+              "escape_example_count": 2624,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 3,
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE"
+            },
+            {
+              "case_name": "global_persistent_collapse",
+              "escape_example_count": 80,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "GLOBAL_PERSISTENT_COLLAPSE"
+            },
+            {
+              "case_name": "recovery_relapse_collapse",
+              "escape_example_count": 128,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE"
+            }
+          ],
+          "variant_index": 2
+        },
+        {
+          "source_profiles": [
+            {
+              "case_name": "fragmented_local_collapse",
+              "escape_example_count": 3136,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 3,
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE"
+            },
+            {
+              "case_name": "global_persistent_collapse",
+              "escape_example_count": 80,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "GLOBAL_PERSISTENT_COLLAPSE"
+            },
+            {
+              "case_name": "recovery_relapse_collapse",
+              "escape_example_count": 128,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE"
+            }
+          ],
+          "variant_index": 3
+        },
+        {
+          "source_profiles": [
+            {
+              "case_name": "fragmented_local_collapse",
+              "escape_example_count": 3648,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 3,
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE"
+            },
+            {
+              "case_name": "global_persistent_collapse",
+              "escape_example_count": 80,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "GLOBAL_PERSISTENT_COLLAPSE"
+            },
+            {
+              "case_name": "recovery_relapse_collapse",
+              "escape_example_count": 128,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE"
+            }
+          ],
+          "variant_index": 4
+        }
+      ],
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_topology_escape_depth_stability_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

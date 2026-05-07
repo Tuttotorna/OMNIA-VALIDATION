@@ -1,0 +1,279 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.579751+00:00",
+  "experiment": "temporal_collapse_critical_horizon_corrected_v0",
+  "payload": {
+    "legacy_result": {
+      "final_check": "PASS — corrected critical temporal horizon matched the observability rule.",
+      "horizon_results": [
+        {
+          "confirmation_window": 2,
+          "corrected_expected_horizon": 6,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 8,
+          "observable": true,
+          "persistence_window": 2
+        },
+        {
+          "confirmation_window": 2,
+          "corrected_expected_horizon": 7,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 8,
+          "observable": true,
+          "persistence_window": 3
+        },
+        {
+          "confirmation_window": 2,
+          "corrected_expected_horizon": 8,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 10,
+          "observable": true,
+          "persistence_window": 4
+        },
+        {
+          "confirmation_window": 2,
+          "corrected_expected_horizon": 9,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 10,
+          "observable": true,
+          "persistence_window": 5
+        },
+        {
+          "confirmation_window": 2,
+          "corrected_expected_horizon": 10,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 12,
+          "observable": true,
+          "persistence_window": 6
+        },
+        {
+          "confirmation_window": 2,
+          "corrected_expected_horizon": 11,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 12,
+          "observable": true,
+          "persistence_window": 7
+        },
+        {
+          "confirmation_window": 2,
+          "corrected_expected_horizon": 12,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 14,
+          "observable": true,
+          "persistence_window": 8
+        },
+        {
+          "confirmation_window": 3,
+          "corrected_expected_horizon": 7,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 8,
+          "observable": true,
+          "persistence_window": 2
+        },
+        {
+          "confirmation_window": 3,
+          "corrected_expected_horizon": 8,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 10,
+          "observable": true,
+          "persistence_window": 3
+        },
+        {
+          "confirmation_window": 3,
+          "corrected_expected_horizon": 9,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 10,
+          "observable": true,
+          "persistence_window": 4
+        },
+        {
+          "confirmation_window": 3,
+          "corrected_expected_horizon": 10,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 12,
+          "observable": true,
+          "persistence_window": 5
+        },
+        {
+          "confirmation_window": 3,
+          "corrected_expected_horizon": 11,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 12,
+          "observable": true,
+          "persistence_window": 6
+        },
+        {
+          "confirmation_window": 3,
+          "corrected_expected_horizon": 12,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 14,
+          "observable": true,
+          "persistence_window": 7
+        },
+        {
+          "confirmation_window": 3,
+          "corrected_expected_horizon": 13,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 14,
+          "observable": true,
+          "persistence_window": 8
+        },
+        {
+          "confirmation_window": 4,
+          "corrected_expected_horizon": 8,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 10,
+          "observable": true,
+          "persistence_window": 2
+        },
+        {
+          "confirmation_window": 4,
+          "corrected_expected_horizon": 9,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 10,
+          "observable": true,
+          "persistence_window": 3
+        },
+        {
+          "confirmation_window": 4,
+          "corrected_expected_horizon": 10,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 12,
+          "observable": true,
+          "persistence_window": 4
+        },
+        {
+          "confirmation_window": 4,
+          "corrected_expected_horizon": 11,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 12,
+          "observable": true,
+          "persistence_window": 5
+        },
+        {
+          "confirmation_window": 4,
+          "corrected_expected_horizon": 12,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 14,
+          "observable": true,
+          "persistence_window": 6
+        },
+        {
+          "confirmation_window": 4,
+          "corrected_expected_horizon": 13,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 14,
+          "observable": true,
+          "persistence_window": 7
+        },
+        {
+          "confirmation_window": 4,
+          "corrected_expected_horizon": 14,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 16,
+          "observable": true,
+          "persistence_window": 8
+        },
+        {
+          "confirmation_window": 5,
+          "corrected_expected_horizon": 9,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 10,
+          "observable": true,
+          "persistence_window": 2
+        },
+        {
+          "confirmation_window": 5,
+          "corrected_expected_horizon": 10,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 12,
+          "observable": true,
+          "persistence_window": 3
+        },
+        {
+          "confirmation_window": 5,
+          "corrected_expected_horizon": 11,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 12,
+          "observable": true,
+          "persistence_window": 4
+        },
+        {
+          "confirmation_window": 5,
+          "corrected_expected_horizon": 12,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 14,
+          "observable": true,
+          "persistence_window": 5
+        },
+        {
+          "confirmation_window": 5,
+          "corrected_expected_horizon": 13,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 14,
+          "observable": true,
+          "persistence_window": 6
+        },
+        {
+          "confirmation_window": 5,
+          "corrected_expected_horizon": 14,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 16,
+          "observable": true,
+          "persistence_window": 7
+        },
+        {
+          "confirmation_window": 5,
+          "corrected_expected_horizon": 15,
+          "mean_corrected_horizon_error": 0,
+          "minimum_observed_length": 16,
+          "observable": true,
+          "persistence_window": 8
+        }
+      ],
+      "status": "PASS",
+      "summary": {
+        "confirmation_windows": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "corrected_estimated_rule": "critical_horizon = first_raw_collapse + confirmation_window + persistence_window - 2",
+        "exact_corrected_match_count": 43,
+        "exact_corrected_match_rate": 1.0,
+        "mean_corrected_horizon_error": 0,
+        "mean_minimum_observed_length": 12.837209302325581,
+        "observable_pair_count": 43,
+        "observable_rate": 0.8775510204081632,
+        "pair_count": 49,
+        "persistence_windows": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "raw_collapse_onset_reference": 4,
+        "trajectory_lengths": [
+          8,
+          10,
+          12,
+          14,
+          16
+        ],
+        "unobservable_pair_count": 6
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_critical_horizon_corrected_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

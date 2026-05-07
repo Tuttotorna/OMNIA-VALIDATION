@@ -1,0 +1,469 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.640044+00:00",
+  "experiment": "temporal_collapse_topology_signature_cluster_invariance_v0",
+  "payload": {
+    "legacy_result": {
+      "experiment": "temporal_collapse_topology_signature_cluster_invariance_v0",
+      "final_check": {
+        "message": "signature-cluster invariance detected: same transition cost + same remaining run count + same destination class produced the same signature core, even across family and source-class variation",
+        "status": "PASS"
+      },
+      "interpretation": {
+        "cluster_failure_count": 0,
+        "core_equivalence": "same transition_cost + same remaining_run_count + same destination_class = same signature_core",
+        "destination_failure_count": 0,
+        "family_crossing_cluster_count": 7,
+        "important_boundary": "Geometry family, source class, and confirmation window may vary while the signature core remains invariant inside the same cluster.",
+        "main_result": "Signature clusters are invariant objects defined by transition cost + remaining run count + destination class.",
+        "source_variation_cluster_count": 2,
+        "structural_conclusion": "signature clusters are invariant transition objects under tested temporal collapse topology mappings",
+        "threshold_crossing_cluster_count": 20
+      },
+      "reproduction_command": "python examples/temporal_collapse_topology_signature_cluster_invariance_v0.py",
+      "signature_cluster_invariance_summary": {
+        "by_family": {
+          "dense_short": {
+            "cluster_count": 8,
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "record_count": 12,
+            "remaining_run_count_values": [
+              4,
+              5,
+              6
+            ],
+            "signature_core_count": 8,
+            "transition_cost_values": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "mixed_same_cost": {
+            "cluster_count": 4,
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "record_count": 12,
+            "remaining_run_count_values": [
+              3
+            ],
+            "signature_core_count": 4,
+            "transition_cost_values": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          "single_run": {
+            "cluster_count": 5,
+            "destination_class_values": [
+              "SPIKE_FILTERED"
+            ],
+            "record_count": 15,
+            "remaining_run_count_values": [
+              1
+            ],
+            "signature_core_count": 5,
+            "transition_cost_values": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "spike_plus_long": {
+            "cluster_count": 8,
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "record_count": 12,
+            "remaining_run_count_values": [
+              3,
+              4
+            ],
+            "signature_core_count": 8,
+            "transition_cost_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          },
+          "staircase": {
+            "cluster_count": 7,
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "record_count": 9,
+            "remaining_run_count_values": [
+              4,
+              5
+            ],
+            "signature_core_count": 7,
+            "transition_cost_values": [
+              1,
+              3,
+              6,
+              10
+            ]
+          },
+          "three_equal_runs": {
+            "cluster_count": 4,
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "record_count": 12,
+            "remaining_run_count_values": [
+              3
+            ],
+            "signature_core_count": 4,
+            "transition_cost_values": [
+              0,
+              3,
+              6,
+              9
+            ]
+          },
+          "two_equal_runs": {
+            "cluster_count": 4,
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "record_count": 12,
+            "remaining_run_count_values": [
+              2
+            ],
+            "signature_core_count": 4,
+            "transition_cost_values": [
+              0,
+              2,
+              4,
+              6
+            ]
+          }
+        },
+        "by_threshold": {
+          "2": {
+            "cluster_count": 22,
+            "confirmation_window": 2,
+            "destination_class_counts": {
+              "OSCILLATING_NONPERSISTENT": 23,
+              "SPIKE_FILTERED": 5
+            },
+            "destination_match_rate": 1.0,
+            "record_count": 28,
+            "remaining_run_count_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "signature_core_count": 22,
+            "transition_cost_values": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              9,
+              10
+            ]
+          },
+          "3": {
+            "cluster_count": 21,
+            "confirmation_window": 3,
+            "destination_class_counts": {
+              "OSCILLATING_NONPERSISTENT": 23,
+              "SPIKE_FILTERED": 5
+            },
+            "destination_match_rate": 1.0,
+            "record_count": 28,
+            "remaining_run_count_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "signature_core_count": 21,
+            "transition_cost_values": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          },
+          "4": {
+            "cluster_count": 16,
+            "confirmation_window": 4,
+            "destination_class_counts": {
+              "OSCILLATING_NONPERSISTENT": 23,
+              "SPIKE_FILTERED": 5
+            },
+            "destination_match_rate": 1.0,
+            "record_count": 28,
+            "remaining_run_count_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "signature_core_count": 16,
+            "transition_cost_values": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        },
+        "cluster_count": 32,
+        "cluster_definition": "cluster_id = transition_cost + remaining_run_count + destination_class",
+        "cluster_id_count": 32,
+        "cluster_invariance_map_detected": true,
+        "cluster_invariance_validation": {
+          "cluster_collision_count": 32,
+          "cluster_collision_count_interpretation": "Non-failing checked cluster-core mapping count. Not an invariance failure.",
+          "cluster_collisions": [],
+          "cluster_invariance_holds": true,
+          "cluster_rule": "cluster_id = transition_cost + remaining_run_count + destination_class",
+          "failure_count": 0,
+          "failures": [],
+          "signature_core_rule": "same transition_cost + same remaining_run_count + same destination_class -> same signature_core"
+        },
+        "destination_rule_validation": {
+          "destination_rule_holds": true,
+          "failure_count": 0,
+          "failures": [],
+          "rule": "0 remaining runs -> CLEAN_PASS; 1 remaining run -> SPIKE_FILTERED; 2+ remaining runs -> OSCILLATING_NONPERSISTENT"
+        },
+        "family_count": 7,
+        "family_crossing_cluster_count": 7,
+        "family_crossing_clusters": {
+          "cost=0|remaining=3|dest=OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2,
+              3,
+              4
+            ],
+            "family_values": [
+              "mixed_same_cost",
+              "three_equal_runs"
+            ],
+            "record_count": 10,
+            "signature_core": "cost=0/remaining=3--> OSCILLATING_NONPERSISTENT",
+            "source_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ]
+          },
+          "cost=1|remaining=3|dest=OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              3,
+              4
+            ],
+            "family_values": [
+              "mixed_same_cost",
+              "spike_plus_long"
+            ],
+            "record_count": 4,
+            "signature_core": "cost=1/remaining=3--> OSCILLATING_NONPERSISTENT",
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=2|remaining=3|dest=OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              3,
+              4
+            ],
+            "family_values": [
+              "mixed_same_cost",
+              "spike_plus_long"
+            ],
+            "record_count": 3,
+            "signature_core": "cost=2/remaining=3--> OSCILLATING_NONPERSISTENT",
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=3|remaining=3|dest=OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2,
+              3,
+              4
+            ],
+            "family_values": [
+              "mixed_same_cost",
+              "spike_plus_long",
+              "three_equal_runs"
+            ],
+            "record_count": 9,
+            "signature_core": "cost=3/remaining=3--> OSCILLATING_NONPERSISTENT",
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE",
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=3|remaining=4|dest=OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              3,
+              4
+            ],
+            "family_values": [
+              "spike_plus_long",
+              "staircase"
+            ],
+            "record_count": 3,
+            "signature_core": "cost=3/remaining=4--> OSCILLATING_NONPERSISTENT",
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE",
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=3|remaining=5|dest=OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2,
+              4
+            ],
+            "family_values": [
+              "dense_short",
+              "staircase"
+            ],
+            "record_count": 2,
+            "signature_core": "cost=3/remaining=5--> OSCILLATING_NONPERSISTENT",
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=6|remaining=4|dest=OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2,
+              3
+            ],
+            "family_values": [
+              "spike_plus_long",
+              "staircase"
+            ],
+            "record_count": 3,
+            "signature_core": "cost=6/remaining=4--> OSCILLATING_NONPERSISTENT",
+            "source_class_values": [
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          }
+        },
+        "family_values": [
+          "dense_short",
+          "mixed_same_cost",
+          "single_run",
+          "spike_plus_long",
+          "staircase",
+          "three_equal_runs",
+          "two_equal_runs"
+        ],
+        "flat_record_count": 84,
+        "invariance_claim": "same transition_cost + same remaining_run_count + same destination_class -> same signature_core",
+        "multi_record_cluster_count": 20,
+        "record_count": 28,
+        "signature_core_count": 32,
+        "source_variation_cluster_count": 2,
+        "source_variation_clusters": {
+          "cost=3|remaining=3|dest=OSCILLATING_NONPERSISTENT": {
+            "family_values": [
+              "mixed_same_cost",
+              "spike_plus_long",
+              "three_equal_runs"
+            ],
+            "record_count": 9,
+            "signature_core": "cost=3/remaining=3--> OSCILLATING_NONPERSISTENT",
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE",
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=3|remaining=4|dest=OSCILLATING_NONPERSISTENT": {
+            "family_values": [
+              "spike_plus_long",
+              "staircase"
+            ],
+            "record_count": 3,
+            "signature_core": "cost=3/remaining=4--> OSCILLATING_NONPERSISTENT",
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE",
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          }
+        },
+        "threshold_crossing_cluster_count": 20,
+        "thresholds": [
+          2,
+          3,
+          4
+        ]
+      },
+      "status": "PASS",
+      "summary": {
+        "cluster_collision_count_note": "The script reports cluster_collision_count = 32, but validation shows zero failures. This value is treated as a checked cluster-core mapping count, not as an error count.",
+        "cluster_count": 32,
+        "cluster_definition": "cluster_id = transition_cost + remaining_run_count + destination_class",
+        "cluster_failure_count": 0,
+        "cluster_id_count": 32,
+        "cluster_invariance_holds": true,
+        "cluster_invariance_map_detected": true,
+        "confirmation_windows": [
+          2,
+          3,
+          4
+        ],
+        "destination_failure_count": 0,
+        "destination_rule_holds": true,
+        "family_count": 7,
+        "family_crossing_cluster_count": 7,
+        "family_values": [
+          "dense_short",
+          "mixed_same_cost",
+          "single_run",
+          "spike_plus_long",
+          "staircase",
+          "three_equal_runs",
+          "two_equal_runs"
+        ],
+        "flat_record_count": 84,
+        "invariance_claim": "same transition_cost + same remaining_run_count + same destination_class -> same signature_core",
+        "method": "signature_cluster_invariance",
+        "multi_record_cluster_count": 20,
+        "node_count": 6,
+        "persistence_window": 2,
+        "signature_core_count": 32,
+        "source_variation_cluster_count": 2,
+        "threshold_crossing_cluster_count": 20,
+        "variant_count": 28
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_topology_signature_cluster_invariance_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

@@ -1,0 +1,79 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.604396+00:00",
+  "experiment": "temporal_collapse_persistence_stability_v0",
+  "payload": {
+    "legacy_result": {
+      "configuration_results": [
+        {
+          "config_name": "cw2_pw2",
+          "confirmation_window": 2,
+          "oscillating_filtered": true,
+          "persistence_window": 2,
+          "persistent_confirmed": true,
+          "persistent_delay": 5,
+          "spike_filtered": true,
+          "stable_pass": true,
+          "status": "PASS"
+        },
+        {
+          "config_name": "cw2_pw3",
+          "confirmation_window": 2,
+          "oscillating_filtered": true,
+          "persistence_window": 3,
+          "persistent_confirmed": true,
+          "persistent_delay": 5,
+          "spike_filtered": true,
+          "stable_pass": true,
+          "status": "PASS"
+        },
+        {
+          "config_name": "cw3_pw2",
+          "confirmation_window": 3,
+          "oscillating_filtered": true,
+          "persistence_window": 2,
+          "persistent_confirmed": true,
+          "persistent_delay": 6,
+          "spike_filtered": true,
+          "stable_pass": true,
+          "status": "PASS"
+        },
+        {
+          "config_name": "cw3_pw3",
+          "confirmation_window": 3,
+          "oscillating_filtered": true,
+          "persistence_window": 3,
+          "persistent_confirmed": false,
+          "persistent_delay": 6,
+          "spike_filtered": true,
+          "stable_pass": true,
+          "status": "CHECK"
+        },
+        {
+          "config_name": "cw4_pw2",
+          "confirmation_window": 4,
+          "oscillating_filtered": true,
+          "persistence_window": 2,
+          "persistent_confirmed": false,
+          "persistent_delay": 7,
+          "spike_filtered": true,
+          "stable_pass": true,
+          "status": "CHECK"
+        }
+      ],
+      "reproduction_command": "python examples/temporal_collapse_persistence_stability_v0.py",
+      "status": "CHECK",
+      "summary": {
+        "check_configuration_count": 2,
+        "configuration_count": 5,
+        "mean_persistent_delay": 5.8,
+        "pass_configuration_count": 3
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_persistence_stability_v0.json",
+    "legacy_status": "CHECK",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

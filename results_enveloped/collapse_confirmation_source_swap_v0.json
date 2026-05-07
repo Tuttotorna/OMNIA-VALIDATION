@@ -1,0 +1,231 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.447331+00:00",
+  "experiment": "collapse_confirmation_source_swap_v0",
+  "payload": {
+    "legacy_result": {
+      "records": [
+        {
+          "arbitration_action": "PASS",
+          "confirmation_sources": [],
+          "family": "control",
+          "record_id": "clean_control_reference",
+          "severity_spread": 0,
+          "severity_variance": 0.0,
+          "signal_actions": {
+            "collapse_gate": "PASS",
+            "divergence_gate": "PASS",
+            "effective_signal_gate": "PASS",
+            "projection_gate": "PASS",
+            "recoverability_gate": "PASS"
+          }
+        },
+        {
+          "arbitration_action": "ESCALATE",
+          "confirmation_sources": [
+            "effective_signal_gate"
+          ],
+          "family": "effective_only",
+          "record_id": "isolated_effective_collapse",
+          "severity_spread": 4,
+          "severity_variance": 2.24,
+          "signal_actions": {
+            "collapse_gate": "PASS",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "PASS",
+            "recoverability_gate": "FLAG"
+          }
+        },
+        {
+          "arbitration_action": "COLLAPSE",
+          "confirmation_sources": [
+            "effective_signal_gate",
+            "projection_gate"
+          ],
+          "family": "projection_swap",
+          "record_id": "projection_strong_resistance_weak",
+          "severity_spread": 4,
+          "severity_variance": 2.24,
+          "signal_actions": {
+            "collapse_gate": "PASS",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "COLLAPSE",
+            "recoverability_gate": "FLAG"
+          }
+        },
+        {
+          "arbitration_action": "ESCALATE",
+          "confirmation_sources": [
+            "effective_signal_gate"
+          ],
+          "family": "resistance_swap",
+          "record_id": "projection_weak_resistance_strong",
+          "severity_spread": 4,
+          "severity_variance": 1.6,
+          "signal_actions": {
+            "collapse_gate": "FLAG",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "PASS",
+            "recoverability_gate": "FLAG"
+          }
+        },
+        {
+          "arbitration_action": "ESCALATE",
+          "confirmation_sources": [
+            "effective_signal_gate"
+          ],
+          "family": "resistance_swap",
+          "record_id": "projection_flag_resistance_collapse",
+          "severity_spread": 3,
+          "severity_variance": 0.96,
+          "signal_actions": {
+            "collapse_gate": "FLAG",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "FLAG",
+            "recoverability_gate": "RETRY"
+          }
+        },
+        {
+          "arbitration_action": "COLLAPSE",
+          "confirmation_sources": [
+            "effective_signal_gate",
+            "projection_gate"
+          ],
+          "family": "projection_swap",
+          "record_id": "projection_collapse_resistance_flag",
+          "severity_spread": 2,
+          "severity_variance": 0.96,
+          "signal_actions": {
+            "collapse_gate": "FLAG",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "COLLAPSE",
+            "recoverability_gate": "FLAG"
+          }
+        },
+        {
+          "arbitration_action": "ESCALATE",
+          "confirmation_sources": [
+            "effective_signal_gate"
+          ],
+          "family": "recoverability_swap",
+          "record_id": "recoverability_weak_projection_strong",
+          "severity_spread": 3,
+          "severity_variance": 1.2,
+          "signal_actions": {
+            "collapse_gate": "RETRY",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "FLAG",
+            "recoverability_gate": "RETRY"
+          }
+        },
+        {
+          "arbitration_action": "COLLAPSE",
+          "confirmation_sources": [
+            "effective_signal_gate",
+            "collapse_gate"
+          ],
+          "family": "recoverability_swap",
+          "record_id": "recoverability_weak_resistance_strong",
+          "severity_spread": 4,
+          "severity_variance": 2.56,
+          "signal_actions": {
+            "collapse_gate": "COLLAPSE",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "PASS",
+            "recoverability_gate": "RETRY"
+          }
+        }
+      ],
+      "reproduction_command": "python examples/collapse_confirmation_source_swap_v0.py",
+      "status": "PASS",
+      "summary": {
+        "arbitration_action_distribution": {
+          "COLLAPSE": 9,
+          "ESCALATE": 5,
+          "PASS": 1,
+          "RETRY": 1
+        },
+        "clean_control_pass_count": 1,
+        "collapse_count": 9,
+        "confirmation_source_families": [
+          "collapse_gate",
+          "effective_signal_gate",
+          "projection_gate",
+          "recoverability_gate"
+        ],
+        "confirmation_swap_count": 7,
+        "contradiction_count": 10,
+        "dataset_path": "data/collapse_confirmation_source_swap_v0.csv",
+        "escalate_count": 5,
+        "escalation_recovery_count": 5,
+        "gate_action_distributions": {
+          "collapse_gate": {
+            "COLLAPSE": 5,
+            "FLAG": 3,
+            "PASS": 6,
+            "RETRY": 2
+          },
+          "divergence_gate": {
+            "ESCALATE": 2,
+            "FLAG": 11,
+            "PASS": 2,
+            "RETRY": 1
+          },
+          "effective_signal_gate": {
+            "COLLAPSE": 14,
+            "PASS": 1,
+            "RETRY": 1
+          },
+          "projection_gate": {
+            "COLLAPSE": 6,
+            "FLAG": 2,
+            "PASS": 8
+          },
+          "recoverability_gate": {
+            "COLLAPSE": 1,
+            "FLAG": 10,
+            "PASS": 1,
+            "RETRY": 4
+          }
+        },
+        "high_disagreement_count": 13,
+        "isolated_effective_auto_collapse_count": 0,
+        "joint_projection_resistance_count": 2,
+        "mean_severity_spread": 3.3125,
+        "mean_severity_variance": 1.7650000000000001,
+        "mean_unique_action_count": 2.875,
+        "multi_source_collapse_count": 9,
+        "projection_confirmed_collapse_count": 6,
+        "projection_only_confirmation_count": 4,
+        "record_count": 16,
+        "recoverability_confirmed_collapse_count": 1,
+        "resistance_confirmed_collapse_count": 5,
+        "resistance_only_confirmation_count": 3,
+        "source_family_distribution": {
+          "ambiguous": 2,
+          "control": 1,
+          "divergence_swap": 2,
+          "effective_only": 1,
+          "projection_swap": 2,
+          "recoverability_swap": 2,
+          "resistance_swap": 2,
+          "source_swap": 2,
+          "triple_confirmed": 2
+        },
+        "source_swap_collapse_count": 9
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/collapse_confirmation_source_swap_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

@@ -1,0 +1,205 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.604882+00:00",
+  "experiment": "temporal_collapse_persistence_v0",
+  "payload": {
+    "legacy_result": {
+      "reproduction_command": "python examples/temporal_collapse_persistence_v0.py",
+      "status": "PASS",
+      "summary": {
+        "check_trajectory_count": 0,
+        "confirmation_window": 2,
+        "control_pass_count": 1,
+        "filtered_collapse_total": 7,
+        "instant_spike_filtered_count": 1,
+        "mean_first_persistent_temporal_collapse_step": 6,
+        "mean_temporal_collapse_delay": 1,
+        "pass_trajectory_count": 8,
+        "persistence_window": 2,
+        "persistent_temporal_collapse_count": 5,
+        "raw_collapse_trajectory_count": 7,
+        "raw_single_frame_collapse_total": 2,
+        "states_per_trajectory": 8,
+        "temporal_collapse_trajectory_count": 5,
+        "total_state_count": 64,
+        "trajectory_count": 8,
+        "warning_before_collapse_count": 5
+      },
+      "trajectory_results": [
+        {
+          "first_persistent_temporal_collapse_step": null,
+          "first_raw_collapse_step": null,
+          "first_temporal_collapse_step": null,
+          "instant_spike_filtered": false,
+          "persistent_temporal_collapse": false,
+          "status": "PASS",
+          "temporal_action_sequence": [
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS"
+          ],
+          "temporal_collapse_delay": null,
+          "temporal_filtered_collapse_count": 0,
+          "trajectory_name": "stable_control"
+        },
+        {
+          "first_persistent_temporal_collapse_step": 6,
+          "first_raw_collapse_step": 4,
+          "first_temporal_collapse_step": 5,
+          "instant_spike_filtered": false,
+          "persistent_temporal_collapse": true,
+          "status": "PASS",
+          "temporal_action_sequence": [
+            "PASS",
+            "PASS",
+            "RETRY",
+            "ESCALATE",
+            "ESCALATE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "COLLAPSE"
+          ],
+          "temporal_collapse_delay": 1,
+          "temporal_filtered_collapse_count": 1,
+          "trajectory_name": "slow_decay_persistent"
+        },
+        {
+          "first_persistent_temporal_collapse_step": 6,
+          "first_raw_collapse_step": 4,
+          "first_temporal_collapse_step": 5,
+          "instant_spike_filtered": false,
+          "persistent_temporal_collapse": true,
+          "status": "PASS",
+          "temporal_action_sequence": [
+            "PASS",
+            "PASS",
+            "RETRY",
+            "ESCALATE",
+            "ESCALATE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "COLLAPSE"
+          ],
+          "temporal_collapse_delay": 1,
+          "temporal_filtered_collapse_count": 1,
+          "trajectory_name": "projection_failure_persistent"
+        },
+        {
+          "first_persistent_temporal_collapse_step": 6,
+          "first_raw_collapse_step": 4,
+          "first_temporal_collapse_step": 5,
+          "instant_spike_filtered": false,
+          "persistent_temporal_collapse": true,
+          "status": "PASS",
+          "temporal_action_sequence": [
+            "PASS",
+            "RETRY",
+            "ESCALATE",
+            "ESCALATE",
+            "ESCALATE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "COLLAPSE"
+          ],
+          "temporal_collapse_delay": 1,
+          "temporal_filtered_collapse_count": 1,
+          "trajectory_name": "recoverability_failure_persistent"
+        },
+        {
+          "first_persistent_temporal_collapse_step": 6,
+          "first_raw_collapse_step": 4,
+          "first_temporal_collapse_step": 5,
+          "instant_spike_filtered": false,
+          "persistent_temporal_collapse": true,
+          "status": "PASS",
+          "temporal_action_sequence": [
+            "PASS",
+            "RETRY",
+            "ESCALATE",
+            "ESCALATE",
+            "ESCALATE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "COLLAPSE"
+          ],
+          "temporal_collapse_delay": 1,
+          "temporal_filtered_collapse_count": 1,
+          "trajectory_name": "delayed_multi_gate_persistent"
+        },
+        {
+          "first_persistent_temporal_collapse_step": null,
+          "first_raw_collapse_step": 1,
+          "first_temporal_collapse_step": null,
+          "instant_spike_filtered": true,
+          "persistent_temporal_collapse": false,
+          "status": "PASS",
+          "temporal_action_sequence": [
+            "PASS",
+            "ESCALATE",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "PASS",
+            "RETRY"
+          ],
+          "temporal_collapse_delay": null,
+          "temporal_filtered_collapse_count": 1,
+          "trajectory_name": "instant_noise_spike"
+        },
+        {
+          "first_persistent_temporal_collapse_step": null,
+          "first_raw_collapse_step": 5,
+          "first_temporal_collapse_step": null,
+          "instant_spike_filtered": false,
+          "persistent_temporal_collapse": false,
+          "status": "PASS",
+          "temporal_action_sequence": [
+            "PASS",
+            "ESCALATE",
+            "RETRY",
+            "ESCALATE",
+            "RETRY",
+            "ESCALATE",
+            "RETRY",
+            "RETRY"
+          ],
+          "temporal_collapse_delay": null,
+          "temporal_filtered_collapse_count": 1,
+          "trajectory_name": "oscillating_nonpersistent"
+        },
+        {
+          "first_persistent_temporal_collapse_step": 6,
+          "first_raw_collapse_step": 4,
+          "first_temporal_collapse_step": 5,
+          "instant_spike_filtered": false,
+          "persistent_temporal_collapse": true,
+          "status": "PASS",
+          "temporal_action_sequence": [
+            "PASS",
+            "ESCALATE",
+            "ESCALATE",
+            "RETRY",
+            "ESCALATE",
+            "COLLAPSE",
+            "COLLAPSE",
+            "COLLAPSE"
+          ],
+          "temporal_collapse_delay": 1,
+          "temporal_filtered_collapse_count": 1,
+          "trajectory_name": "false_recovery_then_persistent"
+        }
+      ],
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_persistence_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

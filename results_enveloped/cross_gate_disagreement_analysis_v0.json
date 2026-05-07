@@ -1,0 +1,158 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.472716+00:00",
+  "experiment": "cross_gate_disagreement_analysis_v0",
+  "payload": {
+    "legacy_result": {
+      "reproduction_command": "python examples/cross_gate_disagreement_analysis_v0.py",
+      "sample_results": [
+        {
+          "arbitration_action": "RETRY",
+          "severity_spread": 2,
+          "severity_variance": 0.8,
+          "signal_actions": {
+            "collapse_gate": "PASS",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "RETRY",
+            "projection_gate": "PASS",
+            "recoverability_gate": "FLAG"
+          },
+          "source_profile": "external_noisy",
+          "system_id": 0,
+          "unique_action_count": 3
+        },
+        {
+          "arbitration_action": "ESCALATE",
+          "severity_spread": 4,
+          "severity_variance": 1.76,
+          "signal_actions": {
+            "collapse_gate": "RETRY",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "PASS",
+            "recoverability_gate": "FLAG"
+          },
+          "source_profile": "external_noisy",
+          "system_id": 2,
+          "unique_action_count": 4
+        },
+        {
+          "arbitration_action": "COLLAPSE",
+          "severity_spread": 4,
+          "severity_variance": 2.56,
+          "signal_actions": {
+            "collapse_gate": "PASS",
+            "divergence_gate": "RETRY",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "FLAG",
+            "recoverability_gate": "COLLAPSE"
+          },
+          "source_profile": "external_outlier",
+          "system_id": 5,
+          "unique_action_count": 4
+        }
+      ],
+      "status": "PASS",
+      "summary": {
+        "arbitration_action_distribution": {
+          "COLLAPSE": 213,
+          "ESCALATE": 656,
+          "FLAG": 1,
+          "PASS": 153,
+          "RETRY": 477
+        },
+        "contradiction_count": 555,
+        "gate_action_distributions": {
+          "collapse_gate": {
+            "COLLAPSE": 126,
+            "FLAG": 110,
+            "PASS": 967,
+            "RETRY": 297
+          },
+          "divergence_gate": {
+            "ESCALATE": 21,
+            "FLAG": 1347,
+            "PASS": 2,
+            "RETRY": 130
+          },
+          "effective_signal_gate": {
+            "COLLAPSE": 863,
+            "FLAG": 170,
+            "PASS": 20,
+            "RETRY": 447
+          },
+          "projection_gate": {
+            "COLLAPSE": 97,
+            "FLAG": 121,
+            "PASS": 887,
+            "RETRY": 395
+          },
+          "recoverability_gate": {
+            "COLLAPSE": 50,
+            "FLAG": 946,
+            "PASS": 164,
+            "RETRY": 340
+          }
+        },
+        "high_disagreement_count": 864,
+        "low_disagreement_count": 23,
+        "mean_severity_spread": 2.9306666666666668,
+        "mean_severity_spread_by_profile": {
+          "external_clean": 1.9464285714285714,
+          "external_fragile": 3.075675675675676,
+          "external_mixed": 3.108695652173913,
+          "external_noisy": 2.6586538461538463,
+          "external_outlier": 3.314009661835749,
+          "external_redundant": 3.675531914893617,
+          "external_shifted": 3.3206521739130435,
+          "external_sparse": 2.1988636363636362
+        },
+        "mean_severity_variance": 1.3708266666666669,
+        "mean_spread_by_arbitration": {
+          "COLLAPSE": 3.267605633802817,
+          "ESCALATE": 3.7515243902439024,
+          "FLAG": 2,
+          "PASS": 1.9150326797385622,
+          "RETRY": 1.979035639412998
+        },
+        "mean_unique_action_count": 3.0513333333333335,
+        "mean_variance_by_arbitration": {
+          "COLLAPSE": 1.9492957746478874,
+          "ESCALATE": 1.762926829268293,
+          "FLAG": 0.64,
+          "PASS": 0.8752941176470589,
+          "RETRY": 0.7337526205450734
+        },
+        "mean_variance_by_profile": {
+          "external_clean": 0.8800000000000001,
+          "external_fragile": 1.613837837837838,
+          "external_mixed": 1.3821739130434785,
+          "external_noisy": 1.0811538461538461,
+          "external_outlier": 1.7120772946859903,
+          "external_redundant": 1.84,
+          "external_shifted": 1.4469565217391305,
+          "external_sparse": 0.9322727272727274
+        },
+        "medium_disagreement_count": 613,
+        "random_seed": 271828,
+        "source_profile_distribution": {
+          "external_clean": 168,
+          "external_fragile": 185,
+          "external_mixed": 184,
+          "external_noisy": 208,
+          "external_outlier": 207,
+          "external_redundant": 188,
+          "external_shifted": 184,
+          "external_sparse": 176
+        },
+        "system_count": 1500,
+        "unanimous_count": 0
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/cross_gate_disagreement_analysis_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

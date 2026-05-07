@@ -1,0 +1,108 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.586348+00:00",
+  "experiment": "temporal_collapse_dynamic_horizon_v0",
+  "payload": {
+    "legacy_result": {
+      "boundary_statement": {
+        "this_experiment_does_not_prove": [
+          "universal dynamic horizon predictability",
+          "real-world temporal reliability",
+          "semantic correctness",
+          "causal correctness",
+          "full OMNIATEMPO correctness",
+          "full OMNIA correctness"
+        ],
+        "this_experiment_evaluates": [
+          "dynamic temporal collapse observability",
+          "horizon drift under non-stationary structure",
+          "collapse persistence reset behavior"
+        ]
+      },
+      "core_interpretation": {
+        "exposed": [
+          "recovery and relapse break the static horizon prediction",
+          "non-stationary temporal structure introduces horizon drift",
+          "multiple collapse regimes require horizon reset logic"
+        ],
+        "validated": [
+          "static critical horizon remains exact under monotonic collapse",
+          "delayed collapse remains predictable",
+          "dual regime collapse remains predictable",
+          "instant collapse spikes remain filtered",
+          "oscillating collapse does not automatically become persistent collapse"
+        ]
+      },
+      "final_conclusion": "CHECK - dynamic horizon exposed temporal instability under non-stationary structure.",
+      "main_result": {
+        "clean_monotonic": {
+          "horizon_error": 0,
+          "status": "PASS"
+        },
+        "delayed_secondary_collapse": {
+          "horizon_error": 0,
+          "status": "PASS"
+        },
+        "drifting_onset": {
+          "horizon_error": 0,
+          "status": "PASS"
+        },
+        "dual_regime_collapse": {
+          "horizon_error": 0,
+          "status": "PASS"
+        },
+        "fragmented_persistence": {
+          "fragmented_runs": 5,
+          "persistence_resets": 4,
+          "status": "PASS"
+        },
+        "instant_spike_recovery": {
+          "persistent_collapse_detected": false,
+          "status": "PASS"
+        },
+        "oscillating_collapse": {
+          "persistent_collapse_detected": false,
+          "status": "PASS"
+        },
+        "recovery_then_relapse": {
+          "horizon_error": 6,
+          "reason": "initial collapse recovered before persistent relapse",
+          "status": "CHECK"
+        }
+      },
+      "reproduction_command": "python examples/temporal_collapse_dynamic_horizon_v0.py",
+      "status": "CHECK",
+      "summary": {
+        "check_trajectory_count": 1,
+        "confirmation_window": 2,
+        "corrected_static_rule": "critical_horizon = first_raw_collapse + confirmation_window + persistence_window - 2",
+        "max_abs_horizon_error": 6,
+        "max_horizon_fragmentation": 5,
+        "max_persistence_reset_count": 4,
+        "mean_horizon_error": 1.2,
+        "mean_horizon_fragmentation": 1.5,
+        "mean_persistence_reset_count": 0.75,
+        "observable_persistence_count": 5,
+        "pass_trajectory_count": 7,
+        "persistence_window": 2,
+        "tested_dynamic_families": [
+          "clean_monotonic",
+          "drifting_onset",
+          "instant_spike_recovery",
+          "oscillating_collapse",
+          "recovery_then_relapse",
+          "fragmented_persistence",
+          "dual_regime_collapse",
+          "delayed_secondary_collapse"
+        ],
+        "trajectory_count": 8,
+        "trajectory_length": 16
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_dynamic_horizon_v0.json",
+    "legacy_status": "CHECK",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

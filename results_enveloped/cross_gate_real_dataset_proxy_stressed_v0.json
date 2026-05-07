@@ -1,0 +1,83 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.474607+00:00",
+  "experiment": "cross_gate_real_dataset_proxy_stressed_v0",
+  "payload": {
+    "legacy_result": {
+      "reproduction_command": "python examples/cross_gate_real_dataset_proxy_stressed_v0.py",
+      "status": "CHECK",
+      "summary": {
+        "arbitration_action_distribution": {
+          "ESCALATE": 6,
+          "PASS": 6,
+          "RETRY": 8
+        },
+        "contradiction_count": 4,
+        "dataset_path": "data/cross_gate_real_dataset_proxy_stressed_v0.csv",
+        "gate_action_distributions": {
+          "collapse_gate": {
+            "PASS": 18,
+            "RETRY": 2
+          },
+          "divergence_gate": {
+            "ESCALATE": 1,
+            "FLAG": 15,
+            "RETRY": 4
+          },
+          "effective_signal_gate": {
+            "COLLAPSE": 5,
+            "FLAG": 4,
+            "PASS": 4,
+            "RETRY": 7
+          },
+          "projection_gate": {
+            "FLAG": 1,
+            "PASS": 14,
+            "RETRY": 5
+          },
+          "recoverability_gate": {
+            "FLAG": 11,
+            "PASS": 9
+          }
+        },
+        "high_disagreement_count": 6,
+        "low_disagreement_count": 5,
+        "mean_severity_spread": 2.25,
+        "mean_severity_variance": 0.9800000000000001,
+        "mean_spread_by_family": {
+          "docs": 1.5,
+          "logs": 3.6666666666666665,
+          "research": 1.75,
+          "sensor": 2.75,
+          "software": 1.5,
+          "support": 2.3333333333333335
+        },
+        "mean_unique_action_count": 2.65,
+        "mean_variance_by_family": {
+          "docs": 0.48000000000000004,
+          "logs": 1.8933333333333335,
+          "research": 0.68,
+          "sensor": 1.2400000000000002,
+          "software": 0.56,
+          "support": 1.0133333333333334
+        },
+        "medium_disagreement_count": 9,
+        "record_count": 20,
+        "source_family_distribution": {
+          "docs": 2,
+          "logs": 3,
+          "research": 4,
+          "sensor": 4,
+          "software": 4,
+          "support": 3
+        },
+        "unanimous_count": 0
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/cross_gate_real_dataset_proxy_stressed_v0.json",
+    "legacy_status": "CHECK",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

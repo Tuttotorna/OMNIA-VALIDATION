@@ -1,0 +1,136 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.587469+00:00",
+  "experiment": "temporal_collapse_early_warning_level_3_v0",
+  "payload": {
+    "legacy_result": {
+      "boundary": "synthetic reference trajectories only",
+      "claim": "This script measures structural early-warning signals for temporal-collapse-like trajectories inside a bounded v0 setup.",
+      "experiment": "temporal_collapse_early_warning_level_3_v0",
+      "results": [
+        {
+          "dominant_axis": "boundary_proximity",
+          "gate_action": "PASS",
+          "risk_regime": "STABLE",
+          "risk_score": 0.038,
+          "signals": {
+            "boundary_proximity": 0.07,
+            "collapse_similarity": 0.032,
+            "drift_score": 0.0475,
+            "irreversibility_signal": 0.03,
+            "transition_density": 0.0
+          },
+          "thresholds": {
+            "CRITICAL": 0.75,
+            "DRIFT": 0.5,
+            "STABLE": 0.25
+          },
+          "trajectory_id": "stable_reference_001",
+          "warning_flags": [],
+          "weights": {
+            "boundary_proximity": 0.25,
+            "collapse_similarity": 0.25,
+            "drift_score": 0.2,
+            "irreversibility_signal": 0.1,
+            "transition_density": 0.2
+          }
+        },
+        {
+          "dominant_axis": "transition_density",
+          "gate_action": "WATCH",
+          "risk_regime": "DRIFT",
+          "risk_score": 0.283,
+          "signals": {
+            "boundary_proximity": 0.32,
+            "collapse_similarity": 0.277333,
+            "drift_score": 0.245,
+            "irreversibility_signal": 0.18,
+            "transition_density": 0.333333
+          },
+          "thresholds": {
+            "CRITICAL": 0.75,
+            "DRIFT": 0.5,
+            "STABLE": 0.25
+          },
+          "trajectory_id": "drift_reference_001",
+          "warning_flags": [],
+          "weights": {
+            "boundary_proximity": 0.25,
+            "collapse_similarity": 0.25,
+            "drift_score": 0.2,
+            "irreversibility_signal": 0.1,
+            "transition_density": 0.2
+          }
+        },
+        {
+          "dominant_axis": "transition_density",
+          "gate_action": "ESCALATE",
+          "risk_regime": "CRITICAL",
+          "risk_score": 0.565,
+          "signals": {
+            "boundary_proximity": 0.645,
+            "collapse_similarity": 0.538667,
+            "drift_score": 0.47875,
+            "irreversibility_signal": 0.4,
+            "transition_density": 0.666667
+          },
+          "thresholds": {
+            "CRITICAL": 0.75,
+            "DRIFT": 0.5,
+            "STABLE": 0.25
+          },
+          "trajectory_id": "critical_reference_001",
+          "warning_flags": [
+            "high_transition_density",
+            "boundary_proximity"
+          ],
+          "weights": {
+            "boundary_proximity": 0.25,
+            "collapse_similarity": 0.25,
+            "drift_score": 0.2,
+            "irreversibility_signal": 0.1,
+            "transition_density": 0.2
+          }
+        },
+        {
+          "dominant_axis": "irreversibility_signal",
+          "gate_action": "STOP",
+          "risk_regime": "COLLAPSE",
+          "risk_score": 0.8685,
+          "signals": {
+            "boundary_proximity": 0.935,
+            "collapse_similarity": 0.933333,
+            "drift_score": 0.69875,
+            "irreversibility_signal": 0.95,
+            "transition_density": 0.833333
+          },
+          "thresholds": {
+            "CRITICAL": 0.75,
+            "DRIFT": 0.5,
+            "STABLE": 0.25
+          },
+          "trajectory_id": "collapse_reference_001",
+          "warning_flags": [
+            "high_transition_density",
+            "high_drift_score",
+            "boundary_proximity",
+            "collapse_similarity",
+            "irreversibility_signal"
+          ],
+          "weights": {
+            "boundary_proximity": 0.25,
+            "collapse_similarity": 0.25,
+            "drift_score": 0.2,
+            "irreversibility_signal": 0.1,
+            "transition_density": 0.2
+          }
+        }
+      ],
+      "status": "v0_minimal_reference"
+    },
+    "legacy_result_path": "results/temporal_collapse_early_warning_level_3_v0.json",
+    "legacy_status": "v0_minimal_reference",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

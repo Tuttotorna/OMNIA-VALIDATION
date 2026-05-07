@@ -1,0 +1,386 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.572348+00:00",
+  "experiment": "structural_alias_detector_v3",
+  "payload": {
+    "legacy_result": {
+      "core_boundary": "measurement != inference != decision",
+      "dataset_path": "data/structural_benchmark_dataset_v0.jsonl",
+      "domain": "structural_alias_detection",
+      "experiment_name": "structural_alias_detector_v3",
+      "limitations": [
+        "This is not the full OMNIA engine.",
+        "This is a toy alias detector.",
+        "No semantic truth is evaluated.",
+        "Graph signatures remain simplified.",
+        "No universal robustness claim is made."
+      ],
+      "main_insight": "Transition topology preserves structural equivalence better than lexical overlap.",
+      "pair_type_summary": {
+        "FALSE_MERGE_TRAP": {
+          "count": 4,
+          "success_count": 0,
+          "success_rate": 0.0
+        },
+        "FALSE_SPLIT_TRAP": {
+          "count": 4,
+          "success_count": 0,
+          "success_rate": 0.0
+        },
+        "PARTIAL_DRIFT": {
+          "count": 6,
+          "success_count": 0,
+          "success_rate": 0.0
+        },
+        "STRUCTURAL_DIFFERENT": {
+          "count": 6,
+          "success_count": 6,
+          "success_rate": 1.0
+        },
+        "STRUCTURAL_EQUIVALENT": {
+          "count": 6,
+          "success_count": 6,
+          "success_rate": 1.0
+        },
+        "STRUCTURAL_NEAR_EQUIVALENT": {
+          "count": 6,
+          "success_count": 0,
+          "success_rate": 0.0
+        }
+      },
+      "purpose": "Measure alias similarity using transition topology instead of token overlap.",
+      "record_count": 32,
+      "reproduction_command": "python examples/structural_alias_detector_v3.py",
+      "results": [
+        {
+          "alias_evidence": 0.95,
+          "case_id": "eq_001_binary_alternation",
+          "family": "binary_alternation",
+          "lexical_score": 0.0,
+          "pair_type": "STRUCTURAL_EQUIVALENT",
+          "structural_bonus": 0.25,
+          "success": true,
+          "transition_score": 1.0
+        },
+        {
+          "alias_evidence": 0.95,
+          "case_id": "eq_002_four_cycle",
+          "family": "four_cycle",
+          "lexical_score": 0.0,
+          "pair_type": "STRUCTURAL_EQUIVALENT",
+          "structural_bonus": 0.25,
+          "success": true,
+          "transition_score": 1.0
+        },
+        {
+          "alias_evidence": 0.95,
+          "case_id": "eq_003_triple_cycle",
+          "family": "triple_cycle",
+          "lexical_score": 0.0,
+          "pair_type": "STRUCTURAL_EQUIVALENT",
+          "structural_bonus": 0.25,
+          "success": true,
+          "transition_score": 1.0
+        },
+        {
+          "alias_evidence": 0.95,
+          "case_id": "eq_004_nested_blocks",
+          "family": "nested_blocks",
+          "lexical_score": 0.0,
+          "pair_type": "STRUCTURAL_EQUIVALENT",
+          "structural_bonus": 0.25,
+          "success": true,
+          "transition_score": 1.0
+        },
+        {
+          "alias_evidence": 0.95,
+          "case_id": "eq_005_run_length_gradient",
+          "family": "run_length_gradient",
+          "lexical_score": 0.0,
+          "pair_type": "STRUCTURAL_EQUIVALENT",
+          "structural_bonus": 0.25,
+          "success": true,
+          "transition_score": 1.0
+        },
+        {
+          "alias_evidence": 0.95,
+          "case_id": "eq_006_mirror_sequence",
+          "family": "mirror_sequence",
+          "lexical_score": 0.0,
+          "pair_type": "STRUCTURAL_EQUIVALENT",
+          "structural_bonus": 0.25,
+          "success": true,
+          "transition_score": 1.0
+        },
+        {
+          "alias_evidence": 0.091044776119,
+          "case_id": "near_001_binary_alternation",
+          "family": "binary_alternation",
+          "lexical_score": 0.910447761194,
+          "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.0
+        },
+        {
+          "alias_evidence": 0.161044776119,
+          "case_id": "near_002_four_cycle",
+          "family": "four_cycle",
+          "lexical_score": 0.910447761194,
+          "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.1
+        },
+        {
+          "alias_evidence": 0.090909090909,
+          "case_id": "near_003_triple_cycle",
+          "family": "triple_cycle",
+          "lexical_score": 0.909090909091,
+          "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.0
+        },
+        {
+          "alias_evidence": 0.091044776119,
+          "case_id": "near_004_nested_blocks",
+          "family": "nested_blocks",
+          "lexical_score": 0.910447761194,
+          "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.0
+        },
+        {
+          "alias_evidence": 0.092,
+          "case_id": "near_005_run_length_gradient",
+          "family": "run_length_gradient",
+          "lexical_score": 0.92,
+          "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.0
+        },
+        {
+          "alias_evidence": 0.090476190476,
+          "case_id": "near_006_mirror_sequence",
+          "family": "mirror_sequence",
+          "lexical_score": 0.904761904762,
+          "pair_type": "STRUCTURAL_NEAR_EQUIVALENT",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.0
+        },
+        {
+          "alias_evidence": 0.173333333333,
+          "case_id": "diff_001_binary_alternation_vs_four_cycle",
+          "family": "binary_alternation_vs_four_cycle",
+          "lexical_score": 0.333333333333,
+          "pair_type": "STRUCTURAL_DIFFERENT",
+          "structural_bonus": 0.0,
+          "success": true,
+          "transition_score": 0.2
+        },
+        {
+          "alias_evidence": 0.0,
+          "case_id": "diff_002_binary_alternation_vs_nested_blocks",
+          "family": "binary_alternation_vs_nested_blocks",
+          "lexical_score": 0.0,
+          "pair_type": "STRUCTURAL_DIFFERENT",
+          "structural_bonus": 0.0,
+          "success": true,
+          "transition_score": 0.0
+        },
+        {
+          "alias_evidence": 0.0,
+          "case_id": "diff_003_four_cycle_vs_run_length_gradient",
+          "family": "four_cycle_vs_run_length_gradient",
+          "lexical_score": 0.0,
+          "pair_type": "STRUCTURAL_DIFFERENT",
+          "structural_bonus": 0.0,
+          "success": true,
+          "transition_score": 0.0
+        },
+        {
+          "alias_evidence": 0.116666666667,
+          "case_id": "diff_004_triple_cycle_vs_mirror_sequence",
+          "family": "triple_cycle_vs_mirror_sequence",
+          "lexical_score": 0.0,
+          "pair_type": "STRUCTURAL_DIFFERENT",
+          "structural_bonus": 0.0,
+          "success": true,
+          "transition_score": 0.166666666667
+        },
+        {
+          "alias_evidence": 0.058974358974,
+          "case_id": "diff_005_nested_blocks_vs_mirror_sequence",
+          "family": "nested_blocks_vs_mirror_sequence",
+          "lexical_score": 0.589743589744,
+          "pair_type": "STRUCTURAL_DIFFERENT",
+          "structural_bonus": 0.0,
+          "success": true,
+          "transition_score": 0.0
+        },
+        {
+          "alias_evidence": 0.0,
+          "case_id": "diff_006_run_length_gradient_vs_binary_alternation",
+          "family": "run_length_gradient_vs_binary_alternation",
+          "lexical_score": 0.0,
+          "pair_type": "STRUCTURAL_DIFFERENT",
+          "structural_bonus": 0.0,
+          "success": true,
+          "transition_score": 0.0
+        },
+        {
+          "alias_evidence": 0.95,
+          "case_id": "fm_001_temperature_vs_finance",
+          "family": "binary_alternation_domain_collision",
+          "lexical_score": 0.0,
+          "pair_type": "FALSE_MERGE_TRAP",
+          "structural_bonus": 0.25,
+          "success": false,
+          "transition_score": 1.0
+        },
+        {
+          "alias_evidence": 0.95,
+          "case_id": "fm_002_periodicity_spoofing",
+          "family": "periodicity_collision",
+          "lexical_score": 0.0,
+          "pair_type": "FALSE_MERGE_TRAP",
+          "structural_bonus": 0.25,
+          "success": false,
+          "transition_score": 1.0
+        },
+        {
+          "alias_evidence": 0.95,
+          "case_id": "fm_003_json_field_erasure",
+          "family": "metadata_erasure_collision",
+          "lexical_score": 0.0,
+          "pair_type": "FALSE_MERGE_TRAP",
+          "structural_bonus": 0.25,
+          "success": false,
+          "transition_score": 1.0
+        },
+        {
+          "alias_evidence": 0.95,
+          "case_id": "fm_004_low_high_vs_zero_extreme",
+          "family": "magnitude_semantics_collision",
+          "lexical_score": 0.0,
+          "pair_type": "FALSE_MERGE_TRAP",
+          "structural_bonus": 0.25,
+          "success": false,
+          "transition_score": 1.0
+        },
+        {
+          "alias_evidence": 0.1,
+          "case_id": "fs_001_alias_inflation_binary",
+          "family": "binary_alternation",
+          "lexical_score": 0.0,
+          "pair_type": "FALSE_SPLIT_TRAP",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.142857142857
+        },
+        {
+          "alias_evidence": 0.233333333333,
+          "case_id": "fs_002_cardinality_inflation_cycle",
+          "family": "four_cycle",
+          "lexical_score": 0.0,
+          "pair_type": "FALSE_SPLIT_TRAP",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.333333333333
+        },
+        {
+          "alias_evidence": 0.0,
+          "case_id": "fs_003_separator_attack",
+          "family": "word_pair_alternation",
+          "lexical_score": 0.0,
+          "pair_type": "FALSE_SPLIT_TRAP",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.0
+        },
+        {
+          "alias_evidence": 0.0,
+          "case_id": "fs_004_nested_alias_split",
+          "family": "nested_blocks",
+          "lexical_score": 0.0,
+          "pair_type": "FALSE_SPLIT_TRAP",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.0
+        },
+        {
+          "alias_evidence": 0.096875,
+          "case_id": "drift_001_binary_alternation",
+          "family": "binary_alternation",
+          "lexical_score": 0.96875,
+          "pair_type": "PARTIAL_DRIFT",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.0
+        },
+        {
+          "alias_evidence": 0.196875,
+          "case_id": "drift_002_four_cycle",
+          "family": "four_cycle",
+          "lexical_score": 0.96875,
+          "pair_type": "PARTIAL_DRIFT",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.142857142857
+        },
+        {
+          "alias_evidence": 0.095238095238,
+          "case_id": "drift_003_triple_cycle",
+          "family": "triple_cycle",
+          "lexical_score": 0.952380952381,
+          "pair_type": "PARTIAL_DRIFT",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.0
+        },
+        {
+          "alias_evidence": 0.0953125,
+          "case_id": "drift_004_nested_blocks",
+          "family": "nested_blocks",
+          "lexical_score": 0.953125,
+          "pair_type": "PARTIAL_DRIFT",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.0
+        },
+        {
+          "alias_evidence": 0.095833333333,
+          "case_id": "drift_005_run_length_gradient",
+          "family": "run_length_gradient",
+          "lexical_score": 0.958333333333,
+          "pair_type": "PARTIAL_DRIFT",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.0
+        },
+        {
+          "alias_evidence": 0.095,
+          "case_id": "drift_006_mirror_sequence",
+          "family": "mirror_sequence",
+          "lexical_score": 0.95,
+          "pair_type": "PARTIAL_DRIFT",
+          "structural_bonus": 0.0,
+          "success": false,
+          "transition_score": 0.0
+        }
+      ],
+      "status": "FAIL",
+      "success_count": 12,
+      "success_rate": 0.375,
+      "version": "0.3.0"
+    },
+    "legacy_result_path": "results/structural_alias_detector_v3.json",
+    "legacy_status": "FAIL",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

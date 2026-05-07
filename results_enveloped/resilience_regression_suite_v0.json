@@ -1,0 +1,191 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.570792+00:00",
+  "experiment": "resilience_regression_suite_v0",
+  "payload": {
+    "legacy_result": {
+      "claim_level": "Level 1 — Regression Harness",
+      "components": [
+        {
+          "component_passed": true,
+          "critical_check_passed": true,
+          "critical_checks": {
+            "noise_gradient_detected": {
+              "noise_gradient_detected": true,
+              "passed": true,
+              "total_violation_count": 0
+            },
+            "normalized_margin_greater_than_raw_margin": {
+              "normalized_margin": 0.602173482822,
+              "passed": true,
+              "raw_margin": 0.052785411892
+            },
+            "normalized_within_lower_than_cross": {
+              "mean_cross": 0.853630825696,
+              "mean_within": 0.251457342874,
+              "passed": true,
+              "within_lower_than_cross": true
+            }
+          },
+          "executed": true,
+          "expected_operational_classification": null,
+          "expected_status": "PASS",
+          "name": "cross_domain_invariance_v0_2",
+          "operational_classification": null,
+          "operational_classification_ok": true,
+          "result": "results/cross_domain_invariance_v0_2.json",
+          "return_code": 0,
+          "script": "examples/cross_domain_invariance_v0_2.py",
+          "status": "PASS",
+          "status_ok": true,
+          "stderr_tail": "",
+          "stdout_tail": "  A_json_like_noise_3              family=A_alternating   noise=3 raw_omega=0.934418443431 norm_omega=0.808991584853 norm=01010100110200101010101010101010\n  B_letters_compact_noise_0        family=B_cyclic        noise=0 raw_omega=0.949034393852 norm_omega=0.949034393852 norm=01230123012301230123012301230123\n  B_digits_spaced_noise_1          family=B_cyclic        noise=1 raw_omega=0.92174247646 norm_omega=0.873925162437 norm=01230123012401230123012301230123\n  B_words_pipe_noise_2             family=B_cyclic        noise=2 raw_omega=0.746648115065 norm_omega=0.772707465852 norm=01230120312401230123012301230123\n  B_json_like_noise_3              family=B_cyclic        noise=3 raw_omega=0.925570178092 norm_omega=0.738016108684 norm=01230120312402301230123012301230\n\nRaw combined distance analysis:\n  mean within:        0.933967967498\n  mean cross:         0.98675337939\n  margin:             0.052785411892\n  within < cross:     True\n\nNormalized combined distance analysis:\n  mean within:        0.251457342874\n  mean cross:         0.853630825696\n  margin:             0.602173482822\n  within < cross:     True\n\nProjected-only normalized analysis:\n  mean within:        0.086805555555\n  mean cross:         0.532930107527\n  margin:             0.446124551971\n  within < cross:     True\n\nNoise gradient:\n  detected:           True\n  violations:         0\n  A_alternating: values=[0.96612988567, 0.893159299028, 0.833831368608, 0.808991584853] non_increasing=True violations=0\n  B_cyclic: values=[0.949034393852, 0.873925162437, 0.772707465852, 0.738016108684] non_increasing=True violations=0\n\nImprovement:\n  raw margin:         0.052785411892\n  normalized margin:  0.602173482822\n  normalized > raw:   True\n\nPass condition:\n  normalized_within_lower_than_cross == true and normalized_margin > raw_margin and normalized_margin > 0.05 and noise_gradient_detected == true\n\nResult saved to: /content/OMNIA-VALIDATION/results/cross_domain_invariance_v0_2.json\n================================================================================"
+        },
+        {
+          "component_passed": true,
+          "critical_check_passed": true,
+          "critical_checks": {
+            "attack_count_positive": {
+              "attack_count": 8,
+              "passed": true
+            },
+            "controls_ok": {
+              "controls_ok": true,
+              "passed": true
+            },
+            "false_merge_attacks_detected": {
+              "false_merge_attack_count": 6,
+              "passed": true
+            },
+            "false_split_attacks_detected": {
+              "false_split_attack_count": 2,
+              "passed": true
+            }
+          },
+          "executed": true,
+          "expected_operational_classification": "BOUNDARY_DETECTED",
+          "expected_status": "PASS",
+          "name": "adversarial_representation_v0",
+          "operational_classification": "BOUNDARY_DETECTED",
+          "operational_classification_ok": true,
+          "result": "results/adversarial_representation_v0.json",
+          "return_code": 0,
+          "script": "examples/adversarial_representation_v0.py",
+          "status": "PASS",
+          "status_ok": true,
+          "stderr_tail": "",
+          "stdout_tail": "Status: PASS\nOperational classification: BOUNDARY_DETECTED\nClaim level: Level 1 — Toy Demonstration\n\nMeasured cases:\n  false_merge_A_temperature        attack_type=false_merge  omega=0.949101311664 projected=0101010101010101010101010101010101010101010101010101010101010101\n  false_merge_B_finance            attack_type=false_merge  omega=0.949101311664 projected=0101010101010101010101010101010101010101010101010101010101010101\n  false_merge_C_low_high           attack_type=false_merge  omega=0.949101311664 projected=0101010101010101010101010101010101010101010101010101010101010101\n  false_merge_D_zero_extreme       attack_type=false_merge  omega=0.949101311664 projected=0101010101010101010101010101010101010101010101010101010101010101\n  false_split_A_clean              attack_type=false_split  omega=0.949101311664 projected=0101010101010101010101010101010101010101010101010101010101010101\n  false_split_B_aliases            attack_type=false_split  omega=0.897470844036 projected=0123450123450123450123450123450123450123450123450123450123450123\n  false_split_C_clean_cycle        attack_type=false_split  omega=0.961840890045 projected=0123012301230123012301230123012301230123012301230123012301230123\n  false_split_D_alias_cycle        attack_type=false_split  omega=0.936281958661 projected=0123456701234567012345670123456701234567012345670123456701234567\n  control_binary_clean_1           attack_type=control      omega=0.949101311664 projected=0101010101010101010101010101010101010101010101010101010101010101\n  control_binary_clean_2           attack_type=control      omega=0.949101311664 projected=0101010101010101010101010101010101010101010101010101010101010101\n  control_four_cycle_1             attack_type=control      omega=0.961840890045 projected=0123012301230123012301230123012301230123012301230123012301230123\n  control_four_cycle_2             attack_type=control      omega=0.961840890045 projected=0123012301230123012301230123012301230123012301230123012301230123\n\nFalse merge attacks:\n  false_merge_A_temperature <-> false_merge_B_finance edit=0.0 combined=0.0\n  false_merge_A_temperature <-> false_merge_C_low_high edit=0.0 combined=0.0\n  false_merge_A_temperature <-> false_merge_D_zero_extreme edit=0.0 combined=0.0\n  false_merge_B_finance <-> false_merge_C_low_high edit=0.0 combined=0.0\n  false_merge_B_finance <-> false_merge_D_zero_extreme edit=0.0 combined=0.0\n  false_merge_C_low_high <-> false_merge_D_zero_extreme edit=0.0 combined=0.0\n\nFalse split attacks:\n  false_split_A_clean <-> false_split_B_aliases edit=0.65625 combined=1.263691235877\n  false_split_C_clean_cycle <-> false_split_D_alias_cycle edit=0.5 combined=0.826827245531\n\nControls:\n  equivalent_controls_ok: True\n  separate_controls_ok:   True\n  controls_ok:            True\n\nSummary:\n  attack_count: 8\n  expected_failure_case_count: 8\n  result saved to: /content/OMNIA-VALIDATION/results/adversarial_representation_v0.json\n================================================================================"
+        },
+        {
+          "component_passed": true,
+          "critical_check_passed": true,
+          "critical_checks": {
+            "attack_family_count_minimum": {
+              "attack_family_count": 7,
+              "passed": true
+            },
+            "control_ok": {
+              "control_ok": true,
+              "passed": true
+            },
+            "detected_boundary_count_minimum": {
+              "detected_boundary_count": 7,
+              "passed": true
+            },
+            "observed_effect_count_minimum": {
+              "observed_effect_count": 3,
+              "passed": true
+            }
+          },
+          "executed": true,
+          "expected_operational_classification": "BOUNDARY_MAP_BUILT",
+          "expected_status": "PASS",
+          "name": "projection_boundary_map_v0",
+          "operational_classification": "BOUNDARY_MAP_BUILT",
+          "operational_classification_ok": true,
+          "result": "results/projection_boundary_map_v0.json",
+          "return_code": 0,
+          "script": "examples/projection_boundary_map_v0.py",
+          "status": "PASS",
+          "status_ok": true,
+          "stderr_tail": "",
+          "stdout_tail": "  control_separate_binary_cycle        family=CONTROL                  expected=correct_split    observed=correct_split      detected=True  severity=0.0\n\nBoundary summary:\n  attack_family_count:       7\n  observed_effect_count:     3\n  broken_assumption_count:   7\n  detected_boundary_count:   7\n  undetected_boundary_count: 0\n  control_ok:                True\n  average_severity:          0.821151920176\n  max_severity:              1.0\n\nAttack families:\n  - ALIAS_INFLATION\n  - CARDINALITY_INFLATION\n  - JSON_FIELD_ERASURE\n  - LOCAL_SWAP_DRIFT\n  - MANY_TO_ONE_COLLAPSE\n  - PERIODICITY_SPOOFING\n  - SEPARATOR_ATTACK\n\nObserved effects:\n  - false_merge\n  - false_split\n  - partial_split\n\nBroken assumptions:\n  - ignored_fields_are_irrelevant\n  - local_order_is_stable\n  - periodicity_implies_structural_equivalence\n  - stable_symbol_identity\n  - state_cardinality_is_stable\n  - token_boundaries_are_reliable\n  - token_identity_is_disposable\n\nPass condition:\n  attack_family_count >= 4 and observed_effect_count >= 3 and detected_boundary_count >= 5 and control_ok == true\n\nResult saved to: /content/OMNIA-VALIDATION/results/projection_boundary_map_v0.json\n================================================================================"
+        },
+        {
+          "component_passed": true,
+          "critical_check_passed": true,
+          "critical_checks": {
+            "control_preservation": {
+              "control_preservation": true,
+              "control_preservation_rate": 1.0,
+              "passed": true
+            },
+            "mitigation_success_rate_minimum": {
+              "mitigation_success_rate": 0.75,
+              "passed": true
+            },
+            "resilient_failure_count_below_baseline": {
+              "baseline_failure_count": 6,
+              "passed": true,
+              "resilient_failure_count": 1
+            },
+            "stability_gain_positive": {
+              "passed": true,
+              "stability_gain": 0.833333333333
+            }
+          },
+          "executed": true,
+          "expected_operational_classification": "TOY_RESILIENCE_LAYER_VALIDATED",
+          "expected_status": "PASS",
+          "name": "projection_resilience_layer_v0",
+          "operational_classification": "TOY_RESILIENCE_LAYER_VALIDATED",
+          "operational_classification_ok": true,
+          "result": "results/projection_resilience_layer_v0.json",
+          "return_code": 0,
+          "script": "examples/projection_resilience_layer_v0.py",
+          "status": "PASS",
+          "status_ok": true,
+          "stderr_tail": "",
+          "stdout_tail": "================================================================================\nOMNIA-VALIDATION — Projection Resilience Layer v0\n================================================================================\nStatus: PASS\nOperational classification: TOY_RESILIENCE_LAYER_VALIDATED\nClaim level: Level 1 — Toy Structural Mitigation\n\nResults:\n  json_field_erasure_mitigation      family=JSON_FIELD_ERASURE     baseline=false_merge      resilient=false_merge        success=False delta=0.0\n  alias_inflation_mitigation         family=ALIAS_INFLATION        baseline=false_split      resilient=correct_merge      success=True  delta=-1.263691235877\n  cardinality_inflation_mitigation   family=CARDINALITY_INFLATION  baseline=false_split      resilient=correct_merge      success=True  delta=-0.826827245531\n  separator_attack_mitigation        family=SEPARATOR_ATTACK       baseline=false_split      resilient=correct_merge      success=True  delta=-0.827486195701\n  many_to_one_unsolved               family=MANY_TO_ONE_COLLAPSE   baseline=false_merge      resilient=false_merge        success=True  delta=0.0\n  periodicity_spoofing_unsolved      family=PERIODICITY_SPOOFING   baseline=false_merge      resilient=false_merge        success=True  delta=0.0\n  control_equivalent_binary          family=CONTROL                baseline=correct_merge    resilient=correct_merge      success=True  delta=0.0\n  control_separate_binary_cycle      family=CONTROL                baseline=correct_split    resilient=correct_split      success=True  delta=0.0\n\nSummary:\n  mitigation_case_count:             4\n  successful_mitigation_count:       3\n  mitigation_success_rate:           0.75\n  hard_boundary_case_count:          2\n  hard_boundary_preservation_rate:   1.0\n  control_case_count:                2\n  control_preservation_rate:         1.0\n  control_preservation:              True\n  baseline_failure_count:            6\n  resilient_failure_count:           1\n  stability_gain:                    0.833333333333\n\nPass condition:\n  mitigation_success_rate >= 0.50 and control_preservation == true and stability_gain > 0.0\n\nResult saved to: /content/OMNIA-VALIDATION/results/projection_resilience_layer_v0.json\n================================================================================"
+        }
+      ],
+      "core_boundary": "measurement != inference != decision",
+      "date_utc": "2026-05-03T20:44:58.413189+00:00",
+      "domain": "projection_resilience_regression_harness",
+      "experiment_name": "resilience_regression_suite_v0",
+      "interpretation": "PASS means all known projection boundary and resilience experiments still satisfy their expected statuses and critical invariants.",
+      "limitations": [
+        "This is not the full OMNIA engine.",
+        "This suite only checks selected known experiments.",
+        "It does not discover new failure modes.",
+        "It does not prove universal robustness.",
+        "It depends on toy scripts and toy metrics.",
+        "No semantic truth is evaluated."
+      ],
+      "main_insight": "Known projection boundary and resilience behavior can be checked as a reproducible regression harness.",
+      "operational_classification": "REGRESSION_SUITE_PASSED",
+      "pass_condition": "all component scripts return 0, all component statuses are PASS, and all critical invariants pass",
+      "purpose": "Run projection resilience experiments as a regression suite and verify critical invariants.",
+      "reproduction_command": "python examples/resilience_regression_suite_v0.py",
+      "status": "PASS",
+      "summary": {
+        "all_components_passed": true,
+        "all_critical_checks_passed": true,
+        "all_return_codes_zero": true,
+        "critical_check_passed": 15,
+        "critical_check_total": 15,
+        "executed_count": 4,
+        "failed_component_count": 0,
+        "failed_components": [],
+        "passed_component_count": 4,
+        "regression_passed": true,
+        "total_components": 4
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/resilience_regression_suite_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

@@ -1,0 +1,1151 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.650380+00:00",
+  "experiment": "temporal_collapse_topology_transition_signature_stability_v0",
+  "payload": {
+    "legacy_result": {
+      "experiment": "temporal_collapse_topology_transition_signature_stability_v0",
+      "final_check": {
+        "message": "transition-signature stability map detected: signature cores remained internally consistent while family-level stability exposed perturbation-sensitive signature clusters",
+        "status": "PASS"
+      },
+      "geometry_records": [
+        {
+          "family": "single_run",
+          "geometry_name": "single_run_len_2",
+          "run_lengths": [
+            2
+          ],
+          "transition_results": [
+            {
+              "confirmation_window": 2,
+              "cost_destination_consistent": true,
+              "observed_destination_class": "SPIKE_FILTERED",
+              "remaining_run_count": 1,
+              "signature_core": "cost=1/remaining=1--> SPIKE_FILTERED",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "transition_cost": 1
+            },
+            {
+              "confirmation_window": 3,
+              "cost_destination_consistent": true,
+              "observed_destination_class": "SPIKE_FILTERED",
+              "remaining_run_count": 1,
+              "signature_core": "cost=0/remaining=1--> SPIKE_FILTERED",
+              "source_class": "SPIKE_FILTERED",
+              "transition_cost": 0
+            },
+            {
+              "confirmation_window": 4,
+              "cost_destination_consistent": true,
+              "observed_destination_class": "SPIKE_FILTERED",
+              "remaining_run_count": 1,
+              "signature_core": "cost=0/remaining=1--> SPIKE_FILTERED",
+              "source_class": "SPIKE_FILTERED",
+              "transition_cost": 0
+            }
+          ],
+          "variant_index": 0
+        },
+        {
+          "family": "single_run",
+          "geometry_name": "single_run_len_3",
+          "run_lengths": [
+            3
+          ],
+          "transition_results": [
+            {
+              "confirmation_window": 2,
+              "cost_destination_consistent": true,
+              "observed_destination_class": "SPIKE_FILTERED",
+              "remaining_run_count": 1,
+              "signature_core": "cost=2/remaining=1--> SPIKE_FILTERED",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "transition_cost": 2
+            },
+            {
+              "confirmation_window": 3,
+              "cost_destination_consistent": true,
+              "observed_destination_class": "SPIKE_FILTERED",
+              "remaining_run_count": 1,
+              "signature_core": "cost=1/remaining=1--> SPIKE_FILTERED",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "transition_cost": 1
+            },
+            {
+              "confirmation_window": 4,
+              "cost_destination_consistent": true,
+              "observed_destination_class": "SPIKE_FILTERED",
+              "remaining_run_count": 1,
+              "signature_core": "cost=0/remaining=1--> SPIKE_FILTERED",
+              "source_class": "SPIKE_FILTERED",
+              "transition_cost": 0
+            }
+          ],
+          "variant_index": 1
+        },
+        {
+          "family": "single_run",
+          "geometry_name": "single_run_len_4",
+          "run_lengths": [
+            4
+          ],
+          "transition_results": [
+            {
+              "confirmation_window": 2,
+              "cost_destination_consistent": true,
+              "observed_destination_class": "SPIKE_FILTERED",
+              "remaining_run_count": 1,
+              "signature_core": "cost=3/remaining=1--> SPIKE_FILTERED",
+              "source_class": "GLOBAL_PERSISTENT_COLLAPSE",
+              "transition_cost": 3
+            },
+            {
+              "confirmation_window": 3,
+              "cost_destination_consistent": true,
+              "observed_destination_class": "SPIKE_FILTERED",
+              "remaining_run_count": 1,
+              "signature_core": "cost=2/remaining=1--> SPIKE_FILTERED",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "transition_cost": 2
+            },
+            {
+              "confirmation_window": 4,
+              "cost_destination_consistent": true,
+              "observed_destination_class": "SPIKE_FILTERED",
+              "remaining_run_count": 1,
+              "signature_core": "cost=1/remaining=1--> SPIKE_FILTERED",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "transition_cost": 1
+            }
+          ],
+          "variant_index": 2
+        },
+        {
+          "family": "single_run",
+          "geometry_name": "single_run_len_5",
+          "run_lengths": [
+            5
+          ],
+          "transition_results": [
+            {
+              "confirmation_window": 2,
+              "cost_destination_consistent": true,
+              "observed_destination_class": "SPIKE_FILTERED",
+              "remaining_run_count": 1,
+              "signature_core": "cost=4/remaining=1--> SPIKE_FILTERED",
+              "source_class": "GLOBAL_PERSISTENT_COLLAPSE",
+              "transition_cost": 4
+            },
+            {
+              "confirmation_window": 3,
+              "cost_destination_consistent": true,
+              "observed_destination_class": "SPIKE_FILTERED",
+              "remaining_run_count": 1,
+              "signature_core": "cost=3/remaining=1--> SPIKE_FILTERED",
+              "source_class": "GLOBAL_PERSISTENT_COLLAPSE",
+              "transition_cost": 3
+            },
+            {
+              "confirmation_window": 4,
+              "cost_destination_consistent": true,
+              "observed_destination_class": "SPIKE_FILTERED",
+              "remaining_run_count": 1,
+              "signature_core": "cost=2/remaining=1--> SPIKE_FILTERED",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "transition_cost": 2
+            }
+          ],
+          "variant_index": 3
+        }
+      ],
+      "interpretation": {
+        "cost_destination_consistency_rate": 1.0,
+        "failure_count": 0,
+        "important_boundary": "No tested geometry family produced identical stable signature cores across its perturbations.",
+        "main_result": "Transition signature cores remained internally consistent under controlled geometry perturbations.",
+        "signature_cluster_count": 35,
+        "stable_family_count": 0,
+        "structural_conclusion": "geometries similar by family produce coherent signature clusters, not identical stable signatures",
+        "unstable_family_count": 6
+      },
+      "reproduction_command": "python examples/temporal_collapse_topology_transition_signature_stability_v0.py",
+      "status": "PASS",
+      "summary": {
+        "confirmation_windows": [
+          2,
+          3,
+          4
+        ],
+        "cost_destination_consistency_rate": 1.0,
+        "family_count": 6,
+        "family_values": [
+          "dense_short",
+          "mixed_staircase",
+          "single_run",
+          "spike_plus_long",
+          "three_equal_runs",
+          "two_equal_runs"
+        ],
+        "flat_record_count": 72,
+        "method": "transition_signature_stability_map",
+        "node_count": 6,
+        "partially_stable_family_count": 0,
+        "persistence_window": 2,
+        "signature_cluster_count": 35,
+        "signature_consistency_holds": true,
+        "signature_core_definition": "cost=<transition_cost>/remaining=<remaining_run_count>--> DESTINATION_CLASS",
+        "signature_definition": "SOURCE_CLASS --C=<confirmation_window>/cost=<transition_cost>/remaining=<remaining_run_count>--> DESTINATION_CLASS",
+        "stable_family_count": 0,
+        "transition_signature_stability_map_detected": true,
+        "unique_signature_core_count": 35,
+        "unique_transition_signature_count": 67,
+        "unstable_family_count": 6,
+        "variant_count": 24
+      },
+      "transition_signature_stability_summary": {
+        "by_family": {
+          "dense_short": {
+            "core_stability_by_threshold": {
+              "2": {
+                "stable": false,
+                "unique_count": 4,
+                "unique_values": [
+                  "cost=2/remaining=4--> OSCILLATING_NONPERSISTENT",
+                  "cost=3/remaining=5--> OSCILLATING_NONPERSISTENT",
+                  "cost=4/remaining=6--> OSCILLATING_NONPERSISTENT",
+                  "cost=5/remaining=6--> OSCILLATING_NONPERSISTENT"
+                ]
+              },
+              "3": {
+                "stable": false,
+                "unique_count": 4,
+                "unique_values": [
+                  "cost=0/remaining=4--> OSCILLATING_NONPERSISTENT",
+                  "cost=0/remaining=5--> OSCILLATING_NONPERSISTENT",
+                  "cost=0/remaining=6--> OSCILLATING_NONPERSISTENT",
+                  "cost=1/remaining=6--> OSCILLATING_NONPERSISTENT"
+                ]
+              },
+              "4": {
+                "stable": false,
+                "unique_count": 3,
+                "unique_values": [
+                  "cost=0/remaining=4--> OSCILLATING_NONPERSISTENT",
+                  "cost=0/remaining=5--> OSCILLATING_NONPERSISTENT",
+                  "cost=0/remaining=6--> OSCILLATING_NONPERSISTENT"
+                ]
+              }
+            },
+            "core_stability_rate": 0.0,
+            "family": "dense_short",
+            "family_unique_core_count": 8,
+            "family_unique_signature_count": 11,
+            "geometry_names": [
+              "dense_short_2_1_2_1",
+              "dense_short_2_2_1_2_1",
+              "dense_short_2_2_1_2_1_2",
+              "dense_short_3_2_1_2_1_2"
+            ],
+            "stable_core_threshold_count": 0,
+            "variant_count": 4
+          },
+          "mixed_staircase": {
+            "core_stability_by_threshold": {
+              "2": {
+                "stable": false,
+                "unique_count": 4,
+                "unique_values": [
+                  "cost=10/remaining=4--> OSCILLATING_NONPERSISTENT",
+                  "cost=10/remaining=5--> OSCILLATING_NONPERSISTENT",
+                  "cost=15/remaining=5--> OSCILLATING_NONPERSISTENT",
+                  "cost=6/remaining=4--> OSCILLATING_NONPERSISTENT"
+                ]
+              },
+              "3": {
+                "stable": false,
+                "unique_count": 4,
+                "unique_values": [
+                  "cost=10/remaining=5--> OSCILLATING_NONPERSISTENT",
+                  "cost=3/remaining=4--> OSCILLATING_NONPERSISTENT",
+                  "cost=6/remaining=4--> OSCILLATING_NONPERSISTENT",
+                  "cost=6/remaining=5--> OSCILLATING_NONPERSISTENT"
+                ]
+              },
+              "4": {
+                "stable": false,
+                "unique_count": 4,
+                "unique_values": [
+                  "cost=1/remaining=4--> OSCILLATING_NONPERSISTENT",
+                  "cost=3/remaining=4--> OSCILLATING_NONPERSISTENT",
+                  "cost=3/remaining=5--> OSCILLATING_NONPERSISTENT",
+                  "cost=6/remaining=5--> OSCILLATING_NONPERSISTENT"
+                ]
+              }
+            },
+            "core_stability_rate": 0.0,
+            "family": "mixed_staircase",
+            "family_unique_core_count": 8,
+            "family_unique_signature_count": 12,
+            "geometry_names": [
+              "staircase_1_2_3_4",
+              "staircase_1_2_3_4_5",
+              "staircase_2_3_4_5",
+              "staircase_2_3_4_5_6"
+            ],
+            "stable_core_threshold_count": 0,
+            "variant_count": 4
+          },
+          "single_run": {
+            "core_stability_by_threshold": {
+              "2": {
+                "stable": false,
+                "unique_count": 4,
+                "unique_values": [
+                  "cost=1/remaining=1--> SPIKE_FILTERED",
+                  "cost=2/remaining=1--> SPIKE_FILTERED",
+                  "cost=3/remaining=1--> SPIKE_FILTERED",
+                  "cost=4/remaining=1--> SPIKE_FILTERED"
+                ]
+              },
+              "3": {
+                "stable": false,
+                "unique_count": 4,
+                "unique_values": [
+                  "cost=0/remaining=1--> SPIKE_FILTERED",
+                  "cost=1/remaining=1--> SPIKE_FILTERED",
+                  "cost=2/remaining=1--> SPIKE_FILTERED",
+                  "cost=3/remaining=1--> SPIKE_FILTERED"
+                ]
+              },
+              "4": {
+                "stable": false,
+                "unique_count": 3,
+                "unique_values": [
+                  "cost=0/remaining=1--> SPIKE_FILTERED",
+                  "cost=1/remaining=1--> SPIKE_FILTERED",
+                  "cost=2/remaining=1--> SPIKE_FILTERED"
+                ]
+              }
+            },
+            "core_stability_rate": 0.0,
+            "family": "single_run",
+            "family_unique_core_count": 5,
+            "family_unique_signature_count": 11,
+            "geometry_names": [
+              "single_run_len_2",
+              "single_run_len_3",
+              "single_run_len_4",
+              "single_run_len_5"
+            ],
+            "stable_core_threshold_count": 0,
+            "variant_count": 4
+          },
+          "spike_plus_long": {
+            "core_stability_by_threshold": {
+              "2": {
+                "stable": false,
+                "unique_count": 4,
+                "unique_values": [
+                  "cost=3/remaining=3--> OSCILLATING_NONPERSISTENT",
+                  "cost=4/remaining=3--> OSCILLATING_NONPERSISTENT",
+                  "cost=5/remaining=4--> OSCILLATING_NONPERSISTENT",
+                  "cost=6/remaining=4--> OSCILLATING_NONPERSISTENT"
+                ]
+              },
+              "3": {
+                "stable": false,
+                "unique_count": 4,
+                "unique_values": [
+                  "cost=2/remaining=3--> OSCILLATING_NONPERSISTENT",
+                  "cost=3/remaining=3--> OSCILLATING_NONPERSISTENT",
+                  "cost=4/remaining=4--> OSCILLATING_NONPERSISTENT",
+                  "cost=5/remaining=4--> OSCILLATING_NONPERSISTENT"
+                ]
+              },
+              "4": {
+                "stable": false,
+                "unique_count": 4,
+                "unique_values": [
+                  "cost=1/remaining=3--> OSCILLATING_NONPERSISTENT",
+                  "cost=2/remaining=3--> OSCILLATING_NONPERSISTENT",
+                  "cost=3/remaining=4--> OSCILLATING_NONPERSISTENT",
+                  "cost=4/remaining=4--> OSCILLATING_NONPERSISTENT"
+                ]
+              }
+            },
+            "core_stability_rate": 0.0,
+            "family": "spike_plus_long",
+            "family_unique_core_count": 8,
+            "family_unique_signature_count": 12,
+            "geometry_names": [
+              "long_then_spikes_4_1_1",
+              "long_then_spikes_5_1_1",
+              "long_then_spikes_6_1_1_1",
+              "long_then_spikes_7_1_1_1"
+            ],
+            "stable_core_threshold_count": 0,
+            "variant_count": 4
+          },
+          "three_equal_runs": {
+            "core_stability_by_threshold": {
+              "2": {
+                "stable": false,
+                "unique_count": 4,
+                "unique_values": [
+                  "cost=12/remaining=3--> OSCILLATING_NONPERSISTENT",
+                  "cost=3/remaining=3--> OSCILLATING_NONPERSISTENT",
+                  "cost=6/remaining=3--> OSCILLATING_NONPERSISTENT",
+                  "cost=9/remaining=3--> OSCILLATING_NONPERSISTENT"
+                ]
+              },
+              "3": {
+                "stable": false,
+                "unique_count": 4,
+                "unique_values": [
+                  "cost=0/remaining=3--> OSCILLATING_NONPERSISTENT",
+                  "cost=3/remaining=3--> OSCILLATING_NONPERSISTENT",
+                  "cost=6/remaining=3--> OSCILLATING_NONPERSISTENT",
+                  "cost=9/remaining=3--> OSCILLATING_NONPERSISTENT"
+                ]
+              },
+              "4": {
+                "stable": false,
+                "unique_count": 3,
+                "unique_values": [
+                  "cost=0/remaining=3--> OSCILLATING_NONPERSISTENT",
+                  "cost=3/remaining=3--> OSCILLATING_NONPERSISTENT",
+                  "cost=6/remaining=3--> OSCILLATING_NONPERSISTENT"
+                ]
+              }
+            },
+            "core_stability_rate": 0.0,
+            "family": "three_equal_runs",
+            "family_unique_core_count": 5,
+            "family_unique_signature_count": 11,
+            "geometry_names": [
+              "three_runs_len_2_2_2",
+              "three_runs_len_3_3_3",
+              "three_runs_len_4_4_4",
+              "three_runs_len_5_5_5"
+            ],
+            "stable_core_threshold_count": 0,
+            "variant_count": 4
+          },
+          "two_equal_runs": {
+            "core_stability_by_threshold": {
+              "2": {
+                "stable": false,
+                "unique_count": 4,
+                "unique_values": [
+                  "cost=2/remaining=2--> OSCILLATING_NONPERSISTENT",
+                  "cost=4/remaining=2--> OSCILLATING_NONPERSISTENT",
+                  "cost=6/remaining=2--> OSCILLATING_NONPERSISTENT",
+                  "cost=8/remaining=2--> OSCILLATING_NONPERSISTENT"
+                ]
+              },
+              "3": {
+                "stable": false,
+                "unique_count": 4,
+                "unique_values": [
+                  "cost=0/remaining=2--> OSCILLATING_NONPERSISTENT",
+                  "cost=2/remaining=2--> OSCILLATING_NONPERSISTENT",
+                  "cost=4/remaining=2--> OSCILLATING_NONPERSISTENT",
+                  "cost=6/remaining=2--> OSCILLATING_NONPERSISTENT"
+                ]
+              },
+              "4": {
+                "stable": false,
+                "unique_count": 3,
+                "unique_values": [
+                  "cost=0/remaining=2--> OSCILLATING_NONPERSISTENT",
+                  "cost=2/remaining=2--> OSCILLATING_NONPERSISTENT",
+                  "cost=4/remaining=2--> OSCILLATING_NONPERSISTENT"
+                ]
+              }
+            },
+            "core_stability_rate": 0.0,
+            "family": "two_equal_runs",
+            "family_unique_core_count": 5,
+            "family_unique_signature_count": 11,
+            "geometry_names": [
+              "two_runs_len_2_2",
+              "two_runs_len_3_3",
+              "two_runs_len_4_4",
+              "two_runs_len_5_5"
+            ],
+            "stable_core_threshold_count": 0,
+            "variant_count": 4
+          }
+        },
+        "by_threshold": {
+          "2": {
+            "confirmation_window": 2,
+            "cost_destination_consistency_rate": 1.0,
+            "destination_class_counts": {
+              "OSCILLATING_NONPERSISTENT": 20,
+              "SPIKE_FILTERED": 4
+            },
+            "record_count": 24,
+            "transition_cost_values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              8,
+              9,
+              10,
+              12,
+              15
+            ],
+            "unique_signature_core_count": 22,
+            "unique_transition_signature_count": 23
+          },
+          "3": {
+            "confirmation_window": 3,
+            "cost_destination_consistency_rate": 1.0,
+            "destination_class_counts": {
+              "OSCILLATING_NONPERSISTENT": 20,
+              "SPIKE_FILTERED": 4
+            },
+            "record_count": 24,
+            "transition_cost_values": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              9,
+              10
+            ],
+            "unique_signature_core_count": 23,
+            "unique_transition_signature_count": 24
+          },
+          "4": {
+            "confirmation_window": 4,
+            "cost_destination_consistency_rate": 1.0,
+            "destination_class_counts": {
+              "OSCILLATING_NONPERSISTENT": 20,
+              "SPIKE_FILTERED": 4
+            },
+            "record_count": 24,
+            "transition_cost_values": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              6
+            ],
+            "unique_signature_core_count": 19,
+            "unique_transition_signature_count": 20
+          }
+        },
+        "cost_destination_consistency_count": 72,
+        "cost_destination_consistency_rate": 1.0,
+        "family_count": 6,
+        "family_values": [
+          "dense_short",
+          "mixed_staircase",
+          "single_run",
+          "spike_plus_long",
+          "three_equal_runs",
+          "two_equal_runs"
+        ],
+        "flat_record_count": 72,
+        "partially_stable_family_count": 0,
+        "record_count": 24,
+        "signature_cluster_count": 35,
+        "signature_clusters": {
+          "cost=0/remaining=1--> SPIKE_FILTERED": {
+            "confirmation_window_values": [
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "SPIKE_FILTERED"
+            ],
+            "family_values": [
+              "single_run"
+            ],
+            "record_count": 3,
+            "source_class_values": [
+              "SPIKE_FILTERED"
+            ]
+          },
+          "cost=0/remaining=2--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "two_equal_runs"
+            ],
+            "record_count": 3,
+            "source_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ]
+          },
+          "cost=0/remaining=3--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "three_equal_runs"
+            ],
+            "record_count": 3,
+            "source_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ]
+          },
+          "cost=0/remaining=4--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "dense_short"
+            ],
+            "record_count": 2,
+            "source_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ]
+          },
+          "cost=0/remaining=5--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "dense_short"
+            ],
+            "record_count": 2,
+            "source_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ]
+          },
+          "cost=0/remaining=6--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "dense_short"
+            ],
+            "record_count": 3,
+            "source_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ]
+          },
+          "cost=1/remaining=1--> SPIKE_FILTERED": {
+            "confirmation_window_values": [
+              2,
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "SPIKE_FILTERED"
+            ],
+            "family_values": [
+              "single_run"
+            ],
+            "record_count": 3,
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=1/remaining=3--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "spike_plus_long"
+            ],
+            "record_count": 1,
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=1/remaining=4--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "mixed_staircase"
+            ],
+            "record_count": 1,
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=1/remaining=6--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              3
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "dense_short"
+            ],
+            "record_count": 1,
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=10/remaining=4--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "mixed_staircase"
+            ],
+            "record_count": 1,
+            "source_class_values": [
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=10/remaining=5--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2,
+              3
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "mixed_staircase"
+            ],
+            "record_count": 2,
+            "source_class_values": [
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=12/remaining=3--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "three_equal_runs"
+            ],
+            "record_count": 1,
+            "source_class_values": [
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=15/remaining=5--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "mixed_staircase"
+            ],
+            "record_count": 1,
+            "source_class_values": [
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=2/remaining=1--> SPIKE_FILTERED": {
+            "confirmation_window_values": [
+              2,
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "SPIKE_FILTERED"
+            ],
+            "family_values": [
+              "single_run"
+            ],
+            "record_count": 3,
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=2/remaining=2--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2,
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "two_equal_runs"
+            ],
+            "record_count": 3,
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=2/remaining=3--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "spike_plus_long"
+            ],
+            "record_count": 2,
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=2/remaining=4--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "dense_short"
+            ],
+            "record_count": 1,
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=3/remaining=1--> SPIKE_FILTERED": {
+            "confirmation_window_values": [
+              2,
+              3
+            ],
+            "destination_class_values": [
+              "SPIKE_FILTERED"
+            ],
+            "family_values": [
+              "single_run"
+            ],
+            "record_count": 2,
+            "source_class_values": [
+              "GLOBAL_PERSISTENT_COLLAPSE"
+            ]
+          },
+          "cost=3/remaining=3--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2,
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "spike_plus_long",
+              "three_equal_runs"
+            ],
+            "record_count": 5,
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE",
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=3/remaining=4--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "mixed_staircase",
+              "spike_plus_long"
+            ],
+            "record_count": 3,
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE",
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=3/remaining=5--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2,
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "dense_short",
+              "mixed_staircase"
+            ],
+            "record_count": 2,
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=4/remaining=1--> SPIKE_FILTERED": {
+            "confirmation_window_values": [
+              2
+            ],
+            "destination_class_values": [
+              "SPIKE_FILTERED"
+            ],
+            "family_values": [
+              "single_run"
+            ],
+            "record_count": 1,
+            "source_class_values": [
+              "GLOBAL_PERSISTENT_COLLAPSE"
+            ]
+          },
+          "cost=4/remaining=2--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2,
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "two_equal_runs"
+            ],
+            "record_count": 3,
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=4/remaining=3--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "spike_plus_long"
+            ],
+            "record_count": 1,
+            "source_class_values": [
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=4/remaining=4--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "spike_plus_long"
+            ],
+            "record_count": 2,
+            "source_class_values": [
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=4/remaining=6--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "dense_short"
+            ],
+            "record_count": 1,
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=5/remaining=4--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2,
+              3
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "spike_plus_long"
+            ],
+            "record_count": 2,
+            "source_class_values": [
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=5/remaining=6--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "dense_short"
+            ],
+            "record_count": 1,
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=6/remaining=2--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2,
+              3
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "two_equal_runs"
+            ],
+            "record_count": 2,
+            "source_class_values": [
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=6/remaining=3--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2,
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "three_equal_runs"
+            ],
+            "record_count": 3,
+            "source_class_values": [
+              "FRAGMENTED_LOCAL_COLLAPSE"
+            ]
+          },
+          "cost=6/remaining=4--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2,
+              3
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "mixed_staircase",
+              "spike_plus_long"
+            ],
+            "record_count": 3,
+            "source_class_values": [
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=6/remaining=5--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              3,
+              4
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "mixed_staircase"
+            ],
+            "record_count": 2,
+            "source_class_values": [
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=8/remaining=2--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "two_equal_runs"
+            ],
+            "record_count": 1,
+            "source_class_values": [
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          },
+          "cost=9/remaining=3--> OSCILLATING_NONPERSISTENT": {
+            "confirmation_window_values": [
+              2,
+              3
+            ],
+            "destination_class_values": [
+              "OSCILLATING_NONPERSISTENT"
+            ],
+            "family_values": [
+              "three_equal_runs"
+            ],
+            "record_count": 2,
+            "source_class_values": [
+              "RECOVERY_RELAPSE_COLLAPSE"
+            ]
+          }
+        },
+        "signature_consistency_validation": {
+          "failure_count": 0,
+          "failures": [],
+          "signature_consistency_holds": true,
+          "signature_core_rule": "signature_core = cost=<thresholded_reducible_mass>/remaining=<remaining_run_count>--> <post_reduction_destination_class>"
+        },
+        "signature_core_definition": "cost=<transition_cost>/remaining=<remaining_run_count>--> DESTINATION_CLASS",
+        "signature_definition": "SOURCE_CLASS --C=<confirmation_window>/cost=<transition_cost>/remaining=<remaining_run_count>--> DESTINATION_CLASS",
+        "stable_family_count": 0,
+        "thresholds": [
+          2,
+          3,
+          4
+        ],
+        "transition_signature_stability_map_detected": true,
+        "unique_signature_core_count": 35,
+        "unique_transition_signature_count": 67,
+        "unstable_family_count": 6
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_topology_transition_signature_stability_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

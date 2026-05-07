@@ -1,0 +1,453 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.657496+00:00",
+  "experiment": "trajectory_geometry_v0",
+  "payload": {
+    "legacy_result": {
+      "analysis": {
+        "absolute_drop": 0.473199551358,
+        "collapse_point": {
+          "drop": 0.131055968414,
+          "from_level": 4,
+          "threshold": 0.1,
+          "to_level": 5
+        },
+        "curvature": {
+          "curvature_event_count": 13,
+          "curvature_events": [
+            {
+              "index": 1,
+              "value": 0.162208504123
+            },
+            {
+              "index": 2,
+              "value": -0.089490985522
+            },
+            {
+              "index": 3,
+              "value": -0.131055968414
+            },
+            {
+              "index": 4,
+              "value": 0.119546986945
+            },
+            {
+              "index": 5,
+              "value": -0.14096657711
+            },
+            {
+              "index": 6,
+              "value": 0.230447817638
+            },
+            {
+              "index": 7,
+              "value": -0.141991925576
+            },
+            {
+              "index": 12,
+              "value": 0.090653775719
+            },
+            {
+              "index": 13,
+              "value": -0.165185068775
+            },
+            {
+              "index": 14,
+              "value": 0.142119435738
+            },
+            {
+              "index": 15,
+              "value": -0.047102134426
+            },
+            {
+              "index": 16,
+              "value": -0.055313160192
+            },
+            {
+              "index": 17,
+              "value": 0.16638714034
+            }
+          ],
+          "max_negative_curvature": -0.165185068775,
+          "max_positive_curvature": 0.230447817638
+        },
+        "detected_feature_count": 3,
+        "detected_features": [
+          "collapse_point",
+          "curvature_events",
+          "substantial_degradation"
+        ],
+        "final_omega_proxy": 0.507097936472,
+        "first_differences": [
+          -0.085244887825,
+          -0.072717518601,
+          0.089490985522,
+          0.0,
+          -0.131055968414,
+          -0.011508981469,
+          -0.152475558579,
+          0.077972259059,
+          -0.064019666517,
+          -0.061005664726,
+          -0.040557581577,
+          -0.050417735889,
+          -0.033546481756,
+          0.057107293963,
+          -0.108077774812,
+          0.034041660926,
+          -0.0130604735,
+          -0.068373633692,
+          0.098013506648,
+          0.062236669881
+        ],
+        "initial_omega_proxy": 0.98029748783,
+        "monotonicity": {
+          "near_monotonic_decrease": false,
+          "tolerance": 0.025,
+          "violation_count": 6,
+          "violations": [
+            {
+              "current": 0.822335081404,
+              "increase": 0.089490985522,
+              "index": 2,
+              "next": 0.911826066926
+            },
+            {
+              "current": 0.616785558464,
+              "increase": 0.077972259059,
+              "index": 7,
+              "next": 0.694757817523
+            },
+            {
+              "current": 0.445210687058,
+              "increase": 0.057107293963,
+              "index": 13,
+              "next": 0.502317981021
+            },
+            {
+              "current": 0.394240206209,
+              "increase": 0.034041660926,
+              "index": 15,
+              "next": 0.428281867135
+            },
+            {
+              "current": 0.346847759943,
+              "increase": 0.098013506648,
+              "index": 18,
+              "next": 0.444861266591
+            },
+            {
+              "current": 0.444861266591,
+              "increase": 0.062236669881,
+              "index": 19,
+              "next": 0.507097936472
+            }
+          ]
+        },
+        "omega_values": [
+          0.98029748783,
+          0.895052600005,
+          0.822335081404,
+          0.911826066926,
+          0.911826066926,
+          0.780770098512,
+          0.769261117043,
+          0.616785558464,
+          0.694757817523,
+          0.630738151006,
+          0.56973248628,
+          0.529174904703,
+          0.478757168814,
+          0.445210687058,
+          0.502317981021,
+          0.394240206209,
+          0.428281867135,
+          0.415221393635,
+          0.346847759943,
+          0.444861266591,
+          0.507097936472
+        ],
+        "plateaus": [],
+        "relative_drop": 0.482710154043,
+        "second_differences": [
+          0.012527369224,
+          0.162208504123,
+          -0.089490985522,
+          -0.131055968414,
+          0.119546986945,
+          -0.14096657711,
+          0.230447817638,
+          -0.141991925576,
+          0.003014001791,
+          0.020448083149,
+          -0.009860154312,
+          0.016871254133,
+          0.090653775719,
+          -0.165185068775,
+          0.142119435738,
+          -0.047102134426,
+          -0.055313160192,
+          0.16638714034,
+          -0.035776836767
+        ]
+      },
+      "claim_level": "Level 1 — Toy Demonstration",
+      "core_boundary": "measurement != inference != decision",
+      "date_utc": "2026-05-03T20:44:59.003943+00:00",
+      "domain": "structural_trajectory_geometry",
+      "experiment_name": "trajectory_geometry_v0",
+      "interpretation": "WEAK_PASS means some trajectory behavior was detected, but the full pass condition was not strongly satisfied.",
+      "limitations": [
+        "This is not the full OMNIA engine.",
+        "This is a toy trajectory experiment.",
+        "The omega_proxy is only a minimal structural proxy.",
+        "No semantic correctness is evaluated.",
+        "No randomness is used.",
+        "No cross-domain generalization is claimed.",
+        "No external reproduction is included yet."
+      ],
+      "pass_condition": "near_monotonic_decrease == true and detected_feature_count >= 1 and absolute_drop > 0.20",
+      "purpose": "Minimal controlled experiment for measuring structural evolution across perturbation space.",
+      "reproduction_command": "python examples/trajectory_geometry_v0.py",
+      "status": "WEAK_PASS",
+      "trajectory": [
+        {
+          "level": 0,
+          "perturbation_fraction": 0.0,
+          "signature": {
+            "compression_ratio": 0.041666666667,
+            "entropy": 2.0,
+            "omega_proxy": 0.98029748783,
+            "repetition_score": 0.992105263158,
+            "transition_regular_score": 0.992146596859
+          }
+        },
+        {
+          "level": 1,
+          "perturbation_fraction": 0.05,
+          "signature": {
+            "compression_ratio": 0.130208333333,
+            "entropy": 2.208539992957,
+            "omega_proxy": 0.895052600005,
+            "repetition_score": 0.884210526316,
+            "transition_regular_score": 0.937172774869
+          }
+        },
+        {
+          "level": 2,
+          "perturbation_fraction": 0.1,
+          "signature": {
+            "compression_ratio": 0.192708333333,
+            "entropy": 2.42669663729,
+            "omega_proxy": 0.822335081404,
+            "repetition_score": 0.781578947368,
+            "transition_regular_score": 0.887434554974
+          }
+        },
+        {
+          "level": 3,
+          "perturbation_fraction": 0.15,
+          "signature": {
+            "compression_ratio": 0.1171875,
+            "entropy": 2.352272205047,
+            "omega_proxy": 0.911826066926,
+            "repetition_score": 0.907894736842,
+            "transition_regular_score": 0.950261780105
+          }
+        },
+        {
+          "level": 4,
+          "perturbation_fraction": 0.2,
+          "signature": {
+            "compression_ratio": 0.1171875,
+            "entropy": 2.352272205047,
+            "omega_proxy": 0.911826066926,
+            "repetition_score": 0.907894736842,
+            "transition_regular_score": 0.950261780105
+          }
+        },
+        {
+          "level": 5,
+          "perturbation_fraction": 0.25,
+          "signature": {
+            "compression_ratio": 0.21875,
+            "entropy": 2.494257738834,
+            "omega_proxy": 0.780770098512,
+            "repetition_score": 0.715789473684,
+            "transition_regular_score": 0.856020942408
+          }
+        },
+        {
+          "level": 6,
+          "perturbation_fraction": 0.3,
+          "signature": {
+            "compression_ratio": 0.234375,
+            "entropy": 2.522351843847,
+            "omega_proxy": 0.769261117043,
+            "repetition_score": 0.705263157895,
+            "transition_regular_score": 0.848167539267
+          }
+        },
+        {
+          "level": 7,
+          "perturbation_fraction": 0.35,
+          "signature": {
+            "compression_ratio": 0.395833333333,
+            "entropy": 3.381891579554,
+            "omega_proxy": 0.616785558464,
+            "repetition_score": 0.55,
+            "transition_regular_score": 0.70942408377
+          }
+        },
+        {
+          "level": 8,
+          "perturbation_fraction": 0.4,
+          "signature": {
+            "compression_ratio": 0.341145833333,
+            "entropy": 3.362763286659,
+            "omega_proxy": 0.694757817523,
+            "repetition_score": 0.655263157895,
+            "transition_regular_score": 0.782722513089
+          }
+        },
+        {
+          "level": 9,
+          "perturbation_fraction": 0.45,
+          "signature": {
+            "compression_ratio": 0.375,
+            "entropy": 3.489383303321,
+            "omega_proxy": 0.630738151006,
+            "repetition_score": 0.542105263158,
+            "transition_regular_score": 0.740837696335
+          }
+        },
+        {
+          "level": 10,
+          "perturbation_fraction": 0.5,
+          "signature": {
+            "compression_ratio": 0.440104166667,
+            "entropy": 3.592449080939,
+            "omega_proxy": 0.56973248628,
+            "repetition_score": 0.471052631579,
+            "transition_regular_score": 0.696335078534
+          }
+        },
+        {
+          "level": 11,
+          "perturbation_fraction": 0.55,
+          "signature": {
+            "compression_ratio": 0.489583333333,
+            "entropy": 3.680140991823,
+            "omega_proxy": 0.529174904703,
+            "repetition_score": 0.431578947368,
+            "transition_regular_score": 0.664921465969
+          }
+        },
+        {
+          "level": 12,
+          "perturbation_fraction": 0.6,
+          "signature": {
+            "compression_ratio": 0.5390625,
+            "entropy": 3.915187534616,
+            "omega_proxy": 0.478757168814,
+            "repetition_score": 0.368421052632,
+            "transition_regular_score": 0.628272251309
+          }
+        },
+        {
+          "level": 13,
+          "perturbation_fraction": 0.65,
+          "signature": {
+            "compression_ratio": 0.541666666667,
+            "entropy": 4.035138534706,
+            "omega_proxy": 0.445210687058,
+            "repetition_score": 0.344736842105,
+            "transition_regular_score": 0.547120418848
+          }
+        },
+        {
+          "level": 14,
+          "perturbation_fraction": 0.7,
+          "signature": {
+            "compression_ratio": 0.5078125,
+            "entropy": 4.092667892211,
+            "omega_proxy": 0.502317981021,
+            "repetition_score": 0.4,
+            "transition_regular_score": 0.633507853403
+          }
+        },
+        {
+          "level": 15,
+          "perturbation_fraction": 0.75,
+          "signature": {
+            "compression_ratio": 0.604166666667,
+            "entropy": 4.350474173396,
+            "omega_proxy": 0.394240206209,
+            "repetition_score": 0.252631578947,
+            "transition_regular_score": 0.557591623037
+          }
+        },
+        {
+          "level": 16,
+          "perturbation_fraction": 0.8,
+          "signature": {
+            "compression_ratio": 0.572916666667,
+            "entropy": 4.470266375665,
+            "omega_proxy": 0.428281867135,
+            "repetition_score": 0.289473684211,
+            "transition_regular_score": 0.591623036649
+          }
+        },
+        {
+          "level": 17,
+          "perturbation_fraction": 0.85,
+          "signature": {
+            "compression_ratio": 0.59375,
+            "entropy": 4.650545125273,
+            "omega_proxy": 0.415221393635,
+            "repetition_score": 0.284210526316,
+            "transition_regular_score": 0.578534031414
+          }
+        },
+        {
+          "level": 18,
+          "perturbation_fraction": 0.9,
+          "signature": {
+            "compression_ratio": 0.635416666667,
+            "entropy": 5.064533062824,
+            "omega_proxy": 0.346847759943,
+            "repetition_score": 0.215789473684,
+            "transition_regular_score": 0.479057591623
+          }
+        },
+        {
+          "level": 19,
+          "perturbation_fraction": 0.95,
+          "signature": {
+            "compression_ratio": 0.549479166667,
+            "entropy": 5.202576274574,
+            "omega_proxy": 0.444861266591,
+            "repetition_score": 0.360526315789,
+            "transition_regular_score": 0.53664921466
+          }
+        },
+        {
+          "level": 20,
+          "perturbation_fraction": 1.0,
+          "signature": {
+            "compression_ratio": 0.486979166667,
+            "entropy": 5.304877001603,
+            "omega_proxy": 0.507097936472,
+            "repetition_score": 0.457894736842,
+            "transition_regular_score": 0.557591623037
+          }
+        }
+      ],
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/trajectory_geometry_v0.json",
+    "legacy_status": "WEAK_PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

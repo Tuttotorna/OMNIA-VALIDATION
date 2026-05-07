@@ -1,0 +1,884 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.644883+00:00",
+  "experiment": "temporal_collapse_topology_threshold_sensitivity_v0",
+  "payload": {
+    "legacy_result": {
+      "experiment": "temporal_collapse_topology_threshold_sensitivity_v0",
+      "final_check": {
+        "message": "thresholded reducible-mass rule confirmed, but target-class reachability depends on run_count",
+        "status": "CHECK"
+      },
+      "geometry_records": [
+        {
+          "features": {
+            "run_lengths": [
+              2,
+              2,
+              2
+            ],
+            "total_collapse_frames": 6
+          },
+          "geometry_name": "three_runs_len_2",
+          "method": "threshold_parametric_analytical_rule",
+          "runs": [
+            [
+              5,
+              2
+            ],
+            [
+              12,
+              2
+            ],
+            [
+              19,
+              2
+            ]
+          ],
+          "threshold_results": [
+            {
+              "confirmation_window": 2,
+              "global_persistence_threshold": 4,
+              "minimum_target_depth": 3,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 3,
+              "global_persistence_threshold": 5,
+              "minimum_target_depth": 0,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "OSCILLATING_NONPERSISTENT",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 4,
+              "global_persistence_threshold": 6,
+              "minimum_target_depth": 0,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "OSCILLATING_NONPERSISTENT",
+              "target_reachable_by_formula": true
+            }
+          ],
+          "variant_index": 0
+        },
+        {
+          "features": {
+            "run_lengths": [
+              3,
+              3,
+              3
+            ],
+            "total_collapse_frames": 9
+          },
+          "geometry_name": "three_runs_len_3",
+          "method": "threshold_parametric_analytical_rule",
+          "runs": [
+            [
+              5,
+              3
+            ],
+            [
+              14,
+              3
+            ],
+            [
+              23,
+              3
+            ]
+          ],
+          "threshold_results": [
+            {
+              "confirmation_window": 2,
+              "global_persistence_threshold": 4,
+              "minimum_target_depth": 6,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 3,
+              "global_persistence_threshold": 5,
+              "minimum_target_depth": 3,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 4,
+              "global_persistence_threshold": 6,
+              "minimum_target_depth": 0,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "OSCILLATING_NONPERSISTENT",
+              "target_reachable_by_formula": true
+            }
+          ],
+          "variant_index": 1
+        },
+        {
+          "features": {
+            "run_lengths": [
+              4,
+              4,
+              4
+            ],
+            "total_collapse_frames": 12
+          },
+          "geometry_name": "three_runs_len_4",
+          "method": "threshold_parametric_analytical_rule",
+          "runs": [
+            [
+              5,
+              4
+            ],
+            [
+              16,
+              4
+            ],
+            [
+              27,
+              4
+            ]
+          ],
+          "threshold_results": [
+            {
+              "confirmation_window": 2,
+              "global_persistence_threshold": 4,
+              "minimum_target_depth": 9,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 3,
+              "global_persistence_threshold": 5,
+              "minimum_target_depth": 6,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 4,
+              "global_persistence_threshold": 6,
+              "minimum_target_depth": 3,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            }
+          ],
+          "variant_index": 2
+        },
+        {
+          "features": {
+            "run_lengths": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "total_collapse_frames": 8
+          },
+          "geometry_name": "four_runs_len_2",
+          "method": "threshold_parametric_analytical_rule",
+          "runs": [
+            [
+              4,
+              2
+            ],
+            [
+              10,
+              2
+            ],
+            [
+              16,
+              2
+            ],
+            [
+              22,
+              2
+            ]
+          ],
+          "threshold_results": [
+            {
+              "confirmation_window": 2,
+              "global_persistence_threshold": 4,
+              "minimum_target_depth": 4,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 3,
+              "global_persistence_threshold": 5,
+              "minimum_target_depth": 0,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "OSCILLATING_NONPERSISTENT",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 4,
+              "global_persistence_threshold": 6,
+              "minimum_target_depth": 0,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "OSCILLATING_NONPERSISTENT",
+              "target_reachable_by_formula": true
+            }
+          ],
+          "variant_index": 3
+        },
+        {
+          "features": {
+            "run_lengths": [
+              3,
+              3,
+              3,
+              3
+            ],
+            "total_collapse_frames": 12
+          },
+          "geometry_name": "four_runs_len_3",
+          "method": "threshold_parametric_analytical_rule",
+          "runs": [
+            [
+              4,
+              3
+            ],
+            [
+              13,
+              3
+            ],
+            [
+              22,
+              3
+            ],
+            [
+              31,
+              3
+            ]
+          ],
+          "threshold_results": [
+            {
+              "confirmation_window": 2,
+              "global_persistence_threshold": 4,
+              "minimum_target_depth": 8,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 3,
+              "global_persistence_threshold": 5,
+              "minimum_target_depth": 4,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 4,
+              "global_persistence_threshold": 6,
+              "minimum_target_depth": 0,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "OSCILLATING_NONPERSISTENT",
+              "target_reachable_by_formula": true
+            }
+          ],
+          "variant_index": 4
+        },
+        {
+          "features": {
+            "run_lengths": [
+              4,
+              4,
+              4,
+              4
+            ],
+            "total_collapse_frames": 16
+          },
+          "geometry_name": "four_runs_len_4",
+          "method": "threshold_parametric_analytical_rule",
+          "runs": [
+            [
+              4,
+              4
+            ],
+            [
+              15,
+              4
+            ],
+            [
+              26,
+              4
+            ],
+            [
+              37,
+              4
+            ]
+          ],
+          "threshold_results": [
+            {
+              "confirmation_window": 2,
+              "global_persistence_threshold": 4,
+              "minimum_target_depth": 12,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 3,
+              "global_persistence_threshold": 5,
+              "minimum_target_depth": 8,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 4,
+              "global_persistence_threshold": 6,
+              "minimum_target_depth": 4,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            }
+          ],
+          "variant_index": 5
+        },
+        {
+          "features": {
+            "run_lengths": [
+              2,
+              3,
+              4
+            ],
+            "total_collapse_frames": 9
+          },
+          "geometry_name": "mixed_2_3_4",
+          "method": "threshold_parametric_analytical_rule",
+          "runs": [
+            [
+              5,
+              2
+            ],
+            [
+              14,
+              3
+            ],
+            [
+              25,
+              4
+            ]
+          ],
+          "threshold_results": [
+            {
+              "confirmation_window": 2,
+              "global_persistence_threshold": 4,
+              "minimum_target_depth": 6,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 3,
+              "global_persistence_threshold": 5,
+              "minimum_target_depth": 3,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 4,
+              "global_persistence_threshold": 6,
+              "minimum_target_depth": 1,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            }
+          ],
+          "variant_index": 6
+        },
+        {
+          "features": {
+            "run_lengths": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "total_collapse_frames": 10
+          },
+          "geometry_name": "mixed_1_2_3_4",
+          "method": "threshold_parametric_analytical_rule",
+          "runs": [
+            [
+              4,
+              1
+            ],
+            [
+              10,
+              2
+            ],
+            [
+              18,
+              3
+            ],
+            [
+              28,
+              4
+            ]
+          ],
+          "threshold_results": [
+            {
+              "confirmation_window": 2,
+              "global_persistence_threshold": 4,
+              "minimum_target_depth": 6,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 3,
+              "global_persistence_threshold": 5,
+              "minimum_target_depth": 3,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 4,
+              "global_persistence_threshold": 6,
+              "minimum_target_depth": 1,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            }
+          ],
+          "variant_index": 7
+        },
+        {
+          "features": {
+            "run_lengths": [
+              7
+            ],
+            "total_collapse_frames": 7
+          },
+          "geometry_name": "long_single_run",
+          "method": "threshold_parametric_analytical_rule",
+          "runs": [
+            [
+              8,
+              7
+            ]
+          ],
+          "threshold_results": [
+            {
+              "confirmation_window": 2,
+              "global_persistence_threshold": 4,
+              "minimum_target_depth": 6,
+              "predicted_target_after_minimal_escape": "SPIKE_FILTERED",
+              "source_class": "GLOBAL_PERSISTENT_COLLAPSE",
+              "target_reachable_by_formula": false
+            },
+            {
+              "confirmation_window": 3,
+              "global_persistence_threshold": 5,
+              "minimum_target_depth": 5,
+              "predicted_target_after_minimal_escape": "SPIKE_FILTERED",
+              "source_class": "GLOBAL_PERSISTENT_COLLAPSE",
+              "target_reachable_by_formula": false
+            },
+            {
+              "confirmation_window": 4,
+              "global_persistence_threshold": 6,
+              "minimum_target_depth": 4,
+              "predicted_target_after_minimal_escape": "SPIKE_FILTERED",
+              "source_class": "GLOBAL_PERSISTENT_COLLAPSE",
+              "target_reachable_by_formula": false
+            }
+          ],
+          "variant_index": 8
+        },
+        {
+          "features": {
+            "run_lengths": [
+              5,
+              5
+            ],
+            "total_collapse_frames": 10
+          },
+          "geometry_name": "relapse_two_long_runs",
+          "method": "threshold_parametric_analytical_rule",
+          "runs": [
+            [
+              6,
+              5
+            ],
+            [
+              24,
+              5
+            ]
+          ],
+          "threshold_results": [
+            {
+              "confirmation_window": 2,
+              "global_persistence_threshold": 4,
+              "minimum_target_depth": 8,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 3,
+              "global_persistence_threshold": 5,
+              "minimum_target_depth": 6,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 4,
+              "global_persistence_threshold": 6,
+              "minimum_target_depth": 4,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            }
+          ],
+          "variant_index": 9
+        },
+        {
+          "features": {
+            "run_lengths": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "total_collapse_frames": 5
+          },
+          "geometry_name": "all_spikes_len_1",
+          "method": "threshold_parametric_analytical_rule",
+          "runs": [
+            [
+              4,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              12,
+              1
+            ],
+            [
+              16,
+              1
+            ],
+            [
+              20,
+              1
+            ]
+          ],
+          "threshold_results": [
+            {
+              "confirmation_window": 2,
+              "global_persistence_threshold": 4,
+              "minimum_target_depth": 0,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "OSCILLATING_NONPERSISTENT",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 3,
+              "global_persistence_threshold": 5,
+              "minimum_target_depth": 0,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "OSCILLATING_NONPERSISTENT",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 4,
+              "global_persistence_threshold": 6,
+              "minimum_target_depth": 0,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "OSCILLATING_NONPERSISTENT",
+              "target_reachable_by_formula": true
+            }
+          ],
+          "variant_index": 10
+        },
+        {
+          "features": {
+            "run_lengths": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "total_collapse_frames": 14
+          },
+          "geometry_name": "mixed_threshold_boundary",
+          "method": "threshold_parametric_analytical_rule",
+          "runs": [
+            [
+              5,
+              2
+            ],
+            [
+              13,
+              3
+            ],
+            [
+              23,
+              4
+            ],
+            [
+              35,
+              5
+            ]
+          ],
+          "threshold_results": [
+            {
+              "confirmation_window": 2,
+              "global_persistence_threshold": 4,
+              "minimum_target_depth": 10,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 3,
+              "global_persistence_threshold": 5,
+              "minimum_target_depth": 6,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE",
+              "target_reachable_by_formula": true
+            },
+            {
+              "confirmation_window": 4,
+              "global_persistence_threshold": 6,
+              "minimum_target_depth": 3,
+              "predicted_target_after_minimal_escape": "OSCILLATING_NONPERSISTENT",
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+              "target_reachable_by_formula": true
+            }
+          ],
+          "variant_index": 11
+        }
+      ],
+      "interpretation": {
+        "all_depths_monotonic_nonincreasing": true,
+        "failure_count": 0,
+        "formula": "minimum_target_depth = sum(max(0, run_length - (confirmation_window - 1)))",
+        "main_result": "The generalized thresholded reducible-collapse-mass formula held with zero failures.",
+        "parametric_rule_holds": true,
+        "structural_conclusion": "thresholded reducible-mass rule confirmed; target-class reachability depends on run_count.",
+        "target_reachable_rate": 0.9166666666666666,
+        "why_status_is_check": "The long_single_run geometry reduces to SPIKE_FILTERED rather than OSCILLATING_NONPERSISTENT, so target reachability was not universal."
+      },
+      "reproduction_command": "python examples/temporal_collapse_topology_threshold_sensitivity_v0.py",
+      "status": "CHECK",
+      "summary": {
+        "all_depths_monotonic_nonincreasing": true,
+        "class_transition_count": 10,
+        "confirmation_windows": [
+          2,
+          3,
+          4
+        ],
+        "depth_values_all": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          12
+        ],
+        "flat_record_count": 36,
+        "generalized_rule": "minimum_target_depth = sum(max(0, run_length - (confirmation_window - 1)))",
+        "method": "threshold_parametric_analytical_rule",
+        "node_count": 6,
+        "parametric_rule_holds": true,
+        "persistence_window": 2,
+        "target_class": "OSCILLATING_NONPERSISTENT",
+        "target_reachable_rate": 0.9166666666666666,
+        "threshold_parametric_law_detected": false,
+        "variant_count": 12
+      },
+      "threshold_sensitivity_summary": {
+        "all_depths_monotonic_nonincreasing": true,
+        "by_threshold": {
+          "2": {
+            "confirmation_window": 2,
+            "minimum_target_depth_mean": 6.5,
+            "minimum_target_depth_std": 3.095695936834452,
+            "minimum_target_depth_values": [
+              0,
+              3,
+              4,
+              6,
+              8,
+              9,
+              10,
+              12
+            ],
+            "minimum_target_depths": [
+              3,
+              6,
+              9,
+              4,
+              8,
+              12,
+              6,
+              6,
+              6,
+              8,
+              0,
+              10
+            ],
+            "record_count": 12,
+            "source_class_counts": {
+              "FRAGMENTED_LOCAL_COLLAPSE": 4,
+              "GLOBAL_PERSISTENT_COLLAPSE": 1,
+              "OSCILLATING_NONPERSISTENT": 1,
+              "RECOVERY_RELAPSE_COLLAPSE": 6
+            },
+            "target_reachable_count": 11,
+            "target_reachable_rate": 0.9166666666666666
+          },
+          "3": {
+            "confirmation_window": 3,
+            "minimum_target_depth_mean": 3.6666666666666665,
+            "minimum_target_depth_std": 2.560381915956203,
+            "minimum_target_depth_values": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8
+            ],
+            "minimum_target_depths": [
+              0,
+              3,
+              6,
+              0,
+              4,
+              8,
+              3,
+              3,
+              5,
+              6,
+              0,
+              6
+            ],
+            "record_count": 12,
+            "source_class_counts": {
+              "FRAGMENTED_LOCAL_COLLAPSE": 6,
+              "GLOBAL_PERSISTENT_COLLAPSE": 1,
+              "OSCILLATING_NONPERSISTENT": 3,
+              "RECOVERY_RELAPSE_COLLAPSE": 2
+            },
+            "target_reachable_count": 11,
+            "target_reachable_rate": 0.9166666666666666
+          },
+          "4": {
+            "confirmation_window": 4,
+            "minimum_target_depth_mean": 1.6666666666666667,
+            "minimum_target_depth_std": 1.699673171197595,
+            "minimum_target_depth_values": [
+              0,
+              1,
+              3,
+              4
+            ],
+            "minimum_target_depths": [
+              0,
+              0,
+              3,
+              0,
+              0,
+              4,
+              1,
+              1,
+              4,
+              4,
+              0,
+              3
+            ],
+            "record_count": 12,
+            "source_class_counts": {
+              "FRAGMENTED_LOCAL_COLLAPSE": 6,
+              "GLOBAL_PERSISTENT_COLLAPSE": 1,
+              "OSCILLATING_NONPERSISTENT": 5
+            },
+            "target_reachable_count": 11,
+            "target_reachable_rate": 0.9166666666666666
+          }
+        },
+        "class_transition_count": 10,
+        "depth_values_all": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          12
+        ],
+        "flat_record_count": 36,
+        "generalized_rule": "minimum_target_depth = sum(max(0, run_length - (confirmation_window - 1)))",
+        "interpretation": {
+          "failure_count": 0,
+          "formula_result": "parametric_rule_holds = true",
+          "main_result": "The thresholded reducible-mass formula held exactly, but the requested target class was not reachable in every case.",
+          "structural_conclusion": "thresholded reducible-mass rule confirmed; target-class reachability depends on run_count.",
+          "target_reachability_issue": "A single collapse run reduced below threshold becomes SPIKE_FILTERED, not OSCILLATING_NONPERSISTENT."
+        },
+        "monotonic_geometry_count": 12,
+        "parametric_rule_validation": {
+          "failure_count": 0,
+          "failures": [],
+          "parametric_rule_holds": true
+        },
+        "record_count": 12,
+        "strongest_features_by_threshold": {
+          "2": {
+            "strongest_abs_correlation": 0.9475021705473168,
+            "strongest_feature": "collapse_density_global"
+          },
+          "3": {
+            "strongest_abs_correlation": 0.821196563691916,
+            "strongest_feature": "total_collapse_frames"
+          },
+          "4": {
+            "strongest_abs_correlation": 0.8255019780771843,
+            "strongest_feature": "run_length_mean"
+          }
+        },
+        "target_class": "OSCILLATING_NONPERSISTENT",
+        "target_reachable_count": 33,
+        "target_reachable_rate": 0.9166666666666666,
+        "threshold_parametric_law_detected": false,
+        "thresholds": [
+          2,
+          3,
+          4
+        ]
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_topology_threshold_sensitivity_v0.json",
+    "legacy_status": "CHECK",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

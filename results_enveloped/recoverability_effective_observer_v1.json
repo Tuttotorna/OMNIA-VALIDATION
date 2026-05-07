@@ -1,0 +1,61 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.569221+00:00",
+  "experiment": "recoverability_effective_observer_v1",
+  "payload": {
+    "legacy_result": {
+      "results": [
+        {
+          "collapse_resistance": 0.9631640100220368,
+          "effective_count": 3.8855750019994417,
+          "family_balance": 1.0,
+          "non_redundancy": 1.0,
+          "projection_stability": 0.9550373250488013,
+          "raw_count": 12,
+          "recoverability_score": 0.9198575797147229,
+          "relation_entropy": 0.3361814950144145,
+          "system": "base_system"
+        },
+        {
+          "collapse_resistance": 0.9314555811532035,
+          "effective_count": 10.689955398698707,
+          "family_balance": 0.7222222222222222,
+          "non_redundancy": 0.9317460317460318,
+          "projection_stability": 0.9011454499254263,
+          "raw_count": 36,
+          "recoverability_score": 0.5648399975596969,
+          "relation_entropy": 0.4737430417395411,
+          "system": "duplicate_system"
+        },
+        {
+          "collapse_resistance": 1.0,
+          "effective_count": 12.988021497283897,
+          "family_balance": 1.0,
+          "non_redundancy": 1.0,
+          "projection_stability": 0.9441323689055635,
+          "raw_count": 40,
+          "recoverability_score": 0.9441323689055635,
+          "relation_entropy": 0.3247005374320974,
+          "system": "balanced_system"
+        },
+        {
+          "collapse_resistance": 0.0,
+          "effective_count": 0.0,
+          "family_balance": 1.0,
+          "non_redundancy": 0.0,
+          "projection_stability": 1.0,
+          "raw_count": 24,
+          "recoverability_score": 0.0,
+          "relation_entropy": 0.0,
+          "system": "collapsed_system"
+        }
+      ],
+      "status": "PASS",
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/recoverability_effective_observer_v1.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

@@ -1,0 +1,121 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.566857+00:00",
+  "experiment": "perturbation_consistency_v0",
+  "payload": {
+    "legacy_result": {
+      "claim_level": "Level 1 — Toy Demonstration",
+      "core_boundary": "measurement != inference != decision",
+      "date_utc": "2026-05-03T20:44:57.593475+00:00",
+      "degradation": {
+        "absolute_drop": 0.22323808645,
+        "final_omega_proxy": 0.748544127297,
+        "initial_omega_proxy": 0.971782213747,
+        "monotonicity": {
+          "near_monotonic_decrease": true,
+          "strict_monotonic_decrease": true,
+          "values": [
+            0.971782213747,
+            0.931787066656,
+            0.916868985127,
+            0.878284428314,
+            0.831288959974,
+            0.748544127297
+          ],
+          "violation_count": 0,
+          "violations": []
+        },
+        "relative_drop": 0.229720284331
+      },
+      "domain": "controlled_perturbation_ladder",
+      "experiment_name": "perturbation_consistency_v0",
+      "interpretation": "FAIL means the toy structural proxy did not degrade consistently under the controlled perturbation ladder.",
+      "limitations": [
+        "This is not the full OMNIA engine.",
+        "This is a toy perturbation ladder.",
+        "The omega_proxy is only a minimal structural proxy.",
+        "No semantic correctness is evaluated.",
+        "No randomness is used.",
+        "No cross-domain generalization is claimed.",
+        "No threshold robustness sweep is included yet."
+      ],
+      "pass_condition": "near_monotonic_decrease == true and absolute_drop > 0.25",
+      "perturbation_ladder": [
+        {
+          "label": "perturbation_level_0",
+          "level": 0,
+          "signature": {
+            "compression_ratio": 0.05859375,
+            "entropy": 2.0,
+            "omega_proxy": 0.971782213747,
+            "repetition_score": 0.988095238095,
+            "transition_regular_score": 0.988188976378
+          }
+        },
+        {
+          "label": "perturbation_level_1",
+          "level": 1,
+          "signature": {
+            "compression_ratio": 0.09765625,
+            "entropy": 2.115572516654,
+            "omega_proxy": 0.931787066656,
+            "repetition_score": 0.936507936508,
+            "transition_regular_score": 0.96062992126
+          }
+        },
+        {
+          "label": "perturbation_level_2",
+          "level": 2,
+          "signature": {
+            "compression_ratio": 0.125,
+            "entropy": 2.1983911108,
+            "omega_proxy": 0.916868985127,
+            "repetition_score": 0.924603174603,
+            "transition_regular_score": 0.956692913386
+          }
+        },
+        {
+          "label": "perturbation_level_3",
+          "level": 3,
+          "signature": {
+            "compression_ratio": 0.16796875,
+            "entropy": 2.1983911108,
+            "omega_proxy": 0.878284428314,
+            "repetition_score": 0.880952380952,
+            "transition_regular_score": 0.929133858268
+          }
+        },
+        {
+          "label": "perturbation_level_4",
+          "level": 4,
+          "signature": {
+            "compression_ratio": 0.234375,
+            "entropy": 2.555688886518,
+            "omega_proxy": 0.831288959974,
+            "repetition_score": 0.833333333333,
+            "transition_regular_score": 0.905511811024
+          }
+        },
+        {
+          "label": "perturbation_level_5",
+          "level": 5,
+          "signature": {
+            "compression_ratio": 0.28125,
+            "entropy": 5.232372925474,
+            "omega_proxy": 0.748544127297,
+            "repetition_score": 0.761904761905,
+            "transition_regular_score": 0.767716535433
+          }
+        }
+      ],
+      "purpose": "Minimal controlled experiment testing whether increasing perturbation produces consistent structural degradation.",
+      "reproduction_command": "python examples/perturbation_consistency_v0.py",
+      "status": "FAIL",
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/perturbation_consistency_v0.json",
+    "legacy_status": "FAIL",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

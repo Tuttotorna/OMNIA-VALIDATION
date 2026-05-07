@@ -1,0 +1,410 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.473792+00:00",
+  "experiment": "cross_gate_real_dataset_proxy_collapse_v0",
+  "payload": {
+    "legacy_result": {
+      "reproduction_command": "python examples/cross_gate_real_dataset_proxy_collapse_v0.py",
+      "results": [
+        {
+          "arbitration_action": "PASS",
+          "record_id": "clean_control_reference",
+          "severity_spread": 0,
+          "severity_variance": 0.0,
+          "signal_actions": {
+            "collapse_gate": "PASS",
+            "divergence_gate": "PASS",
+            "effective_signal_gate": "PASS",
+            "projection_gate": "PASS",
+            "recoverability_gate": "PASS"
+          },
+          "source_family": "control",
+          "unique_action_count": 1
+        },
+        {
+          "arbitration_action": "ESCALATE",
+          "record_id": "effective_only_collapse",
+          "severity_spread": 4,
+          "severity_variance": 2.24,
+          "signal_actions": {
+            "collapse_gate": "PASS",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "PASS",
+            "recoverability_gate": "FLAG"
+          },
+          "source_family": "effective",
+          "unique_action_count": 3
+        },
+        {
+          "arbitration_action": "ESCALATE",
+          "record_id": "recoverability_near_failure",
+          "severity_spread": 4,
+          "severity_variance": 2.24,
+          "signal_actions": {
+            "collapse_gate": "PASS",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "PASS",
+            "recoverability_gate": "FLAG"
+          },
+          "source_family": "recoverability",
+          "unique_action_count": 3
+        },
+        {
+          "arbitration_action": "COLLAPSE",
+          "record_id": "projection_confirmed_collapse",
+          "severity_spread": 4,
+          "severity_variance": 2.24,
+          "signal_actions": {
+            "collapse_gate": "PASS",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "COLLAPSE",
+            "recoverability_gate": "FLAG"
+          },
+          "source_family": "projection",
+          "unique_action_count": 3
+        },
+        {
+          "arbitration_action": "ESCALATE",
+          "record_id": "collapse_resistance_confirmed",
+          "severity_spread": 4,
+          "severity_variance": 1.6,
+          "signal_actions": {
+            "collapse_gate": "FLAG",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "PASS",
+            "recoverability_gate": "FLAG"
+          },
+          "source_family": "collapse",
+          "unique_action_count": 3
+        },
+        {
+          "arbitration_action": "ESCALATE",
+          "record_id": "dual_confirmed_collapse",
+          "severity_spread": 3,
+          "severity_variance": 0.96,
+          "signal_actions": {
+            "collapse_gate": "FLAG",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "FLAG",
+            "recoverability_gate": "RETRY"
+          },
+          "source_family": "collapse",
+          "unique_action_count": 3
+        },
+        {
+          "arbitration_action": "ESCALATE",
+          "record_id": "surface_stable_deep_collapse",
+          "severity_spread": 3,
+          "severity_variance": 1.36,
+          "signal_actions": {
+            "collapse_gate": "RETRY",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "RETRY",
+            "recoverability_gate": "RETRY"
+          },
+          "source_family": "mixed",
+          "unique_action_count": 3
+        },
+        {
+          "arbitration_action": "ESCALATE",
+          "record_id": "projection_last_to_fail",
+          "severity_spread": 4,
+          "severity_variance": 1.76,
+          "signal_actions": {
+            "collapse_gate": "RETRY",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "PASS",
+            "recoverability_gate": "FLAG"
+          },
+          "source_family": "mixed",
+          "unique_action_count": 4
+        },
+        {
+          "arbitration_action": "FLAG",
+          "record_id": "recoverability_last_to_fail",
+          "severity_spread": 2,
+          "severity_variance": 0.64,
+          "signal_actions": {
+            "collapse_gate": "FLAG",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "FLAG",
+            "recoverability_gate": "FLAG"
+          },
+          "source_family": "mixed",
+          "unique_action_count": 2
+        },
+        {
+          "arbitration_action": "ESCALATE",
+          "record_id": "distributed_irrecoverable_loss",
+          "severity_spread": 3,
+          "severity_variance": 1.36,
+          "signal_actions": {
+            "collapse_gate": "RETRY",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "RETRY",
+            "recoverability_gate": "RETRY"
+          },
+          "source_family": "support",
+          "unique_action_count": 3
+        },
+        {
+          "arbitration_action": "ESCALATE",
+          "record_id": "observer_alias_total_failure",
+          "severity_spread": 3,
+          "severity_variance": 1.36,
+          "signal_actions": {
+            "collapse_gate": "RETRY",
+            "divergence_gate": "RETRY",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "FLAG",
+            "recoverability_gate": "RETRY"
+          },
+          "source_family": "observer",
+          "unique_action_count": 3
+        },
+        {
+          "arbitration_action": "ESCALATE",
+          "record_id": "redundancy_hides_collapse",
+          "severity_spread": 3,
+          "severity_variance": 1.36,
+          "signal_actions": {
+            "collapse_gate": "RETRY",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "RETRY",
+            "recoverability_gate": "RETRY"
+          },
+          "source_family": "logs",
+          "unique_action_count": 3
+        },
+        {
+          "arbitration_action": "FLAG",
+          "record_id": "collapse_with_entropy_preserved",
+          "severity_spread": 2,
+          "severity_variance": 0.64,
+          "signal_actions": {
+            "collapse_gate": "FLAG",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "FLAG",
+            "recoverability_gate": "FLAG"
+          },
+          "source_family": "sensor",
+          "unique_action_count": 2
+        },
+        {
+          "arbitration_action": "COLLAPSE",
+          "record_id": "hard_collapse_low_everything",
+          "severity_spread": 4,
+          "severity_variance": 2.56,
+          "signal_actions": {
+            "collapse_gate": "COLLAPSE",
+            "divergence_gate": "PASS",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "COLLAPSE",
+            "recoverability_gate": "COLLAPSE"
+          },
+          "source_family": "collapse",
+          "unique_action_count": 2
+        },
+        {
+          "arbitration_action": "ESCALATE",
+          "record_id": "borderline_should_escalate",
+          "severity_spread": 4,
+          "severity_variance": 2.24,
+          "signal_actions": {
+            "collapse_gate": "PASS",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "PASS",
+            "recoverability_gate": "FLAG"
+          },
+          "source_family": "borderline",
+          "unique_action_count": 3
+        },
+        {
+          "arbitration_action": "PASS",
+          "record_id": "clean_but_high_divergence",
+          "severity_spread": 1,
+          "severity_variance": 0.16,
+          "signal_actions": {
+            "collapse_gate": "PASS",
+            "divergence_gate": "RETRY",
+            "effective_signal_gate": "PASS",
+            "projection_gate": "PASS",
+            "recoverability_gate": "PASS"
+          },
+          "source_family": "borderline",
+          "unique_action_count": 2
+        },
+        {
+          "arbitration_action": "RETRY",
+          "record_id": "partial_collapse_recoverable",
+          "severity_spread": 2,
+          "severity_variance": 0.56,
+          "signal_actions": {
+            "collapse_gate": "RETRY",
+            "divergence_gate": "FLAG",
+            "effective_signal_gate": "RETRY",
+            "projection_gate": "PASS",
+            "recoverability_gate": "FLAG"
+          },
+          "source_family": "support",
+          "unique_action_count": 3
+        },
+        {
+          "arbitration_action": "COLLAPSE",
+          "record_id": "projection_only_failure",
+          "severity_spread": 4,
+          "severity_variance": 3.36,
+          "signal_actions": {
+            "collapse_gate": "PASS",
+            "divergence_gate": "ESCALATE",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "COLLAPSE",
+            "recoverability_gate": "PASS"
+          },
+          "source_family": "projection",
+          "unique_action_count": 3
+        },
+        {
+          "arbitration_action": "COLLAPSE",
+          "record_id": "collapse_only_failure",
+          "severity_spread": 4,
+          "severity_variance": 3.36,
+          "signal_actions": {
+            "collapse_gate": "COLLAPSE",
+            "divergence_gate": "ESCALATE",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "PASS",
+            "recoverability_gate": "PASS"
+          },
+          "source_family": "collapse",
+          "unique_action_count": 3
+        },
+        {
+          "arbitration_action": "COLLAPSE",
+          "record_id": "multi_gate_confirmed_collapse",
+          "severity_spread": 3,
+          "severity_variance": 2.16,
+          "signal_actions": {
+            "collapse_gate": "COLLAPSE",
+            "divergence_gate": "RETRY",
+            "effective_signal_gate": "COLLAPSE",
+            "projection_gate": "COLLAPSE",
+            "recoverability_gate": "RETRY"
+          },
+          "source_family": "collapse",
+          "unique_action_count": 2
+        }
+      ],
+      "status": "PASS",
+      "summary": {
+        "arbitration_action_distribution": {
+          "COLLAPSE": 5,
+          "ESCALATE": 10,
+          "FLAG": 2,
+          "PASS": 2,
+          "RETRY": 1
+        },
+        "collapse_with_projection_count": 4,
+        "collapse_with_resistance_count": 3,
+        "contradiction_count": 9,
+        "dataset_path": "data/cross_gate_real_dataset_proxy_collapse_v0.csv",
+        "gate_action_distributions": {
+          "collapse_gate": {
+            "COLLAPSE": 3,
+            "FLAG": 4,
+            "PASS": 7,
+            "RETRY": 6
+          },
+          "divergence_gate": {
+            "ESCALATE": 2,
+            "FLAG": 13,
+            "PASS": 2,
+            "RETRY": 3
+          },
+          "effective_signal_gate": {
+            "COLLAPSE": 17,
+            "PASS": 2,
+            "RETRY": 1
+          },
+          "projection_gate": {
+            "COLLAPSE": 4,
+            "FLAG": 4,
+            "PASS": 9,
+            "RETRY": 3
+          },
+          "recoverability_gate": {
+            "COLLAPSE": 1,
+            "FLAG": 9,
+            "PASS": 4,
+            "RETRY": 6
+          }
+        },
+        "high_disagreement_count": 15,
+        "low_disagreement_count": 2,
+        "mean_severity_spread": 3.05,
+        "mean_severity_variance": 1.608,
+        "mean_spread_by_family": {
+          "borderline": 2.5,
+          "collapse": 3.6,
+          "control": 0,
+          "effective": 4,
+          "logs": 3,
+          "mixed": 3,
+          "observer": 3,
+          "projection": 4,
+          "recoverability": 4,
+          "sensor": 2,
+          "support": 2.5
+        },
+        "mean_unique_action_count": 2.7,
+        "mean_variance_by_family": {
+          "borderline": 1.2000000000000002,
+          "collapse": 2.128,
+          "control": 0,
+          "effective": 2.24,
+          "logs": 1.3600000000000003,
+          "mixed": 1.2533333333333334,
+          "observer": 1.3600000000000003,
+          "projection": 2.8,
+          "recoverability": 2.24,
+          "sensor": 0.64,
+          "support": 0.9600000000000002
+        },
+        "medium_disagreement_count": 3,
+        "multi_gate_collapse_count": 5,
+        "record_count": 20,
+        "source_family_distribution": {
+          "borderline": 2,
+          "collapse": 5,
+          "control": 1,
+          "effective": 1,
+          "logs": 1,
+          "mixed": 3,
+          "observer": 1,
+          "projection": 2,
+          "recoverability": 1,
+          "sensor": 1,
+          "support": 2
+        },
+        "unanimous_count": 1
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/cross_gate_real_dataset_proxy_collapse_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

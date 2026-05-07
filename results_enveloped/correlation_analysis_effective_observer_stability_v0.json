@@ -1,0 +1,209 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.450538+00:00",
+  "experiment": "correlation_analysis_effective_observer_stability_v0",
+  "payload": {
+    "legacy_result": {
+      "seed_results": [
+        {
+          "effective_pearson": 0.9515669647311478,
+          "effective_spearman": 0.9806380665522663,
+          "pearson_improvement": 0.12439928455652505,
+          "raw_pearson": 0.8271676801746227,
+          "raw_spearman": 0.8208499393997576,
+          "seed": 0,
+          "spearman_improvement": 0.15978812715250867
+        },
+        {
+          "effective_pearson": 0.9438429592310337,
+          "effective_spearman": 0.9817177828711315,
+          "pearson_improvement": 0.13110738254443655,
+          "raw_pearson": 0.8127355766865971,
+          "raw_spearman": 0.8184514658058633,
+          "seed": 1,
+          "spearman_improvement": 0.16326631706526828
+        },
+        {
+          "effective_pearson": 0.9507415309762105,
+          "effective_spearman": 0.9837350389401558,
+          "pearson_improvement": 0.12716280155698922,
+          "raw_pearson": 0.8235787294192213,
+          "raw_spearman": 0.8264750819003276,
+          "seed": 2,
+          "spearman_improvement": 0.1572599570398282
+        },
+        {
+          "effective_pearson": 0.9433492280345352,
+          "effective_spearman": 0.9782555290221161,
+          "pearson_improvement": 0.14986836038710483,
+          "raw_pearson": 0.7934808676474304,
+          "raw_spearman": 0.7851769647078588,
+          "seed": 3,
+          "spearman_improvement": 0.1930785643142573
+        },
+        {
+          "effective_pearson": 0.9507065345102451,
+          "effective_spearman": 0.9805218100872404,
+          "pearson_improvement": 0.15533252164287503,
+          "raw_pearson": 0.7953740128673701,
+          "raw_spearman": 0.8012189168756675,
+          "seed": 4,
+          "spearman_improvement": 0.1793028932115729
+        },
+        {
+          "effective_pearson": 0.9512667581260607,
+          "effective_spearman": 0.983875295501182,
+          "pearson_improvement": 0.15114526149556728,
+          "raw_pearson": 0.8001214966304934,
+          "raw_spearman": 0.805432277729111,
+          "seed": 5,
+          "spearman_improvement": 0.17844301777207106
+        },
+        {
+          "effective_pearson": 0.9489649738533068,
+          "effective_spearman": 0.9844627218508875,
+          "pearson_improvement": 0.14043063455497495,
+          "raw_pearson": 0.8085343392983319,
+          "raw_spearman": 0.8266828267313069,
+          "seed": 6,
+          "spearman_improvement": 0.15777989511958057
+        },
+        {
+          "effective_pearson": 0.9513881262741022,
+          "effective_spearman": 0.9824790659162637,
+          "pearson_improvement": 0.13779834071357333,
+          "raw_pearson": 0.8135897855605289,
+          "raw_spearman": 0.814253369013476,
+          "seed": 7,
+          "spearman_improvement": 0.16822569690278766
+        },
+        {
+          "effective_pearson": 0.9533896082464457,
+          "effective_spearman": 0.9824828099312397,
+          "pearson_improvement": 0.13769872258443383,
+          "raw_pearson": 0.8156908856620119,
+          "raw_spearman": 0.8188448753795016,
+          "seed": 8,
+          "spearman_improvement": 0.16363793455173814
+        },
+        {
+          "effective_pearson": 0.9529847866690411,
+          "effective_spearman": 0.9865907623630494,
+          "pearson_improvement": 0.10991278143118721,
+          "raw_pearson": 0.8430720052378539,
+          "raw_spearman": 0.8468249552998212,
+          "seed": 9,
+          "spearman_improvement": 0.13976580706322828
+        },
+        {
+          "effective_pearson": 0.9455530316107245,
+          "effective_spearman": 0.9818229992919971,
+          "pearson_improvement": 0.14513120218596054,
+          "raw_pearson": 0.8004218294247639,
+          "raw_spearman": 0.8007358429433717,
+          "seed": 10,
+          "spearman_improvement": 0.18108715634862538
+        },
+        {
+          "effective_pearson": 0.9507331622965842,
+          "effective_spearman": 0.9823414973659894,
+          "pearson_improvement": 0.15758203466357323,
+          "raw_pearson": 0.793151127633011,
+          "raw_spearman": 0.8068992595970383,
+          "seed": 11,
+          "spearman_improvement": 0.17544223776895107
+        },
+        {
+          "effective_pearson": 0.9495065997631186,
+          "effective_spearman": 0.9819115116460466,
+          "pearson_improvement": 0.14990485897611483,
+          "raw_pearson": 0.7996017407870037,
+          "raw_spearman": 0.8157873591494366,
+          "seed": 12,
+          "spearman_improvement": 0.16612415249661006
+        },
+        {
+          "effective_pearson": 0.9499365463380463,
+          "effective_spearman": 0.9825571142284569,
+          "pearson_improvement": 0.15195729271733205,
+          "raw_pearson": 0.7979792536207142,
+          "raw_spearman": 0.7968225792903172,
+          "seed": 13,
+          "spearman_improvement": 0.18573453493813974
+        },
+        {
+          "effective_pearson": 0.9444360704803448,
+          "effective_spearman": 0.9811167244668979,
+          "pearson_improvement": 0.1361402861871237,
+          "raw_pearson": 0.8082957842932211,
+          "raw_spearman": 0.8006804507218029,
+          "seed": 14,
+          "spearman_improvement": 0.18043627374509497
+        },
+        {
+          "effective_pearson": 0.9500295929893434,
+          "effective_spearman": 0.986004968019872,
+          "pearson_improvement": 0.15684583308571487,
+          "raw_pearson": 0.7931837599036285,
+          "raw_spearman": 0.8278082392329569,
+          "seed": 15,
+          "spearman_improvement": 0.15819672878691515
+        },
+        {
+          "effective_pearson": 0.9482572627445497,
+          "effective_spearman": 0.9809706118824475,
+          "pearson_improvement": 0.12016578103753317,
+          "raw_pearson": 0.8280914817070165,
+          "raw_spearman": 0.8167456349825399,
+          "seed": 16,
+          "spearman_improvement": 0.16422497689990756
+        },
+        {
+          "effective_pearson": 0.955569604203646,
+          "effective_spearman": 0.9819010476041904,
+          "pearson_improvement": 0.1531370187130816,
+          "raw_pearson": 0.8024325854905644,
+          "raw_spearman": 0.8039197916791667,
+          "seed": 17,
+          "spearman_improvement": 0.17798125592502367
+        },
+        {
+          "effective_pearson": 0.9557862723401934,
+          "effective_spearman": 0.9854061176244705,
+          "pearson_improvement": 0.1302301998585077,
+          "raw_pearson": 0.8255560724816857,
+          "raw_spearman": 0.8295533342133369,
+          "seed": 18,
+          "spearman_improvement": 0.15585278341113362
+        },
+        {
+          "effective_pearson": 0.9443902599880915,
+          "effective_spearman": 0.9756889587558351,
+          "pearson_improvement": 0.16028268214734476,
+          "raw_pearson": 0.7841075778407467,
+          "raw_spearman": 0.7743447613790455,
+          "seed": 19,
+          "spearman_improvement": 0.20134419737678955
+        }
+      ],
+      "status": "PASS",
+      "summary": {
+        "max_pearson_improvement": 0.16028268214734476,
+        "max_spearman_improvement": 0.20134419737678955,
+        "mean_pearson_improvement": 0.1413116640519977,
+        "mean_spearman_improvement": 0.1703486253945016,
+        "min_pearson_improvement": 0.10991278143118721,
+        "min_spearman_improvement": 0.13976580706322828,
+        "negative_seed_count": 0,
+        "positive_seed_count": 20,
+        "seed_count": 20,
+        "systems_per_seed": 500
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/correlation_analysis_effective_observer_stability_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

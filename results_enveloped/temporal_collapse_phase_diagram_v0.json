@@ -1,0 +1,853 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.605515+00:00",
+  "experiment": "temporal_collapse_phase_diagram_v0",
+  "payload": {
+    "legacy_result": {
+      "phase_cells": [
+        {
+          "L": 8,
+          "cw": 2,
+          "first_persistent": 6,
+          "first_temporal": 5,
+          "persistent": true,
+          "pw": 2,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 8,
+          "cw": 2,
+          "first_persistent": 7,
+          "first_temporal": 5,
+          "persistent": true,
+          "pw": 3,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 8,
+          "cw": 2,
+          "first_persistent": null,
+          "first_temporal": 5,
+          "persistent": false,
+          "pw": 4,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 2,
+          "first_persistent": null,
+          "first_temporal": 5,
+          "persistent": false,
+          "pw": 5,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 2,
+          "first_persistent": null,
+          "first_temporal": 5,
+          "persistent": false,
+          "pw": 6,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 3,
+          "first_persistent": 7,
+          "first_temporal": 6,
+          "persistent": true,
+          "pw": 2,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 8,
+          "cw": 3,
+          "first_persistent": null,
+          "first_temporal": 6,
+          "persistent": false,
+          "pw": 3,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 3,
+          "first_persistent": null,
+          "first_temporal": 6,
+          "persistent": false,
+          "pw": 4,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 3,
+          "first_persistent": null,
+          "first_temporal": 6,
+          "persistent": false,
+          "pw": 5,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 3,
+          "first_persistent": null,
+          "first_temporal": 6,
+          "persistent": false,
+          "pw": 6,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 4,
+          "first_persistent": null,
+          "first_temporal": 7,
+          "persistent": false,
+          "pw": 2,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 4,
+          "first_persistent": null,
+          "first_temporal": 7,
+          "persistent": false,
+          "pw": 3,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 4,
+          "first_persistent": null,
+          "first_temporal": 7,
+          "persistent": false,
+          "pw": 4,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 4,
+          "first_persistent": null,
+          "first_temporal": 7,
+          "persistent": false,
+          "pw": 5,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 4,
+          "first_persistent": null,
+          "first_temporal": 7,
+          "persistent": false,
+          "pw": 6,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 5,
+          "first_persistent": null,
+          "first_temporal": null,
+          "persistent": false,
+          "pw": 2,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 5,
+          "first_persistent": null,
+          "first_temporal": null,
+          "persistent": false,
+          "pw": 3,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 5,
+          "first_persistent": null,
+          "first_temporal": null,
+          "persistent": false,
+          "pw": 4,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 5,
+          "first_persistent": null,
+          "first_temporal": null,
+          "persistent": false,
+          "pw": 5,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 5,
+          "first_persistent": null,
+          "first_temporal": null,
+          "persistent": false,
+          "pw": 6,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 6,
+          "first_persistent": null,
+          "first_temporal": null,
+          "persistent": false,
+          "pw": 2,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 6,
+          "first_persistent": null,
+          "first_temporal": null,
+          "persistent": false,
+          "pw": 3,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 6,
+          "first_persistent": null,
+          "first_temporal": null,
+          "persistent": false,
+          "pw": 4,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 6,
+          "first_persistent": null,
+          "first_temporal": null,
+          "persistent": false,
+          "pw": 5,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 8,
+          "cw": 6,
+          "first_persistent": null,
+          "first_temporal": null,
+          "persistent": false,
+          "pw": 6,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 10,
+          "cw": 2,
+          "first_persistent": 6,
+          "first_temporal": 5,
+          "persistent": true,
+          "pw": 2,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 10,
+          "cw": 2,
+          "first_persistent": 7,
+          "first_temporal": 5,
+          "persistent": true,
+          "pw": 3,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 10,
+          "cw": 2,
+          "first_persistent": 8,
+          "first_temporal": 5,
+          "persistent": true,
+          "pw": 4,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 10,
+          "cw": 2,
+          "first_persistent": 9,
+          "first_temporal": 5,
+          "persistent": true,
+          "pw": 5,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 10,
+          "cw": 2,
+          "first_persistent": null,
+          "first_temporal": 5,
+          "persistent": false,
+          "pw": 6,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 10,
+          "cw": 3,
+          "first_persistent": 7,
+          "first_temporal": 6,
+          "persistent": true,
+          "pw": 2,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 10,
+          "cw": 3,
+          "first_persistent": 8,
+          "first_temporal": 6,
+          "persistent": true,
+          "pw": 3,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 10,
+          "cw": 3,
+          "first_persistent": 9,
+          "first_temporal": 6,
+          "persistent": true,
+          "pw": 4,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 10,
+          "cw": 3,
+          "first_persistent": null,
+          "first_temporal": 6,
+          "persistent": false,
+          "pw": 5,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 10,
+          "cw": 3,
+          "first_persistent": null,
+          "first_temporal": 6,
+          "persistent": false,
+          "pw": 6,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 10,
+          "cw": 4,
+          "first_persistent": 8,
+          "first_temporal": 7,
+          "persistent": true,
+          "pw": 2,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 10,
+          "cw": 4,
+          "first_persistent": 9,
+          "first_temporal": 7,
+          "persistent": true,
+          "pw": 3,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 10,
+          "cw": 4,
+          "first_persistent": null,
+          "first_temporal": 7,
+          "persistent": false,
+          "pw": 4,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 10,
+          "cw": 4,
+          "first_persistent": null,
+          "first_temporal": 7,
+          "persistent": false,
+          "pw": 5,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 10,
+          "cw": 4,
+          "first_persistent": null,
+          "first_temporal": 7,
+          "persistent": false,
+          "pw": 6,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 10,
+          "cw": 5,
+          "first_persistent": 9,
+          "first_temporal": 8,
+          "persistent": true,
+          "pw": 2,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 10,
+          "cw": 5,
+          "first_persistent": null,
+          "first_temporal": 8,
+          "persistent": false,
+          "pw": 3,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 10,
+          "cw": 5,
+          "first_persistent": null,
+          "first_temporal": 8,
+          "persistent": false,
+          "pw": 4,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 10,
+          "cw": 5,
+          "first_persistent": null,
+          "first_temporal": 8,
+          "persistent": false,
+          "pw": 5,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 10,
+          "cw": 5,
+          "first_persistent": null,
+          "first_temporal": 8,
+          "persistent": false,
+          "pw": 6,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 10,
+          "cw": 6,
+          "first_persistent": null,
+          "first_temporal": 9,
+          "persistent": false,
+          "pw": 2,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 10,
+          "cw": 6,
+          "first_persistent": null,
+          "first_temporal": 9,
+          "persistent": false,
+          "pw": 3,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 10,
+          "cw": 6,
+          "first_persistent": null,
+          "first_temporal": 9,
+          "persistent": false,
+          "pw": 4,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 10,
+          "cw": 6,
+          "first_persistent": null,
+          "first_temporal": 9,
+          "persistent": false,
+          "pw": 5,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 10,
+          "cw": 6,
+          "first_persistent": null,
+          "first_temporal": 9,
+          "persistent": false,
+          "pw": 6,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 12,
+          "cw": 2,
+          "first_persistent": 6,
+          "first_temporal": 5,
+          "persistent": true,
+          "pw": 2,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 2,
+          "first_persistent": 7,
+          "first_temporal": 5,
+          "persistent": true,
+          "pw": 3,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 2,
+          "first_persistent": 8,
+          "first_temporal": 5,
+          "persistent": true,
+          "pw": 4,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 2,
+          "first_persistent": 9,
+          "first_temporal": 5,
+          "persistent": true,
+          "pw": 5,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 2,
+          "first_persistent": 10,
+          "first_temporal": 5,
+          "persistent": true,
+          "pw": 6,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 3,
+          "first_persistent": 7,
+          "first_temporal": 6,
+          "persistent": true,
+          "pw": 2,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 3,
+          "first_persistent": 8,
+          "first_temporal": 6,
+          "persistent": true,
+          "pw": 3,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 3,
+          "first_persistent": 9,
+          "first_temporal": 6,
+          "persistent": true,
+          "pw": 4,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 3,
+          "first_persistent": 10,
+          "first_temporal": 6,
+          "persistent": true,
+          "pw": 5,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 3,
+          "first_persistent": 11,
+          "first_temporal": 6,
+          "persistent": true,
+          "pw": 6,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 4,
+          "first_persistent": 8,
+          "first_temporal": 7,
+          "persistent": true,
+          "pw": 2,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 4,
+          "first_persistent": 9,
+          "first_temporal": 7,
+          "persistent": true,
+          "pw": 3,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 4,
+          "first_persistent": 10,
+          "first_temporal": 7,
+          "persistent": true,
+          "pw": 4,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 4,
+          "first_persistent": 11,
+          "first_temporal": 7,
+          "persistent": true,
+          "pw": 5,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 4,
+          "first_persistent": null,
+          "first_temporal": 7,
+          "persistent": false,
+          "pw": 6,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 12,
+          "cw": 5,
+          "first_persistent": 9,
+          "first_temporal": 8,
+          "persistent": true,
+          "pw": 2,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 5,
+          "first_persistent": 10,
+          "first_temporal": 8,
+          "persistent": true,
+          "pw": 3,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 5,
+          "first_persistent": 11,
+          "first_temporal": 8,
+          "persistent": true,
+          "pw": 4,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 5,
+          "first_persistent": null,
+          "first_temporal": 8,
+          "persistent": false,
+          "pw": 5,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 12,
+          "cw": 5,
+          "first_persistent": null,
+          "first_temporal": 8,
+          "persistent": false,
+          "pw": 6,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 12,
+          "cw": 6,
+          "first_persistent": 10,
+          "first_temporal": 9,
+          "persistent": true,
+          "pw": 2,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 6,
+          "first_persistent": 11,
+          "first_temporal": 9,
+          "persistent": true,
+          "pw": 3,
+          "safe": true,
+          "status": "PASS"
+        },
+        {
+          "L": 12,
+          "cw": 6,
+          "first_persistent": null,
+          "first_temporal": 9,
+          "persistent": false,
+          "pw": 4,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 12,
+          "cw": 6,
+          "first_persistent": null,
+          "first_temporal": 9,
+          "persistent": false,
+          "pw": 5,
+          "safe": true,
+          "status": "CHECK"
+        },
+        {
+          "L": 12,
+          "cw": 6,
+          "first_persistent": null,
+          "first_temporal": 9,
+          "persistent": false,
+          "pw": 6,
+          "safe": true,
+          "status": "CHECK"
+        }
+      ],
+      "reproduction_command": "python examples/temporal_collapse_phase_diagram_v0.py",
+      "status": "CHECK",
+      "summary": {
+        "by_confirmation_window": {
+          "cw2": {
+            "cell_count": 15,
+            "check_count": 4,
+            "pass_count": 11,
+            "pass_rate": 0.7333333333333333
+          },
+          "cw3": {
+            "cell_count": 15,
+            "check_count": 6,
+            "pass_count": 9,
+            "pass_rate": 0.6
+          },
+          "cw4": {
+            "cell_count": 15,
+            "check_count": 9,
+            "pass_count": 6,
+            "pass_rate": 0.4
+          },
+          "cw5": {
+            "cell_count": 15,
+            "check_count": 11,
+            "pass_count": 4,
+            "pass_rate": 0.26666666666666666
+          },
+          "cw6": {
+            "cell_count": 15,
+            "check_count": 13,
+            "pass_count": 2,
+            "pass_rate": 0.13333333333333333
+          }
+        },
+        "by_trajectory_length": {
+          "10": {
+            "cell_count": 25,
+            "check_count": 15,
+            "mean_first_persistent_collapse": 8,
+            "pass_count": 10,
+            "pass_rate": 0.4
+          },
+          "12": {
+            "cell_count": 25,
+            "check_count": 6,
+            "mean_first_persistent_collapse": 9.157894736842104,
+            "pass_count": 19,
+            "pass_rate": 0.76
+          },
+          "8": {
+            "cell_count": 25,
+            "check_count": 22,
+            "mean_first_persistent_collapse": 6.666666666666667,
+            "pass_count": 3,
+            "pass_rate": 0.12
+          }
+        },
+        "check_cell_count": 43,
+        "confirmation_windows": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "mean_first_persistent_collapse": 8.5625,
+        "pass_cell_count": 32,
+        "pass_rate": 0.4266666666666667,
+        "persistence_windows": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "persistent_confirmed_count": 32,
+        "persistent_confirmed_rate": 0.4266666666666667,
+        "safe_cell_count": 75,
+        "safety_rate": 1.0,
+        "total_cell_count": 75,
+        "trajectory_lengths": [
+          8,
+          10,
+          12
+        ]
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_phase_diagram_v0.json",
+    "legacy_status": "CHECK",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

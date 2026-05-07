@@ -1,0 +1,315 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.569963+00:00",
+  "experiment": "resilience_regression_negative_control_v0",
+  "payload": {
+    "legacy_result": {
+      "case_results": [
+        {
+          "case_id": "clean_cross_domain_fixture",
+          "checks": {
+            "noise_gradient_detected": {
+              "noise_gradient_detected": true,
+              "passed": true,
+              "total_violation_count": 0
+            },
+            "normalized_margin_greater_than_raw_margin": {
+              "normalized_margin": 0.602173482822,
+              "passed": true,
+              "raw_margin": 0.052785411892
+            },
+            "normalized_within_lower_than_cross": {
+              "mean_cross": 0.853630825696,
+              "mean_within": 0.251457342874,
+              "passed": true,
+              "within_lower_than_cross": true
+            }
+          },
+          "component": "cross_domain_invariance_v0_2",
+          "detected_regression": false,
+          "expectation_met": true,
+          "expected_detection": false,
+          "failed_checks": [],
+          "mutation": "none"
+        },
+        {
+          "case_id": "break_normalized_margin",
+          "checks": {
+            "noise_gradient_detected": {
+              "noise_gradient_detected": true,
+              "passed": true,
+              "total_violation_count": 0
+            },
+            "normalized_margin_greater_than_raw_margin": {
+              "normalized_margin": 0.052785411892,
+              "passed": false,
+              "raw_margin": 0.052785411892
+            },
+            "normalized_within_lower_than_cross": {
+              "mean_cross": 0.853630825696,
+              "mean_within": 0.251457342874,
+              "passed": true,
+              "within_lower_than_cross": true
+            }
+          },
+          "component": "cross_domain_invariance_v0_2",
+          "detected_regression": true,
+          "expectation_met": true,
+          "expected_detection": true,
+          "failed_checks": [
+            "normalized_margin_greater_than_raw_margin"
+          ],
+          "mutation": "normalized_margin_equal_to_raw_margin"
+        },
+        {
+          "case_id": "break_noise_gradient",
+          "checks": {
+            "noise_gradient_detected": {
+              "noise_gradient_detected": false,
+              "passed": false,
+              "total_violation_count": 2
+            },
+            "normalized_margin_greater_than_raw_margin": {
+              "normalized_margin": 0.602173482822,
+              "passed": true,
+              "raw_margin": 0.052785411892
+            },
+            "normalized_within_lower_than_cross": {
+              "mean_cross": 0.853630825696,
+              "mean_within": 0.251457342874,
+              "passed": true,
+              "within_lower_than_cross": true
+            }
+          },
+          "component": "cross_domain_invariance_v0_2",
+          "detected_regression": true,
+          "expectation_met": true,
+          "expected_detection": true,
+          "failed_checks": [
+            "noise_gradient_detected"
+          ],
+          "mutation": "noise_gradient_false"
+        },
+        {
+          "case_id": "break_adversarial_controls",
+          "checks": {
+            "attack_count_positive": {
+              "attack_count": 8,
+              "passed": true
+            },
+            "controls_ok": {
+              "controls_ok": false,
+              "passed": false
+            },
+            "false_merge_attacks_detected": {
+              "false_merge_attack_count": 1,
+              "passed": true
+            },
+            "false_split_attacks_detected": {
+              "false_split_attack_count": 1,
+              "passed": true
+            }
+          },
+          "component": "adversarial_representation_v0",
+          "detected_regression": true,
+          "expectation_met": true,
+          "expected_detection": true,
+          "failed_checks": [
+            "controls_ok"
+          ],
+          "mutation": "controls_ok_false"
+        },
+        {
+          "case_id": "break_attack_detection",
+          "checks": {
+            "attack_count_positive": {
+              "attack_count": 0,
+              "passed": false
+            },
+            "controls_ok": {
+              "controls_ok": true,
+              "passed": true
+            },
+            "false_merge_attacks_detected": {
+              "false_merge_attack_count": 0,
+              "passed": false
+            },
+            "false_split_attacks_detected": {
+              "false_split_attack_count": 0,
+              "passed": false
+            }
+          },
+          "component": "adversarial_representation_v0",
+          "detected_regression": true,
+          "expectation_met": true,
+          "expected_detection": true,
+          "failed_checks": [
+            "attack_count_positive",
+            "false_merge_attacks_detected",
+            "false_split_attacks_detected"
+          ],
+          "mutation": "attack_count_zero"
+        },
+        {
+          "case_id": "break_boundary_map_counts",
+          "checks": {
+            "attack_family_count_minimum": {
+              "attack_family_count": 2,
+              "passed": false
+            },
+            "control_ok": {
+              "control_ok": true,
+              "passed": true
+            },
+            "detected_boundary_count_minimum": {
+              "detected_boundary_count": 2,
+              "passed": false
+            },
+            "observed_effect_count_minimum": {
+              "observed_effect_count": 3,
+              "passed": true
+            }
+          },
+          "component": "projection_boundary_map_v0",
+          "detected_regression": true,
+          "expectation_met": true,
+          "expected_detection": true,
+          "failed_checks": [
+            "attack_family_count_minimum",
+            "detected_boundary_count_minimum"
+          ],
+          "mutation": "insufficient_boundary_counts"
+        },
+        {
+          "case_id": "break_boundary_map_control",
+          "checks": {
+            "attack_family_count_minimum": {
+              "attack_family_count": 7,
+              "passed": true
+            },
+            "control_ok": {
+              "control_ok": false,
+              "passed": false
+            },
+            "detected_boundary_count_minimum": {
+              "detected_boundary_count": 7,
+              "passed": true
+            },
+            "observed_effect_count_minimum": {
+              "observed_effect_count": 3,
+              "passed": true
+            }
+          },
+          "component": "projection_boundary_map_v0",
+          "detected_regression": true,
+          "expectation_met": true,
+          "expected_detection": true,
+          "failed_checks": [
+            "control_ok"
+          ],
+          "mutation": "boundary_control_false"
+        },
+        {
+          "case_id": "break_resilience_mitigation_rate",
+          "checks": {
+            "control_preservation": {
+              "control_preservation": true,
+              "control_preservation_rate": 1.0,
+              "passed": true
+            },
+            "mitigation_success_rate_minimum": {
+              "mitigation_success_rate": 0.25,
+              "passed": false
+            },
+            "resilient_failure_count_below_baseline": {
+              "baseline_failure_count": 6,
+              "passed": true,
+              "resilient_failure_count": 1
+            },
+            "stability_gain_positive": {
+              "passed": true,
+              "stability_gain": 0.833333333333
+            }
+          },
+          "component": "projection_resilience_layer_v0",
+          "detected_regression": true,
+          "expectation_met": true,
+          "expected_detection": true,
+          "failed_checks": [
+            "mitigation_success_rate_minimum"
+          ],
+          "mutation": "mitigation_success_rate_below_threshold"
+        },
+        {
+          "case_id": "break_resilience_failure_count",
+          "checks": {
+            "control_preservation": {
+              "control_preservation": true,
+              "control_preservation_rate": 1.0,
+              "passed": true
+            },
+            "mitigation_success_rate_minimum": {
+              "mitigation_success_rate": 0.75,
+              "passed": true
+            },
+            "resilient_failure_count_below_baseline": {
+              "baseline_failure_count": 6,
+              "passed": false,
+              "resilient_failure_count": 6
+            },
+            "stability_gain_positive": {
+              "passed": false,
+              "stability_gain": 0.0
+            }
+          },
+          "component": "projection_resilience_layer_v0",
+          "detected_regression": true,
+          "expectation_met": true,
+          "expected_detection": true,
+          "failed_checks": [
+            "stability_gain_positive",
+            "resilient_failure_count_below_baseline"
+          ],
+          "mutation": "resilient_failure_count_equals_baseline"
+        }
+      ],
+      "claim_level": "Level 1 — Negative Control",
+      "core_boundary": "measurement != inference != decision",
+      "date_utc": "2026-05-03T20:44:57.811480+00:00",
+      "domain": "regression_harness_failure_sensitivity",
+      "experiment_name": "resilience_regression_negative_control_v0",
+      "interpretation": "PASS means the negative control successfully triggered regression detection while preserving the clean control case.",
+      "limitations": [
+        "This is not the full OMNIA engine.",
+        "This is a toy negative-control test.",
+        "Regressions are injected into fixtures, not into live code.",
+        "It validates harness sensitivity only for selected invariants.",
+        "It does not discover new failure modes.",
+        "It does not prove universal robustness.",
+        "No semantic truth is evaluated."
+      ],
+      "main_insight": "The regression harness is sensitive to deliberately injected structural invariant failures.",
+      "operational_classification": "REGRESSION_DETECTION_VALIDATED",
+      "pass_condition": "detected_injected_regression_count >= 3 and clean_control_preservation_rate == 1.0 and negative_control_detection_rate >= 0.75 and all_expectations_met == true",
+      "purpose": "Validate that the regression harness detects deliberately injected critical invariant failures.",
+      "reproduction_command": "python examples/resilience_regression_negative_control_v0.py",
+      "status": "PASS",
+      "summary": {
+        "all_expectations_met": true,
+        "clean_case_count": 1,
+        "clean_control_preservation_rate": 1.0,
+        "clean_control_preserved_count": 1,
+        "detected_injected_regression_count": 8,
+        "expectation_met_count": 9,
+        "injected_regression_case_count": 8,
+        "negative_control_detection_rate": 1.0,
+        "total_cases": 9
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/resilience_regression_negative_control_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

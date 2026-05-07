@@ -1,0 +1,239 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.637045+00:00",
+  "experiment": "temporal_collapse_topology_noise_robustness_v0",
+  "payload": {
+    "legacy_result": {
+      "by_case": {
+        "clean_pass": {
+          "case_count": 5,
+          "check_count": 1,
+          "pass_count": 4,
+          "pass_rate": 0.8,
+          "stable_count": 3,
+          "stable_rate": 0.6,
+          "transition_count": 2
+        },
+        "fragmented_local_collapse": {
+          "case_count": 6,
+          "check_count": 0,
+          "pass_count": 6,
+          "pass_rate": 1.0,
+          "stable_count": 5,
+          "stable_rate": 0.8333333333333334,
+          "transition_count": 1
+        },
+        "global_persistent_collapse": {
+          "case_count": 6,
+          "check_count": 1,
+          "pass_count": 5,
+          "pass_rate": 0.8333333333333334,
+          "stable_count": 3,
+          "stable_rate": 0.5,
+          "transition_count": 3
+        },
+        "oscillating_nonpersistent": {
+          "case_count": 5,
+          "check_count": 0,
+          "pass_count": 5,
+          "pass_rate": 1.0,
+          "stable_count": 4,
+          "stable_rate": 0.8,
+          "transition_count": 1
+        },
+        "recovery_relapse_collapse": {
+          "case_count": 5,
+          "check_count": 0,
+          "pass_count": 5,
+          "pass_rate": 1.0,
+          "stable_count": 5,
+          "stable_rate": 1.0,
+          "transition_count": 0
+        },
+        "spike_filtered": {
+          "case_count": 5,
+          "check_count": 1,
+          "pass_count": 4,
+          "pass_rate": 0.8,
+          "stable_count": 3,
+          "stable_rate": 0.6,
+          "transition_count": 2
+        }
+      },
+      "by_noise_type": {
+        "collapse_to_pass": {
+          "case_count": 6,
+          "check_count": 0,
+          "pass_count": 6,
+          "pass_rate": 1.0,
+          "stable_count": 6,
+          "stable_rate": 1.0,
+          "transition_count": 0
+        },
+        "collapse_to_pass_double": {
+          "case_count": 1,
+          "check_count": 0,
+          "pass_count": 1,
+          "pass_rate": 1.0,
+          "stable_count": 0,
+          "stable_rate": 0.0,
+          "transition_count": 1
+        },
+        "collapse_to_pass_local": {
+          "case_count": 1,
+          "check_count": 0,
+          "pass_count": 1,
+          "pass_rate": 1.0,
+          "stable_count": 1,
+          "stable_rate": 1.0,
+          "transition_count": 0
+        },
+        "collapse_to_pass_relapse": {
+          "case_count": 1,
+          "check_count": 0,
+          "pass_count": 1,
+          "pass_rate": 1.0,
+          "stable_count": 1,
+          "stable_rate": 1.0,
+          "transition_count": 0
+        },
+        "collapse_to_pass_sparse": {
+          "case_count": 1,
+          "check_count": 0,
+          "pass_count": 1,
+          "pass_rate": 1.0,
+          "stable_count": 0,
+          "stable_rate": 0.0,
+          "transition_count": 1
+        },
+        "none": {
+          "case_count": 6,
+          "check_count": 0,
+          "pass_count": 6,
+          "pass_rate": 1.0,
+          "stable_count": 6,
+          "stable_rate": 1.0,
+          "transition_count": 0
+        },
+        "pass_to_collapse": {
+          "case_count": 6,
+          "check_count": 3,
+          "pass_count": 3,
+          "pass_rate": 0.5,
+          "stable_count": 3,
+          "stable_rate": 0.5,
+          "transition_count": 3
+        },
+        "pass_to_collapse_bridge": {
+          "case_count": 1,
+          "check_count": 0,
+          "pass_count": 1,
+          "pass_rate": 1.0,
+          "stable_count": 0,
+          "stable_rate": 0.0,
+          "transition_count": 1
+        },
+        "pass_to_collapse_local_bridge": {
+          "case_count": 2,
+          "check_count": 0,
+          "pass_count": 2,
+          "pass_rate": 1.0,
+          "stable_count": 0,
+          "stable_rate": 0.0,
+          "transition_count": 2
+        },
+        "pass_to_collapse_sparse": {
+          "case_count": 1,
+          "check_count": 0,
+          "pass_count": 1,
+          "pass_rate": 1.0,
+          "stable_count": 0,
+          "stable_rate": 0.0,
+          "transition_count": 1
+        },
+        "pass_to_escalate": {
+          "case_count": 6,
+          "check_count": 0,
+          "pass_count": 6,
+          "pass_rate": 1.0,
+          "stable_count": 6,
+          "stable_rate": 1.0,
+          "transition_count": 0
+        }
+      },
+      "critical_transitions": [
+        {
+          "base_classification": "CLEAN_PASS",
+          "case_name": "clean_pass",
+          "interpretation": "one false collapse frame turns clean pass into spike",
+          "noise_name": "single_false_spike",
+          "predicted_classification": "SPIKE_FILTERED",
+          "status": "CHECK"
+        },
+        {
+          "base_classification": "SPIKE_FILTERED",
+          "case_name": "spike_filtered",
+          "interpretation": "one additional false collapse creates oscillating nonpersistent topology",
+          "noise_name": "single_false_spike",
+          "predicted_classification": "OSCILLATING_NONPERSISTENT",
+          "status": "CHECK"
+        },
+        {
+          "base_classification": "GLOBAL_PERSISTENT_COLLAPSE",
+          "case_name": "global_persistent_collapse",
+          "interpretation": "one extra early false collapse creates multi-run relapse topology",
+          "noise_name": "single_false_spike",
+          "predicted_classification": "RECOVERY_RELAPSE_COLLAPSE",
+          "status": "CHECK"
+        }
+      ],
+      "experiment": "temporal_collapse_topology_noise_robustness_v0",
+      "final_check": {
+        "message": "topology noise robustness exposed classification instability under controlled frame-level noise",
+        "status": "CHECK"
+      },
+      "reproduction_command": "python examples/temporal_collapse_topology_noise_robustness_v0.py",
+      "status": "CHECK",
+      "summary": {
+        "case_count": 32,
+        "check_case_count": 3,
+        "confirmation_window": 2,
+        "expected_transition_count": 26,
+        "global_persistence_threshold": 4,
+        "mean_noise_flip_count": 0.90625,
+        "noise_types": [
+          "collapse_to_pass",
+          "collapse_to_pass_double",
+          "collapse_to_pass_local",
+          "collapse_to_pass_relapse",
+          "collapse_to_pass_sparse",
+          "none",
+          "pass_to_collapse",
+          "pass_to_collapse_bridge",
+          "pass_to_collapse_local_bridge",
+          "pass_to_collapse_sparse",
+          "pass_to_escalate"
+        ],
+        "pass_case_count": 29,
+        "pass_rate": 0.90625,
+        "persistence_window": 2,
+        "stable_classification_count": 23,
+        "stable_rate": 0.71875,
+        "supported_classes": [
+          "GLOBAL_PERSISTENT_COLLAPSE",
+          "RECOVERY_RELAPSE_COLLAPSE",
+          "FRAGMENTED_LOCAL_COLLAPSE",
+          "OSCILLATING_NONPERSISTENT",
+          "SPIKE_FILTERED",
+          "CLEAN_PASS"
+        ],
+        "transition_count": 9
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_topology_noise_robustness_v0.json",
+    "legacy_status": "CHECK",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

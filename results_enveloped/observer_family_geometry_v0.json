@@ -1,0 +1,160 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.557844+00:00",
+  "experiment": "observer_family_geometry_v0",
+  "payload": {
+    "legacy_result": {
+      "core_boundary": "measurement != inference != decision",
+      "date_utc": "2026-05-02T19:35:24.697806+00:00",
+      "domain": "observer_family_geometry",
+      "experiment_name": "observer_family_geometry_v0",
+      "limitations": [
+        "This is not the full OMNIA engine.",
+        "This is a toy observer geometry experiment.",
+        "Observer distance is heuristic.",
+        "Observer families are simplified.",
+        "No semantic truth is evaluated.",
+        "No universal observer geometry claim is made."
+      ],
+      "main_insight": "Observer count alone is insufficient; recovery evidence must account for observer redundancy and diversity.",
+      "observer_names": [
+        "entropy_profile",
+        "motif3",
+        "run_length_profile",
+        "symbol_pattern",
+        "symmetry_profile",
+        "transition_topology"
+      ],
+      "observer_uniqueness": {
+        "entropy_profile": 0.975,
+        "motif3": 0.983333333333,
+        "run_length_profile": 0.966666666667,
+        "symbol_pattern": 0.979166666667,
+        "symmetry_profile": 0.886805555555,
+        "transition_topology": 0.982638888889
+      },
+      "pairwise_observer_geometry": [
+        {
+          "distance": 1.0,
+          "left": "entropy_profile",
+          "right": "motif3",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile",
+          "right": "run_length_profile",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile",
+          "right": "symbol_pattern",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.875,
+          "left": "entropy_profile",
+          "right": "symmetry_profile",
+          "similarity": 0.125
+        },
+        {
+          "distance": 1.0,
+          "left": "entropy_profile",
+          "right": "transition_topology",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3",
+          "right": "run_length_profile",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3",
+          "right": "symbol_pattern",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.916666666667,
+          "left": "motif3",
+          "right": "symmetry_profile",
+          "similarity": 0.083333333333
+        },
+        {
+          "distance": 1.0,
+          "left": "motif3",
+          "right": "transition_topology",
+          "similarity": 0.0
+        },
+        {
+          "distance": 1.0,
+          "left": "run_length_profile",
+          "right": "symbol_pattern",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.833333333333,
+          "left": "run_length_profile",
+          "right": "symmetry_profile",
+          "similarity": 0.166666666667
+        },
+        {
+          "distance": 1.0,
+          "left": "run_length_profile",
+          "right": "transition_topology",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.895833333333,
+          "left": "symbol_pattern",
+          "right": "symmetry_profile",
+          "similarity": 0.104166666667
+        },
+        {
+          "distance": 1.0,
+          "left": "symbol_pattern",
+          "right": "transition_topology",
+          "similarity": 0.0
+        },
+        {
+          "distance": 0.913194444444,
+          "left": "symmetry_profile",
+          "right": "transition_topology",
+          "similarity": 0.086805555556
+        }
+      ],
+      "pass_condition": "observer_count >= 5 and average_distance > 0.25 and diverse_pair_count >= 2 and unique_observer_count >= 2",
+      "purpose": "Measure redundancy and diversity inside a toy observer family.",
+      "reproduction_command": "python examples/observer_family_geometry_v0.py",
+      "sample_count": 8,
+      "status": "PASS",
+      "summary": {
+        "average_distance": 0.962268518518,
+        "diverse_pair_count": 15,
+        "max_distance": 1.0,
+        "min_distance": 0.833333333333,
+        "observer_count": 6,
+        "pair_count": 15,
+        "redundancy_pair_count": 0,
+        "redundant_observer_count": 0,
+        "redundant_observers": [],
+        "unique_observer_count": 6,
+        "unique_observers": [
+          "entropy_profile",
+          "motif3",
+          "run_length_profile",
+          "symbol_pattern",
+          "symmetry_profile",
+          "transition_topology"
+        ]
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/observer_family_geometry_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

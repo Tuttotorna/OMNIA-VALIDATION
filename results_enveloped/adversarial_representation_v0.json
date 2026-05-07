@@ -1,0 +1,410 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.445842+00:00",
+  "experiment": "adversarial_representation_v0",
+  "payload": {
+    "legacy_result": {
+      "attack_count": 8,
+      "claim_level": "Level 1 — Toy Demonstration",
+      "control_analysis": {
+        "control_pairs": [
+          {
+            "combined_distance": 0.0,
+            "left": "control_binary_clean_1",
+            "projected_edit_distance": 0.0,
+            "right": "control_binary_clean_2",
+            "same_intended_structure": true
+          },
+          {
+            "combined_distance": 0.827486195701,
+            "left": "control_binary_clean_1",
+            "projected_edit_distance": 0.5,
+            "right": "control_four_cycle_1",
+            "same_intended_structure": false
+          },
+          {
+            "combined_distance": 0.827486195701,
+            "left": "control_binary_clean_1",
+            "projected_edit_distance": 0.5,
+            "right": "control_four_cycle_2",
+            "same_intended_structure": false
+          },
+          {
+            "combined_distance": 0.827486195701,
+            "left": "control_binary_clean_2",
+            "projected_edit_distance": 0.5,
+            "right": "control_four_cycle_1",
+            "same_intended_structure": false
+          },
+          {
+            "combined_distance": 0.827486195701,
+            "left": "control_binary_clean_2",
+            "projected_edit_distance": 0.5,
+            "right": "control_four_cycle_2",
+            "same_intended_structure": false
+          },
+          {
+            "combined_distance": 0.0,
+            "left": "control_four_cycle_1",
+            "projected_edit_distance": 0.0,
+            "right": "control_four_cycle_2",
+            "same_intended_structure": true
+          }
+        ],
+        "controls_ok": true,
+        "equivalent_controls_ok": true,
+        "separate_controls_ok": true
+      },
+      "core_boundary": "measurement != inference != decision",
+      "date_utc": "2026-05-03T20:44:58.162626+00:00",
+      "domain": "adversarial_representation_against_canonical_projection",
+      "expected_failure_case_count": 8,
+      "experiment_name": "adversarial_representation_v0",
+      "false_merge_attacks": [
+        {
+          "attack": "false_merge",
+          "combined_distance": 0.0,
+          "evidence": "different intended structures collapsed to identical canonical projection",
+          "left": "false_merge_A_temperature",
+          "left_intended_structure": "temperature_hot_cold_alternation",
+          "projected_edit_distance": 0.0,
+          "right": "false_merge_B_finance",
+          "right_intended_structure": "finance_buy_sell_alternation"
+        },
+        {
+          "attack": "false_merge",
+          "combined_distance": 0.0,
+          "evidence": "different intended structures collapsed to identical canonical projection",
+          "left": "false_merge_A_temperature",
+          "left_intended_structure": "temperature_hot_cold_alternation",
+          "projected_edit_distance": 0.0,
+          "right": "false_merge_C_low_high",
+          "right_intended_structure": "low_high_alternation"
+        },
+        {
+          "attack": "false_merge",
+          "combined_distance": 0.0,
+          "evidence": "different intended structures collapsed to identical canonical projection",
+          "left": "false_merge_A_temperature",
+          "left_intended_structure": "temperature_hot_cold_alternation",
+          "projected_edit_distance": 0.0,
+          "right": "false_merge_D_zero_extreme",
+          "right_intended_structure": "zero_extreme_alternation"
+        },
+        {
+          "attack": "false_merge",
+          "combined_distance": 0.0,
+          "evidence": "different intended structures collapsed to identical canonical projection",
+          "left": "false_merge_B_finance",
+          "left_intended_structure": "finance_buy_sell_alternation",
+          "projected_edit_distance": 0.0,
+          "right": "false_merge_C_low_high",
+          "right_intended_structure": "low_high_alternation"
+        },
+        {
+          "attack": "false_merge",
+          "combined_distance": 0.0,
+          "evidence": "different intended structures collapsed to identical canonical projection",
+          "left": "false_merge_B_finance",
+          "left_intended_structure": "finance_buy_sell_alternation",
+          "projected_edit_distance": 0.0,
+          "right": "false_merge_D_zero_extreme",
+          "right_intended_structure": "zero_extreme_alternation"
+        },
+        {
+          "attack": "false_merge",
+          "combined_distance": 0.0,
+          "evidence": "different intended structures collapsed to identical canonical projection",
+          "left": "false_merge_C_low_high",
+          "left_intended_structure": "low_high_alternation",
+          "projected_edit_distance": 0.0,
+          "right": "false_merge_D_zero_extreme",
+          "right_intended_structure": "zero_extreme_alternation"
+        }
+      ],
+      "false_split_attacks": [
+        {
+          "attack": "false_split",
+          "combined_distance": 1.263691235877,
+          "evidence": "same intended structure separated by adversarial aliases",
+          "intended_structure": "same_binary_alternation",
+          "left": "false_split_A_clean",
+          "projected_edit_distance": 0.65625,
+          "right": "false_split_B_aliases"
+        },
+        {
+          "attack": "false_split",
+          "combined_distance": 0.826827245531,
+          "evidence": "same intended structure separated by adversarial aliases",
+          "intended_structure": "same_four_cycle",
+          "left": "false_split_C_clean_cycle",
+          "projected_edit_distance": 0.5,
+          "right": "false_split_D_alias_cycle"
+        }
+      ],
+      "interpretation": "PASS means adversarial representation attacks were detected while basic clean controls still behaved as expected. This identifies a measurable boundary of the canonical projection.",
+      "limitations": [
+        "This is not the full OMNIA engine.",
+        "This is a toy adversarial representation test.",
+        "The canonical projection is hand-built.",
+        "Attack cases are synthetic.",
+        "Intended structures are manually labeled.",
+        "No semantic truth is evaluated.",
+        "No universal adversarial robustness claim is made.",
+        "No external reproduction is included yet."
+      ],
+      "main_insight": "First-seen canonical projection is useful for clean invariance but fragile under adversarial token design.",
+      "measured_cases": [
+        {
+          "attack_type": "false_merge",
+          "case_id": "false_merge_A_temperature",
+          "description": "Alternating hot/cold labels.",
+          "expected_failure": true,
+          "intended_structure": "temperature_hot_cold_alternation",
+          "projected": "0101010101010101010101010101010101010101010101010101010101010101",
+          "projected_length": 64,
+          "projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "signature": {
+            "compression_ratio": 0.203125,
+            "entropy": 1.0,
+            "omega_proxy": 0.949101311664,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.983606557377,
+            "transition_cardinality_score": 0.968253968254,
+            "transition_regular_score": 0.983870967742,
+            "unique_symbol_ratio": 0.03125
+          }
+        },
+        {
+          "attack_type": "false_merge",
+          "case_id": "false_merge_B_finance",
+          "description": "Alternating buy/sell labels; different intended domain but same token pattern.",
+          "expected_failure": true,
+          "intended_structure": "finance_buy_sell_alternation",
+          "projected": "0101010101010101010101010101010101010101010101010101010101010101",
+          "projected_length": 64,
+          "projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "signature": {
+            "compression_ratio": 0.203125,
+            "entropy": 1.0,
+            "omega_proxy": 0.949101311664,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.983606557377,
+            "transition_cardinality_score": 0.968253968254,
+            "transition_regular_score": 0.983870967742,
+            "unique_symbol_ratio": 0.03125
+          }
+        },
+        {
+          "attack_type": "false_merge",
+          "case_id": "false_merge_C_low_high",
+          "description": "Low/high alternation.",
+          "expected_failure": true,
+          "intended_structure": "low_high_alternation",
+          "projected": "0101010101010101010101010101010101010101010101010101010101010101",
+          "projected_length": 64,
+          "projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "signature": {
+            "compression_ratio": 0.203125,
+            "entropy": 1.0,
+            "omega_proxy": 0.949101311664,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.983606557377,
+            "transition_cardinality_score": 0.968253968254,
+            "transition_regular_score": 0.983870967742,
+            "unique_symbol_ratio": 0.03125
+          }
+        },
+        {
+          "attack_type": "false_merge",
+          "case_id": "false_merge_D_zero_extreme",
+          "description": "Zero/extreme alternation; same formal pattern but different magnitude semantics.",
+          "expected_failure": true,
+          "intended_structure": "zero_extreme_alternation",
+          "projected": "0101010101010101010101010101010101010101010101010101010101010101",
+          "projected_length": 64,
+          "projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "signature": {
+            "compression_ratio": 0.203125,
+            "entropy": 1.0,
+            "omega_proxy": 0.949101311664,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.983606557377,
+            "transition_cardinality_score": 0.968253968254,
+            "transition_regular_score": 0.983870967742,
+            "unique_symbol_ratio": 0.03125
+          }
+        },
+        {
+          "attack_type": "false_split",
+          "case_id": "false_split_A_clean",
+          "description": "Clean binary alternation.",
+          "expected_failure": true,
+          "intended_structure": "same_binary_alternation",
+          "projected": "0101010101010101010101010101010101010101010101010101010101010101",
+          "projected_length": 64,
+          "projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "signature": {
+            "compression_ratio": 0.203125,
+            "entropy": 1.0,
+            "omega_proxy": 0.949101311664,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.983606557377,
+            "transition_cardinality_score": 0.968253968254,
+            "transition_regular_score": 0.983870967742,
+            "unique_symbol_ratio": 0.03125
+          }
+        },
+        {
+          "attack_type": "false_split",
+          "case_id": "false_split_B_aliases",
+          "description": "Same binary alternation with adversarial aliases.",
+          "expected_failure": true,
+          "intended_structure": "same_binary_alternation",
+          "projected": "0123450123450123450123450123450123450123450123450123450123450123",
+          "projected_length": 64,
+          "projected_preview": "0123450123450123450123450123450123450123450123450123450123450123",
+          "signature": {
+            "compression_ratio": 0.265625,
+            "entropy": 2.583538232535,
+            "omega_proxy": 0.897470844036,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.918032786885,
+            "transition_cardinality_score": 0.904761904762,
+            "transition_regular_score": 0.91935483871,
+            "unique_symbol_ratio": 0.09375
+          }
+        },
+        {
+          "attack_type": "false_split",
+          "case_id": "false_split_C_clean_cycle",
+          "description": "Clean four-state cycle.",
+          "expected_failure": true,
+          "intended_structure": "same_four_cycle",
+          "projected": "01230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123",
+          "projected_length": 128,
+          "projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+          "signature": {
+            "compression_ratio": 0.1171875,
+            "entropy": 2.0,
+            "omega_proxy": 0.961840890045,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.976,
+            "transition_cardinality_score": 0.968503937008,
+            "transition_regular_score": 0.97619047619,
+            "unique_symbol_ratio": 0.03125
+          }
+        },
+        {
+          "attack_type": "false_split",
+          "case_id": "false_split_D_alias_cycle",
+          "description": "Same four-state cycle with adversarial aliases.",
+          "expected_failure": true,
+          "intended_structure": "same_four_cycle",
+          "projected": "01234567012345670123456701234567012345670123456701234567012345670123456701234567012345670123456701234567012345670123456701234567",
+          "projected_length": 128,
+          "projected_preview": "0123456701234567012345670123456701234567012345670123456701234567",
+          "signature": {
+            "compression_ratio": 0.1484375,
+            "entropy": 3.0,
+            "omega_proxy": 0.936281958661,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.944,
+            "transition_cardinality_score": 0.937007874016,
+            "transition_regular_score": 0.944444444444,
+            "unique_symbol_ratio": 0.0625
+          }
+        },
+        {
+          "attack_type": "control",
+          "case_id": "control_binary_clean_1",
+          "description": "Control binary alternation.",
+          "expected_failure": false,
+          "intended_structure": "binary_alternation",
+          "projected": "0101010101010101010101010101010101010101010101010101010101010101",
+          "projected_length": 64,
+          "projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "signature": {
+            "compression_ratio": 0.203125,
+            "entropy": 1.0,
+            "omega_proxy": 0.949101311664,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.983606557377,
+            "transition_cardinality_score": 0.968253968254,
+            "transition_regular_score": 0.983870967742,
+            "unique_symbol_ratio": 0.03125
+          }
+        },
+        {
+          "attack_type": "control",
+          "case_id": "control_binary_clean_2",
+          "description": "Control equivalent binary alternation.",
+          "expected_failure": false,
+          "intended_structure": "binary_alternation",
+          "projected": "0101010101010101010101010101010101010101010101010101010101010101",
+          "projected_length": 64,
+          "projected_preview": "0101010101010101010101010101010101010101010101010101010101010101",
+          "signature": {
+            "compression_ratio": 0.203125,
+            "entropy": 1.0,
+            "omega_proxy": 0.949101311664,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.983606557377,
+            "transition_cardinality_score": 0.968253968254,
+            "transition_regular_score": 0.983870967742,
+            "unique_symbol_ratio": 0.03125
+          }
+        },
+        {
+          "attack_type": "control",
+          "case_id": "control_four_cycle_1",
+          "description": "Control four-cycle.",
+          "expected_failure": false,
+          "intended_structure": "four_cycle",
+          "projected": "01230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123",
+          "projected_length": 128,
+          "projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+          "signature": {
+            "compression_ratio": 0.1171875,
+            "entropy": 2.0,
+            "omega_proxy": 0.961840890045,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.976,
+            "transition_cardinality_score": 0.968503937008,
+            "transition_regular_score": 0.97619047619,
+            "unique_symbol_ratio": 0.03125
+          }
+        },
+        {
+          "attack_type": "control",
+          "case_id": "control_four_cycle_2",
+          "description": "Control equivalent four-cycle.",
+          "expected_failure": false,
+          "intended_structure": "four_cycle",
+          "projected": "01230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123012301230123",
+          "projected_length": 128,
+          "projected_preview": "0123012301230123012301230123012301230123012301230123012301230123",
+          "signature": {
+            "compression_ratio": 0.1171875,
+            "entropy": 2.0,
+            "omega_proxy": 0.961840890045,
+            "periodicity_score": 1.0,
+            "repetition_score": 0.976,
+            "transition_cardinality_score": 0.968503937008,
+            "transition_regular_score": 0.97619047619,
+            "unique_symbol_ratio": 0.03125
+          }
+        }
+      ],
+      "operational_classification": "BOUNDARY_DETECTED",
+      "purpose": "Adversarial test against first-seen canonical projection, searching for false merge and false split failure modes.",
+      "reproduction_command": "python examples/adversarial_representation_v0.py",
+      "status": "PASS",
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/adversarial_representation_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

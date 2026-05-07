@@ -1,0 +1,88 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.473288+00:00",
+  "experiment": "cross_gate_disagreement_stability_v0",
+  "payload": {
+    "legacy_result": {
+      "reproduction_command": "python examples/cross_gate_disagreement_stability_v0.py",
+      "status": "PASS",
+      "summary": {
+        "check_seed_count": 0,
+        "collapse_rate": {
+          "max": 0.158,
+          "mean": 0.14083333333333334,
+          "min": 0.132
+        },
+        "contradiction_count": {
+          "max": 570,
+          "mean": 550.55,
+          "min": 523
+        },
+        "escalate_rate": {
+          "max": 0.452,
+          "mean": 0.4382666666666667,
+          "min": 0.424
+        },
+        "flag_rate": {
+          "max": 0.0033333333333333335,
+          "mean": 0.0014,
+          "min": 0.0
+        },
+        "high_disagreement_count": {
+          "max": 902,
+          "mean": 863.7,
+          "min": 841
+        },
+        "low_disagreement_count": {
+          "max": 25,
+          "mean": 16.4,
+          "min": 10
+        },
+        "mean_severity_spread": {
+          "max": 2.969333333333333,
+          "mean": 2.9318333333333335,
+          "min": 2.9033333333333333
+        },
+        "mean_severity_variance": {
+          "max": 1.3942400000000001,
+          "mean": 1.3733973333333334,
+          "min": 1.3543466666666668
+        },
+        "mean_unique_action_count": {
+          "max": 3.082,
+          "mean": 3.0504333333333333,
+          "min": 3.026666666666667
+        },
+        "medium_disagreement_count": {
+          "max": 645,
+          "mean": 619.9,
+          "min": 580
+        },
+        "pass_rate": {
+          "max": 0.12333333333333334,
+          "mean": 0.10233333333333333,
+          "min": 0.082
+        },
+        "pass_seed_count": 20,
+        "retry_rate": {
+          "max": 0.3373333333333333,
+          "mean": 0.31716666666666665,
+          "min": 0.298
+        },
+        "seed_count": 20,
+        "systems_per_seed": 1500,
+        "total_system_count": 30000,
+        "unanimous_count": {
+          "max": 1,
+          "mean": 0.1,
+          "min": 0
+        }
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/cross_gate_disagreement_stability_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

@@ -1,0 +1,427 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.623082+00:00",
+  "experiment": "temporal_collapse_topology_boundary_cycle_stability_v0",
+  "payload": {
+    "legacy_result": {
+      "cycle_summary": {
+        "all_cycles_detected": true,
+        "boundary_cycle_index_mean": 0.012006418612918904,
+        "boundary_cycle_index_std": 0.01270085228050615,
+        "cycle_asymmetries": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3
+        ],
+        "cycle_asymmetry_mean": 2.25,
+        "cycle_asymmetry_stable": false,
+        "cycle_asymmetry_std": 0.4330127018922193,
+        "cycle_density_ratio_mean": 121.49976751254495,
+        "cycle_density_ratio_std": 168.4643549906674,
+        "cycle_density_ratios": [
+          6.005,
+          12.367897727272727,
+          21.098704268292682,
+          45.99040570175438,
+          26.348263888888887,
+          38.84021226415094,
+          471.4921875,
+          349.85546875
+        ],
+        "cycle_depth_sum_mean": 4.25,
+        "cycle_depth_sum_stable": false,
+        "cycle_depth_sum_std": 0.4330127018922193,
+        "cycle_depth_sums": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          5,
+          5
+        ],
+        "cycle_detected_values": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "cycle_indices": [
+          0.041631973355537054,
+          0.020213621224302286,
+          0.011849068872712823,
+          0.005435916387022941,
+          0.009488291185113925,
+          0.006436628057018809,
+          0.00042418518334410367,
+          0.0005716646382992977
+        ],
+        "expected_cycle_stable": false,
+        "forward_depth_stable": true,
+        "forward_depths": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "forward_example_mean": 84594.875,
+        "forward_example_std": 52726.953454783186,
+        "forward_example_total": 676759,
+        "forward_examples": [
+          9608,
+          26121,
+          55363,
+          167773,
+          75883,
+          131746,
+          120702,
+          89563
+        ],
+        "reverse_depth_stable": false,
+        "reverse_depths": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          4,
+          4
+        ],
+        "reverse_example_mean": 2096,
+        "reverse_example_std": 1285.1443483135913,
+        "reverse_example_total": 16768,
+        "reverse_examples": [
+          1600,
+          2112,
+          2624,
+          3648,
+          2880,
+          3392,
+          256,
+          256
+        ]
+      },
+      "experiment": "temporal_collapse_topology_boundary_cycle_stability_v0",
+      "final_check": {
+        "message": "boundary-cycle existence remained stable, but reverse escape depth was geometry-sensitive",
+        "status": "CHECK"
+      },
+      "interpretation": {
+        "boundary_cycle": "OSCILLATING_NONPERSISTENT<->FRAGMENTED_LOCAL_COLLAPSE",
+        "geometry_sensitive_component": {
+          "depth_stable": false,
+          "depths": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            4,
+            4
+          ],
+          "interpretation": "escape from the collapse-entry state remains possible in all geometries, but its required depth depends on trajectory geometry",
+          "path": "FRAGMENTED_LOCAL_COLLAPSE->OSCILLATING_NONPERSISTENT"
+        },
+        "main_result": "The basin-boundary cycle exists across all tested geometries, but its reverse depth is not fully stable.",
+        "stable_component": {
+          "depth_stable": true,
+          "interpretation": "entry into the collapse-entry state is stable and shallow across all tested geometries",
+          "minimum_depth": 1,
+          "path": "OSCILLATING_NONPERSISTENT->FRAGMENTED_LOCAL_COLLAPSE"
+        },
+        "structural_conclusion": "boundary cycle existence is stable, but reverse escape depth is geometry-sensitive"
+      },
+      "reproduction_command": "python examples/temporal_collapse_topology_boundary_cycle_stability_v0.py",
+      "status": "CHECK",
+      "summary": {
+        "all_cycles_detected": true,
+        "boundary_cycle": "OSCILLATING_NONPERSISTENT<->FRAGMENTED_LOCAL_COLLAPSE",
+        "boundary_cycle_index_mean": 0.012006418612918904,
+        "boundary_cycle_index_std": 0.01270085228050615,
+        "confirmation_window": 2,
+        "cycle_asymmetry_mean": 2.25,
+        "cycle_asymmetry_stable": false,
+        "cycle_density_ratio_mean": 121.49976751254495,
+        "cycle_depth_asymmetries": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3
+        ],
+        "cycle_depth_sum_mean": 4.25,
+        "cycle_depth_sum_stable": false,
+        "cycle_depth_sums": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          5,
+          5
+        ],
+        "expected_cycle_stable": false,
+        "forward_depth_stable": true,
+        "forward_depths": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "forward_example_mean": 84594.875,
+        "forward_example_total": 676759,
+        "forward_transition": "OSCILLATING_NONPERSISTENT->FRAGMENTED_LOCAL_COLLAPSE",
+        "global_persistence_threshold": 4,
+        "max_mutation_depth": 4,
+        "node_count": 6,
+        "persistence_window": 2,
+        "reverse_depth_stable": false,
+        "reverse_depths": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          4,
+          4
+        ],
+        "reverse_example_mean": 2096,
+        "reverse_example_total": 16768,
+        "reverse_transition": "FRAGMENTED_LOCAL_COLLAPSE->OSCILLATING_NONPERSISTENT",
+        "variant_count": 8
+      },
+      "variant_summaries": [
+        {
+          "boundary_cycle_index": 0.041631973355537054,
+          "cycle_density_ratio": 6.005,
+          "cycle_depth_asymmetry": 2,
+          "cycle_depth_sum": 4,
+          "cycle_detected": true,
+          "forward_counts": {
+            "1": 6,
+            "2": 130,
+            "3": 1311,
+            "4": 8161
+          },
+          "forward_depth": 1,
+          "forward_examples": 9608,
+          "geometry_name": "compact_low_spacing",
+          "reverse_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 64,
+            "4": 1536
+          },
+          "reverse_depth": 3,
+          "reverse_examples": 1600,
+          "variant_index": 0
+        },
+        {
+          "boundary_cycle_index": 0.020213621224302286,
+          "cycle_density_ratio": 12.367897727272727,
+          "cycle_depth_asymmetry": 2,
+          "cycle_depth_sum": 4,
+          "cycle_detected": true,
+          "forward_counts": {
+            "1": 6,
+            "2": 182,
+            "3": 2603,
+            "4": 23330
+          },
+          "forward_depth": 1,
+          "forward_examples": 26121,
+          "geometry_name": "medium_shifted_spacing",
+          "reverse_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 64,
+            "4": 2048
+          },
+          "reverse_depth": 3,
+          "reverse_examples": 2112,
+          "variant_index": 1
+        },
+        {
+          "boundary_cycle_index": 0.011849068872712823,
+          "cycle_density_ratio": 21.098704268292682,
+          "cycle_depth_asymmetry": 2,
+          "cycle_depth_sum": 4,
+          "cycle_detected": true,
+          "forward_counts": {
+            "1": 6,
+            "2": 234,
+            "3": 4335,
+            "4": 50788
+          },
+          "forward_depth": 1,
+          "forward_examples": 55363,
+          "geometry_name": "wide_spacing",
+          "reverse_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 64,
+            "4": 2560
+          },
+          "reverse_depth": 3,
+          "reverse_examples": 2624,
+          "variant_index": 2
+        },
+        {
+          "boundary_cycle_index": 0.005435916387022941,
+          "cycle_density_ratio": 45.99040570175438,
+          "cycle_depth_asymmetry": 2,
+          "cycle_depth_sum": 4,
+          "cycle_detected": true,
+          "forward_counts": {
+            "1": 6,
+            "2": 338,
+            "3": 9143,
+            "4": 158286
+          },
+          "forward_depth": 1,
+          "forward_examples": 167773,
+          "geometry_name": "long_sparse_spacing",
+          "reverse_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 64,
+            "4": 3584
+          },
+          "reverse_depth": 3,
+          "reverse_examples": 3648,
+          "variant_index": 3
+        },
+        {
+          "boundary_cycle_index": 0.009488291185113925,
+          "cycle_density_ratio": 26.348263888888887,
+          "cycle_depth_asymmetry": 2,
+          "cycle_depth_sum": 4,
+          "cycle_detected": true,
+          "forward_counts": {
+            "1": 6,
+            "2": 260,
+            "3": 5365,
+            "4": 70252
+          },
+          "forward_depth": 1,
+          "forward_examples": 75883,
+          "geometry_name": "front_loaded_geometry",
+          "reverse_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 64,
+            "4": 2816
+          },
+          "reverse_depth": 3,
+          "reverse_examples": 2880,
+          "variant_index": 4
+        },
+        {
+          "boundary_cycle_index": 0.006436628057018809,
+          "cycle_density_ratio": 38.84021226415094,
+          "cycle_depth_asymmetry": 2,
+          "cycle_depth_sum": 4,
+          "cycle_detected": true,
+          "forward_counts": {
+            "1": 6,
+            "2": 312,
+            "3": 7773,
+            "4": 123655
+          },
+          "forward_depth": 1,
+          "forward_examples": 131746,
+          "geometry_name": "back_loaded_geometry",
+          "reverse_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 64,
+            "4": 3328
+          },
+          "reverse_depth": 3,
+          "reverse_examples": 3392,
+          "variant_index": 5
+        },
+        {
+          "boundary_cycle_index": 0.00042418518334410367,
+          "cycle_density_ratio": 471.4921875,
+          "cycle_depth_asymmetry": 3,
+          "cycle_depth_sum": 5,
+          "cycle_detected": true,
+          "forward_counts": {
+            "1": 8,
+            "2": 365,
+            "3": 8004,
+            "4": 112325
+          },
+          "forward_depth": 1,
+          "forward_examples": 120702,
+          "geometry_name": "four_spike_oscillation",
+          "reverse_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 256
+          },
+          "reverse_depth": 4,
+          "reverse_examples": 256,
+          "variant_index": 6
+        },
+        {
+          "boundary_cycle_index": 0.0005716646382992977,
+          "cycle_density_ratio": 349.85546875,
+          "cycle_depth_asymmetry": 3,
+          "cycle_depth_sum": 5,
+          "cycle_detected": true,
+          "forward_counts": {
+            "1": 8,
+            "2": 331,
+            "3": 6552,
+            "4": 82672
+          },
+          "forward_depth": 1,
+          "forward_examples": 89563,
+          "geometry_name": "dense_fragmented_geometry",
+          "reverse_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 256
+          },
+          "reverse_depth": 4,
+          "reverse_examples": 256,
+          "variant_index": 7
+        }
+      ],
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_topology_boundary_cycle_stability_v0.json",
+    "legacy_status": "CHECK",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

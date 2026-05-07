@@ -1,0 +1,1165 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.635044+00:00",
+  "experiment": "temporal_collapse_topology_geometry_sensitivity_v0",
+  "payload": {
+    "legacy_result": {
+      "experiment": "temporal_collapse_topology_geometry_sensitivity_v0",
+      "final_check": {
+        "message": "geometry-to-reversibility mapping detected: collapse_run_count controlled the reverse escape depth shift from 3 to 4 under tested geometries",
+        "status": "PASS"
+      },
+      "geometry_records": [
+        {
+          "expected_reverse_depth": 3,
+          "features": {
+            "back_loading_ratio": 0.3333333333333333,
+            "collapse_density_global": 0.3333333333333333,
+            "collapse_density_span": 0.6,
+            "collapse_run_count": 3,
+            "compactness_score": 0.25,
+            "front_loading_ratio": 0.6666666666666666,
+            "geometry_load_bias": 0.3333333333333333,
+            "occupied_span": 10,
+            "run_count_density": 0.16666666666666666,
+            "run_lengths": [
+              2,
+              2,
+              2
+            ],
+            "run_spacing_mean": 4,
+            "run_spacing_std": 0.0,
+            "run_spacing_values": [
+              4,
+              4
+            ],
+            "run_start_positions": [
+              3,
+              7,
+              11
+            ],
+            "run_start_span": 9,
+            "total_collapse_frames": 6,
+            "trajectory_length": 18
+          },
+          "geometry_name": "compact_low_spacing",
+          "minimum_reverse_depth": 3,
+          "predicted_reverse_depth_rule": 3,
+          "reverse_depth_matched_expected": true,
+          "reverse_depth_matched_rule": true,
+          "reverse_example_count_by_depth": {
+            "1": 0,
+            "2": 0,
+            "3": 64,
+            "4": 1536
+          },
+          "reverse_example_total": 1600,
+          "runs": [
+            [
+              3,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              11,
+              2
+            ]
+          ],
+          "trajectory_length": 18,
+          "variant_index": 0
+        },
+        {
+          "expected_reverse_depth": 3,
+          "features": {
+            "back_loading_ratio": 0.3333333333333333,
+            "collapse_density_global": 0.2727272727272727,
+            "collapse_density_span": 0.5,
+            "collapse_run_count": 3,
+            "compactness_score": 0.2,
+            "front_loading_ratio": 0.6666666666666666,
+            "geometry_load_bias": 0.3333333333333333,
+            "occupied_span": 12,
+            "run_count_density": 0.13636363636363635,
+            "run_lengths": [
+              2,
+              2,
+              2
+            ],
+            "run_spacing_mean": 5,
+            "run_spacing_std": 0.0,
+            "run_spacing_values": [
+              5,
+              5
+            ],
+            "run_start_positions": [
+              4,
+              9,
+              14
+            ],
+            "run_start_span": 11,
+            "total_collapse_frames": 6,
+            "trajectory_length": 22
+          },
+          "geometry_name": "medium_shifted_spacing",
+          "minimum_reverse_depth": 3,
+          "predicted_reverse_depth_rule": 3,
+          "reverse_depth_matched_expected": true,
+          "reverse_depth_matched_rule": true,
+          "reverse_example_count_by_depth": {
+            "1": 0,
+            "2": 0,
+            "3": 64,
+            "4": 2048
+          },
+          "reverse_example_total": 2112,
+          "runs": [
+            [
+              4,
+              2
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              14,
+              2
+            ]
+          ],
+          "trajectory_length": 22,
+          "variant_index": 1
+        },
+        {
+          "expected_reverse_depth": 3,
+          "features": {
+            "back_loading_ratio": 0.3333333333333333,
+            "collapse_density_global": 0.23076923076923078,
+            "collapse_density_span": 0.42857142857142855,
+            "collapse_run_count": 3,
+            "compactness_score": 0.16666666666666666,
+            "front_loading_ratio": 0.6666666666666666,
+            "geometry_load_bias": 0.3333333333333333,
+            "occupied_span": 14,
+            "run_count_density": 0.11538461538461539,
+            "run_lengths": [
+              2,
+              2,
+              2
+            ],
+            "run_spacing_mean": 6,
+            "run_spacing_std": 0.0,
+            "run_spacing_values": [
+              6,
+              6
+            ],
+            "run_start_positions": [
+              5,
+              11,
+              17
+            ],
+            "run_start_span": 13,
+            "total_collapse_frames": 6,
+            "trajectory_length": 26
+          },
+          "geometry_name": "wide_spacing",
+          "minimum_reverse_depth": 3,
+          "predicted_reverse_depth_rule": 3,
+          "reverse_depth_matched_expected": true,
+          "reverse_depth_matched_rule": true,
+          "reverse_example_count_by_depth": {
+            "1": 0,
+            "2": 0,
+            "3": 64,
+            "4": 2560
+          },
+          "reverse_example_total": 2624,
+          "runs": [
+            [
+              5,
+              2
+            ],
+            [
+              11,
+              2
+            ],
+            [
+              17,
+              2
+            ]
+          ],
+          "trajectory_length": 26,
+          "variant_index": 2
+        },
+        {
+          "expected_reverse_depth": 3,
+          "features": {
+            "back_loading_ratio": 0.3333333333333333,
+            "collapse_density_global": 0.17647058823529413,
+            "collapse_density_span": 0.3,
+            "collapse_run_count": 3,
+            "compactness_score": 0.1111111111111111,
+            "front_loading_ratio": 0.6666666666666666,
+            "geometry_load_bias": 0.3333333333333333,
+            "occupied_span": 20,
+            "run_count_density": 0.08823529411764706,
+            "run_lengths": [
+              2,
+              2,
+              2
+            ],
+            "run_spacing_mean": 9,
+            "run_spacing_std": 0.0,
+            "run_spacing_values": [
+              9,
+              9
+            ],
+            "run_start_positions": [
+              6,
+              15,
+              24
+            ],
+            "run_start_span": 19,
+            "total_collapse_frames": 6,
+            "trajectory_length": 34
+          },
+          "geometry_name": "long_sparse_spacing",
+          "minimum_reverse_depth": 3,
+          "predicted_reverse_depth_rule": 3,
+          "reverse_depth_matched_expected": true,
+          "reverse_depth_matched_rule": true,
+          "reverse_example_count_by_depth": {
+            "1": 0,
+            "2": 0,
+            "3": 64,
+            "4": 3584
+          },
+          "reverse_example_total": 3648,
+          "runs": [
+            [
+              6,
+              2
+            ],
+            [
+              15,
+              2
+            ],
+            [
+              24,
+              2
+            ]
+          ],
+          "trajectory_length": 34,
+          "variant_index": 3
+        },
+        {
+          "expected_reverse_depth": 3,
+          "features": {
+            "back_loading_ratio": 0.0,
+            "collapse_density_global": 0.21428571428571427,
+            "collapse_density_span": 0.6,
+            "collapse_run_count": 3,
+            "compactness_score": 0.25,
+            "front_loading_ratio": 1.0,
+            "geometry_load_bias": 1.0,
+            "occupied_span": 10,
+            "run_count_density": 0.10714285714285714,
+            "run_lengths": [
+              2,
+              2,
+              2
+            ],
+            "run_spacing_mean": 4,
+            "run_spacing_std": 0.0,
+            "run_spacing_values": [
+              4,
+              4
+            ],
+            "run_start_positions": [
+              2,
+              6,
+              10
+            ],
+            "run_start_span": 9,
+            "total_collapse_frames": 6,
+            "trajectory_length": 28
+          },
+          "geometry_name": "front_loaded_geometry",
+          "minimum_reverse_depth": 3,
+          "predicted_reverse_depth_rule": 3,
+          "reverse_depth_matched_expected": true,
+          "reverse_depth_matched_rule": true,
+          "reverse_example_count_by_depth": {
+            "1": 0,
+            "2": 0,
+            "3": 64,
+            "4": 2816
+          },
+          "reverse_example_total": 2880,
+          "runs": [
+            [
+              2,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              10,
+              2
+            ]
+          ],
+          "trajectory_length": 28,
+          "variant_index": 4
+        },
+        {
+          "expected_reverse_depth": 3,
+          "features": {
+            "back_loading_ratio": 1.0,
+            "collapse_density_global": 0.1875,
+            "collapse_density_span": 0.5,
+            "collapse_run_count": 3,
+            "compactness_score": 0.2,
+            "front_loading_ratio": 0.0,
+            "geometry_load_bias": 1.0,
+            "occupied_span": 12,
+            "run_count_density": 0.09375,
+            "run_lengths": [
+              2,
+              2,
+              2
+            ],
+            "run_spacing_mean": 5,
+            "run_spacing_std": 0.0,
+            "run_spacing_values": [
+              5,
+              5
+            ],
+            "run_start_positions": [
+              16,
+              21,
+              26
+            ],
+            "run_start_span": 11,
+            "total_collapse_frames": 6,
+            "trajectory_length": 32
+          },
+          "geometry_name": "back_loaded_geometry",
+          "minimum_reverse_depth": 3,
+          "predicted_reverse_depth_rule": 3,
+          "reverse_depth_matched_expected": true,
+          "reverse_depth_matched_rule": true,
+          "reverse_example_count_by_depth": {
+            "1": 0,
+            "2": 0,
+            "3": 64,
+            "4": 3328
+          },
+          "reverse_example_total": 3392,
+          "runs": [
+            [
+              16,
+              2
+            ],
+            [
+              21,
+              2
+            ],
+            [
+              26,
+              2
+            ]
+          ],
+          "trajectory_length": 32,
+          "variant_index": 5
+        },
+        {
+          "expected_reverse_depth": 4,
+          "features": {
+            "back_loading_ratio": 0.375,
+            "collapse_density_global": 0.26666666666666666,
+            "collapse_density_span": 0.47058823529411764,
+            "collapse_run_count": 4,
+            "compactness_score": 0.2,
+            "front_loading_ratio": 0.625,
+            "geometry_load_bias": 0.25,
+            "occupied_span": 17,
+            "run_count_density": 0.13333333333333333,
+            "run_lengths": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "run_spacing_mean": 5,
+            "run_spacing_std": 0.0,
+            "run_spacing_values": [
+              5,
+              5,
+              5
+            ],
+            "run_start_positions": [
+              4,
+              9,
+              14,
+              19
+            ],
+            "run_start_span": 16,
+            "total_collapse_frames": 8,
+            "trajectory_length": 30
+          },
+          "geometry_name": "four_spike_oscillation",
+          "minimum_reverse_depth": 4,
+          "predicted_reverse_depth_rule": 4,
+          "reverse_depth_matched_expected": true,
+          "reverse_depth_matched_rule": true,
+          "reverse_example_count_by_depth": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 256
+          },
+          "reverse_example_total": 256,
+          "runs": [
+            [
+              4,
+              2
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              14,
+              2
+            ],
+            [
+              19,
+              2
+            ]
+          ],
+          "trajectory_length": 30,
+          "variant_index": 6
+        },
+        {
+          "expected_reverse_depth": 4,
+          "features": {
+            "back_loading_ratio": 0.25,
+            "collapse_density_global": 0.2857142857142857,
+            "collapse_density_span": 0.5714285714285714,
+            "collapse_run_count": 4,
+            "compactness_score": 0.25,
+            "front_loading_ratio": 0.75,
+            "geometry_load_bias": 0.5,
+            "occupied_span": 14,
+            "run_count_density": 0.14285714285714285,
+            "run_lengths": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "run_spacing_mean": 4,
+            "run_spacing_std": 0.0,
+            "run_spacing_values": [
+              4,
+              4,
+              4
+            ],
+            "run_start_positions": [
+              4,
+              8,
+              12,
+              16
+            ],
+            "run_start_span": 13,
+            "total_collapse_frames": 8,
+            "trajectory_length": 28
+          },
+          "geometry_name": "dense_fragmented_geometry",
+          "minimum_reverse_depth": 4,
+          "predicted_reverse_depth_rule": 4,
+          "reverse_depth_matched_expected": true,
+          "reverse_depth_matched_rule": true,
+          "reverse_example_count_by_depth": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 256
+          },
+          "reverse_example_total": 256,
+          "runs": [
+            [
+              4,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              12,
+              2
+            ],
+            [
+              16,
+              2
+            ]
+          ],
+          "trajectory_length": 28,
+          "variant_index": 7
+        },
+        {
+          "expected_reverse_depth": 4,
+          "features": {
+            "back_loading_ratio": 0.25,
+            "collapse_density_global": 0.3333333333333333,
+            "collapse_density_span": 0.7272727272727273,
+            "collapse_run_count": 4,
+            "compactness_score": 0.3333333333333333,
+            "front_loading_ratio": 0.75,
+            "geometry_load_bias": 0.5,
+            "occupied_span": 11,
+            "run_count_density": 0.16666666666666666,
+            "run_lengths": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "run_spacing_mean": 3,
+            "run_spacing_std": 0.0,
+            "run_spacing_values": [
+              3,
+              3,
+              3
+            ],
+            "run_start_positions": [
+              3,
+              6,
+              9,
+              12
+            ],
+            "run_start_span": 10,
+            "total_collapse_frames": 8,
+            "trajectory_length": 24
+          },
+          "geometry_name": "very_dense_four_run_geometry",
+          "minimum_reverse_depth": 4,
+          "predicted_reverse_depth_rule": 4,
+          "reverse_depth_matched_expected": true,
+          "reverse_depth_matched_rule": true,
+          "reverse_example_count_by_depth": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 256
+          },
+          "reverse_example_total": 256,
+          "runs": [
+            [
+              3,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              12,
+              2
+            ]
+          ],
+          "trajectory_length": 24,
+          "variant_index": 8
+        },
+        {
+          "expected_reverse_depth": 4,
+          "features": {
+            "back_loading_ratio": 0.5,
+            "collapse_density_global": 0.2222222222222222,
+            "collapse_density_span": 0.3076923076923077,
+            "collapse_run_count": 4,
+            "compactness_score": 0.125,
+            "front_loading_ratio": 0.5,
+            "geometry_load_bias": 0.0,
+            "occupied_span": 26,
+            "run_count_density": 0.1111111111111111,
+            "run_lengths": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "run_spacing_mean": 8,
+            "run_spacing_std": 0.0,
+            "run_spacing_values": [
+              8,
+              8,
+              8
+            ],
+            "run_start_positions": [
+              4,
+              12,
+              20,
+              28
+            ],
+            "run_start_span": 25,
+            "total_collapse_frames": 8,
+            "trajectory_length": 36
+          },
+          "geometry_name": "sparse_four_run_geometry",
+          "minimum_reverse_depth": 4,
+          "predicted_reverse_depth_rule": 4,
+          "reverse_depth_matched_expected": true,
+          "reverse_depth_matched_rule": true,
+          "reverse_example_count_by_depth": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 256
+          },
+          "reverse_example_total": 256,
+          "runs": [
+            [
+              4,
+              2
+            ],
+            [
+              12,
+              2
+            ],
+            [
+              20,
+              2
+            ],
+            [
+              28,
+              2
+            ]
+          ],
+          "trajectory_length": 36,
+          "variant_index": 9
+        }
+      ],
+      "geometry_sensitivity_summary": {
+        "depth3_count": 6,
+        "depth3_geometries": [
+          "compact_low_spacing",
+          "medium_shifted_spacing",
+          "wide_spacing",
+          "long_sparse_spacing",
+          "front_loaded_geometry",
+          "back_loaded_geometry"
+        ],
+        "depth4_count": 4,
+        "depth4_geometries": [
+          "four_spike_oscillation",
+          "dense_fragmented_geometry",
+          "very_dense_four_run_geometry",
+          "sparse_four_run_geometry"
+        ],
+        "expected_match_rate": 1.0,
+        "expected_reverse_depths": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4
+        ],
+        "feature_correlations": {
+          "back_loading_ratio": -0.09143600056037172,
+          "center_spacing_mean": -0.13671718540493266,
+          "center_spacing_std": null,
+          "collapse_density_global": 0.38335304529663844,
+          "collapse_density_span": 0.12075710544041504,
+          "collapse_run_count": 1.0,
+          "compactness_score": 0.24097762022740862,
+          "front_loading_ratio": 0.0914360005603718,
+          "geometry_load_bias": -0.39553704377880605,
+          "occupied_span": 0.4047499544129309,
+          "run_count_density": 0.38335304529663844,
+          "run_spacing_mean": -0.13671718540493266,
+          "run_spacing_std": null,
+          "run_start_span": 0.4047499544129309,
+          "total_collapse_frames": 1.0,
+          "trajectory_length": 0.26440136032562617
+        },
+        "feature_group_stats": {
+          "back_loading_ratio": {
+            "depth3_mean": 0.3888888888888889,
+            "depth3_std": 0.31426968052735443,
+            "depth3_values": [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333,
+              0.0,
+              1.0
+            ],
+            "depth4_mean": 0.34375,
+            "depth4_std": 0.08968912352881755,
+            "depth4_values": [
+              0.375,
+              0.25,
+              0.25,
+              0.5
+            ],
+            "feature": "back_loading_ratio",
+            "mean_difference_depth4_minus_depth3": -0.045138888888888895
+          },
+          "center_spacing_mean": {
+            "depth3_mean": 5.5,
+            "depth3_std": 1.707825127659933,
+            "depth3_values": [
+              4.0,
+              5.0,
+              6.0,
+              9.0,
+              4.0,
+              5.0
+            ],
+            "depth4_mean": 5.0,
+            "depth4_std": 1.8708286933869707,
+            "depth4_values": [
+              5.0,
+              4.0,
+              3.0,
+              8.0
+            ],
+            "feature": "center_spacing_mean",
+            "mean_difference_depth4_minus_depth3": -0.5
+          },
+          "center_spacing_std": {
+            "depth3_mean": 0.0,
+            "depth3_std": 0.0,
+            "depth3_values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "depth4_mean": 0.0,
+            "depth4_std": 0.0,
+            "depth4_values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "feature": "center_spacing_std",
+            "mean_difference_depth4_minus_depth3": 0.0
+          },
+          "collapse_density_global": {
+            "depth3_mean": 0.23584768989180754,
+            "depth3_std": 0.05171232022906845,
+            "depth3_values": [
+              0.3333333333333333,
+              0.2727272727272727,
+              0.23076923076923078,
+              0.17647058823529413,
+              0.21428571428571427,
+              0.1875
+            ],
+            "depth4_mean": 0.276984126984127,
+            "depth4_std": 0.03935286169116603,
+            "depth4_values": [
+              0.26666666666666666,
+              0.2857142857142857,
+              0.3333333333333333,
+              0.2222222222222222
+            ],
+            "feature": "collapse_density_global",
+            "mean_difference_depth4_minus_depth3": 0.041136437092319456
+          },
+          "collapse_density_span": {
+            "depth3_mean": 0.4880952380952381,
+            "depth3_std": 0.10587260390568734,
+            "depth3_values": [
+              0.6,
+              0.5,
+              0.42857142857142855,
+              0.3,
+              0.6,
+              0.5
+            ],
+            "depth4_mean": 0.519245460421931,
+            "depth4_std": 0.15804841043782064,
+            "depth4_values": [
+              0.47058823529411764,
+              0.5714285714285714,
+              0.7272727272727273,
+              0.3076923076923077
+            ],
+            "feature": "collapse_density_span",
+            "mean_difference_depth4_minus_depth3": 0.0311502223266929
+          },
+          "collapse_run_count": {
+            "depth3_mean": 3,
+            "depth3_std": 0.0,
+            "depth3_values": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "depth4_mean": 4,
+            "depth4_std": 0.0,
+            "depth4_values": [
+              4,
+              4,
+              4,
+              4
+            ],
+            "feature": "collapse_run_count",
+            "mean_difference_depth4_minus_depth3": 1
+          },
+          "compactness_score": {
+            "depth3_mean": 0.1962962962962963,
+            "depth3_std": 0.05172668906667319,
+            "depth3_values": [
+              0.25,
+              0.2,
+              0.16666666666666666,
+              0.1111111111111111,
+              0.25,
+              0.2
+            ],
+            "depth4_mean": 0.22708333333333333,
+            "depth4_std": 0.0934601059201955,
+            "depth4_values": [
+              0.2,
+              0.25,
+              0.3333333333333333,
+              0.125
+            ],
+            "feature": "compactness_score",
+            "mean_difference_depth4_minus_depth3": 0.03078703703703703
+          },
+          "front_loading_ratio": {
+            "depth3_mean": 0.611111111111111,
+            "depth3_std": 0.3142696805273545,
+            "depth3_values": [
+              0.6666666666666666,
+              0.6666666666666666,
+              0.6666666666666666,
+              0.6666666666666666,
+              1.0,
+              0.0
+            ],
+            "depth4_mean": 0.65625,
+            "depth4_std": 0.08968912352881755,
+            "depth4_values": [
+              0.625,
+              0.75,
+              0.75,
+              0.5
+            ],
+            "feature": "front_loading_ratio",
+            "mean_difference_depth4_minus_depth3": 0.04513888888888895
+          },
+          "geometry_load_bias": {
+            "depth3_mean": 0.5555555555555556,
+            "depth3_std": 0.24845199749997665,
+            "depth3_values": [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333,
+              1.0,
+              1.0
+            ],
+            "depth4_mean": 0.3125,
+            "depth4_std": 0.16535945694153692,
+            "depth4_values": [
+              0.25,
+              0.5,
+              0.5,
+              0.0
+            ],
+            "feature": "geometry_load_bias",
+            "mean_difference_depth4_minus_depth3": -0.24305555555555558
+          },
+          "occupied_span": {
+            "depth3_mean": 13,
+            "depth3_std": 4.109609335312651,
+            "depth3_values": [
+              10,
+              12,
+              14,
+              20,
+              10,
+              12
+            ],
+            "depth4_mean": 17,
+            "depth4_std": 5.338539126015656,
+            "depth4_values": [
+              17,
+              14,
+              11,
+              26
+            ],
+            "feature": "occupied_span",
+            "mean_difference_depth4_minus_depth3": 4
+          },
+          "run_count_density": {
+            "depth3_mean": 0.11792384494590377,
+            "depth3_std": 0.025856160114534225,
+            "depth3_values": [
+              0.16666666666666666,
+              0.13636363636363635,
+              0.11538461538461539,
+              0.08823529411764706,
+              0.10714285714285714,
+              0.09375
+            ],
+            "depth4_mean": 0.1384920634920635,
+            "depth4_std": 0.019676430845583015,
+            "depth4_values": [
+              0.13333333333333333,
+              0.14285714285714285,
+              0.16666666666666666,
+              0.1111111111111111
+            ],
+            "feature": "run_count_density",
+            "mean_difference_depth4_minus_depth3": 0.020568218546159728
+          },
+          "run_spacing_mean": {
+            "depth3_mean": 5.5,
+            "depth3_std": 1.707825127659933,
+            "depth3_values": [
+              4,
+              5,
+              6,
+              9,
+              4,
+              5
+            ],
+            "depth4_mean": 5,
+            "depth4_std": 1.8708286933869707,
+            "depth4_values": [
+              5,
+              4,
+              3,
+              8
+            ],
+            "feature": "run_spacing_mean",
+            "mean_difference_depth4_minus_depth3": -0.5
+          },
+          "run_spacing_std": {
+            "depth3_mean": 0.0,
+            "depth3_std": 0.0,
+            "depth3_values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "depth4_mean": 0.0,
+            "depth4_std": 0.0,
+            "depth4_values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "feature": "run_spacing_std",
+            "mean_difference_depth4_minus_depth3": 0.0
+          },
+          "run_start_span": {
+            "depth3_mean": 12,
+            "depth3_std": 4.109609335312651,
+            "depth3_values": [
+              9,
+              11,
+              13,
+              19,
+              9,
+              11
+            ],
+            "depth4_mean": 16,
+            "depth4_std": 5.338539126015656,
+            "depth4_values": [
+              16,
+              13,
+              10,
+              25
+            ],
+            "feature": "run_start_span",
+            "mean_difference_depth4_minus_depth3": 4
+          },
+          "total_collapse_frames": {
+            "depth3_mean": 6,
+            "depth3_std": 0.0,
+            "depth3_values": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "depth4_mean": 8,
+            "depth4_std": 0.0,
+            "depth4_values": [
+              8,
+              8,
+              8,
+              8
+            ],
+            "feature": "total_collapse_frames",
+            "mean_difference_depth4_minus_depth3": 2
+          },
+          "trajectory_length": {
+            "depth3_mean": 26.666666666666668,
+            "depth3_std": 5.2493385826745405,
+            "depth3_values": [
+              18,
+              22,
+              26,
+              34,
+              28,
+              32
+            ],
+            "depth4_mean": 29.5,
+            "depth4_std": 5.5901699437494745,
+            "depth4_values": [
+              30,
+              28,
+              24,
+              36
+            ],
+            "feature": "trajectory_length",
+            "mean_difference_depth4_minus_depth3": 2.833333333333332
+          }
+        },
+        "geometry_sensitivity_index": 1.4898979485566355,
+        "inferred_rule": "minimum_reverse_depth = 4 when collapse_run_count >= 4; otherwise minimum_reverse_depth = 3",
+        "matched_expected_count": 10,
+        "matched_rule_count": 10,
+        "predicted_reverse_depths": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4
+        ],
+        "record_count": 10,
+        "reverse_depth_mean": 3.4,
+        "reverse_depth_std": 0.4898979485566356,
+        "reverse_depth_values": [
+          3,
+          4
+        ],
+        "reverse_depths": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4
+        ],
+        "run_count_depth3_alignment": true,
+        "run_count_depth4_alignment": true,
+        "run_count_rule_accuracy": 1.0,
+        "simple_rule_confirmed": true,
+        "strongest_abs_correlation": 1.0,
+        "strongest_feature": "collapse_run_count"
+      },
+      "interpretation": {
+        "inferred_rule": "minimum_reverse_depth = 4 when collapse_run_count >= 4; otherwise minimum_reverse_depth = 3",
+        "main_result": "A geometry-to-reversibility mapping was detected for reverse escape depth.",
+        "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+        "strongest_abs_correlation": 1.0,
+        "strongest_feature": "collapse_run_count",
+        "structural_conclusion": "reverse escape depth is controlled by collapse_run_count under tested geometries",
+        "target_class": "OSCILLATING_NONPERSISTENT"
+      },
+      "reproduction_command": "python examples/temporal_collapse_topology_geometry_sensitivity_v0.py",
+      "status": "PASS",
+      "summary": {
+        "confirmation_window": 2,
+        "depth3_count": 6,
+        "depth3_geometries": [
+          "compact_low_spacing",
+          "medium_shifted_spacing",
+          "wide_spacing",
+          "long_sparse_spacing",
+          "front_loaded_geometry",
+          "back_loaded_geometry"
+        ],
+        "depth4_count": 4,
+        "depth4_geometries": [
+          "four_spike_oscillation",
+          "dense_fragmented_geometry",
+          "very_dense_four_run_geometry",
+          "sparse_four_run_geometry"
+        ],
+        "expected_match_rate": 1.0,
+        "geometry_sensitivity_index": 1.4898979485566355,
+        "global_persistence_threshold": 4,
+        "inferred_rule": "minimum_reverse_depth = 4 when collapse_run_count >= 4; otherwise minimum_reverse_depth = 3",
+        "max_mutation_depth": 4,
+        "node_count": 6,
+        "persistence_window": 2,
+        "reverse_depth_mean": 3.4,
+        "reverse_depth_std": 0.4898979485566356,
+        "reverse_depth_values": [
+          3,
+          4
+        ],
+        "reverse_depths": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4
+        ],
+        "run_count_rule_accuracy": 1.0,
+        "simple_rule_confirmed": true,
+        "source_class": "FRAGMENTED_LOCAL_COLLAPSE",
+        "strongest_abs_correlation": 1.0,
+        "strongest_feature": "collapse_run_count",
+        "target_class": "OSCILLATING_NONPERSISTENT",
+        "variant_count": 10
+      },
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_topology_geometry_sensitivity_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

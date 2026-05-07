@@ -1,0 +1,294 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.617524+00:00",
+  "experiment": "temporal_collapse_topology_absorption_depth_v0",
+  "payload": {
+    "legacy_result": {
+      "class_absorption_summary": {
+        "FRAGMENTED_LOCAL_COLLAPSE": {
+          "absorbing_rate": 0.0,
+          "absorbing_state_index": 0.00015780337699226762,
+          "absorbing_variant_count": 0,
+          "depth_example_totals": {
+            "1": 0,
+            "2": 0,
+            "3": 192,
+            "4": 6144
+          },
+          "depth_hit_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 3,
+            "4": 3
+          },
+          "escape_depth_std": 0.0,
+          "escape_example_counts": [
+            1600,
+            2112,
+            2624
+          ],
+          "is_absorbing_under_test": false,
+          "is_reversible_under_test": true,
+          "mean_minimum_escape_depth": 3,
+          "minimum_escape_depths": [
+            3,
+            3,
+            3
+          ],
+          "minimum_observed_escape_depth": 3,
+          "reversibility_index": 0.3333333333333333,
+          "reversible_rate": 1.0,
+          "reversible_variant_count": 3,
+          "total_escape_examples": 6336,
+          "unique_escape_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ],
+          "variant_count": 3
+        },
+        "GLOBAL_PERSISTENT_COLLAPSE": {
+          "absorbing_rate": 0.0,
+          "absorbing_state_index": 0.004149377593360996,
+          "absorbing_variant_count": 0,
+          "depth_example_totals": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 240
+          },
+          "depth_hit_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 3
+          },
+          "escape_depth_std": 0.0,
+          "escape_example_counts": [
+            80,
+            80,
+            80
+          ],
+          "is_absorbing_under_test": false,
+          "is_reversible_under_test": true,
+          "mean_minimum_escape_depth": 4,
+          "minimum_escape_depths": [
+            4,
+            4,
+            4
+          ],
+          "minimum_observed_escape_depth": 4,
+          "reversibility_index": 0.25,
+          "reversible_rate": 1.0,
+          "reversible_variant_count": 3,
+          "total_escape_examples": 240,
+          "unique_escape_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ],
+          "variant_count": 3
+        },
+        "RECOVERY_RELAPSE_COLLAPSE": {
+          "absorbing_rate": 0.0,
+          "absorbing_state_index": 0.0025974025974025974,
+          "absorbing_variant_count": 0,
+          "depth_example_totals": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 384
+          },
+          "depth_hit_counts": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 3
+          },
+          "escape_depth_std": 0.0,
+          "escape_example_counts": [
+            128,
+            128,
+            128
+          ],
+          "is_absorbing_under_test": false,
+          "is_reversible_under_test": true,
+          "mean_minimum_escape_depth": 4,
+          "minimum_escape_depths": [
+            4,
+            4,
+            4
+          ],
+          "minimum_observed_escape_depth": 4,
+          "reversibility_index": 0.25,
+          "reversible_rate": 1.0,
+          "reversible_variant_count": 3,
+          "total_escape_examples": 384,
+          "unique_escape_targets": [
+            "OSCILLATING_NONPERSISTENT"
+          ],
+          "variant_count": 3
+        }
+      },
+      "experiment": "temporal_collapse_topology_absorption_depth_v0",
+      "final_check": {
+        "message": "collapse-basin internal stratification was not cleanly separated as reversible versus absorbing; all collapse-side classes became reversible under mutation depth up to 4",
+        "status": "CHECK"
+      },
+      "interpretation": {
+        "depth_stratification": {
+          "FRAGMENTED_LOCAL_COLLAPSE": {
+            "escape_target": "OSCILLATING_NONPERSISTENT",
+            "interpretation": "closer to escape",
+            "minimum_escape_depth": 3
+          },
+          "GLOBAL_PERSISTENT_COLLAPSE": {
+            "escape_target": "OSCILLATING_NONPERSISTENT",
+            "interpretation": "deeper mutation required to escape",
+            "minimum_escape_depth": 4
+          },
+          "RECOVERY_RELAPSE_COLLAPSE": {
+            "escape_target": "OSCILLATING_NONPERSISTENT",
+            "interpretation": "deeper mutation required to escape",
+            "minimum_escape_depth": 4
+          }
+        },
+        "initial_hypothesis": "FRAGMENTED_LOCAL_COLLAPSE is reversible, while GLOBAL_PERSISTENT_COLLAPSE and RECOVERY_RELAPSE_COLLAPSE remain absorbing.",
+        "observed_result": "All collapse-side classes escaped toward OSCILLATING_NONPERSISTENT under mutation depth <= 4.",
+        "structural_conclusion": "collapse basin is not absorbing; it is depth-stratified by reversibility threshold."
+      },
+      "reproduction_command": "python examples/temporal_collapse_topology_absorption_depth_v0.py",
+      "status": "CHECK",
+      "summary": {
+        "absorbing_classes": [],
+        "collapse_component": [
+          "FRAGMENTED_LOCAL_COLLAPSE",
+          "GLOBAL_PERSISTENT_COLLAPSE",
+          "RECOVERY_RELAPSE_COLLAPSE"
+        ],
+        "confirmation_window": 2,
+        "fragmented_min_escape_depth": 3,
+        "fragmented_reversibility_index": 0.3333333333333333,
+        "global_persistence_threshold": 4,
+        "global_persistent_absorbing_state_index": 0.004149377593360996,
+        "global_persistent_min_escape_depth": 4,
+        "max_mutation_depth": 4,
+        "node_count": 6,
+        "noise_component": [
+          "CLEAN_PASS",
+          "SPIKE_FILTERED",
+          "OSCILLATING_NONPERSISTENT"
+        ],
+        "persistence_window": 2,
+        "recovery_relapse_absorbing_state_index": 0.0025974025974025974,
+        "recovery_relapse_min_escape_depth": 4,
+        "reversible_classes": [
+          "FRAGMENTED_LOCAL_COLLAPSE",
+          "GLOBAL_PERSISTENT_COLLAPSE",
+          "RECOVERY_RELAPSE_COLLAPSE"
+        ],
+        "stratification_detected": false,
+        "variant_count": 3
+      },
+      "variant_summaries": [
+        {
+          "source_profiles": [
+            {
+              "case_name": "fragmented_local_collapse",
+              "escape_example_count": 1600,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 3,
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE"
+            },
+            {
+              "case_name": "global_persistent_collapse",
+              "escape_example_count": 80,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "GLOBAL_PERSISTENT_COLLAPSE"
+            },
+            {
+              "case_name": "recovery_relapse_collapse",
+              "escape_example_count": 128,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE"
+            }
+          ],
+          "variant_index": 0
+        },
+        {
+          "source_profiles": [
+            {
+              "case_name": "fragmented_local_collapse",
+              "escape_example_count": 2112,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 3,
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE"
+            },
+            {
+              "case_name": "global_persistent_collapse",
+              "escape_example_count": 80,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "GLOBAL_PERSISTENT_COLLAPSE"
+            },
+            {
+              "case_name": "recovery_relapse_collapse",
+              "escape_example_count": 128,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE"
+            }
+          ],
+          "variant_index": 1
+        },
+        {
+          "source_profiles": [
+            {
+              "case_name": "fragmented_local_collapse",
+              "escape_example_count": 2624,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 3,
+              "source_class": "FRAGMENTED_LOCAL_COLLAPSE"
+            },
+            {
+              "case_name": "global_persistent_collapse",
+              "escape_example_count": 80,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "GLOBAL_PERSISTENT_COLLAPSE"
+            },
+            {
+              "case_name": "recovery_relapse_collapse",
+              "escape_example_count": 128,
+              "escape_targets": [
+                "OSCILLATING_NONPERSISTENT"
+              ],
+              "minimum_escape_depth": 4,
+              "source_class": "RECOVERY_RELAPSE_COLLAPSE"
+            }
+          ],
+          "variant_index": 2
+        }
+      ],
+      "version": "0.1.0"
+    },
+    "legacy_result_path": "results/temporal_collapse_topology_absorption_depth_v0.json",
+    "legacy_status": "CHECK",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}

@@ -1,0 +1,179 @@
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T18:51:39.654546+00:00",
+  "experiment": "temporal_collapse_topology_window_sensitivity_v0",
+  "payload": {
+    "legacy_result": {
+      "case_type_summary": [
+        {
+          "case_type": "clean",
+          "cases": 9,
+          "check": 0,
+          "pass": 9,
+          "rate": 1.0
+        },
+        {
+          "case_type": "spike_below_confirmation",
+          "cases": 9,
+          "check": 0,
+          "pass": 9,
+          "rate": 1.0
+        },
+        {
+          "case_type": "single_local_threshold",
+          "cases": 9,
+          "check": 0,
+          "pass": 9,
+          "rate": 1.0
+        },
+        {
+          "case_type": "single_global_threshold",
+          "cases": 9,
+          "check": 0,
+          "pass": 9,
+          "rate": 1.0
+        },
+        {
+          "case_type": "oscillation_below_confirmation",
+          "cases": 9,
+          "check": 0,
+          "pass": 9,
+          "rate": 1.0
+        },
+        {
+          "case_type": "fragmentation_at_confirmation",
+          "cases": 9,
+          "check": 0,
+          "pass": 9,
+          "rate": 1.0
+        },
+        {
+          "case_type": "recovery_relapse_global",
+          "cases": 9,
+          "check": 0,
+          "pass": 9,
+          "rate": 1.0
+        }
+      ],
+      "final_check": {
+        "message": "topology window sensitivity remained coherent across confirmation and persistence window perturbations.",
+        "status": "PASS"
+      },
+      "status": "PASS",
+      "summary": {
+        "case_count": 63,
+        "check_case_count": 0,
+        "confirmation_windows": [
+          2,
+          3,
+          4
+        ],
+        "global_persistence_thresholds": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "max_fragmentation_index": 0.8,
+        "mean_fragmentation_index": 0.3,
+        "mean_local_confirmation_count": 1.2698412698412698,
+        "mean_max_temporal_collapse_run_length": 3,
+        "pass_case_count": 63,
+        "pass_rate": 1.0,
+        "persistence_windows": [
+          2,
+          3,
+          4
+        ],
+        "supported_classes": [
+          "GLOBAL_PERSISTENT_COLLAPSE",
+          "RECOVERY_RELAPSE_COLLAPSE",
+          "FRAGMENTED_LOCAL_COLLAPSE",
+          "OSCILLATING_NONPERSISTENT",
+          "SPIKE_FILTERED",
+          "CLEAN_PASS"
+        ]
+      },
+      "version": "0.1.0",
+      "window_pair_summary": [
+        {
+          "cases": 7,
+          "check": 0,
+          "pass": 7,
+          "rate": 1.0,
+          "threshold": 4,
+          "window_pair": "cw2_pw2"
+        },
+        {
+          "cases": 7,
+          "check": 0,
+          "pass": 7,
+          "rate": 1.0,
+          "threshold": 5,
+          "window_pair": "cw2_pw3"
+        },
+        {
+          "cases": 7,
+          "check": 0,
+          "pass": 7,
+          "rate": 1.0,
+          "threshold": 6,
+          "window_pair": "cw2_pw4"
+        },
+        {
+          "cases": 7,
+          "check": 0,
+          "pass": 7,
+          "rate": 1.0,
+          "threshold": 5,
+          "window_pair": "cw3_pw2"
+        },
+        {
+          "cases": 7,
+          "check": 0,
+          "pass": 7,
+          "rate": 1.0,
+          "threshold": 6,
+          "window_pair": "cw3_pw3"
+        },
+        {
+          "cases": 7,
+          "check": 0,
+          "pass": 7,
+          "rate": 1.0,
+          "threshold": 7,
+          "window_pair": "cw3_pw4"
+        },
+        {
+          "cases": 7,
+          "check": 0,
+          "pass": 7,
+          "rate": 1.0,
+          "threshold": 6,
+          "window_pair": "cw4_pw2"
+        },
+        {
+          "cases": 7,
+          "check": 0,
+          "pass": 7,
+          "rate": 1.0,
+          "threshold": 7,
+          "window_pair": "cw4_pw3"
+        },
+        {
+          "cases": 7,
+          "check": 0,
+          "pass": 7,
+          "rate": 1.0,
+          "threshold": 8,
+          "window_pair": "cw4_pw4"
+        }
+      ]
+    },
+    "legacy_result_path": "results/temporal_collapse_topology_window_sensitivity_v0.json",
+    "legacy_status": "PASS",
+    "normalization_note": "Legacy result wrapped into canonical OMNIA-VALIDATION envelope. The original result file was not modified. Wrapper status is CHECK because this is format normalization, not scientific revalidation."
+  },
+  "status": "CHECK"
+}
