@@ -41,12 +41,13 @@ package-layer added
 documentation-layer expanded
 schema-validator added
 legacy-result normalization added
+legacy-result wrapper tested
 enveloped-result validation added
 ```
 
 The repository is no longer only a loose archive of scripts.
 
-It now contains a minimal engineering layer that supports reproducibility, package installation, testing, schema validation, result normalization, and validator extension.
+It now contains a minimal engineering layer that supports reproducibility, package installation, testing, schema validation, result normalization, generator validation, and validator extension.
 
 ---
 
@@ -94,6 +95,7 @@ test suite
 continuous integration
 historical result preservation
 canonical enveloped result copies
+tested legacy-result wrapper
 ```
 
 ---
@@ -239,6 +241,7 @@ tests/test_cli.py
 tests/test_schemas.py
 tests/test_existing_results.py
 tests/test_enveloped_results.py
+tests/test_wrap_legacy_results.py
 ```
 
 Current coverage includes:
@@ -264,6 +267,13 @@ schema error reporting
 schema failure raising
 legacy results JSON parseability
 enveloped result schema compliance
+legacy wrapper default CHECK status
+legacy wrapper experiment-name inference
+legacy wrapper status preservation
+legacy wrapper missing-status preservation
+legacy wrapper nested-payload preservation
+legacy wrapper envelope generation
+legacy wrapper schema compliance
 ```
 
 Status:
@@ -274,6 +284,7 @@ schema tests present
 CLI tests present
 legacy result parseability tests present
 enveloped result schema tests present
+legacy wrapper tests present
 CI verified
 not exhaustive
 not yet full experiment-chain coverage
@@ -324,6 +335,7 @@ basic but useful
 sufficient for package sanity
 sufficient for result JSON parseability checks
 sufficient for enveloped-result schema checks
+sufficient for legacy-wrapper sanity checks
 not yet sufficient for full experiment reproduction
 ```
 
@@ -335,6 +347,8 @@ unit tests pass
 CLI smoke test passes
 historical results are parseable JSON
 enveloped results follow canonical envelope
+legacy wrapper preserves payloads and statuses
+legacy wrapper produces schema-valid envelopes
 ```
 
 Future CI should add:
@@ -387,6 +401,7 @@ good foundation
 internally consistent
 aligned with current package layer
 aligned with current result schema layer
+aligned with legacy normalization policy
 still growing
 not final
 ```
@@ -463,6 +478,8 @@ present
 non-destructive
 manifested
 schema-valid
+generator-tested
+output-tested
 CI-tested
 ```
 
@@ -472,6 +489,43 @@ Important boundary:
 legacy normalization is format normalization
 legacy normalization is not scientific revalidation
 legacy normalization is not semantic validation
+```
+
+Wrapper rule:
+
+```text
+wrapped legacy files use status CHECK
+```
+
+Reason:
+
+```text
+wrapping confirms canonical envelope normalization
+wrapping does not revalidate the original experiment
+```
+
+Even when a legacy result contains:
+
+```text
+status: PASS
+```
+
+the wrapper status remains:
+
+```text
+CHECK
+```
+
+The original legacy status is preserved inside:
+
+```text
+payload.legacy_status
+```
+
+The original legacy payload is preserved inside:
+
+```text
+payload.legacy_result
 ```
 
 ---
@@ -508,6 +562,7 @@ schema-valid
 CI-tested
 generated from legacy results
 original legacy payload preserved inside payload.legacy_result
+original legacy status preserved inside payload.legacy_status when present
 ```
 
 Correct interpretation:
@@ -760,6 +815,7 @@ result schema definition
 validator authoring discipline
 clean execution instructions
 legacy result normalization
+legacy wrapper testing
 enveloped result CI checks
 ```
 
@@ -958,6 +1014,7 @@ package API guide
 clean execution guide
 project status document
 legacy result normalization layer
+tested legacy wrapper
 schema-valid enveloped result copies
 CI validation for enveloped results
 historical results preserved unchanged
@@ -1001,6 +1058,7 @@ It preserves instability as evidence.
 It defines boundaries instead of hiding them.
 It preserves historical results.
 It provides schema-normalized copies for validation tooling.
+It tests the wrapper that creates those normalized copies.
 It is becoming installable, testable, schema-aware, and extensible.
 ```
 
@@ -1022,7 +1080,6 @@ results_enveloped/ scientifically revalidates all legacy experiments.
 Recommended next steps:
 
 ```text
-add tests for wrap_legacy_results_in_envelope.py
 add docs/LEGACY_STATUS_MAPPING.md
 add payload-specific schema validators
 add tests for payload-specific schemas
