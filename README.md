@@ -24,6 +24,12 @@ Canonical documentation index:
 docs/INDEX.md
 ```
 
+Clean execution guide:
+
+```text
+docs/RUNNING_EXPERIMENTS.md
+```
+
 Engineering consolidation roadmap:
 
 ```text
@@ -963,6 +969,7 @@ pressure-driven
 non-final
 installable package layer added
 CI-enabled
+clean execution guide added
 ```
 
 This status is intentional.
@@ -1039,8 +1046,6 @@ measurement != inference != decision
 
 ---
 
-## Author
-
-Author: Brighindi Massimiliano
+## Author: Brighindi Massimiliano
 
 Contact: brighissimo@gmail.com
