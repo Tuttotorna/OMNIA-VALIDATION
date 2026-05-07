@@ -30,6 +30,12 @@ Clean execution guide:
 docs/RUNNING_EXPERIMENTS.md
 ```
 
+Validator authoring guide:
+
+```text
+docs/VALIDATOR_AUTHORING_GUIDE.md
+```
+
 Engineering consolidation roadmap:
 
 ```text
@@ -970,6 +976,7 @@ non-final
 installable package layer added
 CI-enabled
 clean execution guide added
+validator authoring guide added
 ```
 
 This status is intentional.
