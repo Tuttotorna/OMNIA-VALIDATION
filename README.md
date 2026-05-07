@@ -30,6 +30,12 @@ Current project status:
 docs/PROJECT_STATUS.md
 ```
 
+Maintenance guide:
+
+```text
+docs/MAINTENANCE.md
+```
+
 Clean execution guide:
 
 ```text
@@ -200,6 +206,44 @@ CLI smoke test
 ```
 
 This makes the repository more reproducible without changing the research boundary.
+
+---
+
+## Maintenance
+
+Maintenance rules are defined in:
+
+```text
+docs/MAINTENANCE.md
+```
+
+Before pushing changes, run:
+
+```bash
+pytest -q
+ruff check omnia_validation tests
+```
+
+If result files change, validate the changed file and regenerate enveloped results when needed:
+
+```bash
+omnia-validation validate-json results/<result_file>.json
+python examples/wrap_legacy_results_in_envelope.py
+pytest -q
+```
+
+Maintenance must preserve evidence while improving reproducibility.
+
+It must not:
+
+```text
+rewrite old results silently
+delete negative results
+convert CHECK to PASS without revalidation
+hide failures
+remove boundary statements
+treat normalization as scientific proof
+```
 
 ---
 
@@ -1207,6 +1251,7 @@ non-final
 partially industrialized
 installable package layer added
 CI-enabled
+maintenance guide added
 clean execution guide added
 validator authoring guide added
 result schema added
