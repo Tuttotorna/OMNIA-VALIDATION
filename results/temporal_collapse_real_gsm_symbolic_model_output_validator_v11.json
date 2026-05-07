@@ -1,0 +1,164 @@
+{
+  "experiment": "temporal_collapse_real_gsm_symbolic_model_output_validator_v11",
+  "status": "v11_real_model_output_file_mapping",
+  "boundary": "real parsed GSM-Symbolic model-output file records mapped into raw ordered structural trajectory events",
+  "claim": "This script applies the Level 3 raw trajectory warning mechanism to real parsed GSM-Symbolic model-output file records mapped into raw ordered structural trajectory events. It does not claim that OMNIA solves GSM-Symbolic, does not infer semantic truth, and does not replace benchmark correctness.",
+  "limitation_note": "Real parsed model-output file validation does not imply official benchmark scoring.",
+  "input_file": "data/temporal_collapse_real_gsm_symbolic_model_outputs_v11.jsonl",
+  "trajectory_count": 5,
+  "source_count": 1,
+  "source_independence_values": [
+    "external_source_verified"
+  ],
+  "independence_method_values": [
+    "real_model_output_file_mapping"
+  ],
+  "external_source_references": [
+    "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository"
+  ],
+  "benchmark_names": [
+    "GSM-Symbolic"
+  ],
+  "source_record_types": [
+    "real_model_output_file"
+  ],
+  "mapping_methods": [
+    "real_model_output_file_to_trajectory"
+  ],
+  "source_files": [
+    "data/source_outputs/gsm_symbolic_real_model_outputs_v11_reference.jsonl"
+  ],
+  "source_file_hashes": [
+    "sha256:reference_source_file_hash_v11"
+  ],
+  "model_names": [
+    "reference_model_a",
+    "reference_model_b",
+    "reference_model_c"
+  ],
+  "model_versions": [
+    "reference_model_a_v1",
+    "reference_model_b_v1",
+    "reference_model_c_v1"
+  ],
+  "providers": [
+    "reference_provider"
+  ],
+  "answer_extraction_methods": [
+    "final_numeric_answer_extractor_v1"
+  ],
+  "external_source_note": "source_independence=external_source_verified means the mapped records preserve a public/documentable GSM-Symbolic benchmark reference. independence_method=real_model_output_file_mapping means the records include source-file fields such as source_file, source_file_hash, source_record_reference, provider, model_name, model_version, run_id, response_id, raw_question_hash, raw_output_hash, answer_extraction_method, expected_answer, model_final_answer, and is_correct. Correctness and extraction are reported as evidence; risk_score remains a structural warning measurement.",
+  "weights": {
+    "transition_density": 0.2,
+    "drift_progression": 0.2,
+    "boundary_proximity": 0.25,
+    "collapse_similarity": 0.25,
+    "irreversibility_signal": 0.1
+  },
+  "thresholds": {
+    "STABLE": 0.25,
+    "DRIFT": 0.5,
+    "CRITICAL": 0.75
+  },
+  "aggregate": {
+    "aggregate_risk_score": 0.37472,
+    "aggregate_risk_regime": "DRIFT",
+    "aggregate_gate_action": "WATCH",
+    "aggregate_accuracy_rate": 0.48,
+    "aggregate_extraction_rate": 0.92,
+    "regime_counts": {
+      "CRITICAL": 1,
+      "DRIFT": 2,
+      "STABLE": 2
+    },
+    "highest_risk_trajectory": "gsm_symbolic_real_output_collapse_like_001",
+    "highest_risk_score": 0.665825,
+    "source_count": 1,
+    "independence_method_count": 1,
+    "external_source_reference_count": 1,
+    "benchmark_count": 1,
+    "source_record_type_count": 1,
+    "mapping_method_count": 1,
+    "source_file_count": 1,
+    "source_file_hash_count": 1,
+    "model_count": 3,
+    "model_version_count": 3,
+    "provider_count": 1,
+    "answer_extraction_method_count": 1
+  },
+  "source_summary": [
+    {
+      "source": "gsm_symbolic_real_model_output_v11",
+      "source_independence": "external_source_verified",
+      "independence_method": "real_model_output_file_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "benchmark_name": "GSM-Symbolic",
+      "source_record_type": "real_model_output_file",
+      "mapping_method": "real_model_output_file_to_trajectory",
+      "source_file": "data/source_outputs/gsm_symbolic_real_model_outputs_v11_reference.jsonl",
+      "source_file_hash": "sha256:reference_source_file_hash_v11",
+      "model_name": "reference_model_a",
+      "model_version": "reference_model_a_v1",
+      "provider": "reference_provider",
+      "answer_extraction_method": "final_numeric_answer_extractor_v1",
+      "trajectory_count": 2,
+      "average_risk_score": 0.151325,
+      "average_accuracy_rate": 0.8,
+      "average_extraction_rate": 1.0,
+      "regime_counts": {
+        "STABLE": 2
+      },
+      "highest_risk_trajectory": "gsm_symbolic_real_output_drift_001",
+      "highest_risk_score": 0.249467
+    },
+    {
+      "source": "gsm_symbolic_real_model_output_v11",
+      "source_independence": "external_source_verified",
+      "independence_method": "real_model_output_file_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "benchmark_name": "GSM-Symbolic",
+      "source_record_type": "real_model_output_file",
+      "mapping_method": "real_model_output_file_to_trajectory",
+      "source_file": "data/source_outputs/gsm_symbolic_real_model_outputs_v11_reference.jsonl",
+      "source_file_hash": "sha256:reference_source_file_hash_v11",
+      "model_name": "reference_model_b",
+      "model_version": "reference_model_b_v1",
+      "provider": "reference_provider",
+      "answer_extraction_method": "final_numeric_answer_extractor_v1",
+      "trajectory_count": 2,
+      "average_risk_score": 0.452562,
+      "average_accuracy_rate": 0.3,
+      "average_extraction_rate": 1.0,
+      "regime_counts": {
+        "DRIFT": 2
+      },
+      "highest_risk_trajectory": "gsm_symbolic_real_output_critical_001",
+      "highest_risk_score": 0.480217
+    },
+    {
+      "source": "gsm_symbolic_real_model_output_v11",
+      "source_independence": "external_source_verified",
+      "independence_method": "real_model_output_file_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "benchmark_name": "GSM-Symbolic",
+      "source_record_type": "real_model_output_file",
+      "mapping_method": "real_model_output_file_to_trajectory",
+      "source_file": "data/source_outputs/gsm_symbolic_real_model_outputs_v11_reference.jsonl",
+      "source_file_hash": "sha256:reference_source_file_hash_v11",
+      "model_name": "reference_model_c",
+      "model_version": "reference_model_c_v1",
+      "provider": "reference_provider",
+      "answer_extraction_method": "final_numeric_answer_extractor_v1",
+      "trajectory_count": 1,
+      "average_risk_score": 0.665825,
+      "average_accuracy_rate": 0.2,
+      "average_extraction_rate": 0.6,
+      "regime_counts": {
+        "CRITICAL": 1
+      },
+      "highest_risk_trajectory": "gsm_symbolic_real_output_collapse_like_001",
+      "highest_risk_score": 0.665825
+    }
+  ],
+  "results": []
+}
