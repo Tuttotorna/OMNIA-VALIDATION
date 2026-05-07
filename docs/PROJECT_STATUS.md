@@ -43,11 +43,12 @@ schema-validator added
 legacy-result normalization added
 legacy-result wrapper tested
 enveloped-result validation added
+contribution templates added
 ```
 
 The repository is no longer only a loose archive of scripts.
 
-It now contains a minimal engineering layer that supports reproducibility, package installation, testing, schema validation, result normalization, generator validation, and validator extension.
+It now contains a minimal engineering layer that supports reproducibility, package installation, testing, schema validation, result normalization, generator validation, contribution intake, and validator extension.
 
 ---
 
@@ -58,12 +59,16 @@ The following components are currently ready:
 ```text
 README.md
 docs/INDEX.md
+docs/QUICKSTART.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/RESULT_SCHEMA.md
 docs/PACKAGE_API.md
 docs/PROJECT_STATUS.md
+docs/MAINTENANCE.md
+docs/RELEASE_POLICY.md
 docs/LEGACY_RESULT_NORMALIZATION.md
+docs/LEGACY_STATUS_MAPPING.md
 docs/CONSOLIDATION_ROADMAP_V0.md
 CONTRIBUTING.md
 SECURITY.md
@@ -72,6 +77,10 @@ requirements-dev.txt
 omnia_validation/
 tests/
 .github/workflows/ci.yml
+.github/ISSUE_TEMPLATE/bug_report.md
+.github/ISSUE_TEMPLATE/validation_result_review.md
+.github/ISSUE_TEMPLATE/documentation_issue.md
+.github/pull_request_template.md
 examples/wrap_legacy_results_in_envelope.py
 results/
 results_enveloped/
@@ -81,18 +90,24 @@ These files and directories establish:
 
 ```text
 documentation index
+quickstart path
 clean execution guide
 validator authoring discipline
 common result schema
 package API reference
 current project status
+maintenance discipline
+release discipline
 legacy result normalization policy
+legacy status mapping policy
 engineering roadmap
 contribution rules
 security boundary
 installable package layer
 test suite
 continuous integration
+issue intake templates
+pull request checklist
 historical result preservation
 canonical enveloped result copies
 tested legacy-result wrapper
@@ -372,12 +387,16 @@ Current engineering documentation:
 
 ```text
 docs/INDEX.md
+docs/QUICKSTART.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/RESULT_SCHEMA.md
 docs/PACKAGE_API.md
 docs/PROJECT_STATUS.md
+docs/MAINTENANCE.md
+docs/RELEASE_POLICY.md
 docs/LEGACY_RESULT_NORMALIZATION.md
+docs/LEGACY_STATUS_MAPPING.md
 docs/CONSOLIDATION_ROADMAP_V0.md
 ```
 
@@ -385,12 +404,16 @@ Current purpose:
 
 ```text
 make the repository navigable
+provide a minimal first-run path
 make experiments runnable
 make validators authorable
 make results comparable
 make package utilities explicit
 make current status honest
+define maintenance discipline
+define release discipline
 explain legacy result normalization
+explain legacy status preservation
 make consolidation direction visible
 ```
 
@@ -404,6 +427,49 @@ aligned with current result schema layer
 aligned with legacy normalization policy
 still growing
 not final
+```
+
+---
+
+## Contribution Intake Status
+
+GitHub contribution templates are present.
+
+Issue templates:
+
+```text
+.github/ISSUE_TEMPLATE/bug_report.md
+.github/ISSUE_TEMPLATE/validation_result_review.md
+.github/ISSUE_TEMPLATE/documentation_issue.md
+```
+
+Pull request template:
+
+```text
+.github/pull_request_template.md
+```
+
+These templates support:
+
+```text
+bug reports
+validation result reviews
+documentation issues
+pull request validation checklists
+boundary preservation
+non-claim discipline
+result artifact impact review
+schema impact review
+legacy result impact review
+```
+
+Status:
+
+```text
+present
+basic
+boundary-aware
+not yet community-tested
 ```
 
 ---
@@ -811,12 +877,16 @@ CLI artifact validation
 result-envelope schema validation
 CI
 documentation navigation
+quickstart path
 result schema definition
 validator authoring discipline
 clean execution instructions
+maintenance discipline
+release discipline
 legacy result normalization
 legacy wrapper testing
 enveloped result CI checks
+contribution templates
 ```
 
 Still partial:
@@ -829,7 +899,8 @@ experiment-chain reproducibility automation
 dataset validation automation
 artifact hash verification automation
 legacy-status mapping
-release process
+package release process
+community contribution process
 ```
 
 ---
@@ -849,12 +920,9 @@ experiment runner CLI
 result regression tests
 dataset integrity tests
 artifact hash manifest
-GitHub issue templates
-pull request template
 CODE_OF_CONDUCT.md
-release procedure
 versioning policy for package releases
-maintenance guide
+advanced maintenance automation
 ```
 
 Possible future package modules:
@@ -872,11 +940,10 @@ omnia_validation.manifest
 Possible future documentation files:
 
 ```text
-docs/MAINTENANCE.md
-docs/RELEASE_POLICY.md
-docs/LEGACY_STATUS_MAPPING.md
 docs/VALIDATOR_REGISTRY.md
 docs/RESULT_REGRESSION_POLICY.md
+docs/VALIDATOR_STATUS_VOCABULARY.md
+docs/PACKAGE_RELEASE_POLICY.md
 ```
 
 ---
@@ -891,6 +958,7 @@ research-ready
 developer-runnable
 schema-aware
 CI-guarded
+contribution-template-ready
 not production-ready
 not industrially hardened
 ```
@@ -942,6 +1010,8 @@ Current community status:
 early
 low external feedback
 not yet community-standardized
+issue templates present
+pull request template present
 ```
 
 The repository needs:
@@ -1008,16 +1078,22 @@ schema validator
 validate-result command
 green CI
 documentation index
+quickstart guide
 validator authoring guide
 result schema guide
 package API guide
 clean execution guide
+maintenance guide
+release policy
 project status document
 legacy result normalization layer
+legacy status mapping policy
 tested legacy wrapper
 schema-valid enveloped result copies
 CI validation for enveloped results
 historical results preserved unchanged
+issue templates
+pull request template
 ```
 
 These strengths make the repository more serious than a loose script dump.
@@ -1039,6 +1115,7 @@ limited independent reproduction
 no package release workflow yet
 legacy statuses are not yet semantically mapped
 experiment chains are not yet fully CI-reproduced
+community workflow is present but untested
 ```
 
 These weaknesses are fixable.
@@ -1059,7 +1136,7 @@ It defines boundaries instead of hiding them.
 It preserves historical results.
 It provides schema-normalized copies for validation tooling.
 It tests the wrapper that creates those normalized copies.
-It is becoming installable, testable, schema-aware, and extensible.
+It is becoming installable, testable, schema-aware, maintainable, and extensible.
 ```
 
 Incorrect interpretation:
@@ -1080,13 +1157,12 @@ results_enveloped/ scientifically revalidates all legacy experiments.
 Recommended next steps:
 
 ```text
-add docs/LEGACY_STATUS_MAPPING.md
+add CODE_OF_CONDUCT.md
+add docs/VALIDATOR_REGISTRY.md
 add payload-specific schema validators
 add tests for payload-specific schemas
-add docs/MAINTENANCE.md
-add docs/RELEASE_POLICY.md
-add GitHub issue templates
-add pull request template
+add docs/RESULT_REGRESSION_POLICY.md
+add artifact hash manifest
 ```
 
 Engineering priority:
