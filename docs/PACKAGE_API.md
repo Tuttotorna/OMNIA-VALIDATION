@@ -17,6 +17,7 @@ hashing
 JSON/JSONL IO
 simple structural metrics
 artifact metadata
+result schema validation
 CLI validation checks
 ```
 
@@ -41,6 +42,7 @@ omnia_validation.hashing
 omnia_validation.io
 omnia_validation.metrics
 omnia_validation.metadata
+omnia_validation.schemas
 omnia_validation.cli
 ```
 
@@ -652,7 +654,209 @@ write_json("results/example_validator_v0.json", result)
 
 ---
 
-## 7. omnia_validation.cli
+## 7. omnia_validation.schemas
+
+Source file:
+
+```text
+omnia_validation/schemas.py
+```
+
+Purpose:
+
+```text
+validate the structural shape of OMNIA-VALIDATION result artifacts
+check canonical result envelope fields
+check allowed result statuses
+check visible boundary preservation
+```
+
+Important boundary:
+
+```text
+schema validation checks structure only
+schema validation does not check semantic truth
+schema validation does not make final decisions
+```
+
+Available constants:
+
+```text
+ALLOWED_RESULT_STATUSES
+REQUIRED_RESULT_FIELDS
+DEFAULT_BOUNDARY
+```
+
+Available functions:
+
+```text
+validate_result_envelope
+is_valid_result_envelope
+require_valid_result_envelope
+```
+
+---
+
+### ALLOWED_RESULT_STATUSES
+
+```python
+ALLOWED_RESULT_STATUSES = frozenset({"PASS", "CHECK", "FAIL"})
+```
+
+Allowed top-level result statuses.
+
+Meaning:
+
+```text
+PASS  -> tested structural condition survived this validation step
+CHECK -> partial instability, ambiguity, or boundary condition detected
+FAIL  -> collapse, mismatch, invalid artifact, or validation failure detected
+```
+
+---
+
+### REQUIRED_RESULT_FIELDS
+
+```python
+REQUIRED_RESULT_FIELDS = frozenset(
+    {
+        "experiment",
+        "status",
+        "created_at_utc",
+        "boundary",
+        "payload",
+    }
+)
+```
+
+Required top-level fields for a canonical result envelope.
+
+---
+
+### DEFAULT_BOUNDARY
+
+```python
+DEFAULT_BOUNDARY = "measurement != inference != decision"
+```
+
+Default epistemic boundary used by OMNIA-VALIDATION result artifacts.
+
+---
+
+### validate_result_envelope
+
+```python
+validate_result_envelope(result: Mapping[str, Any]) -> list[str]
+```
+
+Validates the canonical OMNIA-VALIDATION result envelope.
+
+Returns a list of error messages.
+
+An empty list means the envelope passed the structural schema check.
+
+Example:
+
+```python
+from omnia_validation.schemas import validate_result_envelope
+
+result = {
+    "experiment": "example_validator_v0",
+    "status": "PASS",
+    "created_at_utc": "2026-05-07T00:00:00+00:00",
+    "boundary": "measurement != inference != decision",
+    "payload": {
+        "record_count": 10
+    },
+}
+
+errors = validate_result_envelope(result)
+
+if errors:
+    print(errors)
+else:
+    print("PASS")
+```
+
+Checks:
+
+```text
+result is a mapping/object
+required fields are present
+experiment is a non-empty string
+status is PASS, CHECK, or FAIL
+created_at_utc is a UTC-like ISO-8601 string
+boundary matches measurement != inference != decision
+payload is a mapping/object
+```
+
+---
+
+### is_valid_result_envelope
+
+```python
+is_valid_result_envelope(result: Mapping[str, Any]) -> bool
+```
+
+Returns `True` when a result envelope passes the structural schema check.
+
+Example:
+
+```python
+from omnia_validation.schemas import is_valid_result_envelope
+
+if is_valid_result_envelope(result):
+    print("valid")
+else:
+    print("invalid")
+```
+
+---
+
+### require_valid_result_envelope
+
+```python
+require_valid_result_envelope(result: Mapping[str, Any]) -> None
+```
+
+Raises `ValueError` if a result envelope fails the structural schema check.
+
+Example:
+
+```python
+from omnia_validation.schemas import require_valid_result_envelope
+
+require_valid_result_envelope(result)
+```
+
+Useful inside validators when a script must stop on invalid output.
+
+Example:
+
+```python
+from omnia_validation.io import write_json
+from omnia_validation.metadata import result_envelope
+from omnia_validation.schemas import require_valid_result_envelope
+
+payload = {
+    "record_count": 10,
+    "main_signal": "record_presence",
+    "decision_reason": "Input records were present.",
+}
+
+result = result_envelope(
+    experiment="example_validator_v0",
+    status="PASS",
+    payload=payload,
+)
+
+require_valid_result_envelope(result)
+write_json("results/example_validator_v0.json", result)
+```
+
+---
+
+## 8. omnia_validation.cli
 
 Source file:
 
@@ -788,7 +992,7 @@ Failure output:
 
 ---
 
-## 8. Public Imports
+## 9. Public Imports
 
 The package exposes common utilities from:
 
@@ -800,15 +1004,21 @@ Current public imports:
 
 ```python
 from omnia_validation import (
+    ALLOWED_RESULT_STATUSES,
+    DEFAULT_BOUNDARY,
+    REQUIRED_RESULT_FIELDS,
     compression_ratio,
     is_sha256_hex,
+    is_valid_result_envelope,
     normalized_repetition_score,
     read_json,
     read_jsonl,
+    require_valid_result_envelope,
     sha256_bytes,
     sha256_file,
     sha256_text,
     shannon_entropy,
+    validate_result_envelope,
     write_json,
     write_jsonl,
 )
@@ -817,18 +1027,33 @@ from omnia_validation import (
 Example:
 
 ```python
-from omnia_validation import sha256_text, shannon_entropy
+from omnia_validation import (
+    is_valid_result_envelope,
+    sha256_text,
+    shannon_entropy,
+)
 
 digest = sha256_text("omnia")
 entropy = shannon_entropy("omnia")
 
+result = {
+    "experiment": "example_validator_v0",
+    "status": "PASS",
+    "created_at_utc": "2026-05-07T00:00:00+00:00",
+    "boundary": "measurement != inference != decision",
+    "payload": {
+        "record_count": 1
+    },
+}
+
 print(digest)
 print(entropy)
+print(is_valid_result_envelope(result))
 ```
 
 ---
 
-## 9. Recommended Use Inside Validators
+## 10. Recommended Use Inside Validators
 
 Recommended validator pattern:
 
@@ -839,6 +1064,7 @@ from pathlib import Path
 
 from omnia_validation.io import read_jsonl, write_json
 from omnia_validation.metadata import result_envelope
+from omnia_validation.schemas import require_valid_result_envelope
 
 VALIDATOR_NAME = "example_validator_v0"
 INPUT_PATH = Path("data/example_input_v0.jsonl")
@@ -862,6 +1088,7 @@ def main() -> int:
         payload=payload,
     )
 
+    require_valid_result_envelope(result)
     write_json(RESULT_PATH, result)
 
     return 0 if records else 1
@@ -873,7 +1100,7 @@ if __name__ == "__main__":
 
 ---
 
-## 10. Testing The Package Layer
+## 11. Testing The Package Layer
 
 Run:
 
@@ -887,6 +1114,9 @@ Current test files:
 tests/test_hashing.py
 tests/test_io.py
 tests/test_metrics.py
+tests/test_metadata.py
+tests/test_cli.py
+tests/test_schemas.py
 ```
 
 The tests verify:
@@ -900,11 +1130,18 @@ JSONL roundtrip
 entropy behavior
 compression behavior
 repetition score behavior
+metadata generation
+result envelope construction
+CLI command behavior
+schema constants
+schema validation
+schema error reporting
+schema failure raising
 ```
 
 ---
 
-## 11. CI Coverage
+## 12. CI Coverage
 
 The GitHub Actions workflow runs on:
 
@@ -938,7 +1175,7 @@ Workflow file:
 
 ---
 
-## 12. Design Rules
+## 13. Design Rules
 
 The package layer should remain:
 
@@ -969,7 +1206,7 @@ omnia_validation/
 
 ---
 
-## 13. Non-Goals
+## 14. Non-Goals
 
 The package API does not provide:
 
