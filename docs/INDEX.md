@@ -71,6 +71,8 @@ tests/test_metadata.py
 tests/test_cli.py
 tests/test_schemas.py
 tests/test_existing_results.py
+tests/test_enveloped_results.py
+tests/test_wrap_legacy_results.py
 ```
 
 ---
@@ -232,6 +234,49 @@ wrapping failures: 0
 
 ---
 
+## Legacy Status Mapping
+
+Legacy status mapping document:
+
+```text
+docs/LEGACY_STATUS_MAPPING.md
+```
+
+This document explains how older status values are preserved and handled.
+
+Legacy result files may contain status values such as:
+
+```text
+DRIFT
+STABLE
+CRITICAL
+WATCH
+passed
+stable
+collapse-like
+v15_external_source_hash_strengthened
+```
+
+The current canonical schema allows only:
+
+```text
+PASS
+CHECK
+FAIL
+```
+
+Current policy:
+
+```text
+legacy status values are preserved inside payload.legacy_status
+legacy wrapped files use canonical status CHECK
+automatic scientific reinterpretation is not applied
+```
+
+This prevents format normalization from being falsely presented as scientific revalidation.
+
+---
+
 ## Consolidation Roadmap
 
 The engineering consolidation roadmap is located in:
@@ -328,6 +373,7 @@ docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/RESULT_SCHEMA.md
 docs/PACKAGE_API.md
 docs/LEGACY_RESULT_NORMALIZATION.md
+docs/LEGACY_STATUS_MAPPING.md
 docs/CONSOLIDATION_ROADMAP_V0.md
 docs/TEMPORAL_COLLAPSE_LEVEL_3_INDEX_V0.md
 docs/TEMPORAL_COLLAPSE_TOPOLOGY_INDEX_V0.md
@@ -348,6 +394,7 @@ docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/RESULT_SCHEMA.md
 docs/PACKAGE_API.md
 docs/LEGACY_RESULT_NORMALIZATION.md
+docs/LEGACY_STATUS_MAPPING.md
 docs/CONSOLIDATION_ROADMAP_V0.md
 ```
 
@@ -360,6 +407,7 @@ make validators authorable
 make result files comparable
 make package utilities documented
 explain legacy result normalization
+explain legacy status preservation
 make repository structure maintainable
 ```
 
@@ -381,6 +429,7 @@ validate-result CLI command
 package API documentation
 project status document
 legacy result normalization layer
+legacy status mapping policy
 consolidation roadmap
 ```
 
@@ -435,6 +484,35 @@ Legacy normalization is format normalization.
 It is not semantic validation.
 
 It is not scientific revalidation.
+
+---
+
+## Legacy Status Policy
+
+Legacy statuses are historical values.
+
+They are preserved, not erased.
+
+They are stored in enveloped copies at:
+
+```text
+payload.legacy_status
+```
+
+Wrapper status remains:
+
+```text
+CHECK
+```
+
+Reason:
+
+```text
+wrapping is normalization
+wrapping is not revalidation
+```
+
+A future validator-specific mapping may map some legacy statuses to `PASS`, `CHECK`, or `FAIL`, but only with explicit documented logic.
 
 ---
 
