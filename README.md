@@ -286,11 +286,17 @@ or is it only a collection of isolated trajectory labels?
 The v0 chain detected:
 
 directed signature-cluster topology
+
 centrality structure
+
 control plane
+
 dependency map
+
 dependency boundary map
+
 boundary phase diagram
+
 
 Canonical entry point:
 
@@ -776,5 +782,9 @@ Final boundary:
 measurement != inference != decision
 
 
-Author: Brighindi Massimiliano 
+---
+
+Author
+
+Author: Brighindi Massimiliano
 Contact: brighissimo@gmail.com
