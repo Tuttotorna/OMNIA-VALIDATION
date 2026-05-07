@@ -24,6 +24,12 @@ Canonical documentation index:
 docs/INDEX.md
 ```
 
+Quickstart guide:
+
+```text
+docs/QUICKSTART.md
+```
+
 Current project status:
 
 ```text
@@ -94,6 +100,54 @@ Security policy:
 
 ```text
 SECURITY.md
+```
+
+---
+
+## Quickstart
+
+For a minimal first run:
+
+```bash
+git clone https://github.com/Tuttotorna/OMNIA-VALIDATION.git
+cd OMNIA-VALIDATION
+python -m pip install --upgrade pip
+python -m pip install -e ".[dev]"
+pytest -q
+ruff check omnia_validation tests
+```
+
+Verify the CLI:
+
+```bash
+omnia-validation validate-sha256 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+```
+
+Expected output:
+
+```text
+PASS
+```
+
+Validate the canonical legacy normalization manifest:
+
+```bash
+omnia-validation validate-result results_enveloped/legacy_result_envelope_manifest_v0.json
+```
+
+Expected output:
+
+```json
+{
+  "status": "PASS",
+  "schema": "result_envelope"
+}
+```
+
+Full quickstart:
+
+```text
+docs/QUICKSTART.md
 ```
 
 ---
@@ -1303,6 +1357,7 @@ non-final
 partially industrialized
 installable package layer added
 CI-enabled
+quickstart guide added
 maintenance guide added
 release policy added
 clean execution guide added
