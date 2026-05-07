@@ -89,6 +89,7 @@ omnia_validation.hashing
 omnia_validation.io
 omnia_validation.metrics
 omnia_validation.metadata
+omnia_validation.schemas
 omnia_validation.cli
 ```
 
@@ -100,7 +101,7 @@ docs/PACKAGE_API.md
 
 This package layer does not replace the experimental scripts.
 
-It provides reusable support utilities for reproducibility, hashing, JSON/JSONL handling, metadata envelopes, simple structural metrics, and command-line artifact checks.
+It provides reusable support utilities for reproducibility, hashing, JSON/JSONL handling, metadata envelopes, simple structural metrics, result schema validation, and command-line artifact checks.
 
 Install in editable development mode:
 
@@ -125,7 +126,43 @@ Example CLI checks:
 ```bash
 omnia-validation validate-sha256 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 omnia-validation validate-json results/example.json
+omnia-validation validate-result results/example.json
 omnia-validation hash-file data/example.jsonl
+```
+
+CLI command meaning:
+
+```text
+validate-sha256 -> check SHA-256 hexadecimal format
+validate-json   -> check JSON / JSONL parseability
+validate-result -> check canonical OMNIA-VALIDATION result envelope
+hash-file       -> compute SHA-256 for an artifact
+```
+
+Important distinction:
+
+```text
+validate-json checks whether the file is parseable.
+validate-result checks whether the result follows the OMNIA-VALIDATION envelope.
+```
+
+Current canonical result envelope:
+
+```text
+experiment
+status
+created_at_utc
+boundary
+payload
+```
+
+Boundary:
+
+```text
+validate-result checks structural schema only.
+It does not validate semantic truth.
+It does not certify production safety.
+It does not decide whether the scientific interpretation is correct.
 ```
 
 ---
@@ -1005,6 +1042,8 @@ validator authoring guide added
 result schema added
 package API documented
 project status documented
+schema validator added
+validate-result CLI added
 ```
 
 Current status document:
