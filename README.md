@@ -102,6 +102,12 @@ Security policy:
 SECURITY.md
 ```
 
+Code of conduct:
+
+```text
+CODE_OF_CONDUCT.md
+```
+
 ---
 
 ## Quickstart
@@ -346,6 +352,72 @@ non-claims explicit
 ```
 
 Release boundary:
+
+```text
+measurement != inference != decision
+```
+
+---
+
+## Contribution, Security, And Conduct
+
+Contribution guide:
+
+```text
+CONTRIBUTING.md
+```
+
+Security policy:
+
+```text
+SECURITY.md
+```
+
+Code of conduct:
+
+```text
+CODE_OF_CONDUCT.md
+```
+
+GitHub issue templates:
+
+```text
+.github/ISSUE_TEMPLATE/bug_report.md
+.github/ISSUE_TEMPLATE/validation_result_review.md
+.github/ISSUE_TEMPLATE/documentation_issue.md
+```
+
+Pull request template:
+
+```text
+.github/pull_request_template.md
+```
+
+The repository accepts direct technical criticism.
+
+Criticism should remain:
+
+```text
+specific
+evidence-based
+non-abusive
+reproducible when possible
+focused on artifacts, claims, methods, scripts, or documentation
+```
+
+The project welcomes falsification pressure.
+
+It does not welcome:
+
+```text
+personal attacks
+credential exposure
+unsupported overclaims
+pressure to hide negative results
+pressure to convert CHECK into PASS without revalidation
+```
+
+Boundary:
 
 ```text
 measurement != inference != decision
@@ -1369,6 +1441,8 @@ schema validator added
 validate-result CLI added
 legacy result normalization added
 legacy status mapping documented
+contribution templates added
+code of conduct added
 ```
 
 Current status document:
