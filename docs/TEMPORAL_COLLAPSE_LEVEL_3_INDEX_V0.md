@@ -1,928 +1,470 @@
-# Temporal Collapse Level 3 Index v0
+# Temporal Collapse Level 3 — Index v0
 
 ## Purpose
 
-This document indexes the Level 3 early-warning layer of OMNIA-VALIDATION.
+This index tracks the Temporal Collapse Level 3 validation chain.
 
-Level 1 detected temporal-collapse signatures.
+Level 3 is the raw trajectory warning layer.
 
-Level 2 mapped temporal-collapse topology, control-plane behavior, dependency boundaries, and phase regimes.
+It maps ordered structural events into trajectory-level risk measurements.
 
-Level 3 introduces operational early-warning classification.
+It does not solve benchmark tasks.
 
-The purpose is to move from:
+It does not infer semantic truth.
+
+It does not replace benchmark correctness.
+
+It does not make final decisions.
+
+## Boundary
 
 ```text
-after-the-fact collapse mapping
-
-to:
-
-pre-collapse structural warning
-
-
----
-
-Core Boundary
-
-Level 3 does not predict universal AI collapse.
-
-Level 3 does not detect semantic truth.
-
-Level 3 does not make final decisions.
-
-Level 3 measures structural warning conditions only.
-
 measurement != inference != decision
 
+structural warning != semantic correctness
+
+risk_score != truth
+
+gate_action != final authority
+
+Level 3 definition
+
+Temporal Collapse Level 3 measures structural warning behavior across ordered raw trajectory events.
+
+Each trajectory is treated as a sequence.
+
+The validator reads event-level fields such as:
+
+step
+signature
+cluster
+delta
+iri
+boundary_distance
+phase
+
+It then computes structural warning signals such as:
+
+transition_density
+drift_progression
+boundary_proximity
+collapse_similarity
+irreversibility_signal
+
+The output is a trajectory-level warning result:
+
+risk_score
+risk_regime
+gate_action
+dominant_axis
+warning_flags
+transition_evidence
+
+Core risk regimes
+
+Regime	Meaning
+
+STABLE	low structural warning
+DRIFT	structural instability or warning pressure
+CRITICAL	collapse-like or high-risk structural behavior
+
+
+Core gate actions
+
+Gate action	Meaning
+
+PASS	no immediate structural warning
+WATCH	structural warning present
+ESCALATE	high structural warning
+
+
+Core thresholds
+
+{
+  "STABLE": 0.25,
+  "DRIFT": 0.5,
+  "CRITICAL": 0.75
+}
+
+Core weights
+
+{
+  "transition_density": 0.2,
+  "drift_progression": 0.2,
+  "boundary_proximity": 0.25,
+  "collapse_similarity": 0.25,
+  "irreversibility_signal": 0.1
+}
+
+Validation chain
+
+Level 3 raw trajectory events
+        |
+        v
+Temporal Collapse validator
+        |
+        v
+trajectory-level warning results
+        |
+        v
+aggregate warning profile
+        |
+        v
+external decision layer
+
+Important limitation
+
+Level 3 does not claim that a model is correct or incorrect.
+
+Level 3 measures structural behavior under ordered trajectory progression.
+
+Correctness fields may be preserved as evidence.
+
+Extraction fields may be preserved as evidence.
+
+Provider fields may be preserved as evidence.
+
+Run fields may be preserved as evidence.
+
+But the structural risk score remains a warning measurement only.
+
 
 ---
 
-Level 3 Function
+Version map
 
-Given a trajectory or trajectory-like sequence, Level 3 computes structural warning signals and classifies the trajectory into a risk regime.
+V0 — Foundation
 
-Target regimes:
+Scope
 
-STABLE
-DRIFT
-CRITICAL
-COLLAPSE
+Initial Level 3 index and conceptual boundary.
 
-Gate actions:
+Files
 
-STABLE   -> PASS
-DRIFT    -> WATCH
-CRITICAL -> ESCALATE
-COLLAPSE -> STOP
-
-The gate action is not a final decision.
-
-It is a measurement-derived warning signal for an external decision layer.
-
-
----
-
-Level 3 Progression
-
-Level 3 currently has fourteen validation steps:
-
-Level 3 v0
-  -> synthetic reference trajectories
-
-Level 3 v1
-  -> Level 2-derived result snapshots
-
-Level 3 v2
-  -> ordered Level 2 stage trajectory
-
-Level 3 v3
-  -> raw ordered reference trajectories
-
-Level 3 v4
-  -> external-style raw trajectory validation
-
-Level 3 v5
-  -> separate-generator raw trajectory validation
-
-Level 3 v6
-  -> declared external-source raw trajectory validation
-
-Level 3 v7
-  -> verified external-source raw trajectory validation
-
-Level 3 v8
-  -> direct public benchmark record mapping
-
-Level 3 v9
-  -> direct answer-trace mapping
-
-Level 3 v10
-  -> bounded actual-output-style model-output mapping
-
-Level 3 v11
-  -> real parsed model-output file validation
-
-Level 3 v12
-  -> multi-source real parsed model-output file validation
-
-Level 3 v13
-  -> cross-provider disagreement validation
-
-Current strongest step:
-
-v13 -> cross-provider disagreement validation over real parsed GSM-Symbolic model-output file mappings
-
-Important limitation:
-
-v13 does not imply official benchmark scoring, production certification,
-semantic truth detection, or final decision authority.
-
-
----
-
-Canonical Level 3 Files
-
-docs/TEMPORAL_COLLAPSE_EARLY_WARNING_LEVEL_3_V0.md
 docs/TEMPORAL_COLLAPSE_LEVEL_3_INDEX_V0.md
 
+Status
 
----
-
-Level 3 v0
-
-Files
-
-examples/temporal_collapse_early_warning_level_3_v0.py
-results/temporal_collapse_early_warning_level_3_v0.json
-docs/TEMPORAL_COLLAPSE_EARLY_WARNING_LEVEL_3_V0_RESULT.md
-
-Result
-
-PASS
-
-Risk progression:
-
-stable_reference_001    -> 0.0380 -> STABLE   -> PASS
-drift_reference_001     -> 0.2830 -> DRIFT    -> WATCH
-critical_reference_001  -> 0.5650 -> CRITICAL -> ESCALATE
-collapse_reference_001  -> 0.8685 -> COLLAPSE -> STOP
-
-Correct interpretation:
-
-v0 validates the minimal early-warning mechanism on synthetic reference trajectories only.
+active index
 
 
 ---
 
-Level 3 v1
+V1 — Raw trajectory warning mechanism
 
-Files
+Scope
 
-examples/temporal_collapse_early_warning_from_level_2_v1.py
-results/temporal_collapse_early_warning_from_level_2_v1.json
-docs/TEMPORAL_COLLAPSE_EARLY_WARNING_FROM_LEVEL_2_V1_RESULT.md
+Initial raw trajectory collapse-warning formulation.
 
-Result
+Purpose
 
-PASS
+Define how ordered structural events can be converted into trajectory-level warning measurements.
 
-Aggregate:
+Boundary
 
-aggregate_risk_score:  0.300373
-aggregate_risk_regime: DRIFT
-aggregate_gate_action: WATCH
-
-Strongest local warning:
-
-dependency_boundary_v0 -> CRITICAL -> ESCALATE
-
-Correct interpretation:
-
-v1 applies Level 3 warning logic to Level 2-derived result snapshots.
-
-Limitation:
-
-v1 is a heuristic bridge, not direct raw trajectory validation.
+raw structural trajectory warning only
 
 
 ---
 
-Level 3 v2
+V2 — Expanded warning evidence
 
-Files
+Scope
 
-examples/temporal_collapse_trajectory_native_validator_v2.py
-results/temporal_collapse_trajectory_native_validator_v2.json
-docs/TEMPORAL_COLLAPSE_TRAJECTORY_NATIVE_VALIDATOR_V2_RESULT.md
+Added richer transition evidence and warning-axis separation.
 
-Result
+Purpose
 
-PASS
+Separate structural signal families instead of compressing all instability into one opaque score.
 
-Aggregate:
+Signal families
 
-risk_score:    0.357220
-risk_regime:   DRIFT
-gate_action:   WATCH
-dominant_axis: boundary_proximity
-
-Ordered stage trajectory:
-
-PASS -> PASS -> PASS -> CHECK -> CHECK -> CHECK -> PASS
-
-Correct interpretation:
-
-v2 evaluates the ordered Level 2 stage chain as a trajectory.
-
-Limitation:
-
-v2 is trajectory-native relative to Level 2 stages, not raw runtime trajectory validation.
+transition_density
+drift_progression
+boundary_proximity
+collapse_similarity
+irreversibility_signal
 
 
 ---
 
-Level 3 v3
+V3 — Gate action layer
 
-Files
+Scope
 
-docs/TEMPORAL_COLLAPSE_RAW_TRAJECTORY_VALIDATOR_V3.md
-data/temporal_collapse_raw_trajectories_v3.jsonl
-examples/temporal_collapse_raw_trajectory_validator_v3.py
-results/temporal_collapse_raw_trajectory_validator_v3.json
-docs/TEMPORAL_COLLAPSE_RAW_TRAJECTORY_VALIDATOR_V3_RESULT.md
+Added explicit gate action mapping.
 
-Result
+Purpose
+
+Keep measurement separate from decision while allowing an external system to consume warning states.
+
+Gate action space
 
 PASS
-
-Risk progression:
-
-raw_stable_001         -> 0.033417 -> STABLE   -> PASS
-raw_drift_001          -> 0.277833 -> DRIFT    -> WATCH
-raw_critical_001       -> 0.568722 -> CRITICAL -> ESCALATE
-raw_collapse_like_001  -> 0.817056 -> COLLAPSE -> STOP
-
-Aggregate:
-
-aggregate_risk_score:  0.424257
-aggregate_risk_regime: DRIFT
-aggregate_gate_action: WATCH
-
-Correct interpretation:
-
-v3 validates the raw ordered trajectory warning mechanism on bounded reference trajectories.
+WATCH
+ESCALATE
 
 
 ---
 
-Level 3 v4
+V4 — Structural boundary clarification
 
-Files
+Scope
 
-docs/TEMPORAL_COLLAPSE_EXTERNAL_RAW_TRAJECTORY_VALIDATOR_V4.md
-data/temporal_collapse_external_raw_trajectories_v4.jsonl
-examples/temporal_collapse_external_raw_trajectory_validator_v4.py
-results/temporal_collapse_external_raw_trajectory_validator_v4.json
-docs/TEMPORAL_COLLAPSE_EXTERNAL_RAW_TRAJECTORY_VALIDATOR_V4_RESULT.md
+Clarified that Level 3 is not semantic scoring.
 
-Result
+Boundary
 
-PASS
-
-Boundary:
-
-source:              external_style_generator_v4
-source_independence: not_verified
-
-Risk progression:
-
-external_stable_001               -> 0.040583 -> STABLE   -> PASS
-external_drift_001                -> 0.321306 -> DRIFT    -> WATCH
-external_borderline_critical_001  -> 0.536222 -> CRITICAL -> ESCALATE
-external_critical_001             -> 0.619778 -> CRITICAL -> ESCALATE
-external_collapse_like_001        -> 0.824306 -> COLLAPSE -> STOP
-
-Correct interpretation:
-
-v4 applies raw trajectory warning logic to external-style records.
-
-Limitation:
-
-v4 is not verified independent validation.
+risk_score != correctness
+risk_score != truth
+risk_score != proof
 
 
 ---
 
-Level 3 v5
+V5 — Dataset mapping discipline
 
-Files
+Scope
 
-examples/generate_independent_raw_trajectories_v5.py
-data/temporal_collapse_verified_independent_raw_trajectories_v5.jsonl
-examples/temporal_collapse_verified_independent_raw_trajectory_validator_v5.py
-results/temporal_collapse_verified_independent_raw_trajectory_validator_v5.json
-docs/TEMPORAL_COLLAPSE_VERIFIED_INDEPENDENT_RAW_TRAJECTORY_VALIDATOR_V5_RESULT.md
+Introduced stricter mapping discipline from raw records to ordered structural events.
 
-Result
+Purpose
 
-PASS
-
-Boundary:
-
-source:              independent_generator_script_v5
-source_independence: generated_by_independent_script
-independence_method: separate_generator_script
-
-Risk progression:
-
-independent_stable_001               -> 0.037367 -> STABLE   -> PASS
-independent_drift_001                -> 0.285528 -> DRIFT    -> WATCH
-independent_borderline_critical_001  -> 0.495100 -> DRIFT    -> WATCH
-independent_critical_001             -> 0.595339 -> CRITICAL -> ESCALATE
-independent_collapse_like_001        -> 0.808922 -> COLLAPSE -> STOP
-
-Aggregate:
-
-aggregate_risk_score:  0.444451
-aggregate_risk_regime: DRIFT
-aggregate_gate_action: WATCH
-
-Correct interpretation:
-
-v5 applies raw trajectory warning logic to records generated by a separate generator script.
-
-Limitation:
-
-v5 is stronger than v4, but it is not absolute external validation.
+Prevent uncontrolled narrative interpretation during validation.
 
 
 ---
 
-Level 3 v6
+V6 — Aggregate profile
 
-Files
+Scope
 
-docs/TEMPORAL_COLLAPSE_EXTERNAL_SOURCE_RAW_TRAJECTORY_VALIDATOR_V6.md
-data/temporal_collapse_external_source_raw_trajectories_v6.jsonl
-examples/temporal_collapse_external_source_raw_trajectory_validator_v6.py
-results/temporal_collapse_external_source_raw_trajectory_validator_v6.json
-docs/TEMPORAL_COLLAPSE_EXTERNAL_SOURCE_RAW_TRAJECTORY_VALIDATOR_V6_RESULT.md
+Added aggregate-level reporting.
 
-Result
+Aggregate fields
 
-PASS
-
-Boundary:
-
-source:              benchmark_prompt_perturbation_v6
-source_independence: external_source_declared
-independence_method: prompt_perturbation_trace
-
-Risk progression:
-
-external_source_stable_001               -> 0.040000 -> STABLE   -> PASS
-external_source_drift_001                -> 0.294956 -> DRIFT    -> WATCH
-external_source_borderline_critical_001  -> 0.503233 -> CRITICAL -> ESCALATE
-external_source_critical_001             -> 0.606739 -> CRITICAL -> ESCALATE
-external_source_collapse_like_001        -> 0.813406 -> COLLAPSE -> STOP
-
-Aggregate:
-
-aggregate_risk_score:  0.451667
-aggregate_risk_regime: DRIFT
-aggregate_gate_action: WATCH
-
-Correct interpretation:
-
-v6 applies raw trajectory warning logic to declared external-source records.
-
-Limitation:
-
-v6 is external_source_declared, not external_source_verified.
+aggregate_risk_score
+aggregate_risk_regime
+aggregate_gate_action
+regime_counts
+highest_risk_trajectory
+highest_risk_score
 
 
 ---
 
-Level 3 v7
+V7 — Source traceability
 
-Files
+Scope
 
-docs/TEMPORAL_COLLAPSE_VERIFIED_EXTERNAL_SOURCE_RAW_TRAJECTORY_VALIDATOR_V7.md
-data/temporal_collapse_verified_external_source_raw_trajectories_v7.jsonl
-examples/temporal_collapse_verified_external_source_raw_trajectory_validator_v7.py
-results/temporal_collapse_verified_external_source_raw_trajectory_validator_v7.json
-docs/TEMPORAL_COLLAPSE_VERIFIED_EXTERNAL_SOURCE_RAW_TRAJECTORY_VALIDATOR_V7_RESULT.md
+Added stronger source traceability fields.
 
-Result
+Purpose
 
-PASS
+Preserve provenance for each trajectory event and result.
 
-Boundary:
+Traceability fields
 
-source:                    gsm_symbolic_public_benchmark_v7
-source_independence:       external_source_verified
-independence_method:       public_benchmark_mapping
-external_source_reference: GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository
-
-Risk progression:
-
-gsm_symbolic_stable_001               -> 0.106344 -> STABLE   -> PASS
-gsm_symbolic_drift_001                -> 0.306183 -> DRIFT    -> WATCH
-gsm_symbolic_borderline_critical_001  -> 0.508467 -> CRITICAL -> ESCALATE
-gsm_symbolic_critical_001             -> 0.584711 -> CRITICAL -> ESCALATE
-gsm_symbolic_collapse_like_001        -> 0.817794 -> COLLAPSE -> STOP
-
-Aggregate:
-
-aggregate_risk_score:  0.464700
-aggregate_risk_regime: DRIFT
-aggregate_gate_action: WATCH
-
-Correct interpretation:
-
-v7 maps GSM-Symbolic-derived verified external-source raw trajectory records into Level 3 warning logic.
-
-Limitation:
-
-v7 does not claim that OMNIA solves GSM-Symbolic.
+source
+source_independence
+independence_method
+external_source_reference
+benchmark_name
+source_record_type
+mapping_method
+source_file
+source_file_hash
 
 
 ---
 
-Level 3 v8
+V8 — Model-output mapping
 
-Files
+Scope
 
-docs/TEMPORAL_COLLAPSE_DIRECT_GSM_SYMBOLIC_RECORD_VALIDATOR_V8.md
-data/temporal_collapse_direct_gsm_symbolic_records_v8.jsonl
-examples/temporal_collapse_direct_gsm_symbolic_record_validator_v8.py
-results/temporal_collapse_direct_gsm_symbolic_record_validator_v8.json
-docs/TEMPORAL_COLLAPSE_DIRECT_GSM_SYMBOLIC_RECORD_VALIDATOR_V8_RESULT.md
+Mapped model-output records into ordered structural trajectory events.
 
-Result
+Purpose
 
-PASS
+Allow the Level 3 mechanism to operate on parsed real model-output-style records while preserving boundary constraints.
 
-Boundary:
+Boundary
 
-source:                    gsm_symbolic_public_benchmark_v8
-source_independence:       external_source_verified
-independence_method:       direct_public_benchmark_record_mapping
-external_source_reference: GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository
-benchmark_name:            GSM-Symbolic
-source_record_type:        template_variant
-mapping_method:            template_variant_to_trajectory
-
-Risk progression:
-
-gsm_symbolic_direct_stable_001               -> 0.104128 -> STABLE   -> PASS
-gsm_symbolic_direct_drift_001                -> 0.303100 -> DRIFT    -> WATCH
-gsm_symbolic_direct_borderline_critical_001  -> 0.511733 -> CRITICAL -> ESCALATE
-gsm_symbolic_direct_critical_001             -> 0.587978 -> CRITICAL -> ESCALATE
-gsm_symbolic_direct_collapse_like_001        -> 0.820378 -> COLLAPSE -> STOP
-
-Aggregate:
-
-aggregate_risk_score:  0.465463
-aggregate_risk_regime: DRIFT
-aggregate_gate_action: WATCH
-
-Correct interpretation:
-
-v8 maps direct GSM-Symbolic public benchmark record fields into raw ordered structural trajectory events.
-
-Limitation:
-
-v8 does not claim GSM-Symbolic solving and does not evaluate semantic correctness.
-
-Technical note:
-
-The earlier v8 output contained the label multiple_mapping_notess.
-
-This is a harmless formatting issue caused by pluralizing mapping_notes by appending s.
-
-The intended clean label is multiple_mapping_notes.
-
-The measurement result is not affected.
+model output record != semantic judgment
 
 
 ---
 
-Level 3 v9
+V9 — Correctness and extraction evidence
 
-Files
+Scope
 
-docs/TEMPORAL_COLLAPSE_DIRECT_GSM_SYMBOLIC_ANSWER_TRACE_VALIDATOR_V9.md
-data/temporal_collapse_direct_gsm_symbolic_answer_traces_v9.jsonl
-examples/temporal_collapse_direct_gsm_symbolic_answer_trace_validator_v9.py
-results/temporal_collapse_direct_gsm_symbolic_answer_trace_validator_v9.json
-docs/TEMPORAL_COLLAPSE_DIRECT_GSM_SYMBOLIC_ANSWER_TRACE_VALIDATOR_V9_RESULT.md
+Added correctness and answer-extraction evidence.
 
-Result
+Purpose
 
-PASS
+Preserve benchmark-facing evidence without letting it become the structural score itself.
 
-Boundary:
+Evidence fields
 
-source:                    gsm_symbolic_answer_trace_v9
-source_independence:       external_source_verified
-independence_method:       direct_answer_trace_mapping
-external_source_reference: GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository
-benchmark_name:            GSM-Symbolic
-source_record_type:        answer_trace
-mapping_method:            answer_trace_to_trajectory
-
-Risk progression:
-
-gsm_symbolic_answer_trace_stable_001               -> 0.068278 -> STABLE   -> PASS
-gsm_symbolic_answer_trace_drift_001                -> 0.352772 -> DRIFT    -> WATCH
-gsm_symbolic_answer_trace_borderline_critical_001  -> 0.561733 -> CRITICAL -> ESCALATE
-gsm_symbolic_answer_trace_critical_001             -> 0.637978 -> CRITICAL -> ESCALATE
-gsm_symbolic_answer_trace_collapse_like_001        -> 0.787044 -> COLLAPSE -> STOP
-
-Aggregate:
-
-aggregate_risk_score:    0.481561
-aggregate_risk_regime:   DRIFT
-aggregate_gate_action:   WATCH
-aggregate_accuracy_rate: 0.480000
-
-Correct interpretation:
-
-v9 maps direct GSM-Symbolic answer traces into raw ordered structural trajectory events.
-
-Limitation:
-
-v9 does not claim GSM-Symbolic solving, does not infer semantic truth, and does not replace benchmark correctness.
-
-Important rule:
-
-is_correct is evidence
-risk_score remains structural warning measurement
-
-
----
-
-Level 3 v10
-
-Files
-
-docs/TEMPORAL_COLLAPSE_ACTUAL_GSM_SYMBOLIC_MODEL_OUTPUT_VALIDATOR_V10.md
-data/temporal_collapse_actual_gsm_symbolic_model_outputs_v10.jsonl
-examples/temporal_collapse_actual_gsm_symbolic_model_output_validator_v10.py
-results/temporal_collapse_actual_gsm_symbolic_model_output_validator_v10.json
-docs/TEMPORAL_COLLAPSE_ACTUAL_GSM_SYMBOLIC_MODEL_OUTPUT_VALIDATOR_V10_RESULT.md
-
-Result
-
-PASS
-
-Boundary:
-
-source:                    gsm_symbolic_actual_model_output_v10
-source_independence:       external_source_verified
-independence_method:       actual_model_output_trace_mapping
-external_source_reference: GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository
-benchmark_name:            GSM-Symbolic
-source_record_type:        actual_model_output
-mapping_method:            actual_model_output_to_trajectory
-
-Mandatory limitation:
-
-These are bounded actual-output-style records for validator construction,
-not an official public GSM-Symbolic model-output benchmark run.
-
-Risk progression:
-
-gsm_symbolic_actual_output_stable_001               -> 0.068278 -> STABLE   -> PASS
-gsm_symbolic_actual_output_drift_001                -> 0.352772 -> DRIFT    -> WATCH
-gsm_symbolic_actual_output_borderline_critical_001  -> 0.561733 -> CRITICAL -> ESCALATE
-gsm_symbolic_actual_output_critical_001             -> 0.637978 -> CRITICAL -> ESCALATE
-gsm_symbolic_actual_output_collapse_like_001        -> 0.787044 -> COLLAPSE -> STOP
-
-Aggregate:
-
-aggregate_risk_score:       0.481561
-aggregate_risk_regime:      DRIFT
-aggregate_gate_action:      WATCH
-aggregate_accuracy_rate:    0.480000
-aggregate_extraction_rate:  0.920000
-
-Regime counts:
-
-STABLE   -> 1
-DRIFT    -> 1
-CRITICAL -> 2
-COLLAPSE -> 1
-
-Highest-risk trajectory:
-
-gsm_symbolic_actual_output_collapse_like_001 -> 0.787044 -> COLLAPSE -> STOP
-
-Tracked model-output-style fields:
-
-model_name
-model_version
-run_id
-response_id
-raw_question_hash
-raw_output_hash
-answer_extraction_method
 expected_answer
 model_final_answer
 is_correct
+answer_extraction_method
 correctness_profile
 extraction_profile
 
-Model summary:
-
-reference_model_a_v1 -> 2 trajectories -> average risk 0.210525 -> average accuracy 0.800000 -> extraction 1.000000
-reference_model_b_v1 -> 2 trajectories -> average risk 0.599856 -> average accuracy 0.300000 -> extraction 1.000000
-reference_model_c_v1 -> 1 trajectory   -> average risk 0.787044 -> average accuracy 0.200000 -> extraction 0.600000
-
-Correct interpretation:
-
-v10 maps bounded actual-output-style GSM-Symbolic model-output traces into raw ordered structural trajectory events.
-
-Limitation:
-
-v10 is not an official public GSM-Symbolic model-output benchmark run.
-
-Important rule:
-
-correctness_profile is evidence
-extraction_profile is evidence
-risk_score remains structural warning measurement
-
-v10 does not claim:
-
-GSM-Symbolic solving
-semantic truth detection
-official benchmark correctness scoring
-production certification
-model cognition detection
-universal collapse prediction
-
 
 ---
 
-Level 3 v11
+V10 — GSM-Symbolic compatibility layer
 
-Files
+Scope
 
-docs/TEMPORAL_COLLAPSE_REAL_GSM_SYMBOLIC_MODEL_OUTPUT_VALIDATOR_V11.md
-data/source_outputs/gsm_symbolic_real_model_outputs_v11_reference.jsonl
-data/temporal_collapse_real_gsm_symbolic_model_outputs_v11.jsonl
-examples/temporal_collapse_real_gsm_symbolic_model_output_validator_v11.py
-results/temporal_collapse_real_gsm_symbolic_model_output_validator_v11.json
-docs/TEMPORAL_COLLAPSE_REAL_GSM_SYMBOLIC_MODEL_OUTPUT_VALIDATOR_V11_RESULT.md
+Added GSM-Symbolic-style template and variant organization.
 
-Result
+Purpose
 
-PASS
+Map GSM-Symbolic-style variants into ordered trajectories.
 
-Boundary:
+Preserved fields
 
-source:                    gsm_symbolic_real_model_output_v11
-source_independence:       external_source_verified
-independence_method:       real_model_output_file_mapping
-external_source_reference: GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository
-benchmark_name:            GSM-Symbolic
-source_record_type:        real_model_output_file
-mapping_method:            real_model_output_file_to_trajectory
-
-Limitation:
-
-Real parsed model-output file validation does not imply official benchmark scoring.
-
-Aggregate:
-
-aggregate_risk_score:       0.374720
-aggregate_risk_regime:      DRIFT
-aggregate_gate_action:      WATCH
-aggregate_accuracy_rate:    0.480000
-aggregate_extraction_rate:  0.920000
-
-Regime counts:
-
-STABLE   -> 2
-DRIFT    -> 2
-CRITICAL -> 1
-COLLAPSE -> 0
-
-Highest-risk trajectory:
-
-gsm_symbolic_real_output_collapse_like_001 -> 0.665825 -> CRITICAL -> ESCALATE
-
-Tracked source-file fields:
-
-source_file
-source_file_hash
-source_record_reference
-provider
-model_name
-model_version
-run_id
-response_id
-raw_question_hash
-raw_output_hash
-answer_extraction_method
+template_id
+question_id
+variant_type
 expected_answer
 model_final_answer
 is_correct
 
-Correct interpretation:
 
-v11 maps real parsed GSM-Symbolic model-output file records into raw ordered structural trajectory events and measures warning risk.
+---
 
-Important rule:
+V11 — Real parsed source-output discipline
 
-correctness_profile is evidence
-extraction_profile is evidence
-risk_score remains structural warning measurement
+Scope
 
-v11 does not claim:
+Strengthened real parsed model-output source discipline.
 
-GSM-Symbolic solving
-semantic truth detection
-official benchmark correctness scoring
-production certification
-model cognition detection
-universal collapse prediction
-final decision authority
+Purpose
+
+Require file-level source fields, hash placeholders, source record references, and mapping notes.
+
+Status
+
+superseded by V12+
 
 
 ---
 
-Level 3 v12
+V12 — Multi-source real GSM-Symbolic model-output validator
 
-Files
+Validator document
 
 docs/TEMPORAL_COLLAPSE_MULTI_SOURCE_REAL_GSM_SYMBOLIC_MODEL_OUTPUT_VALIDATOR_V12.md
-data/source_outputs/gsm_symbolic_real_model_outputs_v12_provider_a.jsonl
-data/source_outputs/gsm_symbolic_real_model_outputs_v12_provider_b.jsonl
-data/temporal_collapse_multi_source_real_gsm_symbolic_model_outputs_v12.jsonl
-examples/temporal_collapse_multi_source_real_gsm_symbolic_model_output_validator_v12.py
-results/temporal_collapse_multi_source_real_gsm_symbolic_model_output_validator_v12.json
+
+Result document
+
 docs/TEMPORAL_COLLAPSE_MULTI_SOURCE_REAL_GSM_SYMBOLIC_MODEL_OUTPUT_VALIDATOR_V12_RESULT.md
 
-Result
+Dataset
 
-PASS
+data/temporal_collapse_multi_source_real_gsm_symbolic_model_outputs_v12.jsonl
 
-Boundary:
+Result file
 
-source:                    gsm_symbolic_multi_source_real_model_output_v12
-source_independence:       external_source_verified
-independence_method:       multi_source_real_model_output_file_mapping
-external_source_reference: GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository
-benchmark_name:            GSM-Symbolic
-source_record_type:        multi_source_real_model_output_file
-mapping_method:            multi_source_real_model_output_file_to_trajectory
+results/temporal_collapse_multi_source_real_gsm_symbolic_model_output_validator_v12.json
 
-Limitation:
+Scope
 
-Multi-source real parsed model-output file validation does not imply official benchmark scoring, production certification, or semantic truth detection.
+V12 applies the Level 3 raw trajectory warning mechanism to multi-source real parsed GSM-Symbolic model-output file records.
 
-Aggregate:
+Boundary
 
-aggregate_risk_score:       0.395512
-aggregate_risk_regime:      DRIFT
-aggregate_gate_action:      WATCH
-aggregate_accuracy_rate:    0.420000
-aggregate_extraction_rate:  0.900000
+multi-source real parsed GSM-Symbolic model-output file records mapped into raw ordered structural trajectory events
 
-Regime counts:
+Status
 
-STABLE   -> 3
-DRIFT    -> 4
-CRITICAL -> 3
-COLLAPSE -> 0
+PASSED
 
-Highest-risk trajectory:
+Core result
 
-gsm_symbolic_multi_source_provider_b_collapse_like_001 -> 0.676146 -> CRITICAL -> ESCALATE
-
-Highest-risk provider:
-
-provider_b
-
-Source files:
-
-data/source_outputs/gsm_symbolic_real_model_outputs_v12_provider_a.jsonl
-data/source_outputs/gsm_symbolic_real_model_outputs_v12_provider_b.jsonl
-
-Source file hashes:
-
-sha256:provider_a_source_file_hash_v12
-sha256:provider_b_source_file_hash_v12
-
-Providers:
-
-provider_a
-provider_b
-
-Provider summary:
-
-provider_a -> 5 trajectories -> average risk 0.362224 -> average accuracy 0.480000 -> extraction 0.920000
-provider_b -> 5 trajectories -> average risk 0.428800 -> average accuracy 0.360000 -> extraction 0.880000
-
-Cross-source groups:
-
-gsm_symbolic_template_001_cross_source_group
-gsm_symbolic_template_002_cross_source_group
-gsm_symbolic_template_003_cross_source_group
-gsm_symbolic_template_004_cross_source_group
-gsm_symbolic_template_005_cross_source_group
-
-Correct interpretation:
-
-v12 maps multi-source real parsed GSM-Symbolic model-output file records into raw ordered structural trajectory events and measures warning risk across source groups.
-
-What v12 adds over v11:
-
-second source file
-provider-level summary
-source-group summary
-cross-source group summary
-source_file_count: 2
-provider_count: 2
-model_count: 6
 trajectory_count: 10
 event_count: 50
+aggregate_risk_regime: DRIFT
+aggregate_gate_action: WATCH
 
-Important rule:
+Purpose
 
-multi-source agreement or disagreement is evidence
-risk_score remains structural warning measurement
+V12 established that Level 3 can process multiple source-output files while preserving source independence fields, source references, correctness evidence, and extraction evidence.
 
-v12 does not claim:
+Limitation
 
-GSM-Symbolic solving
-semantic truth detection
-official benchmark correctness scoring
-production certification
-model cognition detection
-universal collapse prediction
-final decision authority
+V12 does not claim official GSM-Symbolic scoring.
+
+V12 does not claim semantic truth detection.
+
+V12 does not make final decisions.
 
 
 ---
 
-Level 3 v13
+V13 — Cross-provider disagreement validator
 
-Files
+Validator document
 
 docs/TEMPORAL_COLLAPSE_CROSS_PROVIDER_DISAGREEMENT_VALIDATOR_V13.md
-data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_a.jsonl
-data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_b.jsonl
-data/temporal_collapse_cross_provider_disagreement_v13.jsonl
-examples/temporal_collapse_cross_provider_disagreement_validator_v13.py
-results/temporal_collapse_cross_provider_disagreement_validator_v13.json
+
+Result document
+
 docs/TEMPORAL_COLLAPSE_CROSS_PROVIDER_DISAGREEMENT_VALIDATOR_V13_RESULT.md
 
-Result
+Dataset
 
-PASS
+data/temporal_collapse_cross_provider_disagreement_v13.jsonl
 
-Boundary:
+Result file
 
-source:                    gsm_symbolic_cross_provider_disagreement_v13
-source_independence:       external_source_verified
-independence_method:       cross_provider_real_model_output_disagreement_mapping
-external_source_reference: GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository
-benchmark_name:            GSM-Symbolic
-source_record_type:        cross_provider_real_model_output_file
-mapping_method:            cross_provider_real_model_output_file_to_trajectory
+results/temporal_collapse_cross_provider_disagreement_validator_v13.json
 
-Limitation:
+Scope
 
-Cross-provider disagreement validation does not imply official benchmark scoring, production certification, semantic truth detection, or final decision authority.
+V13 applies the Level 3 raw trajectory warning mechanism to cross-provider real parsed GSM-Symbolic model-output file records.
 
-Aggregate:
+Boundary
 
-aggregate_risk_score:       0.385325
-aggregate_risk_regime:      DRIFT
-aggregate_gate_action:      WATCH
-aggregate_accuracy_rate:    0.400000
-aggregate_extraction_rate:  0.900000
+cross-provider real parsed GSM-Symbolic model-output file records mapped into raw ordered structural trajectory events
 
-Regime counts:
+Status
 
-STABLE   -> 3
-DRIFT    -> 5
-CRITICAL -> 2
-COLLAPSE -> 0
+PASSED
 
-Highest-risk trajectory:
+Core result
 
-gsm_symbolic_cross_provider_provider_b_collapse_like_001 -> 0.714417 -> CRITICAL -> ESCALATE
+trajectory_count: 10
+event_count: 50
+aggregate_risk_score: 0.385325
+aggregate_risk_regime: DRIFT
+aggregate_gate_action: WATCH
+aggregate_accuracy_rate: 0.4
+aggregate_extraction_rate: 0.9
+highest_risk_trajectory: gsm_symbolic_cross_provider_provider_b_collapse_like_001
+highest_risk_score: 0.714417
+highest_risk_provider: provider_b
 
-Highest-risk provider:
+Regime counts
 
-provider_b
+{
+  "CRITICAL": 2,
+  "DRIFT": 5,
+  "STABLE": 3
+}
 
-Source files:
-
-data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_a.jsonl
-data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_b.jsonl
-
-Source file hashes:
-
-sha256:provider_a_source_file_hash_v13
-sha256:provider_b_source_file_hash_v13
-
-Providers:
+Providers
 
 provider_a
 provider_b
 
-Provider summary:
-
-provider_a -> 5 trajectories -> average risk 0.366770 -> average accuracy 0.480000 -> extraction 0.920000
-provider_b -> 5 trajectories -> average risk 0.403880 -> average accuracy 0.320000 -> extraction 0.880000
-
-Cross-provider groups:
+Cross-provider groups
 
 gsm_symbolic_template_001_cross_provider_group
 gsm_symbolic_template_002_cross_provider_group
@@ -930,677 +472,383 @@ gsm_symbolic_template_003_cross_provider_group
 gsm_symbolic_template_004_cross_provider_group
 gsm_symbolic_template_005_cross_provider_group
 
-Cross-provider disagreement summary:
+Main contribution
 
-risk regime disagreement -> 1 / 5 groups
-accuracy disagreement    -> 4 / 5 groups
-extraction disagreement  -> 1 / 5 groups
+V13 adds cross-provider disagreement mapping.
 
-Strongest risk-regime disagreement:
+It preserves provider identity, model identity, source-file identity, answer extraction, correctness fields, and cross-provider grouping.
 
-gsm_symbolic_template_002_cross_provider_group
+The important addition is that Level 3 can compare structural warning behavior across provider-separated trajectories.
 
-provider_a -> 0.240083 -> STABLE
-provider_b -> 0.324500 -> DRIFT
+Observed pattern
 
-Strongest absolute risk:
+stable template      -> both providers STABLE
+drift template       -> provider disagreement appears
+borderline template  -> both DRIFT, accuracy disagreement
+critical template    -> both DRIFT
+collapse-like        -> both CRITICAL, extraction disagreement
 
-gsm_symbolic_template_005_cross_provider_group
+Limitation
 
-provider_a -> 0.666583 -> CRITICAL
-provider_b -> 0.714417 -> CRITICAL
+V13 does not prove provider quality.
 
-What v13 adds over v12:
+V13 does not certify benchmark performance.
 
-cross_provider_group
-cross_provider_role
-cross_provider_risk_spread
-cross_provider_accuracy_spread
-cross_provider_extraction_spread
-risk_regime_disagreement
-accuracy_disagreement
-extraction_disagreement
-highest_risk_provider
+V13 does not infer semantic truth.
 
-Correct interpretation:
-
-v13 measures structural warning risk and cross-provider disagreement over real parsed GSM-Symbolic model-output file records mapped into raw ordered structural trajectory events.
-
-Important rule:
-
-cross-provider disagreement is evidence
-correctness_profile is evidence
-extraction_profile is evidence
-risk_score remains structural warning measurement
-
-v13 does not claim:
-
-GSM-Symbolic solving
-semantic truth detection
-official benchmark correctness scoring
-production certification
-model cognition detection
-universal collapse prediction
-final decision authority
+V13 only reports structural warning behavior under the mapped trajectory mechanism.
 
 
 ---
 
-Risk Formula v0/v1
+V14 — Repeated-run cross-provider stability validator
 
-Level 3 v0 and v1 use:
+Validator document
 
-risk_score =
-    0.20 * transition_density
-  + 0.20 * drift_score
-  + 0.25 * boundary_proximity
-  + 0.25 * collapse_similarity
-  + 0.10 * irreversibility_signal
+docs/TEMPORAL_COLLAPSE_REPEATED_RUN_CROSS_PROVIDER_STABILITY_VALIDATOR_V14.md
 
+Result document
 
----
+docs/TEMPORAL_COLLAPSE_REPEATED_RUN_CROSS_PROVIDER_STABILITY_VALIDATOR_V14_RESULT.md
 
-Risk Formula v2
+Dataset
 
-Level 3 v2 uses:
+data/temporal_collapse_repeated_run_cross_provider_stability_v14.jsonl
 
-risk_score =
-    0.20 * transition_density
-  + 0.20 * drift_progression
-  + 0.25 * boundary_proximity
-  + 0.25 * collapse_similarity
-  + 0.10 * irreversibility_proxy
+Result file
 
+results/temporal_collapse_repeated_run_cross_provider_stability_validator_v14.json
 
----
+Scope
 
-Risk Formula v3/v4/v5/v6/v7/v8/v9/v10/v11/v12/v13
+V14 applies the Level 3 raw trajectory warning mechanism to repeated-run cross-provider real parsed GSM-Symbolic model-output file records.
 
-Level 3 v3 through v13 use the raw ordered trajectory variant:
+Boundary
 
-risk_score =
-    0.20 * transition_density
-  + 0.20 * drift_progression
-  + 0.25 * boundary_proximity
-  + 0.25 * collapse_similarity
-  + 0.10 * irreversibility_signal
+repeated-run cross-provider real parsed GSM-Symbolic model-output file records mapped into raw ordered structural trajectory events
 
-The raw trajectory formula measures over ordered event fields:
+Status
 
-signature transitions
-cluster transitions
-phase transitions
-delta progression
-iri progression
-boundary distance
-collapse phase count
-broken signature markers
+PASSED
 
-v9 additionally tracks:
+Core result
 
-direct answer-trace mapping
-model_name
-run_id
-response_id
-expected_answer
-model_final_answer
-is_correct
-correctness_profile
-aggregate_accuracy_rate
+trajectory_count: 20
+event_count: 100
+aggregate_risk_score: 0.379255
+aggregate_risk_regime: DRIFT
+aggregate_gate_action: WATCH
+aggregate_accuracy_rate: 0.42
+aggregate_extraction_rate: 0.9
+highest_risk_trajectory: gsm_symbolic_repeated_run_provider_b_run_002_collapse_like_001
+highest_risk_score: 0.7096
+highest_risk_provider: provider_b
+highest_risk_run_id: provider_b_run_v14_002
 
-v10 additionally tracks:
+Regime counts
 
-bounded actual-output-style mapping
-model_version
-raw_question_hash
-raw_output_hash
-answer_extraction_method
-extraction_profile
-aggregate_extraction_rate
-model_versions
-answer_extraction_methods
+{
+  "CRITICAL": 4,
+  "DRIFT": 10,
+  "STABLE": 6
+}
 
-v11 additionally tracks:
+Providers
 
-real parsed model-output file mapping
-source_file
-source_file_hash
-source_record_reference
-provider
-source file identity
-model-output identity
-answer-extraction identity
+provider_a
+provider_b
 
-v12 additionally tracks:
+Runs
 
-multi-source real parsed model-output file mapping
-source_group_id
-source_file_count
-source_file_hash_count
-provider_count
-model_count
-model_version_count
-cross_source_group
-cross_source_role
-provider_summary
-source_group_summary
-cross_source_summary
+provider_a_run_v14_001
+provider_a_run_v14_002
+provider_b_run_v14_001
+provider_b_run_v14_002
 
-v13 additionally tracks:
+Source files
 
-cross-provider disagreement mapping
-cross_provider_group
-cross_provider_role
-cross_provider_risk_spread
-cross_provider_accuracy_spread
-cross_provider_extraction_spread
-risk_regime_disagreement
-accuracy_disagreement
-extraction_disagreement
-highest_risk_provider
+data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_a_run_001.jsonl
+data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_a_run_002.jsonl
+data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_b_run_001.jsonl
+data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_b_run_002.jsonl
 
-Important boundary:
+Stability groups
 
-is_correct is evidence
-extraction_profile is evidence
-provider disagreement is evidence
-risk_score remains structural warning measurement
+gsm_symbolic_template_001_provider_a_repeated_run_group
+gsm_symbolic_template_001_provider_b_repeated_run_group
+gsm_symbolic_template_002_provider_a_repeated_run_group
+gsm_symbolic_template_002_provider_b_repeated_run_group
+gsm_symbolic_template_003_provider_a_repeated_run_group
+gsm_symbolic_template_003_provider_b_repeated_run_group
+gsm_symbolic_template_004_provider_a_repeated_run_group
+gsm_symbolic_template_004_provider_b_repeated_run_group
+gsm_symbolic_template_005_provider_a_repeated_run_group
+gsm_symbolic_template_005_provider_b_repeated_run_group
 
+Cross-provider groups
 
----
+gsm_symbolic_template_001_cross_provider_repeated_run_group
+gsm_symbolic_template_002_cross_provider_repeated_run_group
+gsm_symbolic_template_003_cross_provider_repeated_run_group
+gsm_symbolic_template_004_cross_provider_repeated_run_group
+gsm_symbolic_template_005_cross_provider_repeated_run_group
 
-Classification Thresholds
+Main contribution
 
-Current thresholds:
+V14 adds repeated-run stability on top of cross-provider comparison.
 
-risk_score < 0.25         -> STABLE
-0.25 <= risk_score < 0.50 -> DRIFT
-0.50 <= risk_score < 0.75 -> CRITICAL
-risk_score >= 0.75        -> COLLAPSE
+V13 asked whether structural warning behavior differs across providers.
 
-Gate actions:
+V14 asks whether the structural warning behavior remains stable across repeated runs for the same provider and template.
 
-STABLE   -> PASS
-DRIFT    -> WATCH
-CRITICAL -> ESCALATE
-COLLAPSE -> STOP
+This is a stronger validation step because it tests whether the warning profile is reproducible inside the mapped repeated-run structure.
 
-These thresholds are experimental.
+Repeated-run stability result
 
-They are not universal.
+The repeated-run risk spreads are small across all stability groups.
 
-They are valid only inside the tested construction unless expanded by later validation.
+max repeated-run risk spread: 0.00315
+min repeated-run risk spread: 0.00035
 
+No repeated-run stability group shows risk-regime disagreement.
 
----
+repeated_run_risk_regime_disagreement: false
 
-Structural Path
+Cross-provider result
 
-Logical dependency:
+Cross-provider differences remain visible.
 
-temporal-collapse signatures
-  -> cluster structure
-  -> directed graph topology
-  -> centrality behavior
-  -> control-plane behavior
-  -> robustness CHECK
-  -> dependency map
-  -> boundary map
-  -> phase diagram
-  -> early-warning classification
-  -> raw trajectory warning
-  -> external-style raw trajectory validation
-  -> separate-generator raw trajectory validation
-  -> declared external-source raw trajectory validation
-  -> verified external-source raw trajectory validation
-  -> direct public benchmark record mapping
-  -> direct answer-trace mapping
-  -> bounded actual-output-style model-output mapping
-  -> real parsed model-output file validation
-  -> multi-source real parsed model-output file validation
-  -> cross-provider disagreement validation
+The strongest divergence appears in the drift template group.
 
-The Level 3 warning layer exists because Level 2 mapped structural boundaries.
+template_002 cross_provider_risk_spread: 0.06775
+template_002 risk_regime_disagreement: true
+template_002 accuracy_disagreement: true
 
-Without the Level 2 boundary map, Level 3 would only be arbitrary scoring.
+The collapse-like group remains the strongest warning region.
 
-With the Level 2 boundary map, Level 3 becomes bounded structural navigation.
+template_005 highest_risk_provider: provider_b
+template_005 highest_risk_run_id: provider_b_run_v14_002
+template_005 highest_risk_score: 0.7096
+template_005 risk_regime: CRITICAL
+
+Observed pattern
+
+stable template      -> low risk, full accuracy, full extraction
+drift template       -> provider-level disagreement
+borderline template  -> DRIFT with accuracy disagreement
+critical template    -> high DRIFT, boundary proximity
+collapse-like        -> CRITICAL, extraction failure, highest risk
+
+Limitation
+
+V14 does not prove model robustness.
+
+V14 does not certify benchmark performance.
+
+V14 does not infer semantic truth.
+
+V14 does not make final decisions.
+
+V14 only reports repeated-run and cross-provider structural warning behavior under the mapped trajectory mechanism.
 
 
 ---
 
-Structural Reading Across v0 to v13
+Result comparison
 
-v0
+V12 to V14
 
-synthetic reference trajectories
-  -> STABLE / DRIFT / CRITICAL / COLLAPSE separated
+Version	Trajectories	Events	Main addition
 
-v1
+V12	10	50	multi-source mapping
+V13	10	50	cross-provider disagreement
+V14	20	100	repeated-run stability
 
-Level 2-derived snapshots
-  -> aggregate DRIFT
-  -> dependency_boundary CRITICAL
 
-v2
+Aggregate comparison
 
-ordered Level 2 stage trajectory
-  -> DRIFT
-  -> WATCH
-  -> boundary_proximity dominant
+Version	Risk score	Regime	Gate
 
-v3
+V13	0.385325	DRIFT	WATCH
+V14	0.379255	DRIFT	WATCH
 
-raw ordered reference trajectory records
-  -> STABLE / DRIFT / CRITICAL / COLLAPSE separated
 
-v4
+Highest-risk comparison
 
-external-style raw trajectory records
-  -> STABLE / DRIFT / CRITICAL / COLLAPSE-like regimes separated
-  -> source_independence: not_verified
+Version	Provider	Score	Trajectory
 
-v5
+V13	provider_b	0.714417	gsm_symbolic_cross_provider_provider_b_collapse_like_001
+V14	provider_b	0.7096	gsm_symbolic_repeated_run_provider_b_run_002_collapse_like_001
 
-separate-generator raw trajectory records
-  -> STABLE / DRIFT / CRITICAL / COLLAPSE regimes separated
-  -> independence_method: separate_generator_script
 
-v6
+Interpretation of comparison
 
-declared external-source raw trajectory records
-  -> STABLE / DRIFT / CRITICAL / COLLAPSE regimes separated
-  -> source_independence: external_source_declared
+V14 preserves the same broad warning profile as V13 while adding repeated-run stability.
 
-v7
+The aggregate risk remains in DRIFT.
 
-GSM-Symbolic-derived verified external-source raw trajectory records
-  -> STABLE / DRIFT / CRITICAL / COLLAPSE regimes separated
-  -> source_independence: external_source_verified
-  -> independence_method: public_benchmark_mapping
+The highest-risk region remains provider_b collapse-like behavior.
 
-v8
+The collapse-like trajectories remain CRITICAL.
 
-direct GSM-Symbolic public benchmark record mappings
-  -> STABLE / DRIFT / CRITICAL / COLLAPSE regimes separated
-  -> source_record_type: template_variant
-  -> mapping_method: template_variant_to_trajectory
-
-v9
-
-direct GSM-Symbolic answer-trace mappings
-  -> STABLE / DRIFT / CRITICAL / COLLAPSE regimes separated
-  -> source_record_type: answer_trace
-  -> mapping_method: answer_trace_to_trajectory
-
-v10
-
-bounded actual-output-style GSM-Symbolic model-output mappings
-  -> STABLE / DRIFT / CRITICAL / COLLAPSE regimes separated
-  -> source_record_type: actual_model_output
-  -> mapping_method: actual_model_output_to_trajectory
-
-v10 adds:
-
-model_version
-raw_question_hash
-raw_output_hash
-answer_extraction_method
-extraction_profile
-aggregate_extraction_rate
-
-v10 mandatory limitation:
-
-bounded actual-output-style records for validator construction,
-not an official public GSM-Symbolic model-output benchmark run
-
-v11
-
-real parsed GSM-Symbolic model-output file mappings
-  -> STABLE / DRIFT / CRITICAL regimes separated
-  -> source_record_type: real_model_output_file
-  -> mapping_method: real_model_output_file_to_trajectory
-
-v11 adds:
-
-source_file
-source_file_hash
-source_record_reference
-real parsed model-output file identity
-
-v11 mandatory limitation:
-
-real parsed model-output file validation does not imply official benchmark scoring
-
-v12
-
-multi-source real parsed GSM-Symbolic model-output file mappings
-  -> STABLE / DRIFT / CRITICAL regimes separated
-  -> source_record_type: multi_source_real_model_output_file
-  -> mapping_method: multi_source_real_model_output_file_to_trajectory
-
-v12 adds:
-
-two source files
-two providers
-six model versions
-source group summaries
-provider summaries
-cross-source summaries
-
-v12 mandatory limitation:
-
-multi-source real parsed model-output file validation does not imply official benchmark scoring,
-production certification, or semantic truth detection
-
-v13
-
-cross-provider real parsed GSM-Symbolic model-output file mappings
-  -> STABLE / DRIFT / CRITICAL regimes separated
-  -> source_record_type: cross_provider_real_model_output_file
-  -> mapping_method: cross_provider_real_model_output_file_to_trajectory
-
-v13 adds:
-
-cross-provider disagreement measurement
-risk regime disagreement
-accuracy disagreement
-extraction disagreement
-cross-provider risk spread
-highest-risk provider
-
-v13 mandatory limitation:
-
-cross-provider disagreement validation does not imply official benchmark scoring,
-production certification, semantic truth detection, or final decision authority
+The repeated-run spreads are very small, which supports stability of the mapped warning profile across repeated runs.
 
 
 ---
 
-Current Structural Verdict
+Canonical Level 3 boundary statement
 
-Safe verdict:
+Temporal Collapse Level 3 is a post-hoc structural warning layer.
 
-Level 3 has moved from synthetic warning,
-to Level 2-derived warning,
-to ordered stage-trajectory warning,
-to raw ordered trajectory warning,
-to external-style raw trajectory validation,
-to separate-generator raw trajectory validation,
-to declared external-source raw trajectory validation,
-to verified external-source raw trajectory validation,
-to direct public benchmark record mapping,
-to direct answer-trace mapping,
-to bounded actual-output-style model-output mapping,
-to real parsed model-output file validation,
-to multi-source real parsed model-output file validation,
-to cross-provider disagreement validation.
+It measures ordered structural trajectory behavior.
 
-Current strongest result:
+It does not solve the task.
 
-Level 3 v13
+It does not infer semantic truth.
 
-Current strongest boundary:
+It does not replace correctness scoring.
 
-cross-provider real parsed GSM-Symbolic model-output file records
-mapped into raw ordered structural trajectory events
+It does not make final decisions.
 
-Current strongest result values:
-
-aggregate_risk_score:       0.385325
-aggregate_risk_regime:      DRIFT
-aggregate_gate_action:      WATCH
-aggregate_accuracy_rate:    0.400000
-aggregate_extraction_rate:  0.900000
-highest_risk_provider:      provider_b
-highest_risk_trajectory:    gsm_symbolic_cross_provider_provider_b_collapse_like_001
-highest_risk_score:         0.714417
-
-Current disagreement summary:
-
-risk regime disagreement -> 1 / 5 groups
-accuracy disagreement    -> 4 / 5 groups
-extraction disagreement  -> 1 / 5 groups
-
-Correct interpretation:
-
-v13 demonstrates coherent structural warning-risk measurement and cross-provider
-disagreement measurement over bounded mapped real parsed GSM-Symbolic
-model-output file records.
-
-Incorrect interpretation:
-
-v13 proves that OMNIA solves GSM-Symbolic.
+It reports warning measurements that an external decision layer may use.
 
 
 ---
 
-Safe Claim
+Current canonical file set
 
-OMNIA-VALIDATION Level 3 v13 applies the raw trajectory warning mechanism
-to cross-provider real parsed GSM-Symbolic model-output file records mapped
-into raw ordered structural events.
+Documentation
 
-The validator separates STABLE, DRIFT, and CRITICAL regimes, tracks correctness
-profiles, tracks extraction profiles, preserves source/model/provider boundaries,
-and exposes cross-provider disagreement evidence.
+docs/TEMPORAL_COLLAPSE_LEVEL_3_INDEX_V0.md
+docs/TEMPORAL_COLLAPSE_MULTI_SOURCE_REAL_GSM_SYMBOLIC_MODEL_OUTPUT_VALIDATOR_V12.md
+docs/TEMPORAL_COLLAPSE_MULTI_SOURCE_REAL_GSM_SYMBOLIC_MODEL_OUTPUT_VALIDATOR_V12_RESULT.md
+docs/TEMPORAL_COLLAPSE_CROSS_PROVIDER_DISAGREEMENT_VALIDATOR_V13.md
+docs/TEMPORAL_COLLAPSE_CROSS_PROVIDER_DISAGREEMENT_VALIDATOR_V13_RESULT.md
+docs/TEMPORAL_COLLAPSE_REPEATED_RUN_CROSS_PROVIDER_STABILITY_VALIDATOR_V14.md
+docs/TEMPORAL_COLLAPSE_REPEATED_RUN_CROSS_PROVIDER_STABILITY_VALIDATOR_V14_RESULT.md
 
-The result is bounded, reproducible, and falsifiable.
+Data
 
-It does not claim GSM-Symbolic solving, semantic truth detection, official
-benchmark scoring, production certification, universal collapse prediction, or
-final decision authority.
+data/temporal_collapse_multi_source_real_gsm_symbolic_model_outputs_v12.jsonl
+data/temporal_collapse_cross_provider_disagreement_v13.jsonl
+data/temporal_collapse_repeated_run_cross_provider_stability_v14.jsonl
 
+Results
 
----
+results/temporal_collapse_multi_source_real_gsm_symbolic_model_output_validator_v12.json
+results/temporal_collapse_cross_provider_disagreement_validator_v13.json
+results/temporal_collapse_repeated_run_cross_provider_stability_validator_v14.json
 
-Claims to Avoid
+Validators
 
-Do not claim:
-
-OMNIA predicts AI collapse universally.
-
-Do not claim:
-
-OMNIA detects semantic truth.
-
-Do not claim:
-
-Level 3 is production-certified.
-
-Do not claim:
-
-The thresholds are universal.
-
-Do not claim:
-
-OMNIA solves GSM-Symbolic.
-
-Do not claim:
-
-v13 is an official public GSM-Symbolic model-output benchmark run.
-
-Do not claim:
-
-cross-provider disagreement proves semantic failure.
-
-Do not claim:
-
-Correct answer means structural stability.
-
-Do not claim:
-
-Wrong answer means structural collapse.
-
-Do not claim:
-
-Extraction failure automatically means semantic collapse.
-
-Correct boundary:
-
-Level 3 v13 measures structural warning risk and cross-provider disagreement
-over real parsed GSM-Symbolic model-output file records mapped into raw ordered
-trajectory events.
+examples/temporal_collapse_multi_source_real_gsm_symbolic_model_output_validator_v12.py
+examples/temporal_collapse_cross_provider_disagreement_validator_v13.py
+examples/temporal_collapse_repeated_run_cross_provider_stability_validator_v14.py
 
 
 ---
 
-Current Level 3 Status
+Current highest validation level
 
-Level 3 v0
-  -> synthetic early-warning prototype
-  -> PASS
+V14 — Repeated-run cross-provider stability validator
 
-Level 3 v1
-  -> Level 2-derived bridge
-  -> PASS
-  -> aggregate DRIFT
+Current status
 
-Level 3 v2
-  -> ordered Level 2 stage trajectory
-  -> PASS
-  -> trajectory DRIFT
+PASSED
 
-Level 3 v3
-  -> raw ordered reference trajectories
-  -> PASS
-  -> STABLE / DRIFT / CRITICAL / COLLAPSE separated
+Current aggregate state
 
-Level 3 v4
-  -> external-style raw trajectory validation
-  -> PASS
-  -> source independence: not_verified
+aggregate_risk_regime: DRIFT
+aggregate_gate_action: WATCH
 
-Level 3 v5
-  -> separate-generator raw trajectory validation
-  -> PASS
-  -> independence method: separate_generator_script
+Current strongest warning
 
-Level 3 v6
-  -> declared external-source raw trajectory validation
-  -> PASS
-  -> source independence: external_source_declared
-
-Level 3 v7
-  -> verified external-source raw trajectory validation
-  -> PASS
-  -> source independence: external_source_verified
-  -> independence method: public_benchmark_mapping
-
-Level 3 v8
-  -> direct public benchmark record mapping
-  -> PASS
-  -> source record type: template_variant
-  -> mapping method: template_variant_to_trajectory
-
-Level 3 v9
-  -> direct answer-trace mapping
-  -> PASS
-  -> source record type: answer_trace
-  -> mapping method: answer_trace_to_trajectory
-  -> aggregate accuracy rate: 0.480000
-
-Level 3 v10
-  -> bounded actual-output-style model-output mapping
-  -> PASS
-  -> source record type: actual_model_output
-  -> mapping method: actual_model_output_to_trajectory
-  -> aggregate accuracy rate: 0.480000
-  -> aggregate extraction rate: 0.920000
-  -> not an official public GSM-Symbolic model-output benchmark run
-
-Level 3 v11
-  -> real parsed model-output file validation
-  -> PASS
-  -> source record type: real_model_output_file
-  -> mapping method: real_model_output_file_to_trajectory
-  -> aggregate accuracy rate: 0.480000
-  -> aggregate extraction rate: 0.920000
-
-Level 3 v12
-  -> multi-source real parsed model-output file validation
-  -> PASS
-  -> source record type: multi_source_real_model_output_file
-  -> mapping method: multi_source_real_model_output_file_to_trajectory
-  -> provider count: 2
-  -> model count: 6
-  -> trajectory count: 10
-  -> event count: 50
-
-Level 3 v13
-  -> cross-provider disagreement validation
-  -> PASS
-  -> source record type: cross_provider_real_model_output_file
-  -> mapping method: cross_provider_real_model_output_file_to_trajectory
-  -> provider count: 2
-  -> model count: 6
-  -> trajectory count: 10
-  -> event count: 50
-  -> risk regime disagreement: 1 / 5 groups
-  -> accuracy disagreement: 4 / 5 groups
-  -> extraction disagreement: 1 / 5 groups
+trajectory: gsm_symbolic_repeated_run_provider_b_run_002_collapse_like_001
+provider: provider_b
+run_id: provider_b_run_v14_002
+risk_score: 0.7096
+risk_regime: CRITICAL
+gate_action: ESCALATE
 
 
 ---
 
-Next Step
+Next logical extensions
 
-The next validation step should move from cross-provider disagreement measurement to either repeated-run stability or independent run-set replication.
+V15 — External-source hash strengthening
 
-Possible v14 directions:
+Replace placeholder source-file hashes with real computed hashes.
 
-Level 3 v14
-  -> repeated-run cross-provider stability validation
+Purpose:
 
-Level 3 v14
-  -> independent run-set replication validation
+strengthen source traceability
 
-Level 3 v14
-  -> multi-run provider disagreement stability validation
+Expected addition:
 
-Recommended v14 direction:
+real sha256 file hashes
+hash verification check
+hash mismatch failure mode
 
-Level 3 v14
-  -> repeated-run cross-provider stability validation
+V16 — Real benchmark reference binding
 
-Target objective:
+Bind each mapped record more tightly to a public benchmark reference.
 
-Test whether the cross-provider warning and disagreement patterns remain stable
-across repeated mapped runs, instead of appearing only in one bounded run set.
+Purpose:
 
-Possible v14 source classes:
+reduce ambiguity between synthetic mapping and externally documentable benchmark-derived records
 
-repeated provider output files
-multiple run ids per provider
-same template groups across repeated runs
-provider-level run variance
-cross-provider disagreement persistence
-run-to-run risk drift
+Expected addition:
 
-Target fields to preserve:
+benchmark_reference_url
+benchmark_commit_or_snapshot
+template_source_reference
+question_source_reference
 
-run_id
-repeat_id
-source_file
-source_file_hash
-provider
-model_name
-model_version
-response_id
-raw_question_hash
-raw_output_hash
-answer_extraction_method
-expected_answer
-model_final_answer
-is_correct
-cross_provider_group
-cross_provider_role
-cross_run_group
-cross_run_role
-risk_regime_disagreement
-accuracy_disagreement
-extraction_disagreement
+V17 — Provider/model anonymization protocol
 
-The v14 objective should not be to claim benchmark solving.
+Formalize provider/model anonymization.
 
-The v14 objective should be to test whether v13 disagreement measurements remain structurally stable across repeated mapped run sets.
+Purpose:
+
+separate structural validation from vendor claims
+
+Expected addition:
+
+provider_alias_policy
+model_alias_policy
+non-identification boundary
+
+V18 — Full replay validator
+
+Add a replay validator that regenerates dataset, result, and summaries from a clean repository clone.
+
+Purpose:
+
+make the validation chain reproducible from zero
+
+Expected addition:
+
+single clean-run script
+dataset validation
+result validation
+summary validation
+boundary assertions
+
+
+---
+
+Final boundary
+
+Level 3 measures structural warning behavior.
+
+It does not claim truth.
+
+It does not claim correctness.
+
+It does not claim model understanding.
+
+It does not claim benchmark authority.
+
+It does not decide.
+
+It measures.
