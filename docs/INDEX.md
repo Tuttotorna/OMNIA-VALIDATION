@@ -99,6 +99,32 @@ CLI smoke test
 
 ---
 
+## Quickstart
+
+Quickstart guide:
+
+```text
+docs/QUICKSTART.md
+```
+
+This document gives a minimal operational path for new users.
+
+It covers:
+
+```text
+clone
+install
+test
+CLI checks
+results/
+results_enveloped/
+legacy wrapper
+basic result validation
+minimal maintenance loop
+```
+
+---
+
 ## Running Experiments
 
 Clean execution guide:
@@ -430,6 +456,7 @@ Suggested reading order for new visitors:
 ```text
 README.md
 docs/INDEX.md
+docs/QUICKSTART.md
 docs/PROJECT_STATUS.md
 docs/MAINTENANCE.md
 docs/RELEASE_POLICY.md
@@ -454,6 +481,7 @@ Current engineering/consolidation documents:
 
 ```text
 docs/PROJECT_STATUS.md
+docs/QUICKSTART.md
 docs/MAINTENANCE.md
 docs/RELEASE_POLICY.md
 docs/RUNNING_EXPERIMENTS.md
@@ -469,6 +497,7 @@ Purpose:
 
 ```text
 declare current project state
+provide a minimal first-run path
 define maintenance discipline
 define release discipline
 make experiments runnable
@@ -490,6 +519,7 @@ The repository currently includes:
 installable package layer
 basic unit tests
 green CI
+quickstart guide
 maintenance guide
 release policy
 clean execution guide
