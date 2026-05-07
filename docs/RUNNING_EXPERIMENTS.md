@@ -106,7 +106,63 @@ PASS
 
 ---
 
-## 5. Run Temporal Collapse Topology Chain
+## 5. Artifact Validation Commands
+
+OMNIA-VALIDATION currently provides these CLI checks:
+
+```text
+omnia-validation hash-file <path>
+omnia-validation validate-sha256 <value>
+omnia-validation validate-json <path>
+omnia-validation validate-result <path>
+```
+
+Purpose:
+
+```text
+hash-file       -> compute SHA-256 for an artifact
+validate-sha256 -> check SHA-256 hexadecimal format
+validate-json   -> check JSON / JSONL parseability
+validate-result -> check canonical OMNIA-VALIDATION result envelope
+```
+
+Important distinction:
+
+```text
+validate-json checks that a file is readable JSON or JSONL.
+validate-result checks that a JSON result has the required OMNIA-VALIDATION envelope.
+```
+
+The canonical result envelope requires:
+
+```text
+experiment
+status
+created_at_utc
+boundary
+payload
+```
+
+Allowed result statuses:
+
+```text
+PASS
+CHECK
+FAIL
+```
+
+Boundary:
+
+```text
+validate-result checks structure only.
+It does not validate semantic truth.
+It does not certify production safety.
+It does not decide whether the scientific interpretation is correct.
+```
+
+---
+
+## 6. Run Temporal Collapse Topology Chain
 
 Run the topology scripts in this order:
 
@@ -146,7 +202,48 @@ It may be the measured boundary of the system.
 
 ---
 
-## 6. Run Temporal Collapse Level 3 Chain
+## 7. Validate Temporal Collapse Topology Results
+
+After running the topology chain, validate that the result files are parseable JSON:
+
+```bash
+omnia-validation validate-json results/temporal_collapse_topology_cluster_adjacency_graph_v0.json
+omnia-validation validate-json results/temporal_collapse_topology_cluster_graph_centrality_v0.json
+omnia-validation validate-json results/temporal_collapse_topology_cluster_graph_control_plane_v0.json
+omnia-validation validate-json results/temporal_collapse_topology_control_plane_robustness_v0.json
+omnia-validation validate-json results/temporal_collapse_topology_dependency_map_v0.json
+omnia-validation validate-json results/temporal_collapse_topology_dependency_boundary_v0.json
+omnia-validation validate-json results/temporal_collapse_topology_boundary_phase_diagram_v0.json
+```
+
+If the files use the canonical OMNIA-VALIDATION result envelope, also run:
+
+```bash
+omnia-validation validate-result results/temporal_collapse_topology_cluster_adjacency_graph_v0.json
+omnia-validation validate-result results/temporal_collapse_topology_cluster_graph_centrality_v0.json
+omnia-validation validate-result results/temporal_collapse_topology_cluster_graph_control_plane_v0.json
+omnia-validation validate-result results/temporal_collapse_topology_control_plane_robustness_v0.json
+omnia-validation validate-result results/temporal_collapse_topology_dependency_map_v0.json
+omnia-validation validate-result results/temporal_collapse_topology_dependency_boundary_v0.json
+omnia-validation validate-result results/temporal_collapse_topology_boundary_phase_diagram_v0.json
+```
+
+Expected valid schema output:
+
+```json
+{
+  "status": "PASS",
+  "schema": "result_envelope"
+}
+```
+
+If `validate-json` passes but `validate-result` fails, the file is valid JSON but does not yet follow the canonical result envelope.
+
+That is an engineering/schema issue, not automatically a scientific failure.
+
+---
+
+## 8. Run Temporal Collapse Level 3 Chain
 
 Current chain:
 
@@ -191,7 +288,51 @@ hash_mismatch_failure_count: 0
 
 ---
 
-## 7. Validate JSON and JSONL Artifacts
+## 9. Validate Temporal Collapse Level 3 Results
+
+First validate parseability:
+
+```bash
+omnia-validation validate-json results/temporal_collapse_cross_provider_disagreement_validator_v13.json
+omnia-validation validate-json results/temporal_collapse_repeated_run_cross_provider_stability_validator_v14.json
+omnia-validation validate-json results/temporal_collapse_external_source_hash_strengthening_validator_v15.json
+```
+
+Then validate the OMNIA-VALIDATION result envelope if the files are expected to follow the canonical schema:
+
+```bash
+omnia-validation validate-result results/temporal_collapse_cross_provider_disagreement_validator_v13.json
+omnia-validation validate-result results/temporal_collapse_repeated_run_cross_provider_stability_validator_v14.json
+omnia-validation validate-result results/temporal_collapse_external_source_hash_strengthening_validator_v15.json
+```
+
+Expected valid schema output:
+
+```json
+{
+  "status": "PASS",
+  "schema": "result_envelope"
+}
+```
+
+If validation fails, inspect the reported errors.
+
+Typical schema errors:
+
+```text
+missing required field: experiment
+missing required field: status
+missing required field: created_at_utc
+missing required field: boundary
+missing required field: payload
+status must be one of: CHECK, FAIL, PASS
+boundary should be: measurement != inference != decision
+payload must be a mapping/object
+```
+
+---
+
+## 10. Validate JSON and JSONL Artifacts
 
 Use the package CLI:
 
@@ -205,9 +346,29 @@ For JSONL files:
 omnia-validation validate-json data/temporal_collapse_external_source_hash_strengthened_v15.jsonl
 ```
 
+For result JSON files using the canonical envelope:
+
+```bash
+omnia-validation validate-result results/temporal_collapse_external_source_hash_strengthening_validator_v15.json
+```
+
+Correct validation sequence:
+
+```text
+1. validate-json
+2. validate-result
+```
+
+Meaning:
+
+```text
+validate-json   -> file is parseable
+validate-result -> file has canonical result envelope
+```
+
 ---
 
-## 8. Compute a File Hash
+## 11. Compute a File Hash
 
 ```bash
 omnia-validation hash-file data/temporal_collapse_external_source_hash_strengthened_v15.jsonl
@@ -217,9 +378,21 @@ This returns a SHA-256 digest.
 
 Use it for reproducibility checks and artifact traceability.
 
+Validate a SHA-256 digest:
+
+```bash
+omnia-validation validate-sha256 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+```
+
+Expected output:
+
+```text
+PASS
+```
+
 ---
 
-## 9. How To Read Results
+## 12. How To Read Results
 
 Do not read results as semantic truth.
 
@@ -248,7 +421,7 @@ The framework is universally valid.
 
 ---
 
-## 10. Negative Results
+## 13. Negative Results
 
 Negative results are part of OMNIA-VALIDATION.
 
@@ -270,7 +443,7 @@ This is scientifically useful.
 
 ---
 
-## 11. Clean Execution Rule
+## 14. Clean Execution Rule
 
 For reproducibility, prefer a clean run:
 
@@ -293,7 +466,49 @@ Commit only intentional changes.
 
 ---
 
-## 12. Non-Goal
+## 15. Minimal Result Validation Workflow
+
+For any result file:
+
+```bash
+omnia-validation validate-json results/<result_file>.json
+omnia-validation validate-result results/<result_file>.json
+```
+
+Expected output for valid JSON:
+
+```json
+{
+  "status": "PASS"
+}
+```
+
+Expected output for a valid OMNIA-VALIDATION result envelope:
+
+```json
+{
+  "status": "PASS",
+  "schema": "result_envelope"
+}
+```
+
+If the first command fails:
+
+```text
+The file is not valid JSON.
+Fix parseability first.
+```
+
+If the first command passes but the second fails:
+
+```text
+The file is valid JSON but not a canonical OMNIA-VALIDATION result envelope.
+Fix experiment/status/created_at_utc/boundary/payload structure.
+```
+
+---
+
+## 16. Non-Goal
 
 OMNIA-VALIDATION does not certify production safety.
 
