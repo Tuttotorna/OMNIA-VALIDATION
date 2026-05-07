@@ -22,6 +22,7 @@ pyproject.toml
 requirements-dev.txt
 CONTRIBUTING.md
 SECURITY.md
+CODE_OF_CONDUCT.md
 ```
 
 ---
@@ -378,6 +379,63 @@ This document defines the path from research-script archive toward a reproducibl
 
 ---
 
+## Code Of Conduct
+
+Code of conduct:
+
+```text
+CODE_OF_CONDUCT.md
+```
+
+This document defines expected conduct for contributors, reviewers, maintainers, and users.
+
+It supports:
+
+```text
+precise criticism
+evidence-based review
+boundary discipline
+credential safety
+non-abusive technical disagreement
+negative-result preservation
+```
+
+It does not require agreement with OMNIA-VALIDATION claims.
+
+Critical review is welcome when it remains specific, reproducible, and non-abusive.
+
+---
+
+## Contribution And Security
+
+Contribution guide:
+
+```text
+CONTRIBUTING.md
+```
+
+Security policy:
+
+```text
+SECURITY.md
+```
+
+GitHub issue templates:
+
+```text
+.github/ISSUE_TEMPLATE/bug_report.md
+.github/ISSUE_TEMPLATE/validation_result_review.md
+.github/ISSUE_TEMPLATE/documentation_issue.md
+```
+
+Pull request template:
+
+```text
+.github/pull_request_template.md
+```
+
+---
+
 ## Temporal Collapse Topology
 
 Canonical entry point:
@@ -471,6 +529,7 @@ docs/TEMPORAL_COLLAPSE_LEVEL_3_INDEX_V0.md
 docs/TEMPORAL_COLLAPSE_TOPOLOGY_INDEX_V0.md
 CONTRIBUTING.md
 SECURITY.md
+CODE_OF_CONDUCT.md
 ```
 
 ---
@@ -531,6 +590,11 @@ package API documentation
 project status document
 legacy result normalization layer
 legacy status mapping policy
+contribution guide
+security policy
+code of conduct
+issue templates
+pull request template
 consolidation roadmap
 ```
 
@@ -542,8 +606,6 @@ full validator registry
 result regression tests
 experiment-chain CI
 artifact hash manifest
-issue templates
-pull request template
 ```
 
 ---
@@ -688,6 +750,28 @@ Full policy:
 
 ```text
 docs/RELEASE_POLICY.md
+```
+
+---
+
+## Conduct Policy
+
+The repository accepts direct technical criticism.
+
+The criticism must remain:
+
+```text
+specific
+evidence-based
+non-abusive
+reproducible when possible
+focused on artifacts, claims, methods, or documentation
+```
+
+The conduct policy is located at:
+
+```text
+CODE_OF_CONDUCT.md
 ```
 
 ---
