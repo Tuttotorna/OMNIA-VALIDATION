@@ -1,3 +1,9 @@
+Nome file:
+
+README.md
+
+Contenuto completo da incollare:
+
 # OMNIA-VALIDATION
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20062456.svg)](https://doi.org/10.5281/zenodo.20062456)
@@ -12,36 +18,28 @@ Its purpose is to expose what survives controlled validation, and what collapses
 
 ```text
 measurement != inference != decision
-
+```
 
 ---
 
-Purpose
+## Purpose
 
 OMNIA-VALIDATION tests whether structural measurements remain meaningful under controlled pressure.
 
 The repository studies:
 
+```text
 perturbation behavior
-
 adversarial pressure
-
 representation changes
-
 synthetic stress
-
 cross-run reproducibility
-
 observer variation
-
 threshold sensitivity
-
 falsification attempts
-
 structural collapse
-
 boundary instability
-
+```
 
 This repository is intentionally pressure-oriented.
 
@@ -55,156 +53,135 @@ The purpose is not to protect OMNIA from failure.
 
 The purpose is to expose failure when failure exists.
 
-
 ---
 
-Core Position
+## Core Position
 
 OMNIA-VALIDATION does not assume that OMNIA is universally correct.
 
 It tests two things:
 
+```text
 what survives structured criticism
+```
 
 and:
 
+```text
 what collapses under controlled validation
+```
 
 This distinction is fundamental.
 
 A measurement framework becomes stronger when its failure boundaries become clearer.
 
-
 ---
 
-Core Boundary
+## Core Boundary
 
 OMNIA-VALIDATION validates structural measurements only.
 
 It does not validate:
 
+```text
 semantic truth
-
 intelligence
-
 consciousness
-
 correctness guarantees
-
 universal scientific laws
-
 final decisions
-
 domain-independent truth
-
+```
 
 Interpretation remains external.
 
 Decision remains external.
 
+```text
 measurement != inference != decision
-
+```
 
 ---
 
-What This Repository Tests
+## What This Repository Tests
 
 Current validation directions include:
 
+```text
 perturbation consistency
-
 cross-run reproducibility
-
 observer sensitivity
-
 representation dependence
-
 structural persistence
-
 instability emergence
-
 threshold robustness
-
 metric collapse behavior
-
 false-positive generation
-
 semantic-vs-structural separation
-
 trajectory reproducibility
-
 adversarial perturbation behavior
-
 saturation stability
-
 irreversibility consistency
-
 dependency-boundary behavior
-
 phase-like structural regimes
-
+```
 
 The objective is to determine where a measurement remains stable, where it becomes unstable, where it becomes misleading, and where it collapses entirely.
 
-
 ---
 
-Validation Philosophy
+## Validation Philosophy
 
 The repository is built around a falsification-oriented philosophy.
 
 The objective is not:
 
+```text
 prove OMNIA correct
+```
 
 The objective is:
 
+```text
 attempt to break OMNIA measurements
 under controlled conditions
+```
 
 If a measurement collapses under validation:
 
+```text
 the collapse is preserved
-
 the limitation is documented
-
 the negative result remains public
-
 the boundary becomes part of the measured system
-
+```
 
 Negative results are considered part of the system.
 
-
 ---
 
-Structural Validation Principle
+## Structural Validation Principle
 
 Core principle:
 
+```text
 a measurement framework becomes stronger
 when its failure boundaries become clearer
+```
 
 OMNIA-VALIDATION therefore preserves:
 
+```text
 failed experiments
-
 weak correlations
-
 unstable thresholds
-
 broken assumptions
-
 reproducibility failures
-
 semantic contradictions
-
 metric instability
-
 dependency failures
-
 boundary collapses
-
+```
 
 This is intentional.
 
@@ -212,127 +189,122 @@ The repository is not designed to produce only positive results.
 
 It is designed to make structural behavior harder to fake.
 
-
 ---
 
-Current Validation Domains
+## Current Validation Domains
 
 Validation currently includes experiments involving:
 
+```text
 LLM perturbation behavior
-
 structural drift
-
 symbolic reasoning
-
 software transformations
-
 trajectory geometry
-
 observer variation
-
 cryptographic perturbation
-
 chaotic dynamics
-
 representation-sensitive instability
-
 synthetic perturbation families
-
 temporal-collapse topology
-
 dependency-boundary phase behavior
-
+```
 
 The repository may expand toward additional domains over time.
 
-
 ---
 
-Current Validation Targets
+## Current Validation Targets
 
 The repository currently stress-tests measurements such as:
 
+```text
 Ω      -> structural coherence
 IRI    -> irreversibility
 SEI    -> saturation / exhaustion
 TΔ     -> divergence timing
 R      -> resilience
 Ω̂      -> residual invariant structure
+```
 
 The objective is to determine:
 
+```text
 where these measurements remain stable
-
 where they become unstable
-
 where they become misleading
-
 where they collapse entirely
-
-
+```
 
 ---
 
-Temporal Collapse Topology
+## Temporal Collapse Topology
 
 One current validation line studies temporal-collapse behavior as a structural topology.
 
 This line asks:
 
+```text
 Does temporal-collapse behavior expose a stable structural topology,
 or is it only a collection of isolated trajectory labels?
+```
 
 The v0 chain detected:
 
+```text
 directed signature-cluster topology
-
 centrality structure
-
 control plane
-
 dependency map
-
 dependency boundary map
-
 boundary phase diagram
-
+```
 
 Canonical entry point:
 
+```text
 docs/TEMPORAL_COLLAPSE_TOPOLOGY_INDEX_V0.md
+```
 
 Main chain document:
 
+```text
 docs/TEMPORAL_COLLAPSE_TOPOLOGY_EXPERIMENT_CHAIN_V0.md
+```
 
 Final phase result:
 
+```text
 docs/TEMPORAL_COLLAPSE_TOPOLOGY_BOUNDARY_PHASE_DIAGRAM_V0_RESULT.md
+```
 
 Safe canonical claim:
 
+```text
 OMNIA-VALIDATION detected a directed temporal-collapse signature topology
 with a measurable control plane and a dependency boundary phase diagram.
 
 The tested variant axis remained stable, while family and threshold axes
 exposed drift and critical boundaries.
+```
 
 Important limitation:
 
+```text
 The control plane is not universally invariant.
+```
 
 This is not a failure of the chain.
 
 It is the measured boundary of the chain.
 
-
 ---
 
-Temporal Collapse Topology — v0 Results
+## Temporal Collapse Topology — V0 Results
 
 Current v0 status:
 
+```text
 cluster adjacency graph        PASS
 cluster graph centrality       PASS
 cluster graph control plane    PASS
@@ -340,8 +312,9 @@ control-plane robustness       CHECK
 dependency map                 PASS
 dependency boundary            PASS
 boundary phase diagram         PASS
+```
 
-The CHECK result in the robustness test is important.
+The `CHECK` result in the robustness test is important.
 
 It shows that the control plane is not fully robust under all tested perturbations.
 
@@ -349,23 +322,27 @@ That instability is then mapped by the dependency-map, dependency-boundary, and 
 
 The correct reading is:
 
+```text
 detect structure
 test structure
 find instability
 map instability
 classify boundary regimes
+```
 
 Not:
 
+```text
 force every result to PASS
-
+```
 
 ---
 
-Temporal Collapse Topology — Reproduction Order
+## Temporal Collapse Topology — Reproduction Order
 
 Run the temporal-collapse topology scripts in this order:
 
+```bash
 python examples/temporal_collapse_topology_cluster_adjacency_graph_v0.py
 python examples/temporal_collapse_topology_cluster_graph_centrality_v0.py
 python examples/temporal_collapse_topology_cluster_graph_control_plane_v0.py
@@ -373,9 +350,11 @@ python examples/temporal_collapse_topology_control_plane_robustness_v0.py
 python examples/temporal_collapse_topology_dependency_map_v0.py
 python examples/temporal_collapse_topology_dependency_boundary_v0.py
 python examples/temporal_collapse_topology_boundary_phase_diagram_v0.py
+```
 
 Result files:
 
+```text
 results/temporal_collapse_topology_cluster_adjacency_graph_v0.json
 results/temporal_collapse_topology_cluster_graph_centrality_v0.json
 results/temporal_collapse_topology_cluster_graph_control_plane_v0.json
@@ -383,101 +362,305 @@ results/temporal_collapse_topology_control_plane_robustness_v0.json
 results/temporal_collapse_topology_dependency_map_v0.json
 results/temporal_collapse_topology_dependency_boundary_v0.json
 results/temporal_collapse_topology_boundary_phase_diagram_v0.json
-
+```
 
 ---
 
-What This Repository Does Not Claim
+## Temporal Collapse Level 3
+
+Another current validation line studies Level 3 temporal-collapse behavior.
+
+Level 3 focuses on raw ordered structural trajectories, repeated-run behavior, cross-provider behavior, collapse-like boundary proximity, and external-source traceability.
+
+Current Level 3 chain:
+
+```text
+V13 -> V14 -> V15
+```
+
+Current strongest result:
+
+```text
+V15 HASH STRENGTHENING PASSED
+```
+
+Canonical Level 3 entry point:
+
+```text
+docs/TEMPORAL_COLLAPSE_LEVEL_3_INDEX_V0.md
+```
+
+Human-readable summary:
+
+```text
+docs/TEMPORAL_COLLAPSE_LEVEL_3_FINAL_SUMMARY_V0.md
+```
+
+---
+
+## Temporal Collapse Level 3 — Current Chain
+
+### V13
+
+```text
+V13: cross-provider disagreement validator
+```
+
+V13 detects cross-provider structural disagreement.
+
+Relevant files:
+
+```text
+docs/TEMPORAL_COLLAPSE_CROSS_PROVIDER_DISAGREEMENT_VALIDATOR_V13.md
+docs/TEMPORAL_COLLAPSE_CROSS_PROVIDER_DISAGREEMENT_VALIDATOR_V13_RESULT.md
+results/temporal_collapse_cross_provider_disagreement_validator_v13.json
+```
+
+### V14
+
+```text
+V14: repeated-run cross-provider stability validator
+```
+
+V14 maps repeated-run cross-provider GSM-Symbolic model-output records into raw ordered structural trajectories.
+
+Relevant files:
+
+```text
+docs/TEMPORAL_COLLAPSE_REPEATED_RUN_CROSS_PROVIDER_STABILITY_VALIDATOR_V14.md
+docs/TEMPORAL_COLLAPSE_REPEATED_RUN_CROSS_PROVIDER_STABILITY_VALIDATOR_V14_RESULT.md
+examples/temporal_collapse_repeated_run_cross_provider_stability_validator_v14.py
+data/temporal_collapse_repeated_run_cross_provider_stability_v14.jsonl
+results/temporal_collapse_repeated_run_cross_provider_stability_validator_v14.json
+```
+
+### V15
+
+```text
+V15: external source hash strengthening validator
+```
+
+V15 replaces symbolic source-file hash placeholders with real computed SHA-256 hashes.
+
+Relevant files:
+
+```text
+docs/TEMPORAL_COLLAPSE_EXTERNAL_SOURCE_HASH_STRENGTHENING_VALIDATOR_V15.md
+docs/TEMPORAL_COLLAPSE_EXTERNAL_SOURCE_HASH_STRENGTHENING_VALIDATOR_V15_RESULT.md
+examples/temporal_collapse_external_source_hash_strengthening_validator_v15.py
+data/temporal_collapse_external_source_hash_strengthened_v15.jsonl
+results/temporal_collapse_external_source_hash_strengthening_validator_v15.json
+```
+
+---
+
+## Temporal Collapse Level 3 — V15 Result
+
+V15 validation summary:
+
+```text
+experiment: temporal_collapse_external_source_hash_strengthening_validator_v15
+status: v15_external_source_hash_strengthened
+trajectory_count: 20
+event_count: 100
+source_file_count: 4
+computed_hash_count: 4
+real_hash_count: 4
+placeholder_hash_count: 0
+hash_format_failure_count: 0
+hash_mismatch_failure_count: 0
+```
+
+Aggregate structural result preserved from V14:
+
+```text
+aggregate_risk_score: 0.379255
+aggregate_risk_regime: DRIFT
+aggregate_gate_action: WATCH
+aggregate_accuracy_rate: 0.42
+aggregate_extraction_rate: 0.9
+```
+
+Regime counts:
+
+```text
+CRITICAL: 4
+DRIFT: 10
+STABLE: 6
+```
+
+Highest-risk local trajectory:
+
+```text
+gsm_symbolic_repeated_run_provider_b_run_002_collapse_like_001
+```
+
+Highest-risk score:
+
+```text
+0.7096
+```
+
+Highest-risk provider:
+
+```text
+provider_b
+```
+
+Highest-risk run:
+
+```text
+provider_b_run_v14_002
+```
+
+Correct reading:
+
+```text
+aggregate condition: DRIFT
+aggregate gate action: WATCH
+highest local risk: CRITICAL
+strongest local behavior: collapse-like trajectory
+source traceability: strengthened with real SHA-256 hashes
+```
+
+---
+
+## Temporal Collapse Level 3 — Source Hashes
+
+V15 computed real SHA-256 hashes for the source-output files:
+
+```text
+data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_a_run_001.jsonl
+sha256:24d7177cea63e44e2616c0d4546ed65fd824719f7fc4030b9a52130c1bf4e00c
+```
+
+```text
+data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_a_run_002.jsonl
+sha256:602676324b4335e7cb670d6884cbe5e978dacac59889dbc362252440d706dc2e
+```
+
+```text
+data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_b_run_001.jsonl
+sha256:5ab1f8a6bf24f266a8dbf4e4e952be749db66ae66156bff0835d44088bb8ac5a
+```
+
+```text
+data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_b_run_002.jsonl
+sha256:5399edf34ba661ece7b6f0855df09ecad7d895a74951bd8bec56ad8074dd9010
+```
+
+The important result is:
+
+```text
+real_hash_count: 4
+placeholder_hash_count: 0
+hash_format_failure_count: 0
+hash_mismatch_failure_count: 0
+```
+
+This means the source-file trace is no longer only symbolic.
+
+---
+
+## Temporal Collapse Level 3 — Boundary
+
+Level 3 does not claim:
+
+```text
+OMNIA solves GSM-Symbolic
+OMNIA replaces benchmark correctness
+OMNIA detects semantic truth
+OMNIA proves model intelligence
+OMNIA proves model failure
+OMNIA certifies production safety
+OMNIA makes final decisions
+```
+
+Level 3 claims only:
+
+```text
+OMNIA measures structural behavior under ordered transformations,
+repeated-run variation,
+cross-provider variation,
+and source-traceable validation conditions.
+```
+
+Boundary:
+
+```text
+measurement != inference != decision
+```
+
+---
+
+## What This Repository Does Not Claim
 
 OMNIA-VALIDATION does not claim:
 
+```text
 universal validity
-
 universal invariance
-
 semantic correctness detection
-
 truth detection
-
 mathematical completeness
-
 scientific finality
-
 production certification
-
 domain-independent guarantees
-
 decision authority
-
+```
 
 The repository is exploratory and adversarial by design.
 
 A result is valid only inside its tested construction unless later validation expands the boundary.
 
-
 ---
 
-Reproducibility Policy
+## Reproducibility Policy
 
 All validation experiments should aim to include:
 
+```text
 executable scripts
-
 bounded datasets
-
 deterministic settings when possible
-
 parameter visibility
-
 transformation visibility
-
 reproducible execution paths
-
 environment notes
-
 result files
-
 negative outcomes when relevant
-
+```
 
 Validation without reproducibility is considered weak evidence.
 
 A result should be readable, runnable, and falsifiable.
 
-
 ---
 
-Negative Result Policy
+## Negative Result Policy
 
 Negative results are preserved intentionally.
 
 This repository does not hide:
 
+```text
 failed hypotheses
-
 weak correlations
-
 threshold instability
-
 contradictory outcomes
-
 unexpected behavior
-
 measurement collapse
-
 boundary sensitivity
-
 partial robustness
-
+```
 
 Negative evidence defines what the framework is not measuring.
 
 This is considered scientifically valuable.
 
-
 ---
 
-Semantic Separation Policy
+## Semantic Separation Policy
 
 OMNIA measurements are structural.
 
@@ -485,13 +668,17 @@ They are not semantic truth guarantees.
 
 Example:
 
+```text
 a semantically wrong answer
 may remain structurally stable
+```
 
 and:
 
+```text
 a semantically correct answer
 may become structurally unstable
+```
 
 OMNIA-VALIDATION actively studies this separation.
 
@@ -501,123 +688,100 @@ Structural instability is not semantic incorrectness.
 
 The two domains must not be confused.
 
-
 ---
 
-Validation Categories
+## Validation Categories
 
-Reproducibility Validation
+### Reproducibility Validation
 
 Tests whether measurements remain stable across repeated runs.
 
 Focus areas:
 
+```text
 run consistency
-
 threshold stability
-
 parameter sensitivity
-
 reproducible trajectories
-
-
+```
 
 ---
 
-Perturbation Validation
+### Perturbation Validation
 
 Tests how measurements react under controlled transformations.
 
 Focus areas:
 
+```text
 noise injection
-
 representation changes
-
 structural drift
-
 adversarial perturbations
-
 trajectory degradation
-
-
+```
 
 ---
 
-Falsification Validation
+### Falsification Validation
 
 Attempts to reduce measurements to simpler explanations.
 
 Examples:
 
+```text
 churn-only explanations
-
 entropy-only explanations
-
 syntax-only explanations
-
 representation-only explanations
-
 topology-only explanations
-
 threshold-only explanations
-
+```
 
 The objective is to determine whether the measurement survives reduction attempts.
 
-
 ---
 
-Cross-Domain Validation
+### Cross-Domain Validation
 
 Tests whether structurally similar behaviors emerge across heterogeneous systems.
 
 Current directions include:
 
+```text
 LLM behavior
-
 software systems
-
 chaotic trajectories
-
 cryptographic systems
-
 synthetic perturbation spaces
-
 temporal-collapse trajectories
-
-
+```
 
 ---
 
-Boundary Validation
+### Boundary Validation
 
 Studies where measurements fail.
 
 Focus areas:
 
+```text
 saturation collapse
-
 irreversibility ambiguity
-
 observer instability
-
 metric degeneracy
-
 structural exhaustion
-
 dependency boundaries
-
 phase-like structural zones
-
-
+```
 
 ---
 
-Repository Structure
+## Repository Structure
 
 Typical structure:
 
+```text
 docs/
 examples/
 benchmarks/
@@ -627,17 +791,20 @@ reproducibility/
 synthetic/
 stress_tests/
 cross_domain/
+```
 
 Current important directories:
 
+```text
 docs/      -> technical documentation and result reports
 examples/  -> runnable validation scripts
 results/   -> generated JSON result files
-
+data/      -> bounded datasets and source-output records
+```
 
 ---
 
-Relationship To OMNIA
+## Relationship To OMNIA
 
 OMNIA provides the structural measurement layer.
 
@@ -645,11 +812,13 @@ OMNIA-VALIDATION pressure-tests that layer.
 
 Simplified relationship:
 
+```text
 OMNIA
   -> measurement generation
 
 OMNIA-VALIDATION
   -> measurement stress testing
+```
 
 The repositories are complementary.
 
@@ -659,10 +828,9 @@ OMNIA-VALIDATION does not replace OMNIA.
 
 It tests whether OMNIA-related measurements remain stable, reproducible, falsifiable, and bounded under pressure.
 
-
 ---
 
-Relationship To OMNIA-CONSTANT
+## Relationship To OMNIA-CONSTANT
 
 OMNIA-CONSTANT focuses specifically on Ω-region interpretation and falsification.
 
@@ -670,82 +838,71 @@ OMNIA-VALIDATION is broader.
 
 It validates:
 
+```text
 measurements
-
 thresholds
-
 perturbation behavior
-
 reproducibility
-
 failure boundaries
-
 adversarial stability
-
 dependency behavior
-
 structural phase zones
-
+```
 
 across the ecosystem.
 
-
 ---
 
-Current Status
+## Current Status
 
 Current status:
 
+```text
 experimental
 falsification-oriented
 pressure-driven
 non-final
+```
 
 This status is intentional.
 
 The repository should not be interpreted as:
 
+```text
 finalized science
-
 universal proof
-
 production certification
-
 semantic authority
-
 correctness oracle
-
+```
 
 The correct interpretation is:
 
+```text
 a growing validation layer for structural measurement behavior
-
+```
 
 ---
 
-Why This Repository Exists
+## Why This Repository Exists
 
 Without validation pressure:
 
+```text
 metrics drift into narrative
-
 thresholds become arbitrary
-
 frameworks become unfalsifiable
-
 failures disappear from visibility
-
 structural claims become too easy to overstate
-
+```
 
 OMNIA-VALIDATION exists to prevent this.
 
 Its function is to make the measurement layer face controlled criticism.
 
-
 ---
 
-Final Position
+## Final Position
 
 OMNIA-VALIDATION is the pressure-testing layer of the OMNIA ecosystem.
 
@@ -753,38 +910,36 @@ Its role is not to defend the framework.
 
 Its role is to expose:
 
+```text
 instability
-
 ambiguity
-
 failure
-
 weak assumptions
-
 false interpretations
-
 reproducibility problems
-
 dependency boundaries
-
 structural collapse
-
+```
 
 under controlled structural validation.
 
 Core principle:
 
+```text
 a framework becomes more trustworthy
 when its failure boundaries become measurable
+```
 
 Final boundary:
 
+```text
 measurement != inference != decision
-
+```
 
 ---
 
-Author
+## Author
 
 Author: Brighindi Massimiliano
+
 Contact: brighissimo@gmail.com
