@@ -60,6 +60,12 @@ REQUIRED_RESULT_FIELDS
 DEFAULT_BOUNDARY
 ```
 
+Command-line validation is also available:
+
+```bash
+omnia-validation validate-result results/<result_file>.json
+```
+
 Important limitation:
 
 ```text
@@ -321,6 +327,32 @@ If the result is invalid, `require_valid_result_envelope` raises:
 ValueError
 ```
 
+CLI validation:
+
+```bash
+omnia-validation validate-result results/<result_file>.json
+```
+
+Expected valid output:
+
+```json
+{
+  "status": "PASS",
+  "schema": "result_envelope"
+}
+```
+
+Expected invalid output shape:
+
+```json
+{
+  "status": "FAIL",
+  "errors": [
+    "..."
+  ]
+}
+```
+
 ---
 
 ## 5. Recommended Validator Usage
@@ -353,6 +385,12 @@ write_json("results/example_validator_v0.json", result)
 ```
 
 This makes result generation fail early if the top-level envelope is invalid.
+
+After writing the result, validate it from the command line:
+
+```bash
+omnia-validation validate-result results/example_validator_v0.json
+```
 
 ---
 
@@ -817,6 +855,14 @@ final correctness
 
 This example passes the current envelope validator.
 
+It also passes:
+
+```bash
+omnia-validation validate-result results/example_validator_v0.json
+```
+
+if saved as a result file.
+
 ---
 
 ## 19. Hash Validator Example
@@ -1003,13 +1049,39 @@ failure or boundary conditions are not hidden.
 claims stay inside the tested construction.
 ```
 
-Use:
+First validate that the file is parseable JSON:
 
 ```bash
 omnia-validation validate-json results/<result_file>.json
 ```
 
-Then, from Python:
+Then validate the OMNIA-VALIDATION result envelope:
+
+```bash
+omnia-validation validate-result results/<result_file>.json
+```
+
+Expected valid output:
+
+```json
+{
+  "status": "PASS",
+  "schema": "result_envelope"
+}
+```
+
+Expected invalid output shape:
+
+```json
+{
+  "status": "FAIL",
+  "errors": [
+    "..."
+  ]
+}
+```
+
+Python validation is also available:
 
 ```python
 from omnia_validation.io import read_json
@@ -1017,6 +1089,15 @@ from omnia_validation.schemas import require_valid_result_envelope
 
 result = read_json("results/<result_file>.json")
 require_valid_result_envelope(result)
+```
+
+Important boundary:
+
+```text
+validate-result checks the structural result envelope only.
+It does not validate semantic truth.
+It does not certify production safety.
+It does not decide whether the scientific interpretation is correct.
 ```
 
 ---
@@ -1027,6 +1108,12 @@ Schema tests are located in:
 
 ```text
 tests/test_schemas.py
+```
+
+CLI schema validation tests are located in:
+
+```text
+tests/test_cli.py
 ```
 
 They currently verify:
@@ -1043,6 +1130,8 @@ wrong boundary detection
 non-object payload detection
 non-mapping result detection
 strict validation failure raising
+validate-result CLI PASS behavior
+validate-result CLI FAIL behavior
 ```
 
 Run:
@@ -1078,7 +1167,7 @@ These should be future extensions.
 
 ## 26. Future Schema Extensions
 
-Possible future modules or functions:
+Possible future functions:
 
 ```text
 validate_hash_payload
@@ -1091,18 +1180,18 @@ validate_result_file
 validate_result_directory
 ```
 
-Possible future package module:
-
-```text
-omnia_validation.schemas
-```
-
 Already present:
 
 ```text
 validate_result_envelope
 is_valid_result_envelope
 require_valid_result_envelope
+```
+
+Already available through CLI:
+
+```text
+omnia-validation validate-result <path>
 ```
 
 ---
