@@ -1,0 +1,1674 @@
+{
+  "experiment": "temporal_collapse_cross_provider_disagreement_validator_v13",
+  "status": "v13_cross_provider_disagreement_mapping",
+  "boundary": "cross-provider real parsed GSM-Symbolic model-output file records mapped into raw ordered structural trajectory events",
+  "claim": "This script applies the Level 3 raw trajectory warning mechanism to cross-provider real parsed GSM-Symbolic model-output file records mapped into raw ordered structural trajectory events. It does not claim that OMNIA solves GSM-Symbolic, does not infer semantic truth, does not replace benchmark correctness, and does not make final decisions.",
+  "limitation_note": "Cross-provider disagreement validation does not imply official benchmark scoring, production certification, semantic truth detection, or final decision authority.",
+  "input_file": "data/temporal_collapse_cross_provider_disagreement_v13.jsonl",
+  "trajectory_count": 10,
+  "event_count": 50,
+  "source_count": 1,
+  "source_independence_values": [
+    "external_source_verified"
+  ],
+  "independence_method_values": [
+    "cross_provider_real_model_output_disagreement_mapping"
+  ],
+  "external_source_references": [
+    "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository"
+  ],
+  "benchmark_names": [
+    "GSM-Symbolic"
+  ],
+  "source_record_types": [
+    "cross_provider_real_model_output_file"
+  ],
+  "mapping_methods": [
+    "cross_provider_real_model_output_file_to_trajectory"
+  ],
+  "source_files": [
+    "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_a.jsonl",
+    "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_b.jsonl"
+  ],
+  "source_file_hashes": [
+    "sha256:provider_a_source_file_hash_v13",
+    "sha256:provider_b_source_file_hash_v13"
+  ],
+  "source_group_ids": [
+    "provider_a_reference_group",
+    "provider_b_reference_group"
+  ],
+  "providers": [
+    "provider_a",
+    "provider_b"
+  ],
+  "model_names": [
+    "provider_a_model_alpha",
+    "provider_a_model_beta",
+    "provider_a_model_gamma",
+    "provider_b_model_delta",
+    "provider_b_model_epsilon",
+    "provider_b_model_zeta"
+  ],
+  "model_versions": [
+    "provider_a_model_alpha_v1",
+    "provider_a_model_beta_v1",
+    "provider_a_model_gamma_v1",
+    "provider_b_model_delta_v1",
+    "provider_b_model_epsilon_v1",
+    "provider_b_model_zeta_v1"
+  ],
+  "answer_extraction_methods": [
+    "final_numeric_answer_extractor_v1"
+  ],
+  "cross_provider_groups": [
+    "gsm_symbolic_template_001_cross_provider_group",
+    "gsm_symbolic_template_002_cross_provider_group",
+    "gsm_symbolic_template_003_cross_provider_group",
+    "gsm_symbolic_template_004_cross_provider_group",
+    "gsm_symbolic_template_005_cross_provider_group"
+  ],
+  "cross_provider_roles": [
+    "provider_a_member",
+    "provider_b_member"
+  ],
+  "external_source_note": "source_independence=external_source_verified means the mapped records preserve a public/documentable GSM-Symbolic benchmark reference. independence_method=cross_provider_real_model_output_disagreement_mapping means the records include source-file fields, provider identity, model identity, run identity, response identity, answer-extraction fields, correctness fields, and cross-provider group fields. Correctness, extraction, and provider disagreement are reported as evidence; risk_score remains a structural warning measurement.",
+  "weights": {
+    "transition_density": 0.2,
+    "drift_progression": 0.2,
+    "boundary_proximity": 0.25,
+    "collapse_similarity": 0.25,
+    "irreversibility_signal": 0.1
+  },
+  "thresholds": {
+    "STABLE": 0.25,
+    "DRIFT": 0.5,
+    "CRITICAL": 0.75
+  },
+  "aggregate": {
+    "aggregate_risk_score": 0.385325,
+    "aggregate_risk_regime": "DRIFT",
+    "aggregate_gate_action": "WATCH",
+    "aggregate_accuracy_rate": 0.4,
+    "aggregate_extraction_rate": 0.9,
+    "regime_counts": {
+      "CRITICAL": 2,
+      "DRIFT": 5,
+      "STABLE": 3
+    },
+    "highest_risk_trajectory": "gsm_symbolic_cross_provider_provider_b_collapse_like_001",
+    "highest_risk_score": 0.714417,
+    "highest_risk_provider": "provider_b",
+    "source_count": 1,
+    "independence_method_count": 1,
+    "external_source_reference_count": 1,
+    "benchmark_count": 1,
+    "source_record_type_count": 1,
+    "mapping_method_count": 1,
+    "source_file_count": 2,
+    "source_file_hash_count": 2,
+    "source_group_count": 2,
+    "provider_count": 2,
+    "model_count": 6,
+    "model_version_count": 6,
+    "answer_extraction_method_count": 1,
+    "cross_provider_group_count": 5,
+    "trajectory_count": 10,
+    "event_count": 50
+  },
+  "source_summary": [
+    {
+      "source_file": "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_a.jsonl",
+      "trajectory_count": 5,
+      "event_count": 25,
+      "average_risk_score": 0.36677,
+      "average_accuracy_rate": 0.48,
+      "average_extraction_rate": 0.92,
+      "regime_counts": {
+        "CRITICAL": 1,
+        "DRIFT": 2,
+        "STABLE": 2
+      },
+      "highest_risk_trajectory": "gsm_symbolic_cross_provider_provider_a_collapse_like_001",
+      "highest_risk_score": 0.666583,
+      "sources": [
+        "gsm_symbolic_cross_provider_disagreement_v13"
+      ],
+      "source_independences": [
+        "external_source_verified"
+      ],
+      "independence_methods": [
+        "cross_provider_real_model_output_disagreement_mapping"
+      ],
+      "external_source_references": [
+        "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository"
+      ],
+      "benchmark_names": [
+        "GSM-Symbolic"
+      ],
+      "source_record_types": [
+        "cross_provider_real_model_output_file"
+      ],
+      "mapping_methods": [
+        "cross_provider_real_model_output_file_to_trajectory"
+      ],
+      "source_files": [
+        "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_a.jsonl"
+      ],
+      "source_file_hashes": [
+        "sha256:provider_a_source_file_hash_v13"
+      ],
+      "source_group_ids": [
+        "provider_a_reference_group"
+      ],
+      "model_names": [
+        "provider_a_model_alpha",
+        "provider_a_model_beta",
+        "provider_a_model_gamma"
+      ],
+      "model_versions": [
+        "provider_a_model_alpha_v1",
+        "provider_a_model_beta_v1",
+        "provider_a_model_gamma_v1"
+      ],
+      "providers": [
+        "provider_a"
+      ],
+      "answer_extraction_methods": [
+        "final_numeric_answer_extractor_v1"
+      ],
+      "cross_provider_groups": [
+        "gsm_symbolic_template_001_cross_provider_group",
+        "gsm_symbolic_template_002_cross_provider_group",
+        "gsm_symbolic_template_003_cross_provider_group",
+        "gsm_symbolic_template_004_cross_provider_group",
+        "gsm_symbolic_template_005_cross_provider_group"
+      ],
+      "cross_provider_roles": [
+        "provider_a_member"
+      ]
+    },
+    {
+      "source_file": "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_b.jsonl",
+      "trajectory_count": 5,
+      "event_count": 25,
+      "average_risk_score": 0.40388,
+      "average_accuracy_rate": 0.32,
+      "average_extraction_rate": 0.88,
+      "regime_counts": {
+        "CRITICAL": 1,
+        "DRIFT": 3,
+        "STABLE": 1
+      },
+      "highest_risk_trajectory": "gsm_symbolic_cross_provider_provider_b_collapse_like_001",
+      "highest_risk_score": 0.714417,
+      "sources": [
+        "gsm_symbolic_cross_provider_disagreement_v13"
+      ],
+      "source_independences": [
+        "external_source_verified"
+      ],
+      "independence_methods": [
+        "cross_provider_real_model_output_disagreement_mapping"
+      ],
+      "external_source_references": [
+        "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository"
+      ],
+      "benchmark_names": [
+        "GSM-Symbolic"
+      ],
+      "source_record_types": [
+        "cross_provider_real_model_output_file"
+      ],
+      "mapping_methods": [
+        "cross_provider_real_model_output_file_to_trajectory"
+      ],
+      "source_files": [
+        "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_b.jsonl"
+      ],
+      "source_file_hashes": [
+        "sha256:provider_b_source_file_hash_v13"
+      ],
+      "source_group_ids": [
+        "provider_b_reference_group"
+      ],
+      "model_names": [
+        "provider_b_model_delta",
+        "provider_b_model_epsilon",
+        "provider_b_model_zeta"
+      ],
+      "model_versions": [
+        "provider_b_model_delta_v1",
+        "provider_b_model_epsilon_v1",
+        "provider_b_model_zeta_v1"
+      ],
+      "providers": [
+        "provider_b"
+      ],
+      "answer_extraction_methods": [
+        "final_numeric_answer_extractor_v1"
+      ],
+      "cross_provider_groups": [
+        "gsm_symbolic_template_001_cross_provider_group",
+        "gsm_symbolic_template_002_cross_provider_group",
+        "gsm_symbolic_template_003_cross_provider_group",
+        "gsm_symbolic_template_004_cross_provider_group",
+        "gsm_symbolic_template_005_cross_provider_group"
+      ],
+      "cross_provider_roles": [
+        "provider_b_member"
+      ]
+    }
+  ],
+  "provider_summary": [
+    {
+      "provider": "provider_a",
+      "trajectory_count": 5,
+      "event_count": 25,
+      "average_risk_score": 0.36677,
+      "average_accuracy_rate": 0.48,
+      "average_extraction_rate": 0.92,
+      "regime_counts": {
+        "CRITICAL": 1,
+        "DRIFT": 2,
+        "STABLE": 2
+      },
+      "highest_risk_trajectory": "gsm_symbolic_cross_provider_provider_a_collapse_like_001",
+      "highest_risk_score": 0.666583,
+      "sources": [
+        "gsm_symbolic_cross_provider_disagreement_v13"
+      ],
+      "source_independences": [
+        "external_source_verified"
+      ],
+      "independence_methods": [
+        "cross_provider_real_model_output_disagreement_mapping"
+      ],
+      "external_source_references": [
+        "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository"
+      ],
+      "benchmark_names": [
+        "GSM-Symbolic"
+      ],
+      "source_record_types": [
+        "cross_provider_real_model_output_file"
+      ],
+      "mapping_methods": [
+        "cross_provider_real_model_output_file_to_trajectory"
+      ],
+      "source_files": [
+        "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_a.jsonl"
+      ],
+      "source_file_hashes": [
+        "sha256:provider_a_source_file_hash_v13"
+      ],
+      "source_group_ids": [
+        "provider_a_reference_group"
+      ],
+      "model_names": [
+        "provider_a_model_alpha",
+        "provider_a_model_beta",
+        "provider_a_model_gamma"
+      ],
+      "model_versions": [
+        "provider_a_model_alpha_v1",
+        "provider_a_model_beta_v1",
+        "provider_a_model_gamma_v1"
+      ],
+      "providers": [
+        "provider_a"
+      ],
+      "answer_extraction_methods": [
+        "final_numeric_answer_extractor_v1"
+      ],
+      "cross_provider_groups": [
+        "gsm_symbolic_template_001_cross_provider_group",
+        "gsm_symbolic_template_002_cross_provider_group",
+        "gsm_symbolic_template_003_cross_provider_group",
+        "gsm_symbolic_template_004_cross_provider_group",
+        "gsm_symbolic_template_005_cross_provider_group"
+      ],
+      "cross_provider_roles": [
+        "provider_a_member"
+      ]
+    },
+    {
+      "provider": "provider_b",
+      "trajectory_count": 5,
+      "event_count": 25,
+      "average_risk_score": 0.40388,
+      "average_accuracy_rate": 0.32,
+      "average_extraction_rate": 0.88,
+      "regime_counts": {
+        "CRITICAL": 1,
+        "DRIFT": 3,
+        "STABLE": 1
+      },
+      "highest_risk_trajectory": "gsm_symbolic_cross_provider_provider_b_collapse_like_001",
+      "highest_risk_score": 0.714417,
+      "sources": [
+        "gsm_symbolic_cross_provider_disagreement_v13"
+      ],
+      "source_independences": [
+        "external_source_verified"
+      ],
+      "independence_methods": [
+        "cross_provider_real_model_output_disagreement_mapping"
+      ],
+      "external_source_references": [
+        "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository"
+      ],
+      "benchmark_names": [
+        "GSM-Symbolic"
+      ],
+      "source_record_types": [
+        "cross_provider_real_model_output_file"
+      ],
+      "mapping_methods": [
+        "cross_provider_real_model_output_file_to_trajectory"
+      ],
+      "source_files": [
+        "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_b.jsonl"
+      ],
+      "source_file_hashes": [
+        "sha256:provider_b_source_file_hash_v13"
+      ],
+      "source_group_ids": [
+        "provider_b_reference_group"
+      ],
+      "model_names": [
+        "provider_b_model_delta",
+        "provider_b_model_epsilon",
+        "provider_b_model_zeta"
+      ],
+      "model_versions": [
+        "provider_b_model_delta_v1",
+        "provider_b_model_epsilon_v1",
+        "provider_b_model_zeta_v1"
+      ],
+      "providers": [
+        "provider_b"
+      ],
+      "answer_extraction_methods": [
+        "final_numeric_answer_extractor_v1"
+      ],
+      "cross_provider_groups": [
+        "gsm_symbolic_template_001_cross_provider_group",
+        "gsm_symbolic_template_002_cross_provider_group",
+        "gsm_symbolic_template_003_cross_provider_group",
+        "gsm_symbolic_template_004_cross_provider_group",
+        "gsm_symbolic_template_005_cross_provider_group"
+      ],
+      "cross_provider_roles": [
+        "provider_b_member"
+      ]
+    }
+  ],
+  "source_group_summary": [
+    {
+      "source_group_id": "provider_a_reference_group",
+      "trajectory_count": 5,
+      "event_count": 25,
+      "average_risk_score": 0.36677,
+      "average_accuracy_rate": 0.48,
+      "average_extraction_rate": 0.92,
+      "regime_counts": {
+        "CRITICAL": 1,
+        "DRIFT": 2,
+        "STABLE": 2
+      },
+      "highest_risk_trajectory": "gsm_symbolic_cross_provider_provider_a_collapse_like_001",
+      "highest_risk_score": 0.666583,
+      "sources": [
+        "gsm_symbolic_cross_provider_disagreement_v13"
+      ],
+      "source_independences": [
+        "external_source_verified"
+      ],
+      "independence_methods": [
+        "cross_provider_real_model_output_disagreement_mapping"
+      ],
+      "external_source_references": [
+        "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository"
+      ],
+      "benchmark_names": [
+        "GSM-Symbolic"
+      ],
+      "source_record_types": [
+        "cross_provider_real_model_output_file"
+      ],
+      "mapping_methods": [
+        "cross_provider_real_model_output_file_to_trajectory"
+      ],
+      "source_files": [
+        "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_a.jsonl"
+      ],
+      "source_file_hashes": [
+        "sha256:provider_a_source_file_hash_v13"
+      ],
+      "source_group_ids": [
+        "provider_a_reference_group"
+      ],
+      "model_names": [
+        "provider_a_model_alpha",
+        "provider_a_model_beta",
+        "provider_a_model_gamma"
+      ],
+      "model_versions": [
+        "provider_a_model_alpha_v1",
+        "provider_a_model_beta_v1",
+        "provider_a_model_gamma_v1"
+      ],
+      "providers": [
+        "provider_a"
+      ],
+      "answer_extraction_methods": [
+        "final_numeric_answer_extractor_v1"
+      ],
+      "cross_provider_groups": [
+        "gsm_symbolic_template_001_cross_provider_group",
+        "gsm_symbolic_template_002_cross_provider_group",
+        "gsm_symbolic_template_003_cross_provider_group",
+        "gsm_symbolic_template_004_cross_provider_group",
+        "gsm_symbolic_template_005_cross_provider_group"
+      ],
+      "cross_provider_roles": [
+        "provider_a_member"
+      ]
+    },
+    {
+      "source_group_id": "provider_b_reference_group",
+      "trajectory_count": 5,
+      "event_count": 25,
+      "average_risk_score": 0.40388,
+      "average_accuracy_rate": 0.32,
+      "average_extraction_rate": 0.88,
+      "regime_counts": {
+        "CRITICAL": 1,
+        "DRIFT": 3,
+        "STABLE": 1
+      },
+      "highest_risk_trajectory": "gsm_symbolic_cross_provider_provider_b_collapse_like_001",
+      "highest_risk_score": 0.714417,
+      "sources": [
+        "gsm_symbolic_cross_provider_disagreement_v13"
+      ],
+      "source_independences": [
+        "external_source_verified"
+      ],
+      "independence_methods": [
+        "cross_provider_real_model_output_disagreement_mapping"
+      ],
+      "external_source_references": [
+        "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository"
+      ],
+      "benchmark_names": [
+        "GSM-Symbolic"
+      ],
+      "source_record_types": [
+        "cross_provider_real_model_output_file"
+      ],
+      "mapping_methods": [
+        "cross_provider_real_model_output_file_to_trajectory"
+      ],
+      "source_files": [
+        "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_b.jsonl"
+      ],
+      "source_file_hashes": [
+        "sha256:provider_b_source_file_hash_v13"
+      ],
+      "source_group_ids": [
+        "provider_b_reference_group"
+      ],
+      "model_names": [
+        "provider_b_model_delta",
+        "provider_b_model_epsilon",
+        "provider_b_model_zeta"
+      ],
+      "model_versions": [
+        "provider_b_model_delta_v1",
+        "provider_b_model_epsilon_v1",
+        "provider_b_model_zeta_v1"
+      ],
+      "providers": [
+        "provider_b"
+      ],
+      "answer_extraction_methods": [
+        "final_numeric_answer_extractor_v1"
+      ],
+      "cross_provider_groups": [
+        "gsm_symbolic_template_001_cross_provider_group",
+        "gsm_symbolic_template_002_cross_provider_group",
+        "gsm_symbolic_template_003_cross_provider_group",
+        "gsm_symbolic_template_004_cross_provider_group",
+        "gsm_symbolic_template_005_cross_provider_group"
+      ],
+      "cross_provider_roles": [
+        "provider_b_member"
+      ]
+    }
+  ],
+  "cross_provider_summary": [
+    {
+      "cross_provider_group": "gsm_symbolic_template_001_cross_provider_group",
+      "template_ids": [
+        "gsm_symbolic_template_001"
+      ],
+      "providers": [
+        "provider_a",
+        "provider_b"
+      ],
+      "trajectory_ids": [
+        "gsm_symbolic_cross_provider_provider_a_stable_001",
+        "gsm_symbolic_cross_provider_provider_b_stable_001"
+      ],
+      "provider_risk_scores": {
+        "provider_b": 0.054067,
+        "provider_a": 0.04985
+      },
+      "provider_risk_regimes": {
+        "provider_b": "STABLE",
+        "provider_a": "STABLE"
+      },
+      "provider_accuracy_rates": {
+        "provider_b": 1.0,
+        "provider_a": 1.0
+      },
+      "provider_extraction_rates": {
+        "provider_b": 1.0,
+        "provider_a": 1.0
+      },
+      "cross_provider_risk_spread": 0.004217,
+      "cross_provider_accuracy_spread": 0.0,
+      "cross_provider_extraction_spread": 0.0,
+      "risk_regime_disagreement": false,
+      "accuracy_disagreement": false,
+      "extraction_disagreement": false,
+      "highest_risk_provider": "provider_b",
+      "highest_risk_trajectory": "gsm_symbolic_cross_provider_provider_b_stable_001",
+      "highest_risk_score": 0.054067
+    },
+    {
+      "cross_provider_group": "gsm_symbolic_template_002_cross_provider_group",
+      "template_ids": [
+        "gsm_symbolic_template_002"
+      ],
+      "providers": [
+        "provider_a",
+        "provider_b"
+      ],
+      "trajectory_ids": [
+        "gsm_symbolic_cross_provider_provider_a_drift_001",
+        "gsm_symbolic_cross_provider_provider_b_drift_001"
+      ],
+      "provider_risk_scores": {
+        "provider_b": 0.3245,
+        "provider_a": 0.240083
+      },
+      "provider_risk_regimes": {
+        "provider_b": "DRIFT",
+        "provider_a": "STABLE"
+      },
+      "provider_accuracy_rates": {
+        "provider_b": 0.4,
+        "provider_a": 0.6
+      },
+      "provider_extraction_rates": {
+        "provider_b": 1.0,
+        "provider_a": 1.0
+      },
+      "cross_provider_risk_spread": 0.084417,
+      "cross_provider_accuracy_spread": 0.2,
+      "cross_provider_extraction_spread": 0.0,
+      "risk_regime_disagreement": true,
+      "accuracy_disagreement": true,
+      "extraction_disagreement": false,
+      "highest_risk_provider": "provider_b",
+      "highest_risk_trajectory": "gsm_symbolic_cross_provider_provider_b_drift_001",
+      "highest_risk_score": 0.3245
+    },
+    {
+      "cross_provider_group": "gsm_symbolic_template_003_cross_provider_group",
+      "template_ids": [
+        "gsm_symbolic_template_003"
+      ],
+      "providers": [
+        "provider_a",
+        "provider_b"
+      ],
+      "trajectory_ids": [
+        "gsm_symbolic_cross_provider_provider_a_borderline_critical_001",
+        "gsm_symbolic_cross_provider_provider_b_borderline_critical_001"
+      ],
+      "provider_risk_scores": {
+        "provider_b": 0.434167,
+        "provider_a": 0.412333
+      },
+      "provider_risk_regimes": {
+        "provider_b": "DRIFT",
+        "provider_a": "DRIFT"
+      },
+      "provider_accuracy_rates": {
+        "provider_b": 0.2,
+        "provider_a": 0.4
+      },
+      "provider_extraction_rates": {
+        "provider_b": 1.0,
+        "provider_a": 1.0
+      },
+      "cross_provider_risk_spread": 0.021834,
+      "cross_provider_accuracy_spread": 0.2,
+      "cross_provider_extraction_spread": 0.0,
+      "risk_regime_disagreement": false,
+      "accuracy_disagreement": true,
+      "extraction_disagreement": false,
+      "highest_risk_provider": "provider_b",
+      "highest_risk_trajectory": "gsm_symbolic_cross_provider_provider_b_borderline_critical_001",
+      "highest_risk_score": 0.434167
+    },
+    {
+      "cross_provider_group": "gsm_symbolic_template_004_cross_provider_group",
+      "template_ids": [
+        "gsm_symbolic_template_004"
+      ],
+      "providers": [
+        "provider_a",
+        "provider_b"
+      ],
+      "trajectory_ids": [
+        "gsm_symbolic_cross_provider_provider_a_critical_001",
+        "gsm_symbolic_cross_provider_provider_b_critical_001"
+      ],
+      "provider_risk_scores": {
+        "provider_b": 0.49225,
+        "provider_a": 0.465
+      },
+      "provider_risk_regimes": {
+        "provider_b": "DRIFT",
+        "provider_a": "DRIFT"
+      },
+      "provider_accuracy_rates": {
+        "provider_b": 0.0,
+        "provider_a": 0.2
+      },
+      "provider_extraction_rates": {
+        "provider_b": 1.0,
+        "provider_a": 1.0
+      },
+      "cross_provider_risk_spread": 0.02725,
+      "cross_provider_accuracy_spread": 0.2,
+      "cross_provider_extraction_spread": 0.0,
+      "risk_regime_disagreement": false,
+      "accuracy_disagreement": true,
+      "extraction_disagreement": false,
+      "highest_risk_provider": "provider_b",
+      "highest_risk_trajectory": "gsm_symbolic_cross_provider_provider_b_critical_001",
+      "highest_risk_score": 0.49225
+    },
+    {
+      "cross_provider_group": "gsm_symbolic_template_005_cross_provider_group",
+      "template_ids": [
+        "gsm_symbolic_template_005"
+      ],
+      "providers": [
+        "provider_a",
+        "provider_b"
+      ],
+      "trajectory_ids": [
+        "gsm_symbolic_cross_provider_provider_a_collapse_like_001",
+        "gsm_symbolic_cross_provider_provider_b_collapse_like_001"
+      ],
+      "provider_risk_scores": {
+        "provider_b": 0.714417,
+        "provider_a": 0.666583
+      },
+      "provider_risk_regimes": {
+        "provider_b": "CRITICAL",
+        "provider_a": "CRITICAL"
+      },
+      "provider_accuracy_rates": {
+        "provider_b": 0.0,
+        "provider_a": 0.2
+      },
+      "provider_extraction_rates": {
+        "provider_b": 0.4,
+        "provider_a": 0.6
+      },
+      "cross_provider_risk_spread": 0.047834,
+      "cross_provider_accuracy_spread": 0.2,
+      "cross_provider_extraction_spread": 0.2,
+      "risk_regime_disagreement": false,
+      "accuracy_disagreement": true,
+      "extraction_disagreement": true,
+      "highest_risk_provider": "provider_b",
+      "highest_risk_trajectory": "gsm_symbolic_cross_provider_provider_b_collapse_like_001",
+      "highest_risk_score": 0.714417
+    }
+  ],
+  "results": [
+    {
+      "trajectory_id": "gsm_symbolic_cross_provider_provider_b_collapse_like_001",
+      "source": "gsm_symbolic_cross_provider_disagreement_v13",
+      "source_independence": "external_source_verified",
+      "independence_method": "cross_provider_real_model_output_disagreement_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "benchmark_name": "GSM-Symbolic",
+      "source_record_type": "cross_provider_real_model_output_file",
+      "mapping_method": "cross_provider_real_model_output_file_to_trajectory",
+      "source_file": "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_b.jsonl",
+      "source_file_hash": "sha256:provider_b_source_file_hash_v13",
+      "source_group_id": "provider_b_reference_group",
+      "model_name": "provider_b_model_zeta",
+      "model_version": "provider_b_model_zeta_v1",
+      "provider": "provider_b",
+      "run_id": "provider_b_run_v13_005",
+      "template_id": "gsm_symbolic_template_005",
+      "cross_provider_group": "gsm_symbolic_template_005_cross_provider_group",
+      "cross_provider_role": "provider_b_member",
+      "answer_extraction_method": "final_numeric_answer_extractor_v1",
+      "source_record_reference": "multiple_source_record_references",
+      "mapping_notes": "multiple_mapping_notes",
+      "response_id": "multiple_response_ids",
+      "question_id": "multiple_question_ids",
+      "variant_type": "multiple_variant_types",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
+      "expected_answer": "multiple_expected_answers",
+      "model_final_answer": "multiple_model_final_answers",
+      "correctness_profile": {
+        "event_count": 5,
+        "correct_count": 0,
+        "incorrect_count": 5,
+        "accuracy_rate": 0.0,
+        "correctness_changes": 0.0,
+        "starts_correct": false,
+        "ends_correct": false
+      },
+      "extraction_profile": {
+        "event_count": 5,
+        "extracted_count": 2,
+        "not_extracted_count": 3,
+        "extraction_rate": 0.4,
+        "extraction_changes": 0.25,
+        "starts_extracted": true,
+        "ends_extracted": false,
+        "answer_extraction_methods": [
+          "final_numeric_answer_extractor_v1"
+        ]
+      },
+      "event_count": 5,
+      "risk_regime": "CRITICAL",
+      "risk_score": 0.714417,
+      "gate_action": "ESCALATE",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [
+        "high_transition_density",
+        "high_drift_progression",
+        "boundary_proximity",
+        "collapse_similarity",
+        "irreversibility_signal"
+      ],
+      "signals": {
+        "transition_density": 0.583333,
+        "drift_progression": 0.5025,
+        "boundary_proximity": 0.995,
+        "collapse_similarity": 0.6,
+        "irreversibility_signal": 0.985
+      },
+      "transition_evidence": {
+        "signature_changes": 0.5,
+        "cluster_changes": 0.75,
+        "phase_changes": 0.5,
+        "delta_early_mean": 0.475,
+        "delta_late_mean": 0.931667,
+        "iri_early_mean": 0.32,
+        "iri_late_mean": 0.868333,
+        "min_boundary_distance": 0.005,
+        "max_boundary_proximity": 0.995,
+        "collapse_phase_count": 3,
+        "broken_signature_count": 3,
+        "not_extracted_signature_count": 3,
+        "correctness_changes": 0.0,
+        "extraction_changes": 0.25,
+        "correct_count": 0,
+        "incorrect_count": 5,
+        "accuracy_rate": 0.0,
+        "extracted_count": 2,
+        "not_extracted_count": 3,
+        "extraction_rate": 0.4,
+        "starts_correct": false,
+        "ends_correct": false,
+        "starts_extracted": true,
+        "ends_extracted": false
+      }
+    },
+    {
+      "trajectory_id": "gsm_symbolic_cross_provider_provider_a_collapse_like_001",
+      "source": "gsm_symbolic_cross_provider_disagreement_v13",
+      "source_independence": "external_source_verified",
+      "independence_method": "cross_provider_real_model_output_disagreement_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "benchmark_name": "GSM-Symbolic",
+      "source_record_type": "cross_provider_real_model_output_file",
+      "mapping_method": "cross_provider_real_model_output_file_to_trajectory",
+      "source_file": "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_a.jsonl",
+      "source_file_hash": "sha256:provider_a_source_file_hash_v13",
+      "source_group_id": "provider_a_reference_group",
+      "model_name": "provider_a_model_gamma",
+      "model_version": "provider_a_model_gamma_v1",
+      "provider": "provider_a",
+      "run_id": "provider_a_run_v13_005",
+      "template_id": "gsm_symbolic_template_005",
+      "cross_provider_group": "gsm_symbolic_template_005_cross_provider_group",
+      "cross_provider_role": "provider_a_member",
+      "answer_extraction_method": "final_numeric_answer_extractor_v1",
+      "source_record_reference": "multiple_source_record_references",
+      "mapping_notes": "multiple_mapping_notes",
+      "response_id": "multiple_response_ids",
+      "question_id": "multiple_question_ids",
+      "variant_type": "multiple_variant_types",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
+      "expected_answer": "multiple_expected_answers",
+      "model_final_answer": "multiple_model_final_answers",
+      "correctness_profile": {
+        "event_count": 5,
+        "correct_count": 1,
+        "incorrect_count": 4,
+        "accuracy_rate": 0.2,
+        "correctness_changes": 0.25,
+        "starts_correct": true,
+        "ends_correct": false
+      },
+      "extraction_profile": {
+        "event_count": 5,
+        "extracted_count": 3,
+        "not_extracted_count": 2,
+        "extraction_rate": 0.6,
+        "extraction_changes": 0.25,
+        "starts_extracted": true,
+        "ends_extracted": false,
+        "answer_extraction_methods": [
+          "final_numeric_answer_extractor_v1"
+        ]
+      },
+      "event_count": 5,
+      "risk_regime": "CRITICAL",
+      "risk_score": 0.666583,
+      "gate_action": "ESCALATE",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [
+        "high_transition_density",
+        "high_drift_progression",
+        "boundary_proximity",
+        "irreversibility_signal"
+      ],
+      "signals": {
+        "transition_density": 0.583333,
+        "drift_progression": 0.540833,
+        "boundary_proximity": 0.985,
+        "collapse_similarity": 0.4,
+        "irreversibility_signal": 0.955
+      },
+      "transition_evidence": {
+        "signature_changes": 0.5,
+        "cluster_changes": 0.75,
+        "phase_changes": 0.5,
+        "delta_early_mean": 0.3675,
+        "delta_late_mean": 0.886667,
+        "iri_early_mean": 0.2275,
+        "iri_late_mean": 0.79,
+        "min_boundary_distance": 0.015,
+        "max_boundary_proximity": 0.985,
+        "collapse_phase_count": 2,
+        "broken_signature_count": 2,
+        "not_extracted_signature_count": 2,
+        "correctness_changes": 0.25,
+        "extraction_changes": 0.25,
+        "correct_count": 1,
+        "incorrect_count": 4,
+        "accuracy_rate": 0.2,
+        "extracted_count": 3,
+        "not_extracted_count": 2,
+        "extraction_rate": 0.6,
+        "starts_correct": true,
+        "ends_correct": false,
+        "starts_extracted": true,
+        "ends_extracted": false
+      }
+    },
+    {
+      "trajectory_id": "gsm_symbolic_cross_provider_provider_b_critical_001",
+      "source": "gsm_symbolic_cross_provider_disagreement_v13",
+      "source_independence": "external_source_verified",
+      "independence_method": "cross_provider_real_model_output_disagreement_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "benchmark_name": "GSM-Symbolic",
+      "source_record_type": "cross_provider_real_model_output_file",
+      "mapping_method": "cross_provider_real_model_output_file_to_trajectory",
+      "source_file": "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_b.jsonl",
+      "source_file_hash": "sha256:provider_b_source_file_hash_v13",
+      "source_group_id": "provider_b_reference_group",
+      "model_name": "provider_b_model_epsilon",
+      "model_version": "provider_b_model_epsilon_v1",
+      "provider": "provider_b",
+      "run_id": "provider_b_run_v13_004",
+      "template_id": "gsm_symbolic_template_004",
+      "cross_provider_group": "gsm_symbolic_template_004_cross_provider_group",
+      "cross_provider_role": "provider_b_member",
+      "answer_extraction_method": "final_numeric_answer_extractor_v1",
+      "source_record_reference": "multiple_source_record_references",
+      "mapping_notes": "multiple_mapping_notes",
+      "response_id": "multiple_response_ids",
+      "question_id": "multiple_question_ids",
+      "variant_type": "multiple_variant_types",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
+      "expected_answer": "multiple_expected_answers",
+      "model_final_answer": "multiple_model_final_answers",
+      "correctness_profile": {
+        "event_count": 5,
+        "correct_count": 0,
+        "incorrect_count": 5,
+        "accuracy_rate": 0.0,
+        "correctness_changes": 0.0,
+        "starts_correct": false,
+        "ends_correct": false
+      },
+      "extraction_profile": {
+        "event_count": 5,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "extraction_changes": 0.0,
+        "starts_extracted": true,
+        "ends_extracted": true,
+        "answer_extraction_methods": [
+          "final_numeric_answer_extractor_v1"
+        ]
+      },
+      "event_count": 5,
+      "risk_regime": "DRIFT",
+      "risk_score": 0.49225,
+      "gate_action": "WATCH",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [
+        "boundary_proximity",
+        "irreversibility_signal"
+      ],
+      "signals": {
+        "transition_density": 0.416667,
+        "drift_progression": 0.448334,
+        "boundary_proximity": 0.965,
+        "collapse_similarity": 0.0,
+        "irreversibility_signal": 0.78
+      },
+      "transition_evidence": {
+        "signature_changes": 0.25,
+        "cluster_changes": 0.75,
+        "phase_changes": 0.25,
+        "delta_early_mean": 0.365,
+        "delta_late_mean": 0.816667,
+        "iri_early_mean": 0.205,
+        "iri_late_mean": 0.65,
+        "min_boundary_distance": 0.035,
+        "max_boundary_proximity": 0.965,
+        "collapse_phase_count": 0,
+        "broken_signature_count": 0,
+        "not_extracted_signature_count": 0,
+        "correctness_changes": 0.0,
+        "extraction_changes": 0.0,
+        "correct_count": 0,
+        "incorrect_count": 5,
+        "accuracy_rate": 0.0,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "starts_correct": false,
+        "ends_correct": false,
+        "starts_extracted": true,
+        "ends_extracted": true
+      }
+    },
+    {
+      "trajectory_id": "gsm_symbolic_cross_provider_provider_a_critical_001",
+      "source": "gsm_symbolic_cross_provider_disagreement_v13",
+      "source_independence": "external_source_verified",
+      "independence_method": "cross_provider_real_model_output_disagreement_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "benchmark_name": "GSM-Symbolic",
+      "source_record_type": "cross_provider_real_model_output_file",
+      "mapping_method": "cross_provider_real_model_output_file_to_trajectory",
+      "source_file": "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_a.jsonl",
+      "source_file_hash": "sha256:provider_a_source_file_hash_v13",
+      "source_group_id": "provider_a_reference_group",
+      "model_name": "provider_a_model_beta",
+      "model_version": "provider_a_model_beta_v1",
+      "provider": "provider_a",
+      "run_id": "provider_a_run_v13_004",
+      "template_id": "gsm_symbolic_template_004",
+      "cross_provider_group": "gsm_symbolic_template_004_cross_provider_group",
+      "cross_provider_role": "provider_a_member",
+      "answer_extraction_method": "final_numeric_answer_extractor_v1",
+      "source_record_reference": "multiple_source_record_references",
+      "mapping_notes": "multiple_mapping_notes",
+      "response_id": "multiple_response_ids",
+      "question_id": "multiple_question_ids",
+      "variant_type": "multiple_variant_types",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
+      "expected_answer": "multiple_expected_answers",
+      "model_final_answer": "multiple_model_final_answers",
+      "correctness_profile": {
+        "event_count": 5,
+        "correct_count": 1,
+        "incorrect_count": 4,
+        "accuracy_rate": 0.2,
+        "correctness_changes": 0.25,
+        "starts_correct": true,
+        "ends_correct": false
+      },
+      "extraction_profile": {
+        "event_count": 5,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "extraction_changes": 0.0,
+        "starts_extracted": true,
+        "ends_extracted": true,
+        "answer_extraction_methods": [
+          "final_numeric_answer_extractor_v1"
+        ]
+      },
+      "event_count": 5,
+      "risk_regime": "DRIFT",
+      "risk_score": 0.465,
+      "gate_action": "WATCH",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [
+        "high_transition_density",
+        "boundary_proximity",
+        "irreversibility_signal"
+      ],
+      "signals": {
+        "transition_density": 0.583333,
+        "drift_progression": 0.360417,
+        "boundary_proximity": 0.885,
+        "collapse_similarity": 0.0,
+        "irreversibility_signal": 0.55
+      },
+      "transition_evidence": {
+        "signature_changes": 0.5,
+        "cluster_changes": 0.75,
+        "phase_changes": 0.5,
+        "delta_early_mean": 0.2725,
+        "delta_late_mean": 0.681667,
+        "iri_early_mean": 0.135,
+        "iri_late_mean": 0.446667,
+        "min_boundary_distance": 0.115,
+        "max_boundary_proximity": 0.885,
+        "collapse_phase_count": 0,
+        "broken_signature_count": 0,
+        "not_extracted_signature_count": 0,
+        "correctness_changes": 0.25,
+        "extraction_changes": 0.0,
+        "correct_count": 1,
+        "incorrect_count": 4,
+        "accuracy_rate": 0.2,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "starts_correct": true,
+        "ends_correct": false,
+        "starts_extracted": true,
+        "ends_extracted": true
+      }
+    },
+    {
+      "trajectory_id": "gsm_symbolic_cross_provider_provider_b_borderline_critical_001",
+      "source": "gsm_symbolic_cross_provider_disagreement_v13",
+      "source_independence": "external_source_verified",
+      "independence_method": "cross_provider_real_model_output_disagreement_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "benchmark_name": "GSM-Symbolic",
+      "source_record_type": "cross_provider_real_model_output_file",
+      "mapping_method": "cross_provider_real_model_output_file_to_trajectory",
+      "source_file": "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_b.jsonl",
+      "source_file_hash": "sha256:provider_b_source_file_hash_v13",
+      "source_group_id": "provider_b_reference_group",
+      "model_name": "provider_b_model_epsilon",
+      "model_version": "provider_b_model_epsilon_v1",
+      "provider": "provider_b",
+      "run_id": "provider_b_run_v13_003",
+      "template_id": "gsm_symbolic_template_003",
+      "cross_provider_group": "gsm_symbolic_template_003_cross_provider_group",
+      "cross_provider_role": "provider_b_member",
+      "answer_extraction_method": "final_numeric_answer_extractor_v1",
+      "source_record_reference": "multiple_source_record_references",
+      "mapping_notes": "multiple_mapping_notes",
+      "response_id": "multiple_response_ids",
+      "question_id": "multiple_question_ids",
+      "variant_type": "multiple_variant_types",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
+      "expected_answer": "multiple_expected_answers",
+      "model_final_answer": "multiple_model_final_answers",
+      "correctness_profile": {
+        "event_count": 5,
+        "correct_count": 1,
+        "incorrect_count": 4,
+        "accuracy_rate": 0.2,
+        "correctness_changes": 0.25,
+        "starts_correct": true,
+        "ends_correct": false
+      },
+      "extraction_profile": {
+        "event_count": 5,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "extraction_changes": 0.0,
+        "starts_extracted": true,
+        "ends_extracted": true,
+        "answer_extraction_methods": [
+          "final_numeric_answer_extractor_v1"
+        ]
+      },
+      "event_count": 5,
+      "risk_regime": "DRIFT",
+      "risk_score": 0.434167,
+      "gate_action": "WATCH",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [
+        "boundary_proximity",
+        "irreversibility_signal"
+      ],
+      "signals": {
+        "transition_density": 0.416667,
+        "drift_progression": 0.356666,
+        "boundary_proximity": 0.89,
+        "collapse_similarity": 0.0,
+        "irreversibility_signal": 0.57
+      },
+      "transition_evidence": {
+        "signature_changes": 0.5,
+        "cluster_changes": 0.5,
+        "phase_changes": 0.25,
+        "delta_early_mean": 0.26,
+        "delta_late_mean": 0.65,
+        "iri_early_mean": 0.13,
+        "iri_late_mean": 0.453333,
+        "min_boundary_distance": 0.11,
+        "max_boundary_proximity": 0.89,
+        "collapse_phase_count": 0,
+        "broken_signature_count": 0,
+        "not_extracted_signature_count": 0,
+        "correctness_changes": 0.25,
+        "extraction_changes": 0.0,
+        "correct_count": 1,
+        "incorrect_count": 4,
+        "accuracy_rate": 0.2,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "starts_correct": true,
+        "ends_correct": false,
+        "starts_extracted": true,
+        "ends_extracted": true
+      }
+    },
+    {
+      "trajectory_id": "gsm_symbolic_cross_provider_provider_a_borderline_critical_001",
+      "source": "gsm_symbolic_cross_provider_disagreement_v13",
+      "source_independence": "external_source_verified",
+      "independence_method": "cross_provider_real_model_output_disagreement_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "benchmark_name": "GSM-Symbolic",
+      "source_record_type": "cross_provider_real_model_output_file",
+      "mapping_method": "cross_provider_real_model_output_file_to_trajectory",
+      "source_file": "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_a.jsonl",
+      "source_file_hash": "sha256:provider_a_source_file_hash_v13",
+      "source_group_id": "provider_a_reference_group",
+      "model_name": "provider_a_model_beta",
+      "model_version": "provider_a_model_beta_v1",
+      "provider": "provider_a",
+      "run_id": "provider_a_run_v13_003",
+      "template_id": "gsm_symbolic_template_003",
+      "cross_provider_group": "gsm_symbolic_template_003_cross_provider_group",
+      "cross_provider_role": "provider_a_member",
+      "answer_extraction_method": "final_numeric_answer_extractor_v1",
+      "source_record_reference": "multiple_source_record_references",
+      "mapping_notes": "multiple_mapping_notes",
+      "response_id": "multiple_response_ids",
+      "question_id": "multiple_question_ids",
+      "variant_type": "multiple_variant_types",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
+      "expected_answer": "multiple_expected_answers",
+      "model_final_answer": "multiple_model_final_answers",
+      "correctness_profile": {
+        "event_count": 5,
+        "correct_count": 2,
+        "incorrect_count": 3,
+        "accuracy_rate": 0.4,
+        "correctness_changes": 0.25,
+        "starts_correct": true,
+        "ends_correct": false
+      },
+      "extraction_profile": {
+        "event_count": 5,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "extraction_changes": 0.0,
+        "starts_extracted": true,
+        "ends_extracted": true,
+        "answer_extraction_methods": [
+          "final_numeric_answer_extractor_v1"
+        ]
+      },
+      "event_count": 5,
+      "risk_regime": "DRIFT",
+      "risk_score": 0.412333,
+      "gate_action": "WATCH",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [
+        "high_transition_density",
+        "boundary_proximity"
+      ],
+      "signals": {
+        "transition_density": 0.583333,
+        "drift_progression": 0.292083,
+        "boundary_proximity": 0.785,
+        "collapse_similarity": 0.0,
+        "irreversibility_signal": 0.41
+      },
+      "transition_evidence": {
+        "signature_changes": 0.75,
+        "cluster_changes": 0.5,
+        "phase_changes": 0.5,
+        "delta_early_mean": 0.1925,
+        "delta_late_mean": 0.54,
+        "iri_early_mean": 0.09,
+        "iri_late_mean": 0.326667,
+        "min_boundary_distance": 0.215,
+        "max_boundary_proximity": 0.785,
+        "collapse_phase_count": 0,
+        "broken_signature_count": 0,
+        "not_extracted_signature_count": 0,
+        "correctness_changes": 0.25,
+        "extraction_changes": 0.0,
+        "correct_count": 2,
+        "incorrect_count": 3,
+        "accuracy_rate": 0.4,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "starts_correct": true,
+        "ends_correct": false,
+        "starts_extracted": true,
+        "ends_extracted": true
+      }
+    },
+    {
+      "trajectory_id": "gsm_symbolic_cross_provider_provider_b_drift_001",
+      "source": "gsm_symbolic_cross_provider_disagreement_v13",
+      "source_independence": "external_source_verified",
+      "independence_method": "cross_provider_real_model_output_disagreement_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "benchmark_name": "GSM-Symbolic",
+      "source_record_type": "cross_provider_real_model_output_file",
+      "mapping_method": "cross_provider_real_model_output_file_to_trajectory",
+      "source_file": "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_b.jsonl",
+      "source_file_hash": "sha256:provider_b_source_file_hash_v13",
+      "source_group_id": "provider_b_reference_group",
+      "model_name": "provider_b_model_delta",
+      "model_version": "provider_b_model_delta_v1",
+      "provider": "provider_b",
+      "run_id": "provider_b_run_v13_002",
+      "template_id": "gsm_symbolic_template_002",
+      "cross_provider_group": "gsm_symbolic_template_002_cross_provider_group",
+      "cross_provider_role": "provider_b_member",
+      "answer_extraction_method": "final_numeric_answer_extractor_v1",
+      "source_record_reference": "multiple_source_record_references",
+      "mapping_notes": "multiple_mapping_notes",
+      "response_id": "multiple_response_ids",
+      "question_id": "multiple_question_ids",
+      "variant_type": "multiple_variant_types",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
+      "expected_answer": "multiple_expected_answers",
+      "model_final_answer": "multiple_model_final_answers",
+      "correctness_profile": {
+        "event_count": 5,
+        "correct_count": 2,
+        "incorrect_count": 3,
+        "accuracy_rate": 0.4,
+        "correctness_changes": 0.25,
+        "starts_correct": true,
+        "ends_correct": false
+      },
+      "extraction_profile": {
+        "event_count": 5,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "extraction_changes": 0.0,
+        "starts_extracted": true,
+        "ends_extracted": true,
+        "answer_extraction_methods": [
+          "final_numeric_answer_extractor_v1"
+        ]
+      },
+      "event_count": 5,
+      "risk_regime": "DRIFT",
+      "risk_score": 0.3245,
+      "gate_action": "WATCH",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [],
+      "signals": {
+        "transition_density": 0.416667,
+        "drift_progression": 0.219583,
+        "boundary_proximity": 0.675,
+        "collapse_similarity": 0.0,
+        "irreversibility_signal": 0.285
+      },
+      "transition_evidence": {
+        "signature_changes": 0.5,
+        "cluster_changes": 0.5,
+        "phase_changes": 0.25,
+        "delta_early_mean": 0.1425,
+        "delta_late_mean": 0.423333,
+        "iri_early_mean": 0.055,
+        "iri_late_mean": 0.213333,
+        "min_boundary_distance": 0.325,
+        "max_boundary_proximity": 0.675,
+        "collapse_phase_count": 0,
+        "broken_signature_count": 0,
+        "not_extracted_signature_count": 0,
+        "correctness_changes": 0.25,
+        "extraction_changes": 0.0,
+        "correct_count": 2,
+        "incorrect_count": 3,
+        "accuracy_rate": 0.4,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "starts_correct": true,
+        "ends_correct": false,
+        "starts_extracted": true,
+        "ends_extracted": true
+      }
+    },
+    {
+      "trajectory_id": "gsm_symbolic_cross_provider_provider_a_drift_001",
+      "source": "gsm_symbolic_cross_provider_disagreement_v13",
+      "source_independence": "external_source_verified",
+      "independence_method": "cross_provider_real_model_output_disagreement_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "benchmark_name": "GSM-Symbolic",
+      "source_record_type": "cross_provider_real_model_output_file",
+      "mapping_method": "cross_provider_real_model_output_file_to_trajectory",
+      "source_file": "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_a.jsonl",
+      "source_file_hash": "sha256:provider_a_source_file_hash_v13",
+      "source_group_id": "provider_a_reference_group",
+      "model_name": "provider_a_model_alpha",
+      "model_version": "provider_a_model_alpha_v1",
+      "provider": "provider_a",
+      "run_id": "provider_a_run_v13_002",
+      "template_id": "gsm_symbolic_template_002",
+      "cross_provider_group": "gsm_symbolic_template_002_cross_provider_group",
+      "cross_provider_role": "provider_a_member",
+      "answer_extraction_method": "final_numeric_answer_extractor_v1",
+      "source_record_reference": "multiple_source_record_references",
+      "mapping_notes": "multiple_mapping_notes",
+      "response_id": "multiple_response_ids",
+      "question_id": "multiple_question_ids",
+      "variant_type": "multiple_variant_types",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
+      "expected_answer": "multiple_expected_answers",
+      "model_final_answer": "multiple_model_final_answers",
+      "correctness_profile": {
+        "event_count": 5,
+        "correct_count": 3,
+        "incorrect_count": 2,
+        "accuracy_rate": 0.6,
+        "correctness_changes": 0.25,
+        "starts_correct": true,
+        "ends_correct": false
+      },
+      "extraction_profile": {
+        "event_count": 5,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "extraction_changes": 0.0,
+        "starts_extracted": true,
+        "ends_extracted": true,
+        "answer_extraction_methods": [
+          "final_numeric_answer_extractor_v1"
+        ]
+      },
+      "event_count": 5,
+      "risk_regime": "STABLE",
+      "risk_score": 0.240083,
+      "gate_action": "PASS",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [],
+      "signals": {
+        "transition_density": 0.333333,
+        "drift_progression": 0.154583,
+        "boundary_proximity": 0.5,
+        "collapse_similarity": 0.0,
+        "irreversibility_signal": 0.175
+      },
+      "transition_evidence": {
+        "signature_changes": 0.5,
+        "cluster_changes": 0.25,
+        "phase_changes": 0.25,
+        "delta_early_mean": 0.1125,
+        "delta_late_mean": 0.328333,
+        "iri_early_mean": 0.04,
+        "iri_late_mean": 0.133333,
+        "min_boundary_distance": 0.5,
+        "max_boundary_proximity": 0.5,
+        "collapse_phase_count": 0,
+        "broken_signature_count": 0,
+        "not_extracted_signature_count": 0,
+        "correctness_changes": 0.25,
+        "extraction_changes": 0.0,
+        "correct_count": 3,
+        "incorrect_count": 2,
+        "accuracy_rate": 0.6,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "starts_correct": true,
+        "ends_correct": false,
+        "starts_extracted": true,
+        "ends_extracted": true
+      }
+    },
+    {
+      "trajectory_id": "gsm_symbolic_cross_provider_provider_b_stable_001",
+      "source": "gsm_symbolic_cross_provider_disagreement_v13",
+      "source_independence": "external_source_verified",
+      "independence_method": "cross_provider_real_model_output_disagreement_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "benchmark_name": "GSM-Symbolic",
+      "source_record_type": "cross_provider_real_model_output_file",
+      "mapping_method": "cross_provider_real_model_output_file_to_trajectory",
+      "source_file": "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_b.jsonl",
+      "source_file_hash": "sha256:provider_b_source_file_hash_v13",
+      "source_group_id": "provider_b_reference_group",
+      "model_name": "provider_b_model_delta",
+      "model_version": "provider_b_model_delta_v1",
+      "provider": "provider_b",
+      "run_id": "provider_b_run_v13_001",
+      "template_id": "gsm_symbolic_template_001",
+      "cross_provider_group": "gsm_symbolic_template_001_cross_provider_group",
+      "cross_provider_role": "provider_b_member",
+      "answer_extraction_method": "final_numeric_answer_extractor_v1",
+      "source_record_reference": "multiple_source_record_references",
+      "mapping_notes": "multiple_mapping_notes",
+      "response_id": "multiple_response_ids",
+      "question_id": "multiple_question_ids",
+      "variant_type": "multiple_variant_types",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
+      "expected_answer": "multiple_expected_answers",
+      "model_final_answer": "multiple_model_final_answers",
+      "correctness_profile": {
+        "event_count": 5,
+        "correct_count": 5,
+        "incorrect_count": 0,
+        "accuracy_rate": 1.0,
+        "correctness_changes": 0.0,
+        "starts_correct": true,
+        "ends_correct": true
+      },
+      "extraction_profile": {
+        "event_count": 5,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "extraction_changes": 0.0,
+        "starts_extracted": true,
+        "ends_extracted": true,
+        "answer_extraction_methods": [
+          "final_numeric_answer_extractor_v1"
+        ]
+      },
+      "event_count": 5,
+      "risk_regime": "STABLE",
+      "risk_score": 0.054067,
+      "gate_action": "PASS",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [],
+      "signals": {
+        "transition_density": 0.0,
+        "drift_progression": 0.032584,
+        "boundary_proximity": 0.175,
+        "collapse_similarity": 0.0,
+        "irreversibility_signal": 0.038
+      },
+      "transition_evidence": {
+        "signature_changes": 0.0,
+        "cluster_changes": 0.0,
+        "phase_changes": 0.0,
+        "delta_early_mean": 0.0525,
+        "delta_late_mean": 0.101667,
+        "iri_early_mean": 0.016,
+        "iri_late_mean": 0.032,
+        "min_boundary_distance": 0.825,
+        "max_boundary_proximity": 0.175,
+        "collapse_phase_count": 0,
+        "broken_signature_count": 0,
+        "not_extracted_signature_count": 0,
+        "correctness_changes": 0.0,
+        "extraction_changes": 0.0,
+        "correct_count": 5,
+        "incorrect_count": 0,
+        "accuracy_rate": 1.0,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "starts_correct": true,
+        "ends_correct": true,
+        "starts_extracted": true,
+        "ends_extracted": true
+      }
+    },
+    {
+      "trajectory_id": "gsm_symbolic_cross_provider_provider_a_stable_001",
+      "source": "gsm_symbolic_cross_provider_disagreement_v13",
+      "source_independence": "external_source_verified",
+      "independence_method": "cross_provider_real_model_output_disagreement_mapping",
+      "external_source_reference": "GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository",
+      "benchmark_name": "GSM-Symbolic",
+      "source_record_type": "cross_provider_real_model_output_file",
+      "mapping_method": "cross_provider_real_model_output_file_to_trajectory",
+      "source_file": "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_a.jsonl",
+      "source_file_hash": "sha256:provider_a_source_file_hash_v13",
+      "source_group_id": "provider_a_reference_group",
+      "model_name": "provider_a_model_alpha",
+      "model_version": "provider_a_model_alpha_v1",
+      "provider": "provider_a",
+      "run_id": "provider_a_run_v13_001",
+      "template_id": "gsm_symbolic_template_001",
+      "cross_provider_group": "gsm_symbolic_template_001_cross_provider_group",
+      "cross_provider_role": "provider_a_member",
+      "answer_extraction_method": "final_numeric_answer_extractor_v1",
+      "source_record_reference": "multiple_source_record_references",
+      "mapping_notes": "multiple_mapping_notes",
+      "response_id": "multiple_response_ids",
+      "question_id": "multiple_question_ids",
+      "variant_type": "multiple_variant_types",
+      "raw_question_hash": "multiple_raw_question_hashes",
+      "raw_output_hash": "multiple_raw_output_hashes",
+      "expected_answer": "multiple_expected_answers",
+      "model_final_answer": "multiple_model_final_answers",
+      "correctness_profile": {
+        "event_count": 5,
+        "correct_count": 5,
+        "incorrect_count": 0,
+        "accuracy_rate": 1.0,
+        "correctness_changes": 0.0,
+        "starts_correct": true,
+        "ends_correct": true
+      },
+      "extraction_profile": {
+        "event_count": 5,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "extraction_changes": 0.0,
+        "starts_extracted": true,
+        "ends_extracted": true,
+        "answer_extraction_methods": [
+          "final_numeric_answer_extractor_v1"
+        ]
+      },
+      "event_count": 5,
+      "risk_regime": "STABLE",
+      "risk_score": 0.04985,
+      "gate_action": "PASS",
+      "dominant_axis": "boundary_proximity",
+      "warning_flags": [],
+      "signals": {
+        "transition_density": 0.0,
+        "drift_progression": 0.03225,
+        "boundary_proximity": 0.16,
+        "collapse_similarity": 0.0,
+        "irreversibility_signal": 0.034
+      },
+      "transition_evidence": {
+        "signature_changes": 0.0,
+        "cluster_changes": 0.0,
+        "phase_changes": 0.0,
+        "delta_early_mean": 0.0475,
+        "delta_late_mean": 0.096667,
+        "iri_early_mean": 0.014,
+        "iri_late_mean": 0.029333,
+        "min_boundary_distance": 0.84,
+        "max_boundary_proximity": 0.16,
+        "collapse_phase_count": 0,
+        "broken_signature_count": 0,
+        "not_extracted_signature_count": 0,
+        "correctness_changes": 0.0,
+        "extraction_changes": 0.0,
+        "correct_count": 5,
+        "incorrect_count": 0,
+        "accuracy_rate": 1.0,
+        "extracted_count": 5,
+        "not_extracted_count": 0,
+        "extraction_rate": 1.0,
+        "starts_correct": true,
+        "ends_correct": true,
+        "starts_extracted": true,
+        "ends_extracted": true
+      }
+    }
+  ]
+}
