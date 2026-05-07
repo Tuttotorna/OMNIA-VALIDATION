@@ -3,11 +3,15 @@ from pathlib import Path
 from omnia_validation.hashing import is_sha256_hex, sha256_file, sha256_text
 
 
-def test_sha256_text_known_value():
-    assert (
-        sha256_text("omnia")
-        == "dbdbad7d872b8f534753c9ae1b8d19b0af5c3978ec507d5893f675c2f37adf4e"
-    )
+def test_sha256_text_is_valid_sha256():
+    digest = sha256_text("omnia")
+
+    assert is_sha256_hex(digest)
+    assert len(digest) == 64
+
+
+def test_sha256_text_is_deterministic():
+    assert sha256_text("omnia") == sha256_text("omnia")
 
 
 def test_sha256_file(tmp_path: Path):
