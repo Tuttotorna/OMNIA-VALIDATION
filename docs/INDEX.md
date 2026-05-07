@@ -105,6 +105,18 @@ docs/VALIDATOR_AUTHORING_GUIDE.md
 
 ---
 
+## Result Schema
+
+Common schema for JSON result files:
+
+```text
+docs/RESULT_SCHEMA.md
+```
+
+This document defines the recommended result envelope, status vocabulary, payload fields, hash traceability fields, trajectory fields, topology fields, and failure/boundary reporting rules.
+
+---
+
 ## Consolidation Roadmap
 
 The engineering consolidation roadmap is located in:
@@ -181,11 +193,34 @@ README.md
 docs/INDEX.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
+docs/RESULT_SCHEMA.md
 docs/CONSOLIDATION_ROADMAP_V0.md
 docs/TEMPORAL_COLLAPSE_LEVEL_3_INDEX_V0.md
 docs/TEMPORAL_COLLAPSE_TOPOLOGY_INDEX_V0.md
 CONTRIBUTING.md
 SECURITY.md
+```
+
+---
+
+## Engineering Documents
+
+Current engineering/consolidation documents:
+
+```text
+docs/RUNNING_EXPERIMENTS.md
+docs/VALIDATOR_AUTHORING_GUIDE.md
+docs/RESULT_SCHEMA.md
+docs/CONSOLIDATION_ROADMAP_V0.md
+```
+
+Purpose:
+
+```text
+make experiments runnable
+make validators authorable
+make result files comparable
+make repository structure maintainable
 ```
 
 ---
