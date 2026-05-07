@@ -882,6 +882,7 @@ Available commands:
 hash-file
 validate-sha256
 validate-json
+validate-result
 ```
 
 ---
@@ -992,6 +993,73 @@ Failure output:
 
 ---
 
+### validate-result
+
+```bash
+omnia-validation validate-result <path>
+```
+
+Validates a result JSON file against the canonical OMNIA-VALIDATION result envelope schema.
+
+It checks:
+
+```text
+experiment
+status
+created_at_utc
+boundary
+payload
+```
+
+Valid example:
+
+```bash
+omnia-validation validate-result results/example_validator_v0.json
+```
+
+Expected output:
+
+```json
+{
+  "status": "PASS",
+  "schema": "result_envelope"
+}
+```
+
+Invalid result example:
+
+```json
+{
+  "experiment": "example_validator_v0",
+  "status": "UNKNOWN",
+  "payload": []
+}
+```
+
+Expected output shape:
+
+```json
+{
+  "status": "FAIL",
+  "errors": [
+    "missing required field: boundary",
+    "missing required field: created_at_utc",
+    "status must be one of: CHECK, FAIL, PASS",
+    "payload must be a mapping/object"
+  ]
+}
+```
+
+Boundary:
+
+```text
+validate-result checks structural schema only
+validate-result does not check semantic truth
+validate-result does not certify production safety
+```
+
+---
+
 ## 9. Public Imports
 
 The package exposes common utilities from:
@@ -1098,6 +1166,12 @@ if __name__ == "__main__":
     raise SystemExit(main())
 ```
 
+After generating a result, validate it from the command line:
+
+```bash
+omnia-validation validate-result results/example_validator_v0.json
+```
+
 ---
 
 ## 11. Testing The Package Layer
@@ -1133,6 +1207,7 @@ repetition score behavior
 metadata generation
 result envelope construction
 CLI command behavior
+validate-result CLI behavior
 schema constants
 schema validation
 schema error reporting
@@ -1171,6 +1246,21 @@ Workflow file:
 
 ```text
 .github/workflows/ci.yml
+```
+
+Current CLI smoke test checks:
+
+```text
+validate-sha256
+```
+
+The pytest suite checks:
+
+```text
+validate-json
+validate-result
+hash-file
+validate-sha256
 ```
 
 ---
