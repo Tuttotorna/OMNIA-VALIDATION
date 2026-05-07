@@ -36,6 +36,12 @@ Validator authoring guide:
 docs/VALIDATOR_AUTHORING_GUIDE.md
 ```
 
+Common result schema:
+
+```text
+docs/RESULT_SCHEMA.md
+```
+
 Engineering consolidation roadmap:
 
 ```text
@@ -977,6 +983,7 @@ installable package layer added
 CI-enabled
 clean execution guide added
 validator authoring guide added
+result schema added
 ```
 
 This status is intentional.
