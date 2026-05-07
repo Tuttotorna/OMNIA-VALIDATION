@@ -64,7 +64,7 @@ It is a measurement-derived warning signal for an external decision layer.
 
 Level 3 Progression
 
-Level 3 currently has thirteen validation steps:
+Level 3 currently has fourteen validation steps:
 
 Level 3 v0
   -> synthetic reference trajectories
@@ -105,13 +105,17 @@ Level 3 v11
 Level 3 v12
   -> multi-source real parsed model-output file validation
 
+Level 3 v13
+  -> cross-provider disagreement validation
+
 Current strongest step:
 
-v12 -> multi-source real parsed GSM-Symbolic model-output file validation
+v13 -> cross-provider disagreement validation over real parsed GSM-Symbolic model-output file mappings
 
 Important limitation:
 
-v12 does not imply official benchmark scoring, production certification, or semantic truth detection.
+v13 does not imply official benchmark scoring, production certification,
+semantic truth detection, or final decision authority.
 
 
 ---
@@ -666,10 +670,8 @@ external_source_reference: GSM-Symbolic public benchmark / Apple ml-gsm-symbolic
 benchmark_name:            GSM-Symbolic
 source_record_type:        real_model_output_file
 mapping_method:            real_model_output_file_to_trajectory
-source_file:               data/source_outputs/gsm_symbolic_real_model_outputs_v11_reference.jsonl
-source_file_hash:          sha256:reference_source_file_hash_v11
 
-Mandatory limitation:
+Limitation:
 
 Real parsed model-output file validation does not imply official benchmark scoring.
 
@@ -692,19 +694,32 @@ Highest-risk trajectory:
 
 gsm_symbolic_real_output_collapse_like_001 -> 0.665825 -> CRITICAL -> ESCALATE
 
-Source summary:
+Tracked source-file fields:
 
-reference_model_a_v1 -> 2 trajectories -> average risk 0.151325 -> average accuracy 0.800000 -> extraction 1.000000
-reference_model_b_v1 -> 2 trajectories -> average risk 0.452562 -> average accuracy 0.300000 -> extraction 1.000000
-reference_model_c_v1 -> 1 trajectory   -> average risk 0.665825 -> average accuracy 0.200000 -> extraction 0.600000
+source_file
+source_file_hash
+source_record_reference
+provider
+model_name
+model_version
+run_id
+response_id
+raw_question_hash
+raw_output_hash
+answer_extraction_method
+expected_answer
+model_final_answer
+is_correct
 
 Correct interpretation:
 
-v11 maps real parsed GSM-Symbolic model-output file records into raw ordered structural trajectory events.
+v11 maps real parsed GSM-Symbolic model-output file records into raw ordered structural trajectory events and measures warning risk.
 
 Important rule:
 
-source_file and source_file_hash are required for v11.
+correctness_profile is evidence
+extraction_profile is evidence
+risk_score remains structural warning measurement
 
 v11 does not claim:
 
@@ -723,6 +738,7 @@ Level 3 v12
 
 Files
 
+docs/TEMPORAL_COLLAPSE_MULTI_SOURCE_REAL_GSM_SYMBOLIC_MODEL_OUTPUT_VALIDATOR_V12.md
 data/source_outputs/gsm_symbolic_real_model_outputs_v12_provider_a.jsonl
 data/source_outputs/gsm_symbolic_real_model_outputs_v12_provider_b.jsonl
 data/temporal_collapse_multi_source_real_gsm_symbolic_model_outputs_v12.jsonl
@@ -744,20 +760,32 @@ benchmark_name:            GSM-Symbolic
 source_record_type:        multi_source_real_model_output_file
 mapping_method:            multi_source_real_model_output_file_to_trajectory
 
-Mandatory limitation:
+Limitation:
 
 Multi-source real parsed model-output file validation does not imply official benchmark scoring, production certification, or semantic truth detection.
 
-Dataset scope:
+Aggregate:
 
-source files:        2
-providers:           2
-source groups:       2
-cross-source groups: 5
-trajectories:        10
-events:              50
-models:              6
-model versions:      6
+aggregate_risk_score:       0.395512
+aggregate_risk_regime:      DRIFT
+aggregate_gate_action:      WATCH
+aggregate_accuracy_rate:    0.420000
+aggregate_extraction_rate:  0.900000
+
+Regime counts:
+
+STABLE   -> 3
+DRIFT    -> 4
+CRITICAL -> 3
+COLLAPSE -> 0
+
+Highest-risk trajectory:
+
+gsm_symbolic_multi_source_provider_b_collapse_like_001 -> 0.676146 -> CRITICAL -> ESCALATE
+
+Highest-risk provider:
+
+provider_b
 
 Source files:
 
@@ -774,64 +802,39 @@ Providers:
 provider_a
 provider_b
 
-Aggregate:
-
-aggregate_risk_score:       0.395512
-aggregate_risk_regime:      DRIFT
-aggregate_gate_action:      WATCH
-aggregate_accuracy_rate:    0.420000
-aggregate_extraction_rate:  0.900000
-highest_risk_trajectory:    gsm_symbolic_multi_source_provider_b_collapse_like_001
-highest_risk_score:         0.676146
-highest_risk_provider:      provider_b
-
-Regime counts:
-
-STABLE   -> 3
-DRIFT    -> 4
-CRITICAL -> 3
-COLLAPSE -> 0
-
 Provider summary:
 
-provider_a -> average risk 0.362224 -> average accuracy 0.480000 -> extraction 0.920000
-provider_b -> average risk 0.428800 -> average accuracy 0.360000 -> extraction 0.880000
+provider_a -> 5 trajectories -> average risk 0.362224 -> average accuracy 0.480000 -> extraction 0.920000
+provider_b -> 5 trajectories -> average risk 0.428800 -> average accuracy 0.360000 -> extraction 0.880000
 
-Cross-source summary:
+Cross-source groups:
 
-template_001 -> provider_a 0.053975 STABLE   | provider_b 0.059187 STABLE   | spread 0.005212
-template_002 -> provider_a 0.238417 STABLE   | provider_b 0.362667 DRIFT    | spread 0.124250
-template_003 -> provider_a 0.399479 DRIFT    | provider_b 0.469417 DRIFT    | spread 0.069938
-template_004 -> provider_a 0.457396 DRIFT    | provider_b 0.576583 CRITICAL | spread 0.119187
-template_005 -> provider_a 0.661854 CRITICAL | provider_b 0.676146 CRITICAL | spread 0.014292
-
-Highest-risk trajectory:
-
-gsm_symbolic_multi_source_provider_b_collapse_like_001 -> 0.676146 -> CRITICAL -> ESCALATE
+gsm_symbolic_template_001_cross_source_group
+gsm_symbolic_template_002_cross_source_group
+gsm_symbolic_template_003_cross_source_group
+gsm_symbolic_template_004_cross_source_group
+gsm_symbolic_template_005_cross_source_group
 
 Correct interpretation:
 
-v12 applies the raw trajectory warning mechanism to multi-source real parsed GSM-Symbolic model-output file records mapped into raw ordered structural trajectory events.
+v12 maps multi-source real parsed GSM-Symbolic model-output file records into raw ordered structural trajectory events and measures warning risk across source groups.
 
-Structural reading:
+What v12 adds over v11:
 
-v12 demonstrates coherent multi-source structural warning measurement.
-
-The aggregate system state is DRIFT.
-
-The aggregate gate action is WATCH.
-
-provider_b shows stronger structural warning pressure than provider_a under the tested construction.
-
-No trajectory reaches COLLAPSE under the current thresholds.
+second source file
+provider-level summary
+source-group summary
+cross-source group summary
+source_file_count: 2
+provider_count: 2
+model_count: 6
+trajectory_count: 10
+event_count: 50
 
 Important rule:
 
-provider comparison is structural evidence only
+multi-source agreement or disagreement is evidence
 risk_score remains structural warning measurement
-correctness_profile is evidence
-extraction_profile is evidence
-gate_action is not a final decision
 
 v12 does not claim:
 
@@ -841,7 +844,143 @@ official benchmark correctness scoring
 production certification
 model cognition detection
 universal collapse prediction
-provider semantic ranking
+final decision authority
+
+
+---
+
+Level 3 v13
+
+Files
+
+docs/TEMPORAL_COLLAPSE_CROSS_PROVIDER_DISAGREEMENT_VALIDATOR_V13.md
+data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_a.jsonl
+data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_b.jsonl
+data/temporal_collapse_cross_provider_disagreement_v13.jsonl
+examples/temporal_collapse_cross_provider_disagreement_validator_v13.py
+results/temporal_collapse_cross_provider_disagreement_validator_v13.json
+docs/TEMPORAL_COLLAPSE_CROSS_PROVIDER_DISAGREEMENT_VALIDATOR_V13_RESULT.md
+
+Result
+
+PASS
+
+Boundary:
+
+source:                    gsm_symbolic_cross_provider_disagreement_v13
+source_independence:       external_source_verified
+independence_method:       cross_provider_real_model_output_disagreement_mapping
+external_source_reference: GSM-Symbolic public benchmark / Apple ml-gsm-symbolic repository
+benchmark_name:            GSM-Symbolic
+source_record_type:        cross_provider_real_model_output_file
+mapping_method:            cross_provider_real_model_output_file_to_trajectory
+
+Limitation:
+
+Cross-provider disagreement validation does not imply official benchmark scoring, production certification, semantic truth detection, or final decision authority.
+
+Aggregate:
+
+aggregate_risk_score:       0.385325
+aggregate_risk_regime:      DRIFT
+aggregate_gate_action:      WATCH
+aggregate_accuracy_rate:    0.400000
+aggregate_extraction_rate:  0.900000
+
+Regime counts:
+
+STABLE   -> 3
+DRIFT    -> 5
+CRITICAL -> 2
+COLLAPSE -> 0
+
+Highest-risk trajectory:
+
+gsm_symbolic_cross_provider_provider_b_collapse_like_001 -> 0.714417 -> CRITICAL -> ESCALATE
+
+Highest-risk provider:
+
+provider_b
+
+Source files:
+
+data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_a.jsonl
+data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_b.jsonl
+
+Source file hashes:
+
+sha256:provider_a_source_file_hash_v13
+sha256:provider_b_source_file_hash_v13
+
+Providers:
+
+provider_a
+provider_b
+
+Provider summary:
+
+provider_a -> 5 trajectories -> average risk 0.366770 -> average accuracy 0.480000 -> extraction 0.920000
+provider_b -> 5 trajectories -> average risk 0.403880 -> average accuracy 0.320000 -> extraction 0.880000
+
+Cross-provider groups:
+
+gsm_symbolic_template_001_cross_provider_group
+gsm_symbolic_template_002_cross_provider_group
+gsm_symbolic_template_003_cross_provider_group
+gsm_symbolic_template_004_cross_provider_group
+gsm_symbolic_template_005_cross_provider_group
+
+Cross-provider disagreement summary:
+
+risk regime disagreement -> 1 / 5 groups
+accuracy disagreement    -> 4 / 5 groups
+extraction disagreement  -> 1 / 5 groups
+
+Strongest risk-regime disagreement:
+
+gsm_symbolic_template_002_cross_provider_group
+
+provider_a -> 0.240083 -> STABLE
+provider_b -> 0.324500 -> DRIFT
+
+Strongest absolute risk:
+
+gsm_symbolic_template_005_cross_provider_group
+
+provider_a -> 0.666583 -> CRITICAL
+provider_b -> 0.714417 -> CRITICAL
+
+What v13 adds over v12:
+
+cross_provider_group
+cross_provider_role
+cross_provider_risk_spread
+cross_provider_accuracy_spread
+cross_provider_extraction_spread
+risk_regime_disagreement
+accuracy_disagreement
+extraction_disagreement
+highest_risk_provider
+
+Correct interpretation:
+
+v13 measures structural warning risk and cross-provider disagreement over real parsed GSM-Symbolic model-output file records mapped into raw ordered structural trajectory events.
+
+Important rule:
+
+cross-provider disagreement is evidence
+correctness_profile is evidence
+extraction_profile is evidence
+risk_score remains structural warning measurement
+
+v13 does not claim:
+
+GSM-Symbolic solving
+semantic truth detection
+official benchmark correctness scoring
+production certification
+model cognition detection
+universal collapse prediction
 final decision authority
 
 
@@ -875,9 +1014,9 @@ risk_score =
 
 ---
 
-Risk Formula v3/v4/v5/v6/v7/v8/v9/v10/v11/v12
+Risk Formula v3/v4/v5/v6/v7/v8/v9/v10/v11/v12/v13
 
-Level 3 v3 through v12 use the raw ordered trajectory variant:
+Level 3 v3 through v13 use the raw ordered trajectory variant:
 
 risk_score =
     0.20 * transition_density
@@ -896,7 +1035,6 @@ iri progression
 boundary distance
 collapse phase count
 broken signature markers
-not-extracted signature markers
 
 v9 additionally tracks:
 
@@ -928,28 +1066,44 @@ real parsed model-output file mapping
 source_file
 source_file_hash
 source_record_reference
-source_record_type: real_model_output_file
-mapping_method: real_model_output_file_to_trajectory
+provider
+source file identity
+model-output identity
+answer-extraction identity
 
 v12 additionally tracks:
 
 multi-source real parsed model-output file mapping
-multiple source files
-multiple providers
-multiple source groups
-multiple model identities
-cross-source groups
-cross-source risk spread
-highest-risk provider
-provider summary
-source-group summary
-cross-source summary
+source_group_id
+source_file_count
+source_file_hash_count
+provider_count
+model_count
+model_version_count
+cross_source_group
+cross_source_role
+provider_summary
+source_group_summary
+cross_source_summary
+
+v13 additionally tracks:
+
+cross-provider disagreement mapping
+cross_provider_group
+cross_provider_role
+cross_provider_risk_spread
+cross_provider_accuracy_spread
+cross_provider_extraction_spread
+risk_regime_disagreement
+accuracy_disagreement
+extraction_disagreement
+highest_risk_provider
 
 Important boundary:
 
 is_correct is evidence
 extraction_profile is evidence
-provider comparison is evidence
+provider disagreement is evidence
 risk_score remains structural warning measurement
 
 
@@ -1004,6 +1158,7 @@ temporal-collapse signatures
   -> bounded actual-output-style model-output mapping
   -> real parsed model-output file validation
   -> multi-source real parsed model-output file validation
+  -> cross-provider disagreement validation
 
 The Level 3 warning layer exists because Level 2 mapped structural boundaries.
 
@@ -1014,7 +1169,7 @@ With the Level 2 boundary map, Level 3 becomes bounded structural navigation.
 
 ---
 
-Structural Reading Across v0 to v12
+Structural Reading Across v0 to v13
 
 v0
 
@@ -1111,7 +1266,7 @@ v11 adds:
 source_file
 source_file_hash
 source_record_reference
-real parsed model-output file boundary
+real parsed model-output file identity
 
 v11 mandatory limitation:
 
@@ -1126,20 +1281,38 @@ multi-source real parsed GSM-Symbolic model-output file mappings
 
 v12 adds:
 
-multiple source files
-multiple providers
-multiple source groups
-multiple model identities
-cross-source groups
-cross-source risk spread
-highest-risk provider
-provider summary
-source-group summary
-cross-source summary
+two source files
+two providers
+six model versions
+source group summaries
+provider summaries
+cross-source summaries
 
 v12 mandatory limitation:
 
-multi-source real parsed model-output file validation does not imply official benchmark scoring, production certification, or semantic truth detection
+multi-source real parsed model-output file validation does not imply official benchmark scoring,
+production certification, or semantic truth detection
+
+v13
+
+cross-provider real parsed GSM-Symbolic model-output file mappings
+  -> STABLE / DRIFT / CRITICAL regimes separated
+  -> source_record_type: cross_provider_real_model_output_file
+  -> mapping_method: cross_provider_real_model_output_file_to_trajectory
+
+v13 adds:
+
+cross-provider disagreement measurement
+risk regime disagreement
+accuracy disagreement
+extraction disagreement
+cross-provider risk spread
+highest-risk provider
+
+v13 mandatory limitation:
+
+cross-provider disagreement validation does not imply official benchmark scoring,
+production certification, semantic truth detection, or final decision authority
 
 
 ---
@@ -1160,54 +1333,63 @@ to direct public benchmark record mapping,
 to direct answer-trace mapping,
 to bounded actual-output-style model-output mapping,
 to real parsed model-output file validation,
-to multi-source real parsed model-output file validation.
+to multi-source real parsed model-output file validation,
+to cross-provider disagreement validation.
 
 Current strongest result:
 
-Level 3 v12
+Level 3 v13
 
 Current strongest boundary:
 
-multi-source real parsed GSM-Symbolic model-output file records
+cross-provider real parsed GSM-Symbolic model-output file records
 mapped into raw ordered structural trajectory events
 
 Current strongest result values:
 
-aggregate_risk_score:       0.395512
+aggregate_risk_score:       0.385325
 aggregate_risk_regime:      DRIFT
 aggregate_gate_action:      WATCH
-aggregate_accuracy_rate:    0.420000
+aggregate_accuracy_rate:    0.400000
 aggregate_extraction_rate:  0.900000
-highest_risk:               gsm_symbolic_multi_source_provider_b_collapse_like_001
-highest_score:              0.676146
 highest_risk_provider:      provider_b
+highest_risk_trajectory:    gsm_symbolic_cross_provider_provider_b_collapse_like_001
+highest_risk_score:         0.714417
+
+Current disagreement summary:
+
+risk regime disagreement -> 1 / 5 groups
+accuracy disagreement    -> 4 / 5 groups
+extraction disagreement  -> 1 / 5 groups
 
 Correct interpretation:
 
-v12 demonstrates coherent multi-source structural warning measurement over real parsed GSM-Symbolic model-output file mappings.
+v13 demonstrates coherent structural warning-risk measurement and cross-provider
+disagreement measurement over bounded mapped real parsed GSM-Symbolic
+model-output file records.
 
 Incorrect interpretation:
 
-v12 proves that OMNIA solves GSM-Symbolic.
+v13 proves that OMNIA solves GSM-Symbolic.
 
 
 ---
 
 Safe Claim
 
-OMNIA-VALIDATION Level 3 v12 applied the raw trajectory warning mechanism
-to multi-source real parsed GSM-Symbolic model-output file records mapped into
-raw ordered structural events.
+OMNIA-VALIDATION Level 3 v13 applies the raw trajectory warning mechanism
+to cross-provider real parsed GSM-Symbolic model-output file records mapped
+into raw ordered structural events.
 
-The validator separated STABLE, DRIFT, and CRITICAL regimes, tracked
-correctness profiles, tracked extraction profiles, preserved source-file
-references, preserved provider/model/source boundaries, and compared
-cross-source warning pressure.
+The validator separates STABLE, DRIFT, and CRITICAL regimes, tracks correctness
+profiles, tracks extraction profiles, preserves source/model/provider boundaries,
+and exposes cross-provider disagreement evidence.
 
 The result is bounded, reproducible, and falsifiable.
 
-It is not official benchmark scoring, not semantic truth detection, and not a
-final decision system.
+It does not claim GSM-Symbolic solving, semantic truth detection, official
+benchmark scoring, production certification, universal collapse prediction, or
+final decision authority.
 
 
 ---
@@ -1236,11 +1418,11 @@ OMNIA solves GSM-Symbolic.
 
 Do not claim:
 
-v12 is official public GSM-Symbolic benchmark scoring.
+v13 is an official public GSM-Symbolic model-output benchmark run.
 
 Do not claim:
 
-provider_b is semantically worse than provider_a.
+cross-provider disagreement proves semantic failure.
 
 Do not claim:
 
@@ -1256,8 +1438,9 @@ Extraction failure automatically means semantic collapse.
 
 Correct boundary:
 
-Level 3 v12 measures structural warning risk over multi-source real parsed
-GSM-Symbolic model-output file records mapped into raw ordered trajectory events.
+Level 3 v13 measures structural warning risk and cross-provider disagreement
+over real parsed GSM-Symbolic model-output file records mapped into raw ordered
+trajectory events.
 
 
 ---
@@ -1315,6 +1498,7 @@ Level 3 v9
   -> PASS
   -> source record type: answer_trace
   -> mapping method: answer_trace_to_trajectory
+  -> aggregate accuracy rate: 0.480000
 
 Level 3 v10
   -> bounded actual-output-style model-output mapping
@@ -1332,77 +1516,91 @@ Level 3 v11
   -> mapping method: real_model_output_file_to_trajectory
   -> aggregate accuracy rate: 0.480000
   -> aggregate extraction rate: 0.920000
-  -> source file references preserved
 
 Level 3 v12
   -> multi-source real parsed model-output file validation
   -> PASS
   -> source record type: multi_source_real_model_output_file
   -> mapping method: multi_source_real_model_output_file_to_trajectory
-  -> aggregate accuracy rate: 0.420000
-  -> aggregate extraction rate: 0.900000
   -> provider count: 2
-  -> source file count: 2
   -> model count: 6
-  -> cross-source group count: 5
-  -> aggregate DRIFT
-  -> highest-risk provider: provider_b
+  -> trajectory count: 10
+  -> event count: 50
+
+Level 3 v13
+  -> cross-provider disagreement validation
+  -> PASS
+  -> source record type: cross_provider_real_model_output_file
+  -> mapping method: cross_provider_real_model_output_file_to_trajectory
+  -> provider count: 2
+  -> model count: 6
+  -> trajectory count: 10
+  -> event count: 50
+  -> risk regime disagreement: 1 / 5 groups
+  -> accuracy disagreement: 4 / 5 groups
+  -> extraction disagreement: 1 / 5 groups
 
 
 ---
 
 Next Step
 
-The next validation step is to move from multi-source comparison to explicit cross-source disagreement measurement.
+The next validation step should move from cross-provider disagreement measurement to either repeated-run stability or independent run-set replication.
 
-Target direction:
+Possible v14 directions:
 
-Level 3 v13
-  -> cross-provider disagreement-aware structural warning validation
+Level 3 v14
+  -> repeated-run cross-provider stability validation
 
-Possible v13 source classes:
+Level 3 v14
+  -> independent run-set replication validation
 
-multi-provider GSM-Symbolic output comparisons
-cross-provider answer disagreement traces
-cross-source extraction disagreement traces
-provider-switch instability traces
-same-template multi-model structural divergence traces
+Level 3 v14
+  -> multi-run provider disagreement stability validation
 
-Possible v13 target files:
+Recommended v14 direction:
 
-docs/TEMPORAL_COLLAPSE_CROSS_PROVIDER_DISAGREEMENT_VALIDATOR_V13.md
-data/temporal_collapse_cross_provider_disagreement_v13.jsonl
-examples/temporal_collapse_cross_provider_disagreement_validator_v13.py
-results/temporal_collapse_cross_provider_disagreement_validator_v13.json
-docs/TEMPORAL_COLLAPSE_CROSS_PROVIDER_DISAGREEMENT_VALIDATOR_V13_RESULT.md
+Level 3 v14
+  -> repeated-run cross-provider stability validation
 
-v13 should preserve:
+Target objective:
 
+Test whether the cross-provider warning and disagreement patterns remain stable
+across repeated mapped runs, instead of appearing only in one bounded run set.
+
+Possible v14 source classes:
+
+repeated provider output files
+multiple run ids per provider
+same template groups across repeated runs
+provider-level run variance
+cross-provider disagreement persistence
+run-to-run risk drift
+
+Target fields to preserve:
+
+run_id
+repeat_id
 source_file
 source_file_hash
 provider
 model_name
 model_version
-run_id
 response_id
-template_id
-question_id
-variant_type
+raw_question_hash
+raw_output_hash
+answer_extraction_method
 expected_answer
 model_final_answer
 is_correct
-answer_extraction_method
-cross_source_group
-cross_source_role
-cross_source_risk_spread
-cross_source_regime_disagreement
-cross_source_accuracy_disagreement
-cross_source_extraction_disagreement
-highest_risk_provider
-provider_instability_index
+cross_provider_group
+cross_provider_role
+cross_run_group
+cross_run_role
+risk_regime_disagreement
+accuracy_disagreement
+extraction_disagreement
 
-The v13 objective is not to claim semantic truth or official benchmark scoring.
+The v14 objective should not be to claim benchmark solving.
 
-The v13 objective is to test whether cross-provider disagreement itself becomes a measurable structural warning signal.
-
-measurement != inference != decision
+The v14 objective should be to test whether v13 disagreement measurements remain structurally stable across repeated mapped run sets.
