@@ -138,6 +138,42 @@ release hygiene
 
 ---
 
+## Release Policy
+
+Release policy:
+
+```text
+docs/RELEASE_POLICY.md
+```
+
+This document defines how repository states should be frozen, tagged, archived, and described without overclaiming.
+
+It covers:
+
+```text
+release types
+version naming
+pre-release checks
+CI requirements
+result artifact rules
+legacy normalization rules
+Zenodo / DOI interpretation
+GitHub release procedure
+schema change policy
+release notes
+non-claim language
+release readiness levels
+```
+
+Core release boundary:
+
+```text
+a release is a checkpoint
+not a final truth claim
+```
+
+---
+
 ## Validator Authoring Guide
 
 Guide for adding new validators:
@@ -396,6 +432,7 @@ README.md
 docs/INDEX.md
 docs/PROJECT_STATUS.md
 docs/MAINTENANCE.md
+docs/RELEASE_POLICY.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/RESULT_SCHEMA.md
@@ -418,6 +455,7 @@ Current engineering/consolidation documents:
 ```text
 docs/PROJECT_STATUS.md
 docs/MAINTENANCE.md
+docs/RELEASE_POLICY.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/RESULT_SCHEMA.md
@@ -432,6 +470,7 @@ Purpose:
 ```text
 declare current project state
 define maintenance discipline
+define release discipline
 make experiments runnable
 make validators authorable
 make result files comparable
@@ -452,6 +491,7 @@ installable package layer
 basic unit tests
 green CI
 maintenance guide
+release policy
 clean execution guide
 validator authoring guide
 common result schema
@@ -472,7 +512,6 @@ full validator registry
 result regression tests
 experiment-chain CI
 artifact hash manifest
-release policy
 issue templates
 pull request template
 ```
@@ -580,6 +619,45 @@ Full policy:
 
 ```text
 docs/MAINTENANCE.md
+```
+
+---
+
+## Release Policy
+
+A release is a frozen repository state.
+
+It should mean:
+
+```text
+this repository state was tested, documented, and frozen
+```
+
+It must not mean:
+
+```text
+this proves semantic truth
+this certifies production safety
+this proves universal validity
+```
+
+Before release, the project should have:
+
+```text
+CI green
+pytest passing
+ruff passing
+README aligned
+docs aligned
+result schema checks passing
+known limitations visible
+non-claims explicit
+```
+
+Full policy:
+
+```text
+docs/RELEASE_POLICY.md
 ```
 
 ---
