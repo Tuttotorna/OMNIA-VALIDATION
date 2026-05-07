@@ -9,6 +9,7 @@ from pathlib import Path
 
 from .hashing import is_sha256_hex, sha256_file
 from .io import read_json, read_jsonl
+from .schemas import validate_result_envelope
 
 
 def _cmd_hash_file(args: argparse.Namespace) -> int:
@@ -44,6 +45,41 @@ def _cmd_validate_json(args: argparse.Namespace) -> int:
         return 1
 
 
+def _cmd_validate_result(args: argparse.Namespace) -> int:
+    path = Path(args.path)
+
+    try:
+        result = read_json(path)
+        errors = validate_result_envelope(result)
+
+        if errors:
+            print(
+                json.dumps(
+                    {
+                        "status": "FAIL",
+                        "errors": errors,
+                    },
+                    indent=2,
+                )
+            )
+            return 1
+
+        print(
+            json.dumps(
+                {
+                    "status": "PASS",
+                    "schema": "result_envelope",
+                },
+                indent=2,
+            )
+        )
+        return 0
+
+    except Exception as exc:
+        print(json.dumps({"status": "FAIL", "error": str(exc)}, indent=2))
+        return 1
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="omnia-validation",
@@ -69,6 +105,13 @@ def build_parser() -> argparse.ArgumentParser:
     )
     json_parser.add_argument("path")
     json_parser.set_defaults(func=_cmd_validate_json)
+
+    result_parser = subparsers.add_parser(
+        "validate-result",
+        help="Validate a result JSON file against the canonical result envelope schema",
+    )
+    result_parser.add_argument("path")
+    result_parser.set_defaults(func=_cmd_validate_result)
 
     return parser
 
