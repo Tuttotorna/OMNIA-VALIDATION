@@ -36,6 +36,12 @@ Maintenance guide:
 docs/MAINTENANCE.md
 ```
 
+Release policy:
+
+```text
+docs/RELEASE_POLICY.md
+```
+
 Clean execution guide:
 
 ```text
@@ -243,6 +249,52 @@ convert CHECK to PASS without revalidation
 hide failures
 remove boundary statements
 treat normalization as scientific proof
+```
+
+---
+
+## Release Policy
+
+Release rules are defined in:
+
+```text
+docs/RELEASE_POLICY.md
+```
+
+A release is a frozen repository state.
+
+It should mean:
+
+```text
+this repository state was tested, documented, and frozen
+```
+
+It must not mean:
+
+```text
+this proves semantic truth
+this certifies production safety
+this proves universal validity
+this is a final scientific theory
+```
+
+Before any release, the repository should have:
+
+```text
+CI green
+pytest passing
+ruff passing
+README aligned
+docs aligned
+schema checks passing
+known limitations visible
+non-claims explicit
+```
+
+Release boundary:
+
+```text
+measurement != inference != decision
 ```
 
 ---
@@ -1252,6 +1304,7 @@ partially industrialized
 installable package layer added
 CI-enabled
 maintenance guide added
+release policy added
 clean execution guide added
 validator authoring guide added
 result schema added
