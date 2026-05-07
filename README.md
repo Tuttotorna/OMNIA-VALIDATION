@@ -1,9 +1,3 @@
-Nome file:
-
-README.md
-
-Contenuto completo da incollare:
-
 # OMNIA-VALIDATION
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20062456.svg)](https://doi.org/10.5281/zenodo.20062456)
