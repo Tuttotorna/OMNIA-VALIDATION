@@ -16,6 +16,108 @@ measurement != inference != decision
 
 ---
 
+## Documentation Index
+
+Canonical documentation index:
+
+```text
+docs/INDEX.md
+```
+
+Engineering consolidation roadmap:
+
+```text
+docs/CONSOLIDATION_ROADMAP_V0.md
+```
+
+Contribution guide:
+
+```text
+CONTRIBUTING.md
+```
+
+Security policy:
+
+```text
+SECURITY.md
+```
+
+---
+
+## Package Layer
+
+OMNIA-VALIDATION now includes a minimal installable Python package layer:
+
+```text
+omnia_validation/
+```
+
+Current reusable modules:
+
+```text
+omnia_validation.hashing
+omnia_validation.io
+omnia_validation.metrics
+omnia_validation.metadata
+omnia_validation.cli
+```
+
+This package layer does not replace the experimental scripts.
+
+It provides reusable support utilities for reproducibility, hashing, JSON/JSONL handling, metadata envelopes, and simple structural metrics.
+
+Install in editable development mode:
+
+```bash
+python -m pip install -e ".[dev]"
+```
+
+Run tests:
+
+```bash
+pytest -q
+```
+
+Run linting:
+
+```bash
+ruff check omnia_validation tests
+```
+
+Example CLI checks:
+
+```bash
+omnia-validation validate-sha256 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+omnia-validation validate-json results/example.json
+omnia-validation hash-file data/example.jsonl
+```
+
+---
+
+## Continuous Integration
+
+The repository includes a GitHub Actions workflow:
+
+```text
+.github/workflows/ci.yml
+```
+
+The CI checks:
+
+```text
+Python 3.10
+Python 3.11
+Python 3.12
+package installation
+ruff
+pytest
+CLI smoke test
+```
+
+This makes the repository more reproducible without changing the research boundary.
+
+---
+
 ## Purpose
 
 OMNIA-VALIDATION tests whether structural measurements remain meaningful under controlled pressure.
@@ -773,7 +875,19 @@ phase-like structural zones
 
 ## Repository Structure
 
-Typical structure:
+Current important directories:
+
+```text
+docs/              -> technical documentation and result reports
+examples/          -> runnable validation scripts
+results/           -> generated JSON result files
+data/              -> bounded datasets and source-output records
+omnia_validation/  -> reusable Python package utilities
+tests/             -> pytest suite
+.github/workflows/ -> CI workflow
+```
+
+Typical experimental structure may include:
 
 ```text
 docs/
@@ -785,15 +899,6 @@ reproducibility/
 synthetic/
 stress_tests/
 cross_domain/
-```
-
-Current important directories:
-
-```text
-docs/      -> technical documentation and result reports
-examples/  -> runnable validation scripts
-results/   -> generated JSON result files
-data/      -> bounded datasets and source-output records
 ```
 
 ---
@@ -856,6 +961,8 @@ experimental
 falsification-oriented
 pressure-driven
 non-final
+installable package layer added
+CI-enabled
 ```
 
 This status is intentional.
