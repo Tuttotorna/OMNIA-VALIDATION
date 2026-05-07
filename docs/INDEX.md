@@ -150,6 +150,29 @@ It explains available functions, CLI commands, recommended validator usage, test
 
 ---
 
+## Project Status
+
+Current repository status:
+
+```text
+docs/PROJECT_STATUS.md
+```
+
+This document states what is ready, what is experimental, what is partially consolidated, what is missing, and what is not claimed.
+
+It separates:
+
+```text
+ready components
+experimental components
+partial consolidation
+missing engineering work
+scientific boundaries
+production non-claims
+```
+
+---
+
 ## Consolidation Roadmap
 
 The engineering consolidation roadmap is located in:
@@ -238,6 +261,7 @@ Suggested reading order for new visitors:
 ```text
 README.md
 docs/INDEX.md
+docs/PROJECT_STATUS.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/RESULT_SCHEMA.md
@@ -256,6 +280,7 @@ SECURITY.md
 Current engineering/consolidation documents:
 
 ```text
+docs/PROJECT_STATUS.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/RESULT_SCHEMA.md
@@ -266,11 +291,44 @@ docs/CONSOLIDATION_ROADMAP_V0.md
 Purpose:
 
 ```text
+declare current project state
 make experiments runnable
 make validators authorable
 make result files comparable
 make package utilities documented
 make repository structure maintainable
+```
+
+---
+
+## Current Engineering State
+
+The repository currently includes:
+
+```text
+installable package layer
+basic unit tests
+green CI
+clean execution guide
+validator authoring guide
+common result schema
+package API documentation
+project status document
+consolidation roadmap
+```
+
+Still missing:
+
+```text
+schema validation utility
+full validator registry
+result regression tests
+experiment-chain CI
+artifact hash manifest
+release policy
+maintenance guide
+issue templates
+pull request template
 ```
 
 ---
