@@ -13,6 +13,7 @@ comparable
 reproducible
 auditable
 falsifiable
+schema-checkable
 ```
 
 Core boundary:
@@ -29,7 +30,68 @@ It does not make final decisions.
 
 ---
 
-## 1. Canonical Result Envelope
+## 1. Schema Validation Module
+
+The result schema is now partially enforceable through the package module:
+
+```text
+omnia_validation.schemas
+```
+
+Source file:
+
+```text
+omnia_validation/schemas.py
+```
+
+Current schema helpers:
+
+```text
+validate_result_envelope
+is_valid_result_envelope
+require_valid_result_envelope
+```
+
+Current schema constants:
+
+```text
+ALLOWED_RESULT_STATUSES
+REQUIRED_RESULT_FIELDS
+DEFAULT_BOUNDARY
+```
+
+Important limitation:
+
+```text
+The current schema validator checks the canonical top-level envelope only.
+It does not yet validate every possible payload field.
+```
+
+This means the current code checks:
+
+```text
+experiment
+status
+created_at_utc
+boundary
+payload
+```
+
+It does not yet fully enforce:
+
+```text
+trajectory payload fields
+topology payload fields
+hash payload fields
+regime payload fields
+failure mode vocabulary
+```
+
+Those may be added in later schema versions.
+
+---
+
+## 2. Canonical Result Envelope
 
 Every result file should use this top-level structure:
 
@@ -53,9 +115,23 @@ boundary
 payload
 ```
 
+These fields are defined in code as:
+
+```python
+REQUIRED_RESULT_FIELDS = frozenset(
+    {
+        "experiment",
+        "status",
+        "created_at_utc",
+        "boundary",
+        "payload",
+    }
+)
+```
+
 ---
 
-## 2. Field Definitions
+## 3. Field Definitions
 
 ### experiment
 
@@ -74,6 +150,15 @@ lowercase snake_case
 explicit domain
 explicit pressure condition
 explicit version
+non-empty string
+```
+
+The current schema validator checks that:
+
+```text
+experiment is present
+experiment is a string
+experiment is not empty
 ```
 
 ---
@@ -88,6 +173,12 @@ Allowed values:
 PASS
 CHECK
 FAIL
+```
+
+These are defined in code as:
+
+```python
+ALLOWED_RESULT_STATUSES = frozenset({"PASS", "CHECK", "FAIL"})
 ```
 
 Meaning:
@@ -107,6 +198,14 @@ FAIL is a valid scientific output.
 
 A result should not be rewritten only to obtain `PASS`.
 
+The current schema validator checks that:
+
+```text
+status is present
+status is a string
+status is one of PASS, CHECK, FAIL
+```
+
 ---
 
 ### created_at_utc
@@ -116,13 +215,23 @@ The UTC timestamp when the result was generated.
 Recommended format:
 
 ```text
-ISO-8601
+ISO-8601 UTC
 ```
 
-Example:
+Accepted examples:
 
 ```text
 2026-05-07T00:00:00+00:00
+2026-05-07T00:00:00Z
+```
+
+The current schema validator checks that:
+
+```text
+created_at_utc is present
+created_at_utc is a string
+created_at_utc is not empty
+created_at_utc contains +00:00 or ends with Z
 ```
 
 ---
@@ -137,7 +246,21 @@ Default value:
 measurement != inference != decision
 ```
 
+This is defined in code as:
+
+```python
+DEFAULT_BOUNDARY = "measurement != inference != decision"
+```
+
 This field should remain visible in every result file.
+
+The current schema validator checks that:
+
+```text
+boundary is present
+boundary is a string
+boundary equals measurement != inference != decision
+```
 
 ---
 
@@ -149,9 +272,91 @@ The payload contains counts, metrics, regimes, failure modes, paths, hashes, sum
 
 It must be a JSON object.
 
+The current schema validator checks that:
+
+```text
+payload is present
+payload is a mapping/object
+```
+
 ---
 
-## 3. Recommended Base Payload
+## 4. Validating A Result Envelope
+
+Basic validation:
+
+```python
+from omnia_validation.schemas import validate_result_envelope
+
+errors = validate_result_envelope(result)
+
+if errors:
+    print(errors)
+else:
+    print("PASS")
+```
+
+Boolean validation:
+
+```python
+from omnia_validation.schemas import is_valid_result_envelope
+
+if is_valid_result_envelope(result):
+    print("valid")
+else:
+    print("invalid")
+```
+
+Strict validation:
+
+```python
+from omnia_validation.schemas import require_valid_result_envelope
+
+require_valid_result_envelope(result)
+```
+
+If the result is invalid, `require_valid_result_envelope` raises:
+
+```text
+ValueError
+```
+
+---
+
+## 5. Recommended Validator Usage
+
+A validator should build the result, validate it, then write it.
+
+Recommended pattern:
+
+```python
+from omnia_validation.io import write_json
+from omnia_validation.metadata import result_envelope
+from omnia_validation.schemas import require_valid_result_envelope
+
+payload = {
+    "record_count": 10,
+    "input_path": "data/example_input_v0.jsonl",
+    "output_path": "results/example_validator_v0.json",
+    "main_signal": "record_presence",
+    "decision_reason": "Input records were valid.",
+}
+
+result = result_envelope(
+    experiment="example_validator_v0",
+    status="PASS",
+    payload=payload,
+)
+
+require_valid_result_envelope(result)
+write_json("results/example_validator_v0.json", result)
+```
+
+This makes result generation fail early if the top-level envelope is invalid.
+
+---
+
+## 6. Recommended Base Payload
 
 Every validator payload should include at least:
 
@@ -175,9 +380,16 @@ main_signal
 decision_reason
 ```
 
+Current enforcement status:
+
+```text
+recommended
+not yet automatically enforced
+```
+
 ---
 
-## 4. Common Payload Fields
+## 7. Common Payload Fields
 
 Use these fields when applicable:
 
@@ -205,9 +417,16 @@ failure_modes
 warnings
 ```
 
+Current enforcement status:
+
+```text
+recommended
+not yet automatically enforced
+```
+
 ---
 
-## 5. Regime Fields
+## 8. Regime Fields
 
 When a validator classifies structural regimes, use:
 
@@ -254,9 +473,16 @@ COLLAPSE -> structural failure or non-recoverable degradation detected
 UNKNOWN  -> insufficient or ambiguous evidence
 ```
 
+Current enforcement status:
+
+```text
+recommended
+not yet automatically enforced
+```
+
 ---
 
-## 6. Hash Traceability Fields
+## 9. Hash Traceability Fields
 
 For hash-based validators, include:
 
@@ -290,9 +516,16 @@ hash_format_failure_count: 0
 hash_mismatch_failure_count: 0
 ```
 
+Current enforcement status:
+
+```text
+recommended
+not yet automatically enforced
+```
+
 ---
 
-## 7. Trajectory Fields
+## 10. Trajectory Fields
 
 For trajectory validators, include:
 
@@ -320,9 +553,16 @@ aggregate_risk_regime
 aggregate_gate_action
 ```
 
+Current enforcement status:
+
+```text
+recommended
+not yet automatically enforced
+```
+
 ---
 
-## 8. Topology Fields
+## 11. Topology Fields
 
 For topology validators, include:
 
@@ -350,9 +590,16 @@ boundary_conditions
 phase_regions
 ```
 
+Current enforcement status:
+
+```text
+recommended
+not yet automatically enforced
+```
+
 ---
 
-## 9. Failure and Boundary Fields
+## 12. Failure and Boundary Fields
 
 When instability is detected, do not hide it.
 
@@ -387,9 +634,16 @@ structural_collapse
 semantic_structural_divergence
 ```
 
+Current enforcement status:
+
+```text
+recommended
+not yet automatically enforced
+```
+
 ---
 
-## 10. Input and Output Paths
+## 13. Input and Output Paths
 
 Always use relative repository paths.
 
@@ -415,9 +669,16 @@ relative paths survive across machines
 absolute paths leak environment-specific details
 ```
 
+Current enforcement status:
+
+```text
+recommended
+not yet automatically enforced
+```
+
 ---
 
-## 11. JSON Formatting Rules
+## 14. JSON Formatting Rules
 
 Result files should be written with:
 
@@ -437,9 +698,18 @@ from omnia_validation.io import write_json
 write_json("results/example_validator_v0.json", result)
 ```
 
+The helper `write_json` currently uses:
+
+```text
+UTF-8
+ensure_ascii=False
+sort_keys=True
+final newline
+```
+
 ---
 
-## 12. JSONL Rules
+## 15. JSONL Rules
 
 Use JSONL for datasets and source-output records.
 
@@ -459,9 +729,11 @@ Validate JSONL files with:
 omnia-validation validate-json data/example_input_v0.jsonl
 ```
 
+The current JSONL reader checks that each non-empty line is a JSON object.
+
 ---
 
-## 13. Status Selection Rule
+## 16. Status Selection Rule
 
 Use `PASS` only when the tested structural condition survives the validation step.
 
@@ -486,9 +758,19 @@ result cannot be reproduced
 structural condition fails the validator
 ```
 
+The current schema validator enforces only that the status value is one of:
+
+```text
+PASS
+CHECK
+FAIL
+```
+
+It does not infer whether the selected status is scientifically correct.
+
 ---
 
-## 14. Interpretation Rule
+## 17. Interpretation Rule
 
 A result should include enough information to answer:
 
@@ -515,7 +797,7 @@ final correctness
 
 ---
 
-## 15. Minimal Complete Example
+## 18. Minimal Complete Example
 
 ```json
 {
@@ -533,9 +815,11 @@ final correctness
 }
 ```
 
+This example passes the current envelope validator.
+
 ---
 
-## 16. Hash Validator Example
+## 19. Hash Validator Example
 
 ```json
 {
@@ -555,9 +839,13 @@ final correctness
 }
 ```
 
+This example passes the current envelope validator.
+
+The specific hash payload fields are recommended but not yet enforced.
+
 ---
 
-## 17. CHECK Example
+## 20. CHECK Example
 
 ```json
 {
@@ -578,9 +866,13 @@ final correctness
 }
 ```
 
+This example passes the current envelope validator.
+
+A `CHECK` result should not be rewritten as `PASS` unless the underlying measurement logic changes and justifies it.
+
 ---
 
-## 18. FAIL Example
+## 21. FAIL Example
 
 ```json
 {
@@ -599,18 +891,112 @@ final correctness
 }
 ```
 
+This example passes the current envelope validator because the envelope is structurally valid.
+
+The scientific failure is represented in:
+
+```text
+status
+payload.decision_reason
+payload.failure_modes
+```
+
 ---
 
-## 19. Schema Checklist
+## 22. Invalid Envelope Examples
+
+### Missing required field
+
+```json
+{
+  "experiment": "example_validator_v0",
+  "status": "PASS"
+}
+```
+
+Expected schema errors:
+
+```text
+missing required field: boundary
+missing required field: created_at_utc
+missing required field: payload
+```
+
+---
+
+### Invalid status
+
+```json
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T00:00:00+00:00",
+  "experiment": "example_validator_v0",
+  "payload": {},
+  "status": "UNKNOWN"
+}
+```
+
+Expected schema error:
+
+```text
+status must be one of: CHECK, FAIL, PASS
+```
+
+---
+
+### Wrong boundary
+
+```json
+{
+  "boundary": "measurement == decision",
+  "created_at_utc": "2026-05-07T00:00:00+00:00",
+  "experiment": "example_validator_v0",
+  "payload": {},
+  "status": "PASS"
+}
+```
+
+Expected schema error:
+
+```text
+boundary should be: measurement != inference != decision
+```
+
+---
+
+### Non-object payload
+
+```json
+{
+  "boundary": "measurement != inference != decision",
+  "created_at_utc": "2026-05-07T00:00:00+00:00",
+  "experiment": "example_validator_v0",
+  "payload": [],
+  "status": "PASS"
+}
+```
+
+Expected schema error:
+
+```text
+payload must be a mapping/object
+```
+
+---
+
+## 23. Schema Checklist
 
 Before committing a result file, verify:
 
 ```text
 Top-level object is valid JSON.
 experiment is present.
+experiment is a non-empty string.
 status is PASS, CHECK, or FAIL.
 created_at_utc is present.
+created_at_utc is UTC-like.
 boundary is present.
+boundary equals measurement != inference != decision.
 payload is an object.
 input/output paths are relative.
 failure or boundary conditions are not hidden.
@@ -623,9 +1009,105 @@ Use:
 omnia-validation validate-json results/<result_file>.json
 ```
 
+Then, from Python:
+
+```python
+from omnia_validation.io import read_json
+from omnia_validation.schemas import require_valid_result_envelope
+
+result = read_json("results/<result_file>.json")
+require_valid_result_envelope(result)
+```
+
 ---
 
-## 20. Non-Goal
+## 24. Current Automated Tests
+
+Schema tests are located in:
+
+```text
+tests/test_schemas.py
+```
+
+They currently verify:
+
+```text
+schema constants
+valid envelope acceptance
+missing field detection
+invalid status detection
+empty experiment detection
+non-UTC timestamp detection
+Z-suffix timestamp acceptance
+wrong boundary detection
+non-object payload detection
+non-mapping result detection
+strict validation failure raising
+```
+
+Run:
+
+```bash
+pytest -q
+```
+
+---
+
+## 25. Current Limits
+
+The current schema layer is intentionally minimal.
+
+It does not yet enforce:
+
+```text
+payload-specific schemas
+hash-validator payload rules
+trajectory-validator payload rules
+topology-validator payload rules
+allowed failure mode vocabulary
+allowed regime vocabulary
+relative path validation
+numeric range validation
+cross-file artifact existence
+hash manifest validation
+```
+
+These should be future extensions.
+
+---
+
+## 26. Future Schema Extensions
+
+Possible future modules or functions:
+
+```text
+validate_hash_payload
+validate_trajectory_payload
+validate_topology_payload
+validate_relative_paths
+validate_failure_modes
+validate_regime_fields
+validate_result_file
+validate_result_directory
+```
+
+Possible future package module:
+
+```text
+omnia_validation.schemas
+```
+
+Already present:
+
+```text
+validate_result_envelope
+is_valid_result_envelope
+require_valid_result_envelope
+```
+
+---
+
+## 27. Non-Goal
 
 This schema does not define semantic truth.
 
