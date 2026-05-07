@@ -1,6 +1,6 @@
 # OMNIA-VALIDATION
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20056181.svg)](https://doi.org/10.5281/zenodo.20056181)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20062456.svg)](https://doi.org/10.5281/zenodo.20062456)
 
 Structural validation, falsification, perturbation testing, and reproducibility layer for the OMNIA ecosystem.
 
