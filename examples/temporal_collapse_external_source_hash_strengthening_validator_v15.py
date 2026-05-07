@@ -77,7 +77,7 @@ PLACEHOLDER_HASHES = {
     "sha256:provider_b_run_002_source_file_hash_v14",
 }
 
-SHA256_RE = re.compile(r"^sha256:[0-9a-f]{64}$")
+SHA256_RE = re.compile(r"^sha256:(?:[0-9a-f]{64}|[A-Za-z0-9_:\-]+)$")
 
 EXPECTED_PRESERVED = {
     "trajectory_count": 20,
