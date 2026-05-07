@@ -111,6 +111,33 @@ This document explains how to run OMNIA-VALIDATION experiments from a clean envi
 
 ---
 
+## Maintenance Guide
+
+Maintenance guide:
+
+```text
+docs/MAINTENANCE.md
+```
+
+This document defines how to maintain the repository without breaking reproducibility, schema validation, historical result preservation, or boundary discipline.
+
+It covers:
+
+```text
+commit checks
+test commands
+result handling
+results_enveloped regeneration
+legacy wrapper rules
+CLI updates
+schema updates
+documentation updates
+token safety
+release hygiene
+```
+
+---
+
 ## Validator Authoring Guide
 
 Guide for adding new validators:
@@ -368,6 +395,7 @@ Suggested reading order for new visitors:
 README.md
 docs/INDEX.md
 docs/PROJECT_STATUS.md
+docs/MAINTENANCE.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/RESULT_SCHEMA.md
@@ -389,6 +417,7 @@ Current engineering/consolidation documents:
 
 ```text
 docs/PROJECT_STATUS.md
+docs/MAINTENANCE.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/RESULT_SCHEMA.md
@@ -402,6 +431,7 @@ Purpose:
 
 ```text
 declare current project state
+define maintenance discipline
 make experiments runnable
 make validators authorable
 make result files comparable
@@ -421,6 +451,7 @@ The repository currently includes:
 installable package layer
 basic unit tests
 green CI
+maintenance guide
 clean execution guide
 validator authoring guide
 common result schema
@@ -442,7 +473,6 @@ result regression tests
 experiment-chain CI
 artifact hash manifest
 release policy
-maintenance guide
 issue templates
 pull request template
 ```
@@ -513,6 +543,44 @@ wrapping is not revalidation
 ```
 
 A future validator-specific mapping may map some legacy statuses to `PASS`, `CHECK`, or `FAIL`, but only with explicit documented logic.
+
+---
+
+## Maintenance Policy
+
+Maintenance must preserve evidence while improving reproducibility.
+
+Before pushing changes, run:
+
+```bash
+pytest -q
+ruff check omnia_validation tests
+```
+
+When result files change, validate them and regenerate enveloped results if needed:
+
+```bash
+omnia-validation validate-json results/<result_file>.json
+python examples/wrap_legacy_results_in_envelope.py
+pytest -q
+```
+
+Maintenance must not:
+
+```text
+rewrite old results silently
+delete negative results
+convert CHECK to PASS without revalidation
+hide failures
+remove boundary statements
+treat normalization as scientific proof
+```
+
+Full policy:
+
+```text
+docs/MAINTENANCE.md
+```
 
 ---
 
