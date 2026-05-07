@@ -183,6 +183,26 @@ The wrapper confirms that the result is now structurally valid as an OMNIA-VALID
 
 It does not confirm that the original experiment has been scientifically revalidated.
 
+This rule applies even if the legacy file itself contains:
+
+```text
+status: PASS
+```
+
+The original legacy status is preserved separately inside:
+
+```text
+payload.legacy_status
+```
+
+The wrapper status remains:
+
+```text
+CHECK
+```
+
+because the wrapper describes the normalization operation, not the scientific result.
+
 ---
 
 ## 7. Manifest
@@ -250,6 +270,16 @@ Expected output:
 }
 ```
 
+Validate historical JSON parseability:
+
+```bash
+omnia-validation validate-json results/<result_file>.json
+```
+
+This confirms the original result is readable JSON.
+
+It does not require the historical file to follow the new envelope.
+
 ---
 
 ## 9. Generation Script
@@ -274,6 +304,9 @@ does not modify original files
 writes wrapped copies to results_enveloped/
 generates a manifest
 validates every generated envelope internally
+preserves legacy status when present
+preserves legacy payload exactly as payload.legacy_result
+uses CHECK for wrappers because wrapping is not revalidation
 ```
 
 ---
@@ -290,6 +323,7 @@ rewrite results/
 overwrite scientific interpretation
 change historical payloads
 silently change legacy status values
+convert legacy PASS into wrapper PASS
 ```
 
 It may:
@@ -298,6 +332,7 @@ It may:
 copy legacy results
 wrap legacy results
 preserve legacy data inside payload.legacy_result
+preserve legacy status inside payload.legacy_status
 write canonical envelopes to results_enveloped/
 generate a manifest
 ```
@@ -357,17 +392,80 @@ new validation tooling can operate cleanly
 
 ---
 
-## 13. Future Work
+## 13. Test Coverage
+
+Legacy normalization is now protected by automated tests.
+
+Current test files:
+
+```text
+tests/test_existing_results.py
+tests/test_enveloped_results.py
+tests/test_wrap_legacy_results.py
+```
+
+They check:
+
+```text
+historical results are valid JSON
+enveloped results follow the canonical result envelope
+the wrapping script infers experiment names from filenames
+the wrapping script preserves legacy status
+the wrapping script preserves missing legacy status as null
+the wrapping script preserves nested legacy payloads
+the wrapping script always uses CHECK for wrappers
+the wrapping script produces schema-valid envelopes
+```
+
+This means the normalization layer is not only documented.
+
+It is also checked by CI.
+
+---
+
+## 14. Current Normalization State
+
+Current state:
+
+```text
+results/ exists
+results_enveloped/ exists
+legacy wrapper script exists
+legacy wrapper tests exist
+historical result parseability test exists
+enveloped result schema test exists
+CI is green
+```
+
+Current counts:
+
+```text
+legacy result files wrapped: 97
+schema-valid enveloped files: 98
+wrapping failures: 0
+```
+
+The 98 schema-valid enveloped files are:
+
+```text
+97 wrapped legacy result files
+1 manifest file
+```
+
+---
+
+## 15. Future Work
 
 Possible future steps:
 
 ```text
-add tests for results_enveloped/*.json
-add manifest validation tests
-add schema compliance CI for results_enveloped/
-add payload-specific validators
+add payload-specific legacy normalization checks
 add legacy-status mapping documentation
 add per-family normalization summaries
+add regression tests for future normalization changes
+add payload-specific schema validators
+add family-specific legacy wrappers
+add manifest hash traceability
 ```
 
 The next strict check should target:
@@ -386,7 +484,7 @@ because `results/` intentionally preserves legacy format.
 
 ---
 
-## 14. Non-Goal
+## 16. Non-Goal
 
 Legacy normalization does not prove semantic truth.
 
