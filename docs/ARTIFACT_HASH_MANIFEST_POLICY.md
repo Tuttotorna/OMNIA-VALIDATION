@@ -697,7 +697,7 @@ computed hash matches recorded hash when required
 Current status:
 
 ```text
-manual policy only
+policy plus generated manifest workflow
 not yet automated
 ```
 
@@ -903,6 +903,46 @@ ignore dataset mutations
 ```
 
 ---
+
+
+## Generator Script
+
+The current manifest generator is:
+
+```text
+examples/build_artifact_hash_manifest_v0.py
+```
+
+It currently scans:
+
+```text
+data/source_outputs/
+```
+
+It writes:
+
+```text
+results/artifact_hash_manifest_v0.json
+```
+
+It records:
+
+```text
+artifact_path
+artifact_role
+sha256
+size_bytes
+source_validator
+source_provider
+source_run
+```
+
+Current limitation:
+
+```text
+stable timestamp option still missing
+repository-wide artifact coverage still missing
+```
 
 ## 28. Future Work
 

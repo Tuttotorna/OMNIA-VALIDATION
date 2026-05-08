@@ -1,78 +1,125 @@
 {
   "experiment": "artifact_hash_manifest_v0",
   "status": "CHECK",
-  "created_at_utc": "2026-05-07T00:00:00+00:00",
+  "created_at_utc": "2026-05-08T06:49:35+00:00",
   "boundary": "measurement != inference != decision",
   "payload": {
     "manifest_version": "v0",
     "manifest_scope": "data/source_outputs",
-    "manifest_status": "manual_initial_manifest",
-    "artifact_count": 4,
+    "manifest_status": "generated_manifest",
+    "artifact_count": 9,
     "hash_algorithm": "sha256",
     "hash_format": "64 lowercase hexadecimal characters",
     "source_validator": "temporal_collapse_external_source_hash_strengthening_validator_v15",
     "source_validator_result": "results/temporal_collapse_external_source_hash_strengthening_validator_v15.json",
     "source_validator_data": "data/temporal_collapse_external_source_hash_strengthened_v15.jsonl",
     "traceability_summary": {
-      "source_file_count": 4,
-      "computed_hash_count": 4,
-      "real_hash_count": 4,
+      "source_file_count": 9,
+      "computed_hash_count": 9,
+      "real_hash_count": 9,
       "placeholder_hash_count": 0,
       "hash_format_failure_count": 0,
-      "hash_mismatch_failure_count": 0
+      "hash_mismatch_failure_count": 0,
+      "missing_source_file_count": 0
     },
-    "status_reason": "CHECK because this is the first manual artifact hash manifest. Hashes are real SHA-256 values preserved from V15, but manifest validation is not yet automated.",
+    "status_reason": "CHECK because this manifest records source-output artifact hashes for a bounded scope only. Hashes are real SHA-256 values computed from current files, but repository-wide artifact coverage is not yet present.",
     "artifacts": [
+      {
+        "artifact_path": "data/source_outputs/gsm_symbolic_real_model_outputs_v11_reference.jsonl",
+        "artifact_role": "source_output",
+        "sha256": "576cb4d6e5e95d7201a5d57700598c5a8e7042f78e8f27400eedb6cc260c3c80",
+        "size_bytes": 20424,
+        "recorded_by": "artifact_hash_manifest_v0",
+        "source_validator": "temporal_collapse_external_source_hash_strengthening_validator_v15",
+        "notes": "Real SHA-256 hash computed from current repository file."
+      },
+      {
+        "artifact_path": "data/source_outputs/gsm_symbolic_real_model_outputs_v12_provider_a.jsonl",
+        "artifact_role": "source_output",
+        "sha256": "8132c97e2cdf8ac8cc90c52a827c336616c219aee8b86599c2eca2d8c7b13d17",
+        "size_bytes": 22354,
+        "recorded_by": "artifact_hash_manifest_v0",
+        "source_validator": "temporal_collapse_external_source_hash_strengthening_validator_v15",
+        "notes": "Real SHA-256 hash computed from current repository file."
+      },
+      {
+        "artifact_path": "data/source_outputs/gsm_symbolic_real_model_outputs_v12_provider_b.jsonl",
+        "artifact_role": "source_output",
+        "sha256": "f4f67e4dc978bab81cef4140c68586992d7df1c790d92813c7d8599c29c42b9b",
+        "size_bytes": 22418,
+        "recorded_by": "artifact_hash_manifest_v0",
+        "source_validator": "temporal_collapse_external_source_hash_strengthening_validator_v15",
+        "notes": "Real SHA-256 hash computed from current repository file."
+      },
+      {
+        "artifact_path": "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_a.jsonl",
+        "artifact_role": "source_output",
+        "sha256": "c50fc0c6890eff773dd7eb4e69a1056fdb4c270188d0063c782080a9c97a0bb2",
+        "size_bytes": 22404,
+        "recorded_by": "artifact_hash_manifest_v0",
+        "source_validator": "temporal_collapse_external_source_hash_strengthening_validator_v15",
+        "notes": "Real SHA-256 hash computed from current repository file."
+      },
+      {
+        "artifact_path": "data/source_outputs/gsm_symbolic_real_model_outputs_v13_provider_b.jsonl",
+        "artifact_role": "source_output",
+        "sha256": "8cea8fd1af677fcd8ae13c0b52facd290625fd057aa4cee8a5608aae0098cd88",
+        "size_bytes": 22469,
+        "recorded_by": "artifact_hash_manifest_v0",
+        "source_validator": "temporal_collapse_external_source_hash_strengthening_validator_v15",
+        "notes": "Real SHA-256 hash computed from current repository file."
+      },
       {
         "artifact_path": "data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_a_run_001.jsonl",
         "artifact_role": "source_output",
         "sha256": "24d7177cea63e44e2616c0d4546ed65fd824719f7fc4030b9a52130c1bf4e00c",
-        "size_bytes": null,
+        "size_bytes": 22114,
         "recorded_by": "artifact_hash_manifest_v0",
         "source_validator": "temporal_collapse_external_source_hash_strengthening_validator_v15",
+        "notes": "Real SHA-256 hash computed from current repository file.",
         "source_provider": "provider_a",
-        "source_run": "provider_a_run_v14_001",
-        "notes": "Real SHA-256 hash preserved from Temporal Collapse Level 3 V15."
+        "source_run": "provider_a_run_v14_001"
       },
       {
         "artifact_path": "data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_a_run_002.jsonl",
         "artifact_role": "source_output",
         "sha256": "602676324b4335e7cb670d6884cbe5e978dacac59889dbc362252440d706dc2e",
-        "size_bytes": null,
+        "size_bytes": 22111,
         "recorded_by": "artifact_hash_manifest_v0",
         "source_validator": "temporal_collapse_external_source_hash_strengthening_validator_v15",
+        "notes": "Real SHA-256 hash computed from current repository file.",
         "source_provider": "provider_a",
-        "source_run": "provider_a_run_v14_002",
-        "notes": "Real SHA-256 hash preserved from Temporal Collapse Level 3 V15."
+        "source_run": "provider_a_run_v14_002"
       },
       {
         "artifact_path": "data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_b_run_001.jsonl",
         "artifact_role": "source_output",
         "sha256": "5ab1f8a6bf24f266a8dbf4e4e952be749db66ae66156bff0835d44088bb8ac5a",
-        "size_bytes": null,
+        "size_bytes": 22179,
         "recorded_by": "artifact_hash_manifest_v0",
         "source_validator": "temporal_collapse_external_source_hash_strengthening_validator_v15",
+        "notes": "Real SHA-256 hash computed from current repository file.",
         "source_provider": "provider_b",
-        "source_run": "provider_b_run_v14_001",
-        "notes": "Real SHA-256 hash preserved from Temporal Collapse Level 3 V15."
+        "source_run": "provider_b_run_v14_001"
       },
       {
         "artifact_path": "data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_b_run_002.jsonl",
         "artifact_role": "source_output",
         "sha256": "5399edf34ba661ece7b6f0855df09ecad7d895a74951bd8bec56ad8074dd9010",
-        "size_bytes": null,
+        "size_bytes": 22164,
         "recorded_by": "artifact_hash_manifest_v0",
         "source_validator": "temporal_collapse_external_source_hash_strengthening_validator_v15",
+        "notes": "Real SHA-256 hash computed from current repository file.",
         "source_provider": "provider_b",
-        "source_run": "provider_b_run_v14_002",
-        "notes": "Real SHA-256 hash preserved from Temporal Collapse Level 3 V15."
+        "source_run": "provider_b_run_v14_002"
       }
     ],
+    "missing_artifacts": [],
     "interpretation": {
       "correct": [
         "hash match means artifact byte identity is preserved",
         "hash presence improves source traceability",
-        "this manifest records the V15 source-output hashes"
+        "this manifest records source-output hashes"
       ],
       "incorrect": [
         "hash presence proves semantic correctness",
@@ -81,10 +128,9 @@
       ]
     },
     "current_limitations": [
-      "manifest validation is not yet automated",
-      "size_bytes values are not yet recorded",
       "repository-wide artifact coverage is not yet present",
-      "this manifest currently covers only data/source_outputs/"
+      "this manifest currently covers only data/source_outputs/",
+      "hashing does not prove semantic correctness"
     ]
   }
 }

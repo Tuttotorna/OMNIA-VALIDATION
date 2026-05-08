@@ -52,6 +52,8 @@ artifact hash manifest policy added
 artifact hash manifest added
 manifest validation helpers added
 manifest tests added
+manifest generator added
+examples/build_artifact_hash_manifest_v0.py added
 validate-manifest CLI added
 validate-manifest CLI tested
 ```
@@ -395,7 +397,7 @@ real SHA-256 hashes present
 manifest validation helpers present
 repository-wide artifact coverage not yet present
 validate-manifest CLI implemented and tested
-manifest generator not yet implemented
+manifest generator implemented for data/source_outputs/
 ```
 
 Current manifest helper functions:
@@ -870,7 +872,7 @@ Status:
 ```text
 present
 documented
-manual policy only
+policy plus generated manifest workflow
 not yet automated
 not yet enforced by tests
 ```
@@ -961,7 +963,7 @@ manifest validation helpers present
 manifest tests present
 validate-manifest CLI implemented and tested
 repository-wide artifact hash manifest not yet present
-manifest generator not yet implemented
+manifest generator implemented for data/source_outputs/
 ```
 
 Current value:
@@ -981,7 +983,7 @@ Current limitation:
 ```text
 repository-wide artifact hash manifest does not exist yet
 validate-manifest CLI command exists and is tested
-manifest generator does not exist yet
+manifest generator exists for data/source_outputs/
 release artifact manifest does not exist yet
 dataset manifest does not exist yet
 ```
@@ -991,7 +993,7 @@ Future work:
 ```text
 add repository-wide artifact hash manifest
 expand validate-manifest CLI coverage
-add manifest generator
+expand manifest generator coverage
 add release artifact manifest
 add dataset manifest
 add validator registry hash-traceability fields
@@ -1816,7 +1818,7 @@ Recommended next steps:
 
 ```text
 expand validate-manifest CLI coverage
-add manifest generator
+expand manifest generator coverage
 expand results/artifact_hash_manifest_v0.json beyond data/source_outputs
 create repository-wide artifact hash manifest
 expand docs/VALIDATOR_REGISTRY.md into a full per-file registry
@@ -1837,7 +1839,7 @@ runner discipline before scale
 payload-specific validation before stricter CI gates
 registry completeness before broad external review
 validate-manifest CLI coverage before release hardening
-manifest generator before repository-wide manifests
+manifest generator coverage before repository-wide manifests
 regression automation before release hardening
 ```
 

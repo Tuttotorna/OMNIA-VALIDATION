@@ -329,6 +329,33 @@ repository-wide artifact hash manifest not yet present
 
 ## Artifact Hash Manifest
 
+
+Manifest generator:
+
+```bash
+python examples/build_artifact_hash_manifest_v0.py
+```
+
+Validation command:
+
+```bash
+omnia-validation validate-manifest results/artifact_hash_manifest_v0.json --verify-hashes
+```
+
+Current generator scope:
+
+```text
+data/source_outputs/
+```
+
+Current limitation:
+
+```text
+stable timestamp option still missing
+repository-wide artifact coverage still missing
+```
+
+
 validate-manifest CLI command:
 
 ```bash

@@ -559,6 +559,40 @@ final validity
 
 ## omnia_validation.manifest
 
+
+### build_artifact_hash_manifest_v0.py
+
+Generator script:
+
+```text
+examples/build_artifact_hash_manifest_v0.py
+```
+
+Purpose:
+
+```text
+scan data/source_outputs/
+compute SHA-256
+record size_bytes
+write results/artifact_hash_manifest_v0.json
+validate generated manifest
+```
+
+Run:
+
+```bash
+python examples/build_artifact_hash_manifest_v0.py
+omnia-validation validate-manifest results/artifact_hash_manifest_v0.json --verify-hashes
+```
+
+Current limitation:
+
+```text
+stable timestamp option still missing
+repository-wide manifest generation still missing
+```
+
+
 ### Purpose
 
 Artifact hash manifest validation.

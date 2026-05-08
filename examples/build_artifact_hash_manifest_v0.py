@@ -26,7 +26,6 @@ from typing import Any
 from omnia_validation.hashing import compute_file_sha256
 from omnia_validation.manifest import require_valid_artifact_manifest
 
-
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
 SOURCE_OUTPUTS_DIR = REPO_ROOT / "data" / "source_outputs"
