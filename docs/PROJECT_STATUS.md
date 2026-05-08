@@ -44,11 +44,13 @@ legacy-result normalization added
 legacy-result wrapper tested
 enveloped-result validation added
 contribution templates added
+code of conduct added
+validator registry added
 ```
 
 The repository is no longer only a loose archive of scripts.
 
-It now contains a minimal engineering layer that supports reproducibility, package installation, testing, schema validation, result normalization, generator validation, contribution intake, and validator extension.
+It now contains a minimal engineering layer that supports reproducibility, package installation, testing, schema validation, result normalization, generator validation, validator mapping, contribution intake, and validator extension.
 
 ---
 
@@ -62,6 +64,7 @@ docs/INDEX.md
 docs/QUICKSTART.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
+docs/VALIDATOR_REGISTRY.md
 docs/RESULT_SCHEMA.md
 docs/PACKAGE_API.md
 docs/PROJECT_STATUS.md
@@ -72,6 +75,7 @@ docs/LEGACY_STATUS_MAPPING.md
 docs/CONSOLIDATION_ROADMAP_V0.md
 CONTRIBUTING.md
 SECURITY.md
+CODE_OF_CONDUCT.md
 pyproject.toml
 requirements-dev.txt
 omnia_validation/
@@ -93,6 +97,7 @@ documentation index
 quickstart path
 clean execution guide
 validator authoring discipline
+validator registry
 common result schema
 package API reference
 current project status
@@ -103,6 +108,7 @@ legacy status mapping policy
 engineering roadmap
 contribution rules
 security boundary
+conduct boundary
 installable package layer
 test suite
 continuous integration
@@ -229,7 +235,7 @@ Current limitation:
 
 ```text
 payload-specific schemas are not yet enforced
-legacy status vocabularies are not yet mapped
+legacy status vocabularies are not yet mapped automatically
 regime vocabularies are not yet enforced
 failure-mode vocabularies are not yet enforced
 relative paths are not yet enforced
@@ -317,6 +323,7 @@ topology-chain regression tests
 Level 3 chain regression tests
 hash manifest tests
 legacy-status mapping tests
+validator registry consistency tests
 ```
 
 ---
@@ -375,6 +382,7 @@ JSONL dataset validation
 payload-specific schema compliance checks
 hash traceability checks
 regression comparison against frozen results
+validator registry consistency checks
 ```
 
 ---
@@ -390,6 +398,7 @@ docs/INDEX.md
 docs/QUICKSTART.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
+docs/VALIDATOR_REGISTRY.md
 docs/RESULT_SCHEMA.md
 docs/PACKAGE_API.md
 docs/PROJECT_STATUS.md
@@ -407,6 +416,7 @@ make the repository navigable
 provide a minimal first-run path
 make experiments runnable
 make validators authorable
+map validators and validator families
 make results comparable
 make package utilities explicit
 make current status honest
@@ -425,6 +435,7 @@ internally consistent
 aligned with current package layer
 aligned with current result schema layer
 aligned with legacy normalization policy
+aligned with validator registry
 still growing
 not final
 ```
@@ -470,6 +481,111 @@ present
 basic
 boundary-aware
 not yet community-tested
+```
+
+---
+
+## Conduct Status
+
+The code of conduct is present at:
+
+```text
+CODE_OF_CONDUCT.md
+```
+
+It defines expected behavior for:
+
+```text
+contributors
+reviewers
+maintainers
+users
+```
+
+It supports:
+
+```text
+precise criticism
+evidence-based review
+boundary discipline
+credential safety
+non-abusive technical disagreement
+negative-result preservation
+```
+
+Status:
+
+```text
+present
+boundary-aware
+compatible with falsification-oriented review
+not yet community-tested
+```
+
+---
+
+## Validator Registry Status
+
+The validator registry is present at:
+
+```text
+docs/VALIDATOR_REGISTRY.md
+```
+
+It maps:
+
+```text
+schema and package validators
+legacy normalization validators
+Temporal Collapse Level 3 validators
+Temporal Collapse Topology validators
+observer and recoverability validators
+cross-domain and perturbation validators
+structural benchmark validators
+future validator families
+```
+
+The registry clarifies that:
+
+```text
+a validator is a controlled structural test
+a validator is not a truth oracle
+```
+
+Status:
+
+```text
+present
+partial registry
+major validator families mapped
+Level 3 chain mapped
+Topology v0 chain mapped
+legacy normalization mapped
+schema/package validators mapped
+additional families listed
+not yet full per-file registry
+```
+
+Current value:
+
+```text
+navigation improved
+validator families are easier to inspect
+validator boundaries are explicit
+maintenance map exists
+```
+
+Future work:
+
+```text
+add every validator script with exact input/output paths
+add payload schema expectation per validator
+add PASS/CHECK/FAIL rule per validator
+add reproducibility command per validator
+add linked result documentation per validator
+add regression-test status per validator
+add hash traceability status per validator
+add external reproduction status per validator
 ```
 
 ---
@@ -712,8 +828,15 @@ Status:
 ```text
 strong experimental chain
 boundary-aware
+mapped in validator registry
 not universal
 requires external reproduction
+```
+
+Registry:
+
+```text
+docs/VALIDATOR_REGISTRY.md
 ```
 
 ---
@@ -762,7 +885,14 @@ source traceability strengthened
 real SHA-256 hashes present
 aggregate regime is DRIFT
 highest local risk is CRITICAL
+mapped in validator registry
 not a semantic correctness claim
+```
+
+Registry:
+
+```text
+docs/VALIDATOR_REGISTRY.md
 ```
 
 ---
@@ -831,7 +961,7 @@ add regime vocabulary validation
 
 ## Validator Authoring Status
 
-A validator authoring guide is now present at:
+A validator authoring guide is present at:
 
 ```text
 docs/VALIDATOR_AUTHORING_GUIDE.md
@@ -861,6 +991,13 @@ Status:
 validator discipline defined
 not yet enforced automatically
 ready for future validators
+paired with validator registry
+```
+
+Registry:
+
+```text
+docs/VALIDATOR_REGISTRY.md
 ```
 
 ---
@@ -880,6 +1017,7 @@ documentation navigation
 quickstart path
 result schema definition
 validator authoring discipline
+validator registry
 clean execution instructions
 maintenance discipline
 release discipline
@@ -887,6 +1025,7 @@ legacy result normalization
 legacy wrapper testing
 enveloped result CI checks
 contribution templates
+code of conduct
 ```
 
 Still partial:
@@ -898,9 +1037,10 @@ payload-specific schema automation
 experiment-chain reproducibility automation
 dataset validation automation
 artifact hash verification automation
-legacy-status mapping
+legacy-status mapping automation
 package release process
 community contribution process
+full per-file validator registry
 ```
 
 ---
@@ -910,7 +1050,7 @@ community contribution process
 Important missing components:
 
 ```text
-full validator registry
+full per-file validator registry
 payload-specific schema validation
 schema validation module extensions
 trajectory utility module
@@ -920,7 +1060,6 @@ experiment runner CLI
 result regression tests
 dataset integrity tests
 artifact hash manifest
-CODE_OF_CONDUCT.md
 versioning policy for package releases
 advanced maintenance automation
 ```
@@ -940,7 +1079,6 @@ omnia_validation.manifest
 Possible future documentation files:
 
 ```text
-docs/VALIDATOR_REGISTRY.md
 docs/RESULT_REGRESSION_POLICY.md
 docs/VALIDATOR_STATUS_VOCABULARY.md
 docs/PACKAGE_RELEASE_POLICY.md
@@ -959,11 +1097,12 @@ developer-runnable
 schema-aware
 CI-guarded
 contribution-template-ready
+registry-mapped
 not production-ready
 not industrially hardened
 ```
 
-The repository can now be cloned, installed, tested, inspected, and partially schema-validated more easily.
+The repository can now be cloned, installed, tested, inspected, partially schema-validated, and navigated more easily.
 
 However, it is not yet a production package.
 
@@ -1012,6 +1151,7 @@ low external feedback
 not yet community-standardized
 issue templates present
 pull request template present
+code of conduct present
 ```
 
 The repository needs:
@@ -1080,6 +1220,7 @@ green CI
 documentation index
 quickstart guide
 validator authoring guide
+validator registry
 result schema guide
 package API guide
 clean execution guide
@@ -1094,6 +1235,7 @@ CI validation for enveloped results
 historical results preserved unchanged
 issue templates
 pull request template
+code of conduct
 ```
 
 These strengths make the repository more serious than a loose script dump.
@@ -1107,13 +1249,14 @@ Current weaknesses:
 ```text
 many experimental scripts remain monolithic
 version proliferation is still visible
-no full validator registry
+validator registry is partial
+no full per-file validator registry
 no payload-specific schema enforcement
 no full regression suite
 limited external adoption
 limited independent reproduction
 no package release workflow yet
-legacy statuses are not yet semantically mapped
+legacy statuses are not yet semantically mapped automatically
 experiment chains are not yet fully CI-reproduced
 community workflow is present but untested
 ```
@@ -1136,6 +1279,7 @@ It defines boundaries instead of hiding them.
 It preserves historical results.
 It provides schema-normalized copies for validation tooling.
 It tests the wrapper that creates those normalized copies.
+It maps validator families through a registry.
 It is becoming installable, testable, schema-aware, maintainable, and extensible.
 ```
 
@@ -1148,6 +1292,7 @@ OMNIA-VALIDATION certifies model intelligence.
 OMNIA-VALIDATION guarantees production safety.
 OMNIA-VALIDATION replaces external judgment.
 results_enveloped/ scientifically revalidates all legacy experiments.
+docs/VALIDATOR_REGISTRY.md proves every listed validator is final.
 ```
 
 ---
@@ -1157,12 +1302,12 @@ results_enveloped/ scientifically revalidates all legacy experiments.
 Recommended next steps:
 
 ```text
-add CODE_OF_CONDUCT.md
-add docs/VALIDATOR_REGISTRY.md
+expand docs/VALIDATOR_REGISTRY.md into a full per-file registry
 add payload-specific schema validators
 add tests for payload-specific schemas
 add docs/RESULT_REGRESSION_POLICY.md
 add artifact hash manifest
+add validator registry consistency tests
 ```
 
 Engineering priority:
@@ -1172,6 +1317,7 @@ schemas before new experiments
 tests before expansion
 runner discipline before scale
 payload-specific validation before stricter CI gates
+registry completeness before broad external review
 ```
 
 ---
