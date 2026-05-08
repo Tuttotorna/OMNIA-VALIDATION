@@ -11,12 +11,10 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 from typing import Any
 
 from omnia_validation.hashing import compute_file_sha256, is_valid_sha256
-from omnia_validation.io import read_json, read_jsonl
 from omnia_validation.manifest import validate_artifact_manifest
 from omnia_validation.schemas import validate_result_envelope
 
@@ -29,6 +27,26 @@ def _is_jsonl_path(path: Path) -> bool:
     return path.suffix.lower() == ".jsonl"
 
 
+def _read_json(path: Path) -> Any:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _read_jsonl(path: Path) -> list[Any]:
+    records: list[Any] = []
+
+    for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+        stripped = line.strip()
+        if not stripped:
+            continue
+
+        try:
+            records.append(json.loads(stripped))
+        except json.JSONDecodeError as exc:
+            raise ValueError(f"invalid JSONL at line {line_number}: {exc}") from exc
+
+    return records
+
+
 def _validate_json_file(path: Path) -> list[str]:
     if not path.exists():
         return [f"file does not exist: {path}"]
@@ -38,10 +56,10 @@ def _validate_json_file(path: Path) -> list[str]:
 
     try:
         if _is_jsonl_path(path):
-            read_jsonl(path)
+            _read_jsonl(path)
         else:
-            read_json(path)
-    except Exception as exc:  # noqa: BLE001
+            _read_json(path)
+    except Exception as exc:
         return [f"invalid JSON artifact: {exc}"]
 
     return []
@@ -94,6 +112,16 @@ def cmd_validate_json(args: argparse.Namespace) -> int:
         )
         return 1
 
+    if _is_jsonl_path(path):
+        records = _read_jsonl(path)
+        _print_json(
+            {
+                "status": "PASS",
+                "records": len(records),
+            }
+        )
+        return 0
+
     _print_json(
         {
             "status": "PASS",
@@ -124,7 +152,7 @@ def cmd_validate_result(args: argparse.Namespace) -> int:
         )
         return 1
 
-    result = read_json(path)
+    result = _read_json(path)
     errors = validate_result_envelope(result)
 
     if errors:
@@ -167,7 +195,7 @@ def cmd_validate_manifest(args: argparse.Namespace) -> int:
         )
         return 1
 
-    manifest = read_json(path)
+    manifest = _read_json(path)
     errors = validate_artifact_manifest(
         manifest,
         base_dir=args.base_dir,
@@ -196,9 +224,7 @@ def cmd_validate_manifest(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="omnia-validation",
-        description=(
-            "OMNIA-VALIDATION artifact, schema, hash, and manifest checks."
-        ),
+        description="OMNIA-VALIDATION artifact, schema, hash, and manifest checks.",
     )
 
     subparsers = parser.add_subparsers(dest="command", required=True)

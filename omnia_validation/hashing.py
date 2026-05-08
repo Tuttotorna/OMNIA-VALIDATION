@@ -47,3 +47,41 @@ def sha256_file(path: str | Path, *, chunk_size: int = 1024 * 1024) -> str:
 def is_sha256_hex(value: str) -> bool:
     """Return True when value is a valid SHA-256 hexadecimal string."""
     return bool(_SHA256_RE.fullmatch(value))
+
+# ---------------------------------------------------------------------------
+# Compatibility helpers for artifact manifest and CLI validation
+# ---------------------------------------------------------------------------
+
+def compute_file_sha256(path: object) -> str:
+    """Compute the SHA-256 digest of a file.
+
+    Boundary:
+        measurement != inference != decision
+
+    A matching hash proves byte-level artifact identity.
+    It does not prove semantic correctness.
+    """
+
+    import hashlib
+    from pathlib import Path
+
+    file_path = Path(path)
+    digest = hashlib.sha256()
+
+    with file_path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+
+    return digest.hexdigest()
+
+
+def is_valid_sha256(value: object) -> bool:
+    """Return True if value is a lowercase SHA-256 hexadecimal string."""
+
+    if not isinstance(value, str):
+        return False
+
+    if len(value) != 64:
+        return False
+
+    return all(char in "0123456789abcdef" for char in value)
