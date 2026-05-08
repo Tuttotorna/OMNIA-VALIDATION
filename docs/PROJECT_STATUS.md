@@ -52,7 +52,7 @@ artifact hash manifest policy added
 artifact hash manifest added
 manifest validation helpers added
 manifest tests added
-manifest generator added
+manifest generator added with deterministic timestamp support
 examples/build_artifact_hash_manifest_v0.py added
 validate-manifest CLI added
 validate-manifest CLI tested
@@ -94,6 +94,7 @@ omnia_validation/
 omnia_validation/manifest.py
 tests/
 tests/test_manifest.py
+tests/test_build_artifact_hash_manifest.py
 results/
 results/artifact_hash_manifest_v0.json
 results_enveloped/
@@ -369,6 +370,7 @@ Current tests:
 
 ```text
 tests/test_manifest.py
+tests/test_build_artifact_hash_manifest.py
 ```
 
 Current manifest scope:
@@ -481,6 +483,7 @@ tests/test_existing_results.py
 tests/test_enveloped_results.py
 tests/test_wrap_legacy_results.py
 tests/test_manifest.py
+tests/test_build_artifact_hash_manifest.py
 ```
 
 Current coverage includes:

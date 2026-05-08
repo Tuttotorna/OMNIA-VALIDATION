@@ -940,7 +940,7 @@ source_run
 Current limitation:
 
 ```text
-stable timestamp option still missing
+stable timestamp option added
 repository-wide artifact coverage still missing
 ```
 

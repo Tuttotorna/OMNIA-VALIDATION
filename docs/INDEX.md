@@ -330,6 +330,19 @@ repository-wide artifact hash manifest not yet present
 ## Artifact Hash Manifest
 
 
+
+Deterministic manifest mode:
+
+```bash
+python examples/build_artifact_hash_manifest_v0.py --stable-timestamp
+```
+
+Explicit timestamp mode:
+
+```bash
+python examples/build_artifact_hash_manifest_v0.py --created-at 2026-05-07T00:00:00+00:00
+```
+
 Manifest generator:
 
 ```bash
@@ -351,7 +364,7 @@ data/source_outputs/
 Current limitation:
 
 ```text
-stable timestamp option still missing
+stable timestamp option added
 repository-wide artifact coverage still missing
 ```
 

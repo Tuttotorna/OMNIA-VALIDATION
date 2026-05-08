@@ -585,10 +585,17 @@ python examples/build_artifact_hash_manifest_v0.py
 omnia-validation validate-manifest results/artifact_hash_manifest_v0.json --verify-hashes
 ```
 
+
+Deterministic options:
+
+```text
+--stable-timestamp
+--created-at <ISO-8601 timestamp>
+```
 Current limitation:
 
 ```text
-stable timestamp option still missing
+stable timestamp option added
 repository-wide manifest generation still missing
 ```
 
