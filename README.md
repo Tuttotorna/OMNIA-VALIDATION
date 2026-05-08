@@ -54,6 +54,12 @@ Result regression policy:
 docs/RESULT_REGRESSION_POLICY.md
 ```
 
+Artifact hash manifest policy:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
+```
+
 Clean execution guide:
 
 ```text
@@ -416,6 +422,66 @@ all drift means failure
 all instability means semantic incorrectness
 old results should be rewritten to match new schemas
 CHECK should be hidden
+```
+
+Boundary:
+
+```text
+measurement != inference != decision
+```
+
+---
+
+## Artifact Hash Manifest Policy
+
+Artifact hash rules are defined in:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
+```
+
+Hashes support artifact traceability.
+
+They do not prove semantic correctness, scientific correctness, or production safety.
+
+Correct interpretation:
+
+```text
+hash match    -> artifact byte identity preserved
+hash mismatch -> artifact identity changed or path/content problem exists
+hash present  -> traceability improved
+hash absent   -> traceability weaker
+```
+
+Incorrect interpretation:
+
+```text
+hash match proves semantic truth
+hash presence proves scientific validity
+hash manifest certifies production safety
+hash traceability replaces independent reproduction
+```
+
+Current status:
+
+```text
+manual policy only
+artifact hash manifest not yet generated
+manifest validator not yet implemented
+```
+
+Hash support currently exists through:
+
+```text
+omnia_validation.hashing
+omnia_validation.cli
+```
+
+Useful commands:
+
+```bash
+omnia-validation validate-sha256 <sha256>
+omnia-validation hash-file <path>
 ```
 
 Boundary:
@@ -810,6 +876,12 @@ Regression policy:
 docs/RESULT_REGRESSION_POLICY.md
 ```
 
+Hash manifest policy:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
+```
+
 Safe canonical claim:
 
 ```text
@@ -938,6 +1010,12 @@ Regression policy:
 
 ```text
 docs/RESULT_REGRESSION_POLICY.md
+```
+
+Hash manifest policy:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 ```
 
 ---
@@ -1103,6 +1181,8 @@ hash_mismatch_failure_count: 0
 ```
 
 This means the source-file trace is no longer only symbolic.
+
+It does not mean semantic correctness was proven.
 
 ---
 
@@ -1574,6 +1654,7 @@ quickstart guide added
 maintenance guide added
 release policy added
 result regression policy added
+artifact hash manifest policy added
 clean execution guide added
 validator authoring guide added
 validator registry added
