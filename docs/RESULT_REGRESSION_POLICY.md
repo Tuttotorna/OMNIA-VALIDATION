@@ -5,6 +5,22 @@
 
 ## Executable Regression Layer
 
+
+CLI command:
+
+```bash
+omnia-validation compare-results \
+  --previous results/artifact_hash_manifest_v0.json \
+  --current results/artifact_hash_manifest_v0.json
+```
+
+Expected identical-artifact classification:
+
+```text
+NO_REGRESSION
+```
+
+
 The first executable result-regression layer is implemented in:
 
 ```text

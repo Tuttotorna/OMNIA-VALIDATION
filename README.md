@@ -571,6 +571,26 @@ measurement != inference != decision
 
 ## Result Regression Automation
 
+
+CLI command:
+
+```bash
+omnia-validation compare-results \
+  --previous results/artifact_hash_manifest_v0.json \
+  --current results/artifact_hash_manifest_v0.json
+```
+
+Expected identical-artifact classification:
+
+```json
+{
+  "status": "PASS",
+  "schema": "result_regression_comparison",
+  "classification": "NO_REGRESSION"
+}
+```
+
+
 OMNIA-VALIDATION includes a first executable result-regression layer.
 
 Module:

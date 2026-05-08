@@ -562,6 +562,37 @@ final validity
 
 ## omnia_validation.regression
 
+
+### compare-results
+
+Compares two OMNIA-VALIDATION result artifacts through the result-regression layer.
+
+Example:
+
+```bash
+omnia-validation compare-results \
+  --previous results/artifact_hash_manifest_v0.json \
+  --current results/artifact_hash_manifest_v0.json
+```
+
+Expected identical-artifact output:
+
+```json
+{
+  "status": "PASS",
+  "schema": "result_regression_comparison",
+  "classification": "NO_REGRESSION"
+}
+```
+
+Boundary:
+
+```text
+compare-results classifies structural result differences
+compare-results does not prove semantic correctness
+```
+
+
 Purpose:
 
 ```text

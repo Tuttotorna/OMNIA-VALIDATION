@@ -16,6 +16,7 @@ from typing import Any
 
 from omnia_validation.hashing import compute_file_sha256, is_valid_sha256
 from omnia_validation.manifest import validate_artifact_manifest
+from omnia_validation.regression import compare_result_files
 from omnia_validation.schemas import validate_result_envelope
 
 
@@ -221,6 +222,46 @@ def cmd_validate_manifest(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_compare_results(args: argparse.Namespace) -> int:
+    previous_path = Path(args.previous)
+    current_path = Path(args.current)
+
+    errors: list[str] = []
+
+    if not previous_path.exists():
+        errors.append(f"previous file does not exist: {args.previous}")
+
+    if not current_path.exists():
+        errors.append(f"current file does not exist: {args.current}")
+
+    if errors:
+        _print_json(
+            {
+                "status": "FAIL",
+                "schema": "result_regression_comparison",
+                "classification": "SCHEMA_REGRESSION",
+                "errors": errors,
+            }
+        )
+        return 1
+
+    comparison = compare_result_files(previous_path, current_path)
+    classification = comparison["payload"]["classification"]
+
+    _print_json(
+        {
+            "status": comparison["status"],
+            "schema": "result_regression_comparison",
+            "classification": classification,
+            "payload": comparison["payload"],
+        }
+    )
+
+    if comparison["status"] == "FAIL":
+        return 1
+
+    return 0
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="omnia-validation",
@@ -278,6 +319,22 @@ def build_parser() -> argparse.ArgumentParser:
         help="Require every artifact hash to match the current file bytes.",
     )
     validate_manifest.set_defaults(func=cmd_validate_manifest)
+
+    compare_results = subparsers.add_parser(
+        "compare-results",
+        help="Compare two OMNIA-VALIDATION result artifacts.",
+    )
+    compare_results.add_argument(
+        "--previous",
+        required=True,
+        help="Previous result JSON file.",
+    )
+    compare_results.add_argument(
+        "--current",
+        required=True,
+        help="Current result JSON file.",
+    )
+    compare_results.set_defaults(func=cmd_compare_results)
 
     return parser
 
