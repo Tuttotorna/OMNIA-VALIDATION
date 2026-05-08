@@ -48,6 +48,12 @@ Release policy:
 docs/RELEASE_POLICY.md
 ```
 
+Result regression policy:
+
+```text
+docs/RESULT_REGRESSION_POLICY.md
+```
+
 Clean execution guide:
 
 ```text
@@ -358,6 +364,61 @@ non-claims explicit
 ```
 
 Release boundary:
+
+```text
+measurement != inference != decision
+```
+
+---
+
+## Result Regression Policy
+
+Result regression rules are defined in:
+
+```text
+docs/RESULT_REGRESSION_POLICY.md
+```
+
+A changed result is not automatically an error.
+
+A changed result is evidence that must be classified.
+
+Regression review distinguishes:
+
+```text
+expected drift
+unexpected regression
+schema regression
+hash regression
+payload regression
+status regression
+boundary regression
+documentation regression
+scientific boundary change
+```
+
+Correct interpretation:
+
+```text
+result differences must be classified
+drift is not automatically failure
+instability may be the measured phenomenon
+schema failure is serious for canonical results
+hash mismatch is serious when hash equality is required
+boundary regression must be corrected
+```
+
+Incorrect interpretation:
+
+```text
+all result differences are errors
+all drift means failure
+all instability means semantic incorrectness
+old results should be rewritten to match new schemas
+CHECK should be hidden
+```
+
+Boundary:
 
 ```text
 measurement != inference != decision
@@ -743,6 +804,12 @@ Registry:
 docs/VALIDATOR_REGISTRY.md
 ```
 
+Regression policy:
+
+```text
+docs/RESULT_REGRESSION_POLICY.md
+```
+
 Safe canonical claim:
 
 ```text
@@ -865,6 +932,12 @@ Registry:
 
 ```text
 docs/VALIDATOR_REGISTRY.md
+```
+
+Regression policy:
+
+```text
+docs/RESULT_REGRESSION_POLICY.md
 ```
 
 ---
@@ -1500,6 +1573,7 @@ CI-enabled
 quickstart guide added
 maintenance guide added
 release policy added
+result regression policy added
 clean execution guide added
 validator authoring guide added
 validator registry added
