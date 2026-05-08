@@ -47,11 +47,12 @@ contribution templates added
 code of conduct added
 validator registry added
 result regression policy added
+artifact hash manifest policy added
 ```
 
 The repository is no longer only a loose archive of scripts.
 
-It now contains a minimal engineering layer that supports reproducibility, package installation, testing, schema validation, result normalization, generator validation, validator mapping, result regression classification, contribution intake, and validator extension.
+It now contains a minimal engineering layer that supports reproducibility, package installation, testing, schema validation, result normalization, generator validation, validator mapping, result regression classification, artifact hash discipline, contribution intake, and validator extension.
 
 ---
 
@@ -68,6 +69,7 @@ docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/VALIDATOR_REGISTRY.md
 docs/RESULT_SCHEMA.md
 docs/RESULT_REGRESSION_POLICY.md
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 docs/PACKAGE_API.md
 docs/PROJECT_STATUS.md
 docs/MAINTENANCE.md
@@ -102,6 +104,7 @@ validator authoring discipline
 validator registry
 common result schema
 result regression policy
+artifact hash manifest policy
 package API reference
 current project status
 maintenance discipline
@@ -172,6 +175,7 @@ usable
 minimal
 standard-library-first
 schema-aware
+hash-aware
 not complete
 not domain-final
 ```
@@ -242,6 +246,59 @@ legacy status vocabularies are not yet mapped automatically
 regime vocabularies are not yet enforced
 failure-mode vocabularies are not yet enforced
 relative paths are not yet enforced
+manifest schemas are not yet enforced
+```
+
+---
+
+## Hash Utility Status
+
+Hash utility support is present in:
+
+```text
+omnia_validation.hashing
+omnia_validation.cli
+```
+
+Available CLI commands:
+
+```bash
+omnia-validation validate-sha256 <sha256>
+omnia-validation hash-file <path>
+```
+
+Current capabilities:
+
+```text
+SHA-256 format validation
+file hash computation
+CLI hash checking
+CLI file hashing
+```
+
+Status:
+
+```text
+present
+tested
+useful for artifact traceability
+not yet manifest-based
+not yet connected to full artifact manifest validation
+```
+
+Important boundary:
+
+```text
+hash match proves artifact byte identity
+hash match does not prove semantic truth
+hash presence improves traceability
+hash presence does not certify scientific correctness
+```
+
+Policy:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 ```
 
 ---
@@ -306,6 +363,7 @@ Status:
 basic unit tests present
 schema tests present
 CLI tests present
+hash tests present
 legacy result parseability tests present
 enveloped result schema tests present
 legacy wrapper tests present
@@ -325,6 +383,7 @@ artifact reproducibility tests
 topology-chain regression tests
 Level 3 chain regression tests
 hash manifest tests
+manifest validator tests
 legacy-status mapping tests
 validator registry consistency tests
 ```
@@ -361,7 +420,9 @@ sufficient for package sanity
 sufficient for result JSON parseability checks
 sufficient for enveloped-result schema checks
 sufficient for legacy-wrapper sanity checks
+sufficient for basic hash utility checks
 not yet sufficient for full experiment reproduction
+not yet sufficient for artifact manifest validation
 ```
 
 Current CI-protected guarantees:
@@ -374,6 +435,7 @@ historical results are parseable JSON
 enveloped results follow canonical envelope
 legacy wrapper preserves payloads and statuses
 legacy wrapper produces schema-valid envelopes
+basic hash utilities work
 ```
 
 Future CI should add:
@@ -384,6 +446,7 @@ JSON result validation
 JSONL dataset validation
 payload-specific schema compliance checks
 hash traceability checks
+artifact hash manifest validation
 regression comparison against frozen results
 validator registry consistency checks
 ```
@@ -404,6 +467,7 @@ docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/VALIDATOR_REGISTRY.md
 docs/RESULT_SCHEMA.md
 docs/RESULT_REGRESSION_POLICY.md
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 docs/PACKAGE_API.md
 docs/PROJECT_STATUS.md
 docs/MAINTENANCE.md
@@ -423,6 +487,7 @@ make validators authorable
 map validators and validator families
 make results comparable
 define result regression discipline
+define artifact hash discipline
 make package utilities explicit
 make current status honest
 define maintenance discipline
@@ -442,6 +507,7 @@ aligned with current result schema layer
 aligned with legacy normalization policy
 aligned with validator registry
 aligned with result regression policy
+aligned with artifact hash manifest policy
 still growing
 not final
 ```
@@ -666,6 +732,104 @@ add baseline result manifests
 add automated result regression tests
 add result-regression CI checks
 add validator registry regression-status fields
+```
+
+---
+
+## Artifact Hash Manifest Policy Status
+
+The artifact hash manifest policy is present at:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
+```
+
+It defines how OMNIA-VALIDATION should handle:
+
+```text
+artifact hashes
+hash manifests
+source files
+datasets
+result files
+source-output files
+traceability claims
+```
+
+It distinguishes:
+
+```text
+hash match
+hash mismatch
+hash presence
+artifact traceability
+semantic correctness
+scientific validation
+```
+
+Core hash policy:
+
+```text
+hash match proves artifact byte identity
+hash mismatch means artifact identity changed or path/content problem exists
+hash presence improves traceability
+hash absence weakens traceability
+hash presence does not prove semantic correctness
+hash presence does not certify scientific validity
+```
+
+Status:
+
+```text
+present
+documented
+manual policy only
+not yet automated
+artifact hash manifest not yet generated
+manifest validator not yet implemented
+```
+
+Current value:
+
+```text
+clarifies what hashes can prove
+prevents hash overclaiming
+supports future release discipline
+supports future artifact traceability
+supports future regression review
+connects V15 hash strengthening to repository policy
+```
+
+Current limitation:
+
+```text
+no artifact hash manifest exists yet
+no manifest schema validator exists yet
+no validate-manifest CLI command exists yet
+no manifest tests exist yet
+no repository-wide artifact hash manifest exists yet
+```
+
+Future work:
+
+```text
+add results/artifact_hash_manifest_v0.json
+add omnia_validation.manifest
+add validate-manifest CLI command
+add tests/test_manifest.py
+add manifest schema documentation
+add source-output manifest
+add dataset manifest
+add release artifact manifest
+add validator registry hash-traceability fields
+add result regression integration
+```
+
+Important boundary:
+
+```text
+hashes support traceability
+hashes do not create truth
 ```
 
 ---
@@ -910,6 +1074,7 @@ strong experimental chain
 boundary-aware
 mapped in validator registry
 covered by result regression policy
+covered by artifact hash manifest policy
 not universal
 requires external reproduction
 ```
@@ -924,6 +1089,12 @@ Regression policy:
 
 ```text
 docs/RESULT_REGRESSION_POLICY.md
+```
+
+Hash manifest policy:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 ```
 
 ---
@@ -974,6 +1145,7 @@ aggregate regime is DRIFT
 highest local risk is CRITICAL
 mapped in validator registry
 covered by result regression policy
+covered by artifact hash manifest policy
 not a semantic correctness claim
 ```
 
@@ -987,6 +1159,12 @@ Regression policy:
 
 ```text
 docs/RESULT_REGRESSION_POLICY.md
+```
+
+Hash manifest policy:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 ```
 
 ---
@@ -1037,6 +1215,7 @@ top-level schema enforcement present
 CLI schema validation present
 tests present
 not yet payload-specific
+not yet manifest-specific
 ```
 
 Future work:
@@ -1046,6 +1225,7 @@ add payload-specific schema validators
 add schema validator for hash payloads
 add schema validator for trajectory payloads
 add schema validator for topology payloads
+add manifest schema validator
 add relative path validation
 add failure-mode vocabulary validation
 add regime vocabulary validation
@@ -1087,6 +1267,7 @@ not yet enforced automatically
 ready for future validators
 paired with validator registry
 paired with result regression policy
+paired with artifact hash manifest policy
 ```
 
 Registry:
@@ -1101,6 +1282,12 @@ Regression policy:
 docs/RESULT_REGRESSION_POLICY.md
 ```
 
+Hash manifest policy:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
+```
+
 ---
 
 ## What Is Partially Consolidated
@@ -1112,12 +1299,14 @@ package installation
 basic reusable utilities
 unit testing
 CLI artifact validation
+CLI hash validation
 result-envelope schema validation
 CI
 documentation navigation
 quickstart path
 result schema definition
 result regression discipline
+artifact hash discipline
 validator authoring discipline
 validator registry
 clean execution instructions
@@ -1139,6 +1328,7 @@ payload-specific schema automation
 experiment-chain reproducibility automation
 dataset validation automation
 artifact hash verification automation
+manifest validation automation
 legacy-status mapping automation
 automated result regression testing
 package release process
@@ -1163,6 +1353,8 @@ experiment runner CLI
 automated result regression tests
 dataset integrity tests
 artifact hash manifest
+manifest validator
+validate-manifest CLI command
 frozen baseline manifests
 versioning policy for package releases
 advanced maintenance automation
@@ -1185,7 +1377,7 @@ Possible future documentation files:
 ```text
 docs/VALIDATOR_STATUS_VOCABULARY.md
 docs/PACKAGE_RELEASE_POLICY.md
-docs/ARTIFACT_HASH_MANIFEST_POLICY.md
+docs/ARTIFACT_HASH_MANIFEST_V0_RESULT.md
 ```
 
 ---
@@ -1199,10 +1391,12 @@ early alpha
 research-ready
 developer-runnable
 schema-aware
+hash-aware
 CI-guarded
 contribution-template-ready
 registry-mapped
 regression-policy-aware
+artifact-hash-policy-aware
 not production-ready
 not industrially hardened
 ```
@@ -1241,6 +1435,7 @@ non-universal invariance
 negative evidence
 legacy result history
 classified result differences
+hash-traceability boundaries
 ```
 
 This makes the work more falsifiable.
@@ -1301,6 +1496,7 @@ runner standardization
 integration tests
 automated result regression checks
 artifact hash manifests
+manifest validators
 clear versioned releases
 external reproduction
 independent review
@@ -1317,9 +1513,11 @@ clear falsification philosophy
 preservation of negative results
 explicit epistemic boundary
 real SHA-256 traceability in V15
+artifact hash policy
 clean package layer
 basic unit tests
 CLI validation utilities
+CLI hash utilities
 schema validator
 validate-result command
 green CI
@@ -1329,6 +1527,7 @@ validator authoring guide
 validator registry
 result schema guide
 result regression policy
+artifact hash manifest policy
 package API guide
 clean execution guide
 maintenance guide
@@ -1362,6 +1561,9 @@ no payload-specific schema enforcement
 no full regression suite
 no automated result regression tests
 no frozen baseline manifests
+no artifact hash manifest
+no manifest validator
+no validate-manifest CLI command
 limited external adoption
 limited independent reproduction
 no package release workflow yet
@@ -1390,7 +1592,8 @@ It provides schema-normalized copies for validation tooling.
 It tests the wrapper that creates those normalized copies.
 It maps validator families through a registry.
 It defines a policy for classifying result changes.
-It is becoming installable, testable, schema-aware, maintainable, and extensible.
+It defines a policy for artifact hash traceability.
+It is becoming installable, testable, schema-aware, hash-aware, maintainable, and extensible.
 ```
 
 Incorrect interpretation:
@@ -1404,6 +1607,7 @@ OMNIA-VALIDATION replaces external judgment.
 results_enveloped/ scientifically revalidates all legacy experiments.
 docs/VALIDATOR_REGISTRY.md proves every listed validator is final.
 docs/RESULT_REGRESSION_POLICY.md means every result difference is a failure.
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md means hashes prove semantic correctness.
 ```
 
 ---
@@ -1413,12 +1617,15 @@ docs/RESULT_REGRESSION_POLICY.md means every result difference is a failure.
 Recommended next steps:
 
 ```text
+create results/artifact_hash_manifest_v0.json
+add omnia_validation.manifest
+add validate-manifest CLI command
+add tests/test_manifest.py
 expand docs/VALIDATOR_REGISTRY.md into a full per-file registry
 add payload-specific schema validators
 add tests for payload-specific schemas
 add automated result regression tests
 add frozen baseline manifests
-add artifact hash manifest
 add validator registry consistency tests
 add result regression classification helpers
 ```
@@ -1431,6 +1638,7 @@ tests before expansion
 runner discipline before scale
 payload-specific validation before stricter CI gates
 registry completeness before broad external review
+manifest validation before release hardening
 regression automation before release hardening
 ```
 
