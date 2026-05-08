@@ -178,7 +178,7 @@ docs/QUICKSTART.md
 
 ## Package Layer
 
-OMNIA-VALIDATION now includes a minimal installable Python package layer:
+OMNIA-VALIDATION includes a minimal installable Python package layer:
 
 ```text
 omnia_validation/
@@ -192,6 +192,7 @@ omnia_validation.io
 omnia_validation.metrics
 omnia_validation.metadata
 omnia_validation.schemas
+omnia_validation.manifest
 omnia_validation.cli
 ```
 
@@ -201,9 +202,37 @@ The package API is documented in:
 docs/PACKAGE_API.md
 ```
 
-This package layer does not replace the experimental scripts.
+Important package-root policy:
 
-It provides reusable support utilities for reproducibility, hashing, JSON/JSONL handling, metadata envelopes, simple structural metrics, result schema validation, and command-line artifact checks.
+```text
+omnia_validation/__init__.py exports only __version__
+```
+
+Use module-specific imports.
+
+Correct:
+
+```python
+from omnia_validation.hashing import compute_file_sha256
+from omnia_validation.manifest import validate_artifact_manifest
+from omnia_validation.schemas import validate_result_envelope
+```
+
+Avoid:
+
+```python
+from omnia_validation import compute_file_sha256
+from omnia_validation import validate_artifact_manifest
+from omnia_validation import validate_result_envelope
+```
+
+Reason:
+
+```text
+submodules may evolve independently
+package import should remain stable
+helpers should be imported from the module that defines them
+```
 
 Install in editable development mode:
 
@@ -265,6 +294,102 @@ validate-result checks structural schema only.
 It does not validate semantic truth.
 It does not certify production safety.
 It does not decide whether the scientific interpretation is correct.
+```
+
+---
+
+## Artifact Manifest Validation
+
+Artifact manifest validation helpers are present in:
+
+```text
+omnia_validation.manifest
+```
+
+Tests are present in:
+
+```text
+tests/test_manifest.py
+```
+
+Current artifact hash manifest:
+
+```text
+results/artifact_hash_manifest_v0.json
+```
+
+Current manifest scope:
+
+```text
+data/source_outputs
+```
+
+Current source validator:
+
+```text
+temporal_collapse_external_source_hash_strengthening_validator_v15
+```
+
+Current manifest status:
+
+```text
+CHECK
+```
+
+Reason:
+
+```text
+first artifact hash manifest
+real SHA-256 hashes present
+manifest validation helpers present
+repository-wide artifact coverage not yet present
+validate-manifest CLI not yet implemented
+```
+
+Current correct import pattern:
+
+```python
+from omnia_validation.io import read_json
+from omnia_validation.manifest import validate_artifact_manifest
+
+manifest = read_json("results/artifact_hash_manifest_v0.json")
+
+errors = validate_artifact_manifest(
+    manifest,
+    base_dir=".",
+    verify_hashes=True,
+)
+```
+
+Correct hash interpretation:
+
+```text
+hash match    -> artifact byte identity preserved
+hash mismatch -> artifact identity changed or path/content problem exists
+hash present  -> traceability improved
+hash absent   -> traceability weaker
+```
+
+Incorrect hash interpretation:
+
+```text
+hash match proves semantic truth
+hash presence proves scientific correctness
+hash traceability certifies production safety
+```
+
+Current limitation:
+
+```text
+validate-manifest CLI command is not yet implemented
+repository-wide artifact hash manifest is not yet present
+manifest generator is not yet implemented
+```
+
+Policy:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 ```
 
 ---
@@ -462,19 +587,12 @@ hash manifest certifies production safety
 hash traceability replaces independent reproduction
 ```
 
-Current status:
-
-```text
-manual policy only
-artifact hash manifest not yet generated
-manifest validator not yet implemented
-```
-
 Hash support currently exists through:
 
 ```text
 omnia_validation.hashing
 omnia_validation.cli
+omnia_validation.manifest
 ```
 
 Useful commands:
@@ -482,6 +600,12 @@ Useful commands:
 ```bash
 omnia-validation validate-sha256 <sha256>
 omnia-validation hash-file <path>
+```
+
+Current missing command:
+
+```text
+omnia-validation validate-manifest
 ```
 
 Boundary:
@@ -882,6 +1006,12 @@ Hash manifest policy:
 docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 ```
 
+Artifact hash manifest:
+
+```text
+results/artifact_hash_manifest_v0.json
+```
+
 Safe canonical claim:
 
 ```text
@@ -1018,6 +1148,12 @@ Hash manifest policy:
 docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 ```
 
+Artifact hash manifest:
+
+```text
+results/artifact_hash_manifest_v0.json
+```
+
 ---
 
 ## Temporal Collapse Level 3 — Current Chain
@@ -1149,40 +1285,28 @@ source traceability: strengthened with real SHA-256 hashes
 
 ## Temporal Collapse Level 3 — Source Hashes
 
-V15 computed real SHA-256 hashes for the source-output files:
+V15 computed real SHA-256 hashes for the source-output files.
+
+Those hashes are now recorded in:
 
 ```text
-data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_a_run_001.jsonl
-sha256:24d7177cea63e44e2616c0d4546ed65fd824719f7fc4030b9a52130c1bf4e00c
+results/artifact_hash_manifest_v0.json
 ```
+
+Current manifest scope:
 
 ```text
-data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_a_run_002.jsonl
-sha256:602676324b4335e7cb670d6884cbe5e978dacac59889dbc362252440d706dc2e
+data/source_outputs
 ```
+
+Important interpretation:
 
 ```text
-data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_b_run_001.jsonl
-sha256:5ab1f8a6bf24f266a8dbf4e4e952be749db66ae66156bff0835d44088bb8ac5a
+the source-output files are traceable by SHA-256
+semantic correctness was not proven by hashing
+scientific correctness was not proven by hashing
+production safety was not certified by hashing
 ```
-
-```text
-data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_b_run_002.jsonl
-sha256:5399edf34ba661ece7b6f0855df09ecad7d895a74951bd8bec56ad8074dd9010
-```
-
-The important result is:
-
-```text
-real_hash_count: 4
-placeholder_hash_count: 0
-hash_format_failure_count: 0
-hash_mismatch_failure_count: 0
-```
-
-This means the source-file trace is no longer only symbolic.
-
-It does not mean semantic correctness was proven.
 
 ---
 
@@ -1655,6 +1779,10 @@ maintenance guide added
 release policy added
 result regression policy added
 artifact hash manifest policy added
+artifact hash manifest added
+manifest validation helpers added
+manifest tests added
+safe package initializer added
 clean execution guide added
 validator authoring guide added
 validator registry added
