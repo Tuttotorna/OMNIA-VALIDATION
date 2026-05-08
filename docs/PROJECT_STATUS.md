@@ -74,6 +74,7 @@ The following components are currently ready:
 README.md
 docs/INDEX.md
 docs/QUICKSTART.md
+docs/REVIEWER_GUIDE.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/VALIDATOR_REGISTRY.md

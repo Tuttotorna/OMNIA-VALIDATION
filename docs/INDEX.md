@@ -101,6 +101,8 @@ Expected identical-artifact output:
 README.md                       -> short operational overview
 docs/INDEX.md                   -> documentation navigation
 docs/QUICKSTART.md              -> first-run guide
+
+docs/REVIEWER_GUIDE.md          -> external verification guide
 docs/PROJECT_STATUS.md          -> current engineering/research status
 docs/PACKAGE_API.md             -> Python package and CLI API
 docs/RESULT_SCHEMA.md           -> canonical result envelope

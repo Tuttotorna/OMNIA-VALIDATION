@@ -189,6 +189,14 @@ omnia-validation compare-results \
 
 Full quickstart:
 
+
+Reviewer verification guide:
+
+```text
+docs/REVIEWER_GUIDE.md
+```
+
+
 ```text
 docs/QUICKSTART.md
 ```
