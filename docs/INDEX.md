@@ -213,6 +213,42 @@ This document defines validator discipline, naming rules, file patterns, result 
 
 ---
 
+## Validator Registry
+
+Validator registry:
+
+```text
+docs/VALIDATOR_REGISTRY.md
+```
+
+This document provides a structured map of validators and validation-related scripts.
+
+It separates:
+
+```text
+schema and package validators
+legacy normalization validators
+Temporal Collapse Level 3 validators
+Temporal Collapse Topology validators
+observer and recoverability validators
+cross-domain and perturbation validators
+structural benchmark validators
+future validator families
+```
+
+The registry is a navigation and maintenance map.
+
+It does not declare every validator final.
+
+Boundary:
+
+```text
+a validator is a controlled structural test
+not a truth oracle
+```
+
+---
+
 ## Result Schema
 
 Common schema for JSON result files:
@@ -456,6 +492,12 @@ Final phase result:
 docs/TEMPORAL_COLLAPSE_TOPOLOGY_BOUNDARY_PHASE_DIAGRAM_V0_RESULT.md
 ```
 
+Registry entry:
+
+```text
+docs/VALIDATOR_REGISTRY.md
+```
+
 ---
 
 ## Temporal Collapse Level 3
@@ -476,6 +518,12 @@ Current chain:
 
 ```text
 V13 -> V14 -> V15
+```
+
+Registry entry:
+
+```text
+docs/VALIDATOR_REGISTRY.md
 ```
 
 ---
@@ -520,6 +568,7 @@ docs/MAINTENANCE.md
 docs/RELEASE_POLICY.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
+docs/VALIDATOR_REGISTRY.md
 docs/RESULT_SCHEMA.md
 docs/PACKAGE_API.md
 docs/LEGACY_RESULT_NORMALIZATION.md
@@ -545,6 +594,7 @@ docs/MAINTENANCE.md
 docs/RELEASE_POLICY.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
+docs/VALIDATOR_REGISTRY.md
 docs/RESULT_SCHEMA.md
 docs/PACKAGE_API.md
 docs/LEGACY_RESULT_NORMALIZATION.md
@@ -561,6 +611,7 @@ define maintenance discipline
 define release discipline
 make experiments runnable
 make validators authorable
+map validators and validator families
 make result files comparable
 make package utilities documented
 explain legacy result normalization
@@ -583,6 +634,7 @@ maintenance guide
 release policy
 clean execution guide
 validator authoring guide
+validator registry
 common result schema
 schema validator
 validate-result CLI command
@@ -602,7 +654,7 @@ Still missing:
 
 ```text
 payload-specific schema validators
-full validator registry
+full per-file validator registry
 result regression tests
 experiment-chain CI
 artifact hash manifest
@@ -772,6 +824,41 @@ The conduct policy is located at:
 
 ```text
 CODE_OF_CONDUCT.md
+```
+
+---
+
+## Validator Policy
+
+Validators are controlled structural tests.
+
+They are not truth oracles.
+
+A validator should expose:
+
+```text
+stability
+drift
+collapse
+ambiguity
+boundary conditions
+artifact invalidity
+```
+
+A validator should not claim:
+
+```text
+semantic truth
+model intelligence
+production safety
+universal validity
+final correctness
+```
+
+The validator registry is located at:
+
+```text
+docs/VALIDATOR_REGISTRY.md
 ```
 
 ---
