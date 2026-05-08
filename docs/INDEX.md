@@ -234,6 +234,46 @@ a result difference is evidence that must be classified
 
 ---
 
+## Artifact Hash Manifest Policy
+
+Artifact hash manifest policy:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
+```
+
+This document defines how OMNIA-VALIDATION should handle artifact hashes, hash manifests, source files, datasets, result files, and traceability claims.
+
+It distinguishes:
+
+```text
+hash match
+hash mismatch
+hash presence
+artifact traceability
+semantic correctness
+scientific validation
+```
+
+Core hash boundary:
+
+```text
+hash match proves artifact byte identity
+hash match does not prove semantic truth
+hash presence improves traceability
+hash presence does not certify scientific correctness
+```
+
+Current status:
+
+```text
+manual policy only
+manifest validator not yet implemented
+artifact hash manifest not yet generated
+```
+
+---
+
 ## Validator Authoring Guide
 
 Guide for adding new validators:
@@ -537,6 +577,12 @@ Regression policy:
 docs/RESULT_REGRESSION_POLICY.md
 ```
 
+Hash manifest policy:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
+```
+
 ---
 
 ## Temporal Collapse Level 3
@@ -569,6 +615,12 @@ Regression policy:
 
 ```text
 docs/RESULT_REGRESSION_POLICY.md
+```
+
+Hash manifest policy:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 ```
 
 ---
@@ -612,6 +664,7 @@ docs/PROJECT_STATUS.md
 docs/MAINTENANCE.md
 docs/RELEASE_POLICY.md
 docs/RESULT_REGRESSION_POLICY.md
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/VALIDATOR_REGISTRY.md
@@ -639,6 +692,7 @@ docs/QUICKSTART.md
 docs/MAINTENANCE.md
 docs/RELEASE_POLICY.md
 docs/RESULT_REGRESSION_POLICY.md
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/VALIDATOR_REGISTRY.md
@@ -657,6 +711,7 @@ provide a minimal first-run path
 define maintenance discipline
 define release discipline
 define result regression discipline
+define artifact hash manifest discipline
 make experiments runnable
 make validators authorable
 map validators and validator families
@@ -681,6 +736,7 @@ quickstart guide
 maintenance guide
 release policy
 result regression policy
+artifact hash manifest policy
 clean execution guide
 validator authoring guide
 validator registry
@@ -707,6 +763,7 @@ full per-file validator registry
 automated result regression tests
 experiment-chain CI
 artifact hash manifest
+manifest validator
 ```
 
 ---
@@ -879,6 +936,37 @@ Full policy:
 
 ```text
 docs/RESULT_REGRESSION_POLICY.md
+```
+
+---
+
+## Artifact Hash Policy
+
+Hashes support artifact traceability.
+
+They do not prove semantic truth.
+
+Correct interpretation:
+
+```text
+hash match    -> artifact byte identity preserved
+hash mismatch -> artifact identity changed or path/content problem exists
+hash present  -> traceability improved
+hash absent   -> traceability weaker
+```
+
+Incorrect interpretation:
+
+```text
+hash match proves semantic correctness
+hash presence certifies scientific validity
+hash manifest replaces independent reproduction
+```
+
+Full policy:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 ```
 
 ---
