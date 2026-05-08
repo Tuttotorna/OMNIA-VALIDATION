@@ -38,6 +38,7 @@ pressure-driven
 partially industrialized
 CI-enabled
 package-layer added
+safe package initializer added
 documentation-layer expanded
 schema-validator added
 legacy-result normalization added
@@ -48,11 +49,14 @@ code of conduct added
 validator registry added
 result regression policy added
 artifact hash manifest policy added
+artifact hash manifest added
+manifest validation helpers added
+manifest tests added
 ```
 
 The repository is no longer only a loose archive of scripts.
 
-It now contains a minimal engineering layer that supports reproducibility, package installation, testing, schema validation, result normalization, generator validation, validator mapping, result regression classification, artifact hash discipline, contribution intake, and validator extension.
+It now contains a minimal engineering layer that supports reproducibility, package installation, testing, schema validation, result normalization, generator validation, validator mapping, result regression classification, artifact hash discipline, artifact manifest validation, contribution intake, and validator extension.
 
 ---
 
@@ -83,15 +87,18 @@ CODE_OF_CONDUCT.md
 pyproject.toml
 requirements-dev.txt
 omnia_validation/
+omnia_validation/manifest.py
 tests/
+tests/test_manifest.py
+results/
+results/artifact_hash_manifest_v0.json
+results_enveloped/
 .github/workflows/ci.yml
 .github/ISSUE_TEMPLATE/bug_report.md
 .github/ISSUE_TEMPLATE/validation_result_review.md
 .github/ISSUE_TEMPLATE/documentation_issue.md
 .github/pull_request_template.md
 examples/wrap_legacy_results_in_envelope.py
-results/
-results_enveloped/
 ```
 
 These files and directories establish:
@@ -116,12 +123,16 @@ contribution rules
 security boundary
 conduct boundary
 installable package layer
+safe package initializer
 test suite
+manifest tests
 continuous integration
 issue intake templates
 pull request checklist
 historical result preservation
 canonical enveloped result copies
+artifact hash manifest
+manifest validation helpers
 tested legacy-result wrapper
 ```
 
@@ -143,7 +154,44 @@ omnia_validation.io
 omnia_validation.metrics
 omnia_validation.metadata
 omnia_validation.schemas
+omnia_validation.manifest
 omnia_validation.cli
+```
+
+Package root:
+
+```text
+omnia_validation/__init__.py
+```
+
+Package root policy:
+
+```text
+exports only __version__
+```
+
+Reason:
+
+```text
+submodules may evolve independently
+package import should remain stable
+helpers should be imported from the module that defines them
+```
+
+Correct import pattern:
+
+```python
+from omnia_validation.hashing import compute_file_sha256
+from omnia_validation.manifest import validate_artifact_manifest
+from omnia_validation.schemas import validate_result_envelope
+```
+
+Avoid root helper imports:
+
+```python
+from omnia_validation import compute_file_sha256
+from omnia_validation import validate_artifact_manifest
+from omnia_validation import validate_result_envelope
 ```
 
 Current capabilities:
@@ -160,10 +208,12 @@ simple entropy measurement
 compression ratio measurement
 normalized repetition scoring
 UTC timestamp generation
-file metadata generation
-result envelope construction
+file metadata support
 result envelope validation
 strict result envelope validation
+artifact entry validation
+artifact manifest validation
+optional hash verification
 CLI artifact validation
 CLI result-envelope validation
 ```
@@ -176,6 +226,7 @@ minimal
 standard-library-first
 schema-aware
 hash-aware
+manifest-aware
 not complete
 not domain-final
 ```
@@ -204,14 +255,6 @@ status
 created_at_utc
 boundary
 payload
-```
-
-Available schema helpers:
-
-```text
-validate_result_envelope
-is_valid_result_envelope
-require_valid_result_envelope
 ```
 
 Allowed result statuses:
@@ -246,7 +289,7 @@ legacy status vocabularies are not yet mapped automatically
 regime vocabularies are not yet enforced
 failure-mode vocabularies are not yet enforced
 relative paths are not yet enforced
-manifest schemas are not yet enforced
+manifest schemas are available in Python but not yet exposed through CLI
 ```
 
 ---
@@ -274,6 +317,7 @@ SHA-256 format validation
 file hash computation
 CLI hash checking
 CLI file hashing
+compatibility aliases for manifest validation
 ```
 
 Status:
@@ -282,8 +326,8 @@ Status:
 present
 tested
 useful for artifact traceability
-not yet manifest-based
-not yet connected to full artifact manifest validation
+connected to artifact manifest validation helpers
+not yet connected to a validate-manifest CLI command
 ```
 
 Important boundary:
@@ -299,6 +343,115 @@ Policy:
 
 ```text
 docs/ARTIFACT_HASH_MANIFEST_POLICY.md
+```
+
+---
+
+## Manifest Validation Status
+
+Artifact manifest validation helpers are present at:
+
+```text
+omnia_validation/manifest.py
+```
+
+Current manifest file:
+
+```text
+results/artifact_hash_manifest_v0.json
+```
+
+Current tests:
+
+```text
+tests/test_manifest.py
+```
+
+Current manifest scope:
+
+```text
+data/source_outputs
+```
+
+Current source validator:
+
+```text
+temporal_collapse_external_source_hash_strengthening_validator_v15
+```
+
+Current manifest status:
+
+```text
+CHECK
+```
+
+Reason:
+
+```text
+first artifact hash manifest
+real SHA-256 hashes present
+manifest validation helpers present
+repository-wide artifact coverage not yet present
+validate-manifest CLI not yet implemented
+manifest generator not yet implemented
+```
+
+Current manifest helper functions:
+
+```text
+validate_artifact_entry
+validate_artifact_manifest
+is_valid_artifact_manifest
+require_valid_artifact_manifest
+```
+
+Current artifact role vocabulary:
+
+```text
+dataset
+source_output
+model_output
+validator_script
+result
+enveloped_result
+manifest
+documentation
+configuration
+benchmark_input
+benchmark_output
+```
+
+Current validation capabilities:
+
+```text
+artifact path field validation
+artifact role vocabulary validation
+SHA-256 format validation
+artifact count validation
+canonical result-envelope validation
+optional file existence checks
+optional hash verification checks
+```
+
+Status:
+
+```text
+present
+tested
+Python API available
+not yet exposed through CLI
+not yet repository-wide
+```
+
+Missing:
+
+```text
+validate-manifest CLI command
+manifest generator
+repository-wide artifact hash manifest
+manifest schema documentation beyond policy/API docs
+release artifact manifest
+dataset manifest
 ```
 
 ---
@@ -323,6 +476,7 @@ tests/test_schemas.py
 tests/test_existing_results.py
 tests/test_enveloped_results.py
 tests/test_wrap_legacy_results.py
+tests/test_manifest.py
 ```
 
 Current coverage includes:
@@ -338,8 +492,7 @@ entropy ordering behavior
 compression ordering behavior
 repetition score behavior
 UTC timestamp generation
-file metadata generation
-result envelope construction
+file metadata behavior
 CLI command behavior
 validate-result CLI behavior
 schema constants
@@ -355,6 +508,12 @@ legacy wrapper missing-status preservation
 legacy wrapper nested-payload preservation
 legacy wrapper envelope generation
 legacy wrapper schema compliance
+artifact entry validation
+artifact role validation
+artifact manifest validation
+artifact count consistency
+optional artifact hash verification
+existing artifact hash manifest validation
 ```
 
 Status:
@@ -364,6 +523,7 @@ basic unit tests present
 schema tests present
 CLI tests present
 hash tests present
+manifest tests present
 legacy result parseability tests present
 enveloped result schema tests present
 legacy wrapper tests present
@@ -382,8 +542,9 @@ experiment-chain tests
 artifact reproducibility tests
 topology-chain regression tests
 Level 3 chain regression tests
-hash manifest tests
-manifest validator tests
+repository-wide hash manifest tests
+validate-manifest CLI tests
+manifest generator tests
 legacy-status mapping tests
 validator registry consistency tests
 ```
@@ -421,14 +582,16 @@ sufficient for result JSON parseability checks
 sufficient for enveloped-result schema checks
 sufficient for legacy-wrapper sanity checks
 sufficient for basic hash utility checks
+sufficient for artifact manifest Python tests
 not yet sufficient for full experiment reproduction
-not yet sufficient for artifact manifest validation
+not yet sufficient for repository-wide artifact manifest validation
 ```
 
 Current CI-protected guarantees:
 
 ```text
 package imports
+safe package initializer works
 unit tests pass
 CLI smoke test passes
 historical results are parseable JSON
@@ -436,6 +599,8 @@ enveloped results follow canonical envelope
 legacy wrapper preserves payloads and statuses
 legacy wrapper produces schema-valid envelopes
 basic hash utilities work
+manifest validation helpers work
+current artifact hash manifest is structurally valid
 ```
 
 Future CI should add:
@@ -446,7 +611,8 @@ JSON result validation
 JSONL dataset validation
 payload-specific schema compliance checks
 hash traceability checks
-artifact hash manifest validation
+repository-wide artifact hash manifest validation
+validate-manifest CLI smoke test
 regression comparison against frozen results
 validator registry consistency checks
 ```
@@ -488,6 +654,8 @@ map validators and validator families
 make results comparable
 define result regression discipline
 define artifact hash discipline
+document artifact manifest validation
+document package root import policy
 make package utilities explicit
 make current status honest
 define maintenance discipline
@@ -503,11 +671,13 @@ Status:
 good foundation
 internally consistent
 aligned with current package layer
+aligned with safe package initializer
 aligned with current result schema layer
 aligned with legacy normalization policy
 aligned with validator registry
 aligned with result regression policy
 aligned with artifact hash manifest policy
+aligned with manifest validation helpers
 still growing
 not final
 ```
@@ -719,7 +889,7 @@ Current limitation:
 ```text
 automated result regression tests are still missing
 frozen baseline manifests are still missing
-artifact hash manifests are still missing
+repository-wide artifact hash manifests are still missing
 payload-specific regression checks are still missing
 ```
 
@@ -783,10 +953,13 @@ Status:
 ```text
 present
 documented
-manual policy only
-not yet automated
-artifact hash manifest not yet generated
-manifest validator not yet implemented
+manual policy present
+artifact hash manifest present
+manifest validation helpers present
+manifest tests present
+validate-manifest CLI not yet implemented
+repository-wide artifact hash manifest not yet present
+manifest generator not yet implemented
 ```
 
 Current value:
@@ -798,29 +971,27 @@ supports future release discipline
 supports future artifact traceability
 supports future regression review
 connects V15 hash strengthening to repository policy
+connects manifest validation helpers to repository policy
 ```
 
 Current limitation:
 
 ```text
-no artifact hash manifest exists yet
-no manifest schema validator exists yet
-no validate-manifest CLI command exists yet
-no manifest tests exist yet
-no repository-wide artifact hash manifest exists yet
+repository-wide artifact hash manifest does not exist yet
+validate-manifest CLI command does not exist yet
+manifest generator does not exist yet
+release artifact manifest does not exist yet
+dataset manifest does not exist yet
 ```
 
 Future work:
 
 ```text
-add results/artifact_hash_manifest_v0.json
-add omnia_validation.manifest
+add repository-wide artifact hash manifest
 add validate-manifest CLI command
-add tests/test_manifest.py
-add manifest schema documentation
-add source-output manifest
-add dataset manifest
+add manifest generator
 add release artifact manifest
+add dataset manifest
 add validator registry hash-traceability fields
 add result regression integration
 ```
@@ -972,6 +1143,7 @@ parseable JSON
 legacy format
 not required to follow canonical envelope
 CI checks JSON parseability
+contains artifact_hash_manifest_v0.json as a canonical manifest result
 ```
 
 Schema-normalized results:
@@ -996,6 +1168,7 @@ Correct interpretation:
 ```text
 results/ preserves historical evidence
 results_enveloped/ enables schema-based validation
+results/artifact_hash_manifest_v0.json records source-output hash traceability
 ```
 
 Incorrect interpretation:
@@ -1003,6 +1176,7 @@ Incorrect interpretation:
 ```text
 results_enveloped/ proves every legacy experiment scientifically correct
 results_enveloped/ replaces results/
+artifact hashes prove semantic truth
 results/ should be deleted
 ```
 
@@ -1126,6 +1300,12 @@ hash_format_failure_count: 0
 hash_mismatch_failure_count: 0
 ```
 
+Source-output hashes are now recorded in:
+
+```text
+results/artifact_hash_manifest_v0.json
+```
+
 Aggregate structural result preserved from V14:
 
 ```text
@@ -1141,6 +1321,8 @@ Status:
 ```text
 source traceability strengthened
 real SHA-256 hashes present
+artifact hash manifest present
+manifest validation helpers present
 aggregate regime is DRIFT
 highest local risk is CRITICAL
 mapped in validator registry
@@ -1215,7 +1397,8 @@ top-level schema enforcement present
 CLI schema validation present
 tests present
 not yet payload-specific
-not yet manifest-specific
+manifest validation available through Python helpers
+manifest validation not yet exposed through CLI
 ```
 
 Future work:
@@ -1225,7 +1408,7 @@ add payload-specific schema validators
 add schema validator for hash payloads
 add schema validator for trajectory payloads
 add schema validator for topology payloads
-add manifest schema validator
+add validate-manifest CLI command
 add relative path validation
 add failure-mode vocabulary validation
 add regime vocabulary validation
@@ -1296,11 +1479,13 @@ The repository has partial consolidation in these areas:
 
 ```text
 package installation
+safe package initializer
 basic reusable utilities
 unit testing
 CLI artifact validation
 CLI hash validation
 result-envelope schema validation
+artifact manifest Python validation
 CI
 documentation navigation
 quickstart path
@@ -1315,6 +1500,7 @@ release discipline
 legacy result normalization
 legacy wrapper testing
 enveloped result CI checks
+source-output artifact manifest
 contribution templates
 code of conduct
 ```
@@ -1328,7 +1514,7 @@ payload-specific schema automation
 experiment-chain reproducibility automation
 dataset validation automation
 artifact hash verification automation
-manifest validation automation
+repository-wide manifest validation automation
 legacy-status mapping automation
 automated result regression testing
 package release process
@@ -1352,8 +1538,8 @@ benchmark runner module
 experiment runner CLI
 automated result regression tests
 dataset integrity tests
-artifact hash manifest
-manifest validator
+repository-wide artifact hash manifest
+manifest generator
 validate-manifest CLI command
 frozen baseline manifests
 versioning policy for package releases
@@ -1392,6 +1578,7 @@ research-ready
 developer-runnable
 schema-aware
 hash-aware
+manifest-aware
 CI-guarded
 contribution-template-ready
 registry-mapped
@@ -1401,7 +1588,7 @@ not production-ready
 not industrially hardened
 ```
 
-The repository can now be cloned, installed, tested, inspected, partially schema-validated, and navigated more easily.
+The repository can now be cloned, installed, tested, inspected, partially schema-validated, hash-checked, and navigated more easily.
 
 However, it is not yet a production package.
 
@@ -1436,6 +1623,7 @@ negative evidence
 legacy result history
 classified result differences
 hash-traceability boundaries
+manifest-traceability boundaries
 ```
 
 This makes the work more falsifiable.
@@ -1495,8 +1683,9 @@ payload-specific schema enforcement
 runner standardization
 integration tests
 automated result regression checks
-artifact hash manifests
-manifest validators
+repository-wide artifact hash manifests
+manifest generator
+validate-manifest CLI command
 clear versioned releases
 external reproduction
 independent review
@@ -1514,6 +1703,10 @@ preservation of negative results
 explicit epistemic boundary
 real SHA-256 traceability in V15
 artifact hash policy
+artifact hash manifest
+manifest validation helpers
+manifest tests
+safe package initializer
 clean package layer
 basic unit tests
 CLI validation utilities
@@ -1561,8 +1754,8 @@ no payload-specific schema enforcement
 no full regression suite
 no automated result regression tests
 no frozen baseline manifests
-no artifact hash manifest
-no manifest validator
+no repository-wide artifact hash manifest
+no manifest generator
 no validate-manifest CLI command
 limited external adoption
 limited independent reproduction
@@ -1593,7 +1786,9 @@ It tests the wrapper that creates those normalized copies.
 It maps validator families through a registry.
 It defines a policy for classifying result changes.
 It defines a policy for artifact hash traceability.
-It is becoming installable, testable, schema-aware, hash-aware, maintainable, and extensible.
+It records a first source-output artifact hash manifest.
+It provides Python helpers for artifact manifest validation.
+It is becoming installable, testable, schema-aware, hash-aware, manifest-aware, maintainable, and extensible.
 ```
 
 Incorrect interpretation:
@@ -1608,6 +1803,7 @@ results_enveloped/ scientifically revalidates all legacy experiments.
 docs/VALIDATOR_REGISTRY.md proves every listed validator is final.
 docs/RESULT_REGRESSION_POLICY.md means every result difference is a failure.
 docs/ARTIFACT_HASH_MANIFEST_POLICY.md means hashes prove semantic correctness.
+results/artifact_hash_manifest_v0.json proves scientific correctness.
 ```
 
 ---
@@ -1617,10 +1813,10 @@ docs/ARTIFACT_HASH_MANIFEST_POLICY.md means hashes prove semantic correctness.
 Recommended next steps:
 
 ```text
-create results/artifact_hash_manifest_v0.json
-add omnia_validation.manifest
 add validate-manifest CLI command
-add tests/test_manifest.py
+add manifest generator
+expand results/artifact_hash_manifest_v0.json beyond data/source_outputs
+create repository-wide artifact hash manifest
 expand docs/VALIDATOR_REGISTRY.md into a full per-file registry
 add payload-specific schema validators
 add tests for payload-specific schemas
@@ -1638,7 +1834,8 @@ tests before expansion
 runner discipline before scale
 payload-specific validation before stricter CI gates
 registry completeness before broad external review
-manifest validation before release hardening
+validate-manifest CLI before release hardening
+manifest generator before repository-wide manifests
 regression automation before release hardening
 ```
 
