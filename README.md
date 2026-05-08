@@ -60,6 +60,12 @@ Validator authoring guide:
 docs/VALIDATOR_AUTHORING_GUIDE.md
 ```
 
+Validator registry:
+
+```text
+docs/VALIDATOR_REGISTRY.md
+```
+
 Common result schema:
 
 ```text
@@ -425,6 +431,56 @@ measurement != inference != decision
 
 ---
 
+## Validator Registry
+
+The validator registry is located in:
+
+```text
+docs/VALIDATOR_REGISTRY.md
+```
+
+It provides a structured map of validators and validation-related scripts.
+
+It separates:
+
+```text
+schema and package validators
+legacy normalization validators
+Temporal Collapse Level 3 validators
+Temporal Collapse Topology validators
+observer and recoverability validators
+cross-domain and perturbation validators
+structural benchmark validators
+future validator families
+```
+
+A validator is a controlled structural test.
+
+It is not a truth oracle.
+
+A validator should expose:
+
+```text
+stability
+drift
+collapse
+ambiguity
+boundary conditions
+artifact invalidity
+```
+
+A validator should not claim:
+
+```text
+semantic truth
+model intelligence
+production safety
+universal validity
+final correctness
+```
+
+---
+
 ## Purpose
 
 OMNIA-VALIDATION tests whether structural measurements remain meaningful under controlled pressure.
@@ -681,6 +737,12 @@ Final phase result:
 docs/TEMPORAL_COLLAPSE_TOPOLOGY_BOUNDARY_PHASE_DIAGRAM_V0_RESULT.md
 ```
 
+Registry:
+
+```text
+docs/VALIDATOR_REGISTRY.md
+```
+
 Safe canonical claim:
 
 ```text
@@ -797,6 +859,12 @@ Human-readable summary:
 
 ```text
 docs/TEMPORAL_COLLAPSE_LEVEL_3_FINAL_SUMMARY_V0.md
+```
+
+Registry:
+
+```text
+docs/VALIDATOR_REGISTRY.md
 ```
 
 ---
@@ -1434,6 +1502,7 @@ maintenance guide added
 release policy added
 clean execution guide added
 validator authoring guide added
+validator registry added
 result schema added
 package API documented
 project status documented
