@@ -43,7 +43,44 @@ omnia_validation.io
 omnia_validation.metrics
 omnia_validation.metadata
 omnia_validation.schemas
+omnia_validation.manifest
 omnia_validation.cli
+```
+
+Package root:
+
+```text
+omnia_validation/__init__.py
+```
+
+Package root export policy:
+
+```text
+exports only __version__
+```
+
+Reason:
+
+```text
+submodules may evolve independently
+package import should remain stable
+helpers should be imported from the module that defines them
+```
+
+Correct import pattern:
+
+```python
+from omnia_validation.hashing import compute_file_sha256
+from omnia_validation.manifest import validate_artifact_manifest
+from omnia_validation.schemas import validate_result_envelope
+```
+
+Avoid root helper imports:
+
+```python
+from omnia_validation import compute_file_sha256
+from omnia_validation import validate_artifact_manifest
+from omnia_validation import validate_result_envelope
 ```
 
 Package API reference:
@@ -74,6 +111,20 @@ tests/test_schemas.py
 tests/test_existing_results.py
 tests/test_enveloped_results.py
 tests/test_wrap_legacy_results.py
+tests/test_manifest.py
+```
+
+`tests/test_manifest.py` validates:
+
+```text
+artifact entry structure
+artifact role vocabulary
+SHA-256 format
+optional file existence
+optional hash verification
+artifact manifest envelope
+artifact count consistency
+existing artifact hash manifest
 ```
 
 ---
@@ -267,9 +318,73 @@ hash presence does not certify scientific correctness
 Current status:
 
 ```text
-manual policy only
-manifest validator not yet implemented
-artifact hash manifest not yet generated
+manual policy present
+artifact hash manifest present
+manifest validation helpers present
+validate-manifest CLI not yet implemented
+repository-wide artifact hash manifest not yet present
+```
+
+---
+
+## Artifact Hash Manifest
+
+Current artifact hash manifest:
+
+```text
+results/artifact_hash_manifest_v0.json
+```
+
+Current scope:
+
+```text
+data/source_outputs
+```
+
+Current source validator:
+
+```text
+temporal_collapse_external_source_hash_strengthening_validator_v15
+```
+
+Current purpose:
+
+```text
+records source-output hashes from Temporal Collapse Level 3 V15
+```
+
+Current status:
+
+```text
+CHECK
+```
+
+Reason:
+
+```text
+first artifact hash manifest
+real SHA-256 hashes present
+manifest validation helpers present
+repository-wide artifact coverage not yet present
+validate-manifest CLI not yet implemented
+```
+
+Validator helpers:
+
+```text
+omnia_validation.manifest
+```
+
+Tests:
+
+```text
+tests/test_manifest.py
+```
+
+Policy:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 ```
 
 ---
@@ -357,10 +472,16 @@ omnia_validation.io
 omnia_validation.metrics
 omnia_validation.metadata
 omnia_validation.schemas
+omnia_validation.manifest
 omnia_validation.cli
 ```
 
-It explains available functions, CLI commands, recommended validator usage, tests, and design boundaries.
+It also documents the package root policy:
+
+```text
+omnia_validation/__init__.py exports only __version__
+helpers should be imported from specific modules
+```
 
 ---
 
@@ -583,6 +704,12 @@ Hash manifest policy:
 docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 ```
 
+Artifact hash manifest:
+
+```text
+results/artifact_hash_manifest_v0.json
+```
+
 ---
 
 ## Temporal Collapse Level 3
@@ -621,6 +748,12 @@ Hash manifest policy:
 
 ```text
 docs/ARTIFACT_HASH_MANIFEST_POLICY.md
+```
+
+Artifact hash manifest:
+
+```text
+results/artifact_hash_manifest_v0.json
 ```
 
 ---
@@ -717,6 +850,7 @@ make validators authorable
 map validators and validator families
 make result files comparable
 make package utilities documented
+explain package root import policy
 explain legacy result normalization
 explain legacy status preservation
 make repository structure maintainable
@@ -737,6 +871,9 @@ maintenance guide
 release policy
 result regression policy
 artifact hash manifest policy
+artifact hash manifest
+manifest validation helpers
+manifest tests
 clean execution guide
 validator authoring guide
 validator registry
@@ -762,8 +899,9 @@ payload-specific schema validators
 full per-file validator registry
 automated result regression tests
 experiment-chain CI
-artifact hash manifest
-manifest validator
+repository-wide artifact hash manifest
+validate-manifest CLI command
+manifest generator
 ```
 
 ---
@@ -967,6 +1105,24 @@ Full policy:
 
 ```text
 docs/ARTIFACT_HASH_MANIFEST_POLICY.md
+```
+
+Current manifest:
+
+```text
+results/artifact_hash_manifest_v0.json
+```
+
+Current validation module:
+
+```text
+omnia_validation.manifest
+```
+
+Current tests:
+
+```text
+tests/test_manifest.py
 ```
 
 ---
