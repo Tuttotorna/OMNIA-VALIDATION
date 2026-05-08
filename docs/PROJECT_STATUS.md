@@ -52,6 +52,8 @@ artifact hash manifest policy added
 artifact hash manifest added
 manifest validation helpers added
 manifest tests added
+validate-manifest CLI added
+validate-manifest CLI tested
 ```
 
 The repository is no longer only a loose archive of scripts.
@@ -327,7 +329,7 @@ present
 tested
 useful for artifact traceability
 connected to artifact manifest validation helpers
-not yet connected to a validate-manifest CLI command
+connected to the validate-manifest CLI command
 ```
 
 Important boundary:
@@ -392,7 +394,7 @@ first artifact hash manifest
 real SHA-256 hashes present
 manifest validation helpers present
 repository-wide artifact coverage not yet present
-validate-manifest CLI not yet implemented
+validate-manifest CLI implemented and tested
 manifest generator not yet implemented
 ```
 
@@ -543,7 +545,7 @@ artifact reproducibility tests
 topology-chain regression tests
 Level 3 chain regression tests
 repository-wide hash manifest tests
-validate-manifest CLI tests
+validate-manifest CLI tests present
 manifest generator tests
 legacy-status mapping tests
 validator registry consistency tests
@@ -612,7 +614,7 @@ JSONL dataset validation
 payload-specific schema compliance checks
 hash traceability checks
 repository-wide artifact hash manifest validation
-validate-manifest CLI smoke test
+validate-manifest CLI smoke test present
 regression comparison against frozen results
 validator registry consistency checks
 ```
@@ -957,7 +959,7 @@ manual policy present
 artifact hash manifest present
 manifest validation helpers present
 manifest tests present
-validate-manifest CLI not yet implemented
+validate-manifest CLI implemented and tested
 repository-wide artifact hash manifest not yet present
 manifest generator not yet implemented
 ```
@@ -978,7 +980,7 @@ Current limitation:
 
 ```text
 repository-wide artifact hash manifest does not exist yet
-validate-manifest CLI command does not exist yet
+validate-manifest CLI command exists and is tested
 manifest generator does not exist yet
 release artifact manifest does not exist yet
 dataset manifest does not exist yet
@@ -988,7 +990,7 @@ Future work:
 
 ```text
 add repository-wide artifact hash manifest
-add validate-manifest CLI command
+expand validate-manifest CLI coverage
 add manifest generator
 add release artifact manifest
 add dataset manifest
@@ -1398,7 +1400,7 @@ CLI schema validation present
 tests present
 not yet payload-specific
 manifest validation available through Python helpers
-manifest validation not yet exposed through CLI
+manifest validation exposed through CLI
 ```
 
 Future work:
@@ -1408,7 +1410,7 @@ add payload-specific schema validators
 add schema validator for hash payloads
 add schema validator for trajectory payloads
 add schema validator for topology payloads
-add validate-manifest CLI command
+expand validate-manifest CLI coverage
 add relative path validation
 add failure-mode vocabulary validation
 add regime vocabulary validation
@@ -1813,7 +1815,7 @@ results/artifact_hash_manifest_v0.json proves scientific correctness.
 Recommended next steps:
 
 ```text
-add validate-manifest CLI command
+expand validate-manifest CLI coverage
 add manifest generator
 expand results/artifact_hash_manifest_v0.json beyond data/source_outputs
 create repository-wide artifact hash manifest
@@ -1834,7 +1836,7 @@ tests before expansion
 runner discipline before scale
 payload-specific validation before stricter CI gates
 registry completeness before broad external review
-validate-manifest CLI before release hardening
+validate-manifest CLI coverage before release hardening
 manifest generator before repository-wide manifests
 regression automation before release hardening
 ```

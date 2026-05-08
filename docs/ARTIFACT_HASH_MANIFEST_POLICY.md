@@ -911,7 +911,7 @@ Future improvements:
 ```text
 add artifact hash manifest file
 add omnia_validation.manifest module
-add validate-manifest CLI command
+expand validate-manifest CLI coverage
 add manifest tests
 add manifest schema documentation
 add source-output manifest

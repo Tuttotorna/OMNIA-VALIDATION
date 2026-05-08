@@ -951,6 +951,40 @@ validate-result does not validate payload-specific scientific meaning
 
 ---
 
+### validate-manifest
+
+Validates artifact hash manifests.
+
+Example:
+
+```bash
+omnia-validation validate-manifest results/artifact_hash_manifest_v0.json --verify-hashes
+```
+
+Expected output:
+
+```json
+{
+  "status": "PASS",
+  "schema": "artifact_manifest"
+}
+```
+
+Optional flags:
+
+```text
+--base-dir
+--require-existing-files
+--verify-hashes
+```
+
+Boundary:
+
+```text
+validate-manifest verifies manifest structure and optional hash matches
+validate-manifest does not prove semantic correctness
+```
+
 ### Future CLI Commands
 
 Possible future commands:
@@ -1051,7 +1085,7 @@ Current package limitations:
 ```text
 package root exports only __version__
 payload-specific schemas are not yet implemented
-manifest validation is not yet exposed through CLI
+manifest validation is exposed through CLI
 result regression helpers are not yet implemented
 artifact hash manifest generation is not yet automated
 validator registry consistency checks are not yet implemented

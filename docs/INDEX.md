@@ -321,13 +321,29 @@ Current status:
 manual policy present
 artifact hash manifest present
 manifest validation helpers present
-validate-manifest CLI not yet implemented
+validate-manifest CLI implemented and tested
 repository-wide artifact hash manifest not yet present
 ```
 
 ---
 
 ## Artifact Hash Manifest
+
+validate-manifest CLI command:
+
+```bash
+omnia-validation validate-manifest results/artifact_hash_manifest_v0.json --verify-hashes
+```
+
+Expected output:
+
+```json
+{
+  "status": "PASS",
+  "schema": "artifact_manifest"
+}
+```
+
 
 Current artifact hash manifest:
 
@@ -366,7 +382,7 @@ first artifact hash manifest
 real SHA-256 hashes present
 manifest validation helpers present
 repository-wide artifact coverage not yet present
-validate-manifest CLI not yet implemented
+validate-manifest CLI implemented and tested
 ```
 
 Validator helpers:
