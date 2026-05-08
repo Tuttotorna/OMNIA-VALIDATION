@@ -560,6 +560,53 @@ final validity
 ## omnia_validation.manifest
 
 
+## omnia_validation.regression
+
+Purpose:
+
+```text
+classify structural differences between result artifacts
+```
+
+Recommended imports:
+
+```python
+from omnia_validation.regression import classify_result_regression
+from omnia_validation.regression import compare_result_files
+```
+
+Current classifications:
+
+```text
+NO_REGRESSION
+EXPECTED_DRIFT
+SCHEMA_REGRESSION
+STATUS_REGRESSION
+BOUNDARY_REGRESSION
+PAYLOAD_REGRESSION
+HASH_REGRESSION
+```
+
+Example:
+
+```python
+from omnia_validation.regression import compare_result_files
+
+comparison = compare_result_files(
+    "results/artifact_hash_manifest_v0.json",
+    "results/artifact_hash_manifest_v0.json",
+)
+```
+
+Boundary:
+
+```text
+result regression classification is structural evidence
+result regression classification does not prove semantic correctness
+```
+
+
+
 ### build_artifact_hash_manifest_v0.py
 
 Generator script:

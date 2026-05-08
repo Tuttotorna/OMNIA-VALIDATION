@@ -48,6 +48,7 @@ contribution templates added
 code of conduct added
 validator registry added
 result regression policy added
+result regression automation added
 artifact hash manifest policy added
 artifact hash manifest added
 manifest validation helpers added
@@ -95,6 +96,7 @@ omnia_validation/manifest.py
 tests/
 tests/test_manifest.py
 tests/test_build_artifact_hash_manifest.py
+tests/test_regression.py
 results/
 results/artifact_hash_manifest_v0.json
 results_enveloped/
@@ -160,6 +162,7 @@ omnia_validation.metrics
 omnia_validation.metadata
 omnia_validation.schemas
 omnia_validation.manifest
+omnia_validation.regression
 omnia_validation.cli
 ```
 
@@ -371,6 +374,7 @@ Current tests:
 ```text
 tests/test_manifest.py
 tests/test_build_artifact_hash_manifest.py
+tests/test_regression.py
 ```
 
 Current manifest scope:
@@ -484,6 +488,7 @@ tests/test_enveloped_results.py
 tests/test_wrap_legacy_results.py
 tests/test_manifest.py
 tests/test_build_artifact_hash_manifest.py
+tests/test_regression.py
 ```
 
 Current coverage includes:

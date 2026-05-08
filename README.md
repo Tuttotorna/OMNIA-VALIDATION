@@ -568,6 +568,57 @@ measurement != inference != decision
 
 ## Result Regression Policy
 
+
+## Result Regression Automation
+
+OMNIA-VALIDATION includes a first executable result-regression layer.
+
+Module:
+
+```text
+omnia_validation.regression
+```
+
+Example script:
+
+```text
+examples/compare_result_regression_v0.py
+```
+
+Current command:
+
+```bash
+python examples/compare_result_regression_v0.py \
+  --previous results/artifact_hash_manifest_v0.json \
+  --current results/artifact_hash_manifest_v0.json
+```
+
+Expected identical-artifact classification:
+
+```text
+NO_REGRESSION
+```
+
+Current classifications:
+
+```text
+NO_REGRESSION
+EXPECTED_DRIFT
+SCHEMA_REGRESSION
+STATUS_REGRESSION
+BOUNDARY_REGRESSION
+PAYLOAD_REGRESSION
+HASH_REGRESSION
+```
+
+Boundary:
+
+```text
+regression classification is structural evidence
+regression classification is not semantic truth
+```
+
+
 Result regression rules are defined in:
 
 ```text

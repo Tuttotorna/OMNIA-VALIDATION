@@ -2,6 +2,42 @@
 
 ## Purpose
 
+
+## Executable Regression Layer
+
+The first executable result-regression layer is implemented in:
+
+```text
+omnia_validation/regression.py
+```
+
+It is exercised by:
+
+```text
+tests/test_regression.py
+examples/compare_result_regression_v0.py
+```
+
+Current classifications:
+
+```text
+NO_REGRESSION
+EXPECTED_DRIFT
+SCHEMA_REGRESSION
+STATUS_REGRESSION
+BOUNDARY_REGRESSION
+PAYLOAD_REGRESSION
+HASH_REGRESSION
+```
+
+Correct interpretation:
+
+```text
+the module classifies structural result differences
+the module does not decide semantic truth
+```
+
+
 This document defines how OMNIA-VALIDATION should treat changes between old result artifacts and newly generated result artifacts.
 
 The goal is to distinguish:
