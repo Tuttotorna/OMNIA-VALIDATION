@@ -1,0 +1,90 @@
+{
+  "experiment": "artifact_hash_manifest_v0",
+  "status": "CHECK",
+  "created_at_utc": "2026-05-07T00:00:00+00:00",
+  "boundary": "measurement != inference != decision",
+  "payload": {
+    "manifest_version": "v0",
+    "manifest_scope": "data/source_outputs",
+    "manifest_status": "manual_initial_manifest",
+    "artifact_count": 4,
+    "hash_algorithm": "sha256",
+    "hash_format": "64 lowercase hexadecimal characters",
+    "source_validator": "temporal_collapse_external_source_hash_strengthening_validator_v15",
+    "source_validator_result": "results/temporal_collapse_external_source_hash_strengthening_validator_v15.json",
+    "source_validator_data": "data/temporal_collapse_external_source_hash_strengthened_v15.jsonl",
+    "traceability_summary": {
+      "source_file_count": 4,
+      "computed_hash_count": 4,
+      "real_hash_count": 4,
+      "placeholder_hash_count": 0,
+      "hash_format_failure_count": 0,
+      "hash_mismatch_failure_count": 0
+    },
+    "status_reason": "CHECK because this is the first manual artifact hash manifest. Hashes are real SHA-256 values preserved from V15, but manifest validation is not yet automated.",
+    "artifacts": [
+      {
+        "artifact_path": "data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_a_run_001.jsonl",
+        "artifact_role": "source_output",
+        "sha256": "24d7177cea63e44e2616c0d4546ed65fd824719f7fc4030b9a52130c1bf4e00c",
+        "size_bytes": null,
+        "recorded_by": "artifact_hash_manifest_v0",
+        "source_validator": "temporal_collapse_external_source_hash_strengthening_validator_v15",
+        "source_provider": "provider_a",
+        "source_run": "provider_a_run_v14_001",
+        "notes": "Real SHA-256 hash preserved from Temporal Collapse Level 3 V15."
+      },
+      {
+        "artifact_path": "data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_a_run_002.jsonl",
+        "artifact_role": "source_output",
+        "sha256": "602676324b4335e7cb670d6884cbe5e978dacac59889dbc362252440d706dc2e",
+        "size_bytes": null,
+        "recorded_by": "artifact_hash_manifest_v0",
+        "source_validator": "temporal_collapse_external_source_hash_strengthening_validator_v15",
+        "source_provider": "provider_a",
+        "source_run": "provider_a_run_v14_002",
+        "notes": "Real SHA-256 hash preserved from Temporal Collapse Level 3 V15."
+      },
+      {
+        "artifact_path": "data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_b_run_001.jsonl",
+        "artifact_role": "source_output",
+        "sha256": "5ab1f8a6bf24f266a8dbf4e4e952be749db66ae66156bff0835d44088bb8ac5a",
+        "size_bytes": null,
+        "recorded_by": "artifact_hash_manifest_v0",
+        "source_validator": "temporal_collapse_external_source_hash_strengthening_validator_v15",
+        "source_provider": "provider_b",
+        "source_run": "provider_b_run_v14_001",
+        "notes": "Real SHA-256 hash preserved from Temporal Collapse Level 3 V15."
+      },
+      {
+        "artifact_path": "data/source_outputs/gsm_symbolic_real_model_outputs_v14_provider_b_run_002.jsonl",
+        "artifact_role": "source_output",
+        "sha256": "5399edf34ba661ece7b6f0855df09ecad7d895a74951bd8bec56ad8074dd9010",
+        "size_bytes": null,
+        "recorded_by": "artifact_hash_manifest_v0",
+        "source_validator": "temporal_collapse_external_source_hash_strengthening_validator_v15",
+        "source_provider": "provider_b",
+        "source_run": "provider_b_run_v14_002",
+        "notes": "Real SHA-256 hash preserved from Temporal Collapse Level 3 V15."
+      }
+    ],
+    "interpretation": {
+      "correct": [
+        "hash match means artifact byte identity is preserved",
+        "hash presence improves source traceability",
+        "this manifest records the V15 source-output hashes"
+      ],
+      "incorrect": [
+        "hash presence proves semantic correctness",
+        "hash match proves scientific truth",
+        "hash traceability certifies production safety"
+      ]
+    },
+    "current_limitations": [
+      "manifest validation is not yet automated",
+      "size_bytes values are not yet recorded",
+      "repository-wide artifact coverage is not yet present",
+      "this manifest currently covers only data/source_outputs/"
+    ]
+  }
+}
