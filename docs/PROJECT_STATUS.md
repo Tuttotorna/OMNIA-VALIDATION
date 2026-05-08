@@ -46,11 +46,12 @@ enveloped-result validation added
 contribution templates added
 code of conduct added
 validator registry added
+result regression policy added
 ```
 
 The repository is no longer only a loose archive of scripts.
 
-It now contains a minimal engineering layer that supports reproducibility, package installation, testing, schema validation, result normalization, generator validation, validator mapping, contribution intake, and validator extension.
+It now contains a minimal engineering layer that supports reproducibility, package installation, testing, schema validation, result normalization, generator validation, validator mapping, result regression classification, contribution intake, and validator extension.
 
 ---
 
@@ -66,6 +67,7 @@ docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/VALIDATOR_REGISTRY.md
 docs/RESULT_SCHEMA.md
+docs/RESULT_REGRESSION_POLICY.md
 docs/PACKAGE_API.md
 docs/PROJECT_STATUS.md
 docs/MAINTENANCE.md
@@ -99,6 +101,7 @@ clean execution guide
 validator authoring discipline
 validator registry
 common result schema
+result regression policy
 package API reference
 current project status
 maintenance discipline
@@ -400,6 +403,7 @@ docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/VALIDATOR_REGISTRY.md
 docs/RESULT_SCHEMA.md
+docs/RESULT_REGRESSION_POLICY.md
 docs/PACKAGE_API.md
 docs/PROJECT_STATUS.md
 docs/MAINTENANCE.md
@@ -418,6 +422,7 @@ make experiments runnable
 make validators authorable
 map validators and validator families
 make results comparable
+define result regression discipline
 make package utilities explicit
 make current status honest
 define maintenance discipline
@@ -436,6 +441,7 @@ aligned with current package layer
 aligned with current result schema layer
 aligned with legacy normalization policy
 aligned with validator registry
+aligned with result regression policy
 still growing
 not final
 ```
@@ -586,6 +592,80 @@ add linked result documentation per validator
 add regression-test status per validator
 add hash traceability status per validator
 add external reproduction status per validator
+```
+
+---
+
+## Result Regression Policy Status
+
+The result regression policy is present at:
+
+```text
+docs/RESULT_REGRESSION_POLICY.md
+```
+
+It defines how to classify changes between previous and newly generated result artifacts.
+
+It distinguishes:
+
+```text
+expected drift
+unexpected regression
+schema regression
+hash regression
+payload regression
+status regression
+boundary regression
+documentation regression
+scientific boundary change
+```
+
+Core policy:
+
+```text
+a result difference is not automatically an error
+a result difference is evidence that must be classified
+```
+
+Status:
+
+```text
+present
+documented
+manual policy only
+not yet automated
+not yet enforced by tests
+```
+
+Current value:
+
+```text
+prevents treating every drift as failure
+prevents accepting every difference without classification
+preserves negative evidence
+supports release review
+supports maintenance review
+supports future regression testing
+```
+
+Current limitation:
+
+```text
+automated result regression tests are still missing
+frozen baseline manifests are still missing
+artifact hash manifests are still missing
+payload-specific regression checks are still missing
+```
+
+Future work:
+
+```text
+add omnia_validation.regression
+add regression classification helpers
+add baseline result manifests
+add automated result regression tests
+add result-regression CI checks
+add validator registry regression-status fields
 ```
 
 ---
@@ -829,6 +909,7 @@ Status:
 strong experimental chain
 boundary-aware
 mapped in validator registry
+covered by result regression policy
 not universal
 requires external reproduction
 ```
@@ -837,6 +918,12 @@ Registry:
 
 ```text
 docs/VALIDATOR_REGISTRY.md
+```
+
+Regression policy:
+
+```text
+docs/RESULT_REGRESSION_POLICY.md
 ```
 
 ---
@@ -886,6 +973,7 @@ real SHA-256 hashes present
 aggregate regime is DRIFT
 highest local risk is CRITICAL
 mapped in validator registry
+covered by result regression policy
 not a semantic correctness claim
 ```
 
@@ -893,6 +981,12 @@ Registry:
 
 ```text
 docs/VALIDATOR_REGISTRY.md
+```
+
+Regression policy:
+
+```text
+docs/RESULT_REGRESSION_POLICY.md
 ```
 
 ---
@@ -992,12 +1086,19 @@ validator discipline defined
 not yet enforced automatically
 ready for future validators
 paired with validator registry
+paired with result regression policy
 ```
 
 Registry:
 
 ```text
 docs/VALIDATOR_REGISTRY.md
+```
+
+Regression policy:
+
+```text
+docs/RESULT_REGRESSION_POLICY.md
 ```
 
 ---
@@ -1016,6 +1117,7 @@ CI
 documentation navigation
 quickstart path
 result schema definition
+result regression discipline
 validator authoring discipline
 validator registry
 clean execution instructions
@@ -1038,6 +1140,7 @@ experiment-chain reproducibility automation
 dataset validation automation
 artifact hash verification automation
 legacy-status mapping automation
+automated result regression testing
 package release process
 community contribution process
 full per-file validator registry
@@ -1057,9 +1160,10 @@ trajectory utility module
 topology utility module
 benchmark runner module
 experiment runner CLI
-result regression tests
+automated result regression tests
 dataset integrity tests
 artifact hash manifest
+frozen baseline manifests
 versioning policy for package releases
 advanced maintenance automation
 ```
@@ -1079,9 +1183,9 @@ omnia_validation.manifest
 Possible future documentation files:
 
 ```text
-docs/RESULT_REGRESSION_POLICY.md
 docs/VALIDATOR_STATUS_VOCABULARY.md
 docs/PACKAGE_RELEASE_POLICY.md
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
 ```
 
 ---
@@ -1098,6 +1202,7 @@ schema-aware
 CI-guarded
 contribution-template-ready
 registry-mapped
+regression-policy-aware
 not production-ready
 not industrially hardened
 ```
@@ -1135,6 +1240,7 @@ boundary instability
 non-universal invariance
 negative evidence
 legacy result history
+classified result differences
 ```
 
 This makes the work more falsifiable.
@@ -1193,7 +1299,7 @@ It may become useful inside production-adjacent research pipelines after:
 payload-specific schema enforcement
 runner standardization
 integration tests
-result regression checks
+automated result regression checks
 artifact hash manifests
 clear versioned releases
 external reproduction
@@ -1222,6 +1328,7 @@ quickstart guide
 validator authoring guide
 validator registry
 result schema guide
+result regression policy
 package API guide
 clean execution guide
 maintenance guide
@@ -1253,6 +1360,8 @@ validator registry is partial
 no full per-file validator registry
 no payload-specific schema enforcement
 no full regression suite
+no automated result regression tests
+no frozen baseline manifests
 limited external adoption
 limited independent reproduction
 no package release workflow yet
@@ -1280,6 +1389,7 @@ It preserves historical results.
 It provides schema-normalized copies for validation tooling.
 It tests the wrapper that creates those normalized copies.
 It maps validator families through a registry.
+It defines a policy for classifying result changes.
 It is becoming installable, testable, schema-aware, maintainable, and extensible.
 ```
 
@@ -1293,6 +1403,7 @@ OMNIA-VALIDATION guarantees production safety.
 OMNIA-VALIDATION replaces external judgment.
 results_enveloped/ scientifically revalidates all legacy experiments.
 docs/VALIDATOR_REGISTRY.md proves every listed validator is final.
+docs/RESULT_REGRESSION_POLICY.md means every result difference is a failure.
 ```
 
 ---
@@ -1305,9 +1416,11 @@ Recommended next steps:
 expand docs/VALIDATOR_REGISTRY.md into a full per-file registry
 add payload-specific schema validators
 add tests for payload-specific schemas
-add docs/RESULT_REGRESSION_POLICY.md
+add automated result regression tests
+add frozen baseline manifests
 add artifact hash manifest
 add validator registry consistency tests
+add result regression classification helpers
 ```
 
 Engineering priority:
@@ -1318,6 +1431,7 @@ tests before expansion
 runner discipline before scale
 payload-specific validation before stricter CI gates
 registry completeness before broad external review
+regression automation before release hardening
 ```
 
 ---
