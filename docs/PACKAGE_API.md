@@ -2,23 +2,12 @@
 
 ## Purpose
 
-This document describes the reusable Python package layer added to OMNIA-VALIDATION.
+This document describes the reusable Python package layer in OMNIA-VALIDATION.
 
-The package layer is located in:
+The package is located at:
 
 ```text
 omnia_validation/
-```
-
-It provides small reusable utilities for:
-
-```text
-hashing
-JSON/JSONL IO
-simple structural metrics
-artifact metadata
-result schema validation
-CLI validation checks
 ```
 
 Core boundary:
@@ -27,15 +16,77 @@ Core boundary:
 measurement != inference != decision
 ```
 
-The package layer does not replace the experimental scripts.
+The package provides support utilities for validation scripts.
 
-It only reduces duplicated logic and improves reproducibility.
+It does not validate semantic truth.
+
+It does not certify production safety.
+
+It does not make final decisions.
 
 ---
 
-## 1. Package Modules
+## Package Import Policy
 
-Current modules:
+The package initializer is intentionally minimal:
+
+```text
+omnia_validation/__init__.py
+```
+
+It exports only:
+
+```text
+__version__
+```
+
+Current package-level import:
+
+```python
+import omnia_validation
+
+print(omnia_validation.__version__)
+```
+
+Expected result:
+
+```text
+0.1.0
+```
+
+Do not rely on importing helper functions directly from the package root.
+
+Use module-specific imports instead.
+
+Correct:
+
+```python
+from omnia_validation.hashing import compute_file_sha256
+from omnia_validation.manifest import validate_artifact_manifest
+from omnia_validation.schemas import validate_result_envelope
+```
+
+Avoid:
+
+```python
+from omnia_validation import compute_file_sha256
+from omnia_validation import validate_artifact_manifest
+from omnia_validation import validate_result_envelope
+```
+
+Reason:
+
+```text
+submodules may evolve independently
+package import must remain stable
+validation logic should be imported from the module that defines it
+```
+
+---
+
+## Current Modules
+
+Current reusable modules:
 
 ```text
 omnia_validation.hashing
@@ -43,47 +94,18 @@ omnia_validation.io
 omnia_validation.metrics
 omnia_validation.metadata
 omnia_validation.schemas
+omnia_validation.manifest
 omnia_validation.cli
-```
-
-Package entry point:
-
-```text
-omnia_validation/__init__.py
-```
-
-CLI entry point:
-
-```text
-omnia-validation
-```
-
-Configured in:
-
-```text
-pyproject.toml
 ```
 
 ---
 
-## 2. Installation
+## Installation
 
 Install in editable development mode:
 
 ```bash
 python -m pip install -e ".[dev]"
-```
-
-Verify import:
-
-```bash
-python -c "import omnia_validation; print('OK')"
-```
-
-Expected output:
-
-```text
-OK
 ```
 
 Run tests:
@@ -100,154 +122,102 @@ ruff check omnia_validation tests
 
 ---
 
-## 3. omnia_validation.hashing
+## omnia_validation.hashing
 
-Source file:
+### Purpose
 
-```text
-omnia_validation/hashing.py
-```
+Hash utilities for artifact traceability.
 
-Purpose:
+Hashing supports byte-level artifact identity.
 
-```text
-compute SHA-256 hashes
-validate SHA-256 hexadecimal strings
-support artifact traceability
-```
+Hashing does not prove semantic correctness.
 
-Available functions:
+Boundary:
 
 ```text
-sha256_bytes
-sha256_text
-sha256_file
-is_sha256_hex
+hash match -> artifact byte identity preserved
+hash match != semantic truth
 ```
 
 ---
 
-### sha256_bytes
+### Functions
 
 ```python
-sha256_bytes(data: bytes) -> str
+from omnia_validation.hashing import compute_file_sha256
+from omnia_validation.hashing import is_valid_sha256
 ```
 
-Returns the SHA-256 hexadecimal digest for raw bytes.
+---
+
+### compute_file_sha256
+
+```python
+compute_file_sha256(path: object) -> str
+```
+
+Computes the SHA-256 digest of a file.
 
 Example:
 
 ```python
-from omnia_validation.hashing import sha256_bytes
+from omnia_validation.hashing import compute_file_sha256
 
-digest = sha256_bytes(b"omnia")
+digest = compute_file_sha256("data/example.jsonl")
 print(digest)
 ```
 
----
+Returns:
 
-### sha256_text
-
-```python
-sha256_text(text: str, *, encoding: str = "utf-8") -> str
+```text
+64-character lowercase hexadecimal SHA-256 string
 ```
 
-Returns the SHA-256 hexadecimal digest for text.
+---
+
+### is_valid_sha256
+
+```python
+is_valid_sha256(value: object) -> bool
+```
+
+Returns `True` when the input is a valid lowercase SHA-256 hexadecimal string.
 
 Example:
 
 ```python
-from omnia_validation.hashing import sha256_text
+from omnia_validation.hashing import is_valid_sha256
 
-digest = sha256_text("omnia")
-print(digest)
+assert is_valid_sha256("a" * 64)
+assert not is_valid_sha256("not-a-hash")
 ```
 
 ---
 
-### sha256_file
+## omnia_validation.io
 
-```python
-sha256_file(path: str | Path, *, chunk_size: int = 1024 * 1024) -> str
-```
+### Purpose
 
-Returns the SHA-256 hexadecimal digest for a file.
+JSON and JSONL input/output helpers.
 
-The file is read in chunks.
+This module supports artifact handling for validators.
 
-This avoids loading large artifacts fully in memory.
-
-Example:
-
-```python
-from omnia_validation.hashing import sha256_file
-
-digest = sha256_file("data/example.jsonl")
-print(digest)
-```
-
-Raises:
-
-```text
-FileNotFoundError
-IsADirectoryError
-```
+It does not interpret semantic correctness.
 
 ---
 
-### is_sha256_hex
+### Recommended Imports
 
 ```python
-is_sha256_hex(value: str) -> bool
-```
-
-Returns `True` when a string is a valid SHA-256 hexadecimal digest.
-
-Example:
-
-```python
-from omnia_validation.hashing import is_sha256_hex
-
-assert is_sha256_hex("a" * 64)
-assert not is_sha256_hex("g" * 64)
-```
-
----
-
-## 4. omnia_validation.io
-
-Source file:
-
-```text
-omnia_validation/io.py
-```
-
-Purpose:
-
-```text
-read JSON
-write JSON
-read JSONL
-write JSONL
-preserve deterministic formatting where practical
-```
-
-Available functions:
-
-```text
-read_json
-write_json
-read_jsonl
-write_jsonl
+from omnia_validation.io import read_json
+from omnia_validation.io import write_json
+from omnia_validation.io import read_jsonl
+from omnia_validation.io import write_jsonl
 ```
 
 ---
 
 ### read_json
-
-```python
-read_json(path: str | Path) -> Any
-```
 
 Reads a JSON file.
 
@@ -263,53 +233,21 @@ data = read_json("results/example.json")
 
 ### write_json
 
-```python
-write_json(path: str | Path, data: Any, *, indent: int = 2) -> None
-```
-
-Writes JSON with deterministic formatting.
-
-Behavior:
-
-```text
-creates parent directories when needed
-uses UTF-8
-uses ensure_ascii=False
-uses sort_keys=True
-adds final newline
-```
+Writes a JSON file.
 
 Example:
 
 ```python
 from omnia_validation.io import write_json
 
-result = {
-    "status": "PASS",
-    "payload": {
-        "record_count": 10
-    }
-}
-
-write_json("results/example.json", result)
+write_json("results/example.json", {"status": "CHECK"})
 ```
 
 ---
 
 ### read_jsonl
 
-```python
-read_jsonl(path: str | Path) -> list[dict[str, Any]]
-```
-
-Reads a JSONL file as a list of dictionaries.
-
-Rules:
-
-```text
-blank lines are ignored
-each non-empty line must be a JSON object
-```
+Reads a JSONL file.
 
 Example:
 
@@ -317,105 +255,49 @@ Example:
 from omnia_validation.io import read_jsonl
 
 records = read_jsonl("data/example.jsonl")
-print(len(records))
 ```
-
-Raises:
-
-```text
-ValueError
-```
-
-when a JSONL line is not an object.
 
 ---
 
 ### write_jsonl
 
-```python
-write_jsonl(path: str | Path, records: list[dict[str, Any]]) -> None
-```
-
-Writes dictionaries to a JSONL file.
-
-Behavior:
-
-```text
-creates parent directories when needed
-uses UTF-8
-uses ensure_ascii=False
-uses sort_keys=True
-writes one JSON object per line
-```
+Writes a JSONL file.
 
 Example:
 
 ```python
 from omnia_validation.io import write_jsonl
 
-records = [
-    {"id": "a", "value": 1},
-    {"id": "b", "value": 2}
-]
-
-write_jsonl("data/example.jsonl", records)
+write_jsonl("data/example.jsonl", [{"id": 1}, {"id": 2}])
 ```
-
-Raises:
-
-```text
-TypeError
-```
-
-when an item is not a dictionary.
 
 ---
 
-## 5. omnia_validation.metrics
+## omnia_validation.metrics
 
-Source file:
+### Purpose
 
-```text
-omnia_validation/metrics.py
-```
+Simple structural helper metrics.
 
-Purpose:
+These metrics are support utilities.
 
-```text
-provide small semantics-free structural signals
-```
+They are not final scientific claims.
 
-Available functions:
+---
 
-```text
-shannon_entropy
-compression_ratio
-normalized_repetition_score
-```
+### Recommended Imports
 
-Important boundary:
-
-```text
-These are not semantic metrics.
-They do not determine correctness.
-They only expose simple structural behavior.
+```python
+from omnia_validation.metrics import shannon_entropy
+from omnia_validation.metrics import compression_ratio
+from omnia_validation.metrics import normalized_repetition_score
 ```
 
 ---
 
 ### shannon_entropy
 
-```python
-shannon_entropy(text: str) -> float
-```
-
-Returns Shannon entropy over characters.
-
-Empty text returns:
-
-```text
-0.0
-```
+Computes a simple entropy score for a sequence or string.
 
 Example:
 
@@ -423,337 +305,177 @@ Example:
 from omnia_validation.metrics import shannon_entropy
 
 score = shannon_entropy("abcabcabc")
-print(score)
 ```
 
 Interpretation:
 
 ```text
-lower entropy  -> more repeated/simple character distribution
-higher entropy -> more varied character distribution
+higher entropy -> more distributional spread
+lower entropy  -> more repetition / concentration
 ```
 
 Boundary:
 
 ```text
-entropy is not truth
-entropy is not correctness
-entropy is not intelligence
+entropy is a structural proxy
+entropy is not semantic truth
 ```
 
 ---
 
 ### compression_ratio
 
-```python
-compression_ratio(text: str, *, encoding: str = "utf-8") -> float
-```
-
-Returns:
-
-```text
-compressed_size / raw_size
-```
-
-using `zlib`.
-
-Empty text returns:
-
-```text
-0.0
-```
+Computes a simple compression ratio.
 
 Example:
 
 ```python
 from omnia_validation.metrics import compression_ratio
 
-ratio = compression_ratio("abcabcabcabcabcabc")
-print(ratio)
+ratio = compression_ratio("abcabcabcabc")
 ```
 
 Interpretation:
 
 ```text
-lower ratio  -> more compressible structure
-higher ratio -> less compressible structure
+lower ratio may indicate higher compressibility
+higher ratio may indicate lower compressibility
 ```
 
 Boundary:
 
 ```text
-compression ratio is not semantic correctness
+compression behavior is structural evidence
+not semantic validation
 ```
 
 ---
 
 ### normalized_repetition_score
 
-```python
-normalized_repetition_score(text: str) -> float
-```
-
-Returns a simple normalized repetition score.
-
-Range:
-
-```text
-0.0 -> no repeated character mass
-1.0 -> all characters are the same
-```
-
-Empty text returns:
-
-```text
-0.0
-```
-
-Single-character text returns:
-
-```text
-1.0
-```
+Computes a normalized repetition score.
 
 Example:
 
 ```python
 from omnia_validation.metrics import normalized_repetition_score
 
-score = normalized_repetition_score("aaaaab")
-print(score)
+score = normalized_repetition_score(["A", "A", "B"])
+```
+
+Interpretation:
+
+```text
+higher score -> more repetition
+lower score  -> less repetition
 ```
 
 ---
 
-## 6. omnia_validation.metadata
+## omnia_validation.metadata
 
-Source file:
+### Purpose
 
-```text
-omnia_validation/metadata.py
-```
+Metadata helpers for timestamps, file metadata, and result envelopes.
 
-Purpose:
+Metadata supports reproducibility.
 
-```text
-create reproducibility metadata
-create standard result envelopes
-attach visible epistemic boundary
-```
-
-Available functions:
-
-```text
-utc_now_iso
-file_metadata
-result_envelope
-```
+Metadata does not prove correctness.
 
 ---
 
-### utc_now_iso
+### Recommended Imports
+
+Use only functions that exist in the current module implementation.
+
+Do not import metadata helpers from the package root.
+
+Recommended pattern:
 
 ```python
-utc_now_iso() -> str
+from omnia_validation import metadata
 ```
 
-Returns the current UTC timestamp in ISO-8601 format.
+Then inspect or call the current module functions directly.
 
 Example:
 
 ```python
-from omnia_validation.metadata import utc_now_iso
+from omnia_validation import metadata
 
-timestamp = utc_now_iso()
-print(timestamp)
+print(dir(metadata))
+```
+
+Reason:
+
+```text
+metadata helper names may evolve
+package root does not re-export metadata helpers
 ```
 
 ---
 
-### file_metadata
+## omnia_validation.schemas
 
-```python
-file_metadata(path: str | Path) -> dict[str, Any]
-```
+### Purpose
 
-Returns basic reproducibility metadata for a file.
+Canonical result-envelope validation.
 
-Returned fields:
+This module validates the top-level OMNIA-VALIDATION result schema.
 
-```text
-path
-size_bytes
-sha256
-```
+It does not validate semantic truth.
 
-Example:
-
-```python
-from omnia_validation.metadata import file_metadata
-
-metadata = file_metadata("data/example.jsonl")
-print(metadata)
-```
-
-Raises:
-
-```text
-FileNotFoundError
-```
-
-when the file does not exist.
+It does not validate payload-specific scientific interpretation.
 
 ---
 
-### result_envelope
+### Canonical Result Envelope
 
-```python
-result_envelope(
-    *,
-    experiment: str,
-    status: str,
-    payload: dict[str, Any],
-    boundary: str = "measurement != inference != decision",
-) -> dict[str, Any]
+Canonical fields:
+
+```text
+experiment
+status
+created_at_utc
+boundary
+payload
 ```
 
-Builds a standard result envelope.
+Allowed status values:
 
-Returned structure:
-
-```json
-{
-  "experiment": "example_validator_v0",
-  "status": "PASS",
-  "created_at_utc": "2026-05-07T00:00:00+00:00",
-  "boundary": "measurement != inference != decision",
-  "payload": {}
-}
+```text
+PASS
+CHECK
+FAIL
 ```
 
-Example:
+Required boundary:
 
-```python
-from omnia_validation.io import write_json
-from omnia_validation.metadata import result_envelope
-
-payload = {
-    "record_count": 10,
-    "main_signal": "record_presence",
-    "decision_reason": "Input records were present."
-}
-
-result = result_envelope(
-    experiment="example_validator_v0",
-    status="PASS",
-    payload=payload,
-)
-
-write_json("results/example_validator_v0.json", result)
+```text
+measurement != inference != decision
 ```
 
 ---
 
-## 7. omnia_validation.schemas
-
-Source file:
-
-```text
-omnia_validation/schemas.py
-```
-
-Purpose:
-
-```text
-validate the structural shape of OMNIA-VALIDATION result artifacts
-check canonical result envelope fields
-check allowed result statuses
-check visible boundary preservation
-```
-
-Important boundary:
-
-```text
-schema validation checks structure only
-schema validation does not check semantic truth
-schema validation does not make final decisions
-```
-
-Available constants:
-
-```text
-ALLOWED_RESULT_STATUSES
-REQUIRED_RESULT_FIELDS
-DEFAULT_BOUNDARY
-```
-
-Available functions:
-
-```text
-validate_result_envelope
-is_valid_result_envelope
-require_valid_result_envelope
-```
-
----
-
-### ALLOWED_RESULT_STATUSES
+### Recommended Imports
 
 ```python
-ALLOWED_RESULT_STATUSES = frozenset({"PASS", "CHECK", "FAIL"})
+from omnia_validation.schemas import validate_result_envelope
+from omnia_validation.schemas import is_valid_result_envelope
+from omnia_validation.schemas import require_valid_result_envelope
 ```
-
-Allowed top-level result statuses.
-
-Meaning:
-
-```text
-PASS  -> tested structural condition survived this validation step
-CHECK -> partial instability, ambiguity, or boundary condition detected
-FAIL  -> collapse, mismatch, invalid artifact, or validation failure detected
-```
-
----
-
-### REQUIRED_RESULT_FIELDS
-
-```python
-REQUIRED_RESULT_FIELDS = frozenset(
-    {
-        "experiment",
-        "status",
-        "created_at_utc",
-        "boundary",
-        "payload",
-    }
-)
-```
-
-Required top-level fields for a canonical result envelope.
-
----
-
-### DEFAULT_BOUNDARY
-
-```python
-DEFAULT_BOUNDARY = "measurement != inference != decision"
-```
-
-Default epistemic boundary used by OMNIA-VALIDATION result artifacts.
 
 ---
 
 ### validate_result_envelope
 
 ```python
-validate_result_envelope(result: Mapping[str, Any]) -> list[str]
+validate_result_envelope(result: dict) -> list[str]
 ```
 
-Validates the canonical OMNIA-VALIDATION result envelope.
+Returns a list of validation errors.
 
-Returns a list of error messages.
-
-An empty list means the envelope passed the structural schema check.
+Empty list means the envelope passed top-level schema validation.
 
 Example:
 
@@ -761,33 +483,16 @@ Example:
 from omnia_validation.schemas import validate_result_envelope
 
 result = {
-    "experiment": "example_validator_v0",
-    "status": "PASS",
+    "experiment": "example_v0",
+    "status": "CHECK",
     "created_at_utc": "2026-05-07T00:00:00+00:00",
     "boundary": "measurement != inference != decision",
-    "payload": {
-        "record_count": 10
-    },
+    "payload": {},
 }
 
 errors = validate_result_envelope(result)
 
-if errors:
-    print(errors)
-else:
-    print("PASS")
-```
-
-Checks:
-
-```text
-result is a mapping/object
-required fields are present
-experiment is a non-empty string
-status is PASS, CHECK, or FAIL
-created_at_utc is a UTC-like ISO-8601 string
-boundary matches measurement != inference != decision
-payload is a mapping/object
+assert errors == []
 ```
 
 ---
@@ -795,20 +500,17 @@ payload is a mapping/object
 ### is_valid_result_envelope
 
 ```python
-is_valid_result_envelope(result: Mapping[str, Any]) -> bool
+is_valid_result_envelope(result: dict) -> bool
 ```
 
-Returns `True` when a result envelope passes the structural schema check.
+Returns `True` if the result envelope is valid.
 
 Example:
 
 ```python
 from omnia_validation.schemas import is_valid_result_envelope
 
-if is_valid_result_envelope(result):
-    print("valid")
-else:
-    print("invalid")
+assert is_valid_result_envelope(result)
 ```
 
 ---
@@ -816,10 +518,10 @@ else:
 ### require_valid_result_envelope
 
 ```python
-require_valid_result_envelope(result: Mapping[str, Any]) -> None
+require_valid_result_envelope(result: dict) -> None
 ```
 
-Raises `ValueError` if a result envelope fails the structural schema check.
+Raises `ValueError` when the result envelope is invalid.
 
 Example:
 
@@ -827,95 +529,348 @@ Example:
 from omnia_validation.schemas import require_valid_result_envelope
 
 require_valid_result_envelope(result)
-```
-
-Useful inside validators when a script must stop on invalid output.
-
-Example:
-
-```python
-from omnia_validation.io import write_json
-from omnia_validation.metadata import result_envelope
-from omnia_validation.schemas import require_valid_result_envelope
-
-payload = {
-    "record_count": 10,
-    "main_signal": "record_presence",
-    "decision_reason": "Input records were present.",
-}
-
-result = result_envelope(
-    experiment="example_validator_v0",
-    status="PASS",
-    payload=payload,
-)
-
-require_valid_result_envelope(result)
-write_json("results/example_validator_v0.json", result)
 ```
 
 ---
 
-## 8. omnia_validation.cli
+### Boundary
 
-Source file:
+The schema validator checks:
 
 ```text
-omnia_validation/cli.py
+top-level envelope structure
+required fields
+allowed canonical status values
+required boundary string
+payload object presence
 ```
 
-CLI command:
+It does not check:
 
 ```text
+semantic correctness
+scientific correctness
+payload-specific meaning
+production safety
+final validity
+```
+
+---
+
+## omnia_validation.manifest
+
+### Purpose
+
+Artifact hash manifest validation.
+
+This module validates artifact hash manifests.
+
+It supports traceability.
+
+It does not prove semantic truth.
+
+Boundary:
+
+```text
+hash match -> artifact byte identity preserved
+hash match != semantic correctness
+```
+
+---
+
+### Recommended Imports
+
+```python
+from omnia_validation.manifest import VALID_ARTIFACT_ROLES
+from omnia_validation.manifest import validate_artifact_entry
+from omnia_validation.manifest import validate_artifact_manifest
+from omnia_validation.manifest import is_valid_artifact_manifest
+from omnia_validation.manifest import require_valid_artifact_manifest
+```
+
+---
+
+### VALID_ARTIFACT_ROLES
+
+Allowed artifact roles:
+
+```text
+dataset
+source_output
+model_output
+validator_script
+result
+enveloped_result
+manifest
+documentation
+configuration
+benchmark_input
+benchmark_output
+```
+
+---
+
+### validate_artifact_entry
+
+```python
+validate_artifact_entry(
+    entry: dict,
+    *,
+    base_dir: str | Path = ".",
+    require_existing_file: bool = False,
+    verify_hash: bool = False,
+) -> list[str]
+```
+
+Validates one artifact entry.
+
+Required artifact entry fields:
+
+```text
+artifact_path
+artifact_role
+sha256
+```
+
+Example:
+
+```python
+from omnia_validation.manifest import validate_artifact_entry
+
+entry = {
+    "artifact_path": "data/source_outputs/example.jsonl",
+    "artifact_role": "source_output",
+    "sha256": "a" * 64,
+}
+
+errors = validate_artifact_entry(entry)
+```
+
+Optional behavior:
+
+```text
+require_existing_file=True -> artifact path must exist
+verify_hash=True           -> computed hash must match recorded hash
+```
+
+Example with hash verification:
+
+```python
+from omnia_validation.manifest import validate_artifact_entry
+
+errors = validate_artifact_entry(
+    entry,
+    base_dir=".",
+    verify_hash=True,
+)
+```
+
+---
+
+### validate_artifact_manifest
+
+```python
+validate_artifact_manifest(
+    manifest: dict,
+    *,
+    base_dir: str | Path = ".",
+    require_existing_files: bool = False,
+    verify_hashes: bool = False,
+) -> list[str]
+```
+
+Validates a full artifact hash manifest.
+
+The manifest must use the canonical OMNIA-VALIDATION result envelope:
+
+```text
+experiment
+status
+created_at_utc
+boundary
+payload
+```
+
+Required payload fields:
+
+```text
+manifest_version
+manifest_scope
+artifact_count
+hash_algorithm
+artifacts
+```
+
+Required hash algorithm:
+
+```text
+sha256
+```
+
+Example:
+
+```python
+from omnia_validation.io import read_json
+from omnia_validation.manifest import validate_artifact_manifest
+
+manifest = read_json("results/artifact_hash_manifest_v0.json")
+
+errors = validate_artifact_manifest(
+    manifest,
+    base_dir=".",
+    verify_hashes=True,
+)
+
+assert errors == []
+```
+
+---
+
+### is_valid_artifact_manifest
+
+```python
+is_valid_artifact_manifest(
+    manifest: dict,
+    *,
+    base_dir: str | Path = ".",
+    require_existing_files: bool = False,
+    verify_hashes: bool = False,
+) -> bool
+```
+
+Returns `True` when the artifact manifest passes validation.
+
+Example:
+
+```python
+from omnia_validation.manifest import is_valid_artifact_manifest
+
+assert is_valid_artifact_manifest(manifest)
+```
+
+---
+
+### require_valid_artifact_manifest
+
+```python
+require_valid_artifact_manifest(
+    manifest: dict,
+    *,
+    base_dir: str | Path = ".",
+    require_existing_files: bool = False,
+    verify_hashes: bool = False,
+) -> None
+```
+
+Raises `ValueError` if the artifact manifest is invalid.
+
+Example:
+
+```python
+from omnia_validation.manifest import require_valid_artifact_manifest
+
+require_valid_artifact_manifest(
+    manifest,
+    base_dir=".",
+    verify_hashes=True,
+)
+```
+
+---
+
+### Current Manifest
+
+Current artifact hash manifest:
+
+```text
+results/artifact_hash_manifest_v0.json
+```
+
+Current scope:
+
+```text
+data/source_outputs
+```
+
+Current purpose:
+
+```text
+records source-output hashes from Temporal Collapse Level 3 V15
+```
+
+Current status:
+
+```text
+CHECK
+```
+
+Reason:
+
+```text
+first artifact hash manifest
+real SHA-256 hashes present
+manifest validation helpers present
+repository-wide artifact coverage not yet present
+```
+
+---
+
+### Correct Hash Interpretation
+
+Correct:
+
+```text
+hash match means artifact byte identity is preserved
+hash presence improves traceability
+hash mismatch requires classification
+```
+
+Incorrect:
+
+```text
+hash match proves semantic truth
+hash presence certifies scientific correctness
+hash traceability replaces independent reproduction
+```
+
+Policy:
+
+```text
+docs/ARTIFACT_HASH_MANIFEST_POLICY.md
+```
+
+---
+
+## omnia_validation.cli
+
+### Purpose
+
+Command-line access to validation utilities.
+
+Current CLI command:
+
+```bash
 omnia-validation
 ```
 
-Purpose:
+---
+
+### Current CLI Commands
+
+Known commands include:
 
 ```text
-small command-line checks for validation artifacts
-```
-
-Available commands:
-
-```text
-hash-file
 validate-sha256
+hash-file
 validate-json
 validate-result
 ```
 
 ---
 
-### hash-file
-
-```bash
-omnia-validation hash-file <path>
-```
-
-Computes SHA-256 for a file.
-
-Example:
-
-```bash
-omnia-validation hash-file data/example.jsonl
-```
-
-Output:
-
-```text
-<sha256_digest>
-```
-
----
-
 ### validate-sha256
 
-```bash
-omnia-validation validate-sha256 <value>
-```
-
-Validates whether a string is a SHA-256 hexadecimal digest.
+Checks whether a value is a valid lowercase SHA-256 hexadecimal string.
 
 Example:
 
@@ -929,29 +884,29 @@ Expected output:
 PASS
 ```
 
-Invalid example:
+---
+
+### hash-file
+
+Computes SHA-256 for a file.
+
+Example:
 
 ```bash
-omnia-validation validate-sha256 not-a-hash
+omnia-validation hash-file data/example.jsonl
 ```
 
 Expected output:
 
 ```text
-FAIL
+<sha256>
 ```
 
 ---
 
 ### validate-json
 
-```bash
-omnia-validation validate-json <path>
-```
-
-Validates whether a `.json` or `.jsonl` file is parseable.
-
-For `.jsonl`, it also reports the number of records.
+Checks whether a JSON or JSONL artifact is parseable.
 
 Example:
 
@@ -959,65 +914,26 @@ Example:
 omnia-validation validate-json results/example.json
 ```
 
-Example output:
+Boundary:
 
-```json
-{
-  "status": "PASS"
-}
-```
-
-JSONL example:
-
-```bash
-omnia-validation validate-json data/example.jsonl
-```
-
-Example output:
-
-```json
-{
-  "status": "PASS",
-  "records": 10
-}
-```
-
-Failure output:
-
-```json
-{
-  "status": "FAIL",
-  "error": "..."
-}
+```text
+parseable JSON does not imply canonical result schema
+parseable JSON does not imply scientific correctness
 ```
 
 ---
 
 ### validate-result
 
-```bash
-omnia-validation validate-result <path>
-```
+Checks whether a result follows the canonical OMNIA-VALIDATION result envelope.
 
-Validates a result JSON file against the canonical OMNIA-VALIDATION result envelope schema.
-
-It checks:
-
-```text
-experiment
-status
-created_at_utc
-boundary
-payload
-```
-
-Valid example:
+Example:
 
 ```bash
-omnia-validation validate-result results/example_validator_v0.json
+omnia-validation validate-result results/artifact_hash_manifest_v0.json
 ```
 
-Expected output:
+Expected schema response:
 
 ```json
 {
@@ -1026,163 +942,92 @@ Expected output:
 }
 ```
 
-Invalid result example:
-
-```json
-{
-  "experiment": "example_validator_v0",
-  "status": "UNKNOWN",
-  "payload": []
-}
-```
-
-Expected output shape:
-
-```json
-{
-  "status": "FAIL",
-  "errors": [
-    "missing required field: boundary",
-    "missing required field: created_at_utc",
-    "status must be one of: CHECK, FAIL, PASS",
-    "payload must be a mapping/object"
-  ]
-}
-```
-
 Boundary:
 
 ```text
-validate-result checks structural schema only
-validate-result does not check semantic truth
-validate-result does not certify production safety
+validate-result checks result-envelope structure
+validate-result does not validate payload-specific scientific meaning
 ```
 
 ---
 
-## 9. Public Imports
+### Future CLI Commands
 
-The package exposes common utilities from:
+Possible future commands:
 
 ```text
-omnia_validation/__init__.py
+validate-manifest
+validate-payload
+compare-results
+build-hash-manifest
+validate-registry
 ```
 
-Current public imports:
+Not all of these are implemented.
 
-```python
-from omnia_validation import (
-    ALLOWED_RESULT_STATUSES,
-    DEFAULT_BOUNDARY,
-    REQUIRED_RESULT_FIELDS,
-    compression_ratio,
-    is_sha256_hex,
-    is_valid_result_envelope,
-    normalized_repetition_score,
-    read_json,
-    read_jsonl,
-    require_valid_result_envelope,
-    sha256_bytes,
-    sha256_file,
-    sha256_text,
-    shannon_entropy,
-    validate_result_envelope,
-    write_json,
-    write_jsonl,
-)
-```
+Do not document them as available until the CLI actually supports them.
+
+---
+
+## Recommended Validator Pattern
+
+A validator should import only what it needs from specific modules.
 
 Example:
 
 ```python
-from omnia_validation import (
-    is_valid_result_envelope,
-    sha256_text,
-    shannon_entropy,
-)
+from __future__ import annotations
 
-digest = sha256_text("omnia")
-entropy = shannon_entropy("omnia")
+from omnia_validation.io import write_json
+from omnia_validation.schemas import require_valid_result_envelope
+
 
 result = {
     "experiment": "example_validator_v0",
-    "status": "PASS",
+    "status": "CHECK",
     "created_at_utc": "2026-05-07T00:00:00+00:00",
     "boundary": "measurement != inference != decision",
     "payload": {
-        "record_count": 1
+        "note": "example payload",
     },
 }
 
-print(digest)
-print(entropy)
-print(is_valid_result_envelope(result))
+require_valid_result_envelope(result)
+write_json("results/example_validator_v0.json", result)
 ```
 
----
-
-## 10. Recommended Use Inside Validators
-
-Recommended validator pattern:
+For artifact manifests:
 
 ```python
-from __future__ import annotations
+from omnia_validation.io import read_json
+from omnia_validation.manifest import require_valid_artifact_manifest
 
-from pathlib import Path
+manifest = read_json("results/artifact_hash_manifest_v0.json")
 
-from omnia_validation.io import read_jsonl, write_json
-from omnia_validation.metadata import result_envelope
-from omnia_validation.schemas import require_valid_result_envelope
-
-VALIDATOR_NAME = "example_validator_v0"
-INPUT_PATH = Path("data/example_input_v0.jsonl")
-RESULT_PATH = Path("results/example_validator_v0.json")
-
-
-def main() -> int:
-    records = read_jsonl(INPUT_PATH)
-
-    payload = {
-        "record_count": len(records),
-        "input_path": str(INPUT_PATH),
-        "output_path": str(RESULT_PATH),
-        "main_signal": "record_presence",
-        "decision_reason": "Input records were present.",
-    }
-
-    result = result_envelope(
-        experiment=VALIDATOR_NAME,
-        status="PASS" if records else "FAIL",
-        payload=payload,
-    )
-
-    require_valid_result_envelope(result)
-    write_json(RESULT_PATH, result)
-
-    return 0 if records else 1
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
-```
-
-After generating a result, validate it from the command line:
-
-```bash
-omnia-validation validate-result results/example_validator_v0.json
+require_valid_artifact_manifest(
+    manifest,
+    base_dir=".",
+    verify_hashes=True,
+)
 ```
 
 ---
 
-## 11. Testing The Package Layer
+## Testing
 
-Run:
+Run all tests:
 
 ```bash
 pytest -q
 ```
 
-Current test files:
+Run linting:
+
+```bash
+ruff check omnia_validation tests
+```
+
+Current test files include:
 
 ```text
 tests/test_hashing.py
@@ -1191,124 +1036,61 @@ tests/test_metrics.py
 tests/test_metadata.py
 tests/test_cli.py
 tests/test_schemas.py
-```
-
-The tests verify:
-
-```text
-hash determinism
-file hashing
-SHA-256 format validation
-JSON roundtrip
-JSONL roundtrip
-entropy behavior
-compression behavior
-repetition score behavior
-metadata generation
-result envelope construction
-CLI command behavior
-validate-result CLI behavior
-schema constants
-schema validation
-schema error reporting
-schema failure raising
+tests/test_existing_results.py
+tests/test_enveloped_results.py
+tests/test_wrap_legacy_results.py
+tests/test_manifest.py
 ```
 
 ---
 
-## 12. CI Coverage
+## Current Limitations
 
-The GitHub Actions workflow runs on:
+Current package limitations:
 
 ```text
-push
-pull_request
+package root exports only __version__
+payload-specific schemas are not yet implemented
+manifest validation is not yet exposed through CLI
+result regression helpers are not yet implemented
+artifact hash manifest generation is not yet automated
+validator registry consistency checks are not yet implemented
+experiment-chain CI is not yet implemented
 ```
 
-Python versions:
+These limitations are intentional to keep the current package stable.
+
+---
+
+## Correct Interpretation
+
+Correct interpretation:
 
 ```text
-3.10
-3.11
-3.12
+omnia_validation provides reusable validation utilities
+helpers should be imported from specific modules
+schema validation checks top-level result envelopes
+manifest validation checks artifact manifest structure and optional hash matches
+hashing supports artifact traceability
 ```
 
-Checks:
+Incorrect interpretation:
 
 ```text
-package installation
-ruff check
-pytest
-CLI smoke test
-```
-
-Workflow file:
-
-```text
-.github/workflows/ci.yml
-```
-
-Current CLI smoke test checks:
-
-```text
-validate-sha256
-```
-
-The pytest suite checks:
-
-```text
-validate-json
-validate-result
-hash-file
-validate-sha256
+omnia_validation proves semantic truth
+hash validation proves scientific correctness
+result schema validation proves model correctness
+manifest validation certifies production safety
+package import should expose every helper globally
 ```
 
 ---
 
-## 13. Design Rules
+## Non-Goal
 
-The package layer should remain:
+The package API does not make OMNIA-VALIDATION a production certification tool.
 
-```text
-small
-explicit
-standard-library-first
-semantics-free
-reproducibility-oriented
-validator-supportive
-```
-
-Avoid adding heavy dependencies unless necessary.
-
-Avoid embedding experimental logic directly into generic utilities.
-
-Keep experimental behavior in:
-
-```text
-examples/
-```
-
-Keep reusable support behavior in:
-
-```text
-omnia_validation/
-```
-
----
-
-## 14. Non-Goals
-
-The package API does not provide:
-
-```text
-semantic truth detection
-model intelligence evaluation
-production-safety certification
-domain-independent correctness guarantees
-final decision logic
-```
-
-It provides reusable support utilities for structural validation artifacts.
+It supports reproducible structural validation work.
 
 Final boundary:
 
