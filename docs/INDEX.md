@@ -201,6 +201,39 @@ not a final truth claim
 
 ---
 
+## Result Regression Policy
+
+Result regression policy:
+
+```text
+docs/RESULT_REGRESSION_POLICY.md
+```
+
+This document defines how to classify differences between previous result artifacts and newly generated result artifacts.
+
+It distinguishes:
+
+```text
+expected drift
+unexpected regression
+schema regression
+hash regression
+payload regression
+status regression
+boundary regression
+documentation regression
+scientific boundary change
+```
+
+Core regression principle:
+
+```text
+a result difference is not automatically an error
+a result difference is evidence that must be classified
+```
+
+---
+
 ## Validator Authoring Guide
 
 Guide for adding new validators:
@@ -498,6 +531,12 @@ Registry entry:
 docs/VALIDATOR_REGISTRY.md
 ```
 
+Regression policy:
+
+```text
+docs/RESULT_REGRESSION_POLICY.md
+```
+
 ---
 
 ## Temporal Collapse Level 3
@@ -524,6 +563,12 @@ Registry entry:
 
 ```text
 docs/VALIDATOR_REGISTRY.md
+```
+
+Regression policy:
+
+```text
+docs/RESULT_REGRESSION_POLICY.md
 ```
 
 ---
@@ -566,6 +611,7 @@ docs/QUICKSTART.md
 docs/PROJECT_STATUS.md
 docs/MAINTENANCE.md
 docs/RELEASE_POLICY.md
+docs/RESULT_REGRESSION_POLICY.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/VALIDATOR_REGISTRY.md
@@ -592,6 +638,7 @@ docs/PROJECT_STATUS.md
 docs/QUICKSTART.md
 docs/MAINTENANCE.md
 docs/RELEASE_POLICY.md
+docs/RESULT_REGRESSION_POLICY.md
 docs/RUNNING_EXPERIMENTS.md
 docs/VALIDATOR_AUTHORING_GUIDE.md
 docs/VALIDATOR_REGISTRY.md
@@ -609,6 +656,7 @@ declare current project state
 provide a minimal first-run path
 define maintenance discipline
 define release discipline
+define result regression discipline
 make experiments runnable
 make validators authorable
 map validators and validator families
@@ -632,6 +680,7 @@ green CI
 quickstart guide
 maintenance guide
 release policy
+result regression policy
 clean execution guide
 validator authoring guide
 validator registry
@@ -655,7 +704,7 @@ Still missing:
 ```text
 payload-specific schema validators
 full per-file validator registry
-result regression tests
+automated result regression tests
 experiment-chain CI
 artifact hash manifest
 ```
@@ -802,6 +851,34 @@ Full policy:
 
 ```text
 docs/RELEASE_POLICY.md
+```
+
+---
+
+## Result Regression Policy
+
+A result change is evidence to classify.
+
+It is not automatically an error.
+
+Regression review should distinguish:
+
+```text
+expected drift
+unexpected regression
+schema regression
+hash regression
+payload regression
+status regression
+boundary regression
+documentation regression
+scientific boundary change
+```
+
+Full policy:
+
+```text
+docs/RESULT_REGRESSION_POLICY.md
 ```
 
 ---
