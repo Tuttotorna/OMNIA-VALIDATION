@@ -1,4 +1,11 @@
-"""Command line interface for OMNIA-VALIDATION."""
+"""Command-line interface for OMNIA-VALIDATION.
+
+Boundary:
+    measurement != inference != decision
+
+The CLI validates artifact structure, schema shape, and traceability signals.
+It does not validate semantic truth, scientific correctness, or production safety.
+"""
 
 from __future__ import annotations
 
@@ -6,20 +13,42 @@ import argparse
 import json
 import sys
 from pathlib import Path
+from typing import Any
 
-from .hashing import is_sha256_hex, sha256_file
-from .io import read_json, read_jsonl
-from .schemas import validate_result_envelope
-
-
-def _cmd_hash_file(args: argparse.Namespace) -> int:
-    digest = sha256_file(args.path)
-    print(digest)
-    return 0
+from omnia_validation.hashing import compute_file_sha256, is_valid_sha256
+from omnia_validation.io import read_json, read_jsonl
+from omnia_validation.manifest import validate_artifact_manifest
+from omnia_validation.schemas import validate_result_envelope
 
 
-def _cmd_validate_sha256(args: argparse.Namespace) -> int:
-    if is_sha256_hex(args.value):
+def _print_json(payload: dict[str, Any]) -> None:
+    print(json.dumps(payload, indent=2, sort_keys=False))
+
+
+def _is_jsonl_path(path: Path) -> bool:
+    return path.suffix.lower() == ".jsonl"
+
+
+def _validate_json_file(path: Path) -> list[str]:
+    if not path.exists():
+        return [f"file does not exist: {path}"]
+
+    if path.is_dir():
+        return [f"path is a directory: {path}"]
+
+    try:
+        if _is_jsonl_path(path):
+            read_jsonl(path)
+        else:
+            read_json(path)
+    except Exception as exc:  # noqa: BLE001
+        return [f"invalid JSON artifact: {exc}"]
+
+    return []
+
+
+def cmd_validate_sha256(args: argparse.Namespace) -> int:
+    if is_valid_sha256(args.value):
         print("PASS")
         return 0
 
@@ -27,91 +56,202 @@ def _cmd_validate_sha256(args: argparse.Namespace) -> int:
     return 1
 
 
-def _cmd_validate_json(args: argparse.Namespace) -> int:
+def cmd_hash_file(args: argparse.Namespace) -> int:
     path = Path(args.path)
 
-    try:
-        if path.suffix == ".jsonl":
-            records = read_jsonl(path)
-            print(json.dumps({"status": "PASS", "records": len(records)}, indent=2))
-            return 0
-
-        read_json(path)
-        print(json.dumps({"status": "PASS"}, indent=2))
-        return 0
-
-    except Exception as exc:
-        print(json.dumps({"status": "FAIL", "error": str(exc)}, indent=2))
-        return 1
-
-
-def _cmd_validate_result(args: argparse.Namespace) -> int:
-    path = Path(args.path)
-
-    try:
-        result = read_json(path)
-        errors = validate_result_envelope(result)
-
-        if errors:
-            print(
-                json.dumps(
-                    {
-                        "status": "FAIL",
-                        "errors": errors,
-                    },
-                    indent=2,
-                )
-            )
-            return 1
-
-        print(
-            json.dumps(
-                {
-                    "status": "PASS",
-                    "schema": "result_envelope",
-                },
-                indent=2,
-            )
+    if not path.exists():
+        _print_json(
+            {
+                "status": "FAIL",
+                "errors": [f"file does not exist: {args.path}"],
+            }
         )
-        return 0
-
-    except Exception as exc:
-        print(json.dumps({"status": "FAIL", "error": str(exc)}, indent=2))
         return 1
+
+    if path.is_dir():
+        _print_json(
+            {
+                "status": "FAIL",
+                "errors": [f"path is a directory: {args.path}"],
+            }
+        )
+        return 1
+
+    print(compute_file_sha256(path))
+    return 0
+
+
+def cmd_validate_json(args: argparse.Namespace) -> int:
+    path = Path(args.path)
+    errors = _validate_json_file(path)
+
+    if errors:
+        _print_json(
+            {
+                "status": "FAIL",
+                "errors": errors,
+            }
+        )
+        return 1
+
+    _print_json(
+        {
+            "status": "PASS",
+        }
+    )
+    return 0
+
+
+def cmd_validate_result(args: argparse.Namespace) -> int:
+    path = Path(args.path)
+
+    json_errors = _validate_json_file(path)
+    if json_errors:
+        _print_json(
+            {
+                "status": "FAIL",
+                "errors": json_errors,
+            }
+        )
+        return 1
+
+    if _is_jsonl_path(path):
+        _print_json(
+            {
+                "status": "FAIL",
+                "errors": ["validate-result expects a JSON object, not JSONL"],
+            }
+        )
+        return 1
+
+    result = read_json(path)
+    errors = validate_result_envelope(result)
+
+    if errors:
+        _print_json(
+            {
+                "status": "FAIL",
+                "errors": errors,
+            }
+        )
+        return 1
+
+    _print_json(
+        {
+            "status": "PASS",
+            "schema": "result_envelope",
+        }
+    )
+    return 0
+
+
+def cmd_validate_manifest(args: argparse.Namespace) -> int:
+    path = Path(args.path)
+
+    json_errors = _validate_json_file(path)
+    if json_errors:
+        _print_json(
+            {
+                "status": "FAIL",
+                "errors": json_errors,
+            }
+        )
+        return 1
+
+    if _is_jsonl_path(path):
+        _print_json(
+            {
+                "status": "FAIL",
+                "errors": ["validate-manifest expects a JSON object, not JSONL"],
+            }
+        )
+        return 1
+
+    manifest = read_json(path)
+    errors = validate_artifact_manifest(
+        manifest,
+        base_dir=args.base_dir,
+        require_existing_files=args.require_existing_files,
+        verify_hashes=args.verify_hashes,
+    )
+
+    if errors:
+        _print_json(
+            {
+                "status": "FAIL",
+                "errors": errors,
+            }
+        )
+        return 1
+
+    _print_json(
+        {
+            "status": "PASS",
+            "schema": "artifact_manifest",
+        }
+    )
+    return 0
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="omnia-validation",
-        description="Reusable utilities for OMNIA-VALIDATION artifacts.",
+        description=(
+            "OMNIA-VALIDATION artifact, schema, hash, and manifest checks."
+        ),
     )
 
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    hash_parser = subparsers.add_parser("hash-file", help="Compute SHA-256 for a file")
-    hash_parser.add_argument("path")
-    hash_parser.set_defaults(func=_cmd_hash_file)
-
-    sha_parser = subparsers.add_parser(
+    validate_sha256 = subparsers.add_parser(
         "validate-sha256",
-        help="Validate a SHA-256 hexadecimal string",
+        help="Validate SHA-256 hexadecimal format.",
     )
-    sha_parser.add_argument("value")
-    sha_parser.set_defaults(func=_cmd_validate_sha256)
+    validate_sha256.add_argument("value")
+    validate_sha256.set_defaults(func=cmd_validate_sha256)
 
-    json_parser = subparsers.add_parser(
+    hash_file = subparsers.add_parser(
+        "hash-file",
+        help="Compute SHA-256 for a file.",
+    )
+    hash_file.add_argument("path")
+    hash_file.set_defaults(func=cmd_hash_file)
+
+    validate_json = subparsers.add_parser(
         "validate-json",
-        help="Validate that a .json or .jsonl file is parseable",
+        help="Validate JSON or JSONL parseability.",
     )
-    json_parser.add_argument("path")
-    json_parser.set_defaults(func=_cmd_validate_json)
+    validate_json.add_argument("path")
+    validate_json.set_defaults(func=cmd_validate_json)
 
-    result_parser = subparsers.add_parser(
+    validate_result = subparsers.add_parser(
         "validate-result",
-        help="Validate a result JSON file against the canonical result envelope schema",
+        help="Validate canonical OMNIA-VALIDATION result envelope.",
     )
-    result_parser.add_argument("path")
-    result_parser.set_defaults(func=_cmd_validate_result)
+    validate_result.add_argument("path")
+    validate_result.set_defaults(func=cmd_validate_result)
+
+    validate_manifest = subparsers.add_parser(
+        "validate-manifest",
+        help="Validate artifact hash manifest structure and optional hashes.",
+    )
+    validate_manifest.add_argument("path")
+    validate_manifest.add_argument(
+        "--base-dir",
+        default=".",
+        help="Base directory used to resolve artifact paths.",
+    )
+    validate_manifest.add_argument(
+        "--require-existing-files",
+        action="store_true",
+        help="Require every artifact path in the manifest to exist.",
+    )
+    validate_manifest.add_argument(
+        "--verify-hashes",
+        action="store_true",
+        help="Require every artifact hash to match the current file bytes.",
+    )
+    validate_manifest.set_defaults(func=cmd_validate_manifest)
 
     return parser
 
@@ -123,4 +263,4 @@ def main(argv: list[str] | None = None) -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())
