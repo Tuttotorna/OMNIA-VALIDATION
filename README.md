@@ -71,6 +71,57 @@ Structural evidence is not final truth.
 
 ---
 
+## OMNIA Silent Failure validation bridge
+
+OMNIA-VALIDATION includes a bridge document for the OMNIA Silent Failure Gate demo:
+
+- [`docs/OMNIA_SILENT_FAILURE_VALIDATION_BRIDGE.md`](docs/OMNIA_SILENT_FAILURE_VALIDATION_BRIDGE.md)
+
+The bridge defines how OMNIA-VALIDATION should treat the minimal OMNIA demo as a reproducible, inspectable, and falsifiable validation target.
+
+The source OMNIA demo is:
+
+```text
+OMNIA/examples/silent_failure_gate_demo.py
+```
+
+The minimal pattern to validate is:
+
+```text
+stable_output    -> Surface PASS -> OMNIA GO
+fragile_output   -> Surface PASS -> OMNIA RISK
+collapsed_output -> Surface FAIL -> OMNIA STOP
+```
+
+The central validation target is:
+
+```text
+fragile_output -> Surface PASS -> OMNIA RISK
+```
+
+This is the silent failure pattern.
+
+It shows that an output can pass a surface check while still being structurally fragile under controlled perturbation.
+
+Correct relationship:
+
+```text
+OMNIA            = structural measurement
+OMNIA-VALIDATION = traceability / reproducibility / falsification
+```
+
+Boundary:
+
+```text
+measurement != inference != decision
+```
+
+This bridge does not claim that OMNIA-VALIDATION proves semantic truth.
+
+It only defines how the OMNIA Silent Failure Gate result can become a validation artifact.
+
+---
+
 ## Operational chains
 
 The repository currently has three main executable chains.
@@ -152,6 +203,7 @@ omnia-validation compare-results \
 Reviewer guide:
 
 - [`docs/REVIEWER_GUIDE.md`](docs/REVIEWER_GUIDE.md)
+- [`docs/OMNIA_SILENT_FAILURE_VALIDATION_BRIDGE.md`](docs/OMNIA_SILENT_FAILURE_VALIDATION_BRIDGE.md)
 
 Full quickstart:
 
