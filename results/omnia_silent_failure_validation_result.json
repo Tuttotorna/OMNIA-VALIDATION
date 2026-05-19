@@ -1,7 +1,7 @@
 {
   "artifact_type": "omnia_silent_failure_validation_result",
   "failures": [],
-  "generated_at_utc": "2026-05-19T08:08:08.556514+00:00",
+  "generated_at_utc": "2026-05-19T08:29:44.069505+00:00",
   "hashes": {
     "raw_results_sha256": "ddddea1319323de819e8fa5b5787e99bfa68970320c455abc808613d11c8f420",
     "stdout_sha256": "2c0f4627d9b6bf51b5f28140a0df3575bd65816004a7a018ac8b0494b7f4fb3e"

@@ -494,6 +494,34 @@ If this pattern no longer reproduces, the validation artifact should report `FAI
 
 ---
 
+## Regression test
+
+The executable validation bridge is protected by:
+
+```text
+tests/test_omnia_silent_failure_validation.py
+```
+
+The test verifies that the validation artifact preserves:
+
+```text
+artifact_type = omnia_silent_failure_validation_result
+status = PASS
+failures = []
+stable_output -> Surface PASS -> OMNIA GO
+fragile_output -> Surface PASS -> OMNIA RISK
+collapsed_output -> Surface FAIL -> OMNIA STOP
+boundary = measurement != inference != decision
+```
+
+The central protected regression target remains:
+
+```text
+fragile_output -> Surface PASS -> OMNIA RISK
+```
+
+---
+
 ## Summary
 
 This bridge defines how OMNIA-VALIDATION should read the OMNIA Silent Failure Gate demo.

@@ -77,6 +77,7 @@ OMNIA-VALIDATION includes a bridge document for the OMNIA Silent Failure Gate de
 
 - [`docs/OMNIA_SILENT_FAILURE_VALIDATION_BRIDGE.md`](docs/OMNIA_SILENT_FAILURE_VALIDATION_BRIDGE.md)
 - [`examples/validate_omnia_silent_failure_pattern.py`](examples/validate_omnia_silent_failure_pattern.py)
+- [`tests/test_omnia_silent_failure_validation.py`](tests/test_omnia_silent_failure_validation.py)
 
 The bridge defines how OMNIA-VALIDATION should treat the minimal OMNIA demo as a reproducible, inspectable, and falsifiable validation target.
 
@@ -158,6 +159,50 @@ fragile_output -> Surface PASS -> OMNIA RISK
 The validator checks structural pattern reproduction.
 
 It does not validate semantic truth.
+
+Boundary:
+
+```text
+measurement != inference != decision
+```
+
+---
+
+## Silent Failure validation regression test
+
+OMNIA-VALIDATION includes a dedicated test for the executable OMNIA Silent Failure validation artifact:
+
+- [`tests/test_omnia_silent_failure_validation.py`](tests/test_omnia_silent_failure_validation.py)
+
+The test protects the validation artifact:
+
+```text
+results/omnia_silent_failure_validation_result.json
+```
+
+It checks:
+
+```text
+validator script exists
+result artifact exists
+artifact_type is correct
+status is PASS
+failures is empty
+stable_output -> PASS / GO
+fragile_output -> PASS / RISK
+collapsed_output -> FAIL / STOP
+boundary is preserved
+hashes are recorded
+non-claims are preserved
+```
+
+The central protected result is:
+
+```text
+fragile_output:
+  Surface check: PASS
+  OMNIA structural gate: RISK
+```
 
 Boundary:
 
