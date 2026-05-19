@@ -25,7 +25,6 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 VALIDATOR_PATH = ROOT / "examples" / "validate_omnia_silent_failure_pattern.py"
