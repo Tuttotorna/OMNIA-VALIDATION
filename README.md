@@ -71,10 +71,51 @@ Structural evidence is not final truth.
 
 ---
 
+## Public validation package
+
+OMNIA-VALIDATION provides a public validation package here:
+
+- [`docs/PUBLIC_VALIDATION_PACKAGE.md`](docs/PUBLIC_VALIDATION_PACKAGE.md)
+
+This package collects the minimal material needed to inspect, run, review, and falsify the current OMNIA Silent Failure validation path.
+
+It includes:
+
+```text
+validation bridge
+executable validator
+JSON validation artifact
+dedicated regression test
+known non-claims
+boundary preservation
+```
+
+Core validation result:
+
+```text
+fragile_output -> Surface PASS -> OMNIA RISK
+```
+
+Core relationship:
+
+```text
+OMNIA            = structural measurement
+OMNIA-VALIDATION = traceability / reproducibility / falsification
+```
+
+Core boundary:
+
+```text
+measurement != inference != decision
+```
+
+---
+
 ## OMNIA Silent Failure validation bridge
 
 OMNIA-VALIDATION includes a bridge document for the OMNIA Silent Failure Gate demo:
 
+- [`docs/PUBLIC_VALIDATION_PACKAGE.md`](docs/PUBLIC_VALIDATION_PACKAGE.md)
 - [`docs/OMNIA_SILENT_FAILURE_VALIDATION_BRIDGE.md`](docs/OMNIA_SILENT_FAILURE_VALIDATION_BRIDGE.md)
 - [`examples/validate_omnia_silent_failure_pattern.py`](examples/validate_omnia_silent_failure_pattern.py)
 - [`tests/test_omnia_silent_failure_validation.py`](tests/test_omnia_silent_failure_validation.py)

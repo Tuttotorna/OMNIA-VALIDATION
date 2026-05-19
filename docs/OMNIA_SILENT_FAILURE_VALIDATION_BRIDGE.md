@@ -462,6 +462,41 @@ fragile_output -> Surface PASS -> OMNIA RISK
 
 ---
 
+## Public validation package
+
+The complete public validation package is available here:
+
+```text
+docs/PUBLIC_VALIDATION_PACKAGE.md
+```
+
+It collects the current validation chain:
+
+```text
+README.md
+docs/PUBLIC_VALIDATION_PACKAGE.md
+docs/OMNIA_SILENT_FAILURE_VALIDATION_BRIDGE.md
+examples/validate_omnia_silent_failure_pattern.py
+results/omnia_silent_failure_validation_result.json
+tests/test_omnia_silent_failure_validation.py
+```
+
+The central validated result remains:
+
+```text
+fragile_output:
+  Surface check: PASS
+  OMNIA structural gate: RISK
+```
+
+The boundary remains:
+
+```text
+measurement != inference != decision
+```
+
+---
+
 ## Current executable validator
 
 The first executable validation bridge is:
