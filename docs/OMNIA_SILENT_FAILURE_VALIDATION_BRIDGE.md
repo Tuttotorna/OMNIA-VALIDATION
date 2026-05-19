@@ -462,6 +462,38 @@ fragile_output -> Surface PASS -> OMNIA RISK
 
 ---
 
+## Current executable validator
+
+The first executable validation bridge is:
+
+```text
+examples/validate_omnia_silent_failure_pattern.py
+```
+
+It runs the OMNIA Silent Failure Gate demo, extracts the machine-readable result, validates the expected pattern, and writes:
+
+```text
+results/omnia_silent_failure_validation_result.json
+```
+
+Expected validation pattern:
+
+```text
+stable_output    -> Surface PASS -> OMNIA GO
+fragile_output   -> Surface PASS -> OMNIA RISK
+collapsed_output -> Surface FAIL -> OMNIA STOP
+```
+
+The central regression target is:
+
+```text
+fragile_output -> Surface PASS -> OMNIA RISK
+```
+
+If this pattern no longer reproduces, the validation artifact should report `FAIL`.
+
+---
+
 ## Summary
 
 This bridge defines how OMNIA-VALIDATION should read the OMNIA Silent Failure Gate demo.

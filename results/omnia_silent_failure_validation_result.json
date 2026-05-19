@@ -1,0 +1,113 @@
+{
+  "artifact_type": "omnia_silent_failure_validation_result",
+  "failures": [],
+  "generated_at_utc": "2026-05-19T08:08:08.556514+00:00",
+  "hashes": {
+    "raw_results_sha256": "ddddea1319323de819e8fa5b5787e99bfa68970320c455abc808613d11c8f420",
+    "stdout_sha256": "2c0f4627d9b6bf51b5f28140a0df3575bd65816004a7a018ac8b0494b7f4fb3e"
+  },
+  "interpretation": {
+    "boundary": "measurement != inference != decision",
+    "non_claims": [
+      "semantic correctness",
+      "factual truth",
+      "AI safety",
+      "deployment approval",
+      "benchmark replacement"
+    ],
+    "valid_claim": "The OMNIA Silent Failure Gate demo reproduced the expected structural GO/RISK/STOP pattern."
+  },
+  "observed_pattern": {
+    "collapsed_output": {
+      "omnia_status": "STOP",
+      "surface_status": "FAIL"
+    },
+    "fragile_output": {
+      "omnia_status": "RISK",
+      "surface_status": "PASS"
+    },
+    "stable_output": {
+      "omnia_status": "GO",
+      "surface_status": "PASS"
+    }
+  },
+  "raw_results": [
+    {
+      "boundary": "measurement != inference != decision",
+      "case_id": "case_001",
+      "label": "stable_output",
+      "metrics": {
+        "average_similarity": 0.8309,
+        "iri": 0.2893,
+        "max_degradation": 0.2893,
+        "min_similarity": 0.7107,
+        "omega": 0.8309,
+        "sei": 0.8309
+      },
+      "omnia_status": "GO",
+      "reason": "output remained structurally stable under tested perturbations",
+      "surface_status": "PASS"
+    },
+    {
+      "boundary": "measurement != inference != decision",
+      "case_id": "case_002",
+      "label": "fragile_output",
+      "metrics": {
+        "average_similarity": 0.6817,
+        "iri": 0.4233,
+        "max_degradation": 0.4233,
+        "min_similarity": 0.5767,
+        "omega": 0.6817,
+        "sei": 0.6817
+      },
+      "omnia_status": "RISK",
+      "reason": "surface-valid output degraded under controlled perturbation",
+      "surface_status": "PASS"
+    },
+    {
+      "boundary": "measurement != inference != decision",
+      "case_id": "case_003",
+      "label": "collapsed_output",
+      "metrics": {
+        "average_similarity": 0.2739,
+        "iri": 1.0,
+        "max_degradation": 1.0,
+        "min_similarity": 0.0,
+        "omega": 0.2739,
+        "sei": 0.1765
+      },
+      "omnia_status": "STOP",
+      "reason": "surface output failed minimal admissibility checks",
+      "surface_status": "FAIL"
+    }
+  ],
+  "source": {
+    "demo_file": "examples/silent_failure_gate_demo.py",
+    "demo_file_sha256": "5187a61bc65c3dbe92a5a0aa9f2d04e7a5c20eb0aea7803329aa274cf4ea6895",
+    "repo": "OMNIA",
+    "repo_path": "/content/OMNIA"
+  },
+  "status": "PASS",
+  "validation_target": {
+    "boundary": "measurement != inference != decision",
+    "central_case": "fragile_output",
+    "central_expected_pattern": {
+      "omnia_status": "RISK",
+      "surface_status": "PASS"
+    },
+    "expected_pattern": {
+      "collapsed_output": {
+        "omnia_status": "STOP",
+        "surface_status": "FAIL"
+      },
+      "fragile_output": {
+        "omnia_status": "RISK",
+        "surface_status": "PASS"
+      },
+      "stable_output": {
+        "omnia_status": "GO",
+        "surface_status": "PASS"
+      }
+    }
+  }
+}

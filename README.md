@@ -76,6 +76,7 @@ Structural evidence is not final truth.
 OMNIA-VALIDATION includes a bridge document for the OMNIA Silent Failure Gate demo:
 
 - [`docs/OMNIA_SILENT_FAILURE_VALIDATION_BRIDGE.md`](docs/OMNIA_SILENT_FAILURE_VALIDATION_BRIDGE.md)
+- [`examples/validate_omnia_silent_failure_pattern.py`](examples/validate_omnia_silent_failure_pattern.py)
 
 The bridge defines how OMNIA-VALIDATION should treat the minimal OMNIA demo as a reproducible, inspectable, and falsifiable validation target.
 
@@ -119,6 +120,50 @@ measurement != inference != decision
 This bridge does not claim that OMNIA-VALIDATION proves semantic truth.
 
 It only defines how the OMNIA Silent Failure Gate result can become a validation artifact.
+
+---
+
+## Executable Silent Failure validation
+
+OMNIA-VALIDATION includes an executable validator for the OMNIA Silent Failure Gate pattern:
+
+- [`examples/validate_omnia_silent_failure_pattern.py`](examples/validate_omnia_silent_failure_pattern.py)
+
+Run:
+
+```bash
+python examples/validate_omnia_silent_failure_pattern.py
+```
+
+The validator checks the minimal OMNIA pattern:
+
+```text
+stable_output    -> Surface PASS -> OMNIA GO
+fragile_output   -> Surface PASS -> OMNIA RISK
+collapsed_output -> Surface FAIL -> OMNIA STOP
+```
+
+It writes the validation artifact to:
+
+```text
+results/omnia_silent_failure_validation_result.json
+```
+
+The central validation target is:
+
+```text
+fragile_output -> Surface PASS -> OMNIA RISK
+```
+
+The validator checks structural pattern reproduction.
+
+It does not validate semantic truth.
+
+Boundary:
+
+```text
+measurement != inference != decision
+```
 
 ---
 
