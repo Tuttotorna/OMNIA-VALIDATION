@@ -72,6 +72,38 @@ Structural evidence is not final truth.
 ---
 
 
+## Structural Failure Probe v0 model outputs template
+
+OMNIA-VALIDATION includes a template for collecting real model outputs for Structural Failure Probe v0:
+
+- [`docs/STRUCTURAL_FAILURE_PROBE_V0_MODEL_OUTPUTS.md`](docs/STRUCTURAL_FAILURE_PROBE_V0_MODEL_OUTPUTS.md)
+- [`examples/structural_failure_probe_v0_model_outputs_template.jsonl`](examples/structural_failure_probe_v0_model_outputs_template.jsonl)
+- [`examples/structural_failure_probe_v0_annotation_guide.md`](examples/structural_failure_probe_v0_annotation_guide.md)
+- [`examples/validate_structural_failure_probe_v0_model_outputs.py`](examples/validate_structural_failure_probe_v0_model_outputs.py)
+- [`results/structural_failure_probe_v0_model_outputs_template_validation.json`](results/structural_failure_probe_v0_model_outputs_template_validation.json)
+
+Purpose:
+
+```text
+collect raw model outputs without mixing measurement, inference, and decision
+```
+
+Core distinction:
+
+```text
+surface-valid output != structurally stable output
+```
+
+Core boundary:
+
+```text
+measurement != inference != decision
+```
+
+The template is intentionally unannotated.
+
+It is a collection format, not a final result.
+
 ## Structural Failure Probe v0
 
 OMNIA-VALIDATION includes a public structural red-team probe protocol:
