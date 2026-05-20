@@ -1,0 +1,28 @@
+{
+  "artifact_type": "structural_failure_probe_v0_model_outputs_validation",
+  "boundary": "measurement != inference != decision",
+  "central_distinction": "surface-valid output != structurally stable output",
+  "errors": [],
+  "failure_mode_counts": {
+    "unannotated": 30
+  },
+  "generated_at_utc": "2026-05-20T05:32:48.833229+00:00",
+  "model_counts": {
+    "chatgpt_web_current_model_2026_05_20": 30
+  },
+  "non_claims": [
+    "semantic truth",
+    "final model ranking",
+    "safety certification",
+    "deployment approval"
+  ],
+  "records": 30,
+  "status": "PASS",
+  "structural_status_counts": {
+    "UNANNOTATED": 30
+  },
+  "surface_pass_structure_risk_count": 0,
+  "surface_status_counts": {
+    "UNANNOTATED": 30
+  }
+}

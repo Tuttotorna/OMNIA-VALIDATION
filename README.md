@@ -72,6 +72,41 @@ Structural evidence is not final truth.
 ---
 
 
+## Structural Failure Probe v0 real run 001
+
+OMNIA-VALIDATION includes a first real model-output collection sheet for Structural Failure Probe v0:
+
+- [`docs/STRUCTURAL_FAILURE_PROBE_V0_REAL_RUN_001.md`](docs/STRUCTURAL_FAILURE_PROBE_V0_REAL_RUN_001.md)
+- [`examples/structural_failure_probe_v0_real_model_outputs_run_001.jsonl`](examples/structural_failure_probe_v0_real_model_outputs_run_001.jsonl)
+- [`examples/structural_failure_probe_v0_real_run_001_collection_guide.md`](examples/structural_failure_probe_v0_real_run_001_collection_guide.md)
+- [`results/structural_failure_probe_v0_real_model_outputs_run_001_validation.json`](results/structural_failure_probe_v0_real_model_outputs_run_001_validation.json)
+
+Run identity:
+
+```text
+run_id: sfp_v0_real_model_outputs_run_001
+model_id: chatgpt_web_current_model_2026_05_20
+provider: openai
+interface: chatgpt_web
+```
+
+Core target:
+
+```text
+surface-valid output != structurally stable output
+Surface PASS -> Structural RISK
+```
+
+Core boundary:
+
+```text
+measurement != inference != decision
+```
+
+This file is the first collection sheet for real model responses.
+
+It starts unannotated.
+
 ## Structural Failure Probe v0 model outputs template
 
 OMNIA-VALIDATION includes a template for collecting real model outputs for Structural Failure Probe v0:
