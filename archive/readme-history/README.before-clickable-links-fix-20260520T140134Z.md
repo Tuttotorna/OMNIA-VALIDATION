@@ -112,14 +112,6 @@ Every validation case should ideally expose:
 
 ---
 
-## Ecosystem entry point
-
-For the full ecosystem map, start here:
-
-[lon-mirror](https://github.com/Tuttotorna/lon-mirror)
-
----
-
 ## Related repositories
 
 | Repository | Role |
@@ -137,12 +129,13 @@ For the full ecosystem map, start here:
 | [OMNIA-SECURITY](https://github.com/Tuttotorna/OMNIA-SECURITY) | Bounded structural security diagnostics |
 | [OMNIA-CRYPTO](https://github.com/Tuttotorna/OMNIA-CRYPTO) | Bounded structural crypto diagnostics |
 
+## Ecosystem entry point
+
+For the full ecosystem map, start here:
+
+[lon-mirror](https://github.com/Tuttotorna/lon-mirror)
+
 ---
-
-## Boundary and smoke-test required terms
-
-    measurement != inference != decision
-    test -> output -> artifact -> failure/fragility -> report
 
 ## License
 
