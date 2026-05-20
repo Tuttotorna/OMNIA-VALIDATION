@@ -1,21 +1,5 @@
 # OMNIA-VALIDATION
 
-## DOI
-
-[![DOI](https://zenodo.org/badge/1227176782.svg)](https://zenodo.org/badge/latestdoi/1227176782)
-
-Release DOI:
-
-    10.5281/zenodo.20083830
-
-Zenodo latest DOI link:
-
-    https://doi.org/10.5281/zenodo.20083830
-
-GitHub release:
-
-    https://github.com/Tuttotorna/OMNIA-VALIDATION/releases/tag/v1.0.0
-
 **Public validation showroom for the OMNIA ecosystem.**
 
 This repository exists for one purpose:
