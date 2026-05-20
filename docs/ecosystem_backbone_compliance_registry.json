@@ -1,0 +1,269 @@
+{
+  "registry_name": "OMNIA Ecosystem Backbone Compliance Registry",
+  "registry_owner": "OMNIA-VALIDATION",
+  "canonical_chain": [
+    "OMNIA measurement",
+    "BoundaryCertificate",
+    "omnia-limit validate_certificate()",
+    "OMNIA-VALIDATION ValidationEnvelope",
+    "CI regression",
+    "satellite compliant producer/adapter/consumer/observer"
+  ],
+  "layer_separation": {
+    "measurement": "OMNIA",
+    "boundary_contract_validation": "omnia-limit",
+    "control_plane_validation": "OMNIA-VALIDATION",
+    "orchestration": "OMNIAMIND",
+    "observation": [
+      "OMNIA-RADAR",
+      "lon-mirror"
+    ],
+    "domain_adapters": [
+      "OMNIA-INVARIANCE",
+      "OMNIA-CRYPTO",
+      "OMNIA-SECURITY",
+      "OMNIA-CONSTANT",
+      "OMNIA-THREE-BODY",
+      "OMNIABASE"
+    ]
+  },
+  "non_equivalence_rules": [
+    "measurement != validation",
+    "validation != orchestration",
+    "orchestration != decision",
+    "decision != measurement",
+    "observation != decision",
+    "domain adaptation != backbone redefinition"
+  ],
+  "repositories": [
+    {
+      "repository": "omnia-limit",
+      "github": "https://github.com/Tuttotorna/omnia-limit",
+      "role": "boundary_contract_validator",
+      "status": "backbone_core",
+      "commit": "26352c7",
+      "commit_message": "Add BoundaryCertificate API without breaking legacy limit API",
+      "responsibility": "Validates BoundaryCertificate schema and exposes the canonical boundary-state API.",
+      "forbidden": [
+        "semantic truth decision",
+        "measurement ownership",
+        "orchestration replacement"
+      ]
+    },
+    {
+      "repository": "OMNIA",
+      "github": "https://github.com/Tuttotorna/OMNIA",
+      "role": "measurement_artifact_emitter",
+      "status": "backbone_core",
+      "commit": "e4d2b39",
+      "commit_message": "Add BoundaryCertificate emission bridge",
+      "responsibility": "Emits BoundaryCertificate-compatible artifacts from OMNIA measurements.",
+      "forbidden": [
+        "downstream validation ownership",
+        "governance decision",
+        "semantic truth decision"
+      ]
+    },
+    {
+      "repository": "OMNIA-VALIDATION",
+      "github": "https://github.com/Tuttotorna/OMNIA-VALIDATION",
+      "role": "control_plane_validator",
+      "status": "backbone_core",
+      "commit": "394c6e3",
+      "commit_message": "Add end-to-end backbone validation test",
+      "responsibility": "Consumes BoundaryCertificate artifacts, validates through omnia-limit, and emits ValidationEnvelope artifacts.",
+      "forbidden": [
+        "measurement replacement",
+        "schema bypass",
+        "hidden continuation policy"
+      ]
+    },
+    {
+      "repository": "OMNIA-VALIDATION",
+      "github": "https://github.com/Tuttotorna/OMNIA-VALIDATION",
+      "role": "ci_regression_anchor",
+      "status": "backbone_core",
+      "commit": "3fcdb2f",
+      "commit_message": "Run backbone end-to-end test in CI",
+      "responsibility": "Runs the canonical backbone regression path in GitHub Actions.",
+      "forbidden": [
+        "local-only compatibility",
+        "README-only compatibility",
+        "untested cross-repository handoff"
+      ]
+    },
+    {
+      "repository": "OMNIA-VALIDATION",
+      "github": "https://github.com/Tuttotorna/OMNIA-VALIDATION",
+      "role": "ecosystem_standard_owner",
+      "status": "backbone_core",
+      "commit": "803b793",
+      "commit_message": "Document backbone contract standard",
+      "responsibility": "Defines the minimum ecosystem integration standard and satellite compliance rules.",
+      "forbidden": [
+        "parallel validation contract",
+        "satellite contract drift",
+        "layer collapse"
+      ]
+    },
+    {
+      "repository": "OMNIAMIND",
+      "github": "https://github.com/Tuttotorna/OMNIAMIND",
+      "role": "orchestrator",
+      "status": "satellite_compliant",
+      "commit": "7f75b2d",
+      "commit_message": "Add backbone-compliant orchestration bridge",
+      "responsibility": "Orchestrates compliant producers, adapters, and consumers without replacing the backbone.",
+      "forbidden": [
+        "BoundaryCertificate redefinition",
+        "ValidationEnvelope redefinition",
+        "control-plane replacement",
+        "semantic decision"
+      ]
+    },
+    {
+      "repository": "OMNIA-RADAR",
+      "github": "https://github.com/Tuttotorna/OMNIA-RADAR",
+      "role": "observer",
+      "status": "satellite_compliant",
+      "commit": "3987745",
+      "commit_message": "Add backbone-compliant observer bridge",
+      "responsibility": "Observes validated backbone output without modifying the canonical contract.",
+      "forbidden": [
+        "BoundaryCertificate redefinition",
+        "ValidationEnvelope redefinition",
+        "direct validation ownership",
+        "decision engine behavior"
+      ]
+    },
+    {
+      "repository": "OMNIA-INVARIANCE",
+      "github": "https://github.com/Tuttotorna/OMNIA-INVARIANCE",
+      "role": "producer_adapter",
+      "status": "satellite_compliant",
+      "commit": "4f4c453",
+      "commit_message": "Add backbone-compliant invariance adapter",
+      "responsibility": "Adapts invariance measurements into BoundaryCertificate-compatible artifacts.",
+      "forbidden": [
+        "BoundaryCertificate redefinition",
+        "ValidationEnvelope redefinition",
+        "validation bypass",
+        "final truth claim"
+      ]
+    },
+    {
+      "repository": "OMNIA-CRYPTO",
+      "github": "https://github.com/Tuttotorna/OMNIA-CRYPTO",
+      "role": "domain_adapter",
+      "status": "satellite_compliant",
+      "commit": "010b680",
+      "commit_message": "Add backbone-compliant crypto domain adapter",
+      "responsibility": "Maps crypto-domain measurements into the OMNIA-INVARIANCE / OMNIA backbone path.",
+      "forbidden": [
+        "generic invariance primitive duplication",
+        "BoundaryCertificate redefinition",
+        "ValidationEnvelope redefinition",
+        "security or crypto decision claim"
+      ]
+    },
+    {
+      "repository": "OMNIA-SECURITY",
+      "github": "https://github.com/Tuttotorna/OMNIA-SECURITY",
+      "role": "security_consumer_domain_adapter",
+      "status": "satellite_compliant",
+      "commit": "c2524d0",
+      "commit_message": "Add backbone-compliant security domain adapter",
+      "responsibility": "Consumes and adapts security-domain measurements while preserving decision boundaries.",
+      "forbidden": [
+        "secure or unsafe final decision",
+        "approved or blocked decision",
+        "BoundaryCertificate redefinition",
+        "ValidationEnvelope redefinition"
+      ]
+    },
+    {
+      "repository": "OMNIA-CONSTANT",
+      "github": "https://github.com/Tuttotorna/OMNIA-CONSTANT",
+      "role": "constant_stability_producer_adapter",
+      "status": "satellite_compliant",
+      "commit": "2c05176",
+      "commit_message": "Add backbone-compliant constant stability adapter",
+      "responsibility": "Adapts constant/stability measurements into BoundaryCertificate-compatible artifacts.",
+      "forbidden": [
+        "absolute constancy claim",
+        "BoundaryCertificate redefinition",
+        "ValidationEnvelope redefinition",
+        "decision engine behavior"
+      ]
+    },
+    {
+      "repository": "OMNIA-THREE-BODY",
+      "github": "https://github.com/Tuttotorna/OMNIA-THREE-BODY",
+      "role": "domain_experiment_producer_adapter",
+      "status": "satellite_compliant",
+      "commit": "bba656b",
+      "commit_message": "Add backbone-compliant three-body trajectory adapter",
+      "responsibility": "Adapts three-body / trajectory measurements into BoundaryCertificate-compatible artifacts.",
+      "forbidden": [
+        "physical truth claim",
+        "BoundaryCertificate redefinition",
+        "ValidationEnvelope redefinition",
+        "decision engine behavior"
+      ]
+    },
+    {
+      "repository": "OMNIABASE",
+      "github": "https://github.com/Tuttotorna/OMNIABASE",
+      "role": "base_invariance_producer_adapter",
+      "status": "satellite_compliant",
+      "commit": "67bbae0",
+      "commit_message": "Add backbone-compliant base-invariance adapter",
+      "responsibility": "Adapts multi-base / base-invariance measurements into BoundaryCertificate-compatible artifacts.",
+      "forbidden": [
+        "base-independent truth claim",
+        "final mathematical truth claim",
+        "BoundaryCertificate redefinition",
+        "ValidationEnvelope redefinition"
+      ]
+    },
+    {
+      "repository": "lon-mirror",
+      "github": "https://github.com/Tuttotorna/lon-mirror",
+      "role": "root_reference_observer",
+      "status": "satellite_compliant",
+      "commit": "7404822",
+      "commit_message": "Add backbone-compliant root reference observer",
+      "responsibility": "Acts as root reference observer and may route measurements through the existing backbone for reference checks.",
+      "forbidden": [
+        "semantic truth claim",
+        "governance decision",
+        "BoundaryCertificate redefinition",
+        "ValidationEnvelope redefinition",
+        "decision engine behavior"
+      ]
+    }
+  ],
+  "counts": {
+    "by_status": {
+      "backbone_core": 5,
+      "satellite_compliant": 9
+    },
+    "by_role": {
+      "boundary_contract_validator": 1,
+      "measurement_artifact_emitter": 1,
+      "control_plane_validator": 1,
+      "ci_regression_anchor": 1,
+      "ecosystem_standard_owner": 1,
+      "orchestrator": 1,
+      "observer": 1,
+      "producer_adapter": 1,
+      "domain_adapter": 1,
+      "security_consumer_domain_adapter": 1,
+      "constant_stability_producer_adapter": 1,
+      "domain_experiment_producer_adapter": 1,
+      "base_invariance_producer_adapter": 1,
+      "root_reference_observer": 1
+    },
+    "total_entries": 14
+  }
+}
