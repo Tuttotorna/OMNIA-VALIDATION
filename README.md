@@ -72,6 +72,43 @@ Structural evidence is not final truth.
 ---
 
 
+## Structural Failure Probe v0 interactive collection helper
+
+OMNIA-VALIDATION includes an interactive helper for collecting real model outputs one prompt at a time:
+
+- [`docs/STRUCTURAL_FAILURE_PROBE_V0_INTERACTIVE_COLLECTION.md`](docs/STRUCTURAL_FAILURE_PROBE_V0_INTERACTIVE_COLLECTION.md)
+- [`examples/collect_structural_failure_probe_v0_outputs_interactive.py`](examples/collect_structural_failure_probe_v0_outputs_interactive.py)
+
+Run command:
+
+```bash
+python examples/collect_structural_failure_probe_v0_outputs_interactive.py
+```
+
+Core workflow:
+
+```text
+show prompt
+copy prompt into model
+paste full model output
+optionally annotate
+save JSONL
+validate report
+```
+
+Core target:
+
+```text
+surface-valid output != structurally stable output
+Surface PASS -> Structural RISK
+```
+
+Core boundary:
+
+```text
+measurement != inference != decision
+```
+
 ## Structural Failure Probe v0 real run 001
 
 OMNIA-VALIDATION includes a first real model-output collection sheet for Structural Failure Probe v0:
