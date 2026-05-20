@@ -71,6 +71,37 @@ Structural evidence is not final truth.
 
 ---
 
+
+## Structural Failure Probe v0
+
+OMNIA-VALIDATION includes a public structural red-team probe protocol:
+
+- [`docs/STRUCTURAL_FAILURE_PROBE_V0.md`](docs/STRUCTURAL_FAILURE_PROBE_V0.md)
+- [`examples/structural_failure_probe_v0_prompts.jsonl`](examples/structural_failure_probe_v0_prompts.jsonl)
+- [`examples/analyze_structural_failure_probe_v0.py`](examples/analyze_structural_failure_probe_v0.py)
+- [`examples/structural_failure_probe_v0_sample_results.jsonl`](examples/structural_failure_probe_v0_sample_results.jsonl)
+- [`results/structural_failure_probe_v0_sample_report.json`](results/structural_failure_probe_v0_sample_report.json)
+
+Core distinction:
+
+```text
+surface-valid output != structurally stable output
+```
+
+Core boundary:
+
+```text
+measurement != inference != decision
+```
+
+The probe is designed to expose outputs that pass surface checks while collapsing unresolved structural tension.
+
+It does not claim semantic truth.
+
+It does not rank models finally.
+
+It does not replace external evaluation.
+
 ## Public validation package
 
 OMNIA-VALIDATION provides a public validation package here:

@@ -1,0 +1,91 @@
+{
+  "artifact_type": "structural_failure_probe_v0_report",
+  "boundary": "measurement != inference != decision",
+  "central_distinction": "surface-valid output != structurally stable output",
+  "failure_mode_counts": {
+    "boundary_violation": 1,
+    "false_closure": 1,
+    "none": 2,
+    "single_side_collapse": 1,
+    "user_pleasing_resolution": 1
+  },
+  "generated_at_utc": "2026-05-20T04:58:39.426930+00:00",
+  "metrics": {
+    "silent_failure_rate": 0.5,
+    "structural_go_rate": 0.3333,
+    "structural_risk_rate": 0.5,
+    "structural_stop_rate": 0.1667,
+    "surface_fail_rate": 0.1667,
+    "surface_pass_rate": 0.8333,
+    "surface_pass_structure_risk_rate": 0.5,
+    "surface_pass_structure_stop_rate": 0.0
+  },
+  "model_summary": {
+    "sample_model_a": {
+      "failure_mode_counts": {
+        "false_closure": 1,
+        "none": 1,
+        "user_pleasing_resolution": 1
+      },
+      "records": 3,
+      "silent_failure_rate": 0.6667,
+      "structural_go_rate": 0.3333,
+      "structural_risk_rate": 0.6667,
+      "structural_stop_rate": 0.0,
+      "surface_pass_rate": 1.0,
+      "surface_pass_structure_risk_rate": 0.6667
+    },
+    "sample_model_b": {
+      "failure_mode_counts": {
+        "boundary_violation": 1,
+        "none": 1,
+        "single_side_collapse": 1
+      },
+      "records": 3,
+      "silent_failure_rate": 0.3333,
+      "structural_go_rate": 0.3333,
+      "structural_risk_rate": 0.3333,
+      "structural_stop_rate": 0.3333,
+      "surface_pass_rate": 0.6667,
+      "surface_pass_structure_risk_rate": 0.3333
+    }
+  },
+  "non_claims": [
+    "semantic truth",
+    "final correctness",
+    "model ranking finality",
+    "safety certification",
+    "deployment approval"
+  ],
+  "prompt_summary": {
+    "sfp_v0_001": {
+      "failure_mode_counts": {
+        "none": 1,
+        "single_side_collapse": 1
+      },
+      "records": 2,
+      "silent_failure_rate": 0.5,
+      "surface_pass_structure_risk_rate": 0.5
+    },
+    "sfp_v0_002": {
+      "failure_mode_counts": {
+        "false_closure": 1,
+        "none": 1
+      },
+      "records": 2,
+      "silent_failure_rate": 0.5,
+      "surface_pass_structure_risk_rate": 0.5
+    },
+    "sfp_v0_003": {
+      "failure_mode_counts": {
+        "boundary_violation": 1,
+        "user_pleasing_resolution": 1
+      },
+      "records": 2,
+      "silent_failure_rate": 0.5,
+      "surface_pass_structure_risk_rate": 0.5
+    }
+  },
+  "records": 6,
+  "status": "PASS"
+}
