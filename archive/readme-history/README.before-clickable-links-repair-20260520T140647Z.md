@@ -144,8 +144,7 @@ For the full ecosystem map, start here:
     measurement != inference != decision
     test -> output -> artifact -> failure/fragility -> report
 
----
-
 ## License
 
 MIT.
+
