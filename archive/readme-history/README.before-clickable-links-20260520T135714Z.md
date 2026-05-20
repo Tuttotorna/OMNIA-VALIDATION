@@ -4,15 +4,45 @@
 
 [![DOI](https://zenodo.org/badge/1227176782.svg)](https://zenodo.org/badge/latestdoi/1227176782)
 
-Release DOI: [10.5281/zenodo.20083830](https://doi.org/10.5281/zenodo.20083830)
+Release DOI:
 
-GitHub release: [OMNIA-VALIDATION v1.0.0 release](https://github.com/Tuttotorna/OMNIA-VALIDATION/releases/tag/v1.0.0)
+    10.5281/zenodo.20083830
+
+Zenodo latest DOI link:
+
+    https://doi.org/10.5281/zenodo.20083830
+
+GitHub release:
+
+    https://github.com/Tuttotorna/OMNIA-VALIDATION/releases/tag/v1.0.0
+
+**Public validation showroom for the OMNIA ecosystem.**
+
+This repository exists for one purpose:
+
+    make OMNIA claims testable, inspectable, reproducible, and falsifiable.
+
+It is not the theory hub.
+
+It is not the core measurement engine.
+
+It is not the decision layer.
+
+It is the place where a visitor should be able to see:
+
+    test -> output -> artifact -> failure/fragility -> report
+
+Canonical boundary:
+
+    measurement != inference != decision
+
+---
 
 ## Start here
 
 From a clean environment:
 
-    git clone [OMNIA-VALIDATION.git](https://github.com/Tuttotorna/OMNIA-VALIDATION.git)
+    git clone https://github.com/Tuttotorna/OMNIA-VALIDATION.git
     cd OMNIA-VALIDATION
     python -m pip install -e .
     pytest
@@ -116,24 +146,21 @@ Every validation case should ideally expose:
 
 | Repository | Role |
 |---|---|
-| [lon-mirror](https://github.com/Tuttotorna/lon-mirror) | Canonical public entry point |
-| [OMNIA-VALIDATION](https://github.com/Tuttotorna/OMNIA-VALIDATION) | Public validation showroom |
+| [lon-mirror](https://github.com/Tuttotorna/lon-mirror) | Canonical ecosystem entry point |
 | [OMNIA](https://github.com/Tuttotorna/OMNIA) | Core structural measurement engine |
-| [OMNIABASE](https://github.com/Tuttotorna/OMNIABASE) | Representation invariance foundation |
-| [omnia-limit](https://github.com/Tuttotorna/omnia-limit) | Stop / continue boundary layer |
+| [OMNIABASE](https://github.com/Tuttotorna/OMNIABASE) | Multi-representation foundation |
 | [OMNIA-RADAR](https://github.com/Tuttotorna/OMNIA-RADAR) | Structural signal detection layer |
-| [OMNIA-INVARIANCE](https://github.com/Tuttotorna/OMNIA-INVARIANCE) | Structural invariance layer |
-| [OMNIA-CONSTANT](https://github.com/Tuttotorna/OMNIA-CONSTANT) | Structural constant candidate layer |
-| [OMNIAMIND](https://github.com/Tuttotorna/OMNIAMIND) | Structural cognition orchestration layer |
-| [OMNIA-THREE-BODY](https://github.com/Tuttotorna/OMNIA-THREE-BODY) | Dynamic divergence stress test |
-| [OMNIA-SECURITY](https://github.com/Tuttotorna/OMNIA-SECURITY) | Bounded structural security diagnostics |
-| [OMNIA-CRYPTO](https://github.com/Tuttotorna/OMNIA-CRYPTO) | Bounded structural crypto diagnostics |
+| [OMNIA-INVARIANCE](https://github.com/Tuttotorna/OMNIA-INVARIANCE) | Transformation and invariance layer |
+| [omnia-limit](https://github.com/Tuttotorna/omnia-limit) | Stop / continue boundary layer |
+| [OMNIA-CONSTANT](https://github.com/Tuttotorna/OMNIA-CONSTANT) | Stable-region falsification layer |
+
+---
 
 ## Ecosystem entry point
 
 For the full ecosystem map, start here:
 
-[lon-mirror](https://github.com/Tuttotorna/lon-mirror)
+    https://github.com/Tuttotorna/lon-mirror
 
 ---
 
