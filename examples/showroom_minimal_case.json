@@ -1,0 +1,15 @@
+{
+  "case_id": "showroom-minimal-v0",
+  "purpose": "Demonstrate the public validation shape without claiming semantic truth.",
+  "boundary": "measurement != inference != decision",
+  "input": "surface-valid output or trace",
+  "transformation": "controlled perturbation, rewrite, representation shift, or variant",
+  "measurement": {
+    "type": "structural stability check",
+    "status": "placeholder",
+    "note": "Replace with concrete OMNIA measurement artifact when available."
+  },
+  "result": "inconclusive",
+  "limitation": "This placeholder artifact defines the contract. It is not a scientific result.",
+  "public_path": "input -> transformation -> measurement -> artifact -> report"
+}

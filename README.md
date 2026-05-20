@@ -1,607 +1,154 @@
 # OMNIA-VALIDATION
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20083830.svg)](https://doi.org/10.5281/zenodo.20083830)
+**Public validation showroom for the OMNIA ecosystem.**
 
-**OMNIA-VALIDATION** is the validation, falsification, artifact traceability, reproducibility, and result-regression layer for the OMNIA ecosystem.
+This repository exists for one purpose:
 
-It exists to pressure-test structural measurement claims.
+    make OMNIA claims testable, inspectable, reproducible, and falsifiable.
 
-Its purpose is not to defend OMNIA.
+It is not the theory hub.
 
-Its purpose is to expose what survives controlled validation and what collapses under perturbation, falsification, threshold changes, observer variation, artifact checks, and reproducibility checks.
+It is not the core measurement engine.
 
-```text
-measurement != inference != decision
-```
+It is not the decision layer.
 
-OMNIA-VALIDATION is not a truth oracle.
+It is the place where a visitor should be able to see:
 
-OMNIA-VALIDATION is not a semantic judge.
+    test -> output -> artifact -> failure/fragility -> report
 
-OMNIA-VALIDATION does not make final decisions.
+Canonical boundary:
 
-Decision remains external.
+    measurement != inference != decision
+
+---
+
+## Start here
+
+From a clean environment:
+
+    git clone https://github.com/Tuttotorna/OMNIA-VALIDATION.git
+    cd OMNIA-VALIDATION
+    python -m pip install -e .
+    pytest
+
+If the repository has optional example runners, run them after tests pass.
+
+The point is not to believe the framework.
+
+The point is to inspect the artifacts.
 
 ---
 
 ## What this repository is
 
-OMNIA-VALIDATION is a research-first validation layer.
+OMNIA-VALIDATION is the evidence layer of MB-X.01 / OMNIA.
 
-It turns part of the OMNIA ecosystem from narrative claim into executable checks.
+It should contain:
 
-Current operational focus:
+- reproducible validation cases;
+- regression tests;
+- artifact contracts;
+- failure examples;
+- public reports;
+- boundary documents;
+- minimal commands that reviewers can run without understanding the whole ecosystem.
 
-```text
-artifact traceability
-manifest generation
-manifest validation
-result regression
-classification schema checking
-hash checking
-testable reproducibility
-failure exposure
-validation limits
-```
+The public path is:
 
-Correct reading:
-
-```text
-less trust the claim
-more run the check
-```
+    run tests -> inspect artifacts -> read reports -> trace claims
 
 ---
 
 ## What this repository is not
 
-OMNIA-VALIDATION is not:
+OMNIA-VALIDATION does not:
 
-- a proof that OMNIA is universally correct
-- a semantic correctness evaluator
-- a truth oracle
-- a production safety certificate
-- a replacement for external review
-- a replacement for domain expertise
-- a final decision layer
+- infer semantic truth;
+- decide whether a system is correct;
+- replace external judgment;
+- prove consciousness;
+- perform security scanning;
+- perform cryptographic attacks;
+- recover keys;
+- turn structural measurements into final decisions.
 
-Validation evidence is structural evidence.
-
-Structural evidence is not final truth.
-
----
-
-
-## Structural Failure Probe v0 interactive collection helper
-
-OMNIA-VALIDATION includes an interactive helper for collecting real model outputs one prompt at a time:
-
-- [`docs/STRUCTURAL_FAILURE_PROBE_V0_INTERACTIVE_COLLECTION.md`](docs/STRUCTURAL_FAILURE_PROBE_V0_INTERACTIVE_COLLECTION.md)
-- [`examples/collect_structural_failure_probe_v0_outputs_interactive.py`](examples/collect_structural_failure_probe_v0_outputs_interactive.py)
-
-Run command:
-
-```bash
-python examples/collect_structural_failure_probe_v0_outputs_interactive.py
-```
-
-Core workflow:
-
-```text
-show prompt
-copy prompt into model
-paste full model output
-optionally annotate
-save JSONL
-validate report
-```
-
-Core target:
-
-```text
-surface-valid output != structurally stable output
-Surface PASS -> Structural RISK
-```
-
-Core boundary:
-
-```text
-measurement != inference != decision
-```
-
-## Structural Failure Probe v0 real run 001
-
-OMNIA-VALIDATION includes a first real model-output collection sheet for Structural Failure Probe v0:
-
-- [`docs/STRUCTURAL_FAILURE_PROBE_V0_REAL_RUN_001.md`](docs/STRUCTURAL_FAILURE_PROBE_V0_REAL_RUN_001.md)
-- [`examples/structural_failure_probe_v0_real_model_outputs_run_001.jsonl`](examples/structural_failure_probe_v0_real_model_outputs_run_001.jsonl)
-- [`examples/structural_failure_probe_v0_real_run_001_collection_guide.md`](examples/structural_failure_probe_v0_real_run_001_collection_guide.md)
-- [`results/structural_failure_probe_v0_real_model_outputs_run_001_validation.json`](results/structural_failure_probe_v0_real_model_outputs_run_001_validation.json)
-
-Run identity:
-
-```text
-run_id: sfp_v0_real_model_outputs_run_001
-model_id: chatgpt_web_current_model_2026_05_20
-provider: openai
-interface: chatgpt_web
-```
-
-Core target:
-
-```text
-surface-valid output != structurally stable output
-Surface PASS -> Structural RISK
-```
-
-Core boundary:
-
-```text
-measurement != inference != decision
-```
-
-This file is the first collection sheet for real model responses.
-
-It starts unannotated.
-
-## Structural Failure Probe v0 model outputs template
-
-OMNIA-VALIDATION includes a template for collecting real model outputs for Structural Failure Probe v0:
-
-- [`docs/STRUCTURAL_FAILURE_PROBE_V0_MODEL_OUTPUTS.md`](docs/STRUCTURAL_FAILURE_PROBE_V0_MODEL_OUTPUTS.md)
-- [`examples/structural_failure_probe_v0_model_outputs_template.jsonl`](examples/structural_failure_probe_v0_model_outputs_template.jsonl)
-- [`examples/structural_failure_probe_v0_annotation_guide.md`](examples/structural_failure_probe_v0_annotation_guide.md)
-- [`examples/validate_structural_failure_probe_v0_model_outputs.py`](examples/validate_structural_failure_probe_v0_model_outputs.py)
-- [`results/structural_failure_probe_v0_model_outputs_template_validation.json`](results/structural_failure_probe_v0_model_outputs_template_validation.json)
-
-Purpose:
-
-```text
-collect raw model outputs without mixing measurement, inference, and decision
-```
-
-Core distinction:
-
-```text
-surface-valid output != structurally stable output
-```
-
-Core boundary:
-
-```text
-measurement != inference != decision
-```
-
-The template is intentionally unannotated.
-
-It is a collection format, not a final result.
-
-## Structural Failure Probe v0
-
-OMNIA-VALIDATION includes a public structural red-team probe protocol:
-
-- [`docs/STRUCTURAL_FAILURE_PROBE_V0.md`](docs/STRUCTURAL_FAILURE_PROBE_V0.md)
-- [`examples/structural_failure_probe_v0_prompts.jsonl`](examples/structural_failure_probe_v0_prompts.jsonl)
-- [`examples/analyze_structural_failure_probe_v0.py`](examples/analyze_structural_failure_probe_v0.py)
-- [`examples/structural_failure_probe_v0_sample_results.jsonl`](examples/structural_failure_probe_v0_sample_results.jsonl)
-- [`results/structural_failure_probe_v0_sample_report.json`](results/structural_failure_probe_v0_sample_report.json)
-
-Core distinction:
-
-```text
-surface-valid output != structurally stable output
-```
-
-Core boundary:
-
-```text
-measurement != inference != decision
-```
-
-The probe is designed to expose outputs that pass surface checks while collapsing unresolved structural tension.
-
-It does not claim semantic truth.
-
-It does not rank models finally.
-
-It does not replace external evaluation.
-
-## Public validation package
-
-OMNIA-VALIDATION provides a public validation package here:
-
-- [`docs/PUBLIC_VALIDATION_PACKAGE.md`](docs/PUBLIC_VALIDATION_PACKAGE.md)
-
-This package collects the minimal material needed to inspect, run, review, and falsify the current OMNIA Silent Failure validation path.
-
-It includes:
-
-```text
-validation bridge
-executable validator
-JSON validation artifact
-dedicated regression test
-known non-claims
-boundary preservation
-```
-
-Core validation result:
-
-```text
-fragile_output -> Surface PASS -> OMNIA RISK
-```
-
-Core relationship:
-
-```text
-OMNIA            = structural measurement
-OMNIA-VALIDATION = traceability / reproducibility / falsification
-```
-
-Core boundary:
-
-```text
-measurement != inference != decision
-```
+It validates artifacts and claims inside a declared boundary.
 
 ---
 
-## OMNIA Silent Failure validation bridge
+## Showroom principle
 
-OMNIA-VALIDATION includes a bridge document for the OMNIA Silent Failure Gate demo:
+A validation repository must not read like a manifesto.
 
-- [`docs/PUBLIC_VALIDATION_PACKAGE.md`](docs/PUBLIC_VALIDATION_PACKAGE.md)
-- [`docs/OMNIA_SILENT_FAILURE_VALIDATION_BRIDGE.md`](docs/OMNIA_SILENT_FAILURE_VALIDATION_BRIDGE.md)
-- [`examples/validate_omnia_silent_failure_pattern.py`](examples/validate_omnia_silent_failure_pattern.py)
-- [`tests/test_omnia_silent_failure_validation.py`](tests/test_omnia_silent_failure_validation.py)
+It must behave like a showroom.
 
-The bridge defines how OMNIA-VALIDATION should treat the minimal OMNIA demo as a reproducible, inspectable, and falsifiable validation target.
+A first-time visitor should see:
 
-The source OMNIA demo is:
+    one command
+    one artifact
+    one failure mode
+    one report
+    one boundary
 
-```text
-OMNIA/examples/silent_failure_gate_demo.py
-```
+The correct public demonstration is:
 
-The minimal pattern to validate is:
-
-```text
-stable_output    -> Surface PASS -> OMNIA GO
-fragile_output   -> Surface PASS -> OMNIA RISK
-collapsed_output -> Surface FAIL -> OMNIA STOP
-```
-
-The central validation target is:
-
-```text
-fragile_output -> Surface PASS -> OMNIA RISK
-```
-
-This is the silent failure pattern.
-
-It shows that an output can pass a surface check while still being structurally fragile under controlled perturbation.
-
-Correct relationship:
-
-```text
-OMNIA            = structural measurement
-OMNIA-VALIDATION = traceability / reproducibility / falsification
-```
-
-Boundary:
-
-```text
-measurement != inference != decision
-```
-
-This bridge does not claim that OMNIA-VALIDATION proves semantic truth.
-
-It only defines how the OMNIA Silent Failure Gate result can become a validation artifact.
+    surface correctness can pass
+    structural stability can fail
+    the failure must be inspectable
 
 ---
 
-## Executable Silent Failure validation
+## Minimal validation shape
 
-OMNIA-VALIDATION includes an executable validator for the OMNIA Silent Failure Gate pattern:
+Every validation case should ideally expose:
 
-- [`examples/validate_omnia_silent_failure_pattern.py`](examples/validate_omnia_silent_failure_pattern.py)
-
-Run:
-
-```bash
-python examples/validate_omnia_silent_failure_pattern.py
-```
-
-The validator checks the minimal OMNIA pattern:
-
-```text
-stable_output    -> Surface PASS -> OMNIA GO
-fragile_output   -> Surface PASS -> OMNIA RISK
-collapsed_output -> Surface FAIL -> OMNIA STOP
-```
-
-It writes the validation artifact to:
-
-```text
-results/omnia_silent_failure_validation_result.json
-```
-
-The central validation target is:
-
-```text
-fragile_output -> Surface PASS -> OMNIA RISK
-```
-
-The validator checks structural pattern reproduction.
-
-It does not validate semantic truth.
-
-Boundary:
-
-```text
-measurement != inference != decision
-```
+| Field | Meaning |
+|---|---|
+| input | What was measured |
+| transformation | What changed |
+| expected boundary | What should remain stable or admissible |
+| measured output | What OMNIA or related tools produced |
+| artifact | Where the result is stored |
+| result | pass / flag / fail / inconclusive |
+| rationale | Why this result matters structurally |
+| limitation | What the result does not prove |
 
 ---
 
-## Silent Failure validation regression test
+## Recommended reading order
 
-OMNIA-VALIDATION includes a dedicated test for the executable OMNIA Silent Failure validation artifact:
-
-- [`tests/test_omnia_silent_failure_validation.py`](tests/test_omnia_silent_failure_validation.py)
-
-The test protects the validation artifact:
-
-```text
-results/omnia_silent_failure_validation_result.json
-```
-
-It checks:
-
-```text
-validator script exists
-result artifact exists
-artifact_type is correct
-status is PASS
-failures is empty
-stable_output -> PASS / GO
-fragile_output -> PASS / RISK
-collapsed_output -> FAIL / STOP
-boundary is preserved
-hashes are recorded
-non-claims are preserved
-```
-
-The central protected result is:
-
-```text
-fragile_output:
-  Surface check: PASS
-  OMNIA structural gate: RISK
-```
-
-Boundary:
-
-```text
-measurement != inference != decision
-```
+1. [docs/SHOWROOM.md](docs/SHOWROOM.md)
+2. [docs/VALIDATION_PROTOCOL.md](docs/VALIDATION_PROTOCOL.md)
+3. [docs/ARTIFACT_CONTRACT.md](docs/ARTIFACT_CONTRACT.md)
+4. [docs/FAILURE_EXAMPLES.md](docs/FAILURE_EXAMPLES.md)
+5. [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md)
+6. [docs/BOUNDARY.md](docs/BOUNDARY.md)
 
 ---
 
-## Operational chains
+## Related repositories
 
-The repository currently has three main executable chains.
-
-### 1. Artifact manifest generation
-
-```text
-data/source_outputs/
-  -> examples/build_artifact_hash_manifest_v0.py
-  -> results/artifact_hash_manifest_v0.json
-```
-
-Stable command:
-
-```bash
-python examples/build_artifact_hash_manifest_v0.py --stable-timestamp
-```
-
-### 2. Artifact manifest validation
-
-```text
-results/artifact_hash_manifest_v0.json
-  -> omnia-validation validate-manifest ... --verify-hashes
-  -> PASS / FAIL
-```
-
-Command:
-
-```bash
-omnia-validation validate-manifest results/artifact_hash_manifest_v0.json --verify-hashes
-```
-
-### 3. Result regression classification
-
-```text
-previous result + current result
-  -> omnia-validation compare-results
-  -> NO_REGRESSION / EXPECTED_DRIFT / HASH_REGRESSION / ...
-```
-
-Command:
-
-```bash
-omnia-validation compare-results \
-  --previous results/artifact_hash_manifest_v0.json \
-  --current results/artifact_hash_manifest_v0.json
-```
+| Repository | Role |
+|---|---|
+| [lon-mirror](https://github.com/Tuttotorna/lon-mirror) | Canonical ecosystem entry point |
+| [OMNIA](https://github.com/Tuttotorna/OMNIA) | Core structural measurement engine |
+| [OMNIABASE](https://github.com/Tuttotorna/OMNIABASE) | Multi-representation foundation |
+| [OMNIA-RADAR](https://github.com/Tuttotorna/OMNIA-RADAR) | Structural signal detection layer |
+| [OMNIA-INVARIANCE](https://github.com/Tuttotorna/OMNIA-INVARIANCE) | Transformation and invariance layer |
+| [omnia-limit](https://github.com/Tuttotorna/omnia-limit) | Stop / continue boundary layer |
+| [OMNIA-CONSTANT](https://github.com/Tuttotorna/OMNIA-CONSTANT) | Stable-region falsification layer |
 
 ---
 
-## Quickstart
+## Ecosystem entry point
 
-Clone, install, and test:
+For the full ecosystem map, start here:
 
-```bash
-git clone https://github.com/Tuttotorna/OMNIA-VALIDATION.git
-cd OMNIA-VALIDATION
-python -m pip install --upgrade pip
-python -m pip install -e .
-python -m pytest -q
-```
-
-Expected clean status:
-
-```text
-254 passed
-```
-
-Run current operational checks:
-
-```bash
-omnia-validation validate-manifest results/artifact_hash_manifest_v0.json --verify-hashes
-
-omnia-validation compare-results \
-  --previous results/artifact_hash_manifest_v0.json \
-  --current results/artifact_hash_manifest_v0.json
-```
-
-Reviewer guide:
-
-- [`docs/REVIEWER_GUIDE.md`](docs/REVIEWER_GUIDE.md)
-- [`docs/OMNIA_SILENT_FAILURE_VALIDATION_BRIDGE.md`](docs/OMNIA_SILENT_FAILURE_VALIDATION_BRIDGE.md)
-
-Full quickstart:
-
-- [`docs/QUICKSTART.md`](docs/QUICKSTART.md)
+    https://github.com/Tuttotorna/lon-mirror
 
 ---
 
-## Package layer
+## License
 
-Installable package:
+MIT.
 
-```text
-omnia_validation/
-```
-
-Current modules:
-
-```text
-omnia_validation.hashing
-omnia_validation.io
-omnia_validation.metrics
-omnia_validation.metadata
-omnia_validation.schemas
-omnia_validation.manifest
-omnia_validation.regression
-omnia_validation.cli
-```
-
-CLI commands:
-
-```bash
-omnia-validation validate-sha256 <sha256>
-omnia-validation hash-file <path>
-omnia-validation validate-json <path>
-omnia-validation validate-result <path>
-omnia-validation validate-manifest <path> --verify-hashes
-omnia-validation compare-results --previous <path> --current <path>
-```
-
-Package API:
-
-- [`docs/PACKAGE_API.md`](docs/PACKAGE_API.md)
-
----
-
-## Validation scope
-
-OMNIA-VALIDATION currently validates structural behavior through:
-
-- artifact identity checks
-- hash preservation
-- schema validation
-- result-envelope validation
-- regression classification
-- reproducibility baselines
-- perturbation experiments
-- temporal-collapse experiments
-- topology and transition experiments
-- cross-provider / cross-source traceability
-
-Validation scope is documented in:
-
-- [`docs/VALIDATION_SCOPE.md`](docs/VALIDATION_SCOPE.md)
-
----
-
-## Results and evidence
-
-The repository contains:
-
-```text
-data/      input datasets and source outputs
-results/   raw result artifacts
-docs/      result reports and validation notes
-examples/  reproducible scripts
-tests/     package and regression tests
-```
-
-Result index:
-
-- [`docs/RESULTS_INDEX.md`](docs/RESULTS_INDEX.md)
-
-Failure and limit cases:
-
-- [`docs/FAILURE_CASES.md`](docs/FAILURE_CASES.md)
-
-Repository status:
-
-- [`docs/REPOSITORY_STATUS.md`](docs/REPOSITORY_STATUS.md)
-
----
-
-## Relationship to OMNIA
-
-OMNIA is the structural measurement core.
-
-OMNIA-VALIDATION is the evidence and validation layer.
-
-```text
-OMNIA            = measure structural behavior
-OMNIA-VALIDATION = test evidence, failures, limits, reproducibility
-Decision          = external layer
-```
-
-Validation does not collapse measurement into decision.
-
----
-
-## Citation
-
-If you reference this repository, use the archived Zenodo record:
-
-```text
-DOI: 10.5281/zenodo.20083830
-https://doi.org/10.5281/zenodo.20083830
-```
-
-Citation metadata is available in:
-
-- [`CITATION.cff`](CITATION.cff)
-
----
-
-## Summary
-
-OMNIA-VALIDATION is the repository where OMNIA claims are pressure-tested.
-
-It records evidence, limits, reproducibility checks, failures, and result regressions.
-
-Its central rule is:
-
-```text
-validation evidence != semantic truth
-measurement != inference != decision
-```
