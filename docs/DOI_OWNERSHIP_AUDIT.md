@@ -2,39 +2,38 @@
 
 ## Status
 
-audit_status: pending_strict_ownership_verification
+audit_status: resolved
 target_repository: Tuttotorna/OMNIA-VALIDATION
-reference_repository: Tuttotorna/OMNIA
 release_tag: v2026.05.21
 release_commit: fbcbb4f
-previous_target_doi: 10.5281/zenodo.20322696
-reference_doi: 10.5281/zenodo.20322696
-resolved_target_doi: pending
-resolved_target_zenodo_record: pending
+resolved_target_doi: 10.5281/zenodo.20322696
+resolved_target_zenodo_record: https://zenodo.org/records/20322696
+ownership_status: strict_exact_repository_match
+
+## Correct mapping
+
+Tuttotorna/OMNIA: 10.5281/zenodo.20322683
+Tuttotorna/OMNIA-VALIDATION: 10.5281/zenodo.20322696
+
+## Local repository mapping
+
+this_repository: Tuttotorna/OMNIA-VALIDATION
+this_repository_doi: 10.5281/zenodo.20322696
+other_repository: Tuttotorna/OMNIA
+other_repository_doi: 10.5281/zenodo.20322683
 
 ## Finding
 
-The ecosystem DOI audit detected a cross-repository DOI collision.
+The previous audit path allowed a repository-name collision between OMNIA and OMNIA-VALIDATION.
 
-duplicate_doi: 10.5281/zenodo.20322696
-affected_repository_1: Tuttotorna/OMNIA
-affected_repository_2: Tuttotorna/OMNIA-VALIDATION
-
-The collision is structurally invalid because OMNIA and OMNIA-VALIDATION are distinct repositories.
+That collision is invalid because OMNIA and OMNIA-VALIDATION are distinct repositories with distinct Zenodo DOI records.
 
 ## Corrective rule
 
+exact repository identity is required for DOI ownership
 repo_name substring match is forbidden for DOI ownership
 OMNIA != OMNIA-VALIDATION
-a DOI must bind to exact repository identity or remain pending
-
-## Applied correction
-
-OMNIA-VALIDATION no longer accepts the OMNIA DOI as its own release DOI.
-
-If a strict Zenodo record was found for OMNIA-VALIDATION, the exact DOI was registered.
-
-If no strict Zenodo record was found, the DOI was set to pending and the dynamic Zenodo badge was preserved.
+OMNIA DOI != OMNIA-VALIDATION DOI
 
 ## Boundary
 

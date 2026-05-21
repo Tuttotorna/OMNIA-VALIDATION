@@ -6,16 +6,26 @@ repository: Tuttotorna/OMNIA-VALIDATION
 github_repository_id: 1227176782
 release_tag: v2026.05.21
 release_commit: fbcbb4f
-release_doi: pending
+release_doi: 10.5281/zenodo.20322696
 github_release_url: https://github.com/Tuttotorna/OMNIA-VALIDATION/releases/tag/v2026.05.21
-zenodo_record_url: pending
-doi_ownership_status: pending_strict_ownership_verification
+zenodo_record_url: https://zenodo.org/records/20322696
+doi_ownership_status: strict_exact_repository_match
 
-## Ownership rule
+## DOI ownership separation
 
-repo_name substring match is forbidden for DOI ownership
+Tuttotorna/OMNIA: 10.5281/zenodo.20322683
+Tuttotorna/OMNIA-VALIDATION: 10.5281/zenodo.20322696
 OMNIA != OMNIA-VALIDATION
-a DOI must bind to exact repository identity or remain pending
+OMNIA DOI != OMNIA-VALIDATION DOI
+exact repository identity is required for DOI ownership
+repo_name substring match is forbidden for DOI ownership
+
+## Local ownership check
+
+this_repository: Tuttotorna/OMNIA-VALIDATION
+this_repository_doi: 10.5281/zenodo.20322696
+other_repository: Tuttotorna/OMNIA
+other_repository_doi: 10.5281/zenodo.20322683
 
 ## Boundary
 

@@ -2,13 +2,16 @@
 
 ## DOI ownership audit
 
-OMNIA-VALIDATION rejects DOI ownership based on repository-name substring matching.
+This repository uses strict DOI ownership by exact repository identity.
 
 OMNIA != OMNIA-VALIDATION
+OMNIA DOI != OMNIA-VALIDATION DOI
 repo_name substring match is forbidden for DOI ownership
-a DOI must bind to exact repository identity or remain pending
-OMNIA reference DOI: 10.5281/zenodo.20322696
-OMNIA-VALIDATION resolved DOI: pending strict Zenodo ownership verification
+exact repository identity is required for DOI ownership
+this_repository: Tuttotorna/OMNIA-VALIDATION
+this_repository_doi: 10.5281/zenodo.20322696
+other_repository: Tuttotorna/OMNIA
+other_repository_doi: 10.5281/zenodo.20322683
 
 <!-- DOI OWNERSHIP AUDIT:END -->
 
@@ -19,7 +22,7 @@ OMNIA-VALIDATION resolved DOI: pending strict Zenodo ownership verification
 Repository: Tuttotorna/OMNIA-VALIDATION
 Release tag: v2026.05.21
 Release commit: fbcbb4f
-Release DOI: pending strict Zenodo ownership verification
+Release DOI: 10.5281/zenodo.20322696
 
 Boundary:
 
@@ -38,7 +41,7 @@ OMNIA != OMNIA-VALIDATION
 
 ## DOI
 
-[![DOI](https://zenodo.org/badge/1227176782.svg)](https://zenodo.org/badge/latestdoi/1227176782)
+[![DOI](https://zenodo.org/badge/DOI/10.5281%2Fzenodo.20322696.svg)](https://doi.org/10.5281/zenodo.20322696)
 
 Zenodo DOI badge for this repository.
 
@@ -46,13 +49,14 @@ Repository: Tuttotorna/OMNIA-VALIDATION
 GitHub repository id: 1227176782
 Release tag: v2026.05.21
 Release commit: fbcbb4f
-Latest release DOI: pending strict Zenodo ownership verification
+Latest release DOI: 10.5281/zenodo.20322696
 
 Ownership rule:
 
+exact repository identity is required for DOI ownership
 repo_name substring match is forbidden for DOI ownership
 OMNIA != OMNIA-VALIDATION
-a DOI must bind to exact repository identity or remain pending
+OMNIA DOI != OMNIA-VALIDATION DOI
 
 <!-- ZENODO DOI:END -->
 
