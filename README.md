@@ -79,6 +79,9 @@ The point is to inspect the artifacts.
 ## Conceptual architecture
 
 - [Ecosystem Conceptual Architecture](docs/ECOSYSTEM_CONCEPTUAL_ARCHITECTURE.md)
+## Release candidate
+
+- [v0.2.0 — Ecosystem Validation Snapshot Release](docs/RELEASE_v0.2.0.md)
 
 ## What this repository is
 
