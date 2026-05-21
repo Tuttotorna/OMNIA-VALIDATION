@@ -258,3 +258,31 @@ The ecosystem remains valid only while the layers stay separated.
     decision != measurement
 
 The registry exists to prevent backbone drift.
+
+<!-- LON-MIRROR PUBLIC ROOT REFERENCE LINK:START -->
+## lon-mirror public root reference link
+
+lon-mirror is the public root reference observer for the MB-X.01 / L.O.N. ecosystem.
+
+Verified public link:
+
+https://github.com/Tuttotorna/lon-mirror/blob/main/docs/MBX01_LON_ROOT_REFERENCE_LINK.md
+
+Verified commit:
+
+22a320d
+
+Registered role:
+
+root_reference_observer
+
+Registered status:
+
+satellite_compliant
+
+Boundary:
+
+lon-mirror observes validated backbone output and exposes the public root reference path.
+
+It must not become a validator, control plane, governance engine, decision engine, or semantic-truth engine.
+<!-- LON-MIRROR PUBLIC ROOT REFERENCE LINK:END -->

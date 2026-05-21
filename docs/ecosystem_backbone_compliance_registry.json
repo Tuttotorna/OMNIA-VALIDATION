@@ -231,16 +231,18 @@
       "github": "https://github.com/Tuttotorna/lon-mirror",
       "role": "root_reference_observer",
       "status": "satellite_compliant",
-      "commit": "7404822",
-      "commit_message": "Add backbone-compliant root reference observer",
-      "responsibility": "Acts as root reference observer and may route measurements through the existing backbone for reference checks.",
+      "commit": "22a320d",
+      "commit_message": "Link MB-X.01 LON ecosystem entry point",
+      "responsibility": "Acts as root reference observer and exposes the public MB-X.01 / L.O.N. ecosystem entry point link from lon-mirror.",
       "forbidden": [
-        "semantic truth claim",
-        "governance decision",
         "BoundaryCertificate redefinition",
         "ValidationEnvelope redefinition",
-        "decision engine behavior"
-      ]
+        "control-plane replacement",
+        "decision engine behavior",
+        "governance decision",
+        "semantic truth claim"
+      ],
+      "public_root_reference_link": "https://github.com/Tuttotorna/lon-mirror/blob/main/docs/MBX01_LON_ROOT_REFERENCE_LINK.md"
     }
   ],
   "counts": {

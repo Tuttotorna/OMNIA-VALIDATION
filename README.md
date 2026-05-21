@@ -226,3 +226,23 @@ This entry point explains the ecosystem identity, the canonical backbone, the co
 
     measurement != validation != orchestration != decision
 <!-- MB-X.01 LON ECOSYSTEM ENTRYPOINT:END -->
+
+<!-- LON-MIRROR PUBLIC ROOT REFERENCE LINK:START -->
+## lon-mirror root reference link
+
+The public root reference side of the MB-X.01 / L.O.N. ecosystem is exposed by lon-mirror:
+
+https://github.com/Tuttotorna/lon-mirror/blob/main/docs/MBX01_LON_ROOT_REFERENCE_LINK.md
+
+Verified lon-mirror commit:
+
+22a320d
+
+Role:
+
+root_reference_observer
+
+Boundary:
+
+observation != decision
+<!-- LON-MIRROR PUBLIC ROOT REFERENCE LINK:END -->

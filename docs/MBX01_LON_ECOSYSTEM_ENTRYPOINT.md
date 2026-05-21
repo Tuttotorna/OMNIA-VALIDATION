@@ -319,3 +319,29 @@ The ecosystem remains valid only while the following statement remains true:
     measurement != validation != orchestration != decision
 
 This entry point exists to make that boundary visible before the reader enters the technical details.
+
+<!-- LON-MIRROR PUBLIC ROOT REFERENCE LINK:START -->
+## Public root reference link
+
+The root reference side is exposed by lon-mirror:
+
+https://github.com/Tuttotorna/lon-mirror/blob/main/docs/MBX01_LON_ROOT_REFERENCE_LINK.md
+
+Verified lon-mirror commit:
+
+22a320d
+
+This closes the public orientation circuit:
+
+OMNIA-VALIDATION
+  -> MB-X.01 / L.O.N. entry point
+  -> ecosystem map
+  -> backbone registry
+  -> lon-mirror root reference observer
+
+Boundary:
+
+lon-mirror remains a root_reference_observer.
+
+It does not become a validator, control plane, governance engine, decision engine, or semantic-truth engine.
+<!-- LON-MIRROR PUBLIC ROOT REFERENCE LINK:END -->

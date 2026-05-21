@@ -82,3 +82,8 @@ jobs:
         run: |
           cd OMNIA-VALIDATION
           python -m pytest -q tests/test_mbx01_lon_entrypoint_documentation.py
+
+      - name: Run lon-mirror root reference public link test
+        run: |
+          cd OMNIA-VALIDATION
+          python -m pytest -q tests/test_lon_mirror_root_reference_public_link.py

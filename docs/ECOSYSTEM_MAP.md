@@ -258,3 +258,25 @@ It is a separated chain:
 This is the point.
 
 The backbone is valuable only while the roles remain separated.
+
+<!-- LON-MIRROR PUBLIC ROOT REFERENCE LINK:START -->
+## lon-mirror root reference public link
+
+lon-mirror exposes the public root reference side of the MB-X.01 / L.O.N. ecosystem.
+
+Public link:
+
+https://github.com/Tuttotorna/lon-mirror/blob/main/docs/MBX01_LON_ROOT_REFERENCE_LINK.md
+
+Verified commit:
+
+22a320d
+
+Role:
+
+root_reference_observer
+
+Boundary:
+
+observation != decision
+<!-- LON-MIRROR PUBLIC ROOT REFERENCE LINK:END -->
