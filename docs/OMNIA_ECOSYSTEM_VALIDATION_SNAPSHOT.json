@@ -1,0 +1,190 @@
+{
+  "snapshot_utc": "2026-05-21T14:38:36Z",
+  "ecosystem": "MB-X.01 / OMNIA",
+  "owner": "Tuttotorna",
+  "boundary": "measurement != inference != decision",
+  "backbone": [
+    "OMNIA",
+    "omnia-limit",
+    "OMNIA-VALIDATION"
+  ],
+  "repositories": {
+    "lon-mirror": {
+      "url": "https://github.com/Tuttotorna/lon-mirror.git",
+      "branch": "main",
+      "commit": "90ed71c612afaede64bf22f3b0276fcf68487253",
+      "role": "Canonical public hub and ecosystem navigation layer.",
+      "backbone": false,
+      "validation": {
+        "status": "pass",
+        "passed": 66,
+        "failed": 0,
+        "raw_summary": "============================== 66 passed in 2.02s =============================="
+      }
+    },
+    "OMNIABASE": {
+      "url": "https://github.com/Tuttotorna/OMNIABASE.git",
+      "branch": "main",
+      "commit": "ad8fc6276d10ad9bf67e9d8815bee3436984c95d",
+      "role": "Multi-base representation and observation layer.",
+      "backbone": false,
+      "validation": {
+        "status": "pass",
+        "passed": 9,
+        "failed": 0,
+        "raw_summary": "9 passed in 1.26s"
+      }
+    },
+    "OMNIA": {
+      "url": "https://github.com/Tuttotorna/OMNIA.git",
+      "branch": "main",
+      "commit": "0ade01f94462eb2e7c6b3b7e0377f2f1911040fc",
+      "role": "Core post-hoc structural measurement engine.",
+      "backbone": true,
+      "validation": {
+        "status": "pass",
+        "passed": 57,
+        "failed": 0,
+        "raw_summary": "57 passed in 1.40s"
+      }
+    },
+    "omnia-limit": {
+      "url": "https://github.com/Tuttotorna/omnia-limit.git",
+      "branch": "main",
+      "commit": "336bf413f70b00f656e4a7bc4679ddeeefc000bc",
+      "role": "Structural boundary and stop-condition layer.",
+      "backbone": true,
+      "validation": {
+        "status": "pass",
+        "passed": 13,
+        "failed": 0,
+        "raw_summary": "13 passed in 1.15s"
+      }
+    },
+    "OMNIA-RADAR": {
+      "url": "https://github.com/Tuttotorna/OMNIA-RADAR.git",
+      "branch": "main",
+      "commit": "a9700f3a58a080b03330b1708ab802394fa7b0ce",
+      "role": "Structural detection and drift surfacing layer.",
+      "backbone": false,
+      "validation": {
+        "status": "pass",
+        "passed": 12,
+        "failed": 0,
+        "raw_summary": "12 passed in 1.29s"
+      }
+    },
+    "OMNIA-SECURITY": {
+      "url": "https://github.com/Tuttotorna/OMNIA-SECURITY.git",
+      "branch": "main",
+      "commit": "66cacdae61ea4a74b267b82dc1c471fbb6d693ee",
+      "role": "Bounded security-domain structural diagnostics adapter.",
+      "backbone": false,
+      "validation": {
+        "status": "pass",
+        "passed": null,
+        "failed": 0,
+        "raw_summary": ".........                                                                [100%]\n\n"
+      }
+    },
+    "OMNIA-CRYPTO": {
+      "url": "https://github.com/Tuttotorna/OMNIA-CRYPTO.git",
+      "branch": "main",
+      "commit": "374742556c0b93b7b4ef78dc1a651e85dc79d891",
+      "role": "Bounded cryptographic-behavior structural diagnostics adapter.",
+      "backbone": false,
+      "validation": {
+        "status": "pass",
+        "passed": null,
+        "failed": 0,
+        "raw_summary": ".........                                                                [100%]\n\n"
+      }
+    },
+    "OMNIAMIND": {
+      "url": "https://github.com/Tuttotorna/OMNIAMIND.git",
+      "branch": "main",
+      "commit": "5a44416edb9508136be722141db6281368f4c2e7",
+      "role": "Structural cognition orchestration layer.",
+      "backbone": false,
+      "validation": {
+        "status": "pass",
+        "passed": 2,
+        "failed": 0,
+        "raw_summary": "2 passed in 1.21s"
+      }
+    },
+    "OMNIA-THREE-BODY": {
+      "url": "https://github.com/Tuttotorna/OMNIA-THREE-BODY.git",
+      "branch": "main",
+      "commit": "1e79522c89c24b7d922807c837eec51aa4b80a8e",
+      "role": "Dynamic stress-test adapter for divergence and perturbation behavior.",
+      "backbone": false,
+      "validation": {
+        "status": "pass",
+        "passed": null,
+        "failed": 0,
+        "raw_summary": "..........                                                               [100%]\n\n"
+      }
+    },
+    "OMNIA-INVARIANCE": {
+      "url": "https://github.com/Tuttotorna/OMNIA-INVARIANCE.git",
+      "branch": "main",
+      "commit": "42c9829fd8709e148c9aaace84a71ee13bbfe197",
+      "role": "Transformation/invariance analysis layer.",
+      "backbone": false,
+      "validation": {
+        "status": "pass",
+        "passed": 8,
+        "failed": 0,
+        "raw_summary": "8 passed in 1.26s"
+      }
+    },
+    "OMNIA-CONSTANT": {
+      "url": "https://github.com/Tuttotorna/OMNIA-CONSTANT.git",
+      "branch": "main",
+      "commit": "9550344aae13b02ae1e98e839c5d0750c011fefe",
+      "role": "Post-analysis and falsification layer for candidate Omega-region behavior.",
+      "backbone": false,
+      "validation": {
+        "status": "pass",
+        "passed": null,
+        "failed": 0,
+        "raw_summary": ".........                                                                [100%]\n\n"
+      }
+    },
+    "OMNIA-VALIDATION": {
+      "url": "https://github.com/Tuttotorna/OMNIA-VALIDATION.git",
+      "branch": "main",
+      "commit": "c668566d2ab99932123b73af39992cb1ad646f69",
+      "role": "Evidence, traceability, reproducibility and regression control plane.",
+      "backbone": true,
+      "validation": {
+        "status": "pass",
+        "passed": 355,
+        "failed": 0,
+        "raw_summary": "355 passed in 2.61s"
+      }
+    }
+  },
+  "interpretation": {
+    "what_is_proven": [
+      "The listed repositories were cloned at the recorded commit hashes.",
+      "Local pytest validation was executed where tests were present.",
+      "The backbone import path was prioritized to avoid accidental package shadowing.",
+      "OMNIA-VALIDATION contains explicit CI registration checks for critical public-release tests."
+    ],
+    "what_is_not_proven": [
+      "This does not prove semantic truth.",
+      "This does not prove scientific universality.",
+      "This does not prove production security.",
+      "This does not make autonomous decisions.",
+      "This does not replace external review."
+    ],
+    "release_gate": [
+      "All backbone repositories should pass local validation.",
+      "All GitHub Actions workflows should pass on main.",
+      "Release tags should align with package versions.",
+      "Validation artifacts should remain reproducible from a clean clone."
+    ]
+  }
+}
