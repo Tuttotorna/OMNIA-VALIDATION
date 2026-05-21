@@ -76,6 +76,9 @@ The point is not to believe the framework.
 The point is to inspect the artifacts.
 
 ---
+## Conceptual architecture
+
+- [Ecosystem Conceptual Architecture](docs/ECOSYSTEM_CONCEPTUAL_ARCHITECTURE.md)
 
 ## What this repository is
 
