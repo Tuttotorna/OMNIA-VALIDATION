@@ -62,3 +62,13 @@ Last repair pass: `2026-05-21T14:19:12Z`
 This pass preserves repository-specific CI assertions while also running the full test suite.
 
 It also avoids accidental local-package shadowing by using `OMNIA_SOURCE_DIR` and by prioritizing the canonical `OMNIA` checkout in CI.
+
+<!-- OMNIA_VALIDATION_CI_ASSERTION_REPAIR_2026_05_21 -->
+
+## OMNIA-VALIDATION CI assertion repair
+
+Last repair pass: `2026-05-21T14:28:34Z`
+
+The CI workflow intentionally includes explicit pytest commands for release audit, DOI audit, first-reader path, commit registration, public entrypoint registration, and registry anchor role-separation tests.
+
+These commands are present because the repository self-validates that critical public-release checks are registered directly in CI before the full suite runs.

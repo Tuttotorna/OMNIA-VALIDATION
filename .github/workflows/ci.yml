@@ -50,6 +50,18 @@ jobs:
           python -m pip install -e _backbone/omnia-limit
           python -m pip install -e .
 
+      - name: Run required CI registration tests
+        shell: bash
+        env:
+          OMNIA_SOURCE_DIR: ${{ github.workspace }}/_backbone/OMNIA
+        run: |
+              python -m pytest -q tests/test_final_audit_release_doi.py
+          python -m pytest -q tests/test_final_release_audit.py
+          python -m pytest -q tests/test_first_reader_path.py
+          python -m pytest -q tests/test_first_reader_path_commit_registration.py
+          python -m pytest -q tests/test_lon_mirror_public_entrypoint_registration.py
+          python -m pytest -q tests/test_registry_anchor_role_separation.py
+
       - name: Run full test suite
         shell: bash
         env:
