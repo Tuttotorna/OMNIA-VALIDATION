@@ -116,3 +116,8 @@ jobs:
         run: |
           cd OMNIA-VALIDATION
           python -m pytest -q tests/test_lon_mirror_root_reference_public_link.py
+
+      - name: Run final audit release DOI test
+        run: |
+          if [ -d OMNIA-VALIDATION ]; then cd OMNIA-VALIDATION; fi
+          python -m pytest -q tests/test_final_audit_release_doi.py

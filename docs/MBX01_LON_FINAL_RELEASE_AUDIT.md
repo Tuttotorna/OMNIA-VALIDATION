@@ -130,3 +130,26 @@ No issues detected.
 - Pair-specific OMNIA/OMNIA-VALIDATION ownership contract not required for this repository.
 - GitHub release body does not contain expected DOI. README/registry remain authoritative for DOI metadata.
 
+<!-- MB-X.01 LON FINAL AUDIT RELEASE DOI:START -->
+
+## Final audit release DOI
+
+This document is now bound to a dedicated OMNIA-VALIDATION final audit release.
+
+repository: Tuttotorna/OMNIA-VALIDATION
+release_tag: v2026.05.22
+release_commit: e98a397
+release_doi: 10.5281/zenodo.20325096
+zenodo_record_url: https://zenodo.org/records/20325096
+release_role: final_ecosystem_audit_snapshot
+final_audit_doc: docs/MBX01_LON_FINAL_RELEASE_AUDIT.md
+
+Boundary:
+
+A DOI identifies an archived release snapshot.
+A DOI is not a measurement.
+A DOI is not validation.
+A DOI is not orchestration.
+A DOI is not a decision.
+
+<!-- MB-X.01 LON FINAL AUDIT RELEASE DOI:END -->

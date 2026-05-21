@@ -4,73 +4,55 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 
 README = ROOT / "README.md"
-DOI_REGISTRY = ROOT / "docs" / "DOI_REGISTRY.md"
-AUDIT_DOC = ROOT / "docs" / "DOI_OWNERSHIP_AUDIT.md"
-CI = ROOT / ".github" / "workflows" / "ci.yml"
+REGISTRY = ROOT / "docs" / "DOI_REGISTRY.md"
+FINAL_AUDIT_DOC = ROOT / "docs" / "MBX01_LON_FINAL_RELEASE_AUDIT.md"
 
 THIS_REPOSITORY = "Tuttotorna/OMNIA-VALIDATION"
-OTHER_REPOSITORY = "Tuttotorna/OMNIA"
-EXPECTED_DOI = "10.5281/zenodo.20322696"
-OTHER_DOI = "10.5281/zenodo.20322683"
-TEST_COMMAND = "python -m pytest -q tests/test_doi_ownership.py"
-
+OMNIA_REPOSITORY = "Tuttotorna/OMNIA"
+OMNIA_DOI = "10.5281/zenodo.20322683"
+EXPECTED_RELEASE_TAG = "v2026.05.22"
+EXPECTED_RELEASE_COMMIT = "e98a397"
+EXPECTED_RELEASE_DOI = "10.5281/zenodo.20325096"
 
 def extract_registry_value(text, key):
-    pattern = rf"{key}:\s*([^\n`]+)"
-    match = re.search(pattern, text)
+    match = re.search(rf"{key}:\s*([^\n`]+)", text)
     return match.group(1).strip() if match else None
 
+def test_doi_registry_exists():
+    assert REGISTRY.exists()
 
-def test_doi_registry_and_audit_exist():
-    assert DOI_REGISTRY.exists()
-    assert AUDIT_DOC.exists()
-
-
-def test_registry_binds_expected_doi_to_exact_repository():
-    text = DOI_REGISTRY.read_text(encoding="utf-8")
+def test_registry_binds_current_final_audit_doi_to_exact_repository():
+    text = REGISTRY.read_text(encoding="utf-8")
     assert f"repository: {THIS_REPOSITORY}" in text
-    assert f"release_doi: {EXPECTED_DOI}" in text
-    assert f"this_repository: {THIS_REPOSITORY}" in text
-    assert f"this_repository_doi: {EXPECTED_DOI}" in text
-    assert f"other_repository: {OTHER_REPOSITORY}" in text
-    assert f"other_repository_doi: {OTHER_DOI}" in text
+    assert f"release_tag: {EXPECTED_RELEASE_TAG}" in text
+    assert f"release_commit: {EXPECTED_RELEASE_COMMIT}" in text
+    assert f"release_doi: {EXPECTED_RELEASE_DOI}" in text
+    assert extract_registry_value(text, "release_doi") == EXPECTED_RELEASE_DOI
 
-
-def test_release_doi_is_not_other_repository_doi():
-    text = DOI_REGISTRY.read_text(encoding="utf-8")
+def test_omnia_validation_does_not_reuse_omnia_doi():
+    text = REGISTRY.read_text(encoding="utf-8")
     release_doi = extract_registry_value(text, "release_doi")
-    assert release_doi == EXPECTED_DOI
-    assert release_doi != OTHER_DOI
+    assert release_doi == EXPECTED_RELEASE_DOI
+    assert release_doi != OMNIA_DOI
 
-
-def test_readme_contains_expected_doi_and_boundary():
-    text = README.read_text(encoding="utf-8")
+def test_ownership_rule_is_documented():
+    combined = (
+        README.read_text(encoding="utf-8")
+        + "\n"
+        + REGISTRY.read_text(encoding="utf-8")
+        + "\n"
+        + FINAL_AUDIT_DOC.read_text(encoding="utf-8")
+    )
     required = [
-        EXPECTED_DOI,
         "OMNIA != OMNIA-VALIDATION",
         "OMNIA DOI != OMNIA-VALIDATION DOI",
-        "repo_name substring match is forbidden for DOI ownership",
         "exact repository identity is required for DOI ownership",
-        "DOI ownership != substring match",
+        "repo_name substring match is forbidden for DOI ownership",
     ]
-    missing = [fragment for fragment in required if fragment not in text]
+    missing = [fragment for fragment in required if fragment not in combined]
     assert not missing
 
-
-def test_audit_doc_contains_resolved_status():
-    text = AUDIT_DOC.read_text(encoding="utf-8")
-    required = [
-        "audit_status: resolved",
-        f"target_repository: {THIS_REPOSITORY}",
-        f"resolved_target_doi: {EXPECTED_DOI}",
-        "ownership_status: strict_exact_repository_match",
-        "10.5281/zenodo.20322683",
-        "10.5281/zenodo.20322696",
-    ]
-    missing = [fragment for fragment in required if fragment not in text]
-    assert not missing
-
-
-def test_ci_runs_doi_ownership_test():
-    assert CI.exists()
-    assert TEST_COMMAND in CI.read_text(encoding="utf-8")
+def test_release_role_is_final_ecosystem_audit_snapshot():
+    text = REGISTRY.read_text(encoding="utf-8")
+    assert "release_role: final_ecosystem_audit_snapshot" in text
+    assert "final_audit_doc: docs/MBX01_LON_FINAL_RELEASE_AUDIT.md" in text

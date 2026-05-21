@@ -20,9 +20,9 @@ other_repository_doi: 10.5281/zenodo.20322683
 ## MB-X.01 / L.O.N. release state
 
 Repository: Tuttotorna/OMNIA-VALIDATION
-Release tag: v2026.05.21
-Release commit: fbcbb4f
-Release DOI: 10.5281/zenodo.20322696
+Release tag: v2026.05.22
+Release commit: e98a397
+Release DOI: 10.5281/zenodo.20325096
 
 Boundary:
 
@@ -30,8 +30,6 @@ measurement != validation
 validation != orchestration
 orchestration != decision
 decision != measurement
-DOI ownership != substring match
-OMNIA != OMNIA-VALIDATION
 
 <!-- MB-X.01 LON RELEASE:END -->
 
@@ -41,22 +39,15 @@ OMNIA != OMNIA-VALIDATION
 
 ## DOI
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281%2Fzenodo.20322696.svg)](https://doi.org/10.5281/zenodo.20322696)
+[![DOI](https://zenodo.org/badge/DOI/10.5281%2Fzenodo.20325096.svg)](https://doi.org/10.5281/zenodo.20325096)
 
 Zenodo DOI badge for this repository.
 
 Repository: Tuttotorna/OMNIA-VALIDATION
 GitHub repository id: 1227176782
-Release tag: v2026.05.21
-Release commit: fbcbb4f
-Latest release DOI: 10.5281/zenodo.20322696
-
-Ownership rule:
-
-exact repository identity is required for DOI ownership
-repo_name substring match is forbidden for DOI ownership
-OMNIA != OMNIA-VALIDATION
-OMNIA DOI != OMNIA-VALIDATION DOI
+Release tag: v2026.05.22
+Release commit: e98a397
+Latest release DOI: 10.5281/zenodo.20325096
 
 <!-- ZENODO DOI:END -->
 
@@ -424,3 +415,29 @@ OMNIA DOI != OMNIA-VALIDATION DOI
 ```
 
 <!-- MB-X.01 LON FINAL RELEASE AUDIT:END -->
+
+<!-- MB-X.01 LON FINAL AUDIT RELEASE DOI:START -->
+
+## Final audit release DOI
+
+The final MB-X.01 / L.O.N. ecosystem audit has been archived as a dedicated OMNIA-VALIDATION release.
+
+repository: Tuttotorna/OMNIA-VALIDATION
+release_tag: v2026.05.22
+release_commit: e98a397
+release_doi: 10.5281/zenodo.20325096
+zenodo_record_url: https://zenodo.org/records/20325096
+release_role: final_ecosystem_audit_snapshot
+final_audit_doc: docs/MBX01_LON_FINAL_RELEASE_AUDIT.md
+repositories_audited: 12
+clean_repositories: 12
+repositories_with_issues: 0
+duplicate_doi_values: none
+duplicate_github_repository_ids: none
+A DOI identifies an archived release snapshot.
+A DOI is not a measurement.
+A DOI is not validation.
+A DOI is not orchestration.
+A DOI is not a decision.
+
+<!-- MB-X.01 LON FINAL AUDIT RELEASE DOI:END -->
