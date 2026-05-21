@@ -80,7 +80,14 @@
       "first_reader_path_commit": "83fa07f",
       "first_reader_path_link": "https://github.com/Tuttotorna/OMNIA-VALIDATION/blob/main/docs/FIRST_READER_PATH.md",
       "latest_public_commit": "83fa07f",
-      "latest_public_artifact": "docs/FIRST_READER_PATH.md"
+      "latest_public_artifact": "docs/FIRST_READER_PATH.md",
+      "registry_control_plane_commit": "60e4385",
+      "latest_first_reader_path_commit": "83fa07f",
+      "registry_role": "validator_backbone_core",
+      "first_reader_path_role": "first_reader_surface",
+      "public_anchor_role": "public_documentation_surface",
+      "anchor_role_policy": "commit_equality_allowed_role_divergence_required",
+      "anchor_role_policy_doc": "https://github.com/Tuttotorna/OMNIA-VALIDATION/blob/main/docs/REGISTRY_ANCHOR_ROLE_SEPARATION.md"
     },
     {
       "repository": "OMNIA-VALIDATION",
@@ -98,7 +105,14 @@
       "first_reader_path_commit": "83fa07f",
       "first_reader_path_link": "https://github.com/Tuttotorna/OMNIA-VALIDATION/blob/main/docs/FIRST_READER_PATH.md",
       "latest_public_commit": "83fa07f",
-      "latest_public_artifact": "docs/FIRST_READER_PATH.md"
+      "latest_public_artifact": "docs/FIRST_READER_PATH.md",
+      "registry_control_plane_commit": "60e4385",
+      "latest_first_reader_path_commit": "83fa07f",
+      "registry_role": "validator_backbone_core",
+      "first_reader_path_role": "first_reader_surface",
+      "public_anchor_role": "public_documentation_surface",
+      "anchor_role_policy": "commit_equality_allowed_role_divergence_required",
+      "anchor_role_policy_doc": "https://github.com/Tuttotorna/OMNIA-VALIDATION/blob/main/docs/REGISTRY_ANCHOR_ROLE_SEPARATION.md"
     },
     {
       "repository": "OMNIA-VALIDATION",
@@ -116,7 +130,14 @@
       "first_reader_path_commit": "83fa07f",
       "first_reader_path_link": "https://github.com/Tuttotorna/OMNIA-VALIDATION/blob/main/docs/FIRST_READER_PATH.md",
       "latest_public_commit": "83fa07f",
-      "latest_public_artifact": "docs/FIRST_READER_PATH.md"
+      "latest_public_artifact": "docs/FIRST_READER_PATH.md",
+      "registry_control_plane_commit": "60e4385",
+      "latest_first_reader_path_commit": "83fa07f",
+      "registry_role": "validator_backbone_core",
+      "first_reader_path_role": "first_reader_surface",
+      "public_anchor_role": "public_documentation_surface",
+      "anchor_role_policy": "commit_equality_allowed_role_divergence_required",
+      "anchor_role_policy_doc": "https://github.com/Tuttotorna/OMNIA-VALIDATION/blob/main/docs/REGISTRY_ANCHOR_ROLE_SEPARATION.md"
     },
     {
       "repository": "OMNIAMIND",
@@ -249,11 +270,13 @@
       "forbidden": [
         "BoundaryCertificate redefinition",
         "ValidationEnvelope redefinition",
+        "anchor role collapse",
         "control-plane replacement",
         "decision engine behavior",
         "first-reader path as validation authority",
         "governance decision",
         "measurement replacement",
+        "role collapse",
         "semantic truth claim"
       ],
       "public_root_reference_link": "https://github.com/Tuttotorna/lon-mirror/blob/main/docs/MBX01_LON_ROOT_REFERENCE_LINK.md",
@@ -266,7 +289,12 @@
       "first_reader_path_link": "https://github.com/Tuttotorna/lon-mirror/blob/main/docs/FIRST_READER_PATH.md",
       "latest_public_artifact": "docs/PUBLIC_ENTRYPOINT.md",
       "latest_first_reader_path_commit": "4dd5cb5",
-      "latest_first_reader_path_artifact": "docs/FIRST_READER_PATH.md"
+      "latest_first_reader_path_artifact": "docs/FIRST_READER_PATH.md",
+      "registry_role": "root_reference_observer",
+      "first_reader_path_role": "first_reader_surface",
+      "public_anchor_role": "public_entrypoint_surface",
+      "anchor_role_policy": "commit_equality_allowed_role_divergence_required",
+      "anchor_role_policy_doc": "https://github.com/Tuttotorna/OMNIA-VALIDATION/blob/main/docs/REGISTRY_ANCHOR_ROLE_SEPARATION.md"
     }
   ],
   "counts": {

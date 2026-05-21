@@ -335,3 +335,40 @@ Boundary:
   first-reader path != orchestration
   first-reader path != decision
 <!-- FIRST READER PATH COMMIT REGISTRATION:END -->
+
+<!-- REGISTRY ANCHOR ROLE SEPARATION:START -->
+## Registry anchor role separation
+
+The ecosystem now separates commit identity from registry role identity.
+
+    Commit equality is not role equality.
+    Commit divergence is optional.
+    Role divergence is mandatory.
+
+Current protected anchors:
+
+    OMNIA-VALIDATION registry_control_plane_commit: 60e4385
+    OMNIA-VALIDATION latest_public_commit: 83fa07f
+    OMNIA-VALIDATION first_reader_path_commit: 83fa07f
+    OMNIA-VALIDATION registry_role: validator_backbone_core
+    OMNIA-VALIDATION first_reader_path_role: first_reader_surface
+
+    lon-mirror root_reference_commit: 22a320d
+    lon-mirror public_entrypoint_commit: f74b799
+    lon-mirror first_reader_path_commit: 4dd5cb5
+    lon-mirror registry_role: root_reference_observer
+    lon-mirror first_reader_path_role: first_reader_surface
+
+Policy document:
+
+    https://github.com/Tuttotorna/OMNIA-VALIDATION/blob/main/docs/REGISTRY_ANCHOR_ROLE_SEPARATION.md
+
+Boundary:
+
+    first-reader path != validation
+    first-reader path != measurement
+    first-reader path != orchestration
+    first-reader path != decision
+    registry topology != BoundaryCertificate
+    commit identity != role identity
+<!-- REGISTRY ANCHOR ROLE SEPARATION:END -->
