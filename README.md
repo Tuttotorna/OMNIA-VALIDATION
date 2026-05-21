@@ -261,3 +261,31 @@ This closes the public path from `OMNIA-VALIDATION` to the `lon-mirror` first-re
 
 measurement != validation != orchestration != decision
 <!-- LON-MIRROR PUBLIC ENTRYPOINT REGISTRATION:END -->
+
+<!-- FIRST READER PATH:START -->
+## First reader path
+
+For a non-technical first orientation, start here:
+
+- First reader path: docs/FIRST_READER_PATH.md
+- First reader path URL: https://github.com/Tuttotorna/OMNIA-VALIDATION/blob/main/docs/FIRST_READER_PATH.md
+- lon-mirror public entry point: https://github.com/Tuttotorna/lon-mirror/blob/main/docs/PUBLIC_ENTRYPOINT.md
+
+Thirty-second model:
+
+OMNIA measures.
+omnia-limit validates the boundary certificate.
+OMNIA-VALIDATION validates the control-plane envelope.
+OMNIAMIND orchestrates.
+Satellites adapt, observe, or consume.
+lon-mirror acts as root reference observer.
+
+Boundary:
+
+measurement != validation != orchestration != decision
+
+Patch anchors:
+
+OMNIA-VALIDATION commit: 2e7e63c
+lon-mirror commit: f74b799
+<!-- FIRST READER PATH:END -->
