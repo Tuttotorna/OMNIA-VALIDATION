@@ -1,16 +1,35 @@
+<!-- MB-X.01 LON RELEASE:START -->
+
+## MB-X.01 / L.O.N. release state
+
+Repository: Tuttotorna/OMNIA-VALIDATION
+Release tag: v2026.05.21
+Release commit: 6ab7e00
+Release DOI: 10.5281/zenodo.20322696
+
+Boundary:
+
+measurement != validation
+validation != orchestration
+orchestration != decision
+decision != measurement
+
+<!-- MB-X.01 LON RELEASE:END -->
+
 # OMNIA-VALIDATION
 
 <!-- ZENODO DOI:START -->
 
 ## DOI
 
-[![DOI](https://zenodo.org/badge/1227176782.svg)](https://zenodo.org/badge/latestdoi/1227176782)
+[![DOI](https://zenodo.org/badge/DOI/10.5281%2Fzenodo.20322696.svg)](https://doi.org/10.5281/zenodo.20322696)
 
 Zenodo DOI badge for this repository.
 
 Repository: Tuttotorna/OMNIA-VALIDATION
 GitHub repository id: 1227176782
-Latest release DOI: pending Zenodo publication or resolved dynamically by Zenodo badge
+Release tag: v2026.05.21
+Latest release DOI: 10.5281/zenodo.20322696
 
 <!-- ZENODO DOI:END -->
 
