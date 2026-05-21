@@ -89,6 +89,11 @@ jobs:
           cd OMNIA-VALIDATION
           python -m pytest -q tests/test_lon_mirror_public_entrypoint_registration.py
 
+
+      - name: Run first reader path commit registration test
+        run: |
+          cd OMNIA-VALIDATION
+          python -m pytest -q tests/test_first_reader_path_commit_registration.py
       - name: Run first reader path test
         run: |
           cd OMNIA-VALIDATION

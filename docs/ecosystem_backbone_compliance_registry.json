@@ -69,42 +69,54 @@
       "github": "https://github.com/Tuttotorna/OMNIA-VALIDATION",
       "role": "control_plane_validator",
       "status": "backbone_core",
-      "commit": "394c6e3",
-      "commit_message": "Add end-to-end backbone validation test",
+      "commit": "83fa07f",
+      "commit_message": "Add first reader path",
       "responsibility": "Consumes BoundaryCertificate artifacts, validates through omnia-limit, and emits ValidationEnvelope artifacts.",
       "forbidden": [
         "measurement replacement",
         "schema bypass",
         "hidden continuation policy"
-      ]
+      ],
+      "first_reader_path_commit": "83fa07f",
+      "first_reader_path_link": "https://github.com/Tuttotorna/OMNIA-VALIDATION/blob/main/docs/FIRST_READER_PATH.md",
+      "latest_public_commit": "83fa07f",
+      "latest_public_artifact": "docs/FIRST_READER_PATH.md"
     },
     {
       "repository": "OMNIA-VALIDATION",
       "github": "https://github.com/Tuttotorna/OMNIA-VALIDATION",
       "role": "ci_regression_anchor",
       "status": "backbone_core",
-      "commit": "3fcdb2f",
-      "commit_message": "Run backbone end-to-end test in CI",
+      "commit": "83fa07f",
+      "commit_message": "Add first reader path",
       "responsibility": "Runs the canonical backbone regression path in GitHub Actions.",
       "forbidden": [
         "local-only compatibility",
         "README-only compatibility",
         "untested cross-repository handoff"
-      ]
+      ],
+      "first_reader_path_commit": "83fa07f",
+      "first_reader_path_link": "https://github.com/Tuttotorna/OMNIA-VALIDATION/blob/main/docs/FIRST_READER_PATH.md",
+      "latest_public_commit": "83fa07f",
+      "latest_public_artifact": "docs/FIRST_READER_PATH.md"
     },
     {
       "repository": "OMNIA-VALIDATION",
       "github": "https://github.com/Tuttotorna/OMNIA-VALIDATION",
       "role": "ecosystem_standard_owner",
       "status": "backbone_core",
-      "commit": "803b793",
-      "commit_message": "Document backbone contract standard",
+      "commit": "83fa07f",
+      "commit_message": "Add first reader path",
       "responsibility": "Defines the minimum ecosystem integration standard and satellite compliance rules.",
       "forbidden": [
         "parallel validation contract",
         "satellite contract drift",
         "layer collapse"
-      ]
+      ],
+      "first_reader_path_commit": "83fa07f",
+      "first_reader_path_link": "https://github.com/Tuttotorna/OMNIA-VALIDATION/blob/main/docs/FIRST_READER_PATH.md",
+      "latest_public_commit": "83fa07f",
+      "latest_public_artifact": "docs/FIRST_READER_PATH.md"
     },
     {
       "repository": "OMNIAMIND",
@@ -239,6 +251,7 @@
         "ValidationEnvelope redefinition",
         "control-plane replacement",
         "decision engine behavior",
+        "first-reader path as validation authority",
         "governance decision",
         "measurement replacement",
         "semantic truth claim"
@@ -248,7 +261,12 @@
       "public_entrypoint_link": "https://github.com/Tuttotorna/lon-mirror/blob/main/docs/PUBLIC_ENTRYPOINT.md",
       "public_root_reference_commit": "22a320d",
       "latest_public_commit": "f74b799",
-      "latest_public_commit_message": "Add public entry point"
+      "latest_public_commit_message": "Add public entry point",
+      "first_reader_path_commit": "4dd5cb5",
+      "first_reader_path_link": "https://github.com/Tuttotorna/lon-mirror/blob/main/docs/FIRST_READER_PATH.md",
+      "latest_public_artifact": "docs/PUBLIC_ENTRYPOINT.md",
+      "latest_first_reader_path_commit": "4dd5cb5",
+      "latest_first_reader_path_artifact": "docs/FIRST_READER_PATH.md"
     }
   ],
   "counts": {

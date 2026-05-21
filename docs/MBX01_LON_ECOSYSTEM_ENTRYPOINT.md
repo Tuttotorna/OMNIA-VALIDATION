@@ -376,3 +376,27 @@ lon-mirror does not replace OMNIA-VALIDATION.
 lon-mirror does not emit semantic truth.
 lon-mirror does not make governance decisions.
 <!-- LON-MIRROR PUBLIC ENTRYPOINT REGISTRATION:END -->
+
+<!-- FIRST READER PATH COMMIT REGISTRATION:START -->
+## First reader path commits
+
+The public first-reader path is registered as a reader-facing orientation layer.
+
+OMNIA-VALIDATION:
+  first_reader_path_commit: 83fa07f
+  first_reader_path_link: https://github.com/Tuttotorna/OMNIA-VALIDATION/blob/main/docs/FIRST_READER_PATH.md
+
+lon-mirror:
+  first_reader_path_commit: 4dd5cb5
+  latest_first_reader_path_commit: 4dd5cb5
+  first_reader_path_link: https://github.com/Tuttotorna/lon-mirror/blob/main/docs/FIRST_READER_PATH.md
+  public_entrypoint_commit: f74b799
+  latest_public_commit: f74b799
+  root_reference_commit: 22a320d
+
+Boundary:
+  first-reader path != validation
+  first-reader path != measurement
+  first-reader path != orchestration
+  first-reader path != decision
+<!-- FIRST READER PATH COMMIT REGISTRATION:END -->

@@ -308,3 +308,30 @@ This does not change the layer boundary.
 
 `lon-mirror` remains an observer, not a validator, not a control plane, not a governance engine, not a decision engine, and not a semantic-truth engine.
 <!-- LON-MIRROR PUBLIC ENTRYPOINT REGISTRATION:END -->
+
+<!-- FIRST READER PATH COMMIT REGISTRATION:START -->
+## First reader path commit registration
+
+The registry now records the public first-reader path commits.
+
+OMNIA-VALIDATION:
+  first_reader_path_commit: 83fa07f
+  first_reader_path_link: https://github.com/Tuttotorna/OMNIA-VALIDATION/blob/main/docs/FIRST_READER_PATH.md
+
+lon-mirror:
+  registry_commit: 22a320d
+  public_entrypoint_commit: f74b799
+  latest_public_commit: f74b799
+  first_reader_path_commit: 4dd5cb5
+  latest_first_reader_path_commit: 4dd5cb5
+  first_reader_path_link: https://github.com/Tuttotorna/lon-mirror/blob/main/docs/FIRST_READER_PATH.md
+
+This registration does not change the backbone contract.
+
+The first-reader path is orientation only.
+
+first-reader path != validation
+first-reader path != measurement
+first-reader path != orchestration
+first-reader path != decision
+<!-- FIRST READER PATH COMMIT REGISTRATION:END -->
