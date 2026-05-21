@@ -204,3 +204,13 @@ tests/test_ecosystem_status_documentation.py
 
 <!-- OMNIA ECOSYSTEM BACKBONE STATUS:END -->
 
+<!-- OMNIA ECOSYSTEM MAP:START -->
+## Ecosystem map
+
+For a fast public overview of the full OMNIA ecosystem, start here:
+
+- [OMNIA Ecosystem Map](docs/ECOSYSTEM_MAP.md)
+
+This map explains the canonical backbone, the core repositories, the compliant satellites, and the role-separation rules that prevent layer collapse.
+
+<!-- OMNIA ECOSYSTEM MAP:END -->
