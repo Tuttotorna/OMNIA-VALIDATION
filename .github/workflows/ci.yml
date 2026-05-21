@@ -67,3 +67,8 @@ jobs:
       - name: Run explicit backbone end-to-end test
         working-directory: OMNIA-VALIDATION
         run: python -m pytest -q tests/test_end_to_end_backbone.py
+
+      - name: Run ecosystem backbone compliance registry test
+        run: |
+          cd OMNIA-VALIDATION
+          python -m pytest -q tests/test_ecosystem_backbone_compliance_registry.py
