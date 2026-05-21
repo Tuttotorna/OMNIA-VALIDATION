@@ -187,7 +187,7 @@ Do not claim:
 model X is false
 model X is unsafe
 model X is defeated
-OMNIA proves truth
+OMNIA measures structural stability
 OMNIA ranks models finally
 structural risk equals semantic falsehood
 ```

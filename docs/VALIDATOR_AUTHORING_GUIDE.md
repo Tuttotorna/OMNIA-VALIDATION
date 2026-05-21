@@ -48,7 +48,7 @@ A validator is not:
 
 ```text
 a semantic truth detector
-a correctness oracle
+a correctness authority
 a production-safety certificate
 a benchmark leaderboard
 a final proof

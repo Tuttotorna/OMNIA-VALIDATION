@@ -57,7 +57,7 @@ A structural red-team probe for detecting outputs that look valid but collapse u
 Do not frame this as:
 
 ```text
-a truth oracle
+a semantic-truth authority
 a replacement for benchmarks
 a final model ranking
 a proof that one model is bad
@@ -273,7 +273,7 @@ Do not claim:
 ```text
 Model X is bad
 Model Y is false
-OMNIA proves truth
+OMNIA measures structural stability
 ```
 
 Claim only:

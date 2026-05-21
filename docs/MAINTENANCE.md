@@ -48,7 +48,7 @@ deletes negative results
 converts CHECK to PASS without revalidation
 hides failures
 removes boundary statements
-treats formatting normalization as scientific proof
+treats formatting normalization as falsifiable validation evidence
 ```
 
 ---

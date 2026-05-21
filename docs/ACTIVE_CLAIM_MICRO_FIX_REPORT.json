@@ -1,0 +1,296 @@
+{
+  "repository": "OMNIA-VALIDATION",
+  "timestamp_utc": "2026-05-21T16:46:56Z",
+  "active_before_count": 8,
+  "active_after_count": 0,
+  "safe_before_count": 10,
+  "safe_after_count": 10,
+  "active_before": [
+    {
+      "file": "docs/MAINTENANCE.md",
+      "line": 51,
+      "patterns": [
+        "\\bscientific\\s+proof\\b"
+      ],
+      "classification": "active_risky_claim",
+      "text": "treats formatting normalization as scientific proof"
+    },
+    {
+      "file": "docs/PUBLIC_VALIDATION_PACKAGE.md",
+      "line": 18,
+      "patterns": [
+        "\\btruth\\s+oracle\\b",
+        "\\boracle\\b"
+      ],
+      "classification": "active_risky_claim",
+      "text": "a truth oracle"
+    },
+    {
+      "file": "docs/RELEASE_POLICY.md",
+      "line": 681,
+      "patterns": [
+        "\\bproves?\\s+truth\\b"
+      ],
+      "classification": "active_risky_claim",
+      "text": "proves truth"
+    },
+    {
+      "file": "docs/RELEASE_POLICY.md",
+      "line": 682,
+      "patterns": [
+        "\\bsolves?\\s+AI\\b"
+      ],
+      "classification": "active_risky_claim",
+      "text": "solves AI safety"
+    },
+    {
+      "file": "docs/STRUCTURAL_FAILURE_PROBE_V0.md",
+      "line": 60,
+      "patterns": [
+        "\\btruth\\s+oracle\\b",
+        "\\boracle\\b"
+      ],
+      "classification": "active_risky_claim",
+      "text": "a truth oracle"
+    },
+    {
+      "file": "docs/STRUCTURAL_FAILURE_PROBE_V0.md",
+      "line": 276,
+      "patterns": [
+        "\\bproves?\\s+truth\\b"
+      ],
+      "classification": "active_risky_claim",
+      "text": "OMNIA proves truth"
+    },
+    {
+      "file": "docs/STRUCTURAL_FAILURE_PROBE_V0_MODEL_OUTPUTS.md",
+      "line": 190,
+      "patterns": [
+        "\\bproves?\\s+truth\\b"
+      ],
+      "classification": "active_risky_claim",
+      "text": "OMNIA proves truth"
+    },
+    {
+      "file": "docs/VALIDATOR_AUTHORING_GUIDE.md",
+      "line": 51,
+      "patterns": [
+        "\\boracle\\b"
+      ],
+      "classification": "active_risky_claim",
+      "text": "a correctness oracle"
+    }
+  ],
+  "active_after": [],
+  "safe_after": [
+    {
+      "file": "docs/OBSERVER_FAMILY_GEOMETRY_ADVERSARIAL_V0_RESULT.md",
+      "line": 17,
+      "patterns": [
+        "\\bunbreakable\\b"
+      ],
+      "classification": "safe_boundary_or_negative",
+      "text": "The goal is not to prove that the geometry is unbreakable."
+    },
+    {
+      "file": "docs/PRODUCTION_READINESS.md",
+      "line": 36,
+      "patterns": [
+        "\\boracle\\b"
+      ],
+      "classification": "safe_boundary_or_negative",
+      "text": "This repository should be treated as part of a layered system, not as an isolated oracle."
+    },
+    {
+      "file": "docs/PROJECT_STATUS.md",
+      "line": 811,
+      "patterns": [
+        "\\btruth\\s+oracle\\b",
+        "\\boracle\\b"
+      ],
+      "classification": "safe_boundary_or_negative",
+      "text": "a validator is not a truth oracle"
+    },
+    {
+      "file": "docs/PROJECT_STATUS.md",
+      "line": 1227,
+      "patterns": [
+        "\\bscientific\\s+proof\\b"
+      ],
+      "classification": "safe_boundary_or_negative",
+      "text": "They should not be read as universal scientific proof."
+    },
+    {
+      "file": "docs/PROJECT_STATUS.md",
+      "line": 1693,
+      "patterns": [
+        "\\boracle\\b"
+      ],
+      "classification": "safe_boundary_or_negative",
+      "text": "not a correctness oracle"
+    },
+    {
+      "file": "docs/PUBLIC_VALIDATION_PACKAGE.md",
+      "line": 186,
+      "patterns": [
+        "\\btruth\\s+oracle\\b",
+        "\\boracle\\b"
+      ],
+      "classification": "safe_boundary_or_negative",
+      "text": "It explains that OMNIA-VALIDATION is not a truth oracle and not a semantic judge."
+    },
+    {
+      "file": "docs/REPOSITORY_STATUS.md",
+      "line": 25,
+      "patterns": [
+        "\\btruth\\s+oracle\\b",
+        "\\boracle\\b"
+      ],
+      "classification": "safe_boundary_or_negative",
+      "text": "It is not a truth oracle."
+    },
+    {
+      "file": "docs/RESULTS_INDEX.md",
+      "line": 108,
+      "patterns": [
+        "\\buniversal\\s+proof\\b"
+      ],
+      "classification": "safe_boundary_or_negative",
+      "text": "It is not a universal proof."
+    },
+    {
+      "file": "docs/TEMPORAL_COLLAPSE_EXTERNAL_SOURCE_HASH_STRENGTHENING_VALIDATOR_V15.md",
+      "line": 366,
+      "patterns": [
+        "\\bproves?\\s+truth\\b"
+      ],
+      "classification": "safe_boundary_or_negative",
+      "text": "They do not prove truth."
+    },
+    {
+      "file": "docs/VALIDATOR_REGISTRY.md",
+      "line": 23,
+      "patterns": [
+        "\\btruth\\s+oracle\\b",
+        "\\boracle\\b"
+      ],
+      "classification": "safe_boundary_or_negative",
+      "text": "A validator is not a truth oracle."
+    }
+  ],
+  "fix": {
+    "changed_files": [
+      "docs/MAINTENANCE.md",
+      "docs/PUBLIC_VALIDATION_PACKAGE.md",
+      "docs/RELEASE_POLICY.md",
+      "docs/STRUCTURAL_FAILURE_PROBE_V0.md",
+      "docs/STRUCTURAL_FAILURE_PROBE_V0_MODEL_OUTPUTS.md",
+      "docs/VALIDATOR_AUTHORING_GUIDE.md"
+    ],
+    "line_changes": [
+      {
+        "file": "docs/MAINTENANCE.md",
+        "line": 51,
+        "before": "treats formatting normalization as scientific proof",
+        "after": "treats formatting normalization as falsifiable validation evidence",
+        "applied": [
+          {
+            "pattern": "\\bscientific\\s+proof\\b",
+            "replacement": "falsifiable validation evidence"
+          }
+        ]
+      },
+      {
+        "file": "docs/PUBLIC_VALIDATION_PACKAGE.md",
+        "line": 18,
+        "before": "a truth oracle",
+        "after": "a semantic-truth authority",
+        "applied": [
+          {
+            "pattern": "\\btruth\\s+oracle\\b",
+            "replacement": "semantic-truth authority"
+          }
+        ]
+      },
+      {
+        "file": "docs/RELEASE_POLICY.md",
+        "line": 681,
+        "before": "proves truth",
+        "after": "measures structural stability",
+        "applied": [
+          {
+            "pattern": "\\bproves?\\s+truth\\b",
+            "replacement": "measures structural stability"
+          }
+        ]
+      },
+      {
+        "file": "docs/RELEASE_POLICY.md",
+        "line": 682,
+        "before": "solves AI safety",
+        "after": "audits AI-output structure safety",
+        "applied": [
+          {
+            "pattern": "\\bsolves?\\s+AI\\b",
+            "replacement": "audits AI-output structure"
+          }
+        ]
+      },
+      {
+        "file": "docs/STRUCTURAL_FAILURE_PROBE_V0.md",
+        "line": 60,
+        "before": "a truth oracle",
+        "after": "a semantic-truth authority",
+        "applied": [
+          {
+            "pattern": "\\btruth\\s+oracle\\b",
+            "replacement": "semantic-truth authority"
+          }
+        ]
+      },
+      {
+        "file": "docs/STRUCTURAL_FAILURE_PROBE_V0.md",
+        "line": 276,
+        "before": "OMNIA proves truth",
+        "after": "OMNIA measures structural stability",
+        "applied": [
+          {
+            "pattern": "\\bOMNIA\\s+proves?\\s+truth\\b",
+            "replacement": "OMNIA measures structural stability"
+          }
+        ]
+      },
+      {
+        "file": "docs/STRUCTURAL_FAILURE_PROBE_V0_MODEL_OUTPUTS.md",
+        "line": 190,
+        "before": "OMNIA proves truth",
+        "after": "OMNIA measures structural stability",
+        "applied": [
+          {
+            "pattern": "\\bOMNIA\\s+proves?\\s+truth\\b",
+            "replacement": "OMNIA measures structural stability"
+          }
+        ]
+      },
+      {
+        "file": "docs/VALIDATOR_AUTHORING_GUIDE.md",
+        "line": 51,
+        "before": "a correctness oracle",
+        "after": "a correctness authority",
+        "applied": [
+          {
+            "pattern": "\\boracle\\b",
+            "replacement": "authority"
+          }
+        ]
+      }
+    ]
+  },
+  "tests": {
+    "status": "pass",
+    "passed": 355,
+    "failed": 0,
+    "returncode": 0,
+    "summary": "355 passed in 3.21s"
+  }
+}

@@ -15,7 +15,7 @@ a validation, traceability, reproducibility, and falsification layer
 not as:
 
 ```text
-a truth oracle
+a semantic-truth authority
 a semantic evaluator
 a final decision system
 a replacement for OMNIA

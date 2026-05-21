@@ -678,8 +678,8 @@ supports falsification
 Avoid overclaiming language:
 
 ```text
-proves truth
-solves AI safety
+measures structural stability
+audits AI-output structure safety
 certifies models
 guarantees correctness
 universal detector
