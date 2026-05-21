@@ -286,3 +286,25 @@ lon-mirror observes validated backbone output and exposes the public root refere
 
 It must not become a validator, control plane, governance engine, decision engine, or semantic-truth engine.
 <!-- LON-MIRROR PUBLIC ROOT REFERENCE LINK:END -->
+
+<!-- LON-MIRROR PUBLIC ENTRYPOINT REGISTRATION:START -->
+## lon-mirror public entry point registration
+
+The `lon-mirror` registry entry keeps its root-reference registry commit while also recording the newer public entry point commit.
+
+repository: lon-mirror
+role: root_reference_observer
+status: satellite_compliant
+current_registered_commit: 22a320d
+commit_message: Link MB-X.01 LON ecosystem entry point
+public_entrypoint_commit: f74b799
+public_entrypoint_link: https://github.com/Tuttotorna/lon-mirror/blob/main/docs/PUBLIC_ENTRYPOINT.md
+public_root_reference_commit: 22a320d
+public_root_reference_link: https://github.com/Tuttotorna/lon-mirror/blob/main/docs/MBX01_LON_ROOT_REFERENCE_LINK.md
+
+This preserves compatibility with the existing root-reference registration test.
+
+This does not change the layer boundary.
+
+`lon-mirror` remains an observer, not a validator, not a control plane, not a governance engine, not a decision engine, and not a semantic-truth engine.
+<!-- LON-MIRROR PUBLIC ENTRYPOINT REGISTRATION:END -->

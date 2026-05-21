@@ -246,3 +246,18 @@ Boundary:
 
 observation != decision
 <!-- LON-MIRROR PUBLIC ROOT REFERENCE LINK:END -->
+
+<!-- LON-MIRROR PUBLIC ENTRYPOINT REGISTRATION:START -->
+## lon-mirror public entry point
+
+The `lon-mirror` root reference observer now exposes a public entry point.
+
+registry_commit: 22a320d
+public_entrypoint_commit: f74b799
+public_entrypoint_link: https://github.com/Tuttotorna/lon-mirror/blob/main/docs/PUBLIC_ENTRYPOINT.md
+root_reference_link: https://github.com/Tuttotorna/lon-mirror/blob/main/docs/MBX01_LON_ROOT_REFERENCE_LINK.md
+
+This closes the public path from `OMNIA-VALIDATION` to the `lon-mirror` first-reader doorway while preserving the boundary:
+
+measurement != validation != orchestration != decision
+<!-- LON-MIRROR PUBLIC ENTRYPOINT REGISTRATION:END -->

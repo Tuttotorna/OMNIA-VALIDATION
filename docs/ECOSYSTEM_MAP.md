@@ -280,3 +280,34 @@ Boundary:
 
 observation != decision
 <!-- LON-MIRROR PUBLIC ROOT REFERENCE LINK:END -->
+
+<!-- LON-MIRROR PUBLIC ENTRYPOINT REGISTRATION:START -->
+## lon-mirror public entry point
+
+`lon-mirror` now exposes a public first-reader doorway for its root reference observer role.
+
+repository: lon-mirror
+role: root_reference_observer
+status: satellite_compliant
+registry_commit: 22a320d
+public_entrypoint_commit: f74b799
+public_root_reference_commit: 22a320d
+
+Links:
+
+lon-mirror public entry point:
+https://github.com/Tuttotorna/lon-mirror/blob/main/docs/PUBLIC_ENTRYPOINT.md
+
+lon-mirror root reference link:
+https://github.com/Tuttotorna/lon-mirror/blob/main/docs/MBX01_LON_ROOT_REFERENCE_LINK.md
+
+Boundary:
+
+lon-mirror observes.
+lon-mirror does not validate independently.
+lon-mirror does not replace OMNIA.
+lon-mirror does not replace omnia-limit.
+lon-mirror does not replace OMNIA-VALIDATION.
+lon-mirror does not emit semantic truth.
+lon-mirror does not make governance decisions.
+<!-- LON-MIRROR PUBLIC ENTRYPOINT REGISTRATION:END -->
