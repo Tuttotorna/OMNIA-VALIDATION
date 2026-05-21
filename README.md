@@ -149,3 +149,58 @@ For the full ecosystem map, start here:
 ## License
 
 MIT.
+
+<!-- OMNIA ECOSYSTEM BACKBONE STATUS:START -->
+## Current ecosystem backbone status
+
+OMNIA-VALIDATION is the control-plane registry for the current OMNIA ecosystem backbone.
+
+```text
+OMNIA measurement
+  -> BoundaryCertificate
+  -> omnia-limit validate_certificate()
+  -> OMNIA-VALIDATION ValidationEnvelope
+  -> CI regression
+  -> satellite compliant producer / adapter / consumer / observer
+```
+
+Current registry state:
+
+```text
+total registered entries: 14
+backbone core entries:    5
+satellite compliant:      9
+```
+
+Protected separation rules:
+
+```text
+measurement != validation
+validation != orchestration
+orchestration != decision
+decision != measurement
+observation != decision
+domain adaptation != backbone redefinition
+```
+
+Public status document:
+
+```text
+docs/ECOSYSTEM_STATUS.md
+```
+
+Executable registry:
+
+```text
+docs/ecosystem_backbone_compliance_registry.json
+```
+
+Registry tests:
+
+```text
+tests/test_ecosystem_backbone_compliance_registry.py
+tests/test_ecosystem_status_documentation.py
+```
+
+<!-- OMNIA ECOSYSTEM BACKBONE STATUS:END -->
+
