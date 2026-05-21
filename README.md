@@ -401,3 +401,26 @@ Boundary:
     first-reader path != orchestration
     first-reader path != decision
 <!-- REGISTRY ANCHOR ROLE SEPARATION:END -->
+
+<!-- MB-X.01 LON FINAL RELEASE AUDIT:START -->
+
+## Final MB-X.01 / L.O.N. release audit
+
+The final release audit for the MB-X.01 / L.O.N. ecosystem is recorded here:
+
+```text
+docs/MBX01_LON_FINAL_RELEASE_AUDIT.md
+```
+
+Final audit state:
+
+```text
+Repositories audited: 12
+Clean repositories: 12
+Repositories with issues: 0
+No duplicate DOI values detected.
+No duplicate GitHub repository ids detected.
+OMNIA DOI != OMNIA-VALIDATION DOI
+```
+
+<!-- MB-X.01 LON FINAL RELEASE AUDIT:END -->
