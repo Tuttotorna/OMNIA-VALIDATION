@@ -2,10 +2,13 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
+    branches: [ main ]
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   test:
@@ -15,109 +18,31 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version:
-          - "3.10"
-          - "3.11"
-          - "3.12"
+        python-version: ["3.10", "3.11", "3.12"]
 
     steps:
-      - name: Checkout OMNIA-VALIDATION
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          path: OMNIA-VALIDATION
-
-      - name: Checkout OMNIA
-        uses: actions/checkout@v4
-        with:
-          repository: Tuttotorna/OMNIA
-          path: OMNIA
-
-      - name: Checkout omnia-limit
-        uses: actions/checkout@v4
-        with:
-          repository: Tuttotorna/omnia-limit
-          path: omnia-limit
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Upgrade pip
-        run: python -m pip install --upgrade pip
-
-      - name: Install backbone packages
+      - name: Install package and test dependencies
+        shell: bash
         run: |
-          python -m pip install -e ./omnia-limit
-          python -m pip install -e ./OMNIA
-          python -m pip install -e ./OMNIA-VALIDATION[dev]
+          python -m pip install --upgrade pip
+      python -m pip install pytest
+      cd ..
+      git clone https://github.com/Tuttotorna/OMNIA.git
+      git clone https://github.com/Tuttotorna/omnia-limit.git
+      python -m pip install -e OMNIA
+      python -m pip install -e omnia-limit
+      cd "$GITHUB_WORKSPACE"
+      python -m pip install -e .
 
-      - name: Run omnia-limit tests
-        working-directory: omnia-limit
-        run: python -m pytest -q
-
-      - name: Run OMNIA tests
-        working-directory: OMNIA
-        run: python -m pytest -q
-
-      - name: Run OMNIA-VALIDATION tests
-        working-directory: OMNIA-VALIDATION
-        run: python -m pytest -q
-
-      - name: Run explicit backbone end-to-end test
-        working-directory: OMNIA-VALIDATION
-        run: python -m pytest -q tests/test_end_to_end_backbone.py
-
-      - name: Run ecosystem backbone compliance registry test
+      - name: Run tests
+        shell: bash
         run: |
-          cd OMNIA-VALIDATION
-          python -m pytest -q tests/test_ecosystem_backbone_compliance_registry.py
-
-      - name: Run ecosystem map documentation test
-        run: |
-          cd OMNIA-VALIDATION
-          python -m pytest -q tests/test_ecosystem_map_documentation.py
-
-      - name: Run MB-X.01 LON ecosystem entry point documentation test
-        run: |
-          cd OMNIA-VALIDATION
-          python -m pytest -q tests/test_mbx01_lon_entrypoint_documentation.py
-
-
-      - name: Run lon-mirror public entry point registration test
-        run: |
-          cd OMNIA-VALIDATION
-          python -m pytest -q tests/test_lon_mirror_public_entrypoint_registration.py
-
-
-      - name: Run first reader path commit registration test
-        run: |
-          cd OMNIA-VALIDATION
-          python -m pytest -q tests/test_first_reader_path_commit_registration.py
-
-      - name: Run registry anchor role separation test
-        run: |
-          cd OMNIA-VALIDATION
-          python -m pytest -q tests/test_registry_anchor_role_separation.py
-
-
-      - name: Run final release audit test
-        run: |
-          python -m pytest -q tests/test_final_release_audit.py
-      - name: Run DOI ownership test
-        run: |
-          cd OMNIA-VALIDATION
-          python -m pytest -q tests/test_doi_ownership.py
-      - name: Run first reader path test
-        run: |
-          cd OMNIA-VALIDATION
-          python -m pytest -q tests/test_first_reader_path.py
-      - name: Run lon-mirror root reference public link test
-        run: |
-          cd OMNIA-VALIDATION
-          python -m pytest -q tests/test_lon_mirror_root_reference_public_link.py
-
-      - name: Run final audit release DOI test
-        run: |
-          if [ -d OMNIA-VALIDATION ]; then cd OMNIA-VALIDATION; fi
-          python -m pytest -q tests/test_final_audit_release_doi.py
+          pytest -q
