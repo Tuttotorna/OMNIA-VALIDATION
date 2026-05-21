@@ -99,6 +99,11 @@ jobs:
         run: |
           cd OMNIA-VALIDATION
           python -m pytest -q tests/test_registry_anchor_role_separation.py
+
+      - name: Run DOI ownership test
+        run: |
+          cd OMNIA-VALIDATION
+          python -m pytest -q tests/test_doi_ownership.py
       - name: Run first reader path test
         run: |
           cd OMNIA-VALIDATION
