@@ -77,3 +77,8 @@ jobs:
         run: |
           cd OMNIA-VALIDATION
           python -m pytest -q tests/test_ecosystem_map_documentation.py
+
+      - name: Run MB-X.01 LON ecosystem entry point documentation test
+        run: |
+          cd OMNIA-VALIDATION
+          python -m pytest -q tests/test_mbx01_lon_entrypoint_documentation.py

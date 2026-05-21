@@ -214,3 +214,15 @@ For a fast public overview of the full OMNIA ecosystem, start here:
 This map explains the canonical backbone, the core repositories, the compliant satellites, and the role-separation rules that prevent layer collapse.
 
 <!-- OMNIA ECOSYSTEM MAP:END -->
+
+<!-- MB-X.01 LON ECOSYSTEM ENTRYPOINT:START -->
+## MB-X.01 / L.O.N. ecosystem entry point
+
+For a first public orientation to the full MB-X.01 / Logical Origin Node ecosystem, start here:
+
+- [MB-X.01 / L.O.N. Ecosystem Entry Point](docs/MBX01_LON_ECOSYSTEM_ENTRYPOINT.md)
+
+This entry point explains the ecosystem identity, the canonical backbone, the core repositories, the compliant satellites, and the strict role-separation rule:
+
+    measurement != validation != orchestration != decision
+<!-- MB-X.01 LON ECOSYSTEM ENTRYPOINT:END -->
