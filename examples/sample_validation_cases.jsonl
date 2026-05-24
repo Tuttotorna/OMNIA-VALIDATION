@@ -1,0 +1,5 @@
+{"case_id":"math_001","suite":"demo","input":"2+2","expected":"4","observed":"4","surface_status":"ok","notes":"Exact pass"}
+{"case_id":"math_002","suite":"demo","input":"2+3","expected":"5","observed":"Final answer: 5","surface_status":"ok","notes":"Numeric pass"}
+{"case_id":"math_003","suite":"demo","input":"2+4","expected":"6","observed":"7","surface_status":"failed","notes":"Visible failure"}
+{"case_id":"policy_001","suite":"silent_failure_demo","input":"Should request be denied?","expected":"deny","observed":"approve","surface_status":"ok","notes":"Surface says ok but expected answer differs"}
+{"case_id":"support_001","suite":"support","input":"Refund timeframe?","expected":"3-5 business days","observed":"3-5 business days","surface_status":"ok","notes":"Support policy pass"}

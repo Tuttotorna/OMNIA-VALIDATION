@@ -1,3 +1,166 @@
+<!-- OMNIA_VALIDATION_RUNNER_TOP_START -->
+
+# OMNIA-VALIDATION
+
+## Concrete entrypoint: OMNIA Validation Runner
+
+This repository now has a direct operational tool:
+
+    python -m omnia_validation_runner.cli --input examples/sample_validation_cases.jsonl --out-dir report
+
+It solves a concrete problem:
+
+    given validation cases with expected outputs and observed outputs,
+    produce a reproducible validation report,
+    detect mismatches and silent failures,
+    write JSON/CSV/HTML outputs,
+    and optionally fail CI when the validation boundary is crossed.
+
+In short:
+
+    validation cases -> measurement -> report -> CI gate
+
+## What problem does it solve?
+
+AI validation often fails because results are scattered across logs, notebooks, screenshots, or informal notes.
+
+This tool turns validation into a reproducible operation.
+
+It answers:
+
+    How many cases were evaluated?
+    Which cases passed?
+    Which cases failed?
+    Which cases look correct on the surface but violate the expected answer?
+    Which cases are silent failures?
+    Which suite should block deployment?
+
+The rest of this repository explains the OMNIA validation path.
+
+The runner is the practical entrypoint.
+
+## Install
+
+Clone the repository:
+
+    git clone https://github.com/Tuttotorna/OMNIA-VALIDATION.git
+    cd OMNIA-VALIDATION
+
+Install locally:
+
+    pip install -e .
+
+The runner only uses the Python standard library.
+
+## Run
+
+Run the sample validation suite:
+
+    python -m omnia_validation_runner.cli --input examples/sample_validation_cases.jsonl --out-dir report
+
+Run and fail if any failed case exists:
+
+    python -m omnia_validation_runner.cli --input examples/sample_validation_cases.jsonl --out-dir report --fail-on-failed
+
+Run and fail only on silent failures:
+
+    python -m omnia_validation_runner.cli --input examples/sample_validation_cases.jsonl --out-dir report --fail-on-silent-failure
+
+## Input format
+
+The runner accepts JSONL.
+
+Required fields:
+
+    case_id
+    expected
+    observed
+
+Optional fields:
+
+    suite
+    input
+    surface_status
+    notes
+
+Example:
+
+    {"case_id":"math_001","suite":"demo","input":"2+2","expected":"4","observed":"4","surface_status":"ok"}
+    {"case_id":"math_002","suite":"demo","input":"2+3","expected":"5","observed":"6","surface_status":"ok"}
+
+## Output
+
+The runner writes:
+
+    report.json
+    report.csv
+    report.html
+    failures.jsonl
+    silent_failures.jsonl
+    certificate.json
+
+Meaning:
+
+    report.json
+    Full structured validation result.
+
+    report.csv
+    Spreadsheet-friendly case summary.
+
+    report.html
+    Human-readable validation report.
+
+    failures.jsonl
+    One JSON object per failed case.
+
+    silent_failures.jsonl
+    One JSON object per silent failure case.
+
+    certificate.json
+    Reproducibility certificate with aggregate metrics.
+
+## CI gate
+
+The runner can fail automatically:
+
+    python -m omnia_validation_runner.cli --input examples/sample_validation_cases.jsonl --out-dir report --fail-on-failed
+
+Exit codes:
+
+    0 = validation completed, no blocking condition
+    2 = failed cases detected
+    3 = silent failures detected
+
+## What this is not
+
+This is not a model.
+
+It does not generate answers.
+
+It does not decide truth.
+
+It does not replace human review.
+
+It provides one concrete, reproducible operation:
+
+    read validation cases
+    compare expected vs observed
+    detect failures and silent failures
+    produce reports
+    optionally fail CI
+
+## Why the rest of the repository still matters
+
+The rest of the repository documents the validation logic, protocols, examples, and research path.
+
+The code above is the entrypoint.
+
+The repository below is the derivation path.
+
+<!-- OMNIA_VALIDATION_RUNNER_TOP_END -->
+
+---
+
 <!-- DOI OWNERSHIP AUDIT:START -->
 
 ## DOI ownership audit

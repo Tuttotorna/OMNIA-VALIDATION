@@ -42,6 +42,7 @@ dev = [
 ]
 
 [project.scripts]
+omnia-validation-runner = "omnia_validation_runner.cli:main"
 omnia-validation = "omnia_validation.cli:main"
 
 [tool.hatch.build.targets.wheel]

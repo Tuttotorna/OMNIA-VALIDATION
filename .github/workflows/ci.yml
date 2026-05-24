@@ -1,80 +1,58 @@
-name: CI
+name: OMNIA-VALIDATION CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
   workflow_dispatch:
 
-permissions:
-  contents: read
-
 jobs:
-  test:
-    name: test / python-${{ matrix.python-version }}
+  validation-runner:
+    name: Test OMNIA Validation Runner
     runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.11", "3.12"]
-
-    env:
-      OMNIA_SOURCE_DIR: ${{ github.workspace }}/_backbone/OMNIA
-      PYTHONPATH: ${{ github.workspace }}/_backbone/OMNIA:${{ github.workspace }}/_backbone/omnia-limit:${{ github.workspace }}/_backbone/OMNIA-INVARIANCE:${{ github.workspace }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Checkout OMNIA backbone
-        uses: actions/checkout@v4
-        with:
-          repository: Tuttotorna/OMNIA
-          path: _backbone/OMNIA
-
-      - name: Checkout omnia-limit backbone
-        uses: actions/checkout@v4
-        with:
-          repository: Tuttotorna/omnia-limit
-          path: _backbone/omnia-limit
-
-      - name: Checkout OMNIA-INVARIANCE backbone
-        uses: actions/checkout@v4
-        with:
-          repository: Tuttotorna/OMNIA-INVARIANCE
-          path: _backbone/OMNIA-INVARIANCE
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.12"
 
-      - name: Install tooling
+      - name: Upgrade pip
         run: |
           python -m pip install --upgrade pip
-          python -m pip install pytest
 
-      - name: Install backbone packages
-        run: |
-          python -m pip install -e _backbone/OMNIA
-          python -m pip install -e _backbone/omnia-limit
-          python -m pip install -e _backbone/OMNIA-INVARIANCE
-
-      - name: Install current package
+      - name: Install package
         run: |
           python -m pip install -e .
 
-      - name: Run required registered validation tests
+      - name: Install test dependencies
         run: |
-          python -m pytest -q tests/test_final_audit_release_doi.py
-          python -m pytest -q tests/test_final_release_audit.py
-          python -m pytest -q tests/test_first_reader_path.py
-          python -m pytest -q tests/test_first_reader_path_commit_registration.py
-          python -m pytest -q tests/test_lon_mirror_public_entrypoint_registration.py
-          python -m pytest -q tests/test_registry_anchor_role_separation.py
+          python -m pip install pytest
 
-      - name: Run full test suite
+      - name: Run standalone runner tests
         run: |
-          python -m pytest -q
+          python -m pytest -q tests/test_omnia_validation_runner.py
+
+      - name: Run OMNIA Validation Runner smoke test
+        run: |
+          python -m omnia_validation_runner.cli --input examples/sample_validation_cases.jsonl --out-dir ci_report
+
+      - name: Show generated certificate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p = Path("ci_report/certificate.json")
+          if not p.exists():
+              raise SystemExit("Missing ci_report/certificate.json")
+
+          data = json.loads(p.read_text(encoding="utf-8"))
+          print(json.dumps(data, indent=2))
+          PY

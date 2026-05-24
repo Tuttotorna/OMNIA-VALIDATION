@@ -6,3 +6,9 @@ __pycache__/
 build/
 dist/
 .ruff_cache/
+*.py[cod]
+ci_report/
+validation_report/
+omnia_validation_demo_report/
+omnia_validation_gate_report/
+report/
