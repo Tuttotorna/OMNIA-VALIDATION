@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Tuttotorna/OMNIA-VALIDATION/schemas/omnia_certificate_v1.schema.json",
+  "title": "OMNIA Evidence Certificate v1",
+  "type": "object",
+  "required": [
+    "contract_version",
+    "run_id",
+    "status",
+    "exit_code",
+    "summary",
+    "boundary"
+  ],
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "omnia-evidence-contract/v1"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "STRUCTURAL_FAILURE",
+        "LIMIT_REACHED",
+        "INVALID_INPUT",
+        "INCOMPLETE_EVIDENCE",
+        "INTERNAL_ERROR"
+      ]
+    },
+    "exit_code": {
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "total_cases",
+        "passed_cases",
+        "failed_cases",
+        "limit_reached_cases",
+        "invalid_cases"
+      ],
+      "properties": {
+        "total_cases": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "passed_cases": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "failed_cases": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "limit_reached_cases": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "invalid_cases": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "boundary": {
+      "type": "object",
+      "required": [
+        "measurement_not_inference",
+        "measurement_not_decision",
+        "semantic_truth_claim"
+      ],
+      "properties": {
+        "measurement_not_inference": {
+          "type": "boolean",
+          "const": true
+        },
+        "measurement_not_decision": {
+          "type": "boolean",
+          "const": true
+        },
+        "semantic_truth_claim": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "additionalProperties": true
+    },
+    "runner": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "reproducibility": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,27 @@
+{
+  "contract_version": "omnia-evidence-contract/v1",
+  "runner": {
+    "name": "omnia-validation-runner",
+    "version": "0.1.0",
+    "repository": "https://github.com/Tuttotorna/OMNIA-VALIDATION"
+  },
+  "mode": "structural_measurement",
+  "modules": [
+    "omnia",
+    "omnia-limit",
+    "omnia-radar",
+    "omnia-fragility-checker"
+  ],
+  "thresholds": {
+    "omega_min": null,
+    "sei_max": null,
+    "iri_max": null,
+    "fragility_max": null
+  },
+  "reproducibility": {
+    "created_at": "2026-05-26T06:35:11Z",
+    "python_version": null,
+    "platform": null,
+    "git_commit": null
+  }
+}

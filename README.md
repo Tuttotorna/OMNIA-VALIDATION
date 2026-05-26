@@ -648,3 +648,40 @@ Role document:
 
 - [Structural Observability Role](docs/STRUCTURAL_OBSERVABILITY_ROLE.md)
 <!-- STRUCTURAL_OBSERVABILITY_ROLE_END -->
+
+<!-- OMNIA_EVIDENCE_CONTRACT_V1_LINK -->
+
+## Canonical Evidence Contract
+
+OMNIA-VALIDATION defines the canonical evidence interface for the OMNIA / MB-X.01 ecosystem:
+
+- [docs/OMNIA_EVIDENCE_CONTRACT_v1.md](docs/OMNIA_EVIDENCE_CONTRACT_v1.md)
+- [schemas/omnia_certificate_v1.schema.json](schemas/omnia_certificate_v1.schema.json)
+- [schemas/omnia_failure_v1.schema.json](schemas/omnia_failure_v1.schema.json)
+
+Core boundary:
+
+```text
+measurement != inference != decision
+```
+
+Operational minimum:
+
+```text
+input.jsonl
+run_config.json
+certificate.json
+failures.jsonl
+summary.md
+```
+
+Stable exit codes:
+
+```text
+0 = PASS
+1 = INTERNAL_ERROR
+2 = STRUCTURAL_FAILURE
+3 = LIMIT_REACHED
+4 = INVALID_INPUT
+5 = INCOMPLETE_EVIDENCE
+```

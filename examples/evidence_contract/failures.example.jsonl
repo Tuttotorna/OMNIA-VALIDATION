@@ -1,0 +1,1 @@
+{"case_id": "case-002", "failure_type": "STRUCTURAL_FAILURE", "message": "Example structural instability detected.", "signals": {"omega": null, "sei": null, "iri": null, "fragility": null}, "module": "omnia-fragility-checker", "evidence": {"before": null, "after": null, "delta": null}}

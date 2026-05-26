@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Tuttotorna/OMNIA-VALIDATION/schemas/omnia_failure_v1.schema.json",
+  "title": "OMNIA Evidence Failure v1",
+  "type": "object",
+  "required": [
+    "case_id",
+    "failure_type",
+    "message"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "failure_type": {
+      "type": "string",
+      "enum": [
+        "STRUCTURAL_FAILURE",
+        "LIMIT_REACHED",
+        "INVALID_INPUT",
+        "INCOMPLETE_EVIDENCE",
+        "INTERNAL_ERROR"
+      ]
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1
+    },
+    "signals": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "module": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

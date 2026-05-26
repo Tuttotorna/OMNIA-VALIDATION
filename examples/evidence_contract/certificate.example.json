@@ -1,0 +1,32 @@
+{
+  "contract_version": "omnia-evidence-contract/v1",
+  "run_id": "example-run-001",
+  "status": "STRUCTURAL_FAILURE",
+  "exit_code": 2,
+  "summary": {
+    "total_cases": 2,
+    "passed_cases": 1,
+    "failed_cases": 1,
+    "limit_reached_cases": 0,
+    "invalid_cases": 0
+  },
+  "boundary": {
+    "measurement_not_inference": true,
+    "measurement_not_decision": true,
+    "semantic_truth_claim": false
+  },
+  "runner": {
+    "name": "omnia-validation-runner",
+    "version": "0.1.0"
+  },
+  "modules": [
+    "omnia",
+    "omnia-limit",
+    "omnia-radar",
+    "omnia-fragility-checker"
+  ],
+  "artifacts": {
+    "failures": "failures.jsonl",
+    "summary": "summary.md"
+  }
+}

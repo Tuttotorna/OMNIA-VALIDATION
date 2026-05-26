@@ -1,0 +1,2 @@
+{"case_id": "case-001", "input": "A system output is observed under a structural validation envelope.", "output": "The output remains structurally stable under the configured checks.", "expected": null, "metadata": {"source": "example", "domain": "contract-demo", "created_at": "2026-05-26T06:35:11Z"}}
+{"case_id": "case-002", "input": "A second case is observed.", "output": "The output shows a structural discontinuity under perturbation.", "expected": null, "metadata": {"source": "example", "domain": "contract-demo", "created_at": "2026-05-26T06:35:11Z"}}
