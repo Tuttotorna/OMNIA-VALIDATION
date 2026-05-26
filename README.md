@@ -685,3 +685,30 @@ Stable exit codes:
 4 = INVALID_INPUT
 5 = INCOMPLETE_EVIDENCE
 ```
+
+<!-- OMNIA_PROBLEM_STATEMENT_AND_EXAMPLES_LINK -->
+
+## Problem Statement and Examples
+
+For outside readers, the concrete problem statement is here:
+
+- [docs/PROBLEM_STATEMENT_AND_EXAMPLES.md](docs/PROBLEM_STATEMENT_AND_EXAMPLES.md)
+
+One-line summary:
+
+```text
+OMNIA detects cases where an output is correct in one observed form
+but structurally unstable under controlled transformations.
+```
+
+Compressed version:
+
+```text
+Correct once does not mean stable.
+```
+
+Boundary:
+
+```text
+measurement != inference != decision
+```
