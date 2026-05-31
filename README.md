@@ -712,3 +712,19 @@ Boundary:
 ```text
 measurement != inference != decision
 ```
+
+## Foundational Principle
+
+OMNIA-VALIDATION is an evidence-level application of the L.O.N. Multi-Form Invariance Principle:
+
+> No single form is sovereign.
+
+In OMNIA-VALIDATION, this becomes:
+
+> No claim is sovereign without reproducible evidence.
+
+A structural claim is not trusted because it is stated once, appears coherent, or fits a single demonstration. It must survive tests, counterexamples, reproducible protocols, and independent verification.
+
+See:
+
+- https://github.com/Tuttotorna/lon-mirror/tree/main/foundation
