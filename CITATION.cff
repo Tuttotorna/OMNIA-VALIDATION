@@ -1,11 +1,11 @@
 cff-version: 1.2.0
-message: "If you use this repository, please cite the archived Zenodo record."
-title: "OMNIA-VALIDATION — Validation, Traceability, and Result Regression Layer"
+message: "If you use this software, please cite it using the metadata from this file."
+title: "OMNIA-VALIDATION: OMNIA Validation Repository"
 authors:
   - family-names: "Brighindi"
     given-names: "Massimiliano"
-repository-code: "https://github.com/Tuttotorna/OMNIA-VALIDATION"
-doi: "10.5281/zenodo.20083830"
-version: "0.2.0"
-date-released: "2026-05-08"
-license: "MIT"
+    affiliation: "Independent researcher"
+version: "v0.2.1"
+date-released: 2026-06-13
+url: "https://github.com/Tuttotorna/OMNIA-VALIDATION"
+type: software

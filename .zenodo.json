@@ -1,0 +1,28 @@
+{
+  "title": "OMNIA-VALIDATION: OMNIA Validation Repository",
+  "upload_type": "software",
+  "description": "OMNIA-VALIDATION collects validation materials, reproducible cases, and evidence for the OMNIA structural observability framework.",
+  "creators": [
+    {
+      "name": "Brighindi, Massimiliano",
+      "affiliation": "Independent researcher"
+    }
+  ],
+  "keywords": [
+    "OMNIA",
+    "validation",
+    "structural stability",
+    "evaluation",
+    "evidence"
+  ],
+  "language": "eng",
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Tuttotorna/OMNIA-VALIDATION",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "license": "MIT"
+}

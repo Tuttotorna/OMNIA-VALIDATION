@@ -728,3 +728,32 @@ A structural claim is not trusted because it is stated once, appears coherent, o
 See:
 
 - https://github.com/Tuttotorna/lon-mirror/tree/main/foundation
+
+<!-- OMNIA_ZENODO_CITATION_BLOCK_START -->
+
+## Citation and archival
+
+This repository is prepared for GitHub-Zenodo archival.
+
+Repository:
+https://github.com/Tuttotorna/OMNIA-VALIDATION
+
+Latest GitHub release: v0.2.1 (https://github.com/Tuttotorna/OMNIA-VALIDATION/releases/tag/v0.2.1)
+
+Detected Zenodo DOI(s):
+- https://doi.org/10.5281/zenodo.20322696
+- https://doi.org/10.5281/zenodo.20322683
+- https://doi.org/10.5281/zenodo.20325096
+- https://doi.org/10.5281/zenodo.20083830
+- https://doi.org/10.5281/zenodo.20379374
+
+Metadata files used for archival/citation:
+
+- .zenodo.json
+- CITATION.cff
+
+Zenodo note:
+
+GitHub-Zenodo archiving works after the repository is enabled in Zenodo GitHub settings and a GitHub release is created.
+
+<!-- OMNIA_ZENODO_CITATION_BLOCK_END -->
